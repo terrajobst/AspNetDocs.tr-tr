@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/building-20-applications/lesson-4-understanding-web-application-state
-title: '[4. Ders:] Web uygulamasının durumunu anlama | Microsoft Docs'
+title: '[Ders 4:] Web uygulaması durumunu anlama | Microsoft Docs'
 author: microsoft
-description: Bu derste, ASP.NET, ASP.NET 2.0 uygulamanıza için bilgilerini depolamak için kullanabileceğiniz çeşitli nesneleri dahil olmak üzere durumunu korumak üzere nasıl karşınıza çıkar...
+description: Bu derste, ASP.NET 2,0 uygulamanıza yönelik bilgileri depolamak için kullanabileceğiniz çeşitli nesneler dahil olmak üzere ASP.NET ' de durumu nasıl koruyacaksınız...
 ms.author: riande
 ms.date: 11/28/2005
 ms.assetid: 22ddc59d-cd84-4def-a58b-ec3ca57f0d85
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-4-understanding-web-application-state
 msc.type: video
 ms.openlocfilehash: 4508d77b7288a08ba1d9e72a683a0c102503ebcc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393892"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631371"
 ---
 # <a name="lesson-4-understanding-web-application-state"></a>[4. Ders:] Web Uygulamasının Durumunu Anlama
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-Bu derste, ASP.NET, ASP.NET 2.0 uygulamalarınız için bilgileri depolamak için kullanabileceğiniz çeşitli nesneler de dahil olmak üzere durumunu korumak üzere nasıl görürsünüz.
+Bu derste, ASP.NET 2,0 uygulamalarınızın bilgilerini depolamak için kullanabileceğiniz çeşitli nesneler de dahil olmak üzere ASP.NET ' de durumu nasıl koruyacaksınız görürsünüz.
 
-[&#9654;Videoyu (40 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-4-understanding-web-application-state)
+[&#9654;Videoyu izleyin (40 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-4-understanding-web-application-state)
 
 > [!div class="step-by-step"]
 > [Önceki](lesson-3-understanding-more-about-events-and-postback.md)

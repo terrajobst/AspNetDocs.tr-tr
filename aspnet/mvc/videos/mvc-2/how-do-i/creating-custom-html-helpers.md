@@ -2,26 +2,26 @@
 uid: mvc/videos/mvc-2/how-do-i/creating-custom-html-helpers
 title: Özel HTML Yardımcıları oluşturma | Microsoft Docs
 author: StephenWalther
-description: İçeriği görüntüle oluşturmak daha kolay hale getirmek için yeni HTML Yardımcıları oluşturma. Stephen Walther yeni HTML Yardımcıları oluşturma iki basit yöntemleri gösterir.
+description: Görünüm içeriği oluşturmayı kolaylaştırmak için yeni HTML Yardımcıları oluşturun. Stephen Walther, yeni HTML Yardımcıları oluşturmanın iki basit yöntemini gösterir.
 ms.author: riande
 ms.date: 08/20/2008
 ms.assetid: e67b3889-ac7d-4811-8bf5-54f6abc7f49f
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/creating-custom-html-helpers
 msc.type: video
 ms.openlocfilehash: f1761948f9bf5eb55e396b4334eca33cf34b899e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382595"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559061"
 ---
 # <a name="creating-custom-html-helpers"></a>Özel HTML Yardımcıları Oluşturma
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-İçeriği görüntüle oluşturmak daha kolay hale getirmek için yeni HTML Yardımcıları oluşturma. Stephen Walther yeni HTML Yardımcıları oluşturma iki basit yöntemleri gösterir.
+Görünüm içeriği oluşturmayı kolaylaştırmak için yeni HTML Yardımcıları oluşturun. Stephen Walther, yeni HTML Yardımcıları oluşturmanın iki basit yöntemini gösterir.
 
-[&#9654;Videoyu (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
+[&#9654;Videoyu izleyin (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
 
 > [!div class="step-by-step"]
 > [Önceki](creating-unit-tests-for-aspnet-mvc-applications.md)

@@ -2,22 +2,22 @@
 uid: web-forms/overview/deployment/index
 title: Dağıtım | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web formları projeleri bir sunucuya dağıtma
+description: ASP.NET Web Forms projelerini bir sunucusuna dağıtma.
 ms.author: riande
 ms.date: 08/18/2011
 ms.assetid: 05e4c88f-5101-4277-a323-b6774d98f69e
 msc.legacyurl: /web-forms/overview/deployment
 msc.type: chapter
 ms.openlocfilehash: 1483abc212b5f122ad3e2b88474c42b208bb748e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134298"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640611"
 ---
 # <a name="deployment"></a>Dağıtım
 
-> ASP.NET Web formları projeleri bir sunucuya dağıtma
+> ASP.NET Web Forms projelerini bir sunucusuna dağıtma.
 
 - [Visual Studio kullanarak ASP.NET Web Dağıtımı](visual-studio-web-deployment/index.md)
 
@@ -36,8 +36,8 @@ ms.locfileid: "65134298"
 - [ASP.NET 4 - Kurumsal Dağıtıma Giriş](deploying-web-applications-in-enterprise-scenarios/index.md)
 
     - [Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma](deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-    - [Kurumsal Web Dağıtımı: Senaryoya genel bakış](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-    - [Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+    - [Kurumsal Web Dağıtımı: Senaryoya Genel Bakış](deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+    - [Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime](deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
 - [ASP.NET 4 - Kurumsal Dağıtım Serisi 1](web-deployment-in-the-enterprise/index.md)
 
     - [Kurumda Web Dağıtımı](web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -55,9 +55,9 @@ ms.locfileid: "65134298"
 
     - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
     - [Web Dağıtımı için Doğru Yaklaşımı Seçme](configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-    - [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-    - [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-    - [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+    - [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+    - [Senaryo: Web Dağıtımı için Hazırlama Ortamı Yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+    - [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
     - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
     - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
     - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

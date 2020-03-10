@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-profile-provider
-title: '[Bunu nasıl yaparım:] Bir özel profil sağlayıcısı oluşturma? | Microsoft Docs'
+title: '[Nasıl yapılır:] Özel bir profil sağlayıcısı oluşturulsun mu? | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, biz depolamak ve bir kullanıcı profili bağlantısını için ayrı SQL Server tablolardaki ilişkili verileri almak için bir özel profil sağlayıcısı oluşturma hakkında bilgi edinin...
+description: Bu videoda, t... ' den ayrı SQL Server tablolardaki bir kullanıcı profiliyle ilişkili verileri depolamak ve almak için özel bir profil sağlayıcısı oluşturmayı öğreniyoruz.
 ms.author: riande
 ms.date: 10/05/2007
 ms.assetid: a776a0fc-f34b-47fe-a24a-3311100f34a5
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-profile-provider
 msc.type: video
 ms.openlocfilehash: d80c0b9be470ee26f87bb9fa700537569b42399e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418072"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78523655"
 ---
-# <a name="how-do-i-create-a-custom-profile-provider"></a>[Bunu nasıl yaparım:] Bir özel profil sağlayıcısı oluşturma?
+# <a name="how-do-i-create-a-custom-profile-provider"></a>[Nasıl yapılır:] Özel bir profil sağlayıcısı oluşturulsun mu?
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda biz depolamak ve bir kullanıcı profili standart ASP.NET üyelik sağlayıcısının aspnet ayrı SQL Server tablolardaki ilişkili verileri almak için bir özel profil sağlayıcısı oluşturma hakkında bilgi\_profili tablosu. Bu videoda ele ilkeleri, erişim ve Oracle gibi diğer veritabanları için Profil sağlayıcıları oluşturmak için geçerli olur. Özel profil sağlayıcısı oluşturma edindikten sonra biz web sitesinde sağlayıcıyı yükleyin ve gösteri yükleniyor ve profil verileri kaydetme hakkında bilgi edinin.
+Bu videoda, standart ASP.NET üyelik sağlayıcısı 'nın ASPNET\_profil tablosundan ayrı SQL Server tablolardaki bir kullanıcı profiliyle ilişkili verileri depolamak ve almak için özel bir profil sağlayıcısı oluşturma hakkında bilgi edineceksiniz. Bu videoda ele alınan ilkeler, Access ve Oracle gibi diğer veritabanları için profil sağlayıcıları oluşturmak üzere geçerlidir. Özel profil sağlayıcısı oluşturma hakkında bilgi aldıktan sonra, sağlayıcıyı bir Web sitesine yüklemeyi öğreniyor ve profil verilerini yükleme ve kaydetme hakkında bir gösteri görürsünüz.
 
-[&#9654;Videoyu (32 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-profile-provider)
+[&#9654;Videoyu izleyin (32 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-profile-provider)

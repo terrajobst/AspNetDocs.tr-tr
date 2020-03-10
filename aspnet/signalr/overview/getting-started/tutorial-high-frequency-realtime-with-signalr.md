@@ -10,11 +10,11 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtim
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: 2503e90735d6cfa445ee08c9e43f8443aa106096
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600448"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558627"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek frekanslı gerçek zamanlı uygulama oluşturma
 
@@ -24,7 +24,7 @@ Oluşturduğunuz uygulama, kullanıcıların sürükleyebilmesi için bir şekil
 
 Bu öğreticide tanıtılan kavramların gerçek zamanlı oyun ve diğer simülasyon uygulamalarına yönelik uygulamaları vardır.
 
-Bu öğreticide şunları yapabilirsiniz:
+Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * Projeyi ayarlama
@@ -38,9 +38,9 @@ Bu öğreticide şunları yapabilirsiniz:
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
-* **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) .
+* [ASP.NET ve web geliştirme](https://visualstudio.microsoft.com/downloads/) iş yüküyle **Visual Studio 2017**.
 
 ## <a name="set-up-the-project"></a>Projeyi ayarlama
 
@@ -224,7 +224,7 @@ Uygulama neredeyse tamamlandı, ancak bir geliştirme yapabiliriz. Uygulama, ist
 
 Bu kod, şekli eski konumdan yeni bir konuma taşır. Sunucu, animasyon aralığı boyunca şeklin konumunu verir. Bu durumda, 100 milisaniyedir. Uygulama, yeni animasyon başlamadan önce şekil üzerinde çalışan önceki animasyonu temizler.
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
 [Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
@@ -242,7 +242,7 @@ SignalR hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları yapabilirsiniz:
+Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * Projeyi ayarlama

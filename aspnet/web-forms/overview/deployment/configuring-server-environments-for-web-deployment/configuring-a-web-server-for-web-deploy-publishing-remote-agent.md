@@ -9,11 +9,11 @@ ms.assetid: 239c7aa8-d09a-4d02-9c0e-6bd52be5f0d5
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
 ms.openlocfilehash: ce0d246afdfb65c2ea15a287064511e7d1d58622
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589046"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567475"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)
 
@@ -96,7 +96,7 @@ Bu durumda, şunları yüklemeniz gerekir:
 7. Gezinti bölmesinde **sunucu**' ya tıklayın.
 8. **IIS 7 önerilen yapılandırma** satırında **Ekle**' ye tıklayın.
 9. **Web Dağıtım aracı 2,1** satırında **Ekle**' ye tıklayın.
-10. **Yükle**'ye tıklatın. Web Platformu Yükleyicisi, yüklenecek ilişkili bağımlılıklarla&#x2014;&#x2014;birlikte ürünlerin bir listesini gösterir ve lisans koşullarını kabul etmenizi ister.
+10. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri &#x2014; herhangi bir ilişkili bağımlılıkları &#x2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. Lisans koşullarını gözden geçirin ve koşulları **onayladıysanız kabul ediyorum**' a tıklayın.
@@ -150,7 +150,7 @@ Sunucunuza Web içeriği dağıtabilmeniz için önce içeriği barındırmak ü
     > [!NOTE]
     > Bir üretim ortamında, büyük ihtimalle Web sitenizi bağlantı noktası 80 ' de barındırmak ve eşleşen DNS kayıtlarıyla birlikte bir ana bilgisayar üst bilgisi yapılandırmak isteyeceksiniz. IIS 7 ' de konak üstbilgilerini yapılandırma hakkında daha fazla bilgi için bkz. [bir Web sitesi için bir konak üstbilgisi yapılandırma (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 2008 R2 'deki DNS sunucusu rolü hakkında daha fazla bilgi için bkz. [DNS sunucusuna genel bakış](https://technet.microsoft.com/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
 9. **Eylemler** bölmesinde, **Site Düzenle**altında, **Bağlamalar**'ı tıklatın.
-10. **Site bağlamaları** Iletişim kutusunda **Ekle**' ye tıklayın.
+10. **Site Bağlamaları** iletişim kutusunda **Ekle**’ye tıklayın.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image5.png)
 11. **Site Bağlaması Ekle** iletişim kutusunda, **IP adresini** ve **bağlantı noktasını** mevcut site yapılandırmanızla eşleşecek şekilde ayarlayın.
@@ -159,8 +159,8 @@ Sunucunuza Web içeriği dağıtabilmeniz için önce içeriği barındırmak ü
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
     > [!NOTE]
-    > İlk site bağlaması, IP adresini ve bağlantı noktasını veya `http://localhost:85`kullanarak siteye yerel olarak erişmenizi sağlar. İkinci site bağlaması, makine adını (örneğin, http://testweb1:85) kullanarak etki alanındaki diğer bilgisayarlardan siteye erişmenize olanak tanır.
-13. **Site bağlamaları** Iletişim kutusunda **Kapat**' a tıklayın.
+    > İlk site bağlaması, IP adresini ve bağlantı noktasını veya `http://localhost:85`kullanarak siteye yerel olarak erişmenizi sağlar. İkinci site bağlaması, makine adını (örneğin, http://testweb1:85)kullanarak etki alanındaki diğer bilgisayarlardan siteye erişmenize olanak tanır.
+13. **Site Bağlamaları** iletişim kutusunda **Kapat**’a tıklayın.
 14. **Bağlantılar** bölmesinde, **uygulama havuzları**' na tıklayın.
 15. **Uygulama havuzları** bölmesinde, uygulama havuzunuzun adına sağ tıklayın ve ardından **temel ayarlar**' a tıklayın. Varsayılan olarak, uygulama havuzunuzun adı, Web sitenizin adıyla (örneğin, **Demosite**) eşleşir.
 16. **.NET Framework sürüm** listesinde **.NET Framework v 4.0.30319**' ı seçin ve ardından **Tamam**' a tıklayın.
@@ -170,7 +170,7 @@ Sunucunuza Web içeriği dağıtabilmeniz için önce içeriği barındırmak ü
     > [!NOTE]
     > Örnek çözüm .NET Framework 4,0 gerektirir. Bu, genel olarak Web Dağıtımı için bir gereklilik değildir.
 
-Web sitenizin içeriğe içerik sunması için, uygulama havuzu kimliğinin içeriği depolayan yerel klasörde Okuma izinlerine sahip olması gerekir. IIS 7,5 ' de, uygulama havuzları varsayılan olarak benzersiz bir uygulama havuzu kimliğiyle çalışır (IIS 'nin önceki sürümlerinin aksine, uygulama havuzlarının genellikle ağ hizmeti hesabı kullanılarak çalıştığı). Uygulama havuzu kimliği gerçek bir kullanıcı hesabı değil ve bunun yerine hiçbir Kullanıcı veya grup&#x2014;listesinde gösterilmez, uygulama havuzu başlatıldığında dinamik olarak oluşturulur. Her uygulama havuzu kimliği, gizli bir öğe olarak yerel **ııs\_ıusrs** güvenlik grubuna eklenir.
+Web sitenizin içeriğe içerik sunması için, uygulama havuzu kimliğinin içeriği depolayan yerel klasörde Okuma izinlerine sahip olması gerekir. IIS 7,5 ' de, uygulama havuzları varsayılan olarak benzersiz bir uygulama havuzu kimliğiyle çalışır (IIS 'nin önceki sürümlerinin aksine, uygulama havuzlarının genellikle ağ hizmeti hesabı kullanılarak çalıştığı). Uygulama havuzu kimliği gerçek kullanıcı hesabı değil ve tüm kullanıcılar veya gruplar &#x2014 listelerde görünmüyor; uygulama havuzunu başlatıldığında, bunun yerine, bunu dinamik olarak oluşturulur. Her uygulama havuzu kimliği, gizli bir öğe olarak yerel **ııs\_ıusrs** güvenlik grubuna eklenir.
 
 Bir dosya veya klasördeki uygulama havuzu kimliğine izin vermek için iki seçeneğiniz vardır:
 

@@ -1,49 +1,49 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
-title: NerdDinner sarmalama | Microsoft Docs
+title: Nerdakşam yemeği Microsoft Docs
 author: microsoft
-description: NerdDinner Öğreticisine kılavuzumuzun olduğu ve daha fazla bilgi hakkında bilgi sağlar.
+description: Bu, Nerdakşam yemeği öğreticisinin bir sonucu olur ve daha fazla bilgi edinme hakkında bilgi sağlar.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 5c6371c0-a944-4adf-a28e-5afbdd011ca8
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
 ms.openlocfilehash: 4e25a4a3a953e97c9a292506a9511f28874925ab
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128361"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78580544"
 ---
 # <a name="nerddinner-wrap-up"></a>NerdDinner Sarmalama
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> NerdDinner Öğreticisine kılavuzumuzun olduğu ve daha fazla bilgi hakkında bilgi sağlar.
+> Bu, Nerdakşam yemeği öğreticisinin bir sonucu olur ve daha fazla bilgi edinme hakkında bilgi sağlar.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-NerdDinner uygulamamız artık tamamlandı ve web üzerinde dağıtılmaya hazır.
+Nerdakşam yemeği uygulamamız artık tamamlanmıştır ve Web 'de dağıtıma hazırdır.
 
 ![](nerddinner-wrap-up/_static/image1.png)
 
-NerdDinner oluşturmak için çok sayıda ASP.NET MVC özellikleri kullandık. Umarım, geliştirme sürecini, ASP.NET MVC özellikleri iş çekirdek ve sağlanan bağlam nasıl bu özellikler hakkında birlikte bir uygulama içinde tümleştirmek üzerinde bazı ışık boşaltmaktır.
+Nerdakşam yemeği oluşturmak için geniş bir ASP.NET MVC özelliği kullandık. Çekirdek ASP.NET MVC özelliklerinin nasıl çalıştığı ve bu özelliklerin bir uygulama içinde nasıl tümleştirilmesine yönelik bağlam konusunda daha ince bir şekilde geliştirme sürecini tamamlamadık.
 
-### <a name="learning-more"></a>Daha fazla öğrenme
+### <a name="learning-more"></a>Daha Fazla Bilgi
 
-NerdDinner Öğreticisine yeni ilk bölümü olan [Professional ASP.NET MVC 1.0](https://www.amazon.com/gp/product/0470384611?ie=UTF8&amp;tag=scoblo04-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470384611) Wrox Press book.
+Bu Nerdakşam yemeği öğreticisi, yeni [profesyonel ASP.NET MVC 1,0](https://www.amazon.com/gp/product/0470384611?ie=UTF8&amp;tag=scoblo04-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470384611) rehberinin
 
 [![](https://mscblogs.blob.core.windows.net/media/scottgu/Media/bookcover1_6CAECF94.png)](https://www.amazon.com/gp/product/0470384611?ie=UTF8&amp;tag=scoblo04-20&amp;linkCode=xm2&amp;camp=1789&amp;creativeASIN=0470384611)
 
-ASP.NET MVC hakkında daha fazla bilgi edinmek için kitap geri kalanını okuyabilirsiniz.
+ASP.NET MVC hakkında daha fazla bilgi edinmek için kitabın geri kalanını okuyabilirsiniz.
 
-Ayrıca, öğreticiler ve videolar, mükemmel ASP.NET MVC bulabilirsiniz: [https://www.asp.net/mvc](../../../index.md) Diğer harika bir ASP.NET MVC books kısa bir süre sonra yayımlanacak. Ben, ek kitaplar kullanıma sunuldukça bağlantılar eklemek için bu sayfayı güncelleştirir.
+Ayrıca harika ASP.NET MVC öğreticileri ve videoları da bulabilirsiniz: [https://www.asp.net/mvc](../../../index.md) diğer harıka ASP.NET MVC kitapları kısa bir süre içinde yayımlanacak. Bu sayfayı, kullanılabilir hale geldiğinde ek kitapların bağlantılarını içerecek şekilde güncelleştiririm.
 
-Soluk, bu yardımcı olur
+Umarım,
 
 Scott
 
 > [!div class="step-by-step"]
-> [Önceki](enable-automated-unit-testing.md)
+> [Öncekini](enable-automated-unit-testing.md)

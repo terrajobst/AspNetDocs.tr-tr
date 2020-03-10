@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
-title: Veritabanının çekirdeğini oluşturma için Code First geçişleri kullanın | Microsoft Docs
+title: Veritabanını temel almak için Code First Migrations kullanın | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,93 +9,93 @@ ms.assetid: 76e2013a-65b7-488c-834d-9448ecea378e
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
 ms.openlocfilehash: 257bd06848adb949330856cc71eeb3d685e9d036
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59421673"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557458"
 ---
-# <a name="use-code-first-migrations-to-seed-the-database"></a>Veritabanının çekirdeğini oluşturma için Code First Migrations'ı kullanın
+# <a name="use-code-first-migrations-to-seed-the-database"></a>Veritabanını temel almak için Code First Migrations kullanın
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](https://github.com/MikeWasson/BookService)
+[Tamamlanmış projeyi indir](https://github.com/MikeWasson/BookService)
 
-Bu bölümde, kullanacağınız [Code First Migrations](https://msdn.microsoft.com/data/jj591621) test verileri ile veritabanının çekirdeğini oluşturma için EF içinde.
+Bu bölümde, veritabanını test verileriyle temel almak için EF 'te [Code First Migrations](https://msdn.microsoft.com/data/jj591621) kullanacaksınız.
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+**Araçlar** menüsünde **NuGet Paket Yöneticisi**' ni ve ardından **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](part-3/samples/sample1.cmd)]
 
-Bu komut, projenize geçişleri adlı bir klasör yanı sıra, geçişler klasöründe Configuration.cs adlı bir kod dosyası ekler.
+Bu komut, projenize geçişler adlı bir klasör ve geçişler klasöründe Configuration.cs adlı bir kod dosyası ekler.
 
 ![](part-3/_static/image1.png)
 
-Configuration.cs dosyasını açın. Aşağıdaki **kullanarak** deyimi.
+Configuration.cs dosyasını açın. Aşağıdaki **using** ifadesini ekleyin.
 
 [!code-csharp[Main](part-3/samples/sample2.cs)]
 
-Ardından aşağıdaki kodu ekleyin **Configuration.Seed** yöntemi:
+Ardından aşağıdaki kodu **Configuration. tohum** yöntemine ekleyin:
 
 [!code-csharp[Main](part-3/samples/sample3.cs)]
 
-Paket Yöneticisi konsolu penceresinde, aşağıdaki komutları yazın:
+Paket Yöneticisi konsolu penceresinde aşağıdaki komutları yazın:
 
 [!code-console[Main](part-3/samples/sample4.cmd)]
 
-İlk komut veritabanı oluşturan kodu oluşturur ve ikinci komut, kodu yürütür. Veritabanı kullanılarak yerel olarak oluşturulan [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx).
+İlk komut veritabanını oluşturan kodu oluşturur ve ikinci komut bu kodu yürütür. Veritabanı yerel olarak, [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx)kullanılarak oluşturulur.
 
 ![](part-3/_static/image2.png)
 
-## <a name="explore-the-api-optional"></a>(İsteğe bağlı) API'sini keşfedin
+## <a name="explore-the-api-optional"></a>API 'YI keşfet (Isteğe bağlı)
 
-Uygulamayı hata ayıklama modunda çalıştırmak için F5 tuşuna basın. Visual Studio, IIS Express başlar ve web uygulamanızı çalıştırır. Visual Studio bir tarayıcı başlatır ve uygulamanın giriş sayfası açılır.
+Uygulamayı hata ayıklama modunda çalıştırmak için F5 tuşuna basın. Visual Studio IIS Express başlar ve Web uygulamanızı çalıştırır. Daha sonra Visual Studio bir tarayıcı başlatır ve uygulamanın giriş sayfasını açar.
 
-Visual Studio web projesini çalıştığında, bir bağlantı noktası numarası atar. Aşağıdaki görüntüde, 50524 bağlantı noktası numarasıdır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
+Visual Studio bir Web projesi çalıştırdığında, bir bağlantı noktası numarası atar. Aşağıdaki görüntüde, bağlantı noktası numarası 50524 ' dir. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası numarası görürsünüz.
 
 ![](part-3/_static/image3.png)
 
-Giriş sayfası, ASP.NET MVC kullanarak uygulanır. Sayfanın üst kısmında "API" ifadesini içeren bir bağlantı yoktur. Bu bağlantıyı web API'si için bir otomatik olarak oluşturulmuş yardım sayfasına getirir. (Bu Yardım sayfasını nasıl oluşturulacağını ve kendi belge sayfasına nasıl ekleyebileceğinizi öğrenmek için bkz: [ASP.NET Web API Yardım sayfaları oluşturma](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md).) İstek ve yanıt biçimi de dahil olmak üzere bu API hakkında daha fazla ayrıntı görmek için sayfayı bağlantıları hakkında Yardım tıklayabilirsiniz.
+Giriş sayfası ASP.NET MVC kullanılarak uygulanır. Sayfanın üst kısmında, "API" yazan bir bağlantı vardır. Bu bağlantı sizi, Web API 'SI için otomatik olarak oluşturulan bir yardım sayfasına getirir. (Bu yardım sayfasının nasıl oluşturulduğunu ve sayfaya kendi belgelerinizi nasıl ekleyebileceğiniz hakkında bilgi edinmek için bkz. [ASP.NET Web API Için yardım sayfaları oluşturma](../../getting-started-with-aspnet-web-api/creating-api-help-pages.md).) İstek ve yanıt biçimi dahil olmak üzere API hakkındaki ayrıntıları görmek için yardım sayfası bağlantılarına tıklayabilirsiniz.
 
 ![](part-3/_static/image4.png)
 
-API veritabanında CRUD işlemleri sağlar. API özetler.
+API, veritabanında CRUD işlemlerine izin vermez. Aşağıdaki, API 'YI özetler.
 
 | Yazarlar |  |
 | --- | -- |
-| GET api/authors | Tüm yazarları alın. |
-| GET api/authors/{id} | Bir yazar kimliğe göre Al |
+| GET api/authors | Tüm yazarları al. |
+| GET api/authors/{id} | KIMLIĞE göre yazar alın. |
 | POST /api/authors | Yeni bir yazar oluşturun. |
-| PUT /api/authors/{id} | Mevcut bir yazar güncelleştirin. |
-| DELETE /api/authors/{id} | Bir yazar silin. |
+| PUT /api/authors/{id} | Var olan bir yazarı güncelleştirin. |
+| DELETE /api/authors/{id} | Bir yazarı silin. |
 
 | Kitaplar |  |
 | --- | -- |
-| GET /api/books | Tüm Kitaplar alın. |
-| GET /api/books/{id} | Bir kitap kimliğe göre Al |
+| GET /api/books | Tüm kitapları alın. |
+| GET /api/books/{id} | KIMLIĞE göre bir kitap alın. |
 | POST /api/books | Yeni bir kitap oluşturun. |
-| PUT /api/books/{id} | Mevcut bir kitap güncelleştirin. |
-| DELETE /api/books/{id} | Bir kitap silin. |
+| PUT /api/books/{id} | Mevcut bir kitabı güncelleştirin. |
+| DELETE /api/books/{id} | Bir kitabı silin. |
 
-## <a name="view-the-database-optional"></a>(İsteğe bağlı) veritabanı görünümü
+## <a name="view-the-database-optional"></a>Veritabanını görüntüleme (Isteğe bağlı)
 
-EF veritabanını Güncelleştir komutu çalıştırdığınızda, veritabanı oluşturulur ve adlı `Seed` yöntemi. Uygulamayı yerel olarak çalıştırdığınızda EF kullanan [LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx). Visual Studio'da veritabanı görüntüleyebilirsiniz. Gelen **görünümü** menüsünde **SQL Server Nesne Gezgini**.
+Update-database komutunu çalıştırdığınızda EF veritabanını oluşturup `Seed` yöntemi olarak çağırılır. Uygulamayı yerel olarak çalıştırdığınızda EF, [LocalDB](https://blogs.msdn.com/b/sqlexpress/archive/2011/07/12/introducing-localdb-a-better-sql-express.aspx)kullanır. Visual Studio 'da veritabanını görüntüleyebilirsiniz. **Görünüm** menüsünde **SQL Server Nesne Gezgini**'ni seçin.
 
 ![](part-3/_static/image5.png)
 
-İçinde **sunucuya Bağlan** iletişim, **sunucu adı** düzenleme kutusu, "(localdb) \v11.0" yazın. Bırakın **kimlik doğrulaması** seçeneği olarak "Windows kimlik doğrulaması". **Bağlan**'a tıklayın.
+**Sunucuya Bağlan** iletişim kutusunda, **sunucu adı** düzenleme kutusuna "(LocalDB) \v11.0" yazın. **Kimlik doğrulama** seçeneğini "Windows kimlik doğrulaması" olarak bırakın. **Bağlan**'a tıklayın.
 
 ![](part-3/_static/image6.png)
 
-Visual Studio yerel veritabanına bağlanır ve mevcut veritabanlarınızı SQL Server Nesne Gezgini penceresinde gösterir. EF oluşturduğunuz tabloları görmek için düğümü genişletebilirsiniz.
+Visual Studio, LocalDB 'ye bağlanır ve SQL Server Nesne Gezgini penceresinde var olan veritabanlarınızı gösterir. EF 'in oluşturduğu tabloları görmek için düğümleri genişletebilirsiniz.
 
 ![](part-3/_static/image7.png)
 
-Verileri görüntülemek için bir tablo sağ tıklayıp **görünüm verilerini**.
+Verileri görüntülemek için bir tabloya sağ tıklayın ve **verileri görüntüle**' yi seçin.
 
 ![](part-3/_static/image8.png)
 
-Aşağıdaki ekran görüntüsünde Books tablosu için sonuçları gösterir. EF veritabanı çekirdek verilerle doldurulmuş ve yazarlar tabloya yabancı anahtar tablosu içeren olduğuna dikkat edin.
+Aşağıdaki ekran görüntüsünde kitaplar tablosu için sonuçlar gösterilmektedir. , Veritabanının çekirdek verilerle birlikte doldurulduğunu ve tablo, yazarlar tablosunun yabancı anahtarını içerdiğini unutmayın.
 
 ![](part-3/_static/image9.png)
 

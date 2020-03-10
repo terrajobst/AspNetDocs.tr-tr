@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions/index
-title: Eski sürümler - MVC 3 ve 4 | Microsoft Docs
+title: Eski sürümler-MVC 3 ve 4 | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC eski sürümleri kullanmayı öğrenmek için kaynaklara bağlantılar.
+description: ASP.NET MVC 'nin önceki sürümlerini nasıl kullanacağınızı öğrenmek için kaynakların bağlantıları.
 ms.author: riande
 ms.date: 10/09/2014
 ms.assetid: 151cd274-3daa-4f88-ad3b-bffb99a9d545
 msc.legacyurl: /mvc/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: aa38ea8984f958939261d494f65bfa2108f87068
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112448"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78560055"
 ---
 # <a name="older-versions---mvc-3-and-4"></a>Eski Sürümler - MVC 3 ve 4
 
-> ASP.NET MVC eski sürümleri kullanmayı öğrenmek için kaynaklara bağlantılar.
+> ASP.NET MVC 'nin önceki sürümlerini nasıl kullanacağınızı öğrenmek için kaynakların bağlantıları.
 
 - [.NET MVC 4 ile Çalışmaya Başlama](getting-started-with-aspnet-mvc4/index.md)
 
@@ -29,7 +29,7 @@ ms.locfileid: "65112448"
     - [Düzenleme Metotlarını ve Düzenleme Görünümünü İnceleme](getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view.md)
     - [Film Modeli ve Tablosuna Yeni Alan Ekleme](getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table.md)
     - [Modele Doğrulama Ekleme](getting-started-with-aspnet-mvc4/adding-validation-to-the-model.md)
-    - [Details ve Delete Metotlarını inceleme](getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods.md)
+    - [Details ve Delete Metotlarını İnceleme](getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods.md)
 - [MVC 4 Kullanarak EF 5 ile Çalışmaya Başlama](getting-started-with-ef-5-using-mvc-4/index.md)
 
     - [Entity Framework Veri Modeli Oluşturma](getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
@@ -81,24 +81,24 @@ ms.locfileid: "65112448"
 - [Razor ve Unobtrusive JavaScript ile MVC 3 Uygulaması Oluşturma](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript.md)
 - [MVC 3 Müzik Deposu](mvc-music-store/index.md)
 
-    - [Bölüm 1: Genel bakış ve Dosya -> Yeni Proje](mvc-music-store/mvc-music-store-part-1.md)
-    - [Bölüm 2: Denetleyicileri](mvc-music-store/mvc-music-store-part-2.md)
-    - [3. Bölüm: Görünümler ve Viewmodel'lar](mvc-music-store/mvc-music-store-part-3.md)
-    - [4. Bölüm: Modeller ve veri erişimi](mvc-music-store/mvc-music-store-part-4.md)
-    - [5. Bölüm: Formları düzenleme ve şablon oluşturma](mvc-music-store/mvc-music-store-part-5.md)
-    - [6. Bölüm: Model doğrulama için veri ek açıklamalarını kullanma](mvc-music-store/mvc-music-store-part-6.md)
-    - [7. Bölüm: Üyelik ve yetkilendirme](mvc-music-store/mvc-music-store-part-7.md)
-    - [8. Bölüm: Ajax güncelleştirmeleriyle alışveriş sepeti](mvc-music-store/mvc-music-store-part-8.md)
-    - [9. Bölüm: Kayıt ve kasa işlemleri](mvc-music-store/mvc-music-store-part-9.md)
-    - [10. Kısım: Gezinti ve Site tasarımı, sonuç yönelik son güncelleştirmeler](mvc-music-store/mvc-music-store-part-10.md)
+    - [1. Bölüm: Genel Bakış ve Dosya->Yeni Proje](mvc-music-store/mvc-music-store-part-1.md)
+    - [2. Bölüm: Denetleyiciler](mvc-music-store/mvc-music-store-part-2.md)
+    - [3. Bölüm: Görünümler ve ViewModel’lar](mvc-music-store/mvc-music-store-part-3.md)
+    - [4. Bölüm: Modeller ve Veri Erişimi](mvc-music-store/mvc-music-store-part-4.md)
+    - [5. Bölüm: Formları Düzenleme ve Şablon Oluşturma](mvc-music-store/mvc-music-store-part-5.md)
+    - [6. Bölüm: Model Doğrulama için Veri Ek Açıklamalarını Kullanma](mvc-music-store/mvc-music-store-part-6.md)
+    - [7. Bölüm: Üyelik ve Yetkilendirme](mvc-music-store/mvc-music-store-part-7.md)
+    - [8. Bölüm: Ajax Güncelleştirmeleriyle Alışveriş Sepeti](mvc-music-store/mvc-music-store-part-8.md)
+    - [9. Bölüm: Kayıt ve Kasa İşlemleri](mvc-music-store/mvc-music-store-part-9.md)
+    - [10. Bölüm: Gezinti ve Site Tasarımına Yönelik Son Güncelleştirmeler, Sonuç](mvc-music-store/mvc-music-store-part-10.md)
 - [MVC 3 - HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index.md)
 
     - [ASP.NET MVC ile HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi - 1. Bölüm](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
     - [ASP.NET MVC ile HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi - 2. Bölüm](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
-    - [HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - 3. Kısım](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
+    - [ASP.NET MVC ile HTML5 ve jQuery kullanıcı arabirimi DatePicker açılan takvimi-Bölüm 3](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
     - [ASP.NET MVC ile HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi - 4. Bölüm](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4.md)
 - [MVC 3 - DropDownList Kutusu ve jQuery ile Çalışma](working-with-the-dropdownlist-box-and-jquery/index.md)
 
     - [ASP.NET MVC ile DropDownList Yardımcısını Kullanma](working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
-    - [ASP.NET MVC tarafından DropDownList Yardımcısı nasıl iskele oluşturulduğunu İnceleme](working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+    - [ASP.NET MVC 'nin DropDownList yardımcısını nasıl kullandığını İnceleme](working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
     - [jQuery kullanıcı arabirimini kullanarak DropDownList’e Yeni Kategori ekleme](working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui.md)

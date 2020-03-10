@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: Crank ile SignalR bağlantı yoğunluğu | Microsoft Docs
+title: Crank ile SignalR bağlantı yoğunluğu testi | Microsoft Docs
 author: bradygaster
 description: Crank ile SignalR Bağlantı Yoğunluğu Testi
 ms.author: bradyg
@@ -9,61 +9,61 @@ ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
 ms.openlocfilehash: 901e039fbb81651ed18d560c99745b7e7f716e01
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116097"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558340"
 ---
 # <a name="signalr-connection-density-testing-with-crank"></a>Crank ile SignalR Bağlantı Yoğunluğu Testi
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu makalede, bir uygulama birden çok sanal istemcileri ile test etmek için mili Aracı'nı kullanmayı açıklar.
+> Bu makalede, bir uygulamayı birden çok sanal istemci ile test etmek için Crank aracının nasıl kullanılacağı açıklanır.
 
-Uygulamanızı (ya da bir Azure web rolü, IIS veya Owın kullanarak şirket içinde barındırılan), barındırma ortamı içinde çalışır duruma geçtikten sonra yüksek düzeyde bağlantı yoğunluğu testi mili aracını kullanarak bir uygulamanın yanıt test edebilirsiniz. Barındırma ortamı, Internet Information Services (IIS) sunucu, bir Owın konak veya bir Azure web rolü olabilir. (Not: Öğesinden bir bağlantı yoğunluğu testi performans verilerini almanız mümkün olmayacak şekilde performans sayaçları Azure App Service Web Apps üzerinde kullanılabilir değil.)
+Uygulamanız barındırma ortamında (bir Azure Web rolü, IIS veya Owın kullanılarak şirket içinde barındırılan) çalışıyorsa, Crank aracını kullanarak uygulamanın yüksek düzeyde bağlantı yoğunluğu 'na yanıtını test edebilirsiniz. Barındırma ortamı bir Internet Information Services (IIS) sunucusu, bir Owın konağı veya bir Azure Web rolü olabilir. (Not: performans sayaçları Azure App Service Web Apps üzerinde kullanılamaz, bu nedenle bir bağlantı yoğunluğu testinizden performans verileri alınamaz.)
 
-Bağlantı yoğunluğu testi bir sunucuda kurulabilecek eş zamanlı TCP bağlantılarını sayısını ifade eder. Her TCP bağlantısı kendi ek yüke neden olur ve çok sayıda boşta kalan bağlantıların açma sonunda bir bellek sorunu oluşturacaksınız.
+Bağlantı yoğunluğu, bir sunucuda kurulabilecek eşzamanlı TCP bağlantısı sayısını ifade eder. Her TCP bağlantısı kendi yükünü doğurur ve çok sayıda boştaki bağlantı açmak sonunda bellek sorunu oluşturur.
 
-[SignalR codebase](https://github.com/signalr/signalr) adında bir yük testi araç içerir **Crank**. En son sürümünü mili bulunabilir [geliştirme dalını](https://github.com/SignalR/signalr/tree/dev) GitHub üzerinde. Bir Zip arşivi signalr geliştirme dalı codebase indirebileceğiniz [burada](https://github.com/SignalR/SignalR/archive/dev.zip).
+[SignalR codebase,](https://github.com/signalr/signalr) **Crank**adlı bir yük testi aracı içerir. Crank 'ın en son sürümü GitHub 'daki [Geliştirme dalında](https://github.com/SignalR/signalr/tree/dev) bulunabilir. SignalR codebase 'in dev dalının bir zip arşivini [buradan](https://github.com/SignalR/SignalR/archive/dev.zip)indirebilirsiniz.
 
-Mili tam olarak sunucunun bellek saturate için sunucu donanımına olası boşta kalan bağlantıların toplam sayısını hesaplamak için kullanılabilir. Alternatif olarak, aynı zamanda mili yük testi için sunucunun belirli bir miktarda bellek baskısı altında belirli bir sayısı veya belirli bellek eşiğini ulaşılana kadar bağlantıları ramping kullanabilirsiniz.
+Crank, sunucu donanımında mümkün olan toplam boşta bağlantı sayısını hesaplamak için sunucunun belleğini tamamen doygunluğu sağlamak üzere kullanılabilir. Alternatif olarak, belirli bir sayı veya belirli bir bellek eşiğine ulaşılana kadar bağlantıları düzenleyerek, sunucuyu belirli bir bellek baskısı altında test etmek için Crank ' ı da kullanabilirsiniz.
 
-Test ederken, uzak istemci herhangi bir yarışmaya kaynakları (yani TCP bağlantıları ve bellek gibi) önlemek önemlidir. Bunlar sunucunun tam kapasitesi (bellek veya CPU) erişmesini engelleyebilir. tüm performans sorunlarını vpn'den emin olmak için istemci izleme. Tam sunucu iş yükü için istemcilerin sayısını artırmanız gerekebilir.
+Sınama yaparken, kaynakların herhangi bir yarışmasını önlemek için uzak istemciler (örneğin, TCP bağlantıları ve bellek) kullanılması önemlidir. Sunucunun tam kapasitesine (bellek veya CPU) ulaşmasını engelleyebilen herhangi bir performans sorunlarına yol olmamasını sağlamak için istemci (ler) i izleyin. Sunucuyu tam olarak yüklemek için istemci sayısını artırmanız gerekebilir.
 
-### <a name="running-a-connection-density-test"></a>Bir bağlantı yoğunluğu testi çalıştırma
+### <a name="running-a-connection-density-test"></a>Bağlantı yoğunluğu testi çalıştırma
 
-Bu bölümde bir SignalR uygulama bağlantı yoğunluğu testi çalıştırmak için gereken adımlar açıklanmaktadır.
+Bu bölümde, bir SignalR uygulamasında bir bağlantı yoğunluğu testi çalıştırmak için gereken adımlar açıklanmaktadır.
 
-1. İndirin ve derleyin [geliştirme dalını signalr codebase](https://github.com/SignalR/SignalR/archive/dev.zip). Bir komut istemi'nde gidin &lt;proje dizini&gt;\src\Microsoft.AspNet.SignalR.Crank\bin\debug.
-2. Uygulamanızı, hedeflenen barındırma ortamına dağıtın. Uygulamanızın kullandığı uç noktasını not edin; Örneğin, oluşturulan uygulamadaki [Başlarken Öğreticisi](../getting-started/tutorial-getting-started-with-signalr.md), uç nokta `http://<yourhost>:8080/signalr`.
-3. Yükleme [SignalR performans sayaçları](signalr-performance.md#perfcounters) sunucusunda. Uygulamanız Azure üzerinde çalışıyorsa, bkz. [bir Azure Web rolünde SignalR performans sayaçları kullanarak](using-signalr-performance-counters-in-an-azure-web-role.md).
+1. [SignalR kod temelinin geliştirme dalını](https://github.com/SignalR/SignalR/archive/dev.zip)indirin ve derleyin. Bir komut isteminde &lt;proje dizini&gt;\src\Microsoft.AspNet.SignalR.Crank\bin\debug. gidin
+2. Uygulamanızı kendi hedeflenen barındırma ortamına dağıtın. Uygulamanızın kullandığı uç noktayı bir yere unutmayın; Örneğin, Başlangıç [öğreticisinde](../getting-started/tutorial-getting-started-with-signalr.md)oluşturulan uygulamada, uç nokta `http://<yourhost>:8080/signalr`.
+3. Sunucuya [SignalR performans sayaçlarını](signalr-performance.md#perfcounters) yükler. Uygulamanız Azure üzerinde çalışıyorsa, bkz. [Azure Web rolünde SignalR performans sayaçlarını kullanma](using-signalr-performance-counters-in-an-azure-web-role.md).
 
-İçinde indirilen bir kod temelinde oluşturulan ve performans sayaçları, konakta yüklü sonra mili komut satırı aracı bulunabilir `src\Microsoft.AspNet.SignalR.Crank\bin\Debug` klasör.
+Kod temeli indirip yapılandırdıktan sonra ana bilgisayarınızda yüklü performans sayaçlarını yükledikten sonra, `src\Microsoft.AspNet.SignalR.Crank\bin\Debug` klasöründe Crank komut satırı aracı bulunur.
 
-Mili aracı için kullanılabilir seçenekler şunlardır:
+Crank aracı için kullanılabilen seçenekler şunlardır:
 
-- **/?**: Yardım ekranını gösterir. Kullanılabilir seçenekler de görüntülenir **Url** parametresi atlanırsa.
-- **/ Url**: SignalR bağlantıları için URL. Bu parametre gereklidir. Bir SignalR uygulama için varsayılan eşlemeyi kullanarak yolun içinde sona erecek "/ signalr".
-- **/ Aktarım**: Kullanılan taşıma adı. Varsayılan `auto`, en iyi kullanılabilir protokol seçer. Seçenekleriniz `WebSockets`, `ServerSentEvents`, ve `LongPolling` (`ForeverFrame` yerine Internet Explorer kullanıldığı bir seçenek mili için bu yana .NET istemci değildir). SignalR taşımalar nasıl seçer? daha fazla bilgi için bkz: [aktarım ve geri dönüşler](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: Her toplu eklenen istemcilere sayısı. Varsayılan değer 50'dir.
-- **/ ConnectInterval**: Bağlantılar ekleme arasındaki milisaniye cinsinden aralığı. Varsayılan değer 500'dür.
-- **Bağlantı**: Uygulama yük testi için kullanılan bağlantı sayısı. Varsayılan değer 100. 000 ' dir.
-- **/ ConnectTimeout**: Test çalışmasını iptal etmeden önce saniye cinsinden zaman aşımı. Varsayılan değer 300'dür.
-- **MinServerMBytes**: Ulaşmak için en düşük sunucu megabayt. Varsayılan değer 500'dür.
-- **SendBytes**: Boyutu bayt cinsinden sunucusuna gönderilen yük. Varsayılan değer 0'dır.
-- **SendInterval**: Sunucuya iletileri arasında geçen milisaniye cinsinden gecikme. Varsayılan değer 500'dür.
-- **SendTimeout**: İletileri sunucusu için milisaniye cinsinden zaman aşımı. Varsayılan değer 300'dür.
-- **ControllerUrl**: Burada bir istemci bir denetleyici hub'ı barındıracak URL'si. Varsayılan olarak NULL'dur (denetleyici hub). Denetleyici hub mili oturumu başladığında başlatıldı; Daha fazla kişi denetleyicisi hub'ı ve mili arasında yapılır.
-- **NumClients**: Uygulamaya bağlanmak için sanal istemci sayısı. Varsayılan biridir.
-- **Günlük dosyası**: Test çalıştırması için bir günlük dosyası için dosya adı. Varsayılan, `crank.csv` değeridir.
-- **SampleInterval**: Performans sayacı Örnekler arasındaki milisaniye olarak süre. Varsayılan değer 1000'dir.
-- **SignalRInstance**: Sunucusunda performans sayaçları için örnek adı. Varsayılan istemci bağlantı durumu kullanmaktır.
+- **/?** : Yardım ekranını gösterir. Kullanılabilir seçenekler, **URL** parametresi atlanırsa de görüntülenir.
+- **/URL**: SignalR BAĞLANTıLARıNıN URL 'si. Bu parametre zorunludur. Varsayılan eşlemeyi kullanan bir SignalR uygulaması için yol "/SignalR" ile sona acaktır.
+- **/Transport**: kullanılan taşımanın adı. Varsayılan değer `auto`, kullanılabilir en iyi Protokolü seçmeyecektir. Seçenekler arasında `WebSockets`, `ServerSentEvents`ve `LongPolling` (`ForeverFrame`, Internet Explorer yerine .NET istemcisi kullanıldığından, Crank için bir seçenek değildir) bulunur. SignalR 'ın aktarımları nasıl seçtiği hakkında daha fazla bilgi için bkz. [aktarımlar ve geri göndermeler](../getting-started/introduction-to-signalr.md#transports).
+- **/BatchSize**: her bir toplu işte eklenen istemci sayısı. Varsayılan değer 50 ' dir.
+- **/Connectınterval**: bağlantı ekleme arasındaki milisaniye cinsinden Aralık. Varsayılan değer 500 ' dir.
+- **/Connections**: uygulamayı yüklemek ve test etmek için kullanılan bağlantı sayısı. Varsayılan değer 100.000 ' dir.
+- **/ConnectTimeout**: testi iptal etmeden önce saniye cinsinden zaman aşımı. Varsayılan değer 300 ' dir.
+- **Minservermbayt**: ulaşmak için en düşük sunucu megabayt. Varsayılan değer 500 ' dir.
+- **Sendbytes**: sunucuya bayt cinsinden gönderilen yükün boyutu. Varsayılan değer, 0'dur.
+- **Sendınterval**: sunucuya iletiler arasındaki milisaniye cinsinden gecikme. Varsayılan değer 500 ' dir.
+- **SendTimeout**: sunucuya iletiler için milisaniye olarak zaman aşımı. Varsayılan değer 300 ' dir.
+- **Controllerurl**: bir istemcinin bir Denetleyici Hub 'ını barındıracağı URL. Varsayılan değer null (Controller Hub yoktur). Denetleyici Hub 'ı Crank oturumu başladığında başlatılır; Denetleyici Hub 'ı ve Crank arasında başka iletişim kurulamadı.
+- **Numclients**: uygulamaya bağlanacak sanal istemci sayısı. Varsayılan değer bir.
+- **Logfile**: test çalıştırması için logfile dosya adı. Varsayılan, `crank.csv` değeridir.
+- **SampleInterval**: performans sayacı örnekleri arasındaki milisaniye cinsinden süre. Varsayılan değer 1000 ' dir.
+- **Signalrınstance**: sunucudaki performans sayaçlarının örnek adı. Varsayılan değer istemci bağlantı durumunu kullanmaktır.
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki komutu adlı bir sitede sınayacak `pfsignalr` "ControllerHub" adlı bir hub ile bağlantı noktası 8080 üzerinde uygulama barındıran Azure üzerinde 100 bağlantı kullanarak.
+Aşağıdaki komut, bağlantı noktası 8080 ' de, 100 bağlantıları kullanılarak "ControllerHub" adlı bir hub ile bağlantı noktası üzerinde bir uygulama barındıran `pfsignalr` adlı bir siteyi test edecektir.
 
 `crank /Connections:100 /Url:http://pfsignalr.cloudapp.net:8080/signalr`

@@ -1,265 +1,265 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
-title: Profiller, temalar ve Web Bölümleri | Microsoft Docs
+title: Profiller, Temalar ve Web Bölümleri | Microsoft Docs
 author: microsoft
-description: Yapılandırma önemli değişiklikler ve ASP.NET 2.0 araçları vardır. Yeni ASP.NET yapılandırma API çekme isteği yapılacak yapılandırma değişikliklerini sağlar...
+description: ASP.NET 2,0 ' de yapılandırma ve araçlardaki önemli değişiklikler vardır. Yeni ASP.NET Configuration API 'SI, yapılandırma değişikliklerinin PR 'ye yapılmasına izin verir...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 92df4051-77c6-492c-bd34-23d24189cea4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
 ms.openlocfilehash: cf5c45781be6d003d28c6aa27efa08032579a6dd
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132781"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78587236"
 ---
 # <a name="profiles-themes-and-web-parts"></a>Profiller, Temalar ve Web Bölümleri
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> Yapılandırma önemli değişiklikler ve ASP.NET 2.0 araçları vardır. Yeni ASP.NET yapılandırma API yapılandırma değişikliklerini programlı bir şekilde yapılmasına olanak sağlar. Ayrıca, birçok yeni yapılandırma ayarlarını kayıtlı yeni yapılandırmalar ve izleme için izin verilir.
+> ASP.NET 2,0 ' de yapılandırma ve araçlardaki önemli değişiklikler vardır. Yeni ASP.NET yapılandırma API 'SI, yapılandırma değişikliklerinin programlı olarak yapılmasına izin verir. Ayrıca, birçok yeni yapılandırma ayarı yeni yapılandırmalar ve izleme için izin verir.
 
-ASP.NET 2.0 alan önemli geliştirme, Web siteleri kişiselleştirilmiş temsil eder. Zaten ele aldığımız üyelik özelliklerine ek olarak, ASP.NET profiller, temalar ve Web Bölümleri önemli ölçüde kişiselleştirme, Web siteleri geliştirin.
+ASP.NET 2,0, kişiselleştirilmiş Web siteleri alanındaki önemli bir gelişimi temsil eder. Zaten kapsandığımız üyelik özelliklerine ek olarak, ASP.NET profilleri, Temalar ve Web bölümleri, Web sitelerinde kişiselleştirmeyi önemli ölçüde geliştirir.
 
-## <a name="aspnet-profiles"></a>ASP.NET Profil
+## <a name="aspnet-profiles"></a>ASP.NET profilleri
 
-ASP.NET Profil oturumlarına benzer. Tarayıcı kapatıldığında oturum kaybolur ise bir profil kalıcı olduğunu farktır. Oturumlarının ve profilleri arasında başka bir büyük fark, profiller, bu nedenle geliştirme sürecinde IntelliSense ile sağlayan kesin olarak belirlenmiştir, ise.
+ASP.NET profilleri oturumlara benzerdir. Bu fark, tarayıcı kapandığında bir oturumun kaybedilmesi durumunda bir profilin kalıcı olduğu farktır. Oturumlar ve profiller arasındaki başka bir büyük fark, profillerin kesin bir şekilde yazılmasından dolayı geliştirme sürecinde IntelliSense 'i sağlamaktır.
 
-Bir profil, makine yapılandırma dosyası veya uygulamanın web.config dosyasında tanımlanır. (Alt klasörler web.config dosyasındaki bir profili tanımlayamazsınız.) Aşağıdaki kod, Web sitesinde yayımlanacağını ve Ziyaretçiler ilk depolamak ve Soyadı bir profili tanımlar.
+Bir profil, uygulamanın makineler yapılandırma dosyasında veya Web. config dosyasında tanımlanır. (Bir profili alt klasörler Web. config dosyasında tanımlayamazsınız.) Aşağıdaki kod, Web sitesi ziyaretçilerinin ilk ve son adını depolamak için bir profil tanımlar.
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample1.xml)]
 
-Bir profil özelliği için varsayılan veri türü System.String ' dir. Yukarıdaki örnekte, hiçbir veri türü belirtildi. Bu nedenle FirstName ve LastName özellikler hem dize türünde olur. Daha önce belirtildiği gibi profil özellikleri kesin olarak belirlenmiştir. Aşağıdaki kod, Int32 türü yaşı için yeni bir özellik ekler.
+Bir profil özelliği için varsayılan veri türü System. String 'dir. Yukarıdaki örnekte, veri türü belirtilmedi. Bu nedenle, FirstName ve LastName özelliklerinin ikisi de tür dizesidir. Daha önce belirtildiği gibi, profil özellikleri kesin olarak türdedir. Aşağıdaki kod, Int32 türünde bir yaş için yeni bir özellik ekler.
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample2.xml)]
 
-Profilleri, ASP.NET formları kimlik doğrulaması ile genel olarak kullanılır. Form kimlik doğrulaması ile birlikte kullanıldığında, her kullanıcının kendi kullanıcı kimliğiyle ilişkili ayrı bir profil vardır. Ancak, ayrıca profilleri kullanarak anonim uygulama içinde kullanılmasına izin vermek mümkündür &lt;anonymousIdentification&gt; yapılandırma dosyası ile birlikte öğesinde **allowAnonymous** olarak özniteliği Aşağıda:
+Profiller genellikle ASP.NET Forms kimlik doğrulamasıyla kullanılır. Form kimlik doğrulamasıyla birlikte kullanıldığında, her kullanıcının Kullanıcı KIMLIĞIYLE ilişkili ayrı bir profili vardır. Bununla birlikte, aşağıdaki gibi, **AllowAnonymous** özniteliğiyle birlikte yapılandırma dosyasında &lt;anonymousıdentification&gt; öğesi kullanılarak adsız bir uygulamadaki profillerin kullanılmasına izin vermek da mümkündür:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample3.xml)]
 
-Anonim kullanıcı site attığında, ASP.NET bir örneğini oluşturur. **ProfileCommon** kullanıcı. Bu profil kullanıcıyı benzersiz ziyaretçi olarak tanımlamak için bir tanımlama bilgisinde tarayıcıda depolanan benzersiz bir kimliği kullanır. Bu şekilde, anonim olarak gözatma kullanıcılar için profil bilgilerini depolayabilirsiniz.
+Anonim Kullanıcı siteye gözattığında, ASP.NET Kullanıcı için bir **ProfileCommon** örneği oluşturur. Bu profil, kullanıcıyı benzersiz bir ziyaretçi olarak tanımlamak için tarayıcıda bir tanımlama bilgisinde depolanan benzersiz bir KIMLIK kullanır. Bu şekilde, anonim olarak gözalayan kullanıcılar için profil bilgilerini saklayabilirsiniz.
 
 ## <a name="profile-groups"></a>Profil grupları
 
-Profilleri Grup özelliklerine mümkündür. Gruplandırma özellikleri tarafından belirli bir uygulama için birden çok profil benzetimini yapmak mümkündür.
+Profillerin özelliklerini gruplamak mümkündür. Özellikleri gruplandırarak, belirli bir uygulama için birden çok profilin benzetimini yapmak mümkündür.
 
-Aşağıdaki yapılandırmayı iki grup için bir ad ve Soyadı özellik yapılandırır; Alıcı ve potansiyel müşteri sayısını artırıyor.
+Aşağıdaki yapılandırma iki grup için bir FirstName ve LastName özelliği yapılandırır; Alıcılar ve aday.
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample4.xml)]
 
-Ardından, belirli bir grubu gibi özelliklerini ayarlamak mümkündür:
+Daha sonra belirli bir gruptaki özellikleri aşağıdaki gibi ayarlamak mümkündür:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample5.cs)]
 
-## <a name="storing-complex-objects"></a>Karmaşık nesneler depolanıyor
+## <a name="storing-complex-objects"></a>Karmaşık nesneleri depolama
 
-Şu ana kadar biz kapsamdaki örnekler profilde basit veri türleri depoladığınız. Karmaşık veri türlerini serileştirme kullanarak yöntemi belirterek bir profilde depolamak mümkündür **serializeAs** özniteliğini aşağıdaki gibi:
+Şimdiye kadar, kapsandığımız örneklerde basit veri türleri bir profilde depolanmaktadır. Ayrıca, **SerializeAs** özniteliğini kullanarak serileştirme yöntemini aşağıdaki şekilde belirterek, karmaşık veri türlerini bir profilde depolamak mümkündür:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample6.xml)]
 
-Bu durumda, PurchaseInvoice türüdür. PurchaseInvoice sınıf seri hale getirilebilir olarak işaretlenmesi gerekir ve herhangi bir sayıda özellikler içerebilir. Örneğin, PurchaseInvoice adlı bir özellik varsa **NumItemsPurchased**, kod içinde bu özellik aşağıdaki şekilde başvurabilirsiniz:
+Bu durumda, türü PurchaseInvoice ' dir. PurchaseInvoice sınıfının seri hale getirilebilir olarak işaretlenmesi ve herhangi bir sayıda özellik içermesi gerekir. Örneğin, PurchaseInvoice **Numıtemspurchased**adlı bir özelliğe sahipse, koddaki bu özelliğe aşağıdaki gibi başvurabilirsiniz:
 
 [!code-css[Main](profiles-themes-and-web-parts/samples/sample7.css)]
 
 ## <a name="profile-inheritance"></a>Profil devralma
 
-Birden çok uygulamada kullanmak için bir profil oluşturmak mümkündür. ProfileBase türeyen bir profil sınıfı oluşturarak, birkaç uygulama profilinde kullanarak yeniden kullanabileceğiniz **devralan** aşağıda gösterildiği gibi öznitelik:
+Birden çok uygulamada kullanılmak üzere bir profil oluşturmak mümkündür. ProfileBase 'den türetilen bir profil sınıfı oluşturarak, aşağıda gösterildiği gibi **Inherits** özniteliğini kullanarak birkaç uygulamada bir profili yeniden kullanabilirsiniz:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample8.xml)]
 
-Bu durumda, sınıf **PurchasingProfile** görünür şu şekilde:
+Bu durumda, **Purchasingprofile** sınıfı şöyle görünür:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample9.cs)]
 
 ## <a name="profile-providers"></a>Profil sağlayıcıları
 
-ASP.NET Profil sağlayıcı modeli kullanır. Varsayılan sağlayıcıyı uygulama SQL Server Express veritabanında bilgileri depolar\_SqlProfileProvider Sağlayıcısı'nı kullanarak Web uygulamasının veri klasörü. Veritabanı yoksa, profil bilgilerini depolamak üzere çalıştığında ASP.NET bunu otomatik olarak oluşturur.
+ASP.NET profilleri sağlayıcı modelini kullanır. Varsayılan sağlayıcı, bilgileri, SqlProfileProvider sağlayıcısını kullanarak Web uygulamasının App\_Data klasöründe bir SQL Server Express veritabanında depolar. Veritabanı yoksa, profil bilgileri depolamayı denediğinde ASP.NET otomatik olarak oluşturur.
 
-Ancak, bazı durumlarda, kendi profili sağlayıcısı geliştirme isteyebilirsiniz. ASP.NET Profil özelliği farklı sağlayıcıları kolayca kullanmanıza olanak sağlar.
+Ancak bazı durumlarda, kendi profil sağlayıcınızı geliştirmek isteyebilirsiniz. ASP.NET profili özelliği, farklı sağlayıcıları kolayca kullanmanıza olanak sağlar.
 
-Bir özel profil sağlayıcısı oluşturma zaman:
+Şu durumlarda bir özel profil sağlayıcısı oluşturursunuz:
 
-- FoxPro veritabanı veya bir Oracle veritabanına, .NET Framework ile dahil Profil sağlayıcıları tarafından desteklenmeyen gibi bir veri kaynağında profil bilgilerini depolamak gerekir.
-- .NET Framework ile dahil sağlayıcıları tarafından kullanılan veritabanı şemasından farklı bir veritabanı şeması kullanarak profil bilgilerini yönetmeniz gerekmez. Bir ortak kullanıcı verileri var olan SQL Server veritabanındaki profil bilgilerini tümleştirmek istediğiniz örnektir.
+- Profil bilgilerini, .NET Framework dahil edilen profil sağlayıcıları tarafından desteklenmeyen bir FoxPro veritabanı veya Oracle veritabanı gibi bir veri kaynağında depolamanız gerekir.
+- .NET Framework bulunan sağlayıcılar tarafından kullanılan veritabanı şemasından farklı bir veritabanı şeması kullanarak profil bilgilerini yönetmeniz gerekir. Ortak bir örnek, profil bilgilerini var olan bir SQL Server veritabanındaki kullanıcı verileriyle tümleştirmenizi istiyoruz.
 
-### <a name="required-classes"></a>Gerekli sınıfları
+### <a name="required-classes"></a>Gerekli sınıflar
 
-Bir profili sağlayıcısı uygulamak için System.Web.Profile.ProfileProvider soyut sınıfından devralan bir sınıf oluşturun. **ProfileProvider** soyut sınıf sırayla System.Configuration.Provider.ProviderBase soyut sınıfından devralan System.Configuration.SettingsProvider soyut sınıf devralır. Gerekli üyeleri yanı sıra bu devralma zincirini nedeniyle **ProfileProvider** sınıf, gerekli üyelerin uygulanmalı **SettingsProvider** ve  **ProviderBase** sınıfları.
+Bir profil sağlayıcısı uygulamak için, System. Web. Profile. ProfileProvider soyut sınıfını devralan bir sınıf oluşturursunuz. İçindeki **ProfileProvider** soyut sınıfı, System. Configuration. Provider. ProviderBase soyut sınıfını devralan System. Configuration. SettingsProvider soyut sınıfını devralır. Bu devralma zinciri nedeniyle, **ProfileProvider** sınıfının gerekli üyelerine ek olarak, **SettingsProvider** ve **ProviderBase** sınıflarının gerekli üyelerini uygulamanız gerekir.
 
-Aşağıdaki tablo, uygulamanız gereken yöntemler ve özellikleri açıklar **ProviderBase**, **SettingsProvider**, ve **ProfileProvider** soyut sınıflar.
+Aşağıdaki tablolarda, **ProviderBase**, **SettingsProvider**ve **ProfileProvider** soyut sınıflarından uygulamanız gereken özellikler ve yöntemler açıklanır.
 
 ### <a name="providerbase-members"></a>ProviderBase üyeleri
 
-| **Üyesi** | **Açıklama** |
+| **Üyesidir** | **Açıklama** |
 | --- | --- |
-| Initialize yöntemi | Giriş sağlayıcı örneği adını ve yapılandırma ayarlarının bir NameValueCollection olarak alır. Seçenekler ve uygulamaya özel değerleri ve makine yapılandırma veya Web.config dosyasında belirtilen seçenekleri dahil olmak üzere sağlayıcı örneği için özellik değerlerini ayarlamak için kullanılır. |
+| Initialize yöntemi | , Sağlayıcı örneğinin adını ve yapılandırma ayarlarının NameValueCollection öğesini giriş olarak alır. Makine yapılandırması veya Web. config dosyasında belirtilen uygulamaya özgü değerler ve seçenekler dahil olmak üzere, sağlayıcı örneği için seçenekleri ve özellik değerlerini ayarlamak için kullanılır. |
 
 ### <a name="settingsprovider-members"></a>SettingsProvider üyeleri
 
-| **Üyesi** | **Açıklama** |
+| **Üyesidir** | **Açıklama** |
 | --- | --- |
-| ApplicationName özelliği | Her profille depolanan uygulama adı. Profil sağlayıcısı uygulama adı, her uygulama için ayrı ayrı profil bilgilerini depolamak için kullanır. Bu, aynı kullanıcı adı farklı uygulamalarda oluşturduysanız, aynı veri kaynağını bir çakışma olmadan kullanmak birden çok ASP.NET uygulaması sağlar. Alternatif olarak, birden çok ASP.NET uygulaması, aynı uygulama adı belirterek bir profil veri kaynağını paylaşabilir. |
-| GetPropertyValues yöntemi | SettingsContext bir giriş ve bir SettingsPropertyCollection nesnesi alır. **SettingsContext** kullanıcı hakkında bilgi sağlar. Kullanıcı profili özellik bilgilerini almak için bir birincil anahtar olarak bilgileri kullanın. Kullanım **SettingsContext** kullanıcı adı ve kullanıcı kimliği doğrulanmış veya anonim olup alınacak nesne. **SettingsPropertyCollection** SettingsProperty nesnelerinin bir koleksiyonunu içerir. Her **SettingsProperty** nesnesi, adını ve türünü özelliğinin yanı sıra özellik ve özellik salt okunur olup için varsayılan değer gibi ek bilgi sağlar. **GetPropertyValues** yöntemi bir SettingsPropertyValueCollection temel SettingsPropertyValue nesneleri ile doldurur **SettingsProperty** giriş olarak sağlanan nesne. Belirtilen kullanıcı için veri kaynağından alınan değerler her biri için PropertyValue özelliklerine atanır **SettingsPropertyValue** nesne ve tüm koleksiyon döndürülür. Yöntemini çağırarak ayrıca LastActivityDate değerini belirtilen kullanıcı profili için geçerli tarih ve saat için güncelleştirir. |
-| SetPropertyValues yöntemi | Girdi olarak alır bir **SettingsContext** ve **SettingsPropertyValueCollection** nesne. **SettingsContext** kullanıcı hakkında bilgi sağlar. Kullanıcı profili özellik bilgilerini almak için bir birincil anahtar olarak bilgileri kullanın. Kullanım **SettingsContext** kullanıcı adı ve kullanıcı kimliği doğrulanmış veya anonim olup alınacak nesne. **SettingsPropertyValueCollection** koleksiyonunu içeren **SettingsPropertyValue** nesneleri. Her **SettingsPropertyValue** nesne adı, türü ve özellik ve özellik salt okunur olup için varsayılan değer gibi ek bilgileri yanı sıra özellik değerini sağlar. **SetPropertyValues** yöntemi veri kaynağında belirtilen kullanıcı için profil özellik değerlerini güncelleştirir. Yöntem aynı zamanda güncelleştirmeleri çağırma **LastActivityDate** ve geçerli tarih ve saat için belirtilen kullanıcı profili LastUpdatedDate değerleri. |
+| ApplicationName özelliği | Her bir profille depolanan uygulama adı. Profil sağlayıcısı, her bir uygulama için profil bilgilerini ayrı olarak depolamak üzere uygulama adını kullanır. Bu, farklı uygulamalarda aynı Kullanıcı adı oluşturulduysa, birden çok ASP.NET uygulamasının bir çakışma olmadan aynı veri kaynağını kullanmasına olanak sağlar. Alternatif olarak, birden çok ASP.NET uygulaması aynı uygulama adını belirterek bir profil veri kaynağını paylaşabilir. |
+| GetPropertyValues yöntemi | Bir SettingsContext ve SettingsPropertyCollection nesnesi giriş olarak alır. **SettingsContext** Kullanıcı hakkında bilgi sağlar. Kullanıcının profil özellik bilgilerini almak için bilgileri birincil anahtar olarak kullanabilirsiniz. Kullanıcı adını ve kullanıcının kimliği doğrulanmış veya anonim olup olmadığını almak için **SettingsContext** nesnesini kullanın. **SettingsPropertyCollection** , SettingsProperty nesnelerinin bir koleksiyonunu içerir. Her **SettingsProperty** nesnesi, özelliğin adını ve türünü ve özellik için varsayılan değer gibi ek bilgileri ve özelliğin salt okunurdur olduğunu sağlar. **GetPropertyValues** yöntemi, giriş olarak sunulan **SettingsProperty** nesnelerine bağlı olarak SettingsPropertyValueCollection 'ı SettingsPropertyValue nesneleriyle doldurur. Belirtilen kullanıcı için veri kaynağından alınan değerler her **SettingsPropertyValue** nesnesinin PropertyValue özelliklerine atanır ve tüm koleksiyon döndürülür. Yöntemi çağırmak, belirtilen kullanıcı profili için LastActivityDate değerini geçerli tarih ve saate da güncelleştirir. |
+| SetPropertyValues yöntemi | Bir **SettingsContext** ve **SettingsPropertyValueCollection** nesnesini giriş olarak alır. **SettingsContext** Kullanıcı hakkında bilgi sağlar. Kullanıcının profil özellik bilgilerini almak için bilgileri birincil anahtar olarak kullanabilirsiniz. Kullanıcı adını ve kullanıcının kimliği doğrulanmış veya anonim olup olmadığını almak için **SettingsContext** nesnesini kullanın. **SettingsPropertyValueCollection** , **SettingsPropertyValue** nesnelerinin bir koleksiyonunu içerir. Her **SettingsPropertyValue** nesnesi, özelliğin adını, türünü ve değerini, özelliği için varsayılan değer ve özelliğin salt okunurdur gibi ek bilgileri sağlar. **SetPropertyValues** yöntemi, belirtilen kullanıcı için veri kaynağındaki profil özellik değerlerini güncelleştirir. Yöntemi çağırmak, belirtilen kullanıcı profili için **LastActivityDate** ve LastUpdatedDate değerlerini geçerli tarih ve saate da güncelleştirir. |
 
 ### <a name="profileprovider-members"></a>ProfileProvider üyeleri
 
-| **Üyesi** | **Açıklama** |
+| **Üyesidir** | **Açıklama** |
 | --- | --- |
-| DeleteProfiles yöntemi | Burada uygulama adıyla eşleşen bir dize dizisi, kullanıcı adları ve belirtilen adları için tüm profil bilgileri ve özellik değerleri veri kaynağından siler girdi olarak alır **ApplicationName** özellik değeri. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil etme ve işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum önerilir. |
-| DeleteProfiles yöntemi | Uygulama adı eşleştiği ProfileInfo koleksiyonu nesneleri ve her bir profil için tüm profil bilgileri ve özellik değerleri veri kaynağından siler girdi olarak alır **ApplicationName** özellik değeri. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum, önerilir. |
-| DeleteInactiveProfiles yöntemi | Giriş ProfileAuthenticationOption değeri olarak alır ve tüm profil bilgilerini kaynak, bir DateTime nesnesini ve verileri siler ve özellik değerlerinin son etkinlik tarihini değerinden küçük veya eşit belirtilen tarih ve saat olduğu ve burada uygulama adı eşleşen **ApplicationName** özellik değeri. **ProfileAuthenticationOption** parametresinin belirttiği yalnızca Anonim profilleri, yalnızca kimliği doğrulanmış olup olmadığını profilleri veya silinecek tüm profillerdir. Veri kaynağı işlemleri destekliyorsa, bir işlemde tüm silme işlemleri dahil işlemin geri alınması ve herhangi bir silme işlemi başarısız olursa bir özel durum, önerilir. |
-| GetAllProfiles yöntemi | Girdi olarak alır bir **ProfileAuthenticationOption** değer, sayfa dizini belirten bir tamsayı, sayfa boyutu ve toplam hata sayısı profilleri için ayarlanacak bir tamsayı başvuru belirten bir tamsayı. İçeren bir ProfileInfoCollection döndürür **ProfileInfo** uygulama adı eşleştiği veri kaynağındaki tüm profiller için nesneleri **ApplicationName** özellik değeri. **ProfileAuthenticationOption** parametresinin belirttiği yalnızca Anonim profilleri, yalnızca kimliği doğrulanmış olup olmadığını profilleri veya tüm profiller döndürülecek olan. Tarafından döndürülen sonuçlar **GetAllProfiles** yöntemi ve sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılmıştır. Sayfa boyutu değeri en fazla sayısını belirtir. **ProfileInfo** döndürmek için nesneleri **ProfileInfoCollection**. Sayfa dizin değerini döndürür, burada ilk sayfa 1 tanımlar için sonuçları hangi sayfa belirtir. Out parametresi toplam kayıt parametresi olmalıdır (kullanabileceğiniz **ByRef** Visual Basic'te) profilleri için toplam sayısını ayarlayın. Örneğin, 13 profilleri uygulama için veri deposu içeriyorsa ve sayfa dizin değeri 2 / 5, sayfa boyutu ile **ProfileInfoCollection** döndürülen onuncu profilleri aracılığıyla altıncı içerir. Yöntem döndürüldüğünde, toplam kayıt değeri 13 olarak ayarlanır. |
-| GetAllInactiveProfiles yöntemi | Girdi olarak alır bir **ProfileAuthenticationOption** değeri bir **DateTime** nesne, sayfa dizini belirten bir tamsayı, sayfa boyutu ve başvuru ayarlanacak bir tamsayıya belirten bir tamsayı profilleri için toplam sayısı. Döndürür bir **ProfileInfoCollection** içeren **ProfileInfo** son etkinlik tarihini olduğu küçüktür veya eşittir belirtilen veri kaynağındaki tüm profiller için nesneleri **tarih/saat**  ve uygulama adıyla eşleştiği **ApplicationName** özellik değeri. **ProfileAuthenticationOption** parametresinin belirttiği yalnızca Anonim profilleri, yalnızca kimliği doğrulanmış olup olmadığını profilleri veya tüm profiller döndürülecek olan. Tarafından döndürülen sonuçlar **GetAllInactiveProfiles** yöntemi ve sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılmıştır. Sayfa boyutu değeri en fazla sayısını belirtir. **ProfileInfo** döndürmek için nesneleri **ProfileInfoCollection**. Sayfa dizin değerini döndürür, burada ilk sayfa 1 tanımlar için sonuçları hangi sayfa belirtir. Out parametresi toplam kayıt parametresi olmalıdır (kullanabileceğiniz **ByRef** Visual Basic'te) profilleri için toplam sayısını ayarlayın. Örneğin, 13 profilleri uygulama için veri deposu içeriyorsa ve sayfa dizin değeri 2 / 5, sayfa boyutu ile **ProfileInfoCollection** döndürülen onuncu profilleri aracılığıyla altıncı içerir. Yöntem döndürüldüğünde, toplam kayıt değeri 13 olarak ayarlanır. |
-| FindProfilesByUserName yöntemi | Girdi olarak alır bir **ProfileAuthenticationOption** bir kullanıcı adı, sayfa dizini belirten bir tamsayı, sayfa boyutu ve toplam hata sayısı için ayarlanacak bir tamsayı başvuru belirten bir tamsayı içeren bir dize değeri Profiller. Döndürür bir **ProfileInfoCollection** içeren **ProfileInfo** kullanıcı adının belirtilen kullanıcı adıyla eşleştiği ve uygulama adıyla eşleştiği tüm profillerde veri kaynağı için nesneleri **ApplicationName** özellik değeri. **ProfileAuthenticationOption** parametresinin belirttiği yalnızca Anonim profilleri, yalnızca kimliği doğrulanmış olup olmadığını profilleri veya tüm profiller döndürülecek olan. Veri kaynağı gibi joker karakterler ek arama özellikleri destekliyorsa, kullanıcı adları için daha kapsamlı arama yetenekleri sağlayabilirsiniz. Tarafından döndürülen sonuçlar **FindProfilesByUserName** yöntemi ve sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılmıştır. Sayfa boyutu değeri en fazla sayısını belirtir. **ProfileInfo** döndürmek için nesneleri **ProfileInfoCollection**. Sayfa dizin değerini döndürür, burada ilk sayfa 1 tanımlar için sonuçları hangi sayfa belirtir. Out parametresi toplam kayıt parametresi olmalıdır (kullanabileceğiniz **ByRef** Visual Basic'te) profilleri için toplam sayısını ayarlayın. Örneğin, 13 profilleri uygulama için veri deposu içeriyorsa ve sayfa dizin değeri 2 / 5, sayfa boyutu ile **ProfileInfoCollection** döndürülen onuncu profilleri aracılığıyla altıncı içerir. Yöntem döndürüldüğünde, toplam kayıt değeri 13 olarak ayarlanır. |
-| FindInactiveProfilesByUserName yöntemi | Girdi olarak alır bir **ProfileAuthenticationOption** , bir kullanıcı adı içeren bir dize değeri bir **DateTime** nesne, sayfa dizini belirten bir tamsayı, sayfa boyutunu belirten bir tamsayı ve bir Toplam hata sayısı profilleri için ayarlanacak bir tamsayıya başvuru. Döndürür bir **ProfileInfoCollection** içeren **ProfileInfo** son etkinlik tarihini olduğu kullanıcı adını, belirtilen kullanıcı adıyla eşleştiği veri kaynağındaki tüm profiller için nesneleri küçüktür veya Belirtilen eşit **DateTime**, ve uygulama adıyla eşleştiği **ApplicationName** özellik değeri. **ProfileAuthenticationOption** parametresinin belirttiği yalnızca Anonim profilleri, yalnızca kimliği doğrulanmış olup olmadığını profilleri veya tüm profiller döndürülecek olan. Veri kaynağı gibi joker karakterler ek arama özellikleri destekliyorsa, kullanıcı adları için daha kapsamlı arama yetenekleri sağlayabilirsiniz. Tarafından döndürülen sonuçlar **FindInactiveProfilesByUserName** yöntemi ve sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılmıştır. Sayfa boyutu değeri en fazla sayısını belirtir. **ProfileInfo** döndürmek için nesneleri **ProfileInfoCollection**. Sayfa dizin değerini döndürür, burada ilk sayfa 1 tanımlar için sonuçları hangi sayfa belirtir. Out parametresi toplam kayıt parametresi olmalıdır (kullanabileceğiniz **ByRef** Visual Basic'te) profilleri için toplam sayısını ayarlayın. Örneğin, 13 profilleri uygulama için veri deposu içeriyorsa ve sayfa dizin değeri 2 / 5, sayfa boyutu ile **ProfileInfoCollection** döndürülen onuncu profilleri aracılığıyla altıncı içerir. Yöntem döndürüldüğünde, toplam kayıt değeri 13 olarak ayarlanır. |
-| GetNumberOfInActiveProfiles yöntemi | Girdi olarak alır bir **ProfileAuthenticationOption** değer ve bir **DateTime** nesnesi ve son etkinlik tarihini olduğu belirtilen eşitveyaondandahaazverikaynağındakitümprofillerinsayısınıdöndürür. **DateTime** ve uygulama adıyla eşleştiği **ApplicationName** özellik değeri. **ProfileAuthenticationOption** parametresinin belirttiği yalnızca Anonim profilleri, yalnızca kimliği doğrulanmış olup olmadığını profilleri veya sayılması için tüm profillerdir. |
+| DeleteProfiles yöntemi | Giriş olarak, uygulama adının **ApplicationName** özelliği değeri ile eşleşen belirtilen adların tüm profil bilgileri ve özellik değerleri için bir dizi Kullanıcı adı ve veri kaynağından siler olarak alır. Veri kaynağınız işlemleri destekliyorsa, tüm silme işlemlerini bir işlemde eklemeniz ve işlemi geri almanız ve herhangi bir silme işlemi başarısız olursa bir özel durum oluşturmanız önerilir. |
+| DeleteProfiles yöntemi | Bir ProfileInfo nesneleri koleksiyonunu giriş olarak alır ve uygulama adının **ApplicationName** özellik değeriyle eşleştiği her profil için veri kaynağından tüm profil bilgileri ve özellik değerleri silinir. Veri kaynağınız işlemleri destekliyorsa, tüm silme işlemlerini bir işlem içinde dahil etmeniz ve işlemi geri almanız ve herhangi bir silme işlemi başarısız olursa bir özel durum oluşturmanız önerilir. |
+| DeleteInactiveProfiles yöntemi | Bir ProfileAuthenticationOption değeri ve bir DateTime nesnesi girişi yapın ve son etkinlik tarihinin belirtilen tarih ve saatten küçük ya da buna eşit olduğu ve uygulama adının **ApplicationName** özellik değeriyle eşleştiği tüm profil bilgileri ve özellik değerleri veri kaynağından siler. **ProfileAuthenticationOption** parametresi yalnızca anonim profillerin, yalnızca kimliği doğrulanmış profillerin mi yoksa tüm profillerin mi silineceğini belirtir. Veri kaynağınız işlemleri destekliyorsa, tüm silme işlemlerini bir işlem içinde dahil etmeniz ve işlemi geri almanız ve herhangi bir silme işlemi başarısız olursa bir özel durum oluşturmanız önerilir. |
+| GetAllProfiles yöntemi | Bir **ProfileAuthenticationOption** değeri, sayfa dizinini belirten bir tamsayı, sayfa boyutunu belirten bir tamsayı ve toplam profil sayısı olarak ayarlanacak bir tamsayıya başvuru olarak alır. Uygulama adının **ApplicationName** özellik değeriyle eşleştiği veri kaynağındaki tüm profiller Için **ProfileInfo** nesnelerini Içeren bir ProfileInfoCollection döndürür. **ProfileAuthenticationOption** parametresi yalnızca anonim profillerin, yalnızca kimliği doğrulanmış profillerin veya tüm profillerin döndürülüp döndürülmeyeceğini belirtir. **GetAllProfiles** yöntemi tarafından döndürülen sonuçlar sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılır. Sayfa boyutu değeri, **ProfileInfoCollection**içinde döndürülecek olan en fazla **ProfileInfo** nesne sayısını belirtir. Sayfa dizini değeri döndürülecek sonuç sayfasını belirtir; burada 1 ilk sayfayı tanımlar. Toplam kayıt parametresi, toplam profil sayısına ayarlanmış bir out parametresidir (Visual Basic **ByRef** kullanabilirsiniz). Örneğin, veri deposu uygulama için 13 profil içeriyorsa ve sayfa dizini değeri 5 sayfa boyutuyla 2 ise, döndürülen **ProfileInfoCollection** , onuncu profiller aracılığıyla altıncı ' i içerir. Yöntemin döndürdüğü toplam kayıtlar değeri 13 olarak ayarlanır. |
+| GetAllInactiveProfiles yöntemi | Bir **ProfileAuthenticationOption** değeri, bir **DateTime** nesnesi, sayfa dizinini belirten bir tamsayı, sayfa boyutunu belirten bir tamsayı ve toplam profil sayısı olarak ayarlanacak bir tamsayıya başvuru olarak alır. Son etkinlik tarihinin belirtilen **Tarih/** saatten küçük veya bu değere eşit olduğu ve uygulama adının **ApplicationName** özellik değeriyle eşleştiği veri kaynağındaki tüm profiller için **ProfileInfo** nesnelerini içeren bir **ProfileInfoCollection** döndürür. **ProfileAuthenticationOption** parametresi yalnızca anonim profillerin, yalnızca kimliği doğrulanmış profillerin veya tüm profillerin döndürülüp döndürülmeyeceğini belirtir. **Getallinactiveprofiles** yöntemi tarafından döndürülen sonuçlar sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılır. Sayfa boyutu değeri, **ProfileInfoCollection**içinde döndürülecek olan en fazla **ProfileInfo** nesne sayısını belirtir. Sayfa dizini değeri döndürülecek sonuç sayfasını belirtir; burada 1 ilk sayfayı tanımlar. Toplam kayıt parametresi, toplam profil sayısına ayarlanmış bir out parametresidir (Visual Basic **ByRef** kullanabilirsiniz). Örneğin, veri deposu uygulama için 13 profil içeriyorsa ve sayfa dizini değeri 5 sayfa boyutuyla 2 ise, döndürülen **ProfileInfoCollection** , onuncu profiller aracılığıyla altıncı ' i içerir. Yöntemin döndürdüğü toplam kayıtlar değeri 13 olarak ayarlanır. |
+| FindProfilesByUserName yöntemi | Bir **ProfileAuthenticationOption** değeri, bir Kullanıcı adı içeren bir dize, sayfa dizinini belirten bir tamsayı, sayfa boyutunu belirten bir tamsayı ve toplam profil sayısı olarak ayarlanacak bir tamsayı başvurusu olan giriş olarak alır. Kullanıcı adının belirtilen kullanıcı adıyla eşleştiği ve uygulama adının **ApplicationName** özellik değeriyle eşleştiği veri kaynağındaki tüm profiller Için **ProfileInfo** nesnelerini Içeren bir **ProfileInfoCollection** döndürür. **ProfileAuthenticationOption** parametresi yalnızca anonim profillerin, yalnızca kimliği doğrulanmış profillerin veya tüm profillerin döndürülüp döndürülmeyeceğini belirtir. Veri kaynağınız joker karakterler gibi ek arama özelliklerini destekliyorsa, Kullanıcı adları için daha kapsamlı arama özellikleri sağlayabilirsiniz. **FindProfilesByUserName** yöntemi tarafından döndürülen sonuçlar sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılır. Sayfa boyutu değeri, **ProfileInfoCollection**içinde döndürülecek olan en fazla **ProfileInfo** nesne sayısını belirtir. Sayfa dizini değeri döndürülecek sonuç sayfasını belirtir; burada 1 ilk sayfayı tanımlar. Toplam kayıt parametresi, toplam profil sayısına ayarlanmış bir out parametresidir (Visual Basic **ByRef** kullanabilirsiniz). Örneğin, veri deposu uygulama için 13 profil içeriyorsa ve sayfa dizini değeri 5 sayfa boyutuyla 2 ise, döndürülen **ProfileInfoCollection** , onuncu profiller aracılığıyla altıncı ' i içerir. Yöntemin döndürdüğü toplam kayıtlar değeri 13 olarak ayarlanır. |
+| Finınactiveprofilesbyusername yöntemi | Bir **ProfileAuthenticationOption** değeri, bir Kullanıcı adı içeren bir dize, bir **DateTime** nesnesi, sayfa dizinini belirten bir tamsayı, sayfa boyutunu belirten bir tamsayı ve toplam profil sayısı olarak ayarlanacak bir tamsayıya başvuru olarak alır. Veri kaynağındaki tüm profiller için, Kullanıcı adının belirtilen **Tarih/saatteki**değerden küçük veya bu değere eşit olduğu ve uygulama adının **ApplicationName** özellik değeriyle eşleştiği tüm profiller için **ProfileInfo** nesnelerini içeren bir **ProfileInfoCollection** döndürür. **ProfileAuthenticationOption** parametresi yalnızca anonim profillerin, yalnızca kimliği doğrulanmış profillerin veya tüm profillerin döndürülüp döndürülmeyeceğini belirtir. Veri kaynağınız joker karakterler gibi ek arama özelliklerini destekliyorsa, Kullanıcı adları için daha kapsamlı arama özellikleri sağlayabilirsiniz. **FindInactiveProfilesByUserName** yöntemi tarafından döndürülen sonuçlar sayfa dizini ve sayfa boyutu değerleri tarafından sınırlandırılır. Sayfa boyutu değeri, **ProfileInfoCollection**içinde döndürülecek olan en fazla **ProfileInfo** nesne sayısını belirtir. Sayfa dizini değeri döndürülecek sonuç sayfasını belirtir; burada 1 ilk sayfayı tanımlar. Toplam kayıt parametresi, toplam profil sayısına ayarlanmış bir out parametresidir (Visual Basic **ByRef** kullanabilirsiniz). Örneğin, veri deposu uygulama için 13 profil içeriyorsa ve sayfa dizini değeri 5 sayfa boyutuyla 2 ise, döndürülen **ProfileInfoCollection** , onuncu profiller aracılığıyla altıncı ' i içerir. Yöntemin döndürdüğü toplam kayıtlar değeri 13 olarak ayarlanır. |
+| GetNumberOfInactiveProfiles yöntemi | Bir **ProfileAuthenticationOption** değeri ve bir **DateTime** nesnesi girişi yapın ve veri kaynağındaki tüm profillerin sayısını, son etkinlik tarihinin belirtilen **Tarih/** saatten küçük veya bu değere eşit ya da uygulama adının **ApplicationName** özellik değeriyle eşleştiği yere döndürür. **ProfileAuthenticationOption** parametresi yalnızca anonim profillerin, yalnızca kimliği doğrulanmış profillerin veya tüm profillerin sayılıp sayılmayacağını belirtir. |
 
 ### <a name="applicationname"></a>ApplicationName
 
-Profil sağlayıcıları her uygulama için ayrı ayrı profil bilgilerini depolamak için veri şemanızı uygulama adı içerir ve sorgular ve güncelleştirmeleri ayrıca uygulamanın adını eklediğinizden emin olmanız gerekir. Örneğin, aşağıdaki komut kullanıcı adı ve profil anonim olmasına göre bir veritabanından bir özellik değerini almak için kullanılır ve sağlar **ApplicationName** değeri sorguya dahil edilmiştir.
+Profil sağlayıcıları her bir uygulama için profil bilgilerini ayrı olarak depoladığından, veri şemanızın uygulama adını içerdiğinden ve sorguların ve güncelleştirmelerin de uygulama adını içerdiğinden emin olmanız gerekir. Örneğin, aşağıdaki komut, Kullanıcı adına göre bir veritabanından bir özellik değeri almak için kullanılır ve profilin anonim olup olmadığını ve **ApplicationName** değerinin sorguya dahil edilmesini sağlar.
 
 [!code-sql[Main](profiles-themes-and-web-parts/samples/sample10.sql)]
 
-## <a name="aspnet-themes"></a>ASP.NET temaları
+## <a name="aspnet-themes"></a>ASP.NET Temalar
 
-## <a name="what-are-aspnet-20-themes"></a>ASP.NET 2.0 Temalar nelerdir?
+## <a name="what-are-aspnet-20-themes"></a>ASP.NET 2,0 temaları nelerdir?
 
-Bir Web uygulamasının en önemli yönlerinden biri site genelinde tutarlı bir görünüm olduğundan. ASP.NET 1.x geliştiriciler genellikle tutarlı bir görünüm uygulamak için geçişli stil sayfaları (CSS) kullanın. ASP.NET 2.0 Temalar ASP.NET sunucu denetimleri ve bunun yanı sıra HTML öğeleri görünümünü tanımlama yeteneği ASP.NET Geliştirici verdikleri olduğundan CSS sırasında önemli ölçüde geliştirmek. ASP.NET temaları, tek tek denetimler, belirli bir Web sayfası veya Web uygulamasının tamamı için uygulanabilir. Temalar, görüntüleri gerekirse bir birleşimini CSS dosyaları, bir isteğe bağlı bir dış görünüm dosyası ve isteğe bağlı bir görüntü dizini kullanın. Dış görünüm dosyası ASP.NET sunucu denetimleri görsel görünümünü denetler.
+Bir Web uygulamasının en önemli özelliklerinden biri, site genelinde tutarlı bir görünüm ve kullanım açısından. ASP.NET 1. x geliştiricileri, tutarlı bir görünüm uygulamak için genellikle Geçişli Stil Sayfaları (CSS) kullanır. ASP.NET 2,0 temaları, ASP.NET geliştiricilerine ASP.NET sunucu denetimlerinin yanı sıra HTML öğelerinin görünümünü tanımlama olanağı sağladığından, CSS üzerinde önemli ölçüde iyileştirilmesine olanak sağlar. ASP.NET temaları tek tek denetimlere, belirli bir Web sayfasına veya bir Web uygulamasına uygulanabilir. Temalar bir CSS dosyaları, isteğe bağlı bir kaplama dosyası ve görüntüler gerekiyorsa isteğe bağlı bir görüntüler dizini kullanır. Dış görünüm dosyası, ASP.NET Server denetimlerinin görsel görünümünü denetler.
 
-## <a name="where-are-themes-stored"></a>Temalar depolanan nerede?
+## <a name="where-are-themes-stored"></a>Temalar nerede depolanır?
 
-Temalar depolandığı konumun kapsamlarına göre farklılık gösterir. Herhangi bir uygulama için uygulanabilir Temalar aşağıdaki klasörde saklanır:
+Temaların depolanacağı konum kapsamlarına göre farklılık gösterir. Herhangi bir uygulamaya uygulanabilecek Temalar şu klasörde depolanır:
 
 `C:\WINDOWS\Microsoft.NET\Framework\v2.x.xxxxx\ASP.NETClientFiles\Themes\<Theme_Name>`
 
-Belirli bir uygulamaya özgü bir tema depolanan bir `App\_Themes\<Theme\_Name>` Web sitesinin kök dizininde.
+Belirli bir uygulamaya özgü bir tema, Web sitesinin kökündeki bir `App\_Themes\<Theme\_Name>` dizininde depolanır.
 
 > [!NOTE]
-> Dış görünüm dosyası yalnızca görünümünü etkiler sunucu denetim özelliklerini değiştirmeniz gerekir.
+> Bir kaplama dosyası yalnızca görünümü etkileyen sunucu denetimi özelliklerini değiştirmeli.
 
-Genel bir tema herhangi bir uygulama veya Web sitesi Web sunucusu üzerinde çalışan uygulanabilen temadır. Bu tema, varsayılan v2.x.xxxxx dizini içinde bulunduğu ASP.NETClientfiles\Themes dizin olarak depolanır. Alternatif olarak, ASP.NET teması dosyaları taşıyabilirsiniz\_istemci/sistem\_web / [sürüm] /Themes/ [tema\_adı] Web sitenizin kök klasörüne.
+Genel tema, Web sunucusu üzerinde çalışan herhangi bir uygulamaya veya Web sitesine uygulanabilen bir temadır. Bu Temalar, varsayılan olarak v2. x. xxxxx dizininin içindeki ASP. NETClientfiles\Themes dizininde saklanır. Alternatif olarak, tema dosyalarını web sitenizin kökündeki ASPNET\_Client/System\_Web/[Version]/Themes/[Theme\_Name] klasörüne taşıyabilirsiniz.
 
-Uygulamaya özel temalar, dosyaların bulunduğu uygulamaya yalnızca uygulanabilir. Bu dosyalar depolanan `App\_Themes/<theme\_name>` Web sitesinin kök dizininde.
+Uygulamaya özgü Temalar yalnızca dosyaların bulunduğu uygulamaya uygulanabilir. Bu dosyalar, Web sitesinin kökündeki `App\_Themes/<theme\_name>` dizininde depolanır.
 
-## <a name="the-components-of-a-theme"></a>Bir Tema bileşenleri
+## <a name="the-components-of-a-theme"></a>Bir temanın bileşenleri
 
-Bir tema, bir veya daha fazla CSS dosyaları, bir isteğe bağlı bir dış görünüm dosyası ve isteğe bağlı bir Resimler klasörü oluşur. CSS dosyaları (yani default.css veya theme.css, vb.) istiyor ve Temalar klasörünü kök dizininde olmalıdır herhangi bir ad olabilir. CSS dosyaları sıradan CSS sınıfları ve öznitelikleri için belirli Seçici tanımlamak için kullanılır. Bir sayfa öğesine bir CSS sınıfı uygulamak için **CSSClass** özelliği kullanılır.
+Bir tema, bir veya daha fazla CSS dosyasından, isteğe bağlı bir kaplama dosyasından ve isteğe bağlı bir görüntüler klasöründen oluşur. CSS dosyaları istediğiniz herhangi bir ad olabilir (yani default. CSS veya Theme. css, vb.) ve Temalar klasörünün kökünde olması gerekir. CSS dosyaları, belirli seçicilerin normal CSS sınıflarını ve özniteliklerini tanımlamak için kullanılır. CSS sınıflarından birini bir sayfa öğesine uygulamak için **CssClass** özelliği kullanılır.
 
-Dış görünüm dosyası ASP.NET sunucu denetimleri için özellik tanımları içeren bir XML dosyasıdır. Aşağıda örnek bir dış görünüm dosyası kodudur.
+Dış görünüm dosyası, ASP.NET Server denetimleri için özellik tanımlarını içeren bir XML dosyasıdır. Aşağıda listelenen kod örnek bir dış görünüm dosyasıdır.
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample11.aspx)]
 
-**Şekil 1** gösterildiği küçük bir ASP.NET sayfasına göz bir tema uygulandı. **Şekil 2** aynı dosyanın bir temasının uygulandığını gösterir. Arka plan rengi ve metin rengi bir CSS dosyası yapılandırılır. Düğme ve metin görünümünü, yukarıda listelenen dış görünüm dosyası kullanılarak yapılandırılır.
+Aşağıdaki **Şekil 1** ' de bir tema uygulanmadan gözatılan küçük bir ASP.NET sayfası görülmektedir. **Şekil 2** ' de tema uygulanmış aynı dosya gösterilmektedir. Arka plan rengi ve metin rengi bir CSS dosyası aracılığıyla yapılandırılır. Düğme ve metin kutusunun görünümü yukarıda listelenen dış görünüm dosyası kullanılarak yapılandırılır.
 
-![Tema](profiles-themes-and-web-parts/_static/image1.gif)
+![Tema yok](profiles-themes-and-web-parts/_static/image1.gif)
 
-**Şekil 1**: Tema
+**Şekil 1**: tema yok
 
 ![Tema uygulandı](profiles-themes-and-web-parts/_static/image2.gif)
 
 **Şekil 2**: Tema uygulandı
 
-Soubor skinu yukarıda listelenen tüm TextBox denetimleri ve düğme denetimleri için varsayılan kaplama tanımlar. Her metin kutusu ve bir sayfaya eklenen düğmesi denetimi bu görünümü üzerinde süreceği anlamına gelir. Ayrıca belirli örneklerini kullanarak bu denetimleri için uygulanabilir bir dış tanımlayabilirsiniz **skinID** denetiminin özelliği.
+Yukarıda listelenen dış görünüm dosyası, tüm TextBox denetimleri ve düğme denetimleri için varsayılan bir kaplama tanımlar. Diğer bir deyişle, bir sayfaya eklenen her TextBox denetimi ve düğme denetiminin bu görünümde gerçekleştirilecek olması anlamına gelir. Ayrıca, denetimin **SkinID** özelliğini kullanarak bu denetimlerin belirli örneklerine uygulanabilen bir kaplama de tanımlayabilirsiniz.
 
-Aşağıdaki kod, bir düğme denetimi için dış görünüm tanımlar. Yalnızca düğme denetimleri ile bir **skinID** özelliği **goButton** dış görüntüsünü alır.
+Aşağıdaki kod bir düğme denetimi için bir kaplama tanımlar. Yalnızca **Gobtan** 'ın **SkinID** özelliğine sahip düğme denetimleri, kaplamanın görünümünde yer alır.
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample12.aspx)]
 
-Yalnızca bir varsayılan dış sunucu denetim türü başına olabilir. Ek css'li dış görünümler ihtiyacınız varsa, skinID özelliğini kullanmanız gerekir.
+Sunucu denetim türü başına yalnızca bir varsayılan dış görünüme sahip olabilirsiniz. Ek kaplamalar gerekiyorsa, SkinID özelliğini kullanmanız gerekir.
 
-## <a name="applying-themes-to-pages"></a>Sayfalara Temalar uygulama
+## <a name="applying-themes-to-pages"></a>Sayfalara tema uygulama
 
-Aşağıdaki yöntemlerden birini kullanarak bir tema uygulanabilir:
+Bir tema, aşağıdaki yöntemlerden biri kullanılarak uygulanabilir:
 
-- İçinde &lt;sayfaları&gt; web.config dosyasının öğesi
-- İçinde @Page sayfasının yönergesi
+- Web. config dosyasının &lt;Pages&gt; öğesi
+- Bir sayfanın @Page yönergesinde
 - Programlı olarak
 
-## <a name="applying-a-theme-in-the-configuration-file"></a>Uygulama yapılandırma dosyasında bir tema
+## <a name="applying-a-theme-in-the-configuration-file"></a>Yapılandırma dosyasına bir tema uygulama
 
-Uygulama yapılandırma dosyasında bir temayı uygulamak için aşağıdaki sözdizimini kullanın:
+Uygulama yapılandırma dosyasına bir tema uygulamak için aşağıdaki sözdizimini kullanın:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample13.xml)]
 
-Burada belirtilen tema adı Temalar klasörünün adı eşleşmelidir. Bu klasör ya da bu kursun önceki kısımlarında belirtildiği konumları herhangi biri mevcut olabilir. Mevcut olmayan bir tema uygulamaya çalışırsanız, bir yapılandırma hatası meydana gelir.
+Burada belirtilen tema adı, Temalar klasörünün adıyla eşleşmelidir. Bu klasör, bu kursun önceki kısımlarında bahsedilen konumlardan herhangi birinde bulunabilir. Mevcut olmayan bir temayı uygulamaya çalışırsanız, bir yapılandırma hatası oluşur.
 
-## <a name="applying-a-theme-in-the-page-directive"></a>Sayfa yönergesi bir Tema uygulanıyor
+## <a name="applying-a-theme-in-the-page-directive"></a>Sayfa yönergesinde Tema uygulama
 
-@ Sayfa yönergesi bir tema de uygulayabilirsiniz. Bu yöntem, belirli bir sayfa için bir tema kullanmanıza olanak tanır.
+Ayrıca @ Page yönergesinde bir tema uygulayabilirsiniz. Bu yöntem, belirli bir sayfa için bir tema kullanmanıza olanak sağlar.
 
-Bir tema uygulanacak @Page yönergesi, aşağıdaki sözdizimini kullanın:
+@Page yönergesinde bir tema uygulamak için aşağıdaki sözdizimini kullanın:
 
 [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample14.aspx)]
 
-Bir kez daha, burada belirtilen teması daha önce belirtildiği gibi tema klasöründe eşleşmelidir. Mevcut olmayan bir tema uygulamaya çalışırsanız, bir derleme hatası meydana gelir. Visual Studio ayrıca özniteliği vurgulayın ve böyle bir tema var olduğunu bildirir.
+Bir kez daha, burada belirtilen tema, daha önce belirtildiği gibi tema klasörüyle aynı olmalıdır. Mevcut olmayan bir temayı uygulamaya çalışırsanız, bir derleme hatası oluşur. Visual Studio aynı zamanda özniteliği vurgulayacaktır ve böyle bir temanın mevcut olmadığını size bildirir.
 
-## <a name="applying-a-theme-programmatically"></a>Bir tema programlama yoluyla uygulama
+## <a name="applying-a-theme-programmatically"></a>Bir temayı programlı olarak uygulama
 
-Bir tema programlı bir şekilde uygulamak için belirtmelisiniz **tema** özellik sayfası için **sayfa\_PreInit** yöntemi.
+Bir temayı programlı bir şekilde uygulamak için, **sayfa\_PreInit** yöntemi içindeki sayfa için **Tema** özelliğini belirtmeniz gerekir.
 
-Bir tema programlı bir şekilde uygulamak için aşağıdaki sözdizimini kullanın:
+Bir temayı programlı bir şekilde uygulamak için aşağıdaki sözdizimini kullanın:
 
 [!code-csharp[Main](profiles-themes-and-web-parts/samples/sample15.cs)]
 
-Sayfa yaşam döngüsü nedeniyle PreInit yönteminde temayı uygulamak gereklidir. Ondan sonra uygulamanız durumunda sayfa teması zaten çalışma zamanı tarafından uygulanmış ve bu noktada çok geç yaşam döngüsünde farklıdır. Mevcut olmayan bir tema uygularsanız bir **HttpException** gerçekleşir. Program aracılığıyla bir temayı uygulandığında, tüm sunucu denetimlerinin belirtilen bir skinID özelliğine sahip bir derleme uyarısı meydana gelir. Bu uyarı, tema bildirimli olarak uygulanır ve bu yoksayılabilir bildirmek için tasarlanmıştır.
+Sayfa yaşam döngüsü nedeniyle temayı PreInit yönteminde uygulamak gereklidir. Bu noktadan sonra uygularsanız, sayfalar teması çalışma zamanı tarafından zaten uygulanmış olur ve o noktadaki bir değişiklik yaşam döngülerinde çok geç olur. Mevcut olmayan bir tema uygularsanız, bir **HttpException** oluşur. Bir tema programlı olarak uygulandığında, herhangi bir sunucu denetiminin bir SkinID özelliği belirtilmişse bir yapı uyarısı oluşur. Bu uyarı, hiçbir temanın bildirimli olarak uygulandığını ve yoksayılamayacağını bildirmek için tasarlanmıştır.
 
-## <a name="exercise-1--applying-a-theme"></a>Alıştırma 1: Bir Tema uygulanıyor
+## <a name="exercise-1--applying-a-theme"></a>Alıştırma 1: Tema uygulama
 
-Bu alıştırmada, bir Web sitesine ASP.NET teması uygulanır.
+Bu alıştırmada, bir Web sitesine ASP.NET teması uygulayacaksınız.
 
 > [!IMPORTANT]
-> Bir dış görünüm dosyası bilgi girmek için Microsoft Word kullanıyorsanız, normal teklifleri ile akıllı tırnaklar değiştirdiğiniz değil, emin olun. Akıllı tırnaklar dış görünüm dosyaları sorunlara neden olur.
+> Bir dış görünüm dosyasına bilgi girmek için Microsoft Word kullanıyorsanız, normal tırnakları akıllı tırnaklarla değiştirdiğinizden emin olun. Akıllı tırnaklar, dış görünüm dosyaları ile ilgili sorunlara neden olur.
 
 1. Yeni bir ASP.NET Web sitesi oluşturun.
-2. Çözüm Gezgini'nde projeye sağ tıklayın ve Yeni Öğe Ekle öğesini seçin.
-3. Web yapılandırma dosyası dosyalar listesinden seçin ve Ekle'ye tıklayın.
-4. Çözüm Gezgini'nde projeye sağ tıklayın ve Yeni Öğe Ekle öğesini seçin.
-5. Dış görünüm dosyası seçin ve Ekle'ye tıklayın.
-6. Uygulama içinde dosyayı yerleştirmek istiyorsanız sorulduğunda Evet'e tıklayarak\_Temalar klasörünü.
-7. Uygulama içinde SkinFile klasöre sağ tıklayarak\_Çözüm Gezgini'nde Temalar klasörünü ve Yeni Öğe Ekle öğesini seçin.
-8. Stil sayfası dosyalar listesinden seçin ve Ekle'ye tıklayın. Artık, yeni temayı uygulamak için gerekli dosyaların tümünü sahipsiniz. Ancak, Visual Studio, temalar klasörünü SkinFile adlı. Bu klasörü sağ tıklatın ve CoolTheme için adı değiştirin.
-9. SkinFile.skin dosyasını açın ve dosyanın sonuna aşağıdaki kodu ekleyin: 
+2. Çözüm Gezgini projeye sağ tıklayın ve yeni öğe Ekle ' yi seçin.
+3. Dosya listesinden Web yapılandırma dosyası ' nı seçin ve Ekle ' ye tıklayın.
+4. Çözüm Gezgini projeye sağ tıklayın ve yeni öğe Ekle ' yi seçin.
+5. Kaplama dosyası ' nı seçin ve Ekle ' ye tıklayın.
+6. Dosyayı uygulama\_Temalar klasörünün içine yerleştirmek isteyip istemediğiniz sorulduğunda Evet ' e tıklayın.
+7. Çözüm Gezgini içindeki uygulama\_Temalar klasörünün içindeki SkinFile klasörüne sağ tıklayın ve yeni öğe Ekle ' yi seçin.
+8. Dosya listesinden stil sayfası ' nı seçin ve Ekle ' ye tıklayın. Artık yeni temanızı uygulamak için gereken tüm dosyalar var. Ancak, Visual Studio 'Nun Temalar klasörü SkinFile 'ı adı vardır. Bu klasöre sağ tıklayın ve adı CoolTheme olarak değiştirin.
+9. SkinFile. Skin dosyasını açın ve aşağıdaki kodu dosyanın sonuna ekleyin: 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample16.aspx)]
-10. SkinFile.skin dosyayı kaydedin.
-11. StyleSheet.css açın.
-12. Tüm metinde aşağıdakiyle değiştirin: 
+10. SkinFile. Skin dosyasını kaydedin.
+11. Stil sayfası. css açın.
+12. İçindeki tüm metni aşağıdakiler ile değiştirin: 
 
     [!code-css[Main](profiles-themes-and-web-parts/samples/sample17.css)]
-13. StyleSheet.css dosyayı kaydedin.
-14. Default.aspx sayfasını açın.
+13. Stil sayfası. css dosyasını kaydedin.
+14. Default. aspx sayfasını açın.
 15. TextBox denetimi ve bir düğme denetimi ekleyin.
-16. Sayfayı kaydedin. Şimdi Default.aspx sayfasına göz atın. Normal bir Web formu olarak görüntülemelidir.
-17. Web.config dosyasını açın.
-18. Açılış hemen altına aşağıdaki `<system.web>` etiketi: 
+16. Sayfayı kaydedin. Şimdi default. aspx sayfasına gözatamazsınız. Normal bir Web formu olarak görüntülenmelidir.
+17. Web. config dosyasını açın.
+18. Şunu doğrudan açma `<system.web>` etiketinin altına ekleyin: 
 
     [!code-xml[Main](profiles-themes-and-web-parts/samples/sample18.xml)]
-19. Web.config dosyasını kaydedin. Şimdi Default.aspx sayfasına göz atın. Uygulanan temayı görüntülemelidir.
-20. Default.aspx sayfasında, zaten açık değilse, Visual Studio'da açın.
+19. Web. config dosyasını kaydedin. Şimdi default. aspx sayfasına gözatamazsınız. Tema uygulanmış olarak görüntülenmelidir.
+20. Zaten açık değilse, Visual Studio 'da default. aspx sayfasını açın.
 21. Düğmeyi seçin.
-22. Değişiklik **skinID** goButton özelliği. Visual Studio, bir düğme denetimi bir açılan geçerli skinID değerlerle sağlar dikkat edin.
-23. Sayfayı kaydedin. Artık tarayıcınızda sayfayı yeniden önizleyin. Düğme artık "Git" şeklinde olmalıdır ve bir görünüm geniş olması gerekir.
+22. **SkinID** özelliğini gobtan olarak değiştirin. Visual Studio 'Nun bir düğme denetimi için geçerli SkinID değerleriyle bir açılan menü sağladığını unutmayın.
+23. Sayfayı kaydedin. Şimdi tarayıcıda sayfayı yeniden önizleyin. Düğme şimdi "Go" deyin ve görünümün daha geniş olması gerekir.
 
-Kullanarak **skinID** özelliği farklı sunucu denetimini belirli bir tür örnekleri için farklı dış kolayca yapılandırabilirsiniz.
+**SkinID** özelliğini kullanarak belirli bir sunucu denetimi türünün farklı örnekleri için farklı kaplamaları kolayca yapılandırabilirsiniz.
 
 ## <a name="the-stylesheettheme-property"></a>StyleSheetTheme özelliği
 
-Şu ana kadar yalnızca Temalar tema özelliğini kullanarak uygulama hakkında konuştuk. Dış görünüm dosyası, tema özelliğini kullanırken, bildirim temelli sunucu denetimleri ayarlarını geçersiz kılar. Örneğin, alıştırma 1, düğme denetiminin "goButton", bir skinID belirtilmiş ve, "Git" düğmesinin metin değiştirildi. Tasarımcısı'nda düğmenin metin özelliğini "Button" için ayarlanmış, ancak geçersiz kılınmış temayı fark etmiş olabilirsiniz. Tema, her zaman Tasarımcısı'nda herhangi bir özellik ayarları geçersiz kılar.
+Şimdiye kadar, yalnızca Tema özelliğini kullanarak temalar uygulama hakkında konuşuyoruz. Tema özelliği kullanılırken, Skin dosyası sunucu denetimleri için tüm bildirim temelli ayarları geçersiz kılacaktır. Örneğin, 1. alıştırmada düğme denetimi için "Gobtan" bir SkinID belirttiniz ve düğmenin metnini "Go" olarak değiştirdi. Tasarımcı 'daki düğmenin metin özelliğinin "Button" olarak ayarlandığını fark etmiş olabilirsiniz, ancak bu tema de bunun üzerine gelin. Tema her zaman tasarımcıda özellik ayarlarını geçersiz kılar.
 
-Temanın dış görünüm dosyası ile tanımlanan özelliklerini geçersiz kılmak mümkün olmasını istediğiniz özellikler belirtilirse Tasarımcısı'nda kullanabileceğiniz **StyleSheetTheme** tema özelliğini yerine özellik. StyleSheetTheme özelliği tema özelliği ile aynıdır, yalnızca tema özelliği gibi tüm açık özellik ayarları geçersiz kılmaz.
+Tasarımcıda belirtilen özellikleri içeren temanın dış görünüm dosyasında tanımlanan özellikleri geçersiz kılabilmek istiyorsanız, Tema özelliği yerine **StyleSheetTheme** özelliğini kullanabilirsiniz. StyleSheetTheme özelliği, Theme özelliği gibi tüm açık özellik ayarlarını geçersiz kılmadığından, Tema özelliği ile aynıdır.
 
-Bu uygulamada görmek için alıştırma 1'ndeki projeden web.config dosyasını açın ve değiştirmek `<pages>` aşağıdaki öğe:
+Bu işlemi yapmak için, alıştırma 1 ' deki projeden Web. config dosyasını açın ve `<pages>` öğesini aşağıdaki şekilde değiştirin:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample19.xml)]
 
-Şimdi Default.aspx sayfasına göz atın ve düğme denetimini "Button" bir metin özelliğini yeniden olduğunu görürsünüz. Tasarımcıda açık özellik ayarı skinID goButton tarafından ayarlanan metin özelliği geçersiz kılma olmasıdır.
+Şimdi default. aspx sayfasına gözatıp, düğme denetiminin bir "Button" metin özelliğine yeniden sahip olduğunu görürsünüz. Bunun nedeni, tasarımcıda açık özellik ayarı Gobtan SkinID tarafından ayarlanan metin özelliğini geçersiz kıldığından.
 
-## <a name="overriding-themes"></a>Temalar geçersiz kılma
+## <a name="overriding-themes"></a>Temaları geçersiz kılma
 
-Genel bir tema uygulamasında aynı adı taşıyan bir tema uygulama tarafından geçersiz kılınabilir\_Temalar klasörünü uygulama. Ancak, tema doğru geçersiz kılma senaryoda uygulanmaz. Çalışma zamanı teması dosyaları uygulamasında karşılaşırsa\_Temalar klasörünü, bu dosyaları kullanan temayı uygular ve genel bir tema göz ardı eder.
+Uygulamanın uygulama\_temalar klasöründe aynı ada sahip bir tema uygulanarak, genel bir tema geçersiz kılınabilir. Ancak, tema, doğru bir geçersiz kılma senaryosunda uygulanmaz. Çalışma zamanı, uygulama\_temalar klasöründe Tema dosyalarıyla karşılaşırsa, bu dosyaları kullanarak temayı uygular ve genel temayı yoksayar.
 
 StyleSheetTheme özelliği geçersiz kılınabilir ve kodda aşağıdaki gibi geçersiz kılınabilir:
 
@@ -267,248 +267,248 @@ StyleSheetTheme özelliği geçersiz kılınabilir ve kodda aşağıdaki gibi ge
 
 ## <a name="web-parts"></a>Web Bölümleri
 
-ASP.NET Web Bölümleri denetimleri içeriğini, görünümünü ve doğrudan bir tarayıcıdan Web sayfalarının davranışını değiştirmek son kullanıcıların Web siteleri oluşturmak için tümleşik kümesidir. Değişiklikleri tüm kullanıcılara sitesinde veya bağımsız kullanıcılarla uygulanabilir. Kullanıcılar, sayfalar ve denetimler değiştirdiğinizde, bir kullanıcının kişisel tercihlerini kişiselleştirme denilen bir özelliği gelecek tarayıcı oturumlarında korumak için ayarları kaydedilebilir. Bu Web Bölümleri özellikler, geliştiricilerin son kullanıcıların bir Web uygulaması, geliştirici veya yönetici müdahalesi olmadan dinamik olarak kişiselleştirme güçlendirebilirsiniz anlamına gelir.
+ASP.NET Web Bölümleri, son kullanıcıların Web sayfalarının içeriğini, görünümünü ve davranışını doğrudan bir tarayıcıdan değiştirmesini sağlayan Web siteleri oluşturmaya yönelik tümleşik bir denetim kümesidir. Değişiklikler sitedeki tüm kullanıcılara veya bireysel kullanıcılara uygulanabilir. Kullanıcılar sayfaları ve denetimleri değiştirirken, kullanıcının kişisel tercihlerini daha sonra kişiselleştirme adlı bir özellik olan gelecekteki tarayıcı oturumlarında koruyacak şekilde ayarlar kaydedebilirsiniz. Bu Web Bölümleri özellikleri, geliştiricilerin son kullanıcılara bir Web uygulamasını geliştirici veya yönetici müdahalesi olmadan dinamik olarak kişiselleştirmesini sağlayabildiği anlamına gelir.
 
-Web Bölümleri denetim kümesi kullanarak, bir geliştirici olarak, son kullanıcılara etkinleştirebilirsiniz:
+Web Bölümleri denetim kümesini kullanarak bir geliştirici, son kullanıcıların şunları kullanmasını olanaklı hale getirebilirsiniz:
 
-- Sayfa içeriği kişiselleştirin. Kullanıcılar yeni Web Bölümleri denetimleri bir sayfaya ekleyin, kaldırın, bunları gizlemek veya normal windows gibi en aza indirmek.
-- Sayfa düzeni kişiselleştirin. Kullanıcılar Web Bölümleri denetimi, farklı bir bölgeye bir sayfaya sürükleyin veya onun görünümünü, özellikleri ve davranışını değiştirmek.
-- Dışarı aktarma ve denetimleri içeri aktarın. Kullanıcılar, içeri aktarma veya dışarı kullanılacak diğer sayfaları ya da siteler, Web Bölümleri denetimi ayarları özelliklerini, Görünüm ve hatta denetimlerinde verileri koruma. Bu, son kullanıcıların veri girişi ve yapılandırma taleplerini azaltır.
-- Bağlantılar oluşturun. Örneğin, bir grafik denetimi verileri için bir grafik borsa denetiminde görüntüleyebilir, böylece kullanıcılar denetimler arasında bağlantı kurabilirsiniz. Kullanıcılar yalnızca bağlantısının kendisi, ancak görünümünü ve grafik denetimi veri görüntüleme şeklini ayrıntılarını kişiselleştirin.
-- Site düzeyindeki ayarları kişiselleştirin ve yönetin. Yetkili kullanıcılar site düzeyi ayarlarını yapılandırma, kullanan bir site veya sayfa erişim, rol tabanlı erişim denetimleri ayarlayın ve benzeri belirleme. Örneğin, bir kullanıcı yönetim rolü tüm kullanıcılar tarafından paylaşılacak Web Bölümleri denetim Seti ve yöneticilerin, paylaşılan denetim kişiselleştirme olmayan kullanıcılar engelle.
+- Sayfa içeriğini kişiselleştirin. Kullanıcılar bir sayfaya yeni Web Bölümleri denetimleri ekleyebilir, bunları kaldırabilir, gizleyebilir veya sıradan pencereler gibi en aza indirebilir.
+- Sayfa mizanpajını kişiselleştirin. Kullanıcılar bir Web Bölümleri denetimini sayfadaki farklı bir bölgeye sürükleyebilir veya görünümünü, özelliklerini ve davranışını değiştirebilir.
+- Denetimleri dışarı ve içeri aktarma. Kullanıcılar, diğer sayfalarda veya sitelerde kullanılmak üzere Web Bölümleri denetim ayarlarını içeri aktarabilir veya dışarı aktarabilir, özellikleri, görünümü ve hatta denetimlerde verileri korur. Bu, son kullanıcılar için veri girişini ve yapılandırma taleplerini azaltır.
+- Bağlantı oluşturun. Kullanıcılar, örneğin bir grafik denetimi bir stok şeridi denetimindeki veriler için bir grafik görüntülemesi gibi denetimler arasında bağlantı kurabilir. Kullanıcılar yalnızca bağlantının kendisini değil, grafik denetiminin verileri görüntüleme şekli ve ayrıntıları.
+- Site düzeyi ayarlarını yönetin ve kişiselleştirin. Yetkili kullanıcılar site düzeyinde ayarları yapılandırabilir, bir siteye veya sayfaya kimlerin erişebileceğini belirleyebilir, denetimlere rol tabanlı erişim ayarlayabilir ve bu şekilde devam edebilir. Örneğin, bir yönetici rolündeki bir Kullanıcı, tüm kullanıcılar tarafından paylaşılacak bir Web Bölümleri denetimi ayarlayabilir ve yönetici olmayan kullanıcıların paylaşılan denetimi kişiselleştirmasını önler.
 
-Genellikle Web Bölümleri üç yoldan biriyle aşağıdakilerle çalışacaksınız: Web Bölümleri denetimleri kullanan sayfaları oluşturma, tek tek Web Bölümleri denetimleri oluşturma veya tam, kişiselleştirilebilir Web uygulamaları gibi bir portal oluşturma.
+Genellikle Web Bölümleri üç farklı şekilde çalışırsınız: Web Bölümleri denetimleri kullanan sayfalar oluşturma, bireysel Web Bölümleri denetimleri oluşturma veya Portal gibi tamamen, kişiselleştirilebilir bir Web uygulaması oluşturma.
 
 ## <a name="page-development"></a>Sayfa geliştirme
 
-Sayfa geliştiricileri, Web Bölümleri kullanan sayfaları oluşturmak için Microsoft Visual Studio 2005 gibi görsel tasarım araçlarını kullanabilirsiniz. Visual Studio Web Bölümleri kümesi denetlemek gibi bir araç kullanarak, bir avantajı, sürükle ve bırak oluşturulması ve yapılandırılması, Web Bölümleri denetimleri bir görsel tasarımcıda için özellikleri sağlar. Örneğin, Tasarımcı Web Bölümleri bölge ya da Web Bölümleri Düzenleyicisi denetimi tasarım yüzeyine sürükleyin ve kullanabilirsiniz ardından denetimin enini Büyüt yapılandırma Web parçaları tarafından sağlanan kullanıcı arabirimini kullanarak Tasarımcısı'nda denetim kümesi. Bu, Web Bölümleri uygulamalarının geliştirilmesini hızlandırmak ve yazmanız gereken kod miktarını azaltır.
+Sayfa geliştiricileri, Web Bölümleri kullanan sayfalar oluşturmak için Microsoft Visual Studio 2005 gibi görsel tasarım araçlarını kullanabilir. Visual Studio gibi bir araç kullanmanın avantajlarından biri, Web Bölümleri denetim kümesinin, görsel bir tasarımcıda Web Bölümleri denetimlerinin sürükle ve bırak özelliği ve yapılandırması için özellikler sunabilleridir. Örneğin, tasarımcı kullanarak bir Web Bölümleri bölgesini veya bir Web Bölümleri düzenleyici denetimini tasarım yüzeyine sürükleyebilir ve sonra Web Bölümleri denetim kümesi tarafından sunulan kullanıcı arabirimini kullanarak tasarımcıda denetimi doğrudan yapılandırabilirsiniz. Bu, Web Bölümleri uygulamaların geliştirilmesini hızlandırabilir ve yazmak istediğiniz kod miktarını azaltabilir.
 
-## <a name="control-development"></a>Denetimi geliştirme
+## <a name="control-development"></a>Denetim geliştirme
 
-Standart Web sunucusu denetimleri, özel sunucu denetimleri ve kullanıcı denetimleri dahil olmak üzere bir Web Bölümleri denetimi gibi mevcut ASP.NET denetimi kullanabilirsiniz. İçin en yüksek programlı denetim ortamınızın WebPart sınıfından türetilen özel Web Bölümleri denetimleri oluşturabilirsiniz. Tek tek Web Bölümleri denetimi geliştirme için genellikle bir kullanıcı denetimi oluşturma ve bir Web Bölümleri denetimi olarak kullanın ya da özel bir Web Bölümleri denetimi geliştirin.
+Var olan herhangi bir ASP.NET denetimini standart Web sunucusu denetimleri, özel sunucu denetimleri ve Kullanıcı denetimleri gibi Web Bölümleri denetim olarak kullanabilirsiniz. Ortamınızın en yüksek programlı denetimi için, WebPart sınıfından türetilen özel Web Bölümleri denetimleri de oluşturabilirsiniz. Bireysel Web Bölümleri denetim geliştirmesi için, genellikle bir kullanıcı denetimi oluşturup bunu bir Web Bölümleri denetimi olarak kullanacaksınız ya da özel bir Web Bölümleri denetimi geliştirirsiniz.
 
-Özel bir Web Bölümleri denetimi geliştirme ilişkin bir örnek olarak, herhangi bir kişiselleştirilebilir Web Bölümleri denetimi olarak paket için kullanışlı olabilecek diğer ASP.NET sunucu denetimleri tarafından sağlanan özellikleri sağlamak için bir denetim oluşturabilirsiniz: takvimler, listeler, finansal bilgi haber, hesaplayıcıları, içerik, düzenlenebilir Kılavuzlar güncelleştirmek için zengin metin denetimlerine, dinamik olarak kendi görüntüler güncelleştirin veya hava durumu ve bilgileri seyahat grafikler veritabanlarına bağlanın. Bir görsel tasarımcı ile denetiminizi sağlarsanız, sonra Visual Studio kullanarak herhangi bir sayfa Geliştirici yalnızca denetiminizi Web Bölümleri bölgeye sürükleyin ve tasarım zamanında ek kod yazmak zorunda kalmadan yapılandırın.
+Özel bir Web Bölümleri denetimi geliştirmesinin bir örneği olarak, diğer ASP.NET Server denetimleri tarafından sunulan ve kişiselleştirilebilir bir Web Bölümleri denetimi olarak paketleme yararlı olabilecek özelliklerden herhangi birini sağlamak üzere bir denetim oluşturabilirsiniz: takvimler, listeler, finansal bilgiler, Haberler, hesaplayıcılar, içerik güncelleştirme için zengin metin denetimleri, veritabanlarına bağlanan düzenlenebilir kılavuzlar, ekranları dinamik olarak güncelleştiren grafikler veya hava durumu ve seyahat bilgileri. Denetiminizin bulunduğu bir görsel tasarımcı sağlarsanız, Visual Studio kullanan herhangi bir sayfa geliştiricisi, denetiminizi bir Web Bölümleri bölgesine sürükleyebilir ve ek kod yazmak zorunda kalmadan tasarım zamanında yapılandırabilir.
 
-Kişiselleştirme, Web bölümlerini özelliğin altyapıdır. Bu, kullanıcıların değiştirin--veya kişiselleştirin--düzeni, görünümünü ve davranışını bir sayfada Web Bölümleri denetimleri sağlar. Kişiselleştirilmiş ayarları uzun süreli: yalnızca geçerli tarayıcı oturumunda kalıcı (olduğu gibi görünüm durumu), ancak ayrıca uzun vadeli depolama, böylece kullanıcı ayarlarını da gelecekteki tarayıcı oturumları için kaydedilir. Kişiselleştirme, Web Bölümleri sayfalar için varsayılan olarak etkindir.
+Kişiselleştirme Web Bölümleri özelliğinin temelidir. Kullanıcıların bir sayfada Web Bölümleri denetimlerinin düzen, görünüm ve davranışını değiştirmesine veya kişiselleştirmesine olanak sağlar. Kişiselleştirilmiş ayarlar uzun ömürlü: yalnızca geçerli tarayıcı oturumunda (Görünüm durumunda olduğu gibi) değil, ayrıca uzun vadeli depolamada değil, bir kullanıcının ayarlarının gelecekteki tarayıcı oturumları için kaydedilmesi için de kalıcı hale getirilir. Kişiselleştirme, Web Bölümleri sayfaları için varsayılan olarak etkinleştirilmiştir.
 
-UI yapısal bileşenler kişiselleştirmesini kullanan ve çekirdek yapısı ve tüm Web Bölümleri denetimleri tarafından gerekli hizmetleri sağlar. Her Web Bölümleri Sayfası'nda gerekli bir kullanıcı Arabirimi yapısal WebPartManager denetimi bileşendir. Hiçbir zaman görünür ancak bu denetimin bir sayfadaki tüm Web Bölümleri denetimleri koordine kritik görevini vardır. Örneğin, tek tek Web Bölümleri denetimleri izler. Web Bölümleri bölgeleri (bir sayfada Web Bölümleri denetimleri içeren bölge) yönetir ve hangi bölgelerde denetimlerdir. Ayrıca, izler ve bir sayfa gibi Gözat, bağlan, düzenlemek veya modu katalog ve kişiselleştirme değişiklikleri tüm kullanıcılara veya bireysel kullanıcılara uygulanıp uygulanmayacağını olabilir farklı görüntü modları denetler. Son olarak, başlatır ve Web Bölümleri denetimleri bağlantıları ve iletişim izler.
+Kullanıcı arabirimi yapısal bileşenleri kişiselleştirmeye dayanır ve tüm Web Bölümleri denetimleri için gereken çekirdek yapıyı ve hizmetleri sağlar. Her Web Bölümleri sayfasında gerekli bir kullanıcı arabirimi yapısal bileşeni WebPartManager denetimidir. Bu denetimde hiçbir şey görünmese de, bir sayfadaki tüm Web Bölümleri denetimlerini koordine etme kritik görevi vardır. Örneğin, tüm bireysel Web Bölümleri denetimlerini izler. Web Bölümleri bölgelerini (bir sayfada Web Bölümleri denetimleri içeren bölgeleri) ve hangi denetimlerin hangi bölgelerde olduğunu yönetir. Ayrıca, gezinme, bağlanma, düzenleme veya katalog modu gibi bir sayfanın içinde yer aldığı farklı görüntüleme modlarını izler ve denetler ve kişiselleştirme değişikliklerinin tüm kullanıcılara veya bireysel kullanıcılara uygulanıp uygulanmayacağı. Son olarak, Web Bölümleri denetimleri arasındaki bağlantıları ve iletişimi başlatır ve izler.
 
-UI yapısal bileşeni, ikinci bölgeye türüdür. Bir Web Bölümleri sayfasının düzenini yöneticilerinin bölgeleri görür. Bunlar içeren bölümü (Bölüm denetimleri) türetin denetimleri düzenlemek ve modüler bir sayfa düzeni yatay veya dikey yönde yapabilmenizi sağlar. Bölgeler, genel ve tutarlı kullanıcı Arabirimi öğeleri (örneğin, üstbilgi ve altbilgi stili, başlık, kenarlık stili, komut düğmeleri ve benzeri) içerdiği her denetim için de sunar; Bu ortak öğeler denetimin chrome bilinir. Özelleştirilmiş çeşitli bölgeleri farklı görüntüleme modlarında ve çeşitli denetimleri ile kullanılır. Bölgeleri farklı türde Web Bölümleri gerekli denetimleri bölümünde açıklanmıştır.
+UI yapısal bileşeni ikinci türü bölgedir. Bölgeler, Web Bölümleri sayfasında düzen yöneticileri olarak davranır. Bunlar, Bölüm sınıfından (Bölüm denetimleri) türetilen denetimleri içerir ve düzenler ve hem yatay ya da dikey yönde modüler sayfa düzeni yapma yeteneği sağlar. Bölgeler Ayrıca içerdikleri her denetim için ortak ve tutarlı kullanıcı arabirimi öğeleri (üst bilgi ve alt bilgi stili, başlık, kenarlık stili, eylem düğmeleri vb.) sunar; Bu ortak öğeler, bir denetimin Chrome olarak bilinir. Farklı görüntü modlarında ve çeşitli denetimlerle birçok özel bölge türü kullanılır. Farklı bölge türleri aşağıdaki Web Bölümleri temel denetimler bölümünde açıklanmıştır.
 
-Tüm türetilen Web Bölümleri Arabirim denetimleri **bölümü** sınıfı, birincil kullanıcı Arabirimi üzerindeki bir Web Bölümleri sayfası oluşturur. Web Bölümleri denetim kümesi, esnek ve kapsamlı seçeneklerinde bölümü denetimleri oluşturmak için sağlar. Web Bölümleri denetimleri gibi kendi özel Web Bölümleri denetimleri oluşturmaya ek olarak, mevcut bir ASP.NET sunucu denetimleri, kullanıcı denetimleri ve özel sunucu denetimleri kullanabilirsiniz. Web Bölümleri sayfaları oluşturmak için en yaygın olarak kullanılan temel denetimler, sonraki bölümde açıklanmıştır.
+**Bölüm** sınıfından türeten Web bölümleri UI denetimleri, bir Web bölümleri sayfasında birincil kullanıcı arabirimini oluşturur. Web Bölümleri denetim kümesi, Bölüm denetimleri oluşturmak için size verdiği seçeneklerde esnektir ve dahil değildir. Kendi özel Web Bölümleri denetimlerinizi oluşturmaya ek olarak, var olan ASP.NET Server denetimlerini, kullanıcı denetimlerini veya özel sunucu denetimlerini Web Bölümleri denetimleri olarak da kullanabilirsiniz. Web Bölümleri sayfaları oluşturmak için en yaygın olarak kullanılan denetim, sonraki bölümde açıklanmaktadır.
 
-## <a name="web-parts-essential-controls"></a>Temel denetimler Web Bölümleri
+## <a name="web-parts-essential-controls"></a>Web Bölümleri temel denetimler
 
-Web Bölümleri denetim kümesi kapsamlıdır, ancak Web Bölümleri'nın çalışması gerekli olduğundan veya Web Bölümleri sayfalarında en sık kullanılan denetimler olduklarından bazı denetimler gereklidir. Web Bölümleri'ı kullanmaya başlamak ve temel Web Bölümleri sayfası oluşturma, aşağıdaki tabloda açıklanan temel Web Bölümleri denetimleri hakkında bilgi sahibi olmanız faydalı olduğu gibi.
+Web Bölümleri denetim kümesi kapsamlıdır, ancak Web Bölümleri çalışması için gerekli olduklarından veya Web Bölümleri sayfalarında en sık kullanılan denetimler olduklarından, bazı denetimler önemlidir. Web Bölümleri kullanmaya ve temel Web Bölümleri sayfaları oluşturmaya başladığınızda, aşağıdaki tabloda açıklanan temel Web Bölümleri denetimleri hakkında bilgi sahibi olmanız yararlı olur.
 
 | **Web Bölümleri denetimi** | **Açıklama** |
 | --- | --- |
-| WebPartManager | Bir sayfadaki tüm Web Bölümleri denetimleri yönetir. Bir (ve yalnızca bir) **WebPartManager** denetim her Web Bölümleri sayfası için gereklidir. |
-| CatalogZone | CatalogPart denetimleri içerir. Bu bölge, kullanıcıların bir sayfasına eklemek için denetimleri seçebilirsiniz Web Bölümleri denetimleri kataloğunu oluşturmak için kullanın. |
-| EditorZone | EditorPart denetimlerini içerir. Bu bölge, düzenlemek ve bir sayfada Web Bölümleri denetimleri kişiselleştirmek kullanıcıları etkinleştirmek için kullanın. |
-| WebPartZone | İçerir ve genel düzen sayfasının ana UI oluşturan WebPart denetimleri sağlar. Web Bölümleri denetimleri sayfaları oluşturduğunuzda bu bölge kullanın. Bir veya daha fazla bölgede sayfalar içerebilir. |
-| ConnectionsZone'u | WebPartConnection denetimleri içerir ve bağlantıları yönetmek için bir kullanıcı Arabirimi sağlar. |
-| Web Bölümü (GenericWebPart) | Birincil kullanıcı Arabirimi oluşturur; Çoğu Web Bölümleri Arabirim denetimleri, bu kategoriye girer. En yüksek programlı denetim için temel türetilen özel Web Bölümleri denetimleri oluşturabilirsiniz **WebPart** denetimi. Web Bölümleri denetimleri gibi var olan sunucu denetimleri, kullanıcı denetimleri ve özel denetimler de kullanabilirsiniz. Bu denetimlerin herhangi bir bölgede yerleştirilen her **WebPartManager** denetimi otomatik olarak kaydırılıp kendileriyle **GenericWebPart** denetimlerini çalışma zamanında böylece Web Bölümleri işlevselliği ile kullanabilirsiniz. |
-| CatalogPart | Kullanıcılar sayfasına ekleyebilirsiniz. mevcut Web Bölümleri denetimleri listesi içerir. |
-| WebPartConnection | Bir sayfada iki Web Bölümleri denetimleri arasında bir bağlantı oluşturur. Bağlantı bir Web Bölümleri denetimleri (veriler) sağlayıcısı ve tüketici olarak diğer olarak tanımlar. |
-| EditorPart | Özelleştirilmiş Düzenleyici denetimleri için temel sınıf olarak görev yapar. |
-| EditorPart denetimlerini (AppearanceEditorPart, LayoutEditorPart, BehaviorEditorPart ve PropertyGridEditorPart) | Bir sayfada Web Bölümleri Arabirim denetimleri çeşitli yönlerini kişiselleştirmek kullanıcılara izin ver |
+| WebPartManager | Sayfadaki tüm Web Bölümleri denetimlerini yönetir. Her Web Bölümleri sayfası için bir (ve yalnızca bir) **WebPartManager** denetimi gereklidir. |
+| 'U | CatalogPart denetimlerini içerir. Kullanıcıların bir sayfaya eklenecek denetimleri seçebileceğiniz Web Bölümleri denetimlerinin kataloğunu oluşturmak için bu bölgeyi kullanın. |
+| EditorZone 'u | EditorPart denetimlerini içerir. Kullanıcıların bir sayfada Web Bölümleri denetimlerini düzenlemesini ve kişiselleştirmesini sağlamak için bu bölgeyi kullanın. |
+| Belirtilmedi | , Bir sayfanın ana Kullanıcı arabirimini oluşturan WebPart denetimleri için genel düzen içerir ve sunar. Web Bölümleri denetimleri olan her sayfa oluşturduğunuzda bu bölgeyi kullanın. Sayfalar, bir veya daha fazla bölge içerebilir. |
+| ConnectionsZone | WebPartConnection denetimlerini içerir ve bağlantıları yönetmek için bir kullanıcı arabirimi sağlar. |
+| Web Bölümü (GenericWebPart) | Birincil Kullanıcı arabirimini işler; Çoğu Web Bölümleri UI denetimleri bu kategoriye girer. En yüksek programlı denetim için, temel **Web Bölümü** denetiminden türetilen özel Web Bölümleri denetimleri oluşturabilirsiniz. Ayrıca, var olan sunucu denetimlerini, kullanıcı denetimlerini veya özel denetimleri Web Bölümleri denetimleri olarak da kullanabilirsiniz. Bu denetimlerden herhangi biri bir bölgeye yerleştirildiğinde, **WebPartManager** denetimi çalışma zamanında onları otomatik olarak **GenericWebPart** denetimleriyle sarmalar ve böylece onları Web bölümleri işlevlerle kullanabilirsiniz. |
+| 'Ta | Kullanıcıların sayfaya ekleyebileceğiniz kullanılabilir Web Bölümleri denetimlerinin bir listesini içerir. |
+| WebPartConnection | Bir sayfada iki Web Bölümleri denetimi arasında bir bağlantı oluşturur. Bağlantı, Web Bölümleri denetimlerinden birini sağlayıcı (veri) ve diğer tüketici olarak tanımlar. |
+| EditorPart | Özelleştirilmiş düzenleyici denetimleri için temel sınıf olarak işlev görür. |
+| EditorPart denetimleri (AppearanceEditorPart, LayoutEditorPart, BehaviorEditorPart ve PropertyGridEditorPart) | Kullanıcıların bir sayfada Web Bölümleri UI denetimlerinin çeşitli yönlerini kişiselleştirmesine izin ver |
 
-## <a name="lab-create-a-web-part-page"></a>Laboratuvar: Bir Web Bölümü Sayfası Oluştur
+## <a name="lab-create-a-web-part-page"></a>Laboratuvar: Web Bölümü sayfası oluşturma
 
-Bu laboratuvarda, ASP.NET profilleri aracılığıyla bilgileri korunur bir Web Bölümü sayfası oluşturur.
+Bu laboratuvarda, ASP.NET profilleri aracılığıyla bilgileri kalıcı hale getirebileceği bir Web Bölümü sayfası oluşturacaksınız.
 
-### <a name="creating-a-simple-page-with-web-parts"></a>Basit bir sayfa ile Web bölümleri oluşturma
+### <a name="creating-a-simple-page-with-web-parts"></a>Web Bölümleri basit sayfa oluşturma
 
-Kılavuzun bu bölümünde, statik içeriği göstermek için Web Bölümleri denetimleri kullanan bir sayfa oluşturun. Web Bölümleri ile çalışma ilk adımı, gerekli iki yapısal öğelerini bir sayfa oluşturmaktır. İlk olarak, tüm Web Bölümleri denetimleri koordine etmek ve izlemek için bir WebPartManager denetimi bir Web Bölümleri sayfasının gerekir. İkinci olarak, bir Web Bölümleri sayfasının WebPart ya da diğer sunucu denetimleri içeren ve belirtilen bir sayfa bölgesini kaplayabilir bileşik denetimler, bir veya daha fazla bölge gerekir.
+İzlenecek yolun bu bölümünde, statik içerikleri göstermek için Web Bölümleri denetimleri kullanan bir sayfa oluşturacaksınız. Web Bölümleri ile çalışmanın ilk adımı, iki gerekli yapısal öğe içeren bir sayfa oluşturmaktır. İlk olarak, bir Web bölümleri sayfasının tüm Web Bölümleri denetimlerini izleyip koordine etmek için WebPartManager denetimine ihtiyacı vardır. İkinci olarak, bir Web Bölümleri sayfası, Web Bölümü veya diğer sunucu denetimlerini içeren ve bir sayfanın belirtilen bölgesini kaplayan bileşik denetimler olan bir veya daha fazla bölgeye ihtiyaç duyuyor.
 
 > [!NOTE]
-> Web Bölümleri kişiselleştirme etkinleştirmek için herhangi bir şey yapmanız gerekmez; Web Bölümleri denetim kümesi için varsayılan olarak etkindir. Bir Web Bölümleri sayfasının bir siteye ilk kez çalıştırdığınızda, ASP.NET kullanıcı kişiselleştirme ayarlarını depolamak için bir varsayılan kişiselleştirme sağlayıcısını ayarlar. Kişiselleştirme hakkında daha fazla bilgi için bkz: Web Bölümleri kişiselleştirme genel bakış.
+> Web Bölümleri kişiselleştirmesini etkinleştirmek için herhangi bir şey yapmanız gerekmez; Web Bölümleri denetim kümesi için varsayılan olarak etkindir. Bir sitede Web Bölümleri sayfası ilk kez çalıştırdığınızda, ASP.NET Kullanıcı Kişiselleştirme ayarlarını depolamak için varsayılan bir kişiselleştirme sağlayıcısı ayarlar. Kişiselleştirme hakkında daha fazla bilgi için bkz. Web Bölümleri kişiselleştirmeye genel bakış.
 
 ### <a name="to-create-a-page-for-containing-web-parts-controls"></a>Web Bölümleri denetimleri içeren bir sayfa oluşturmak için
 
-1. Varsayılan sayfayı kapatın ve WebPartsDemo.aspx adlı site için yeni bir sayfa ekleyin.
-2. Geçiş **tasarım** görünümü.
-3. Gelen **görünümü** menüsünde emin olun **görsel olmayan denetimleri** ve **ayrıntıları** Düzen etiketleri ve bir kullanıcı Arabirimi olmayan denetimleri görebilmeniz için seçenekleri seçilidir.
-4. Ekleme noktasını önce yerleştirin `<div>` tasarım yüzeyi ve yeni bir satır eklemek için ENTER tuşuna basın etiketler. ' A tıklayın ekleme noktasını yeni satır karakteri önüne getirin **blok biçimlendirmesi** açılır listede, Denetim menüsünden ve seçin **Başlık 1** seçeneği. Başlığında metin ekleyin **Web Bölümleri tanıtım sayfası**.
-5. Gelen **WebParts** Sürükle araç kutusu sekmesi bir **WebPartManager** yeni satır karakteri hemen sonra ve önce konumlandırma sayfaya, Denetim `<div>`etiketler.   
+1. Varsayılan sayfayı kapatın ve WebPartsDemo. aspx adlı siteye yeni bir sayfa ekleyin.
+2. **Tasarım** görünümüne geçin.
+3. **Görünüm** menüsünde, **görsel olmayan denetimler** ve **Ayrıntılar** seçeneklerinin seçildiğinden emin olun; böylece düzen etiketleri ve Kullanıcı arabirimi olmayan denetimler görebilirsiniz.
+4. Ekleme noktasını tasarım yüzeyinde `<div>` etiketlerden önce yerleştirin ve yeni bir satır eklemek için ENTER tuşuna basın. Ekleme noktasını yeni satır karakterinden önce konumlandırın, menüdeki **blok biçimi** açılan liste denetimine tıklayın ve **Başlık 1** seçeneğini belirleyin. Başlıkta, metin **Web bölümleri tanıtım sayfasını**ekleyin.
+5. Araç kutusunun **Web bölümleri** sekmesinden bir **WebPartManager** denetimini sayfaya sürükleyin, yeni satır karakterinden hemen sonra ve `<div>`etiketlerden önce konumlandırın.   
   
-   **WebPartManager** denetimi değil oluşturmak herhangi bir çıktı nedenle Tasarımcı yüzeyinde gri bir kutu olarak görünür.
-6. İçinde ekleme noktasını getirin `<div>` etiketler.
-7. İçinde **Düzen** menüsünde tıklatın **Tablo Ekle**ve bir satır ve üç sütun sahip yeni bir tablo oluşturun. Tıklayın **hücre özellikleri** düğmesini seçme **üst** gelen **dikey hizalayın** aşağı açılan listesinde, tıklayın **Tamam**, tıklatıp**Tamam** tablo yeniden oluşturun.
-8. Sol tablo sütununa WebPartZone denetimi sürükleyin. Sağ **WebPartZone** denetim öğesini **özellikleri**ve aşağıdaki özellikleri ayarlayın:   
+   **WebPartManager** denetimi herhangi bir çıkış oluşturmaz, bu nedenle tasarımcı yüzeyinde gri bir kutu olarak görünür.
+6. Ekleme noktasını `<div>` etiketlerinin içine konumlandırın.
+7. **Düzen** menüsünde **Tablo Ekle**' ye tıklayın ve bir satırı ve üç sütunu olan yeni bir tablo oluşturun. **Hücre özellikleri** düğmesine tıklayın, **Dikey Hizala** açılan listesinden **üst** ' i seçin, **Tamam**' a tıklayın ve tabloyu oluşturmak için yeniden **Tamam** ' a tıklayın.
+8. Bir WebPartZone denetimini sol tablo sütununa sürükleyin. **WebPartZone** denetimine sağ tıklayın, **Özellikler**' i seçin ve aşağıdaki özellikleri ayarlayın:   
   
-   KİMLİĞİ: SidebarZone   
+   KIMLIK: SidebarZone   
   
-   HeaderText: Kenar Çubuğu
-9. İkinci sürükleyin **WebPartZone** Orta tablo sütununa denetlemek ve aşağıdaki özellikleri ayarlayın:   
+   HeaderText: kenar çubuğu
+9. İkinci bir **WebPartZone** denetimini Ortadaki tablo sütununa sürükleyin ve aşağıdaki özellikleri ayarlayın:   
   
-   KİMLİĞİ: MainZone   
+   KIMLIK: MainZone   
   
    HeaderText: Ana
 10. Dosyayı kaydedin.
 
-Sayfanız artık ayrı ayrı kontrol edebilirsiniz iki farklı bölge sahiptir. Ancak, sonraki adıma içerik oluşturma, bu nedenle hiçbir bölge herhangi bir içerik vardır. Bu kılavuz için yalnızca statik içeriği görüntülenen Web Bölümleri denetimleri ile çalışır.
+Sayfanızda artık ayrı ayrı denetleyebilmeniz için iki ayrı bölge vardır. Ancak, hiçbir bölgede içerik yoktur, bu nedenle içerik oluşturmak bir sonraki adımdır. Bu izlenecek yol için yalnızca statik içerik görüntüleyen Web Bölümleri denetimlerle çalışırsınız.
 
-Bir Web Bölümü bölge düzenini tarafından belirtilen bir &lt;zonetemplate&gt; öğesi. Özel bir Web Bölümleri denetimi, bir kullanıcı denetimi veya mevcut bir sunucu denetimi olup, bölge şablon içinde herhangi bir ASP.NET denetimi ekleyebilirsiniz. Burada, etiket denetimini kullanıyorsanız ve için statik metin yalnızca eklemekte olduğunuz dikkat edin. Bir normal sunucu denetimi yerleştirdiğinizde bir **WebPartZone** bölgesi, ASP.NET değerlendirir denetimi bir Web Bölümleri denetimi, çalışma zamanında Web Bölümleri denetimi özellikleri sağlar.
+Web Bölümleri bölgenin düzeni, bir &lt;ZoneTemplate&gt; öğesi tarafından belirtilir. Bölge şablonu içinde, özel bir Web Bölümleri denetimi, bir kullanıcı denetimi veya var olan bir sunucu denetimi olup olmadığı herhangi bir ASP.NET denetimi ekleyebilirsiniz. Burada etiket denetimini kullandığınızı ve yalnızca statik metin eklemeyi unutmayın. Bir **WebPartZone** bölgesine düzenli bir sunucu denetimi yerleştirdiğinizde ASP.net, denetim üzerinde Web bölümleri özellikleri sağlayan denetimi çalışma zamanında Web bölümleri denetimi olarak değerlendirir.
 
-**Ana Bölge içerik oluşturmak için**
+**Ana bölgeye içerik oluşturmak için**
 
-1. İçinde **tasarım** görüntülemek için sürükleyin bir **etiket** denetimi **standart** bölgenin içeriği alanına araç kutusu sekmesi, **kimliği** özelliği MainZone için ayarlanır.
-2. Geçiş **kaynak** görünümü. Dikkat bir &lt;zonetemplate&gt; öğesi sarmalamak için eklenen **etiket** MainZone denetimi.
-3. Adlı bir öznitelik eklemek **başlık** için &lt;asp: Etiket&gt; öğesi ve içeriği değerini ayarlayın. Metin Kaldır "Etiket" özniteliği = &lt;asp: Etiket&gt; öğesi. Açılış ve kapanış etiketlerinin arasında &lt;asp: Etiket&gt; öğesi gibi metin ekleyin **my giriş sayfasına Hoş Geldiniz** çifti içinde &lt;h2&gt; öğesi etiketleri. Kodunuzu aşağıdaki gibi görünmelidir. 
+1. **Tasarım** görünümü ' nde, araç kutusunun **Standart** sekmesinden bir **etiket** denetimini, **ID** özelliği mainzone olarak ayarlanmış olan bölgenin içerik alanına sürükleyin.
+2. **Kaynak** görünümüne geçin. Ana bölgedeki **etiket** denetimini kaydırmak için bir &lt;ZoneTemplate&gt; öğesinin eklendiğinden emin olun.
+3. &lt;ASP: Label&gt; öğesine **title** adlı bir öznitelik ekleyin ve değerini içerik olarak ayarlayın. &lt;ASP: Label&gt; öğesinden Text = "label" özniteliğini kaldırın. &lt;ASP: Label&gt; öğesinin açılış ve kapanış etiketleri arasında, bir dizi &lt;H2&gt; öğesi etiketi içinde **giriş sayfasına hoş geldiniz** gibi bir metin ekleyin. Kodunuz aşağıdaki gibi görünmelidir. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample21.aspx)]
 4. Dosyayı kaydedin.
 
-Ardından, Web Bölümleri denetimi olarak sayfasına eklenebilir bir kullanıcı denetimi oluşturun.
+Daha sonra, sayfaya Web Bölümleri denetimi olarak eklenebilen bir kullanıcı denetimi oluşturun.
 
-### <a name="to-create-a-user-control"></a>Bir kullanıcı denetimi oluşturmak için
+### <a name="to-create-a-user-control"></a>Kullanıcı denetimi oluşturmak için
 
-1. Sitenize bir arama denetimi olarak görev yapacak yeni bir Web kullanıcı denetimi ekleyin. Seçeneğinin seçimini **kaynak kodu ayrı bir dosyada yerleştirin**. WebPartsDemo.aspx sayfası ile aynı dizinde ekleyin ve SearchUserControl.ascx adlandırın.   
+1. Bir arama denetimi olarak kullanılmak üzere sitenize yeni bir Web Kullanıcı denetimi ekleyin. **Kaynak kodu ayrı bir dosyaya yerleştirme**seçeneğinin seçimini kaldırın. Onu WebPartsDemo. aspx sayfasıyla aynı dizine ekleyin ve SearchUserControl. ascx olarak adlandırın.   
   
     > [!NOTE]
-    > Bu izlenecek yol kullanıcı denetimine gerçek arama işlevselliğini gerçekleştirmemesi; yalnızca Web Bölümleri özellikleri göstermek için kullanılır.
-2. Geçiş **tasarım** görünümü. Gelen **standart** sekmesi araç, TextBox denetimi sayfaya sürükleyin.
-3. Yeni eklediğiniz sonra metin kutusu ekleme noktasını yerleştirin ve yeni bir satır eklemek için ENTER tuşuna basın.
-4. Bir düğme denetimi, eklediğiniz metin kutusunun altında yeni satıra sayfaya sürükleyin.
-5. Geçiş **kaynak** görünümü. Kullanıcı denetimi için kaynak kodu'nın aşağıdaki örnekteki gibi göründüğünden emin olun. 
+    > Bu izlenecek yol için Kullanıcı denetimi, gerçek arama işlevlerini uygulamaz; yalnızca Web Bölümleri özelliklerini göstermek için kullanılır.
+2. **Tasarım** görünümüne geçin. Araç kutusunun **Standart** sekmesinden sayfaya bir TextBox denetimi sürükleyin.
+3. Ekleme noktasını az önce eklediğiniz metin kutusundan sonra yerleştirin ve yeni bir satır eklemek için ENTER tuşuna basın.
+4. Yeni eklediğiniz metin kutusunun altındaki yeni satırdaki sayfaya düğme denetimini sürükleyin.
+5. **Kaynak** görünümüne geçin. Kullanıcı denetimi için kaynak kodunun aşağıdaki örnekte olduğu gibi göründüğünden emin olun. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample22.aspx)]
 6. Dosyayı kaydedin ve kapatın.
 
-Artık Web Bölümleri denetimleri kenar bölgeye ekleyebilirsiniz. Kenar bölgeye iki denetimleri ekleme, bağlantılar ve başka bir kullanıcı denetimi bir listesini içeren bir önceki yordamda oluşturduğunuz. Bağlantıları standart olarak eklenen **etiket** sunucu denetimi, benzer şekilde, oluşturduğunuz ana bölgesi için statik metin. Ancak, ayrı ayrı sunucu denetimleri bulunan ancak kullanıcı denetimi (gibi etiket denetimi) doğrudan bölgesinde bulunması, bu durumda değiller. Bunun yerine, önceki yordamda oluşturduğunuz kullanıcı denetiminin bir parçası olan. Bu, hangi denetimleri ve fazladan işlevsellik, bir kullanıcı denetiminde istediğiniz paket ve ardından denetleyen bir bölgedeki bir Web Bölümleri denetimi olarak başvurmak için ortak bir yol gösterir.
+Artık kenar çubuğu bölgesine Web Bölümleri denetimleri ekleyebilirsiniz. Bir bağlantı listesi ve bir önceki yordamda oluşturduğunuz Kullanıcı denetimi olan diğer bir deyişle, kenar çubuğu bölgesine iki denetim ekliyoruz. Bağlantılar, ana bölgenin statik metnini oluşturma yöntemine benzer şekilde standart bir **etiket** sunucu denetimi olarak eklenir. Ancak, Kullanıcı denetiminde bulunan bireysel sunucu denetimleri doğrudan bölgede bulunabilir (etiket denetimi gibi), bu durumda değildir. Bunun yerine, önceki yordamda oluşturduğunuz Kullanıcı denetiminin bir parçasıdır. Bu, bir kullanıcı denetiminde istediğiniz denetimleri ve ek işlevleri paketlemeyi ve sonra bir bölgede denetim Web Bölümleri denetimi olarak başvuruyu yapmanın yaygın bir yolunu gösterir.
 
-Çalışma zamanında Web Bölümleri denetim kümesi, her iki denetim GenericWebPart denetimleri ile sarmalar. Olduğunda bir **GenericWebPart** denetim saran bir Web sunucusu denetimi, üst denetim genel parça denetimdir ve sunucu denetimi üst denetimin ChildControl özelliği üzerinden erişebilirsiniz. Öğesinden türetilen Web Bölümleri denetimleri olarak öznitelikleri ve aynı temel davranışı sağlamak standart Web sunucusu denetimleri genel parça denetimleri bu kullanımını etkinleştirir **WebPart** sınıfı.
+Çalışma zamanında Web Bölümleri denetim kümesi, her iki denetimi de GenericWebPart denetimleriyle sarmalanmış. Bir **GenericWebPart** denetimi bir Web sunucusu denetimini sarmaladığı zaman, genel bölüm denetimi üst denetimdir ve sunucu denetimine üst denetimin ChildControl özelliği aracılığıyla erişebilirsiniz. Genel Bölüm denetimlerinin Bu kullanımı, standart Web sunucusu denetimlerinin, **WebPart** sınıfından türetilen Web bölümleri denetimlerle aynı temel davranışa ve özniteliklere sahip olmasını sağlar.
 
-### <a name="to-add-web-parts-controls-to-the-sidebar-zone"></a>Web Bölümleri denetimleri kenar bölgesine eklemek için
+### <a name="to-add-web-parts-controls-to-the-sidebar-zone"></a>Kenar çubuğu bölgesine Web Bölümleri denetimleri eklemek için
 
-1. WebPartsDemo.aspx sayfasını açın.
-2. Geçiş **tasarım** görünümü.
-3. Sürükleyin, oluşturduğunuz kullanıcı denetimi sayfası SearchUserControl.ascx, **Çözüm Gezgini** bölge içinde olan **kimliği** özelliği SidebarZone için ayarlanır ve sürükleyip bırakın.
-4. WebPartsDemo.aspx sayfayı kaydedin.
-5. Geçiş **kaynak** görünümü.
-6. İçinde &lt;asp: webpartzone&gt; kullanıcı denetiminizin başvuru kısalarak SidebarZone için öğe ekleme bir &lt;asp: Etiket&gt; öğeyle yer alan bağlantıları, aşağıdaki örnekte gösterildiği gibi. Ayrıca, bir **başlık** kullanıcı denetimi etiket değeri ile özniteliği **arama**gösterildiği gibi. 
+1. WebPartsDemo. aspx sayfasını açın.
+2. **Tasarım** görünümüne geçin.
+3. Oluşturduğunuz Kullanıcı denetim sayfasını, SearchUserControl. ascx adlı **Çözüm Gezgini** , **ID** özelliği sidebarzone olarak ayarlanan bölgeye sürükleyin ve burada bırakın.
+4. WebPartsDemo. aspx sayfasını kaydedin.
+5. **Kaynak** görünümüne geçin.
+6. Şu örnekte gösterildiği gibi, SidebarZone için &lt;ASP: WebPartZone&gt; öğesinin içinde, Kullanıcı denetiminizin başvurusunun hemen üzerinde bir &lt;ASP: Label&gt; öğesi ekleyin. Ayrıca, gösterildiği gibi, **arama**değeri ile Kullanıcı denetimi etiketine bir **title** özniteliği ekleyin. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample23.aspx)]
 7. Dosyayı kaydedin ve kapatın.
 
-Artık tarayıcınızda göz atarak sayfanızın test edebilirsiniz. Sayfasında, iki bölgeleri görüntülenir. Aşağıdaki ekran görüntüsünde, sayfada gösterilir.
+Artık, tarayıcınızda tarayıcıda gezinerek sayfanızı test edebilirsiniz. Sayfada iki bölge görüntülenir. Aşağıdaki ekran görüntüsünde sayfa görüntülenir.
 
-**Web Bölümleri tanıtım sayfasını iki bölgeleri**
+**İki bölge içeren Web Bölümleri tanıtım sayfası**
 
-![Web Bölümleri VS Gözden geçirme 1 ekran görüntüsü](profiles-themes-and-web-parts/_static/image3.gif)
+![Web Bölümleri VS Izlenecek yol 1 ekran görüntüsü](profiles-themes-and-web-parts/_static/image3.gif)
 
-**Şekil 3**: Web Bölümleri VS Gözden geçirme 1 ekran görüntüsü
+**Şekil 3**: Web bölümleri vs izlenecek yol 1 ekran görüntüsü
 
-Başlık çubuğu her denetimin bir denetim üzerinde gerçekleştirebileceğiniz eylemleri fiiller menüsü erişim sağlayan bir aşağı ok ' dir. Fiiller menüsü denetimlerden birini, ardından tıklatın **simge durumuna küçült** fiil ve denetim simge durumuna küçültülmüş unutmayın. Fiiller menüden **geri**, ve normal boyutuna denetimini döndürür.
+Her denetimin başlık çubuğunda, bir denetimde gerçekleştirebileceğiniz kullanılabilir eylemlerin fiiller menüsüne erişim sağlayan aşağı bir oktur. Denetimlerden biri için fiiller menüsüne tıklayın, sonra da fiili **simge durumuna küçült** ' e tıklayın ve denetimin simge durumuna küçültülmüş olduğunu unutmayın. Fiiller menüsünde, **geri yükle**' ye tıklayın ve denetim normal boyutuna geri döner.
 
-### <a name="enabling-users-to-edit-pages-and-change-layout"></a>Kullanıcıların, Düzen sayfaları ve düzeni Değiştir
+### <a name="enabling-users-to-edit-pages-and-change-layout"></a>Kullanıcıların sayfaları düzenlemesini ve düzen değiştirmesini sağlama
 
-Web bölümleri, kullanıcıların bir bölgeden diğerine sürükleyerek Web Bölümleri denetimleri düzenini değiştirme yeteneği sağlar. Taşıma izin vererek yanı sıra **WebPart** diğerine denetimleri bir bölgeden denetimlerin kendi görünümünü, düzenini ve davranış da dahil olmak üzere çeşitli özelliklerini düzenlemek kullanıcılara izin verebilirsiniz. Web Bölümleri denetim kümesi için düzenleme temel işlevleri sağlayan **WebPart** kontrol eder. Bu izlenecek yolda bunu değil olsa da, kullanıcıların özelliklerini düzenlemek özel bir düzenleyici denetimleri de oluşturabilirsiniz **WebPart** kontrol eder. Konumunu değiştirme olduğu gibi bir **WebPart** denetimi, bir denetimin özelliklerini düzenleme ASP.NET kişiselleştirmesini kullanıcılar yaptığınız değişiklikleri kaydetmek için kullanır.
+Web Bölümleri, kullanıcılara bir bölgeden diğerine sürükleyerek Web Bölümleri denetimlerinin yerleşimini değiştirme yeteneği sağlar. Kullanıcıların, **Web Bölümü** denetimlerini bir bölgeden diğerine taşımasına izin vermenin yanı sıra, kullanıcıların görünümleri, düzeni ve davranışları dahil olmak üzere denetimlerin çeşitli özelliklerini düzenlemesine izin verebilirsiniz. Web Bölümleri denetim kümesi, **WebPart** denetimleri için temel düzen işlevlerini sağlar. Bu yönergeyi yapamasanız da, kullanıcıların **WebPart** denetimlerinin özelliklerini düzenlemesine izin veren özel düzenleyici denetimleri de oluşturabilirsiniz. Bir **Web Bölümü** denetiminin konumunu değiştirirken olduğu gibi, bir denetimin özelliklerinin düzenlenmesinin, kullanıcıların yaptığı değişiklikleri kaydetmek için ASP.net kişiselleştirmesini kullanır.
 
-Kılavuzun bu bölümünde eklediğiniz tüm temel özelliklerini düzenlemek kullanıcıların **WebPart** sayfasında denetimi. Bu özellikleri etkinleştirmek için başka bir özel kullanıcı denetimi sayfaya ile birlikte eklediğiniz bir &lt;asp: editorzone&gt; öğesi ve iki düzenleme denetimi.
+İzlenecek yolun bu bölümünde, kullanıcıların sayfadaki herhangi bir **WebPart** denetiminin temel özelliklerini düzenleme yeteneğini eklersiniz. Bu özellikleri etkinleştirmek için, sayfaya bir &lt;ASP: EditorZone&gt; öğesi ve iki Düzenle denetimi ile birlikte başka bir özel kullanıcı denetimi eklersiniz.
 
-### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Değişen sayfa düzeni sağlayan bir kullanıcı denetimi oluşturmak için
+### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Sayfa düzeninin değiştirilmesini sağlayan bir kullanıcı denetimi oluşturmak için
 
-1. Visual Studio'da üzerinde **dosya** menüsünde **yeni** alt menü seçeneğine tıklayıp **dosya** seçeneği.
-2. İçinde **Yeni Öğe Ekle** iletişim kutusunda **Web kullanıcı denetimi**. DisplayModeMenu.ascx yeni dosyanın adı. Seçeneğinin seçimini **kaynak kodu ayrı dosyaya Yerleştir**.
-3. Yeni bir denetim oluşturmak için Ekle'ye tıklayın.
-4. Geçiş **kaynak** görünümü.
-5. Tüm mevcut kodlar yeni dosyayı kaldırın ve aşağıdaki kodu yapıştırın. Bu kullanıcı denetimi kod bir sayfa görünümünü değiştirme veya görüntüleme modunu etkinleştirmek Web Bölümleri denetim kümesi özelliklerini kullanan ve ayrıca fiziksel görünümünü değiştirmenizi sağlar ve yazarken sayfasının düzenini belirli görüntüleme modlarında. 
+1. Visual Studio 'da, **Dosya** menüsünde **Yeni** alt menüyü seçin ve **Dosya** seçeneğine tıklayın.
+2. **Yeni öğe Ekle** Iletişim kutusunda **Web Kullanıcı denetimi**' ni seçin. Yeni dosyayı DisplayModeMenu. ascx olarak adlandırın. **Kaynak kodu ayrı dosyaya yerleştirme**seçeneğinin seçimini kaldırın.
+3. Yeni denetimi oluşturmak için Ekle ' ye tıklayın.
+4. **Kaynak** görünümüne geçin.
+5. Yeni dosyadaki tüm mevcut kodu kaldırın ve aşağıdaki kodu yapıştırın. Bu Kullanıcı denetimi kodu, bir sayfanın görünüm veya görüntüleme modunu değiştirmesini sağlayan Web Bölümleri denetim kümesinin özelliklerini kullanır ve ayrıca, belirli görüntü moddayken sayfanın fiziksel görünümünü ve yerleşimini değiştirmenizi sağlar. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample24.aspx)]
-6. Kaydet'e tıklayarak dosyayı kaydedin simgesini seçerek veya araç çubuğunda **Kaydet** üzerinde **dosya** menüsü.
+6. Araç çubuğundaki Kaydet simgesine tıklayarak veya **Dosya** menüsünde **Kaydet** ' i seçerek dosyayı kaydedin.
 
-### <a name="to-enable-users-to-change-the-layout"></a>Düzeni değiştirme olanağı
+### <a name="to-enable-users-to-change-the-layout"></a>Kullanıcıların düzeni değiştirmesine olanak tanımak için
 
-1. WebPartsDemo.aspx sayfasını açın ve geçiş **tasarım** görünümü.
-2. Ekleme noktasını konumlandırma **tasarım** hemen sonrasına görüntülemek **WebPartManager** daha önce eklediğiniz denetimi. Böylece sonra boş bir satır metinden sonra bir satır sonu Ekle **WebPartManager** denetimi. Ekleme noktasını, boş bir satıra yerleştirin.
-3. Yeni oluşturduğunuz kullanıcı denetimi sürükleyin (dosya DisplayModeMenu.ascx adlandırılmıştır) WebPartsDemo.aspx sayfasında ve boş satır bırakın.
-4. Bir EditorZone denetimi **WebParts** WebPartsDemo.aspx sayfasında kalan açık tablo hücresi araç kutusuna bölümü.
-5. Gelen **WebParts** bölümü araç, AppearanceEditorPart denetimi ve LayoutEditorPart denetimine sürükleyin **EditorZone** denetimi.
-6. Geçiş **kaynak** görünümü. Tablo hücresi elde edilen kodda aşağıdaki koda benzemelidir. 
+1. WebPartsDemo. aspx sayfasını açın ve **Tasarım** görünümüne geçin.
+2. Ekleme noktasını, daha önce eklediğiniz **WebPartManager** denetiminden hemen sonra **Tasarım** görünümüne konumlandırın. **WebPartManager** denetiminden sonra boş bir satır olması için metinden sonra sabit bir dönüş ekleyin. Ekleme noktasını boş satıra yerleştirin.
+3. Yeni oluşturduğunuz Kullanıcı denetimini (dosya DisplayModeMenu. ascx olarak adlandırılır) WebPartsDemo. aspx sayfasına sürükleyin ve boş satıra bırakın.
+4. Araç kutusu ' ndan bir EditorZone denetimini WebPartsDemo. aspx sayfasındaki kalan açık tablo hücresine sürükleyin.
+5. Araç kutusunun **WebParts** bölümünden bir AppearanceEditorPart denetimini ve LayoutEditorPart denetimini **EditorZone** denetimine sürükleyin.
+6. **Kaynak** görünümüne geçin. Tablo hücresindeki sonuç kodu aşağıdaki koda benzer görünmelidir. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample25.aspx)]
-7. WebPartsDemo.aspx dosyayı kaydedin. Görüntü modları ve sayfa düzeni değiştirin olanak tanıyan bir kullanıcı denetimi oluşturduktan ve birincil Web sayfasındaki denetimi başvurulan.
+7. WebPartsDemo. aspx dosyasını kaydedin. Görüntüleme modlarını değiştirmenize ve sayfa mizanpajını değiştirmenize olanak tanıyan bir kullanıcı denetimi oluşturdunuz ve birincil web sayfasında denetime başvurmuş olabilirsiniz.
 
-Artık, Düzen sayfaları ve düzenini değiştirme yeteneği test edebilirsiniz.
+Artık sayfaları düzenleme ve düzeni değiştirme yeteneklerini test edebilirsiniz.
 
-### <a name="to-test-layout-changes"></a>Düzen değişiklikleri test etmek için
+### <a name="to-test-layout-changes"></a>Düzen değişikliklerini test etmek için
 
-1. Sayfanın tarayıcıda yükleyin.
-2. Tıklayın **görüntü modu** açılan menüsünde ' nı seçip **Düzenle**. Bölge başlıkları görüntülenir.
-3. Sürükleme **Bağlantılarım** denetim kenar çubuğu bölgesinden başlık çubuğunu ana bölge altına tarafından. Sayfanız şu ekran gibi görünmelidir.
+1. Sayfayı bir tarayıcıda yükleyin.
+2. **Görüntüleme modu** açılır menüsüne tıklayın ve **Düzenle**' yi seçin. Bölge başlıkları görüntülenir.
+3. **My Links** denetimini, kenar çubuğu bölgesindeki başlık çubuğuna, ana bölgenin altına sürükleyin. Sayfanız aşağıdaki ekran görüntüsü gibi görünmelidir.
 
-### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Taşınan Bağlantılarım denetimi ile Web Bölümleri tanıtım sayfası
+### <a name="web-parts-demo-page-with-my-links-control-moved"></a>Bağlantı denetimiyle Web Bölümleri tanıtım sayfası taşındı
 
-![Web Bölümleri VS Gözden geçirme 2 ekran görüntüsü](profiles-themes-and-web-parts/_static/image4.gif)
+![Web Bölümleri VS Izlenecek yol 2 ekran görüntüsü](profiles-themes-and-web-parts/_static/image4.gif)
 
-**Şekil 4**: Web Bölümleri VS Gözden geçirme 2 ekran görüntüsü
+**Şekil 4**: Web bölümleri vs izlenecek yol 2 ekran görüntüsü
 
-1. Tıklayın **görüntü modu** açılan menüsünde ' nı seçip **Gözat**. Sayfa yenilenir, bölge adlarını kaybolur ve **Bağlantılarım** Denetim burada, konumlandırılmış bunu kalır.
-2. Kişiselleştirme çalıştığını göstermek için tarayıcıyı kapatın ve sonra sayfayı yeniden yükleyin. Yaptığınız değişiklikler, gelecekteki tarayıcı oturumları için kaydedilir.
-3. Gelen **görüntü modu** menüsünde **Düzenle**.   
+1. **Görüntüleme modu** açılan menüsüne tıklayın ve sonra da **Araştır**' ı seçin. Sayfa yenilenir, bölge adları kaybolur ve **bağlantılarım denetimi onu** yerleştirdiğiniz yerde kalır.
+2. Kişiselleştirmenin çalıştığını göstermek için tarayıcıyı kapatın ve sonra sayfayı yeniden yükleyin. Yaptığınız değişiklikler gelecekteki tarayıcı oturumları için kaydedilir.
+3. **Görüntüleme modu** menüsünde, **Düzenle**' yi seçin.   
   
-   Her denetim sayfasında, bir aşağı ok fiilleri açılır menü içeren başlık çubuğunda, artık görüntülenir.
-4. Fiiller menüsü görüntülemek için oka tıklayın **Bağlantılarım** denetimi. Tıklayın **Düzenle** fiil.   
+   Sayfadaki her denetim, artık fiiller açılan menüsünü içeren başlık çubuğunda aşağı doğru bir oklu görüntülenir.
+4. **My Links** denetimindeki Verbs menüsünü göstermek için oka tıklayın. **Düzenle** fiiline tıklayın.   
   
-   **EditorZone** EditorPart görüntüleme, denetimleri eklediğiniz, denetimin görünür.
-5. İçinde **Görünüm** düzenleme denetiminin, değişiklik bölüm **başlık** Sık Kullanılanlarım'a, kullanmak **Chrome türü** seçmek için açılır listede **yalnızca başlık**ve ardından **Uygula**. Aşağıdaki ekran görüntüsünde, düzenleme modunda sayfada gösterilir.
+   **EditorZone** denetimi, eklediğiniz EditorPart denetimlerini görüntüleyerek görüntülenir.
+5. Düzenleme denetiminin **Görünüm** bölümünde, **başlığı** Sık Kullanılanlarım olarak değiştirin, **Chrome türü** açılan listesini kullanarak **yalnızca başlık**' ı seçin ve ardından **Uygula**' ya tıklayın. Aşağıdaki ekran görüntüsünde sayfa düzenleme modunda gösterilmektedir.
 
-### <a name="web-parts-demo-page-in-edit-mode"></a>Web Bölümleri tanıtım sayfasını düzenleme modunda
+### <a name="web-parts-demo-page-in-edit-mode"></a>Düzenleme modunda Web Bölümleri tanıtım sayfası
 
-![Web Bölümleri VS izlenecek 3 ekran görüntüsü](profiles-themes-and-web-parts/_static/image5.gif)
+![Web Bölümleri VS Izlenecek yol 3 ekran görüntüsü](profiles-themes-and-web-parts/_static/image5.gif)
 
-**Şekil 5**: Web Bölümleri VS izlenecek 3 ekran görüntüsü
+**Şekil 5**: Web bölümleri vs izlenecek yol 3 ekran görüntüsü
 
-1. Tıklayın **görüntü modu** seçin ve menü **Gözat** modu göz atmak için döndürülecek.
-2. Denetim artık güncelleştirilmiş bir başlık ve hiçbir kenarlık aşağıdaki ekran görüntüsünde gösterildiği gibi sahiptir.
+1. **Görüntüleme modu** menüsüne tıklayın ve gözden geçirme moduna dönmek için **Araştır** ' ı seçin.
+2. Aşağıdaki ekran görüntüsünde gösterildiği gibi, denetimde artık güncelleştirilmiş bir başlık ve kenarlık yoktur.
 
-### <a name="edited-web-parts-demo-page"></a>Düzenlenen Web Bölümleri tanıtım sayfası
+### <a name="edited-web-parts-demo-page"></a>Web Bölümleri demo sayfası düzenlendi
 
-![Web Bölümleri VS izlenecek 4 ekran görüntüsü](profiles-themes-and-web-parts/_static/image6.gif)
+![Web Bölümleri VS Izlenecek yol 4 ekran görüntüsü](profiles-themes-and-web-parts/_static/image6.gif)
 
-**Şekil 4**: Web Bölümleri VS izlenecek 4 ekran görüntüsü
+**Şekil 4**: Web bölümleri vs izlenecek yol 4 ekran görüntüsü
 
 ### <a name="adding-web-parts-at-run-time"></a>Çalışma zamanında Web Bölümleri ekleme
 
-Ayrıca, kullanıcıların Web Bölümleri denetimleri, çalışma zamanında kendi sayfasına eklemek de izin verebilirsiniz. Bunu yapmak için sayfanın kullanıcıları için kullanılabilir hale getirmek istediğiniz Web Bölümleri denetimleri listesi içeren bir Web Bölümleri Kataloğu ile yapılandırın.
+Ayrıca, kullanıcıların çalışma zamanında sayfasına Web Bölümleri denetimleri eklemesine de izin verebilirsiniz. Bunu yapmak için, sayfayı, kullanıcılar için kullanılabilir hale getirmek istediğiniz Web Bölümleri denetimlerinin bir listesini içeren Web Bölümleri katalogla yapılandırın.
 
-**Kullanıcıların çalışma zamanında Web Bölümleri ekleme**
+**Kullanıcıların çalışma zamanında Web Bölümleri eklemesine izin vermek için**
 
-1. WebPartsDemo.aspx sayfasını açın ve geçiş **tasarım** görünümü.
-2. Gelen **WebParts** sekmesi tablonun sağ sütuna CatalogZone denetimi araç beneath sürükleyin **EditorZone** denetimi.   
+1. WebPartsDemo. aspx sayfasını açın ve **Tasarım** görünümüne geçin.
+2. Araç kutusunun **Web bölümleri** sekmesinden, bir CatalogZone denetimini tablonun sağ alt sütununa, **EditorZone** denetiminin altına sürükleyin.   
   
-   Her iki denetim aynı anda görüntülenmez aynı tablo hücresi içinde olabilir.
-3. Özellikler bölmesinde atar **Web Bölümleri ekleme** HeaderText özelliğine **CatalogZone** denetimi.
-4. Gelen **WebParts** bölümü araç, bir pencerenin içerik alanı DeclarativeCatalogPart sürükleyip **CatalogZone** denetimi.
-5. Sağ üst köşesindeki oku tıklatın **DeclarativeCatalogPart** , görevleri menüsünü ortaya çıkarmak için Denetim ve ardından **Şablonları Düzenle**.
-6. Gelen **standart** araç, sürükle bölümünü bir **FileUpload** denetimi ve bir **Takvim** içine denetim **WebPartsTemplate** bölümünü **DeclarativeCatalogPart** denetimi.
-7. Geçiş **kaynak** görünümü. Kaynak kodunu incelemek &lt;asp: catalogzone&gt; öğesi. Dikkat **DeclarativeCatalogPart** denetimi içeren bir &lt;webpartstemplate&gt; sayfanıza ekleme Kataloğu'ndan olacak iki kapalı sunucu denetimleri ile öğesi.
-8. Ekleme bir **başlık** her başlık aşağıdaki kod örneğinde gösterilen dize değeri kullanarak Kataloğu'na eklenen denetimlerin her özelliği. Başlık bir özelliği olmasa bile normal olarak bu iki sunucu denetimleri, bir kullanıcı için bu denetimleri eklediğinde, tasarım zamanında ayarlayabileceğiniz bir **WebPartZone** bölge çalışma zamanında katalogdan bunlar her ile kapatılmış bir  **GenericWebPart** denetimi. Bu, bunları başlıklarını görüntüleyebilir olacak Web Bölümleri denetimleri davranacak şekilde etkinleştirir.   
+   Her iki denetim aynı anda görüntülenmeyeceği için aynı tablo hücresinde olabilir.
+3. Özellikler bölmesinde, **Add Web bölümleri** dize öğesini **CatalogZone** denetiminin HeaderText özelliğine atayın.
+4. Araç kutusunun **WebParts** bölümünde, bir DeclarativeCatalogPart denetimini **CatalogZone** denetiminin içerik alanına sürükleyin.
+5. **DeclarativeCatalogPart** denetiminin sağ üst köşesindeki oka tıklayarak görevler menüsünü kullanıma sunun ve ardından **Şablonları Düzenle**' yi seçin.
+6. Araç kutusunun **Standart** bölümünde, bir **dosya yükleme** denetimi ve **Takvim** denetimini **DeclarativeCatalogPart** denetiminin **WebPartsTemplate** bölümüne sürükleyin.
+7. **Kaynak** görünümüne geçin. &lt;ASP: CatalogZone&gt; öğesinin kaynak kodunu inceleyin. **DeclarativeCatalogPart** denetiminin, katalogdan sayfanıza ekleyebileceğiniz iki sunucu denetimi ile bir &lt;WebPartsTemplate&gt; öğesi içerdiğine dikkat edin.
+8. Aşağıdaki kod örneğinde bulunan her başlık için gösterilen dize değerini kullanarak, kataloğa eklediğiniz denetimlerin her birine bir **title** özelliği ekleyin. Başlık bir özellik olmasa da, tasarım zamanında bu iki sunucu denetiminde ayarlanabilir. Kullanıcı, bu denetimleri çalışma zamanında katalogdan bir **WebPartZone** bölgesine eklediğinde, her biri bir **GenericWebPart** denetimiyle sarmalanır. Bu, Web Bölümleri denetimler olarak davranmalarını sağlar, bu nedenle başlıkları görüntüleyebilecektir.   
   
-   Bulunan iki denetimi için kod **DeclarativeCatalogPart** denetimi aşağıdaki gibi görünmelidir. 
+   **DeclarativeCatalogPart** denetiminde yer alan iki denetim için kod aşağıdaki gibi görünmelidir. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Sayfayı kaydedin.
 
-Artık, kataloğa test edebilirsiniz.
+Artık kataloğu test edebilirsiniz.
 
-### <a name="to-test-the-web-parts-catalog"></a>Web Bölümleri Kataloğu test etmek için
+### <a name="to-test-the-web-parts-catalog"></a>Web Bölümleri kataloğunu test etmek için
 
-1. Sayfanın tarayıcıda yükleyin.
-2. Tıklayın **görüntü modu** açılan menüsünde ' nı seçip **Kataloğu**.   
+1. Sayfayı bir tarayıcıda yükleyin.
+2. **Görüntüleme modu** açılan menüsüne tıklayın ve **Katalog**' u seçin.   
   
-   Başlıklı Kataloğu **Web Bölümleri ekleme** görüntülenir.
-3. Sürükleme **Kullanılanlarım** ana bölgesinden dön kenar bölgenin denetlemek ve sürükleyip bırakın.
-4. İçinde **Web Bölümleri ekleme** katalog, her iki onay kutularını işaretleyin ve ardından **ana** aşağı açılan listeden kullanılabilir bölgeler içerir.
-5. Tıklayın **Ekle** Kataloğu. Denetimler ana bölgesine eklenir. İsterseniz, birden çok örneğini denetimleri katalogdan sayfanıza ekleyebilirsiniz.   
+   **Add Web bölümleri** adlı Katalog görüntülenir.
+3. **Sık Kullanılanlarım** denetimini ana bölgeden kenar çubuğu bölgesinin en üstüne geri sürükleyin ve orada bırakın.
+4. **Web Bölümleri Ekle** kataloğunda her iki onay kutusunu da seçin ve ardından kullanılabilir bölgeleri içeren açılan listeden **Main** ' i seçin.
+5. Katalogda **Ekle** ' ye tıklayın. Denetimler ana bölgeye eklenir. İsterseniz, katalogdan sayfanıza birden fazla denetim örneği ekleyebilirsiniz.   
   
-   Aşağıdaki ekran görüntüsü karşıya dosya yükleme denetimi ve Takvim sayfası ana bölgesinde gösterir. 
+   Aşağıdaki ekran görüntüsünde, karşıya dosya yükleme denetimi ve ana bölgedeki takvimin bulunduğu sayfa gösterilmektedir. 
 
-![Katalogdan ana bölgeye eklenen denetimleri](profiles-themes-and-web-parts/_static/image7.gif)
+![Katalogdan ana bölgeye eklenen denetimler](profiles-themes-and-web-parts/_static/image7.gif)
 
     **Figure 5**: Controls added to Main zone from the catalog
-6. Tıklayın **görüntü modu** açılan menüsünde ' nı seçip **Gözat**. Katalog kaybolur ve sayfa yenilenir.
-7. Tarayıcıyı kapatın. Sayfayı yeniden yükleyin. Değişiklikleri kalıcı hale.
+6. **Görüntüleme modu** açılan menüsüne tıklayın ve sonra da **Araştır**' ı seçin. Katalog kaybolur ve sayfa yenilenir.
+7. Tarayıcıyı kapatın. Sayfayı yeniden yükleyin. Yaptığınız değişiklikler kalıcı hale getirilir.

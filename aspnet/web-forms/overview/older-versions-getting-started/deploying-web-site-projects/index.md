@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/index
-title: Visual Studio 2008 ve daha önceki sürümlerde Web sitesi projeleri dağıtma | Microsoft Docs
+title: Visual Studio 2008 ve önceki sürümlerde Web sitesi projelerini dağıtma | Microsoft Docs
 author: rick-anderson
-description: ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve üretim ortamına o dağıtılması gerekiyor...
+description: ASP.NET Web uygulamaları, genellikle yerel bir geliştirme ortamında tasarlanır, oluşturulur ve test edilir ve bir üretim ortamına dağıtılması gerekir...
 ms.author: riande
 ms.date: 05/16/2012
 ms.assetid: 6f72bde8-f2f1-4e4a-94e5-494c3c153c14
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects
 msc.type: chapter
 ms.openlocfilehash: 43c2397ef4ccc5eacb2ff4c5d04f62b9c8c481b7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134420"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78524061"
 ---
 # <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a>Visual Studio 2008 ve Önceki Sürümlerde Web Sitesi Projeleri Dağıtma
 
-> Genellikle ASP.NET web uygulamaları tasarlanmış, oluşturduğunuz ve test yerel geliştirme ortamı ve yayın için hazır olduğunda üretim ortamına dağıtılması gerekir. Bu öğretici serisinde, dağıtım işleminin ayrıntıları verilmektedir.
+> ASP.NET Web uygulamaları, genellikle yerel bir geliştirme ortamında tasarlanır, oluşturulur ve test edilir ve piyasaya çıkdıktan sonra bir üretim ortamına dağıtılması gerekir. Bu öğretici serisi, dağıtım sürecinin ayrıntılarını.
 
 - [ASP.NET Barındırma Seçenekleri (C#)](asp-net-hosting-options-cs.md)
 - [Hangi Dosyaların Dağıtılması Gerektiğini Belirleme (C#)](determining-what-files-need-to-be-deployed-cs.md)

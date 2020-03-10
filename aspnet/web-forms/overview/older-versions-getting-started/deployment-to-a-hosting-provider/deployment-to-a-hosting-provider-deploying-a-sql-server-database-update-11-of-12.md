@@ -9,11 +9,11 @@ ms.assetid: 5e2bb092-cb22-4511-ad0a-22ae12dd99b3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 0894c0ac24737e66b6960ef3d48aa17f78c6aa1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621072"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78528128"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server veritabanı güncelleştirmesi dağıtma-11/12
 
@@ -47,7 +47,7 @@ ContosoUniversity projesinde, *eğitmenler. aspx* ' i açın ve ilk `GridView` d
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12/samples/sample3.aspx)]
 
-Çözümü oluşturun.
+Çözümü derleyin.
 
 **Paket Yöneticisi konsol** penceresini açın ve **varsayılan proje**olarak contosouniversity. dal ' i seçin.
 
@@ -89,7 +89,7 @@ Web 'i **Yayımla** sihirbazını açın ve ardından **profil** sekmesine geçi
 
 **Güncelleştirme veritabanını** işaretsiz bırak.
 
-**Yayımla**' ya tıklayın.
+**Yayımla**’ta tıklayın.
 
 Visual Studio, kod değişikliklerini test ortamına dağıtır ve tarayıcıyı Contoso Üniversitesi giriş sayfasında açar.
 
@@ -135,7 +135,7 @@ Geçici bir URL kullanıyorsanız, **bağlantı** SEKMESINDE **hedef URL** 'yi u
 
 Değişikliği kaydetmek için yayımlama profilini kapatın ve sonra yeniden açın.
 
-**Yayımla**' ya tıklayın. (Gerçek bir üretim web sitesi için, *uygulamayı çevrimdışı. htm\_* kopyalayın ve yayımlamadan önce proje klasörünüze yerleştirip dağıtım tamamlandığında kaldırabilirsiniz.)
+**Yayımla**’ta tıklayın. (Gerçek bir üretim web sitesi için, *uygulamayı çevrimdışı. htm\_* kopyalayın ve yayımlamadan önce proje klasörünüze yerleştirip dağıtım tamamlandığında kaldırabilirsiniz.)
 
 Visual Studio, kod değişikliklerini test ortamına dağıtır ve tarayıcıyı Contoso Üniversitesi giriş sayfasında açar.
 
@@ -147,7 +147,7 @@ Code First Migrations, veritabanını test ortamında olduğu gibi güncelleşti
 
 Bir SQL Server veritabanı kullanarak veritabanı değişikliğini içeren bir uygulama güncelleştirmesini başarıyla dağıttınız.
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha Fazla Bilgi
 
 Bu, bir ASP.NET Web uygulamasını bir üçüncü taraf barındırma sağlayıcısına dağıtmaya yönelik bu öğretici serisini tamamlar. Bu öğreticilerde ele alınan konuların herhangi biri hakkında daha fazla bilgi için MSDN Web sitesindeki [ASP.NET dağıtım Içerik haritasına](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) bakın.
 

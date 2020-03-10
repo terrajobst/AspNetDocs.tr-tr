@@ -1,6 +1,6 @@
 ---
 uid: web-pages/videos/index
-title: Videoları | Microsoft Docs
+title: Videolar | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,16 +9,16 @@ ms.assetid: febf2824-4e3d-4dc6-84c5-f99777ec6144
 msc.legacyurl: /web-pages/videos
 msc.type: book
 ms.openlocfilehash: 4c22b024240740d971740e9f043231ccbcdc47fb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127684"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631749"
 ---
 # <a name="videos"></a>Videolar
 
 > [!NOTE] 
-> WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Kullanım [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) veya [Visual Studio Code'u](https://code.visualstudio.com/).
+> WebMatrix artık ASP.NET Web sayfaları için tümleşik bir geliştirme ortamı olarak önerilmez. [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) veya [Visual Studio Code](https://code.visualstudio.com/)kullanın.
 
 - [Giriş](introduction/index.md)
 
@@ -32,7 +32,7 @@ ms.locfileid: "65127684"
     - [WebMatrix’te Veri Düzenleme Sayfası Oluşturma](introduction/create-an-edit-data-page-in-webmatrix.md)
     - [WebMatrix’te Veri Silme Sayfası Oluşturma](introduction/create-a-delete-data-page-in-webmatrix.md)
     - [Webmatrix Kullanarak Bir Web Sitesini İnternet'te Yayımlama](introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-- [ASP.NET Razor sayfaları](aspnet-razor-pages/index.md)
+- [ASP.NET Razor Pages](aspnet-razor-pages/index.md)
 
     - [WebMatrix ve ASP.NET Web Sayfaları ile Çalışmaya Başlama](aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
     - [ASP.NET Web Programlama Razor Söz Dizimine Giriş](aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

@@ -9,11 +9,11 @@ ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: e68a454398f109dfd089be9c9a44d3fe662acc2f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600427"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556415"
 ---
 # <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 ile OData v3 uç noktası oluşturma
 
@@ -57,7 +57,7 @@ Visual Studio 'Yu başlatın ve başlangıç sayfasından **Yeni proje** ' yi se
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 
-**Yeni ASP.NET projesi** Iletişim kutusunda **boş** şablonu seçin. &quot;altında...&quot;klasör ve çekirdek başvuruları ekleyin, **Web API 'sini**kontrol edin. **Tamam**'a tıklayın.
+**Yeni ASP.NET projesi** Iletişim kutusunda **boş** şablonu seçin. &quot;altında...&quot;klasör ve çekirdek başvuruları ekleyin, **Web API 'sini**kontrol edin. **Tamam**’a tıklayın.
 
 ![](creating-an-odata-endpoint/_static/image2.png)
 

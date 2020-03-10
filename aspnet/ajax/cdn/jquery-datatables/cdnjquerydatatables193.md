@@ -9,15 +9,15 @@ ms.assetid: 90ba3e9a-ff80-4049-9ad4-08571cdf3880
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables193
 msc.type: content
 ms.openlocfilehash: 06d287cd41cbac693eab0c294ad80220668328f7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59383778"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563184"
 ---
 # <a name="jquery-datatables-193"></a>jQuery DataTables 1.9.3
 
-Aşağıdaki dosyalar için jQuery DataTable eklentileri, CDN'de barındırılan:
+JQuery DataTable eklentileri için aşağıdaki dosyalar CDN 'de barındırılır:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.min.js

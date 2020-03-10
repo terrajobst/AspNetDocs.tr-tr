@@ -1,175 +1,175 @@
 ---
 uid: web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
-title: Dış bir ASP.NET Web sitelerini kullanarak oturum açmaya çalışan sayfaları (Razor) sitesinde | Microsoft Docs
+title: ASP.NET Web Pages (Razor) sitesindeki dış siteleri kullanarak oturum açma | Microsoft Docs
 author: Rick-Anderson
-description: Bu makalede, ASP.NET Web sayfaları (Razor) sitenizi Facebook, Google, Twitter, Yahoo ve diğer siteleri kullanarak oturum açmak açıklanmaktadır — diğer bir deyişle, nasıl destekleneceğini...
+description: Bu makalede, Facebook, Google, Twitter, Yahoo ve diğer siteleri kullanarak ASP.NET Web Pages (Razor) sitesinde oturum açma ve diğer bir deyişle, nasıl destekleneceği açıklanır.
 ms.author: riande
 ms.date: 02/21/2014
 ms.assetid: ef852096-a5bf-47b3-9945-125cde065093
 msc.legacyurl: /web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
 ms.openlocfilehash: 860b75422c3df1d191ed861344963bfc19270e8f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124165"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638756"
 ---
-# <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde dış sitelere kullanarak günlüğe kaydetme
+# <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web Pages (Razor) sitesinde dış siteleri kullanarak oturum açma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede, ASP.NET Web sayfaları (Razor) sitenizi Facebook, Google, Twitter, Yahoo ve diğer siteleri kullanarak oturum açmak açıklanmaktadır — diğer bir deyişle, OAuth ve Openıd sitenizdeki destekleme.
+> Bu makalede, Facebook, Google, Twitter, Yahoo ve diğer siteleri kullanarak ASP.NET Web sayfaları (Razor) sitenizde oturum açma, diğer bir deyişle, sitenizdeki OAuth ve OpenID desteği açıklanmaktadır.
 > 
 > Öğrenecekleriniz:
 > 
-> - WebMatrix başlangıç sitesi şablonunda kullandığınızda oturum açma diğer sitelerden elverişli hale getirme.
+> - WebMatrix Başlatıcı site şablonunu kullandığınızda diğer sitelerden oturum açmayı etkinleştirme.
 > 
-> Bu makalede sunulan ASP.NET özelliğidir:
+> Bu, makalesinde sunulan ASP.NET özelliğidir:
 > 
 > - `OAuthWebSecurity` Yardımcısı.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 2
 > - WebMatrix 3
 
-ASP.NET Web sayfaları için destek içerir [OAuth](http://oauth.net/) ve [Openıd](http://openid.net/) sağlayıcıları. Bu sağlayıcıları kullanarak, sitenizi Facebook, Twitter, Microsoft ve Google var olan kimlik bilgilerini kullanarak oturum kullanıcılar oturum sağlayabilirsiniz. Örneğin, bir Facebook hesabı kullanarak oturum açın, kullanıcılar yalnızca bunları kullanıcı bilgilerini girdiğiniz yere Facebook oturum açma sayfasına yönlendiren bir Facebook simgesi seçebilirsiniz. Bunlar daha sonra Facebook oturum açma hesabıyla sitenizde ilişkilendirebilirsiniz. Bir ilgili Web sayfalarını üyelik özelliklerine kullanıcılar birden çok oturum açma (sosyal ağ sitelerine oturumlardan dahil) ilişkilendirebilirsiniz tek bir hesap kullanarak Web sitenizde geliştirmedir.
+ASP.NET Web sayfaları, [OAuth](http://oauth.net/) ve [OpenID](http://openid.net/) sağlayıcıları için destek içerir. Bu sağlayıcıları kullanarak, kullanıcıların Facebook, Twitter, Microsoft ve Google 'daki mevcut kimlik bilgilerini kullanarak sitenizde oturum açmasına izin verebilirsiniz. Örneğin, Facebook hesabı kullanarak oturum açmak için kullanıcılar yalnızca bir Facebook simgesi seçerek bunları Kullanıcı bilgilerini girdikleri Facebook oturum açma sayfasına yönlendirir. Daha sonra Facebook oturum açma bilgilerini sitenizdeki hesabıyla ilişkilendirebilirler. Web sayfaları üyelik özellikleri için ilgili geliştirmelerden bazıları, kullanıcıların Web sitenizdeki tek bir hesapla birden çok oturum açma işlemi (sosyal ağ sitelerine ait oturumlar dahil) ilişkilendirebilirler.
 
-Bu görüntü oturum açma sayfasından gösterir **başlangıç sitesi** şablonu, burada bir kullanıcı seçebilirsiniz dış bir hesabıyla oturum açma etkinleştirmek için bir Facebook, Twitter, Google veya Microsoft simgesi:
+Bu görüntüde, bir kullanıcının bir dış hesapla oturum açmasını etkinleştirmek üzere Facebook, Twitter, Google veya Microsoft simgesini seçebildiği **Başlatıcı site** şablonundan oturum açma sayfası gösterilmektedir:
 
-![Dış sağlayıcılar](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image1.png)
+![dış sağlayıcılar](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image1.png)
 
-Birkaç satır kod uncommenting tarafından üyelik, OAuth ve Openıd etkinleştirebilirsiniz **başlangıç sitesi** şablonu. Özellikler ve yöntemler OAuth ile çalışmak için kullanın ve Openıd sağlayıcılarının alanlarındadır `WebMatrix.Security.OAuthWebSecurity` sınıfı. **Başlangıç sitesi** şablonu tam üyelik altyapı içerir, kullanıcıların oturum yerel kimlik bilgilerini veya bu başka bir siteden kullanarak sitenizi uygulamasına izin vermeniz gerekiyor bir oturum açma sayfası, bir üyelik veritabanı ve tüm kodu ile tamamlandı .
+**Başlangıç site** şablonunda birkaç satır kod satırını kaldırarak OAuth ve OpenID üyeliğini etkinleştirebilirsiniz. OAuth ve OpenID sağlayıcılarıyla çalışmak için kullandığınız yöntemler ve Özellikler `WebMatrix.Security.OAuthWebSecurity` sınıftır. **Başlatıcı site** şablonu, bir oturum açma sayfası, bir üyelik veritabanı ve kullanıcıların sitenizde yerel kimlik bilgileri veya başka bir siteden oturum açmasını sağlamak için ihtiyacınız olan tüm kod ile tam bir üyelik altyapısı içerir.
 
-Bu bölümde temel alan bir site için dış sitelerden oturum açmasına izin vermek nasıl bir örnek **başlangıç sitesi** şablonu. Başlangıç sitesi oluşturduktan sonra bu (ayrıntıları izleme) yapın:
+Bu bölümde, kullanıcıların dış sitelerden **Başlatıcı site** şablonunu temel alan bir siteye oturum açmasına izin veren bir örnek verilmiştir. Bir başlangıç sitesi oluşturduktan sonra, bunu yapabilirsiniz (Ayrıntılar aşağıda):
 
-- Bir OAuth sağlayıcısı (Facebook, Twitter ve Microsoft) kullanan siteler için dış sitesinde bir uygulama oluşturun. Bu, bu siteleri için oturum açma özelliği çağırmak için gereken uygulama anahtarlarını sağlar.
-- Bir Openıd sağlayıcısı (Google) kullanan siteler için uygulama oluşturma gerekmez. Tüm bu sitelerden oturum açmak için ve geliştirici uygulamaları oluşturmak için hesabınız gerekir.
+- Bir OAuth sağlayıcısı kullanan siteler (Facebook, Twitter ve Microsoft) için dış sitede bir uygulama oluşturursunuz. Bu, bu siteler için oturum açma özelliğini çağırmak üzere ihtiyacınız olan uygulama anahtarlarını sağlar.
+- OpenID sağlayıcısı (Google) kullanan siteler için, bir uygulama oluşturmanız gerekmez. Bu sitelerin tümünde, oturum açmak ve geliştirici uygulamaları oluşturmak için hesabınızın olması gerekir.
 
     > [!NOTE]
-    > Oturum açma bilgileri test etmek için bir yerel Web sitesi URL'si kullanamazsınız. Bu nedenle Microsoft uygulamaları yalnızca bir çalışan Web sitesi için Canlı bir URL kabul edin.
-- Web sitenizi birkaç dosyalarında, uygun kimlik doğrulama sağlayıcısını belirtmek için ve bir oturum açma kullanmak istediğiniz siteye göndermek için düzenleyin.
+    > Microsoft uygulamaları, çalışan bir Web sitesi için yalnızca canlı URL 'yi kabul eder, bu nedenle oturum açma işlemleri için yerel bir Web sitesi URL 'SI kullanamazsınız.
+- Uygun kimlik doğrulama sağlayıcısını belirtmek ve kullanmak istediğiniz siteye bir oturum açma göndermek için Web sitenizde birkaç dosyayı düzenleyin.
 
-Bu makale aşağıdaki görevleri için ayrı yönergeler sağlar:
+Bu makalede, aşağıdaki görevler için ayrı yönergeler sağlanmaktadır:
 
-- [Google oturum açma etkinleştiriliyor](#To_enable_Google_logins)
-- [Facebook oturum açma etkinleştiriliyor](#To_enable_Facebook_logins)
-- [Twitter oturum açma etkinleştiriliyor](#To_enable_Twitter_logins)
+- [Google oturumlarını etkinleştirme](#To_enable_Google_logins)
+- [Facebook oturumlarını etkinleştirme](#To_enable_Facebook_logins)
+- [Twitter oturumlarını etkinleştirme](#To_enable_Twitter_logins)
 
 <a id="To_enable_Google_logins"></a>
-## <a name="enabling-google-logins"></a>Google oturum açma etkinleştiriliyor
+## <a name="enabling-google-logins"></a>Google oturumlarını etkinleştirme
 
-1. Oluşturun veya WebMatrix başlangıç sitesi şablonu temel alan bir ASP.NET Web sayfaları sitesinde açın.
-2. Açık  *\_AppStart.cshtml* sayfasında ve kod aşağıdaki satırı açıklamadan çıkarın. 
+1. WebMatrix Başlatıcı site şablonunu temel alan bir ASP.NET Web sayfaları sitesi oluşturun veya açın.
+2. *\_AppStart. cshtml* sayfasını açın ve aşağıdaki kod satırının açıklamasını kaldırın. 
 
     [!code-css[Main](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/samples/sample1.css)]
 
 ### <a name="testing-google-login"></a>Google oturum açma testi
 
-1. Çalıştırma *default.cshtml* sitenizin sayfasını ve **oturum** düğmesi.
-2. Üzerinde *oturum açma* sayfasında **başka bir hizmete oturum açmak için kullandığınız** bölümünde, ya da seçin **Google** veya **Yahoo** Gönder düğmesi. Bu örnek, Google oturum açma bilgilerini kullanır. 
+1. Sitenizin *default. cshtml* sayfasını çalıştırın ve **oturum aç** düğmesini seçin.
+2. Oturum *açma* sayfasında, **oturum açmak için başka bir hizmet kullan** bölümünde **Google** veya **Yahoo** Gönder düğmesini seçin. Bu örnek Google oturum açma bilgilerini kullanır. 
 
-    Web sayfasının isteği Google oturum açma sayfasına yönlendirir.
+    Web sayfası, isteği Google Login sayfasına yönlendirir.
 
     ![Google oturum açma](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image2.png)
-3. Varolan bir Google hesabı kimlik bilgilerini girin.
-4. Google izin vermek istediğiniz isterse *Localhost* hesap bilgilerinden kullanmak için **izin**.
+3. Mevcut bir Google hesabının kimlik bilgilerini girin.
+4. Google *'ın hesaptaki bilgileri kullanmasına izin vermek* isteyip istemediğinizi sorduğunda, **izin ver**' e tıklayın.
 
-    Kodu, kullanıcının kimliğini doğrulamak için Google belirteci kullanır ve bu sayfaya Web sitenizde döndürür. Bu sayfa, kullanıcıların kendi Google oturum açma bilgilerini kullanarak Web sitenizde var olan bir hesapla ilişkilendirmek sağlar veya dış oturum açma ile ilişkilendirmek için sitenizde yeni bir hesap kaydedebilir.
+    Kod, kullanıcının kimliğini doğrulamak için Google belirtecini kullanır ve ardından Web sitenizde bu sayfaya geri döner. Bu sayfa, kullanıcıların Google oturum açmaları Web sitenizde mevcut bir hesapla ilişkilendirmelerini sağlar veya dış oturum açma bilgilerini ile ilişkilendirmek için sitenize yeni bir hesap kaydedebilir.
 
-    ![OAuth 5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image3.png)
-5. Seçin **ilişkilendirmek** düğmesi. Tarayıcıda uygulama giriş sayfasına döndürür.
+    ![OAuth-5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image3.png)
+5. **İlişkilendir** düğmesini seçin. Tarayıcı, uygulamanızın giriş sayfasına geri döner.
 
 <a id="To_enable_Facebook_logins"></a>
-## <a name="enabling-facebook-logins"></a>Facebook oturum açma etkinleştiriliyor
+## <a name="enabling-facebook-logins"></a>Facebook oturumlarını etkinleştirme
 
-1. Git [Facebook geliştiriciler site](https://developers.facebook.com/apps) (henüz oturum açmadıysanız oturum açın).
-2. Seçin **yeni uygulama oluştur** düğmesini ve sonra adı ve yeni uygulama oluşturmak için istemleri izleyin.
-3. Bölümünde **uygulamanızı Facebook ile nasıl tümleştirilecek seçin**, seçin **Web sitesi** bölümü.
-4. Doldurun **Site URL'si** alanına sitenizin URL'siyle (örneğin, `http://www.example.com`). **Etki alanı** alan isteğe bağlıdır; bunu tüm etki alanı için kimlik doğrulaması sağlamak için kullanabilirsiniz (örneğin *example.com*). 
+1. [Facebook geliştiricileri sitesine](https://developers.facebook.com/apps) gidin (henüz oturum açmadıysanız oturum açın).
+2. Yeni uygulama **Oluştur** düğmesini seçin ve ardından yeni uygulamayı adlandırmak ve oluşturmak için istemleri izleyin.
+3. **Uygulamanızın Facebook ile nasıl tümleştirileceğini seçin**bölümünde, **Web sitesi** bölümünü seçin.
+4. **Site URL 'si** ALANıNı sitenizin URL 'siyle (örneğin, `http://www.example.com`) girin. **Etki alanı** alanı isteğe bağlıdır; Bu, tüm etki alanı ( *example.com*gibi) için kimlik doğrulaması sağlamak için kullanabilirsiniz. 
 
     > [!NOTE]
-    > Yerel bilgisayarınızda bir URL ile bir site çalıştırıyorsanız, ister `http://localhost:12345` (sayıdır bir yerel bağlantı noktası numarası), bu değeri ekleyebileceğiniz **Site URL'si** sitenizi test etmek için alan. Ancak, yerel site değişikliği bağlantı noktası numarası için istediğiniz zaman, güncelleştirmeniz gerekecektir **Site URL'si** uygulamanızın alan.
-5. Seçin **Değişiklikleri Kaydet** düğmesi.
-6. Seçin **uygulamaları** sekmesine ve ardından uygulamanız için başlangıç sayfasını görüntüleyin.
-7. Kopyalama **uygulama kimliği** ve **uygulama gizli anahtarı** uygulamanız için değerleri ve bunları bir geçici bir metin dosyasına yapıştırın. Bu değerler, Web sitesi kodunuzda Facebook sağlayıcıya geçer.
-8. Facebook Geliştirici sitesi çıkın.
+    > Yerel bilgisayarınızda `http://localhost:12345` (sayının bir yerel bağlantı noktası numarası olduğu) gibi bir URL 'yi çalıştırıyorsanız, sitenizi test etmek için bu değeri **site URL 'si** alanına ekleyebilirsiniz. Ancak, yerel sitenizin bağlantı noktası numarası değiştiğinde uygulamanızın **site URL 'si** alanını güncelleştirmeniz gerekecektir.
+5. **Değişiklikleri Kaydet** düğmesini seçin.
+6. **Uygulamalar** sekmesini yeniden seçin ve ardından uygulamanızın başlangıç sayfasını görüntüleyin.
+7. Uygulamanızın uygulama **kimliği** ve **uygulama gizli** değerlerini kopyalayın ve bunları geçici bir metin dosyasına yapıştırın. Bu değerleri, Web sitesi kodunuzda Facebook sağlayıcısına geçitirsiniz.
+8. Facebook geliştirici sitesinden çıkın.
 
-Kullanıcıların böylece artık iki siteniz Facebook hesaplarını kullanarak siteye kayıt yapabiliyor değişiklik.
+Artık Web sitenizdeki iki sayfada değişiklikler yaparsınız. böylece kullanıcılar, Facebook hesaplarını kullanarak sitede oturum açabilirler.
 
-1. Oluşturun veya WebMatrix başlangıç sitesi şablonu temel alan bir ASP.NET Web sayfaları sitesinde açın.
-2. Açık  *\_AppStart.cshtml* sayfasında ve Facebook OAuth sağlayıcısı için kodun açıklamasını kaldırın. Açıklamalı olmayan kod bloğunu aşağıdaki gibi görünür: 
+1. WebMatrix Başlatıcı site şablonunu temel alan bir ASP.NET Web sayfaları sitesi oluşturun veya açın.
+2. *\_AppStart. cshtml* sayfasını açın ve Facebook OAuth sağlayıcısı için kodun açıklamasını kaldırın. Açıklamalı olmayan kod bloğu aşağıdakine benzer: 
 
     [!code-csharp[Main](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/samples/sample2.cs)]
-3. Kopyalama **uygulama kimliği** değeri olarak Facebook uygulaması değerinden `appId` parametre (tırnak işaretleri içinde).
-4. Kopyalama **uygulama gizli anahtarı** Facebook uygulaması değerinden `appSecret` parametre değeri.
+3. **Uygulama kimliği** değerini, Facebook uygulamasından `appId` parametresinin değeri olarak (tırnak işaretleri içinde) kopyalayın.
+4. Facebook uygulamasından **uygulama gizli** değerini `appSecret` parametre değeri olarak kopyalayın.
 5. Dosyayı kaydedin ve kapatın.
 
 ### <a name="testing-facebook-login"></a>Facebook oturum açma testi
 
-1. Sitenin çalıştırması *default.cshtml* sayfasında ve **oturum açma** düğmesi.
-2. Üzerinde *oturum açma* sayfasında **başka bir hizmete oturum açmak için kullandığınız** bölümünde, seçin **Facebook** simgesi. 
+1. Sitenin *default. cshtml* sayfasını çalıştırın ve **oturum aç** düğmesini seçin.
+2. *Oturum açma* sayfasında, **oturum açmak için başka bir hizmet kullan** bölümünde **Facebook** simgesini seçin. 
 
-    Web sayfasının isteği Facebook oturum açma sayfasına yönlendirir.
+    Web sayfası, isteği Facebook oturum açma sayfasına yönlendirir.
 
-    ![OAuth 2](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image4.png)
-3. Bir Facebook hesabınızda oturum açmak. 
+    ![OAuth-2](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image4.png)
+3. Facebook hesabında oturum açın. 
 
-    Kod, kimlik doğrulaması için Facebook belirteci kullanır ve burada Facebook oturum açma bilgilerinizi sitenizin oturum açma ile ilişkilendirebilirsiniz bir sayfasına döndürür. Kullanıcı adı veya e-posta adresinizi içine doldurulur **e-posta** formdaki alan.
+    Kod, kimliğinizi doğrulamak için Facebook belirtecini kullanır ve ardından Facebook oturum açma bilgilerinizi sitenizin oturum açmayla ilişkilendirebileceğiniz bir sayfaya geri döner. Kullanıcı adınız veya e-posta adresiniz formundaki **e-posta** alanına girilir.
 
-    ![OAuth 5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image5.png)
-4. Seçin **ilişkilendirmek** düğmesi. 
+    ![OAuth-5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image5.png)
+4. **İlişkilendir** düğmesini seçin. 
 
-    Tarayıcı giriş sayfasına döndürür ve günlüğe kaydedilir.
+    Tarayıcı, giriş sayfasına geri döner ve oturum açarsınız.
 
 <a id="To_enable_Twitter_logins"></a>
-## <a name="enabling-twitter-logins"></a>Twitter oturum açma etkinleştiriliyor
+## <a name="enabling-twitter-logins"></a>Twitter oturumlarını etkinleştirme
 
-1. Gözat [Twitter geliştiriciler site](https://dev.twitter.com/).
-2. Seçin **uygulama oluşturma** bağlamak ve siteye oturum.
-3. Üzerinde **uygulama oluşturma** oluşturmak, doldurmak **adı** ve **açıklama** alanları.
-4. İçinde **Web sitesi** sitenizin URL'sini girin (örneğin, `http://www.example.com`). 
+1. [Twitter geliştiricileri sitesine](https://dev.twitter.com/)gidin.
+2. **Uygulama oluştur** bağlantısını seçin ve ardından sitede oturum açın.
+3. **Uygulama oluştur** formunda **ad** ve **Açıklama** alanlarını girin.
+4. **Web sitesi** alanına sitenizin URL 'sini girin (örneğin, `http://www.example.com`). 
 
     > [!NOTE]
-    > Siteniz yerel olarak test ediyorsanız (gibi bir URL kullanarak `http://localhost:12345`), Twitter URL'si kabul. Ancak, yerel bir geri döngü IP adresini kullanmanız mümkün olabilir (örneğin `http://127.0.0.1:12345`). Bu, uygulamanızı yerel olarak test etme işlemini basitleştirir. Ancak, yerel site bağlantı noktası numarası her değiştiğinde güncellemeniz gerekecektir **Web sitesi** uygulamanızın alan.
-5. İçinde **geri çağırma URL'si** alan, kullanıcıların Twitter ile oturum açtıktan sonra dönmek için istediğiniz Web sayfası için bir URL girin. Örneğin, kullanıcıların (Bu, oturum açma durumu algılar) başlangıç sitesi giriş sayfasına göndermek için girdiğiniz aynı URL'yi girin. **Web sitesi** alan.
-6. Koşulları kabul edin ve seçin **kendi Twitter uygulamanızı oluşturun** düğmesi.
-7. Üzerinde **uygulamalarım** giriş sayfası, oluşturduğunuz uygulamayı seçin.
-8. Üzerinde **ayrıntıları** için sekmesinde, kaydırın ve seçin **oluşturma My erişim belirteci** düğmesi.
-9. Üzerinde **ayrıntıları** sekmesinde, kopya **tüketici anahtarı** ve **tüketici gizli** uygulamanız için değerleri ve bunları bir geçici bir metin dosyasına yapıştırın. Bu değerler, Web sitesi kodunuzda Twitter sağlayıcıya ileteceksiniz.
-10. Twitter site çıkın.
+    > Sitenizi yerel olarak test ediyorsanız (`http://localhost:12345`gibi bir URL kullanarak) Twitter, URL 'YI kabul etmeyebilir. Ancak, yerel geri döngü IP adresini (örneğin `http://127.0.0.1:12345`) kullanabilirsiniz. Bu, uygulamanızı yerel olarak test etme işlemini basitleştirir. Ancak, yerel sitenizin bağlantı noktası numarası her değiştiğinde uygulamanızın **Web sitesi** alanını güncelleştirmeniz gerekir.
+5. **Geri arama URL 'si** alanına, Web sitenizde Twitter 'da oturum açtıktan sonra geri dönmesini istediğiniz sayfa IÇIN bir URL girin. Örneğin, kullanıcıları Başlatıcı sitesinin giriş sayfasına (oturum açma durumunu tanıyacak) göndermek için, **Web sitesi** alanına girdiğiniz aynı URL 'yi girin.
+6. Koşulları kabul edin ve **Twitter uygulamanızı oluştur** düğmesini seçin.
+7. **Uygulamalarım** giriş sayfasında, oluşturduğunuz uygulamayı seçin.
+8. **Ayrıntılar** sekmesinde, en alta kaydırın ve **erişim belirtecinden oluştur** düğmesini seçin.
+9. **Ayrıntılar** sekmesinde, uygulamanız Için **tüketici anahtarı** ve **Tüketici gizli** değerlerini kopyalayın ve bunları geçici bir metin dosyasına yapıştırın. Bu değerleri, Web sitesi kodunuzda Twitter sağlayıcısına geçireceğiz.
+10. Twitter sitesinden çıkın.
 
-Kullanıcıların Twitter hesaplarını kullanarak siteye bağlanmanız mümkün olacaktır, böylece artık iki Web sitenize değişiklik.
+Artık Web sitenizdeki iki sayfada değişiklikler yaparsınız, böylece kullanıcılar kendi Twitter hesaplarını kullanarak sitede oturum açabilirler.
 
-1. Oluşturun veya WebMatrix başlangıç sitesi şablonu temel alan bir ASP.NET Web sayfaları sitesinde açın.
-2. Açık  *\_AppStart.cshtml* sayfasında ve Twitter OAuth sağlayıcısı için kodun açıklamasını kaldırın. Açıklamalı olmayan kod bloğu şöyle görünür: 
+1. WebMatrix Başlatıcı site şablonunu temel alan bir ASP.NET Web sayfaları sitesi oluşturun veya açın.
+2. *\_AppStart. cshtml* sayfasını açın ve Twitter OAuth sağlayıcısı için kodun açıklamasını kaldırın. Açıklamalı olmayan kod bloğu şuna benzer: 
 
     [!code-csharp[Main](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/samples/sample3.cs)]
-3. Kopyalama **tüketici anahtarı** değeri olarak bir Twitter uygulaması değerinden `consumerKey` parametre (tırnak işaretleri içinde).
-4. Kopyalama **tüketici gizli** değeri olarak bir Twitter uygulaması değerinden `consumerSecret` parametresi.
+3. **Kullanıcı anahtarı** değerini Twitter uygulamasından `consumerKey` parametresinin değeri olarak (tırnak işaretleri içinde) kopyalayın.
+4. **Kullanıcı gizli** değerini Twitter uygulamasından `consumerSecret` parametresinin değeri olarak kopyalayın.
 5. Dosyayı kaydedin ve kapatın.
 
 ### <a name="testing-twitter-login"></a>Twitter oturum açma testi
 
-1. Çalıştırma *default.cshtml* sitenizin sayfasını ve **oturum açma** düğmesi.
-2. Üzerinde *oturum açma* sayfasında **başka bir hizmete oturum açmak için kullandığınız** bölümünde, seçin **Twitter** simgesi. 
+1. Sitenizin *default. cshtml* sayfasını çalıştırın ve **oturum aç** düğmesini seçin.
+2. Oturum *açma* sayfasında, **oturum açmak için başka bir hizmet kullan** bölümünde **Twitter** simgesini seçin. 
 
-    Web sayfasının isteği oluşturduğunuz uygulama için bir Twitter oturum açma sayfasına yönlendirir.
+    Web sayfası, oluşturduğunuz uygulama için isteği Twitter oturum açma sayfasına yönlendirir.
 
     ![OAuth-4](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image6.png)
-3. Bir Twitter hesabınızda oturum açmak.
-4. Kod kullanıcının kimliğini doğrulamak için Twitter belirtecini kullanır ve size bir sayfaya burada ilişkilendirebilirsiniz Web sitesi hesabınız ile oturum açma bilgilerinizi döndürür. Ad veya e-posta adresinizi içine doldurulur **e-posta** formdaki alan.
+3. Twitter hesabında oturum açın.
+4. Kod, kullanıcının kimliğini doğrulamak için Twitter belirtecini kullanır ve ardından sizi, oturum açma bilgilerinizi Web sitesi hesabınızla ilişkilendirebileceğiniz bir sayfaya geri döndürür. Ad veya e-posta adresiniz, formdaki **e-posta** alanına girilir.
 
-    ![OAuth 5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image7.png)
-5. Seçin **ilişkilendirmek** düğmesi. 
+    ![OAuth-5](enabling-login-from-external-sites-in-an-aspnet-web-pages-site/_static/image7.png)
+5. **İlişkilendir** düğmesini seçin. 
 
-    Tarayıcı giriş sayfasına döndürür ve günlüğe kaydedilir.
+    Tarayıcı, giriş sayfasına geri döner ve oturum açarsınız.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 - [Site Geneline Yönelik Davranışını Özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906)
-- [Bir ASP.NET Web sayfaları sitesinde için güvenlik ve üyelik ekleme](https://go.microsoft.com/fwlink/?LinkID=202904)
+- [ASP.NET Web sayfaları sitesine güvenlik ve üyelik ekleme](https://go.microsoft.com/fwlink/?LinkID=202904)

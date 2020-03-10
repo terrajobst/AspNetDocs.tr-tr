@@ -1,287 +1,287 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
-title: ASP.NET ve Web Araçları 2012.2 sürüm notları | Microsoft Docs
+title: ASP.NET and Web Tools 2012,2 sürüm notları | Microsoft Docs
 author: rick-anderson
-description: ASP.NET ve Web Araçları 2012.2 sürüm notları.
+description: ASP.NET and Web Tools 2012,2 için sürüm notları.
 ms.author: riande
 ms.date: 02/14/2013
 ms.assetid: 9534e58b-1d15-4f1d-b04c-10c79b9d8227
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
 ms.openlocfilehash: abd6d8ce0646852a194369589cb730fc98ecb3ad
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113141"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78579522"
 ---
 # <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET and Web Tools 2012.2 Sürüm Notları
 
-> Bu belgede ASP.NET ve Web Araçları 2012.2 sürüm açıklanmaktadır. Visual Studio Web Araçları ve ASP.NET için bir güncelleştirmedir.
+> Bu belgede ASP.NET and Web Tools 2012,2 sürümü açıklanmaktadır. Visual Studio Web araçları ve ASP.NET güncelleştirmesidir.
 
 - [Yükleme notları](#_Installation)
 - [Belgeler](#_Documentation)
 - [Destek](#_Support)
 - [Yazılım gereksinimleri](#_Software_Requirements)
-- [ASP.NET ve Web Araçları 2012.2 yeni özellikler](#_New_Features_in)
+- [ASP.NET and Web Tools 2012,2 ' deki yeni özellikler](#_New_Features_in)
 
-    - [Araç kullanımı](#_Tooling)
-    - [Web'de Yayımlama](#_Web_Publishing)
+    - [Araçları](#_Tooling)
+    - [Web yayımlaması](#_Web_Publishing)
     - [ASP.NET MVC şablonları](#_Templates)
     - [ASP.NET Web API](#_ASP.NET_Web_API)
 
     - [ASP.NET SignalR](#_ASP.NET_SignalR)
-    - [ASP.NET kolay URL'leri](#_ASP.NET_Friendly_URLs)
-- [Bilinen sorunlar ve yeni değişiklikler](#_Known_Issues_and)
+    - [ASP.NET kolay URL 'Ler](#_ASP.NET_Friendly_URLs)
+- [Bilinen sorunlar ve son değişiklikler](#_Known_Issues_and)
 
 <a id="_Installation"></a>
 ## <a name="installation-notes"></a>Yükleme notları
 
-ASP.NET ve Web Araçları 2012.2, Visual Studio 2012 için kullanılarak yüklenebilir [Web Platformu yükleyicisi](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2). Visual Studio 2012 veya Visual Studio Express 2012 için gerekli olan Web budur. Visual Studio Express 2012 Web için Visual Studio yüklü değilse yüklenir.
+Visual Studio 2012 için ASP.NET and Web Tools 2012,2, [Web Platformu Yükleyicisi](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2)kullanılarak yüklenebilir. Bu, Visual Studio 2012 veya Web için Visual Studio Express 2012 ' e yönelik bir güncelleştirmedir ve bu gereklidir. Visual Studio yüklü değilse, Web için Visual Studio Express 2012 yüklenir.
 
-Aynı zamanda ASP.NET ve Web Araçları 2012.2 el ile yükleyebilirsiniz. Visual Studio 2012 veya Visual Studio Express 2012 için Web yüklü olması gerekir. Ardından, aşağıdaki yönergeleri kullanın: 
+ASP.NET and Web Tools 2012,2 'yi el ile de yükleyebilirsiniz. Web için Visual Studio 2012 veya Visual Studio Express 2012 yüklü olmalıdır. Ardından aşağıdaki yönergeleri kullanın: 
 
-1. İndirme [ASP.NET ve Frameworks 2012.2 Web](https://download.microsoft.com/download/6/5/6/6562AFBE-9503-4E64-970C-1427133FCD73/AspNetWebTools2012Setup.exe) yükleyicisini İndirme Merkezi'nden.
-2. Çalıştırdığınızda istendiğinde tıklayın. Ayrıca, daha sonra çalıştırılacak dosyanın kaydedebilirsiniz.
-3. Visual Studio, güncelleştirme sürümünü doğrulayın. Güncelleştirmek istediğiniz Visual Studio başlatarak bunu yapabilirsiniz. Yardım menü öğesi'ye tıklayın.   
+1. [ASP.net ve Web çerçeveleri 2012,2](https://download.microsoft.com/download/6/5/6/6562AFBE-9503-4E64-970C-1427133FCD73/AspNetWebTools2012Setup.exe) yükleyicisini indirme merkezinden indirin.
+2. İstendiğinde Çalıştır ' a tıklayın. Dosyayı daha sonra çalıştırmak için de kaydedebilirsiniz.
+3. Güncelleştirilecek Visual Studio sürümünü doğrulayın. Bunu, güncelleştirmek istediğiniz Visual Studio 'Yu başlatarak yapabilirsiniz. Yardım menüsü öğesine tıklayın.   
     ![](aspnet-and-web-tools-20122-release-notes-rtw/_static/image1.jpg)
-4. Menü öğesi görürseniz &quot;hakkında Microsoft Visual Studio 2012 için Web&quot; sonra indirmeniz [Web geliştirici araçları 2012.2 - Visual Studio Express 2012 için Web](https://go.microsoft.com/fwlink/?LinkID=282228). Aksi takdirde indirme [Web geliştirici araçları 2012.2 - Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282228).
-5. Çalıştırdığınızda istendiğinde tıklayın. Ayrıca, daha sonra çalıştırılacak dosyanın kaydedebilirsiniz.
+4. Web&quot; için Microsoft Visual Studio 2012 &quot;menü öğesini görürseniz Web [Için web Geliştirici Araçları 2012,2-Visual Studio Express 2012](https://go.microsoft.com/fwlink/?LinkID=282228)' i indirin. Aksi halde [Web Geliştirici Araçları 2012,2-Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282228)indirin.
+5. İstendiğinde Çalıştır ' a tıklayın. Dosyayı daha sonra çalıştırmak için de kaydedebilirsiniz.
 
 > [!NOTE]
-> ASP.NET ve Web Araçları 2012.2 sürüm, SQL Server veri araçları içermez. SQL Server ve Windows Azure SQL veritabanlarını çevrimdışı proje destekli geliştirme, Şema karşılaştırma ve Gelişmiş veritabanı dağıtım özellikleri de dahil olmak üzere araç veritabanının daha zengin bir dizi sağlar. SQL Server veri Araçları'nı yüklemek için ya da daha fazla bilgi için ziyaret [ https://go.microsoft.com/fwlink/?LinkID=237127 ](https://go.microsoft.com/fwlink/?LinkID=237127).
+> ASP.NET and Web Tools 2012,2 sürümü SQL Server Veri Araçları içermez. SQL Server ve Windows Azure SQL veritabanları, çevrimdışı proje destekli geliştirme, şema karşılaştırma ve gelişmiş veritabanı dağıtım özellikleri dahil olmak üzere daha zengin bir veritabanı araçları kümesi sağlar. Daha fazla bilgi veya SQL Server Veri Araçları yüklemek için [https://go.microsoft.com/fwlink/?LinkID=237127](https://go.microsoft.com/fwlink/?LinkID=237127)ziyaret edin.
 
 <a id="_Documentation"></a>
 ## <a name="documentation"></a>Belgeler
 
-Öğreticiler ve ASP.NET ve Web Araçları 2012.2 ile ilgili diğer bilgileri ASP.NET web sitesinden kullanılabilir ( https://www.asp.net).
+ASP.NET and Web Tools 2012,2 hakkındaki öğreticiler ve diğer bilgiler ASP.NET Web sitesinden edinilebilir (https://www.asp.net).
 
 <a id="_Support"></a>
 ## <a name="support"></a>Destek
 
-ASP.NET ve Web Araçları 2012.2 resmi olarak yayımlanan ve desteklenir. Normal destek kanalınızı kullanabilirsiniz. ASP.NET forumları için de soru gönderebilir ([https://forums.asp.net/](https://forums.asp.net/)), burada ASP.NET topluluk üyelerinin resmi olmayan destek sık sağlayabilir.
+ASP.NET and Web Tools 2012,2 resmi olarak serbest bırakılır ve desteklenir. Normal destek kanalınızı kullanabilirsiniz. Ayrıca, ASP.NET Community üyelerinin çok sayıda resmi olmayan destek sağlayabildiği ASP.NET forumlarına ([https://forums.asp.net/](https://forums.asp.net/)) sorular da gönderebilirsiniz.
 
 <a id="_Software_Requirements"></a>
 ## <a name="software-requirements"></a>Yazılım Gereksinimleri
 
-ASP.NET ve Web Araçları 2012.2 gerektirir Visual Studio 2012 veya Visual Studio Express 2012 için Web.
+2012,2 ASP.NET and Web Tools web için Visual Studio 2012 veya Visual Studio Express 2012 gerektirir.
 
 <a id="_New_Features_in"></a>
-## <a name="new-features-in-aspnet-and-web-tools-20122"></a>ASP.NET ve Web Araçları 2012.2 yeni özellikler
+## <a name="new-features-in-aspnet-and-web-tools-20122"></a>ASP.NET and Web Tools 2012,2 ' deki yeni özellikler
 
-Bu bölümde ASP.NET ve Web Araçları 2012.2 sürümünde sunulan özellikler açıklanır.
+Bu bölümde ASP.NET and Web Tools 2012,2 sürümünde tanıtılan özellikler açıklanmaktadır.
 
 <a id="_Tooling"></a>
-### <a name="tooling"></a>Araç kullanımı
+### <a name="tooling"></a>Araçlar
 
 - Sayfa Denetçisi 
 
-    - Page Inspector'ı sayfasına karşılık gelen JavaScript kodunu dinamik olarak eklenen öğeleri eşlemek izin verme JavaScript seçimi eşleme destekler.
-    - CSS görme olanağı, gerçek zamanlı olarak güncelleştirir.
-    - Daha fazla bilgi için okuma [CSS otomatik eşitleme ve sayfa denetçisi JavaScript eşlemesini seçimi](https://blogs.msdn.com/b/webdev/archive/2012/12/14/css-auto-sync-and-javascript-selection-mapping-in-page-inspector.aspx).
+    - Sayfa denetçisi 'ne, sayfaya karşılık gelen JavaScript koduna geri eklenen öğeleri eşlemeye izin veren JavaScript seçim eşlemesini destekler.
+    - CSS güncelleştirmelerini gerçek zamanlı olarak görme özelliği.
+    - Daha fazla bilgi için, [sayfa denetçisinde CSS otomatik eşitleme ve JavaScript seçim eşlemesini](https://blogs.msdn.com/b/webdev/archive/2012/12/14/css-auto-sync-and-javascript-selection-mapping-in-page-inspector.aspx)okuyun.
 - Düzenleyici 
 
-    - CoffeeScript, Bıyık, Gidon ve JsRender için söz dizimi vurgulama destekler.
-    - HTML düzenleyicisi altını bağlamaları için IntelliSense sağlar.
-    - Daha az düzenleme ve derleyici daha az kullanarak dinamik CSS oluşturmayı destekler.
-    - Bir .NET sınıfı olarak JSON Yapıştır. .NET sınıfları JSON'dan çıkarılan bir C# veya VB.NET kodu dosyası ve Visual Studio JSON yapıştırmak için bu Özel Yapıştır komut kullanarak otomatik olarak oluşturur.
-- Mobil öykünücü desteği genişletilebilirlik kancaları ekler; böylece bir VSIX üçüncü taraf öykünücüleri yüklenebilir. Böylece geliştiriciler, çeşitli mobil cihazlarda sitelerinde önizleyebilirsiniz yüklü öykünücüleri F5 açılır menüde görünür. Scott Hanselman'ın blog girişinde'deki bu özellik hakkında daha fazla bilgiyi [yeni BrowserStack Visual Studio tümleştirmesi sayesinde](http://www.hanselman.com/blog/CrossBrowserDebuggingIntegratedIntoVisualStudioWithBrowserStack.aspx).
+    - CoffeeScript, Mustache, Handleçubuklar ve JsRender için sözdizimi vurgulamasını destekler.
+    - HTML Düzenleyicisi, altını gizleme bağlamaları için IntelliSense sağlar.
+    - DAHA az kullanarak dinamik CSS oluşturmayı etkinleştirmek için daha az düzen ve derleyici desteği.
+    - JSON 'ı bir .NET sınıfı olarak yapıştırın. JSON 'ı bir C# veya vb.NET kod dosyasına yapıştırmak Için bu özel yapıştırma komutunu kullanma ve Visual Studio OTOMATIK olarak JSON 'dan çıkarılan .NET sınıfları oluşturur.
+- Mobil öykünücü desteği, üçüncü taraf öykünücülerin VSıX olarak yüklenebilmesi için genişletilebilirlik kancaları ekler. Geliştiricilerin Web sitelerini çeşitli mobil cihazlarda önizleme yapabilmesi için, F5 açılan menüsünde yüklü Öykünücüler görünür. [Visual Studio ile yeni BrowserStack tümleştirmesinde](http://www.hanselman.com/blog/CrossBrowserDebuggingIntegratedIntoVisualStudioWithBrowserStack.aspx)Scott Hanselman 'ın blog girişinde bu özellik hakkında daha fazla bilgi edinin.
 
 <a id="_Web_Publishing"></a>
-### <a name="web-publishing"></a>Web'de Yayımlama
+### <a name="web-publishing"></a>Web yayımlaması
 
-- Web sitesi projeleri artık Web uygulaması projelerinde yayımlama için Windows Azure Web siteleri dahil olmak üzere aynı yayımlama deneyimini var.
-- Seçici yayımlama &#8211; için bir veya daha fazla dosya (sonra bir Web dağıtımı uç noktası yayımlama) aşağıdaki eylemleri gerçekleştirebilirsiniz: 
+- Web sitesi projeleri artık Microsoft Azure Web siteleri 'ne yayımlama dahil Web uygulaması projeleriyle aynı yayımlama deneyimine sahiptir.
+- Bir veya &#8211; daha fazla dosya için seçmeli yayımlama aşağıdaki eylemleri gerçekleştirebilir (bir Web dağıtımı uç noktasına yayımladıktan sonra): 
 
-    - Seçili dosyaları yayımlayın.
-    - Uzak bir dosyaya bir yerel dosya arasındaki farkı bakın.
-    - Yerel dosya ile uzak dosya güncelleştirin veya uzak dosya yerel dosya ile güncelleştirin.
+    - Seçili dosyaları Yayımla.
+    - Yerel bir dosya ile uzak dosya arasındaki farka bakın.
+    - Yerel dosyayı uzak dosyayla güncelleştirin veya uzak dosyayı yerel dosyayla güncelleştirin.
 
 <a id="_Templates"></a>
 ### <a name="aspnet-mvc-templates"></a>ASP.NET MVC şablonları
 
-- Yeni Facebook uygulama şablonu, Facebook Canvas uygulamalarını yazmayı kolaylaştırır. Birkaç basit adımda, oturum açmış bir kullanıcıdan veri alan ve arkadaşlarıyla entegre olan bir Facebook uygulaması oluşturabilirsiniz. Şablon ilişkin kimlik doğrulama, izinler, Facebook verilerini ve daha fazlasını erişim de dahil olmak üzere Facebook uygulaması oluşturmaya tüm ayarlamaları halletmeniz için yeni bir kitaplık içerir. Facebook uygulaması şablonu kullanma hakkında daha fazla bilgi için bkz. [ https://go.microsoft.com/fwlink/?LinkID=269921 ](https://go.microsoft.com/fwlink/?LinkID=269921).
-- Yeni bir tek sayfalı uygulama MVC şablonu geliştiricilerin HTML 5, CSS 3 ve popüler Knockout ve jQuery JavaScript kitaplıklarını, ASP.NET Web API üstünde etkileşimli istemci tarafı web uygulamaları geliştirebilirsiniz olanak tanır. Şablon, RESTful sunucu API'si kullanan bir JavaScript HTML5 uygulaması oluşturmaya yönelik yaygın yöntemleri gösteren bir "Yapılacaklar" listesi uygulaması içerir. Daha fazla bilgi edinebilirsiniz [ https://www.asp.net/single-page-application ](../../../single-page-application/index.md).
-- Artık ASP.NET MVC yeni proje iletişim kutusuna yeni şablonlar ekleyen bir VSIX oluşturabilirsiniz. Nasıl yapacağınızı buradan öğrenin: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
-- FixedDisplayModes paket &#8211; MVC proje şablonları, geçici bir çözüm için MVC 4'te hata içeren yeni bir 'FixedDisplayModes' NuGet paketini içerecek şekilde güncelleştirildi. Pakette yer alan düzeltme hakkında daha fazla bilgi için bu blog gönderisine bakın ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) MVC ekibinden.
+- Yeni Facebook Uygulama şablonu, Facebook Canvas uygulamalarını yazmayı kolaylaştırır. Birkaç basit adımda, oturum açmış bir kullanıcıdan veri alan ve arkadaşlarıyla entegre olan bir Facebook uygulaması oluşturabilirsiniz. Şablon; kimlik doğrulama, izinler, Facebook verilerine erişme ve daha fazlası gibi Facebook uygulaması oluşturmaya ilişkin tüm ayarlamaları halletmeniz için yeni bir kitaplık içerir. Facebook uygulama şablonunu kullanma hakkında daha fazla bilgi için bkz. [https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921).
+- Tek Sayfalı Uygulama MVC şablonu; geliştiricilerin HTML 5, CSS 3, ve popüler Knockout ve jQuery JavaScript kitaplıklarını kullanarak ASP.NET Web API üstünde etkileşimli istemci tarafı web uygulamaları oluşturmalarına imkan verir. Şablon, bir daha iyi sunucu API 'SI kullanan bir JavaScript HTML5 uygulaması oluşturmak için ortak uygulamaları gösteren bir "Todo" liste uygulaması içerir. [https://www.asp.net/single-page-application](../../../single-page-application/index.md)daha fazla bilgi edinebilirsiniz.
+- Artık ASP.NET MVC yeni proje iletişim kutusuna yeni şablonlar ekleyen bir VSıX oluşturabilirsiniz. Nasıl yapıldığını öğrenin: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
+- FixedDisplayModes Package &#8211; MVC proje ŞABLONLARı, MVC 4 ' teki bir hata için geçici çözüm içeren yeni ' Fixeddisplaymodes ' NuGet paketini içerecek şekilde güncelleştirilmiştir. Pakette bulunan düzeltmeyle ilgili daha fazla bilgi için, MVC ekibinden bu blog gönderisine ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) bakın.
 
 <a id="_ASP.NET_Web_API"></a>
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-ASP.NET Web API'si birkaç yeni özelliklerle geliştirilmiştir:
+ASP.NET Web API 'SI, birkaç yeni özellik ile geliştirilmiştir:
 
 - ASP.NET Web API OData
-- ASP.NET Web API izlemesi
+- ASP.NET Web API 'SI Izleme
 - ASP.NET Web API Yardım sayfası
 
 #### <a name="aspnet-web-api-odata"></a>ASP.NET Web API OData
 
-ASP.NET Web API OData herhangi bir veri kaynağı üzerinde zengin iş mantığı ile OData uç noktaları oluşturmak için gereken esnekliği sunar. ASP.NET Web API OData ile kullanıma sunmak istediğiniz bir OData semantiği miktarını denetler. ASP.NET Web API OData ASP.NET MVC 4 proje şablonları bulunur ve Nuget'ten kullanılabilir ([http://www.nuget.org/packages/microsoft.aspnet.webapi.odata](http://www.nuget.org/packages/microsoft.aspnet.webapi.odata)).
+ASP.NET Web API OData, tüm veri kaynakları üzerinde zengin iş mantığı ile OData uç noktaları oluşturmak için gereken esnekliği sağlar. ASP.NET Web API OData ile, göstermek istediğiniz OData semantiğinin miktarını kontrol edersiniz. ASP.NET Web API OData, ASP.NET MVC 4 proje şablonlarına dahildir ve NuGet ([http://www.nuget.org/packages/microsoft.aspnet.webapi.odata](http://www.nuget.org/packages/microsoft.aspnet.webapi.odata)) ' de de kullanılabilir.
 
-ASP.NET Web API OData, şu anda aşağıdaki özellikleri destekler:
+ASP.NET Web API 'SI OData Şu anda aşağıdaki özellikleri desteklemektedir:
 
-- OData sorgu semantiği [Queryable] özniteliği uygulayarak etkinleştirin.
-- Kolayca OData sorgularını doğrulamak ve desteklenen sorgu seçenekleri, işleç ve işlevlerini kümesini sınırlayabilirsiniz.
-- Ardından doğrulandı ve bir IEnumerable veya Iqueryable uygulanan sorgu soyut sözdizimi ağacını gösterimini doğrudan alınacağı ODataQueryOptions bağlama parametresi.
-- Hizmet odaklı sayfalama ve sonraki sayfa bağlantısını oluşturma [Queryable] özniteliği sonucu sınırlar belirterek etkinleştirin.
-- İstek bir satır sayısı $inlinecount kullanarak eşleşen kaynakların toplam sayısı.
-- Null yaymayı denetler.
-- $Filter/All işleci.
-- Bir varlık veri modeli, kural olarak tanım Çıkarsama veya açıkça bir model Entity Framework Code-First benzer bir şekilde özelleştirebilirsiniz.
-- Expose varlık EntitySetController türetme tarafından ayarlar.
-- Gezinti özellikleri kullanıma sunan ve OData eylemleri uygulama bağlantıları yönetmek için basit, özelleştirilebilir kuralları.
-- Basitleştirilmiş MapODataRoute genişletme yöntemi kullanarak yönlendirme.
-- Birden çok EDM modeli gösterme tarafından sürüm oluşturma desteği.
-- İstemciler (.NET, Windows Phone, Windows Store, vb.) oluşturabilmek hizmet belgesi ve $metadata Web API'niz için kullanıma sunar.
-- OData Atom, JSON ve JSON verbose biçimleri için destek.
-- Oluşturma, güncelleştirme, kısmen (düzeltme) güncelleştirmesi ve varlıkları silin.
-- Sorgu ve varlıklar arasındaki ilişkilerin arabirimidir.
-- En fazla yollarınızı wire ilişki bağlantılarını oluştur.
+- [Queryable] özniteliğini uygulayarak OData sorgu semantiğini etkinleştirin.
+- OData sorgularını kolayca doğrulayın ve desteklenen sorgu seçenekleri, işleçler ve işlevler kümesini kısıtlayın.
+- Parametresi, daha sonra doğrulanabilir ve bir IQueryable veya IEnumerable öğesine uygulanabilen sorgunun bir soyut sözdizimi ağacı gösterimini almak için doğrudan ODataQueryOptions öğesine bağlanır.
+- [Queryable] özniteliğinde sonuç sınırlarını belirterek hizmet odaklı sayfalama ve sonraki sayfa bağlantısı oluşturmayı etkinleştirin.
+- $İnlinecount kullanarak toplam eşleşen kaynak sayısının satır içi sayısını isteyin.
+- Null yaymayı denetleyin.
+- $Filter tüm/tüm işleçler.
+- Bir varlık veri modelini kurala göre çıkarın veya bir modeli Entity Framework koduna benzer şekilde açıkça özelleştirin.
+- Varlık kümelerini EntitySetController 'dan türeterek kullanıma sunun.
+- Gezinti özelliklerini ortaya çıkarmak, bağlantıları işlemek ve OData eylemlerini uygulamak için basit, özelleştirilebilir kurallar.
+- MapODataRoute genişletme yöntemi kullanılarak Basitleştirilmiş yönlendirme.
+- Birden çok EDM modeli açığa çıkarmak için sürüm oluşturma desteği.
+- Web API 'niz için istemcileri (.NET, Windows Phone, Windows Mağazası vb.) oluşturabilmeniz için hizmet belgesi ve $metadata kullanıma sunun.
+- OData atom, JSON ve JSON ayrıntılı biçimleri için destek.
+- Oluşturma, güncelleştirme, kısmen güncelleştirme (Düzeltme Eki) ve varlıkları silme.
+- Varlıklar arasındaki ilişkileri sorgulama ve değiştirme.
+- Rotalarınızda bağlantı sağlayan ilişki bağlantıları oluşturun.
 - Karmaşık türler.
 - Varlık türü devralma.
-- Koleksiyon Özellikleri.
-- Sabit listeleri.
+- Koleksiyon özellikleri.
+- Maların.
 - OData eylemleri.
-- WCF Veri Hizmetleri, yani ODataLib ile aynı temel üzerine ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata)).
+- WCF Veri Hizmetleri ile aynı temel üzerine kurulmuştur, yani ODataLib ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata)).
 
-ASP.NET Web API OData hakkında daha fazla bilgi için bkz. [ https://go.microsoft.com/fwlink/?LinkId=271141 ](https://go.microsoft.com/fwlink/?LinkId=271141).
+ASP.NET Web API OData hakkında daha fazla bilgi için bkz. [https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141).
 
-#### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API izlemesi
+#### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API 'SI Izleme
 
-ASP.NET Web API izleme, web API'leri izleme verileri .NET izleme ile tümleştirilir. Şimdi Web API proje şablonunu varsayılan olarak etkinleştirilir. Web için veri izleme API'leri, çıkış penceresine gönderilen ve IntelliTrace kullanılabilir hale gelir. ASP.NET Web API izleme sayesinde Web tümleştirmesi sayesinde Windows Azure'da barındırılan, API'nizi izleme bilgilerine [Windows Azure tanılama](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Ayrıca yükleme ve ASP.NET Web API izleme NuGet paketini kullanarak herhangi bir uygulamada ASP.NET Web API izlemeyi etkinleştir ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
+ASP.NET Web API Izleme, .NET Izleme ile Web API 'lerinizin izleme verilerini tümleştirir. Artık varsayılan olarak Web API proje şablonunda etkindir. Web API 'leriniz için izleme verileri çıkış penceresine gönderilir ve IntelliTrace aracılığıyla kullanılabilir hale getirilir. ASP.NET Web API 'SI Izleme, Windows [Azure tanılama](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx)ile tümleştirme aracılığıyla Windows Azure 'da barındırılırken Web API 'niz hakkındaki bilgileri izlemenizi sağlar. Ayrıca, ASP.NET Web API Izleme NuGet paketini ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)) kullanarak herhangi bir uygulamada ASP.NET Web API izlemeyi yükleyebilir ve etkinleştirebilirsiniz.
 
-Yapılandırma ve ASP.NET Web API izleme kullanma hakkında daha fazla bilgi için bkz. [ https://go.microsoft.com/fwlink/?LinkID=269874 ](https://go.microsoft.com/fwlink/?LinkID=269874).
+ASP.NET Web API Izlemeyi yapılandırma ve kullanma hakkında daha fazla bilgi için bkz. [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
 
 #### <a name="aspnet-web-api-help-page"></a>ASP.NET Web API Yardım sayfası
 
-ASP.NET Web API Yardım sayfası artık varsayılan olarak Web API proje şablonunu dahil edilmiştir. ASP.NET Web API Yardım sayfası, web API'leri dahil olmak üzere HTTP uç noktaları, desteklenen HTTP yöntemleri, parametreleri ve örnek istek ve yanıt iletisi yükü belgelerine otomatik olarak oluşturur. Belgeleri otomatik olarak kodunuza yorumlar öğesinden alınır. ASP.NET Web API Yardım sayfası NuGet paketini kullanarak herhangi bir uygulama için ASP.NET Web API Yardım sayfasında de ekleyebilirsiniz ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)).
+ASP.NET Web API 'SI yardım sayfası artık varsayılan olarak Web API proje şablonunda bulunur. ASP.NET Web API Yardım sayfası, HTTP uç noktaları, desteklenen HTTP yöntemleri, parametreler ve örnek istek ve yanıt iletisi yükleri dahil Web API 'Leri için otomatik olarak belgeler oluşturur. Belgeler kodunuzdaki açıklamalardan otomatik olarak çekilir. Ayrıca, ASP.NET Web API Yardım sayfası NuGet paketini ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)) kullanarak herhangi bir uygulamaya ASP.NET Web API 'Si yardım sayfasını ekleyebilirsiniz.
 
-Ayarlama ve ASP.NET Web API Yardım sayfasında bakın özelleştirme hakkında daha fazla bilgi için [ https://go.microsoft.com/fwlink/?LinkId=271140 ](https://go.microsoft.com/fwlink/?LinkId=271140).
+ASP.NET Web API 'SI yardım sayfasını ayarlama ve özelleştirme hakkında daha fazla bilgi için bkz. [https://go.microsoft.com/fwlink/?LinkId=271140](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
 ### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
-ASP.NET SignalR kullanarak varsa ve bunu olmadığı durumlarda otomatik olarak diğer teknikleri ile dönülüyor ASP.NET uygulamanız için gerçek zamanlı web özellikleri eklemenizi kolaylaştırır.
+ASP.NET SignalR, kullanılabilir olduğunda WebSockets kullanarak ve olmadığında otomatik olarak diğer tekniklerin geri düşmesini sağlayan ASP.NET uygulamanıza gerçek zamanlı web özellikleri eklemenizi kolaylaştırır.
 
-ASP.NET SignalR kullanma hakkında daha fazla bilgi için bkz. [ https://go.microsoft.com/fwlink/?LinkId=271271 ](https://go.microsoft.com/fwlink/?LinkId=271271).
+ASP.NET SignalR kullanma hakkında daha fazla bilgi için bkz. [https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271).
 
 <a id="_ASP.NET_Friendly_URLs"></a>
-### <a name="aspnet-friendly-urls"></a>ASP.NET kolay URL'leri
+### <a name="aspnet-friendly-urls"></a>ASP.NET Kolay URL'leri
 
-ASP.NET FriendlyURLs Temizleyicisi URL'leri (.aspx uzantısı olmadan) bakarak üretmek web forms geliştiriciler için çok kolay hale getirir. Bu, hiçbir çok az yapılandırma gerektirir ve mevcut ASP.NET v4.0 uygulamaları ile kullanılabilir. FriendlyURLs özellik ayrıca, geliştiricileri, masaüstü ve mobil görünümler arasında geçiş destekleyerek uygulamalarını, mobil desteği eklemek için kolaylaştırır.
+ASP.NET Elyurls, Web Forms geliştiricilerinin temizleyici URL 'Leri (. aspx uzantısı olmadan) üretmesini çok kolay hale getirir. Daha az yapılandırma gerektirmez ve mevcut ASP.NET v 4.0 uygulamalarıyla birlikte kullanılabilir. Kolay URL 'ler özelliği ayrıca, masaüstü ve mobil görünümler arasında geçiş yapmayı destekleyerek geliştiricilerin uygulamalarına mobil destek eklemesini kolaylaştırır.
 
-Yükleme ve ASP.NET kolay URL'leri kullanma hakkında daha fazla bilgi için bkz. [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx ](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
+ASP.NET kullanımı kolay URL 'Leri yükleme ve kullanma hakkında daha fazla bilgi için [http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx)bakın.
 
 <a id="_Known_Issues_and"></a>
-## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
+## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve son değişiklikler
 
-Bu bölümde, bilinen sorunlar ve ASP.NET ve Web Araçları 2012.2 sürümdeki bozucu değişiklikleri açıklanmaktadır.
+Bu bölümde ASP.NET and Web Tools 2012,2 sürümündeki bilinen sorunlar ve son değişiklikler açıklanmaktadır.
 
 ### <a name="installation-issues"></a>Yükleme Sorunları
 
-#### <a name="out-of-order-installs-of-visual-studio-2012"></a>Visual Studio 2012'in sıralamaya yükler
+#### <a name="out-of-order-installs-of-visual-studio-2012"></a>Visual Studio 2012 'nin sıra dışı yüklemeleri
 
-Bir ek SKU Visual Studio 2012, ASP.NET ve Web Araçları 2012.2 yükleme, onarım işlemi gerektirecek sonra yükleme. Aşağıdakiler göz önünde bulundurun:
+ASP.NET and Web Tools 2012,2 ' i yükledikten sonra ek bir Visual Studio 2012 SKU 'SU yüklemek bir onarım işlemi gerektirir. Aşağıdaki sırayı göz önünde bulundurun:
 
-1. Web için Visual Studio 2012 Express yükleyin
-2. ASP.NET ve Web Araçları 2012.2 yükleme
-3. Visual Studio 2012 Professional, Premium veya Ultimate yükleyin
+1. Web için Visual Studio 2012 Express 'ı yükler
+2. ASP.NET and Web Tools 2012,2 'yi yükler
+3. Visual Studio 2012 Professional, Premium veya Ultimate 'ı yükler
 
-2. adım, güncelleştirmeleri yükleme için Web için Express yalnızca neden olur. 3. adımda yüklü ek SKU güncelleştirme içerdiğinden emin olmak için ASP.NET ve Web Araçları 2012.2 son SKU için yüklü güncelleştirmeleri yüklemeyi onarmak gerekir. Adım 1'deki SKU'ları ve 3 ters de geçerlidir.
+2\. adım yalnızca Web için Express güncelleştirmelerini yüklemeye neden olur. 3\. adım sırasında yüklenen ek SKU 'nun güncelleştirmeyi içerdiğinden emin olmak için, yüklenen son SKU için güncelleştirmeleri yüklemek üzere 2012,2 ASP.NET and Web Tools onarmanız gerekir. Bu Ayrıca, 1 ve 3. adımdaki SKU 'Lar tersine çevrilirse da geçerlidir.
 
-#### <a name="installing-microsoft-aspnet-and-web-tools-20122-when-visual-studio-is-open"></a>Visual Studio açık olduğunda, Microsoft ASP.NET ve Web Araçları 2012.2 yükleme
+#### <a name="installing-microsoft-aspnet-and-web-tools-20122-when-visual-studio-is-open"></a>Visual Studio açık olduğunda Microsoft ASP.NET and Web Tools 2012,2 yükleniyor
 
-Visual Studio VS ise açık Microsoft ASP.NET ve Web Araçları 2012.2 yüklemesi sırasında hatalı durumda çıkabilir. Kullanıcılar yüklemeye devam etmeden önce Visual Studio'nun tüm örneklerini kapatın önerilir.
+VS Microsoft ASP.NET and Web Tools 2012,2 yüklemesi sırasında açıksa, Visual Studio hatalı bir durumda bitebilirler. Kullanıcıların yüklemeye devam etmeden önce tüm Visual Studio örneklerini kapatması önerilir.
 
-#### <a name="canceling-aspnet-and-web-tools-20122-setup-in-the-middle-of-installation"></a>ASP.NET ve Web Araçları 2012.2 Kurulum ortasında yükleme iptal ediliyor
+#### <a name="canceling-aspnet-and-web-tools-20122-setup-in-the-middle-of-installation"></a>Yükleme işleminin ortasında ASP.NET and Web Tools 2012,2 kurulumu iptal ediliyor
 
-ASP.NET ve Web Araçları 2012.2 iptal Kurulum yükleme ortasında Visual Studio hatalı bir durumda bırakır. Bu sorun izleme adımları adresini belirlemek için: 
+Yüklemenin ortasında ASP.NET and Web Tools 2012,2 kurulumu iptal edildiğinde, Visual Studio hatalı bir durumda bırakılır. Bu sorunu gidermek için şu adımları izleyin: 
 
-- Program Kaldır'ı eklemek için Git
-- Microsoft ASP.NET ve Web Araçları 2012.2, varsa kaldırın.
-- Microsoft ASP.NET ve Web Araçları 2012.2 yükleyin
+- Program Ekle Kaldır 'a git
+- Varsa Microsoft ASP.NET and Web Tools 2012,2 'yi kaldırın.
+- Microsoft ASP.NET and Web Tools yeniden yükleyin 2012,2
 
-#### <a name="after-uninstalling-aspnet-and-web-tools-20122-the-aspnet-mvc-4-templates-and-razor-v2-web-site-templates-are-missing"></a>ASP.NET ve Web Araçları 2012.2 ASP.NET MVC 4 kaldırdıktan sonra şablonları ve Razor v2 Web sitesi şablonları eksik
+#### <a name="after-uninstalling-aspnet-and-web-tools-20122-the-aspnet-mvc-4-templates-and-razor-v2-web-site-templates-are-missing"></a>ASP.NET and Web Tools kaldırıldıktan sonra 2012,2 ASP.NET MVC 4 şablonları ve Razor V2 Web sitesi şablonları eksik
 
-ASP.NET ve Web Araçları 2012.2 kaldırma da tüm ASP.NET MVC 4 ve Razor v2 Web sitesi şablonları Visual Studio 2012'den kaldırır.
+ASP.NET and Web Tools 2012,2 kaldırıldığında, Visual Studio 2012 ' den tüm ASP.NET MVC 4 ve Razor V2 Web sitesi şablonları da kaldırılır.
 
-ASP.NET MVC 4 ve Razor v2 Web sitesi şablonları yeniden yüklemek için Visual Studio 2012 yüklemenizi onarmak için çözüm olabilir.
+Geçici çözüm, ASP.NET MVC 4 ve Razor V2 Web sitesi şablonlarını yeniden yüklemek için Visual Studio 2012 yüklemenizin onarılmasına yönelik bir çözümdür.
 
-### <a name="tooling-issues"></a>Araçları sorunları
+### <a name="tooling-issues"></a>Araç sorunları
 
-#### <a name="nuget-error-reported-during-project-creation"></a>Proje oluşturma sırasında bildirilen NuGet hata
+#### <a name="nuget-error-reported-during-project-creation"></a>Proje oluşturma sırasında NuGet hatası bildirildi
 
-ASP.NET ve Web Araçları 2012.2 yükledikten sonra aşağıdaki hata MVC 4 projelerini oluştururken görebilirsiniz
+ASP.NET and Web Tools 2012,2 yükledikten sonra, MVC 4 projesi oluştururken aşağıdaki hatayı görebilirsiniz
 
 ![](aspnet-and-web-tools-20122-release-notes-rtw/_static/image1.png)
 
-ASP.NET ve Web Araçları 2012.2 NuGet 2.1 gelir ve Visual Studio 2012'de uzantı yükseltir. VSIX yükleyici, bazı durumlarda, VSIX doğru şekilde güncelleştirmek başarısız olur. Aşağıdaki adımlar bu sorunu gidermek için izin verir:
+2012,2 ASP.NET and Web Tools NuGet 2,1 ' i sevk eder ve Visual Studio 2012 ' de uzantıyı yükseltir. Bazı durumlarda, VSıX yükleyicisi VSıX 'i doğru bir şekilde güncelleştiremeyecektir. Aşağıdaki adımlar bu sorunu ele almak için size olanak sağlayacak:
 
-1. Visual Studio 2012 yönetici olarak başlatın.
-2. Git Araçları -&gt;Uzantılar ve güncelleştirmeler ve NuGet kaldırın.
+1. Visual Studio 2012 ' i yönetici olarak Başlat
+2. Araçlar-&gt;Uzantılar ve güncelleştirmeler 'e gidin ve NuGet 'i kaldırın.
 3. Visual Studio’yu kapatın
-4. ASP.NET ve Web Araçları 2012.2 yükleme klasörüne gidin:
+4. ASP.NET and Web Tools 2012,2 yükleme klasörüne gidin:
 
-    1. Visual Studio 2012 için: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
-    2. Visual Studio 2012 için Web için Express: **Web için Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio Express 2012**
-5. NuGet yeniden NuGet.Tools.vsix çift tıklayın
+    1. Visual Studio 2012 için: **Program FILES\MICROSOFT ASP. NET\ASP.NET Web Stack\adim $2012**
+    2. Web için Visual Studio 2012 Express için: **Program FILES\MICROSOFT ASP. NET\ASP.NET Web Stack\adim Web Için Visual Studio express 2012**
+5. NuGet 'i yeniden yüklemek için NuGet. Tools. vsix öğesine çift tıklayın
 
 ### <a name="web-api-issues"></a>Web API sorunları
 
-#### <a name="parsing-issues-in-filter-and-datetime-literals"></a>$Filter ve DateTime değişmez değerleri ayrıştırma sorunları
+#### <a name="parsing-issues-in-filter-and-datetime-literals"></a>$filter ve DateTime değişmez değerlerinde ayrıştırma sorunları
 
-OData URI ayrıştırıcısı kısmi datetime değişmez değerler doğru ayrıştırılamaz. Örneğin, $filter başlangıç eq datetime'2012 =-12-31T12:00' düzgün ayrıştırılamaz. Geçici bir çözüm tam değişmez değeri $filter kullanmaktır başlangıç eq datetime'2012 =-12-31T12:00:00'.
+OData URI ayrıştırıcısı kısmi DateTime sabit değerlerini doğru bir şekilde ayrıştıramaz. Örneğin, $filter = start EQ DateTime ' 2012-12-31T12:00 ' düzgün ayrıştırılamaz. Geçici bir çözüm, $filter = start EQ DateTime ' 2012-12-31T12:00:00 ' olan tam sabit değeri kullanmaktır.
 
-#### <a name="odata-doesnt-support-case-insensitive-property-names"></a>OData büyük küçük harf duyarsız özellik adlarını desteklemez.
+#### <a name="odata-doesnt-support-case-insensitive-property-names"></a>OData, büyük/küçük harfe duyarsız özellik adlarını desteklemez.
 
-OData, OData sorgularını ve odata yolu büyük küçük harf duyarsız özellik adlarını desteklemez. İş öğeleri bakın:
+OData, OData sorgularında ve OData yolunda büyük/küçük harfe duyarsız özellik adlarını desteklemez. Bkz. WorkItems:
 
 - [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366)
 - [http://aspnetwebstack.codeplex.com/workitem/704](http://aspnetwebstack.codeplex.com/workitem/704)
 
-Kullanıcılarınız farklı büyük/küçük harf javascript istemci tarafı ve sunucu tarafı varsa, bunlar büyük olasılıkla bu sorunla karşılaşır. Bu sorun, odata Protokolü tasarım gereğidir. Ancak, çok sayıda kullanıcı, bu sorunu raporlar. Bunu çözmek için kullanıcıların kendi URL durumlarda düzeltmek gerekmez.
+Kullanıcıların JavaScript istemci tarafında ve sunucu tarafında farklı bir büyük harfe sahip olması halinde bu sorunla karşılaşacaktır. Bu sorun OData protokolünde tasarıma göre yapılır. Ancak, birçok kullanıcı bu sorunu raporlar. Bu soruna geçici bir çözüm bulmak için, kullanıcıların bu durumlarını URL 'de düzeltmesine sahip olması gerekir.
 
-#### <a name="default-odata-routing-conventions-doesnt-support-postput-on-navigation-property"></a>Varsayılan OData yönlendirme kuralları POST/PUT gezinti özelliği desteklemiyor.
+#### <a name="default-odata-routing-conventions-doesnt-support-postput-on-navigation-property"></a>Varsayılan OData yönlendirme kuralları, gezinti özelliğinde gönderi/PUT işlemini desteklemez.
 
-Varsayılan OData yönlendirme kuralları POST/PUT gezinti özelliği desteklemiyor. İş öğesi bkz [ http://aspnetwebstack.codeplex.com/workitem/366 ](http://aspnetwebstack.codeplex.com/workitem/366). Yaygın olarak kullanılan bu kurala varsayılan kuralları eksik.
+Varsayılan OData yönlendirme kuralları, gezinti özelliğinde gönderi/PUT işlemini desteklemez. Bkz. WorkItem [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366). Varsayılan kurallar bölümünde yaygın olarak kullanılan bu kuralı kaçırdık.
 
-Bunu çözmek için onu desteklemek için yeni yönlendirme kuralı genişletmek kullanıcıların gerekir.
+Bu soruna geçici bir çözüm olarak, kullanıcıların bunu desteklemesi için yeni yönlendirme kuralını genişletmesi gerekir.
 
-### <a name="facebook-template-issues"></a>Facebook şablon sorunları
+### <a name="facebook-template-issues"></a>Facebook şablonu sorunları
 
-#### <a name="facebook-application-template-only-works-using-net-45"></a>Facebook uygulama şablonu, yalnızca .NET 4.5 kullanarak çalışır
+#### <a name="facebook-application-template-only-works-using-net-45"></a>Facebook uygulama şablonu yalnızca .NET 4,5 kullanılarak çalışmaktadır
 
-.NET 4.5, ASP.NET MVC 4'te Facebook uygulama şablonu görmek için yeni proje iletişim kutusunda framework açılan listedeki seçmeniz gerekir.
+ASP.NET MVC 4 ' te Facebook uygulama şablonunu görmek için yeni proje iletişim kutusundaki çerçeve açılan listesinde .NET 4,5 ' i seçmeniz gerekir.
 
 #### <a name="real-time-update-controller"></a>Gerçek zamanlı güncelleştirme denetleyicisi
 
-Kullanıcının Facebook uygulama şablonu sağlar, kolayca Facebook gerçek zamanlı güncelleştirmeler işlemek için bir Web API denetleyicisi oluşturun. Geliştirme makinenizde NAT arkasında ise, denetleyiciniz daha fazla ağ yapılandırma çalışmayabilir. Ayrıntılar için buraya bakın: [http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook](http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook)
+Facebook uygulama şablonu, kullanıcının Facebook 'tan gerçek zamanlı güncelleştirmeleri işlemek için kolayca bir Web API denetleyicisi oluşturmalarına olanak tanır. Geliştirme makineniz NAT 'nin arkasındaysa, denetleyicinizde daha fazla ağ yapılandırması yapılmadan çalışmayabilir. Ayrıntılar için buraya bakın: [http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook](http://facebook.stackoverflow.com/questions/5259467/can-a-computer-behind-a-nat-router-receive-realtime-updates-from-facebook)
 
-#### <a name="query-string-values-conflict-with-facebook-oauth-parameters"></a>Sorgu dizesi değerlerini Facebook OAuth parametrelerle çakışıyor
+#### <a name="query-string-values-conflict-with-facebook-oauth-parameters"></a>Sorgu dizesi değerleri Facebook OAuth parametreleriyle çakışıyor
 
-Aşağıdaki alanları Facebook OAuth iletişim kutusunun çağrısı ile çakışan ayrıntılara dönüş URL'si. Şu adları kendi sorgu dize değerleriyle eklemeyin: kod, hata, hata\_açıklaması, hata\_nedeni.
+Aşağıdaki alanlar Facebook OAuth iletişim kutusunun geri arama URL 'SI ile çakışıyor. Kendi sorgu dizesi değerlerinizi şu adlarla eklemeyin: kod, hata, hata\_açıklama, hata\_neden.
 
-#### <a name="using-page-inspector-with-facebook-template"></a>Facebook şablon ile sayfa denetçisini kullanma
+#### <a name="using-page-inspector-with-facebook-template"></a>Facebook şablonuyla sayfa denetçisini kullanma
 
-Facebook uygulamanızı hata ayıklama sırasında Visual Studio 2012'de sayfa denetçisi özelliğini kullanamazsınız. Sayfa denetçisi IFRAMES şu anda desteklemiyor.
+Facebook uygulamanızda hata ayıklarken Visual Studio 2012 ' deki sayfa denetçisi özelliğini kullanamazsınız. Sayfa denetçisi Şu anda iframe 'leri desteklemiyor.
 
 ### <a name="single-page-application-template-issues"></a>Tek sayfalı uygulama şablonu sorunları
 
-#### <a name="with-jquery-19knockout-221-update-when-running-default-mvc-spa-project-new-todo-item-edit-enter-focus-event-is-not-handled-properly"></a>Varsayılan MVC SPA proje, yeni todo öğesini düzenleme çalıştırırken 1.9/Knockout 2.2.1 güncelleştirme girin JQuery ile odak olayı düzgün işlenmiyor.
+#### <a name="with-jquery-19knockout-221-update-when-running-default-mvc-spa-project-new-todo-item-edit-enter-focus-event-is-not-handled-properly"></a>JQuery 1.9/altını gizleme 2.2.1 güncelleştirmesi ile, varsayılan MVC SPA projesi çalıştırılırken yeni Todo öğesi düzenleme ENTER odak olayı düzgün işlenmez.
 
-JQuery 1.9/Knockout ile 2.2.1 güncelleştirme, varsayılan MVC SPA proje çalıştırırken, yeni todo öğesini düzenleme girin artık odak geri yeni todo öğesini düzenleme kutusuna yapılacaklar listesine yeni todo öğesini girdikten sonra.
+JQuery 1.9/altını gizleme 2.2.1 güncelleştirmesi ile, varsayılan MVC SPA projesi çalıştırılırken yeni Todo öğesi düzenleme girişi artık yeni Todo öğesi yapılacaklar listesine girildikten sonra yeni Todo öğesi düzenleme kutusuna geri odaklanmayacaktır.
 
-Geçici çözüm başvurusuna [ http://knockoutjs.com/documentation/hasfocus-binding.html ](http://knockoutjs.com/documentation/hasfocus-binding.html), aşağıdaki örnek kod için benzer düzeltme yapın:
+[http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html)geçici çözüm başvurusu ve aşağıdaki örnek koda benzer bir onarım yapın:
 
-Dosya todo.model.js  
- todolist(Data) işlev, ekleme aşağıdaki:  
- **self.isSelected = ko.observable(false);**
+Dosya Todo. model. js  
+ Function ToDoList (veri), aşağıdakileri ekleyin:  
+ **Self. IsSelected = ko. Observable (false);**
 
-todoList.prototype.addTodo işlev, aşağıdaki blacked metni ekleyin:  
- **self.isSelected(true);**  
- self.newTodoTitle(&quot;&quot;);
+Function todoList. prototype. addTodo, aşağıdaki Blacked metnini ekleyin:  
+ **Self. IsSelected (true);**  
+ Self. newTodoTitle (&quot;&quot;);
 
-Index.cshtml dosyası, aşağıdaki blacked metni ekleyin:  
- &lt;form data-bind=&quot;submit: addTodo&quot;&gt;  
- &lt;Giriş sınıfı =&quot;addTodo&quot; türü =&quot;metin&quot; data-bind =&quot;değer: newTodoTitle, yer tutucu: 'Eklemek için buraya type', blurOnEnter: true, **hasfocus: IsSelected**, olay: {bulanıklaştıran: addTodo}&quot; /&gt;  
- &lt;tanımlanması&gt;
+Dosya index. cshtml, aşağıdaki Blacked metnini ekleyin:  
+ &lt;form verileri-bind =&quot;gönderme: addTodo&quot;&gt;  
+ &lt;Input Class =&quot;addTodo&quot; Type =&quot;Text&quot; Data-bind =&quot;değer: newTodoTitle, PlaceHolder: ' eklemek için buraya yazın ', blurOnEnter: true, **HasFocus: IsSelected**, Event: {bulanıklığı: addtodo}&quot; /&gt;  
+ &lt;form&gt;

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/creating-user-accounts-programmatically
-title: Programlı olarak kullanıcı hesapları oluşturma | Microsoft Docs
+title: Programlama yoluyla kullanıcı hesapları oluşturma | Microsoft Docs
 author: JoeStagner
-description: Bu videoda, ALi Stagner özel oluşturma işlemini gösterir. kullanıcı Oluştur Sihirbazı'nı kullanmayan kullanıcı web formu programlı bir şekilde oluşturun. İçin ek ben...
+description: Bu videoda, Joe Stagner, Kullanıcı oluşturma Sihirbazı 'nı kullanmadığınız sırada programlı bir şekilde özel Kullanıcı oluşturma Web formu oluşturmayı gösterir. Ek i...
 ms.author: riande
 ms.date: 08/22/2008
 ms.assetid: 33087707-9876-4575-9042-42e0d0947fa5
 msc.legacyurl: /web-forms/videos/authentication/creating-user-accounts-programmatically
 msc.type: video
 ms.openlocfilehash: c2a17ad54aebe1fff9b4ee5067afd41eedc5e05d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391123"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566768"
 ---
 # <a name="creating-user-accounts-programmatically"></a>Programlı Olarak Kullanıcı Hesapları Oluşturma
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoda, ALi Stagner özel oluşturma işlemini gösterir. kullanıcı Oluştur Sihirbazı'nı kullanmayan kullanıcı web formu programlı bir şekilde oluşturun. Bu videoda hakkında ek bilgi için "Kullanıcı hesapları oluşturma" güvenlik öğreticiyi okuyun ([C#](../../overview/older-versions-security/membership/creating-user-accounts-cs.md), [VB](../../overview/older-versions-security/membership/creating-user-accounts-vb.md)).
+Bu videoda, Joe Stagner, Kullanıcı oluşturma Sihirbazı 'nı kullanmadığınız sırada programlı bir şekilde özel Kullanıcı oluşturma Web formu oluşturmayı gösterir. Bu video hakkında daha fazla bilgi için "Kullanıcı hesapları oluşturma" güvenlik öğreticisini ([C#](../../overview/older-versions-security/membership/creating-user-accounts-cs.md) [vb](../../overview/older-versions-security/membership/creating-user-accounts-vb.md).) okuyun.
 
-[&#9654;Videoyu (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-user-accounts-programmatically)
+[&#9654;Videoyu izleyin (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-user-accounts-programmatically)
 
 > [!div class="step-by-step"]
 > [Önceki](creating-user-accounts-with-the-create-user-wizard.md)

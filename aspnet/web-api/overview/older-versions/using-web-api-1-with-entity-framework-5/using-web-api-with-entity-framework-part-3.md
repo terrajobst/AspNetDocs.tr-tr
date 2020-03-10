@@ -9,11 +9,11 @@ ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: f39be7a84e85db93487d246e9f8cb59c401fe5ce
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600038"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556051"
 ---
 # <a name="part-3-creating-an-admin-controller"></a>3\. kısım: yönetici denetleyicisi oluşturma
 
@@ -64,12 +64,12 @@ Bir **Dbset** , sorgulanabilen bir varlık kümesini temsil eder. `OrdersContext
 
 `AdminController` sınıfı, temel CRUD işlevlerini uygulayan beş yöntemi tanımlar. Her yöntem, istemcinin çağırabileceği bir URI 'ye karşılık gelir:
 
-| Controller yöntemi | Açıklama | {1&gt;URI&lt;1} | HTTP yöntemi |
+| Controller yöntemi | Açıklama | URI | HTTP yöntemi |
 | --- | --- | --- | --- |
-| GetProducts | Tüm ürünleri alır. | API/ürünler | Al |
-| GetProduct | KIMLIĞE göre bir ürün bulur. | API/ürünler/*kimlik* | Al |
-| PutProduct | Bir ürünü güncelleştirir. | API/ürünler/*kimlik* | KONUR |
-| PostProduct | Yeni bir ürün oluşturur. | API/ürünler | Yayınla |
+| GetProducts | Tüm ürünleri alır. | API/ürünler | GET |
+| GetProduct | KIMLIĞE göre bir ürün bulur. | API/ürünler/*kimlik* | GET |
+| PutProduct | Bir ürünü güncelleştirir. | API/ürünler/*kimlik* | PUT |
+| PostProduct | Yeni bir ürün oluşturur. | API/ürünler | POST |
 | DeleteProduct | Bir ürünü siler. | API/ürünler/*kimlik* | DELETE |
 
 Her yöntem, veritabanını sorgulamak için `OrdersContext` çağırır. Değişiklikleri veritabanında kalıcı hale getirmek için koleksiyonu değiştiren Yöntemler (PUT, POST ve DELETE) çağrısı `db.SaveChanges`. Denetleyiciler her HTTP isteği için oluşturulur ve sonra, bir yöntem döndürülmadan önce değişiklikleri kalıcı hale getirmek gerekir.

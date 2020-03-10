@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-cycle/cdnjquerycycle288
-title: jQuery döngüsü 2.88 | Microsoft Docs
+title: jQuery Cycle 2,88 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,19 +9,19 @@ ms.assetid: afb99e9a-fcc2-49e4-b26c-cff412074f4a
 msc.legacyurl: /ajax/cdn/jquery-cycle/cdnjquerycycle288
 msc.type: content
 ms.openlocfilehash: 1f38d92daf1b7eb4b7067ed4e9da00167386eccc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59405072"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563338"
 ---
 # <a name="jquery-cycle-288"></a>jQuery Döngüsü 2.88
 
-JQuery döngüsü aşağıdaki dosyalar bu CDN'de barındırılan:
+Aşağıdaki jQuery Cycle dosyaları bu CDN üzerinde barındırılır:
 
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.js) &mdash; JQuery döngüsü eklentisi tam sürümü. Tüm en fazla iki düzine özel efekt ve tüm seçenekler içerir.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.min.js) &mdash; Yukarıdaki dosyasının küçültülmüş sürümü. Bu sürümü için üretim uygulamaları, Web sitesi performansını geliştirmek için kullanın.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.js) &mdash; JQuery döngüsü eklentisi bu sürümü daha küçük olması ve yalnızca "fade" geçiş efektini içerir.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.min.js) &mdash; Yukarıdaki dosyasının küçültülmüş sürümü. Bu sürümü için üretim uygulamaları, Web sitesi performansını geliştirmek için kullanın.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.js) &mdash; Yalnızca "fade" geçiş olmadan tüm seçenekleri içeren jQuery döngüsü eklenti bile küçük bir sürümü.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.min.js) &mdash; Yukarıdaki dosyasının küçültülmüş sürümü. Bu sürümü için üretim uygulamaları, Web sitesi performansını geliştirmek için kullanın.
+- jQuery Cycle eklentisinin tam sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.js) . İki düzine özel efekti ve tüm seçenekleri içerir.
+- Yukarıdaki dosyanın küçültülmüş sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.all.min.js) . Web sitenizin performansını geliştirmek için bu sürümü üretim uygulamaları için kullanın.
+- jQuery Cycle eklentisinin bu sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.js) küçüktür ve yalnızca "Soldur" geçiş efektini içerir.
+- Yukarıdaki dosyanın küçültülmüş sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.min.js) . Web sitenizin performansını geliştirmek için bu sürümü üretim uygulamaları için kullanın.
+- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.js) , tüm seçenekleri içermeyen yalnızca "Soldur" geçişini Içeren jQuery Cycle eklentisinin daha da küçük bir sürümünü &mdash;.
+- Yukarıdaki dosyanın küçültülmüş sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.88/jquery.cycle.lite.min.js) . Web sitenizin performansını geliştirmek için bu sürümü üretim uygulamaları için kullanın.

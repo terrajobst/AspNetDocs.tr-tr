@@ -9,11 +9,11 @@ ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 1965063a9b613d0e2857cddcc2165f5fda64ec0c
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455535"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559355"
 ---
 # <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web Sayfalarında XSRF/CSRF Önleme
 
@@ -164,7 +164,7 @@ Geliştirici, uygulama\_Başlat ' dan Anti-XSRF sistemini yapılandırabilir. Ya
 | **AdditionalDataProvider** | Belirteç oluşturma sırasında ek veriler sağlayan ve belirteç doğrulama sırasında ek veriler tüketen bir [ıantiforgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) . Varsayılan değer *null*. Daha fazla bilgi için, bkz. [ıantiforgeryadditionaldataprovider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) bölümü. |
 | **Tanımlama bilgisi adı** | Anti-XSRF oturum belirtecini depolamak için kullanılan HTTP tanımlama bilgisinin adını sağlayan bir dize. Bu değer ayarlanmamışsa, uygulamanın dağıtılan sanal yoluna göre otomatik olarak bir ad oluşturulur. Varsayılan değer *null*. |
 | **RequireSsl** | Anti-XSRF belirteçlerinin SSL ile güvenli bir kanaldan gönderilmesi gerekip gerekmediğini belirleyen bir Boole değeri. Bu değer *true*ise, otomatik olarak oluşturulan herhangi bir tanımlama bilgisi "güvenli" bayrak kümesine sahip olur ve SSL aracılığıyla gönderilmemiş bir istek içinden çağrılırsa, ANTI-XSRF API 'leri oluşturulur. Varsayılan değer *false*'dur. |
-| **SuppressIdentityHeuristicChecks** | Anti-XSRF sisteminin, talep tabanlı kimlikler için desteğini devre dışı bırakıp bırakmayacağını belirleyen bir Boole değeri. Bu değer *true*ise sistem, *IIdentity.Name* 'in benzersiz bir Kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu varsayar ve [WIF/ACS/talepler tabanlı kimlik doğrulama](#_WIF_ACS) bölümünde açıklandığı gibi özel durum *ıımsıdentity* veya *clclaimsıdentity* ' yi denemeyecektir. Varsayılan değer: `false`. |
+| **SuppressIdentityHeuristicChecks** | Anti-XSRF sisteminin, talep tabanlı kimlikler için desteğini devre dışı bırakıp bırakmayacağını belirleyen bir Boole değeri. Bu değer *true*ise sistem, *IIdentity.Name* 'in benzersiz bir Kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu varsayar ve [WIF/ACS/talepler tabanlı kimlik doğrulama](#_WIF_ACS) bölümünde açıklandığı gibi özel durum *ıımsıdentity* veya *clclaimsıdentity* ' yi denemeyecektir. Varsayılan değer `false` şeklindedir. |
 | **UniqueClaimTypeIdentifier** | Hangi talep türünün benzersiz kullanıcı başına tanımlayıcı olarak kullanım için uygun olduğunu gösteren bir dize. Bu değer ayarlandıysa ve geçerli *ıidentity* , talepler tabanlıysa, sistem *UniqueClaimTypeIdentifier*tarafından belirtilen türden bir talebi ayıklamayı dener ve alan belirtecini oluştururken kullanıcının Kullanıcı adı yerine ilgili değer kullanılır. Talep türü bulunamazsa, sistem isteği başarısız olur. Varsayılan değer, sistemin Kullanıcı Kullanıcı adının yerine daha önce açıklanan (kimlik sağlayıcısı, ad tanımlayıcısı) kayıt kümesini kullanması gerektiğini belirten *null*değeridir. |
 
 <a id="_IAntiForgeryAdditionalDataProvider"></a>

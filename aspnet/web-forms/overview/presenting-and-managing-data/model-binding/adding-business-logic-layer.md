@@ -1,64 +1,64 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: Model bağlama ve web formlarını kullanan bir proje için iş mantığı katmanı ekleme | Microsoft Docs
+title: Model bağlama ve Web formları kullanan bir projeye iş mantığı katmanı ekleme | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
+description: Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama, veri etkileşimini daha düz-... hale getirir
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
 ms.openlocfilehash: a824d06d3781e11706f2a48d44ea3ad89bdb7c8b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109178"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634836"
 ---
-# <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Model bağlama ve web formlarını kullanan bir proje için iş mantığı katmanı ekleme
+# <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Model bağlama ve Web formları kullanan bir projeye iş mantığı katmanı ekleme
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.
+> Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama veri kaynağı nesneleriyle (örneğin, ObjectDataSource veya SqlDataSource) çok daha basit hale getirir. Bu seri giriş malzemesiyle başlar ve sonraki öğreticilerde daha gelişmiş kavramlara gider.
 > 
-> Bu öğreticide, model bağlama iş mantığı katmanı ile kullanmak gösterilmektedir. Geçerli sayfanın dışında bir nesne veri yöntemleri çağırmak için kullanıldığını belirtmek için OnCallingDataMethods üye ayarlanır.
+> Bu öğreticide, model bağlamanın bir iş mantığı katmanıyla nasıl kullanılacağı gösterilmektedir. Veri yöntemlerini çağırmak için geçerli sayfa dışında bir nesnenin kullanıldığını belirtmek için OnCallingDataMethods üyesini ayarlayacaksınız.
 > 
-> Bu öğreticide oluşturulan proje geliştirir [önceki](retrieving-data.md) dizisinin bölümleri.
+> Bu öğreticide, serinin [önceki](retrieving-data.md) bölümlerinde oluşturulan projede derleme yapılır.
 > 
-> Yapabilecekleriniz [indirme](https://go.microsoft.com/fwlink/?LinkId=286116) tam projeyi C# veya vb İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile çalışır. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklıdır Visual Studio 2012 şablonu kullanır.
+> Tüm projeyi [](https://go.microsoft.com/fwlink/?LinkId=286116) C# veya vb 'ye indirebilirsiniz. İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile birlikte kullanılabilir. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklı olan Visual Studio 2012 şablonunu kullanır.
 
-## <a name="what-youll-build"></a>Derleme
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Model bağlama, veri etkileşimi kodunuzu bir web sayfası için arka plan kod dosyasında veya ayrı iş mantığı sınıfı yerleştirilmesine olanak sağlar. Önceki öğreticilerde, arka plan kod dosyaları için veri etkileşim kodu kullanma göstermiştir. Bu yaklaşım küçük siteler için çalışır ancak büyük bir site bakımı yapılırken kod yinelemesi ve büyük zorluk açabilir. Ayrıca programlı olarak Soyutlama Katmanı olduğundan, arka plan kod dosyalarını bulunan kodu test etmek oldukça zor olabilir.
+Model bağlama, veri etkileşimi kodunuzu bir Web sayfası için arka plan kod dosyasına veya ayrı bir iş mantığı sınıfına yerleştirmenizi sağlar. Önceki öğreticilerde, veri etkileşimi kodu için arka plan kod dosyalarının nasıl kullanılacağı gösterilmekte. Bu yaklaşım küçük siteler için geçerlidir, ancak büyük bir site korunurken kod tekrarı ve daha zorluk ortaya çıkmasına neden olabilir. Özet katman olmadığından, kod arkasında bulunan kodu programlama yoluyla test etmek de çok zor olabilir.
 
-Veri etkileşim kodu merkezileştirmek için tüm verilerle etkileşim kurmak için mantığı içeren bir iş mantığı katmanı oluşturabilirsiniz. Ardından web sayfalarınızdan iş mantığı katmanı çağırın. Bu öğreticide, tüm iş mantığı katmanı içine önceki öğreticilerde yazdığınız kodun taşıyın ve sonra bu kodu sayfalarından gösterilmektedir.
+Veri etkileşim kodunu merkezileştirmek için verilerle etkileşimde bulunmak üzere tüm mantığı içeren bir iş mantığı katmanı oluşturabilirsiniz. Daha sonra Web sayfalarınızdaki iş mantığı katmanını çağırabilirsiniz. Bu öğreticide, önceki öğreticilerde yazdığınız kodun tümünü bir iş mantığı katmanına taşıma ve sonra bu kodu sayfalardan kullanma işlemlerinin nasıl yapılacağı gösterilmektedir.
 
-Bu öğreticide, gerekir:
+Bu öğreticide şunları yapmanız gerekir:
 
-1. Kod, iş mantığı katmanı için arka plan kod dosyaları Taşı
-2. Değişiklik iş mantığı katmanı yöntemleri çağırmak için veri bağlama denetimleri
+1. Kodu arka plan kod dosyalarından iş mantığı katmanına taşıma
+2. Veri bağlantılı denetimlerinizi iş mantığı katmanındaki yöntemleri çağırmak için değiştirin
 
 ## <a name="create-business-logic-layer"></a>İş mantığı katmanı oluşturma
 
-Şimdi web sayfalarından adlı bir sınıf oluşturur. Bu sınıftaki yöntemlerin önceki öğreticilerdeki kullanılan yöntemlere benzer ve değer sağlayıcısı özellikleri içerir.
+Şimdi, Web sayfalarından çağrılan sınıfını oluşturacaksınız. Bu sınıftaki Yöntemler, önceki öğreticilerde kullandığınız yöntemlere benzer ve değer sağlayıcısı özniteliklerini içerir.
 
-İlk olarak, adlı yeni bir klasör ekleyin **BLL**.
+İlk olarak **BLL**adlı yeni bir klasör ekleyin.
 
 ![Klasör Ekle](adding-business-logic-layer/_static/image1.png)
 
-BLL klasöründe adlı yeni bir sınıf oluşturun **SchoolBL.cs**. Tüm arka plan kod dosyalarında başlangıçta belgeler veri işlemlerini içerecektir. Yöntemleri neredeyse arka plan kod dosyasındaki yöntemleri ile aynıdır, ancak bazı değişiklikler içerir.
+BLL klasöründe, **SchoolBL.cs**adlı yeni bir sınıf oluşturun. Bu, başlangıçta arka plan kod dosyalarında yer alan tüm veri işlemlerini içerir. Yöntemler, arka plan kod dosyasındaki yöntemlerle neredeyse aynıdır, ancak bazı değişiklikler içerir.
 
-Artık kod örneği içinde yürütülen dikkat edilecek en önemli bir değişiklik olduğunu **sayfa** sınıfı. Sayfa sınıfını içeren **TryUpdateModel** yöntemi ve **ModelState** özelliği. Bu kod, iş mantığı katmanı için taşındığında, bu üyeleri çağırmak için sayfa sınıfının bir örneği artık yok. Bu sorunu aşmak için eklemelisiniz bir **ModelMethodContext** TryUpdateModel veya ModelState erişen herhangi bir yönteme parametre. TryUpdateModel arayın veya ModelState almak için bu ModelMethodContext parametresini kullanın. Bu yeni bir parametre için hesap için bu web sayfasında herhangi bir ayarı değiştirmek gerekmez.
+Dikkat edilmesi gereken en önemli değişiklik, artık kodu **Page** sınıfının bir örneği içinden yürütmemenin bir örneğidir. Sayfa sınıfı, **TryUpdateModel** yöntemini ve **ModelState** özelliğini içerir. Bu kod bir iş mantığı katmanına taşındığında, artık bu üyeleri çağırmak için Page sınıfının bir örneğine sahip olmayacaktır. Bu sorunu çözmek için, TryUpdateModel veya ModelState 'e erişen herhangi bir yönteme **ModelMethodContext** parametresini eklemeniz gerekir. Bu ModelMethodContext parametresini TryUpdateModel ' i çağırmak veya ModelState almak için kullanırsınız. Bu yeni parametre için Web sayfasındaki herhangi bir şeyi hesaba çevirmek zorunda değilsiniz.
 
-SchoolBL.cs kodu aşağıdaki kodla değiştirin.
+SchoolBL.cs içindeki kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample1.cs)]
 
-## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>İş mantığı katmanından veri almak için var olan sayfaları gözden geçirin
+## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>Mevcut sayfaları, iş mantığı katmanından veri almak için gözden geçirin
 
-Son olarak, sorgular kullanarak iş mantığı katmanı kullanarak arka plan kod dosyasında Students.aspx AddStudent.aspx ve Courses.aspx sayfaları dönüştürülecektir.
+Son olarak, iş mantığı katmanını kullanarak öğrenciler. aspx, Addöğrenci. aspx ve kurslar. aspx sayfalarını arka plan kod dosyasındaki sorguları kullanarak dönüştürmeniz gerekir.
 
-Öğrenciler, AddStudent ve kurslar için arka plan kod dosyalarında silin veya açıklama olarak aşağıdaki sorgu metotları:
+Öğrenciler, Addöğrenci ve kurslar için arka plan kod dosyalarında aşağıdaki sorgu yöntemlerini silin veya not edin:
 
 - studentsGrid\_GetData
 - studentsGrid\_UpdateItem
@@ -66,33 +66,33 @@ Son olarak, sorgular kullanarak iş mantığı katmanı kullanarak arka plan kod
 - addStudentForm\_InsertItem
 - coursesGrid\_GetData
 
-Veri işlemleri ilgili arka plan kod dosyasındaki kod şimdi olmalıdır.
+Artık, veri işlemleriyle ilgili arka plan kod dosyasında kod içermemelidir.
 
-**OnCallingDataMethods** olay işleyicisi veri yöntemleri için kullanılacak bir nesne belirtmenize imkan tanır. Students.aspx, bu olay işleyicisi için bir değer ekleyin ve iş mantığı sınıftaki yöntemlerin adlarına veri yöntemlerin adlarını değiştirin.
+**Oncallingdatamethods** olay işleyicisi, veri yöntemleri için kullanılacak bir nesne belirtmenize olanak sağlar. Öğrenciler. aspx ' te, bu olay işleyicisi için bir değer ekleyin ve veri yöntemlerinin adlarını iş mantığı sınıfındaki yöntemlerin adlarıyla değiştirin.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample2.aspx?highlight=3-4,8)]
 
-Students.aspx arka plan kod dosyasında CallingDataMethods olayı için olay işleyicisini tanımlar. Bu olay işleyicisinde veri işlemleri için iş mantığı sınıf belirtin.
+Öğrenciler. aspx için arka plan kod dosyasında, CallingDataMethods olayının olay işleyicisini tanımlayın. Bu olay işleyicisinde, veri işlemleri için iş mantığı sınıfını belirtirsiniz.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample3.cs)]
 
-AddStudent.aspx benzer değişiklikler yapın.
+AddStudent. aspx dosyasında benzer değişiklikler yapın.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample4.aspx?highlight=3-4)]
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample5.cs)]
 
-Courses.aspx benzer değişiklikler yapın.
+Kurslar. aspx ' te benzer değişiklikler yapın.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample6.aspx?highlight=3-4)]
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample7.cs)]
 
-Uygulamayı çalıştırmak ve daha önce olduğu gibi tüm sayfaları işlev dikkat edin. Doğrulama mantığını ayrıca düzgün çalışır.
+Uygulamayı çalıştırın ve sayfaların tümünün daha önce olduğu gibi işlev görür. Doğrulama mantığı da doğru şekilde çalışmaktadır.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, bir veri erişim katmanı ve iş mantığı katmanı kullanmak için uygulamanızı yeniden yapılandırılmış. Belirttiğiniz veri denetimleri veri işlemleri için geçerli sayfa değil bir nesne kullanın.
+Bu öğreticide, bir veri erişim katmanını ve iş mantığı katmanını kullanmak için uygulamanızı yeniden yapılandırılmıştır. Veri denetimlerinin veri işlemleri için geçerli sayfa olmayan bir nesne kullanmasını belirttiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](using-query-string-values-to-retrieve-data.md)
+> [Öncekini](using-query-string-values-to-retrieve-data.md)

@@ -9,11 +9,11 @@ ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
 ms.openlocfilehash: 3881833bfe2a50a38a357614f92f434a04a8ab08
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74626775"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567405"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: kod güncelleştirmesi dağıtma
 
@@ -164,7 +164,7 @@ Projeyi yayımlamak için **Web 'ı Yayımla** Sihirbazı 'nı kullandığınız
 
     *Web. config* dosyasına çift tıklarsanız, **Değişiklikleri Önizle** iletişim kutusu derleme yapılandırma dönüştürmelerinizin ve yayımlama profili dönüştürmelerinin etkisini gösterir. Bu noktada, sunucuda *Web. config* dosyasının değişmesine neden olacak hiçbir şey gerçekleştirmedi, bu nedenle hiçbir değişiklik olmadığını görmeyi düşünüyorsunuz. Ancak, **Değişiklikleri Önizle** penceresi yanlış bir şekilde iki değişiklik gösterir. İki XML öğesi, kaldırılacak şekilde görünür. Bu öğeler, bir Code First bağlam sınıfı için **uygulama başlatıldığında Code First Migrations Çalıştır '** ı seçtiğinizde Yayımla işlemi tarafından eklenir. Karşılaştırma, yayımlama işlemi bu öğeleri eklemeden önce yapılır, bu nedenle kaldırılmasa da kaldırılmamaları gibi görünüyor. Bu hata gelecekteki bir sürümde düzeltilecektir.
 5. **Kapat**'ı tıklatın.
-6. **Yayımla**' ya tıklayın.
+6. **Yayımla**’ta tıklayın.
 7. Tarayıcı, test sitesinin giriş sayfasında açıldığında, CSS değişikliğinin etkisini görmek için sabit yenilemeye yol açacak şekilde CTRL + F5 tuşlarına basın.
 
     ![CSS değişikliğinin etkisi](deploying-a-code-update/_static/image11.png)

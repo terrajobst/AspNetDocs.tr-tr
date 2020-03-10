@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
 ms.openlocfilehash: 28425ea8d1312dfc6e14df9677396f2cbcf6f16d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456731"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583855"
 ---
 # <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory ile ASP.NET Uygulamaları geliştirme
 
@@ -73,13 +73,13 @@ Aşağıdaki adımlarda [Web için Visual Studio Express 2013](https://www.micro
 4. **Tamam**' a tıkladıktan sonra bir oturum açma iletişim kutusu görüntülenir ve bir genel yönetici hesabı (aboneliğinizle ilişkili Microsoft hesabı değil) kullanarak oturum açmanız gerekir. Daha önce yeni bir yönetici hesabı oluşturduysanız, parolayı değiştirmeniz ve ardından yeni parolayı kullanarak yeniden oturum açmanız gerekir.
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image9.png)
-5. Kimliği başarıyla doğrulandıktan sonra, **yeni ASP.NET projesi** iletişim kutusu, kimlik doğrulama seçiminizi (**kuruluş** ) ve yeni uygulamanın kaydedileceği dizini (aşağıdaki görüntüde*aricka0yahoo.onmicrosoft.com* ) gösterir. Bu bilgilerin altında, **bulutta ana bilgisayar**etiketli onay kutusunu seçin. Bu onay kutusu işaretliyse, proje bir Azure Web uygulaması olarak sağlanacak ve daha sonra kolay yayımlama için etkinleştirilecek. **Tamam**'a tıklayın.
+5. Kimliği başarıyla doğrulandıktan sonra, **yeni ASP.NET projesi** iletişim kutusu, kimlik doğrulama seçiminizi (**kuruluş** ) ve yeni uygulamanın kaydedileceği dizini (aşağıdaki görüntüde*aricka0yahoo.onmicrosoft.com* ) gösterir. Bu bilgilerin altında, **bulutta ana bilgisayar**etiketli onay kutusunu seçin. Bu onay kutusu işaretliyse, proje bir Azure Web uygulaması olarak sağlanacak ve daha sonra kolay yayımlama için etkinleştirilecek. **Tamam**’a tıklayın.
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image10.png)
 6. **Azure Web sitesi yapılandırma** iletişim kutusu, otomatik olarak oluşturulan bir site adı ve bölgesi kullanılarak görüntülenir. Ayrıca, iletişim kutusunda oturum açmış olduğunuz hesabı da aklınızda bulabilirsiniz. Bu hesabın, Azure aboneliğinizin bağlı olduğundan ve genellikle bir Microsoft hesabı olduğundan emin olmak istiyorsunuz.
 
     > [!NOTE]
-    > Bu proje için bir veritabanı gerekiyor. Var olan veritabanlarınızdan birini seçmeniz veya yeni bir tane oluşturmanız gerekir. Proje, az miktarda kimlik doğrulama yapılandırma verilerini depolamak için zaten yerel bir veritabanı dosyası kullandığından bir veritabanı gereklidir. Uygulamayı bir Azure Web sitesine dağıttığınızda, bu veritabanı dağıtımıyla birlikte paketlenmez, bu nedenle bulutta erişilebilen bir tane seçmeniz gerekir. **Tamam**'a tıklayın.
+    > Bu proje için bir veritabanı gerekiyor. Var olan veritabanlarınızdan birini seçmeniz veya yeni bir tane oluşturmanız gerekir. Proje, az miktarda kimlik doğrulama yapılandırma verilerini depolamak için zaten yerel bir veritabanı dosyası kullandığından bir veritabanı gereklidir. Uygulamayı bir Azure Web sitesine dağıttığınızda, bu veritabanı dağıtımıyla birlikte paketlenmez, bu nedenle bulutta erişilebilen bir tane seçmeniz gerekir. **Tamam**’a tıklayın.
 
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image11.png)
 7. Proje oluşturulur ve kimlik doğrulama seçenekleriniz ve Web uygulaması seçenekleriniz proje ile otomatik olarak yapılandırılır. Bu işlem tamamlandıktan sonra **^ F5**tuşuna basarak projeyi yerel olarak çalıştırın. Kuruluş hesabınızı kullanarak oturum açmanız gerekecektir. Daha önce oluşturduğunuz hesabın kullanıcı adını ve parolasını girip **oturum aç**' a tıklayın.

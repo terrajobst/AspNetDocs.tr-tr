@@ -1,115 +1,115 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
-title: ASP.NET SignalR Hubs API Kılavuzu - sunucu (SignalR 1.x) | Microsoft Docs
+title: ASP.NET SignalR hub 'Ları API Kılavuzu-sunucu (SignalR 1. x) | Microsoft Docs
 author: bradygaster
-description: Bu belge, SignalR sürüm 1.1, kod örnekleri demonstratin ile ASP.NET SignalR hub'ları API sunucu tarafı programlama için bir giriş sağlar...
+description: Bu belgede, SignalR sürüm 1,1 için ASP.NET SignalR hub API 'sinin sunucu tarafını programlama, kod örnekleri demonstratin...
 ms.author: bradyg
 ms.date: 04/17/2013
 ms.assetid: 03e4b9f5-0fea-4d94-959f-014b2762a301
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
 ms.openlocfilehash: d9cd3fad36c0300d96c6dbdc61291ef119da2327
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113042"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78579641"
 ---
-# <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>ASP.NET SignalR Hubs API Kılavuzu - sunucu (SignalR 1.x)
+# <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>ASP.NET SignalR hub 'Ları API Kılavuzu-sunucu (SignalR 1. x)
 
-tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+by [Patrick Fletu](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu belge, sunucu tarafı ASP.NET SignalR hub'ları API sürüm 1.1, SignalR için genel seçenekleri gösteren kod örnekleri ile programlamaya giriş sağlar.
+> Bu belgede, SignalR sürüm 1,1 için ASP.NET SignalR hub 'ı API 'sinin sunucu tarafını programlama konusunda bir giriş ve ortak seçenekleri gösteren kod örnekleri sunulmaktadır.
 > 
-> SignalR hub'ları API, bir sunucuya bağlanan istemcilerin ve istemcilerin sunucuya uzaktan yordam çağrısı (RPC) oluşturmanıza olanak sağlar. Sunucu kodu, istemciler tarafından çağrılabilen yöntemleri tanımlamak ve bir istemcide çalışmasına yöntemler çağırır. İstemci kodu sunucudan çağıran yöntemleri tanımlamak ve sunucu üzerinde çalışan yöntemleri çağırın. SignalR tüm istemci-sunucu tesisat sizin için üstlenir.
+> SignalR hub 'Ları API 'SI, uzak yordam çağrılarını (RPC) bir sunucudan, istemcilerden ve istemcilerden sunucuya bağlı hale getirmenizi sağlar. Sunucu kodu ' nda, istemciler tarafından çağrılabilen Yöntemler tanımlar ve istemcide çalışan yöntemleri çağırabilirsiniz. İstemci kodunda, sunucudan çağrılabilen yöntemleri tanımlayabilir ve sunucuda çalışan yöntemleri çağırabilirsiniz. SignalR, sizin için istemciden sunucuya sıhhi kını ele alır.
 > 
-> SignalR kalıcı bağlantı adlı bir alt düzey API'si de sunar. SignalR hub'ları ve kalıcı bağlantılar için giriş veya tam bir SignalR uygulamanın nasıl oluşturulacağını gösteren bir öğretici için bkz: [SignalR çalışmaya başlama -](index.md).
+> SignalR Ayrıca kalıcı bağlantılar adlı alt düzey bir API sunar. SignalR, hub 'Lar ve sürekli bağlantılara giriş veya tam bir SignalR uygulamasının nasıl oluşturulduğunu gösteren bir öğretici için bkz. [SignalR-Başlarken](index.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bu belgede aşağıdaki bölümler yer alır:
 
-- [SignalR yol kaydetmek ve SignalR seçeneklerini yapılandırma](#route)
+- [SignalR rotasını kaydetme ve SignalR seçeneklerini yapılandırma](#route)
 
-    - [/Signalr URL'si](#signalrurl)
+    - [/SignalR URL 'SI](#signalrurl)
     - [SignalR seçeneklerini yapılandırma](#options)
-- [Oluşturma ve Hub sınıflarını kullanma](#hubclass)
+- [Hub sınıfları oluşturma ve kullanma](#hubclass)
 
-    - [Hub nesne yaşam süresi](#transience)
-    - [JavaScript istemcilerinin Hub adları camel casing](#hubnames)
-    - [Birden çok hub'ları](#multiplehubs)
-- [İstemciler çağırabileceğiniz Hub sınıfı yöntemleri tanımlama](#hubmethods)
+    - [Hub nesnesi ömrü](#transience)
+    - [Camel-JavaScript istemcilerinde hub adlarının büyük küçük harfleri](#hubnames)
+    - [Birden çok hub](#multiplehubs)
+- [Hub sınıfında istemcilerin çağırabilmeniz için yöntemler tanımlama](#hubmethods)
 
-    - [JavaScript istemcilerinin yöntemi adları camel casing](#methodnames)
-    - [Zaman zaman uyumsuz olarak çalıştırmak için](#asyncmethods)
-    - [Aşırı yüklemeler tanımlama](#overloads)
-- [İstemci Hub sınıfı yöntemleri çağırma](#callfromhub)
+    - [Camel-JavaScript istemcilerinde yöntem adlarının büyük küçük harfleri](#methodnames)
+    - [Zaman uyumsuz olarak yürütme](#asyncmethods)
+    - [Aşırı yüklemeleri tanımlama](#overloads)
+- [Hub sınıfından istemci yöntemlerini çağırma](#callfromhub)
 
-    - [Hangi istemcilerin seçerek RPC alırsınız](#selectingclients)
-    - [Yöntem adları için derleme zamanı doğrulama](#dynamicmethodnames)
-    - [Ad eşleştirme büyük küçük harf duyarsız yöntemi](#caseinsensitive)
+    - [Hangi istemcilerin RPC alacağını seçme](#selectingclients)
+    - [Yöntem adları için derleme zamanı doğrulaması yok](#dynamicmethodnames)
+    - [Büyük/küçük harf duyarsız Yöntem adı eşleştirme](#caseinsensitive)
     - [Zaman uyumsuz yürütme](#asyncclient)
-- [Hub sınıftan grup üyeliğini yönetme](#groupsfromhub)
+- [Hub sınıfından grup üyeliğini yönetme](#groupsfromhub)
 
-    - [Ekleme ve kaldırma yöntemlerinin, zaman uyumsuz yürütme](#asyncgroupmethods)
+    - [Ekleme ve kaldırma yöntemlerinin zaman uyumsuz yürütmesi](#asyncgroupmethods)
     - [Grup üyeliği kalıcılığı](#grouppersistence)
-    - [Tek kullanıcı grupları](#singleusergroups)
-- [Hub sınıfında bağlantı ömrü olaylarını işlemek nasıl](#connectionlifetime)
+    - [Tek Kullanıcı grupları](#singleusergroups)
+- [Hub sınıfında bağlantı ömrü olaylarını işleme](#connectionlifetime)
 
-    - [OnConnected OnDisconnected ve OnReconnected olduğunda çağırılır](#onreconnected)
-    - [Arayan durumu değil doldurulur](#nocallerstate)
-- [Bağlam özelliği istemci bilgilerini alma](#contextproperty)
-- [Nasıl durumu Hub sınıfına ve istemciler arasında geçirme](#passstate)
-- [Hub sınıfında hatalarını işleme](#handleErrors)
-- [İstemci yöntemleri çağırmak ve Hub sınıfına dışındaki grupları yönetme](#callfromoutsidehub)
+    - [OnConnected, OnConnected ve OnConnected çağrıldığında](#onreconnected)
+    - [Çağıran durum doldurulmamış](#nocallerstate)
+- [Bağlam özelliğinden istemci hakkında bilgi alma](#contextproperty)
+- [İstemcilerle hub sınıfı arasında durum geçirme](#passstate)
+- [Hub sınıfında hataları işleme](#handleErrors)
+- [İstemci yöntemlerini çağırma ve grupları hub sınıfı dışından yönetme](#callfromoutsidehub)
 
-    - [İstemci yöntemleri çağırma](#callingclientsoutsidehub)
+    - [İstemci yöntemlerini çağırma](#callingclientsoutsidehub)
     - [Grup üyeliğini yönetme](#managinggroupsoutsidehub)
 - [İzlemeyi etkinleştirme](#tracing)
-- [Hub ardışık düzeni özelleştirme](#hubpipeline)
+- [Hub ardışık düzenini özelleştirme](#hubpipeline)
 
-Program istemcilere hakkında daha fazla belge için aşağıdaki kaynaklara bakın:
+İstemcilerin programtasyonu hakkındaki belgeler için aşağıdaki kaynaklara bakın:
 
-- [SignalR hub API Kılavuzu - JavaScript istemcisi](index.md)
-- [SignalR hub API Kılavuzu - .NET istemcisi](index.md)
+- [SignalR hub 'Ları API Kılavuzu-JavaScript Istemcisi](index.md)
+- [SignalR hub 'Ları API Kılavuzu-.NET Istemcisi](index.md)
 
-API başvuru konularına bağlar API .NET 4.5 sürümü var. .NET 4 kullanıyorsanız, bkz. [API konuları .NET 4 sürümünü](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
+API başvuru konularına bağlantılar, API 'nin .NET 4,5 sürümüdür. .NET 4 kullanıyorsanız, [API konularının .NET 4 sürümüne](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)bakın.
 
 <a id="route"></a>
 
-## <a name="how-to-register-the-signalr-route-and-configure-signalr-options"></a>SignalR yol kaydetmek ve SignalR seçeneklerini yapılandırma
+## <a name="how-to-register-the-signalr-route-and-configure-signalr-options"></a>SignalR rotasını kaydetme ve SignalR seçeneklerini yapılandırma
 
-İstemciler, Hub'ınıza bağlanmak için kullanacağı rota tanımlamak için çağrı [MapHubs](https://msdn.microsoft.com/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) uygulama başlatıldığında yöntemi. `MapHubs` olan bir [genişletme yöntemi](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) için `System.Web.Routing.RouteCollection` sınıfı. Aşağıdaki örnek, bir SignalR hub'ları yolun tanımlamak gösterilmektedir *Global.asax* dosya.
+İstemcilerin hub 'ınıza bağlanmak için kullanacağı yolu tanımlamak için, uygulama başladığında [Maphubs](https://msdn.microsoft.com/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) yöntemini çağırın. `MapHubs`, `System.Web.Routing.RouteCollection` sınıfı için bir [genişletme yöntemidir](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) . Aşağıdaki örnek, *küresel. asax* dosyasında SignalR hub yolunun nasıl tanımlanacağını gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample1.cs)]
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample2.cs?highlight=5)]
 
-Bir ASP.NET MVC uygulaması için SignalR işlevselliği ekliyorsanız, SignalR rota diğer rotaların önce eklendiğinden emin olun. Daha fazla bilgi için [Öğreticisi: SignalR ve MVC 4 ile çalışmaya başlama](index.md).
+Bir ASP.NET MVC uygulamasına SignalR işlevselliği ekliyorsanız, SignalR yolunun diğer yollarla önce eklendiğinden emin olun. Daha fazla bilgi için bkz. [öğretici: SignalR ve MVC 4 Ile çalışmaya](index.md)başlama.
 
 <a id="signalrurl"></a>
 
-### <a name="the-signalr-url"></a>/Signalr URL'si
+### <a name="the-signalr-url"></a>/SignalR URL 'SI
 
-Varsayılan olarak, istemciler, Hub'ınıza bağlanmak için kullanacağı yönlendirme URL'si olan "/ signalr". (Bu URL için otomatik olarak oluşturulan JavaScript dosyası "/ signalr/hubs" URL ile karıştırmayın. Oluşturulan proxy hakkında daha fazla bilgi için bkz: [SignalR Hubs API Kılavuzu - JavaScript istemcisi - oluşturulan proxy ve sizin için yaptığı](index.md).)
+Varsayılan olarak, istemcilerin hub 'ınıza bağlanmak için kullanacağı yol URL 'SI "/SignalR" olarak değişir. (Bu URL 'YI otomatik olarak oluşturulan JavaScript dosyası için olan "/SignalR/Hub" URL 'siyle karıştırmayın. Oluşturulan ara sunucu hakkında daha fazla bilgi için bkz. [SignalR hub 'LARı API Kılavuzu-JavaScript istemcisi-oluşturulan ara sunucu ve sizin için ne yapar](index.md).)
 
-Bu temel URL için SignalR kullanılamaz hale olağandışı durumlar olabilir; Örneğin, projenizde adlı bir klasöre sahip *signalr* ve adını değiştirmek istemiyorsanız. Bu durumda, aşağıdaki örneklerde gösterildiği gibi temel URL'sini değiştirebilirsiniz (Değiştir "/ signalr" örnek kodda, istenen URL ile).
+Bu temel URL 'YI SignalR için kullanılamaz hale getirmek için olağandışı durumlar olabilir; Örneğin, projenizde *SignalR* adlı bir klasörünüz var ve adı değiştirmek istemezsiniz. Bu durumda, aşağıdaki örneklerde gösterildiği gibi temel URL 'YI değiştirebilirsiniz (örnek kodda "/SignalR" değerini istediğiniz URL ile değiştirin).
 
-**URL'yi belirten sunucu kodu**
+**URL 'YI belirten sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample3.cs?highlight=1)]
 
-**JavaScript istemci URL'si (ile oluşturulan proxy) belirten bir kod**
+**URL 'YI belirten JavaScript istemci kodu (oluşturulan ara sunucu ile)**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample4.js?highlight=1)]
 
-**(Olmadan oluşturulan proxy) URL'sini belirtir, JavaScript istemci kodu**
+**URL 'YI belirten JavaScript istemci kodu (oluşturulan proxy olmadan)**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample5.js?highlight=1)]
 
-**URL'sini belirtir, .NET istemci kodu**
+**URL 'YI belirten .NET istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample6.cs?highlight=1)]
 
@@ -117,233 +117,233 @@ Bu temel URL için SignalR kullanılamaz hale olağandışı durumlar olabilir; 
 
 ### <a name="configuring-signalr-options"></a>SignalR seçeneklerini yapılandırma
 
-Overloads biri `MapHubs` yöntemini etkinleştirmek, özel bir URL, bir özel bağımlılık çözümleyiciyi ve aşağıdaki seçenekleri belirtin:
+`MapHubs` yönteminin aşırı yüklemeleri, özel bir URL, özel bir bağımlılık Çözümleyicisi ve aşağıdaki seçenekleri belirtmenize olanak sağlar:
 
-- Etki alanları arası çağrılar tarayıcı istemcilerinden gelen etkinleştirin.
+- Tarayıcı istemcilerinden etki alanları arası çağrıları etkinleştirin.
 
-    Genellikle bir sayfadan tarayıcı yüklerse `http://contoso.com`, aynı etki alanında altındadır SignalR bağlantı `http://contoso.com/signalr`. Varsa sayfasından `http://contoso.com` için bir bağlantı kurar `http://fabrikam.com/signalr`, diğer bir deyişle etki alanları arası bağlantı. Güvenlik nedenleriyle, etki alanları arası bağlantıları varsayılan olarak devre dışıdır. Daha fazla bilgi için [ASP.NET SignalR Hubs API Kılavuzu - JavaScript istemcisi - etki alanları arası bağlantı kurmak nasıl](index.md).
+    Genellikle tarayıcı `http://contoso.com`bir sayfa yüklerse, SignalR bağlantısı aynı etki alanında, `http://contoso.com/signalr`. `http://contoso.com` sayfa, etki alanları arası bağlantı olan `http://fabrikam.com/signalr`bir bağlantı yapıyorsa. Güvenlik nedenleriyle, etki alanları arası bağlantılar varsayılan olarak devre dışıdır. Daha fazla bilgi için bkz. [ASP.NET SignalR hub 'LARı API Kılavuzu-JavaScript istemcisi-etki alanları arası bağlantı oluşturma](index.md).
 - Ayrıntılı hata iletilerini etkinleştirin.
 
-    Hatalar oluştuğunda, SignalR varsayılan davranışını istemciler için ne hakkında ayrıntılar olmadan bir bildirim iletisi göndermektir. Kötü amaçlı kullanıcıların uygulamanızı saldırıları bilgileri kullanmak mümkün olabilir çünkü istemciler için ayrıntılı hata bilgilerini göndermesini üretimde önerilmez. Sorun giderme için geçici olarak daha bilgilendirici hata raporlamasını etkinleştirmek için bu seçeneği kullanabilirsiniz.
-- Otomatik olarak oluşturulan JavaScript proxy'si dosyaları devre dışı bırakın.
+    Hata oluştuğunda, SignalR 'nin varsayılan davranışı istemcilere ne olduğuna ilişkin ayrıntıları içermeyen bir bildirim iletisi gönderir. Kötü amaçlı kullanıcılar, uygulamanıza karşı saldırılara karşı bilgileri kullanabilabileceğinden, istemcilere ayrıntılı hata bilgileri gönderilmesi, üretimde önerilmez. Sorun giderme için, bu seçeneği kullanarak daha fazla bilgilendirici hata raporlamayı geçici olarak etkinleştirebilirsiniz.
+- Otomatik olarak oluşturulan JavaScript proxy dosyalarını devre dışı bırakın.
 
-    Varsayılan olarak, yanıt URL'sine "/ signalr/hubs" Hub sınıflarınızı için proxy ile bir JavaScript dosyası oluşturulur. JavaScript proxy'leri kullanmak istemiyorsanız veya bu dosyayı el ile oluşturmanız ve istemcilerinizin fiziksel bir dosyaya başvurmak istiyorsanız, proxy oluşturma devre dışı bırakmak için bu seçeneği kullanabilirsiniz. Daha fazla bilgi için [SignalR Hubs API Kılavuzu - JavaScript istemcisi - fiziksel dosya oluşturma SignalR için oluşturulan proxy](index.md).
+    Varsayılan olarak, hub sınıflarınız için proxy 'leri olan bir JavaScript dosyası "/SignalR/Hub" URL 'sine yanıt olarak oluşturulur. JavaScript proxy 'lerini kullanmak istemiyorsanız veya bu dosyayı el ile oluşturmak ve istemcilerinizdeki fiziksel bir dosyaya başvurmak istiyorsanız, ara sunucu oluşturmayı devre dışı bırakmak için bu seçeneği kullanabilirsiniz. Daha fazla bilgi için bkz. [SignalR hub 'LARı API Kılavuzu-JavaScript istemcisi-SignalR tarafından oluşturulan ara sunucu için fiziksel dosya oluşturma](index.md).
 
-Aşağıdaki örnek, bir çağrıda SignalR bağlantı URL'si ve bu seçenekleri belirtmek gösterilmektedir `MapHubs` yöntemi. Özel bir URL belirtmek için Değiştir "/ signalr" örnekte URL'siyle kullanmak istiyorsunuz.
+Aşağıdaki örnek, SignalR bağlantı URL 'sinin ve bu seçeneklerin `MapHubs` metoduna yapılan bir çağrıda nasıl ekleneceğini gösterir. Özel bir URL belirtmek için örnekteki "/SignalR" değerini kullanmak istediğiniz URL ile değiştirin.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample7.cs)]
 
 <a id="hubclass"></a>
 
-## <a name="how-to-create-and-use-hub-classes"></a>Oluşturma ve Hub sınıflarını kullanma
+## <a name="how-to-create-and-use-hub-classes"></a>Hub sınıfları oluşturma ve kullanma
 
-Bir Hub oluşturmak için türetilen bir sınıf oluşturma [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Aşağıdaki örnek, basit bir Hub sınıfı için bir sohbet uygulaması gösterir.
+Bir hub oluşturmak için, [Microsoft. Aspnet. SignalR. hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx)' dan türetilen bir sınıf oluşturun. Aşağıdaki örnekte, bir sohbet uygulaması için basit bir hub sınıfı gösterilmektedir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample8.cs)]
 
-Bu örnekte, bir bağlı istemci çağırabilirsiniz `NewContosoChatMessage` yöntemi ve yaptığında, alınan verilerin bağlanan tüm istemciler için yayımladınız.
+Bu örnekte, bağlı bir istemci `NewContosoChatMessage` yöntemini çağırabilir ve ne zaman yapıldığında, alınan veriler tüm bağlı istemcilere göre belirlenir.
 
 <a id="transience"></a>
 
-### <a name="hub-object-lifetime"></a>Hub nesne yaşam süresi
+### <a name="hub-object-lifetime"></a>Hub nesnesi ömrü
 
-Hub sınıfının örneği yok ya da sunucu üzerindeki kendi koddan yöntemlerinin çağrılması; Tüm bunları sizin için SignalR hub'ları işlem hattı tarafından gerçekleştirilir. SignalR hub'ı sınıfınıza yeni bir örneğini ne zaman bir istemci bağlanır, bağlantısı kesildiğinde veya sunucu için bir yöntem çağrısı yapar gibi bir Hub işlemin işlemek için gereken her zaman oluşturur.
+Hub sınıfını örnekleyemezsiniz veya kendi kodunuzda kendi kodınızdan yöntemlerini çağıramazsınız; Her şey, SignalR hub 'ı tarafından sizin için yapılır. SignalR, bir istemcinin bağlandığı, bağlantısı kesilen veya sunucuya bir yöntem çağrısı yaptığı zaman gibi bir hub işlemini her işlemesi gerektiğinde hub sınıfınızın yeni bir örneğini oluşturur.
 
-Hub sınıfının örneklerini geçici olduğu için bir yöntem çağrısından sonraki durumunu korumak üzere kullanamazsınız. Her sunucunun bir yöntem çağrısının bir istemciden Hub sınıfı işlemlerinizi yeni bir örneğini iletiyi alır. Birden fazla bağlantı ve yöntem çağrıları arasında durumu korumak için Hub sınıfına veya farklı bir sınıf türünden türemez bir veritabanı veya statik bir değişken gibi bazı başka bir yöntem kullanın `Hub`. Bellekteki verileri devam ediyorsa, uygulama etki alanı geri dönüştürüldüğünde Hub sınıfında statik bir değişken gibi bir yöntem kullanarak verileri kaybolur.
+Hub sınıfının örnekleri geçici olduğundan, bir sonraki yöntem çağrısından durumu korumak için bunları kullanamazsınız. Sunucu istemciden bir yöntem çağrısı aldığında, hub sınıfınızın yeni bir örneği iletiyi işler. Birden çok bağlantı ve yöntem çağrısı aracılığıyla durumu korumak için, veritabanı veya hub sınıfında bir statik değişken veya `Hub`türetmeyen farklı bir sınıf gibi başka bir yöntem kullanın. Hub sınıfında statik değişken gibi bir yöntemi kullanarak verileri bellekte kalıcı hale getirilürse, uygulama etki alanı geri dönüştürüldüğünde veriler kaybolur.
 
-Kendi koddan Hub sınıfı dışında çalışan istemciler için iletileri göndermek istiyorsanız bir Hub örneği oluşturarak bunu yapamazsınız, ancak Hub sınıfınız için bir başvuru SignalR bağlam nesnesi alarak yapabilirsiniz. Daha fazla bilgi için [istemci yöntemleri çağırmak ve Hub sınıfına dışındaki grupları yönetmek nasıl](#callfromoutsidehub) bu konuda.
+Hub sınıfı dışında çalışan kendi kodlarınızdan istemcilere ileti göndermek istiyorsanız, bir hub sınıfı örneği oluşturarak bunu yapamazsınız, ancak hub sınıfınız için SignalR bağlam nesnesine bir başvuru alarak bunu yapabilirsiniz. Daha fazla bilgi için, bu konunun ilerleyen kısımlarında [istemci yöntemlerini çağırma ve hub sınıfının dışından grupları yönetme](#callfromoutsidehub) konularına bakın.
 
 <a id="hubnames"></a>
 
-### <a name="camel-casing-of-hub-names-in-javascript-clients"></a>JavaScript istemcilerinin Hub adları camel casing
+### <a name="camel-casing-of-hub-names-in-javascript-clients"></a>Camel-JavaScript istemcilerinde hub adlarının büyük küçük harfleri
 
-Varsayılan olarak, JavaScript istemcilerinin, sınıf adı ortası büyük küçük harfleri sürümünü kullanarak hub'larına bakın. Böylece JavaScript kodu JavaScript kurallarına uymak SignalR bu değişikliği otomatik olarak yapar. Önceki örneği olarak adlandırılır `contosoChatHub` JavaScript kod.
+Varsayılan olarak, JavaScript istemcileri, sınıf adının Camel-cased bir sürümünü kullanarak hub 'Lara başvurur. SignalR, JavaScript kodunun JavaScript kurallarına uyum sağlamak için bu değişikliği otomatik olarak yapar. Önceki örneğe JavaScript kodunda `contosoChatHub` adı verilir.
 
 **Sunucu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample9.cs?highlight=1)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample10.js?highlight=1)]
 
-İstemcilerin kullanın, eklemek farklı bir ad belirlemek istiyorsanız `HubName` özniteliği. Kullandığınızda, bir `HubName` özniteliği, için JavaScript istemcilerde ortası büyük harf adı bir değişiklik yoktur.
+İstemcilerin kullanması için farklı bir ad belirtmek istiyorsanız, `HubName` özniteliğini ekleyin. Bir `HubName` özniteliği kullandığınızda JavaScript istemcilerinde ortası örneğine bir ad değişikliği yapılmaz.
 
 **Sunucu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample11.cs?highlight=1)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample12.js?highlight=1)]
 
 <a id="multiplehubs"></a>
 
-### <a name="multiple-hubs"></a>Multiple Hubs
+### <a name="multiple-hubs"></a>Birden çok hub
 
-Bir uygulamada birden fazla Hub sınıfı tanımlayabilirsiniz. Bunu yaptığınızda, paylaşılan bir bağlantısı ancak grupları ayrı:
+Bir uygulamada birden çok hub sınıfı tanımlayabilirsiniz. Bunu yaptığınızda bağlantı paylaşılır, ancak gruplar ayrıdır:
 
-- Tüm istemciler, hizmetiniz ile SignalR bağlantı kurmak için aynı URL'yi kullanır ("/ signalr" ya da bir belirttiyseniz, özel URL), hizmet tarafından tanımlanan ve bağlantı tüm hub'ları için kullanılır.
+- Tüm istemciler hizmetinize bir SignalR bağlantısı kurmak için aynı URL 'YI kullanır ("/SignalR" veya bir tane belirtilmişse özel URL 'niz) ve bu bağlantı, hizmet tarafından tanımlanan tüm Hub 'Lar için kullanılır.
 
-    Tek bir sınıfta tüm Hub işlevselliği tanımlamak için kıyasla çok sayıda hub için bir performans farkı yoktur.
-- Tüm hub'ları için aynı HTTP isteği bilgilerini edinin.
+    Tek bir sınıfta tüm Hub işlevlerini tanımlamaya kıyasla birden çok Hub için performans farkı yoktur.
+- Tüm Hub 'Lar aynı HTTP istek bilgilerini alır.
 
-    Tüm hub'ları aynı bağlantıyı paylaşmak olduğundan, sunucunun aldığı yalnızca HTTP isteği ne SignalR bağlantı kurar özgün HTTP isteği gelen bilgilerdir. Bir sorgu dizesi belirterek bilgi istemciden sunucuya geçirmek için bağlantı isteğini kullanırsanız, farklı sorgu dizeleri için farklı hub'lar sağlayamaz. Tüm hub'ları aynı bilgileri alır.
-- Tek bir dosyada, tüm hub'ları proxy'lerini oluşturulan JavaScript proxy'leri dosyasını içerir.
+    Tüm Hub 'Lar aynı bağlantıyı paylaştığından, sunucunun aldığı tek HTTP istek bilgileri, SignalR bağlantısını kuran özgün HTTP isteğine gelir. Bir sorgu dizesi belirterek istemciden sunucuya bilgi geçirmek için bağlantı isteğini kullanırsanız, farklı hub 'Lara farklı sorgu dizeleri sağlayamıyorum. Tüm Hub 'Lar aynı bilgileri alır.
+- Oluşturulan JavaScript proxy 'leri dosyası, tek bir dosyadaki tüm Hub 'Lara ait proxy 'leri içerir.
 
-    JavaScript proxy'si hakkında daha fazla bilgi için bkz. [SignalR Hubs API Kılavuzu - JavaScript istemcisi - oluşturulan proxy ve sizin için yaptığı](index.md).
-- Hub'ları grupları tanımlanır.
+    JavaScript proxy 'leri hakkında daha fazla bilgi için bkz. [SignalR hub 'LARı API Kılavuzu-JavaScript istemcisi-oluşturulan ara sunucu ve sizin için ne yapar](index.md).
+- Gruplar, hub 'Lar içinde tanımlanır.
 
-    Adlandırılmış alt kümelerini bağlı istemciler için yayın gruplar SignalR öğesinde tanımlayabilirsiniz. Grupları, her Hub için ayrı olarak korunur. Örneğin, "Yöneticiler" adlı bir grup istemciler için bir dizi verilebilir, `ContosoChatHub` sınıfı ve aynı ada istemciler için farklı bir dizi bakın, `StockTickerHub` sınıfı.
+    SignalR 'de, bağlı istemcilerin alt kümelerine yayınlamak için adlandırılmış grupları tanımlayabilirsiniz. Gruplar her Hub için ayrı ayrı tutulur. Örneğin, "Administrators" adlı bir grup `ContosoChatHub` sınıfınız için bir istemci kümesi içerir ve aynı grup adı `StockTickerHub` sınıfınız için farklı bir istemci kümesine başvuracaktır.
 
 <a id="hubmethods"></a>
 
-## <a name="how-to-define-methods-in-the-hub-class-that-clients-can-call"></a>İstemciler çağırabileceğiniz Hub sınıfı yöntemleri tanımlama
+## <a name="how-to-define-methods-in-the-hub-class-that-clients-can-call"></a>Hub sınıfında istemcilerin çağırabilmeniz için yöntemler tanımlama
 
-İstemciden çağrılabilir olmasını istediğiniz Hub üzerindeki bir yöntem kullanıma sunmak için aşağıdaki örneklerde gösterildiği gibi genel bir yöntem bildirin.
+Merkezi üzerinde istemciden çağrılabilir olmasını istediğiniz bir yöntemi ortaya çıkarmak için aşağıdaki örneklerde gösterildiği gibi bir genel yöntem bildirin.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample13.cs?highlight=3)]
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample14.cs?highlight=3)]
 
-Dönüş türü ve parametreleri, tüm C# yönteminde olduğu gibi karmaşık türler ve diziler de dahil olmak üzere belirtebilirsiniz. Parametreleri almak veya çağırana döndürmesi herhangi bir veri istemci ve sunucu arasında JSON'ı kullanarak iletilir ve SignalR bağlama karmaşık nesnelerin ve nesne dizileri otomatik olarak işler.
+Herhangi C# bir yöntemde yaptığınız gibi, karmaşık türler ve diziler dahil olmak üzere bir dönüş türü ve parametreleri belirtebilirsiniz. Parametrelerde aldığınız veya çağırana geri döndürülen tüm veriler, istemci ile sunucu arasında JSON kullanılarak iletilir ve SignalR karmaşık nesnelerin ve nesne dizilerinin otomatik olarak bağlamasını işler.
 
 <a id="methodnames"></a>
 
-### <a name="camel-casing-of-method-names-in-javascript-clients"></a>JavaScript istemcilerinin yöntemi adları camel casing
+### <a name="camel-casing-of-method-names-in-javascript-clients"></a>Camel-JavaScript istemcilerinde yöntem adlarının büyük küçük harfleri
 
-Varsayılan olarak, JavaScript istemcilerinin, Hub yöntemleri için bir yöntem adı ortası büyük küçük harfleri sürümünü kullanarak bakın. Böylece JavaScript kodu JavaScript kurallarına uymak SignalR bu değişikliği otomatik olarak yapar.
+Varsayılan olarak, JavaScript istemcileri, yöntem adının Camel-cased bir sürümünü kullanarak Merkez yöntemlerine başvurur. SignalR, JavaScript kodunun JavaScript kurallarına uyum sağlamak için bu değişikliği otomatik olarak yapar.
 
 **Sunucu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample15.cs?highlight=1)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample16.js?highlight=1)]
 
-İstemcilerin kullanın, eklemek farklı bir ad belirlemek istiyorsanız `HubMethodName` özniteliği.
+İstemcilerin kullanması için farklı bir ad belirtmek istiyorsanız, `HubMethodName` özniteliğini ekleyin.
 
 **Sunucu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample17.cs?highlight=1)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample18.js?highlight=1)]
 
 <a id="asyncmethods"></a>
 
-### <a name="when-to-execute-asynchronously"></a>Zaman zaman uyumsuz olarak çalıştırmak için
+### <a name="when-to-execute-asynchronously"></a>Zaman uyumsuz olarak yürütme
 
-Yöntemi uzun süre çalışan olması veya çalışmaya sahipse, Bekliyor, bir veritabanı araması veya bir web hizmeti çağrısı gibi ilgili, döndürerek Hub yönteminin zaman uyumsuz hale bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (yerine `void` döndürür) veya [ Görev&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) nesne (yerine `T` dönüş türü). Döndüğünüzde bir `Task` yöntemi, SignalR nesneden bekler `Task` tamamlamak için ve istemci yöntem çağrısında nasıl kod içinde herhangi bir fark olması, sarmalanmış halden sonucu istemciye geri gönderir.
+Yöntem uzun süre çalışabilir veya bir veritabanı araması veya bir Web hizmeti çağrısı gibi beklemeyi gerektirebilecek iş yapmak için, bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (`void` dönüşü yerine) veya [görev&lt;t&gt;](https://msdn.microsoft.com/library/dd321424.aspx) nesnesi (`T` dönüş türü yerine) döndürerek hub yöntemini zaman uyumsuz yapın. Yönteminden bir `Task` nesnesi döndürdüğünüzde, SignalR `Task` tamamlanmasını bekler ve sarmalanmamış sonucu istemciye geri gönderir. bu nedenle, istemcide yöntem çağrısını nasıl kodlayabilmeniz fark yoktur.
 
-Bir Hub yöntemini olmasını zaman uyumsuz WebSocket taşıma kullandığında bağlantıya engel önler. Hub yönteminin tamamlanana kadar bir Hub yöntemini zaman uyumlu olarak yürütülür ve taşıma WebSocket olduğunda, aynı istemciden hub yöntemlerine yönelik sonraki çağrılarını engellenir.
+Bir hub yönteminin zaman uyumsuz yapılması, WebSocket aktarımını kullandığında bağlantının engellenmesini önler. Bir hub yöntemi zaman uyumlu olarak yürütülüyorsa ve aktarım WebSocket ise, hub yöntemi tamamlanana kadar hub üzerindeki yöntemlerin sonraki çağrıları aynı istemciden engellenir.
 
-Aynı yöntem eşzamanlı çalışacak biçimde kodlanmış veya zaman uyumsuz olarak çalışan iki sürümden çağırmak için JavaScript istemci kodu ardından aşağıdaki örnekte gösterilmiştir.
+Aşağıdaki örnek, her iki sürümü de çağırmak için çalışan JavaScript istemci kodu tarafından zaman uyumlu veya zaman uyumsuz olarak çalışacak şekilde kodlanmış aynı yöntemi gösterir.
 
-**Zaman uyumlu**
+**K**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample19.cs)]
 
-**Zaman uyumsuz - ASP.NET 4.5**
+**Zaman uyumsuz-ASP.NET 4,5**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample20.cs?highlight=1,7-8)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample21.js)]
 
-ASP.NET 4.5 içinde zaman uyumsuz yöntemler kullanma hakkında daha fazla bilgi için bkz. [kullanarak ASP.NET MVC 4'te zaman uyumsuz yöntemleri](../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
+ASP.NET 4,5 ' de zaman uyumsuz yöntemlerin nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [ASP.NET MVC 4 Içinde zaman uyumsuz yöntemler kullanma](../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
 
 <a id="overloads"></a>
 
-### <a name="defining-overloads"></a>Aşırı yüklemeler tanımlama
+### <a name="defining-overloads"></a>Aşırı yüklemeleri tanımlama
 
-Yöntemi için aşırı yüklemeleri tanımlamak istiyorsanız, her aşırı yükleme parametre sayısı farklı olması gerekir. Farklı parametre türleri belirterek bir aşırı ayırt Hub sınıfınıza derleyeceği ancak SignalR hizmeti, çağrı aşırı istemciler çalıştığınızda çalışma zamanında bir özel durum oluşturur.
+Bir yöntem için aşırı yüklemeleri tanımlamak istiyorsanız, her aşırı yüklemede parametre sayısı farklı olmalıdır. Farklı parametre türleri belirterek bir aşırı yüklemeyi ayırt ediyorsanız, hub sınıfınız derlenir, ancak istemciler aşırı yüklemelerin birini çağırmaya çalıştığında, çalışma zamanında SignalR hizmeti bir özel durum oluşturur.
 
 <a id="callfromhub"></a>
 
-## <a name="how-to-call-client-methods-from-the-hub-class"></a>İstemci Hub sınıfı yöntemleri çağırma
+## <a name="how-to-call-client-methods-from-the-hub-class"></a>Hub sınıfından istemci yöntemlerini çağırma
 
-İstemcisi, sunucudan yöntemleri çağırmak için kullanın `Clients` Hub sınıfınızın bir yöntemde bir özellik. Aşağıdaki örnek, çağıran sunucu kodu gösterir `addNewMessageToPage` tüm bağlı istemcileri ve istemci kodu, bir JavaScript istemci yöntemi tanımlar.
+Sunucudan istemci yöntemlerini çağırmak için, hub sınıfınızın bir yönteminde `Clients` özelliğini kullanın. Aşağıdaki örnek, tüm bağlı istemcilerde `addNewMessageToPage` çağıran sunucu kodunu ve bir JavaScript istemcisinde yöntemi tanımlayan istemci kodunu gösterir.
 
 **Sunucu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample22.cs?highlight=5)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-html[Main](signalr-1x-hubs-api-guide-server/samples/sample23.html?highlight=1)]
 
-İstemci yöntemden dönüş değeri alınamıyor; söz dizimi gibi `int x = Clients.All.add(1,1)` çalışmıyor.
+İstemci yönteminden bir dönüş değeri alamazsınız; `int x = Clients.All.add(1,1)` gibi sözdizimi çalışmıyor.
 
-Karmaşık türler ve diziler için parametreleri belirtebilirsiniz. Aşağıdaki örnek bir yöntem parametresi istemci bir karmaşık tür geçirir.
+Parametreler için karmaşık türler ve diziler belirleyebilirsiniz. Aşağıdaki örnek, bir yöntem parametresinde istemciye karmaşık bir tür geçirir.
 
-**Karmaşık bir nesne kullanarak bir istemci yöntemini çağıran sunucu kodu**
+**Karmaşık bir nesne kullanarak istemci yöntemini çağıran sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample24.cs?highlight=3)]
 
-**Karmaşık bir nesne tanımlayan bir sunucu kodu**
+**Karmaşık nesneyi tanımlayan sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample25.cs?highlight=1)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample26.js?highlight=2-3)]
 
 <a id="selectingclients"></a>
 
-### <a name="selecting-which-clients-will-receive-the-rpc"></a>Hangi istemcilerin seçerek RPC alırsınız
+### <a name="selecting-which-clients-will-receive-the-rpc"></a>Hangi istemcilerin RPC alacağını seçme
 
-İstemciler özelliği döndürür bir [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) hangi istemcilerin RPC alırsınız belirtmek için çeşitli seçenekler sağlayan nesne:
+Clients özelliği, hangi istemcilerin RPC alacağını belirtmek için çeşitli seçenekler sağlayan bir [Hubconnectioncontext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) nesnesi döndürür:
 
 - Bağlanan tüm istemciler.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample27.cs)]
-- Çağıran istemci yalnızca.
+- Yalnızca çağıran istemci.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample28.cs)]
-- Çağıran istemci dışındaki tüm istemcilerin.
+- Çağıran istemci dışındaki tüm istemciler.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample29.cs)]
-- Bağlantı kimliği ile tanımlanan belirli bir istemci
+- Bağlantı KIMLIĞIYLE tanımlanan belirli bir istemci.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample30.css)]
 
-    Bu örnek `addContosoChatMessageToPage` çağıran istemci hakkında ve kullanmakla aynı etkiye sahip `Clients.Caller`.
-- Bağlantı kimliği ile tanımlanan belirtilen istemcileri dışındaki tüm bağlı istemcileri
+    Bu örnek, çağıran istemcide `addContosoChatMessageToPage` çağırır ve `Clients.Caller`ile aynı etkiye sahiptir.
+- Belirtilen istemciler dışındaki tüm bağlı istemciler, bağlantı KIMLIĞIYLE tanımlanır.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample31.cs)]
-- Belirli bir grubun tüm bağlı istemcileri.
+- Belirtilen bir gruptaki tüm bağlı istemciler.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample32.css)]
-- Belirtilen istemcilerin bağlantı kimliği ile tanımlanan dışında belirtilen gruptaki tüm bağlı istemcileri
+- Belirtilen bir gruptaki, belirtilen istemciler hariç, bağlantı KIMLIĞIYLE tanımlanan tüm bağlı istemciler.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample33.cs)]
-- Belirli bir grubun tüm bağlı istemcileri çağıran istemci dışındaki.
+- Çağıran istemci hariç, belirtilen bir gruptaki tüm bağlı istemciler.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample34.css)]
 
 <a id="dynamicmethodnames"></a>
 
-### <a name="no-compile-time-validation-for-method-names"></a>Yöntem adları için derleme zamanı doğrulama
+### <a name="no-compile-time-validation-for-method-names"></a>Yöntem adları için derleme zamanı doğrulaması yok
 
-Belirttiğiniz yöntem adı, IntelliSense veya derleme zamanı doğrulamasını yoktur anlamına gelen dinamik bir nesne olarak yorumlanır. İfade, çalışma zamanında değerlendirilir. Yöntem çağrısının yürütüldüğünde, SignalR yöntem adı ve parametre değerlerini istemciye gönderir ve istemci bir yöntemi varsa, adla eşleşen, yöntemi çağrılır ve parametre değerlerini, kendisine geçirilir. Eşleşen hiçbir yöntemi istemcide bulunursa, herhangi bir hata ortaya çıkar. Bir istemci yöntemi çağırdığınızda, arka planda istemciye SignalR ileten veri biçimi hakkında daha fazla bilgi için bkz [signalr'a giriş](index.md).
+Belirttiğiniz Yöntem adı dinamik bir nesne olarak yorumlanır, yani bunun için IntelliSense veya derleme zamanı doğrulaması yoktur. İfade çalışma zamanında değerlendirilir. Yöntem çağrısı yürütüldüğünde, SignalR yöntem adını ve parametre değerlerini istemciye gönderir ve istemcinin adıyla eşleşen bir yöntemi varsa, bu yöntem çağrılır ve parametre değerleri kendisine geçirilir. İstemcide eşleşen bir yöntem bulunamazsa, hiçbir hata oluşturulmaz. İstemci yöntemini çağırdığınızda SignalR 'nin arka planda istemciye ilettiği verilerin biçimi hakkında daha fazla bilgi için bkz. [SignalR 'ye giriş](index.md).
 
 <a id="caseinsensitive"></a>
 
-### <a name="case-insensitive-method-name-matching"></a>Ad eşleştirme büyük küçük harf duyarsız yöntemi
+### <a name="case-insensitive-method-name-matching"></a>Büyük/küçük harf duyarsız Yöntem adı eşleştirme
 
-Yöntem adı ile eşleşen büyük küçük harfe duyarlıdır. Örneğin, `Clients.All.addContosoChatMessageToPage` sunucuda yürütülür `AddContosoChatMessageToPage`, `addcontosochatmessagetopage`, veya `addContosoChatMessageToPage` istemci üzerinde.
+Yöntem adı eşleştirme, büyük/küçük harfe duyarlıdır. Örneğin, sunucusundaki `Clients.All.addContosoChatMessageToPage`, istemcide `AddContosoChatMessageToPage`, `addcontosochatmessagetopage`veya `addContosoChatMessageToPage` yürütülür.
 
 <a id="asyncclient"></a>
 
 ### <a name="asynchronous-execution"></a>Zaman uyumsuz yürütme
 
-Çağıran, yöntemi zaman uyumsuz olarak yürütür. Bir istemci için bir yöntem çağrısının hemen sonraki kod satırlarını siz belirtmediğiniz sürece, istemciye veri aktarımı tamamlamak, SignalR için beklemenize gerek kalmadan yürütecek sonra gelen kodu yöntemi tamamlanmasını beklemeniz gerekir. Aşağıdaki kod örnekleri iki istemci yöntemleri ardışık olarak yürütmek gösterilmektedir, kullanarak .NET 4.5 içinde çalışan kod, diğeri kullanarak .NET 4'te çalışan kod.
+Çağırdığınız yöntem zaman uyumsuz olarak yürütülür. Bir istemciye yönelik bir yöntem çağrısından sonra gelen herhangi bir kod, sonraki kod satırlarının Yöntem tamamlanmasını beklemesi gerekmediği takdirde, SignalR 'nin istemcilere veri aktarma işleminin bitmesini beklemeden hemen yürütülür. Aşağıdaki kod örnekleri, iki istemci yönteminin sırayla nasıl yürütüleceğini, .NET 4,5 ' de çalıştırılan kodu ve .NET 4 ' te çalıştırılan bir kodu kullanmayı göstermektedir.
 
-**.NET 4.5 örneği**
+**.NET 4,5 örneği**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample35.cs?highlight=1,3)]
 
@@ -351,43 +351,43 @@ Yöntem adı ile eşleşen büyük küçük harfe duyarlıdır. Örneğin, `Clie
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample36.cs?highlight=3-4)]
 
-Kullanırsanız `await` veya `ContinueWith` sonraki satırlık bir kod yürütülmeden önce bir istemci yöntemi bitene kadar beklemek için gelmez sonraki satırlık bir kod yürütülmeden önce istemcileri aslında iletiyi alır. Yalnızca bir istemci yöntem çağrısının "tamamlama" SignalR ileti göndermek için gereken her şey yapmış anlamına gelir. İstemcilerin ileti aldığı doğrulama gerekiyorsa, bu mekanizma kendiniz program gerekir. Örneğin, kod bir `MessageReceived` yöntemi Hub hem de `addContosoChatMessageToPage` , çağırın istemcide yöntemi `MessageReceived` , yaptıktan sonra iş istemcide gerçekleştirmek için ihtiyaç. İçinde `MessageReceived` hub'ı gerçek istemci alma ve işleme özgün yöntem çağrısının hangi iş bağlıdır, bunu yapabilirsiniz.
+Bir sonraki kod satırından önce istemci yöntemi bitene kadar beklemek için `await` veya `ContinueWith` kullanırsanız, bu, istemcilerin bir sonraki kod çalıştırılmadan önce iletiyi gerçekten alacağı anlamına gelmez. Bir istemci yöntemi çağrısının "tamamlama" işlemi, SignalR 'nin iletiyi göndermek için gereken her şeyi yaptığı anlamına gelir. İstemcilerin iletiyi aldığını doğrulamaya ihtiyacınız varsa, o mekanizmayı kendiniz programlayabilirsiniz. Örneğin, hub 'da bir `MessageReceived` yöntemi kod, istemci üzerindeki `addContosoChatMessageToPage` yönteminde, istemcide yapmanız gereken herhangi bir işi yaptıktan sonra `MessageReceived` çağırabilirsiniz. Hub 'daki `MessageReceived`, gerçek istemci alımı ve özgün yöntem çağrısının işlenmesine bağlı olarak herhangi bir işi yapabilirsiniz.
 
-### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Yöntem adı bir dize değişkeni kullanma
+### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Yöntem adı olarak bir dize değişkeni kullanma
 
-Cast yöntemi adı bir dize değişkeni kullanarak bir istemci yöntem çağırmak istiyorsanız `Clients.All` (veya `Clients.Others`, `Clients.Caller`, vs.) için `IClientProxy` ve sonra çağrı [Invoke (methodName, args...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Bir istemci yöntemini, yöntem adı olarak bir dize değişkeni kullanarak çağırmak istiyorsanız, `Clients.All` (veya `Clients.Others`, `Clients.Caller`, vb.) `IClientProxy` ve sonra [Invoke (MethodName, args...)](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx)öğesini çağırın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample37.cs)]
 
 <a id="groupsfromhub"></a>
 
-## <a name="how-to-manage-group-membership-from-the-hub-class"></a>Hub sınıftan grup üyeliğini yönetme
+## <a name="how-to-manage-group-membership-from-the-hub-class"></a>Hub sınıfından grup üyeliğini yönetme
 
-Signalr'da gruplarla, bağlı istemciler belirtilen alt kümelerine yayın iletileri için bir yöntem sağlar. Bir grupta herhangi bir sayıda istemciler olabilir ve istemci grupları herhangi bir sayıda üyesi olabilir.
+SignalR içindeki gruplar, bağlı istemcilerin belirtilen alt kümelerine ileti yayınlamak için bir yöntem sağlar. Bir grup herhangi bir sayıda istemciye sahip olabilir ve bir istemci herhangi bir sayıda grubun üyesi olabilir.
 
-Grup üyeliğini yönetmek için kullandığınız [Ekle](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) ve [Kaldır](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) tarafından sağlanan yöntemleri `Groups` Hub sınıfın özelliği. Aşağıdaki örnekte gösterildiği `Groups.Add` ve `Groups.Remove` istemci kodu tarafından çağrılan Hub yöntemlerinde kullanılan yöntemleri, onları çağıran JavaScript istemci kodu tarafından izlenen.
+Grup üyeliğini yönetmek için, hub sınıfının `Groups` özelliği tarafından sunulan [Ekle](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) ve [Kaldır](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) yöntemlerini kullanın. Aşağıdaki örnek, istemci kodu tarafından çağrılan ve ardından bunları çağıran JavaScript istemci kodunun ardından, hub yöntemlerinde kullanılan `Groups.Add` ve `Groups.Remove` yöntemlerini gösterir.
 
 **Sunucu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample38.cs?highlight=5,10)]
 
-**Oluşturulan proxy kullanarak JavaScript istemcisi**
+**Oluşturulan proxy kullanan JavaScript istemcisi**
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample39.js)]
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample40.js)]
 
-Açıkça grupları oluşturmanız gerekmez. Etkin bir grup çağrıda adını belirttiğiniz ilk kez otomatik olarak oluşturulur `Groups.Add`, ve bu üyelik son bağlantı kaldırdığınızda silinir.
+Açıkça grup oluşturmanız gerekmez. Aslında bir grup, bir `Groups.Add`çağrısında adını ilk kez belirttiğinizde otomatik olarak oluşturulur ve içindeki üyeliğinden son bağlantıyı kaldırdığınızda silinir.
 
-Bir grup üyeliği listesinin veya grupların listesini almak için hiçbir API yoktur. SignalR istemcileri ve gruplara göre iletiler gönderen bir [pub/sub modeli](http://en.wikipedia.org/wiki/Publish/subscribe), ve sunucu grupları veya grup üyeliklerinin listesi korumaz. Bir web grubu için bir düğüm eklediğinizde, yeni bir düğüme dağıtılmasını SignalR tutar herhangi bir durum olduğundan bu ölçeklenebilirliği en üst düzeye yardımcı olur.
+Grup üyeliği listesi veya Grup listesi almak için API yok. SignalR bir [yayın/alt modele](http://en.wikipedia.org/wiki/Publish/subscribe)göre istemcilere ve gruplara iletiler gönderir ve sunucu grup veya grup üyelikleri listesini korumaz. Bu, bir Web grubuna düğüm eklediğiniz her durumda, SignalR 'nin koruduğu tüm durumun yeni düğüme yayılması nedeniyle ölçeklenebilirliği en üst düzeye çıkarmaya yardımcı olur.
 
 <a id="asyncgroupmethods"></a>
 
-### <a name="asynchronous-execution-of-add-and-remove-methods"></a>Ekleme ve kaldırma yöntemlerinin, zaman uyumsuz yürütme
+### <a name="asynchronous-execution-of-add-and-remove-methods"></a>Ekleme ve kaldırma yöntemlerinin zaman uyumsuz yürütmesi
 
-`Groups.Add` Ve `Groups.Remove` zaman uyumsuz bir yöntem yürütülemez. Bir istemci bir gruba ekleyin ve hemen bir ileti grubunu kullanarak istemciye göndermek istiyorsanız, emin olmak sahip `Groups.Add` yöntemi önce tamamlanır. Aşağıdaki kod örnekleri, .NET 4.5 ve .NET 4'te çalışan kod kullanarak bir tane çalışan kod kullanarak bunun nasıl yapılacağını göster
+`Groups.Add` ve `Groups.Remove` yöntemleri zaman uyumsuz olarak yürütülür. Bir gruba bir istemci eklemek ve grubu kullanarak istemciye hemen ileti göndermek istiyorsanız, `Groups.Add` yönteminin önce tamamlandığından emin olmanız gerekir. Aşağıdaki kod örneklerinde bunun nasıl yapılacağı, biri .NET 4,5 ' de çalıştırılan kodu kullanarak ve bir diğeri de .NET 4 ' te çalıştırılan kod kullanılarak gösterilmektedir
 
-**.NET 4.5 örneği**
+**.NET 4,5 örneği**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample41.cs?highlight=1,3)]
 
@@ -399,91 +399,91 @@ Bir grup üyeliği listesinin veya grupların listesini almak için hiçbir API 
 
 ### <a name="group-membership-persistence"></a>Grup üyeliği kalıcılığı
 
-SignalR bağlantıları izler, kullanıcıları değil, dolayısıyla bir kullanıcı kullanıcı her bağlandığında bağlantı aynı grupta olmasını istediğiniz, çağırmak zorunda `Groups.Add` her zaman kullanıcı yeni bir bağlantı kurar.
+SignalR, kullanıcıları değil bağlantıları izler, bu nedenle Kullanıcı her bağlantı kurduğunda bir kullanıcının aynı grupta olmasını istiyorsanız, Kullanıcı her yeni bağlantı kurduğunda `Groups.Add` çağırmanız gerekir.
 
-Geçici bağlantı kaybı sonra bazen SignalR bağlantı otomatik olarak geri yükleyebilirsiniz. Bu durumda, yeni bir bağlantı kurmadan aynı bağlantıyı SignalR geri yüklüyor ve bu nedenle istemcinin Grup üyeliğini otomatik olarak geri. Bağlantı durumu grup üyelikleri de dahil olmak üzere, her istemci için istemcinin gidiş dönüşlü geçici kesme sunucu yeniden başlatma veya hata sonucu olsa bile mümkün olmasıdır. Bir sunucu arıza ve bağlantı zaman aşımına uğramadan önce yeni bir sunucu tarafından değiştirilir, istemci otomatik olarak yeni sunucuya yeniden ve üyesi olduğu grupları'nı yeniden kaydolun.
+Geçici bir bağlantı kaybı sonrasında, bazı durumlarda SignalR bağlantıyı otomatik olarak geri yükleyebilir. Bu durumda, SignalR aynı bağlantıyı geri yüklüyor, yeni bir bağlantı oluşturmamalıdır ve istemcinin grup üyeliği otomatik olarak geri yüklenir. Bu durum, geçici kesme sunucu yeniden başlatma veya başarısızlık nedeniyle bile, grup üyelikleri de dahil olmak üzere her bir istemcinin bağlantı durumu istemciye yuvarlandığı için mümkündür. Bir sunucu kapalıysa ve bağlantı zaman aşımına uğramadan önce yeni bir sunucu tarafından değiştirilirse, istemci otomatik olarak yeni sunucuya yeniden bağlanabilir ve üyesi olan gruplara yeniden kaydolabilir.
 
-Bir bağlantı, bağlantı kaybı sonra otomatik olarak geri yüklenemez veya bağlantı zaman aşımına uğradığında veya (örneğin, bir tarayıcı için yeni bir sayfa gittiğinde) istemci kestiğinde, grup üyeliği kaybedilir. Kullanıcı bir sonraki bağlanışında, yeni bir bağlantı olacaktır. Aynı kullanıcı yeni bir bağlantı kurduğunda grup üyeliklerini korumasına kullanıcılar ve gruplar ilişkileri izlemek ve grup üyelikleri kullanıcı yeni bir bağlantı kurar ve her zaman geri yüklemek uygulamanız gerekir.
+Bağlantı kesilirse veya bağlantı zaman aşımına uğrarsa ya da istemcinin bağlantısı kesildiğinde (örneğin, bir tarayıcı yeni bir sayfaya gittiğinde) bir bağlantı otomatik olarak geri yüklenemediğinde, grup üyelikleri kaybedilir. Kullanıcı bir sonraki sefer bağlanışında yeni bir bağlantı olur. Aynı kullanıcı yeni bir bağlantı kurduğunda grup üyeliklerini sürdürmek için, uygulamanız kullanıcılar ve gruplar arasındaki ilişkilendirmeleri izlemek ve Kullanıcı yeni bir bağlantı kurduğunda grup üyeliklerini geri yüklemek için gerekir.
 
-Bağlantılar ve tutarsızlıklara hakkında daha fazla bilgi için bkz. [Hub sınıfında bağlantı ömrü olaylarını işlemek nasıl](#connectionlifetime) bu konuda.
+Bağlantılar ve yeniden bağlantılar hakkında daha fazla bilgi için, bu konunun ilerleyen kısımlarında yer alarak [Merkez sınıfında bağlantı ömrü olaylarını işleme](#connectionlifetime) bölümüne bakın.
 
 <a id="singleusergroups"></a>
 
-### <a name="single-user-groups"></a>Tek kullanıcı grupları
+### <a name="single-user-groups"></a>Tek Kullanıcı grupları
 
-SignalR genellikle kullanan uygulamalar, hangi kullanıcının bir ileti gönderdi ve hangi kullanıcının bir ileti almalıdır öğrenmek için kullanıcılar ve bağlantılar arasındaki ilişkileri izlemek zorunda. Grupları iki yaygın olarak kullanılan desenlerden birini yapmak için kullanılır.
+SignalR kullanan uygulamalar genellikle hangi kullanıcının bir ileti gönderdiğini ve hangi kullanıcıların bir ileti aldıklarını bilmek için kullanıcılar ve bağlantılar arasındaki ilişkilendirmeleri takip etmelidir. Gruplar, bunu yapmak için yaygın olarak kullanılan iki desenden birinde kullanılır.
 
-- Tek kullanıcı grupları.
+- Tek Kullanıcı grupları.
 
-    Kullanıcı adı grup adı belirtin ve kullanıcı bağlanır veya yeniden her zaman geçerli bağlantı kimliği gruba ekleyin. Kullanıcıya ileti göndermek için Grup gönderin. Bu yöntem bir dezavantajı, gruba kullanıcı çevrimiçi veya çevrimdışı olup olmadığını öğrenmek için bir yol sağlamaz olmasıdır.
-- Kullanıcı adları ve bağlantı kimlikleri arasındaki ilişkilendirmeleri izleyin.
+    Kullanıcı adını Grup adı olarak belirtebilir ve Kullanıcı her bağlandığında veya yeniden bağlandığında geçerli bağlantı KIMLIĞINI gruba ekleyebilirsiniz. Gruba göndereceğiniz kullanıcıya ileti göndermek için. Bu yöntemin bir dezavantajı, grubun, kullanıcının çevrimiçi veya çevrimdışı olduğunu anlamak için bir yol sağlamamasıdır.
+- Kullanıcı adlarıyla bağlantı kimlikleri arasındaki ilişkilendirmeleri izleyin.
 
-    Her bir kullanıcı adı ve bir veya daha fazla bağlantı kimlikleri arasında bir ilişki bir sözlük veya veritabanında depolamak ve depolanan veriler her zaman kullanıcı bağlandığında veya bağlantısı kesildiğinde güncelleştirin. Kullanıcıya ileti göndermek için bağlantı kimliği belirtin. Bu yöntem bir dezavantajı, daha fazla bellek alır olmasıdır.
+    Her Kullanıcı adı ile bir veya daha fazla bağlantı kimliği arasında bir ilişki veya bir sözlükte veya veritabanında bir ilişki saklayabilir ve Kullanıcı her bağlanıp bağlantısı kesildiğinde depolanan verileri güncelleştirebilirsiniz. Kullanıcıya ileti göndermek için bağlantı kimliklerini belirtin. Bu yöntemin bir dezavantajı daha fazla bellek kaplar.
 
 <a id="connectionlifetime"></a>
 
-## <a name="how-to-handle-connection-lifetime-events-in-the-hub-class"></a>Hub sınıfında bağlantı ömrü olaylarını işlemek nasıl
+## <a name="how-to-handle-connection-lifetime-events-in-the-hub-class"></a>Hub sınıfında bağlantı ömrü olaylarını işleme
 
-Bağlantı ömrü olaylarını işlemek için normal bir kullanıcı veya bağlı olup olmadığını izler ve kullanıcı adları ve bağlantı kimlikleri arasındaki ilişkiyi izlemek için nedenleridir. İstemciler bağlanın veya bağlantıyı kesin zaman kendi kodunuzu çalıştırmak için geçersiz kılma `OnConnected`, `OnDisconnected`, ve `OnReconnected` aşağıdaki örnekte gösterildiği gibi hub'ın sanal yöntemler sınıf.
+Bağlantı ömrü olaylarının işlenmesinin tipik nedenleri, bir kullanıcının bağlanıp bağlanmadığını ve Kullanıcı adları ile bağlantı kimlikleri arasındaki ilişkilendirmeyi takip etmesidir. İstemciler bağlandığında veya bağlantıyı kestikten sonra kendi kodunuzu çalıştırmak için, aşağıdaki örnekte gösterildiği gibi hub sınıfının `OnConnected`, `OnDisconnected`ve `OnReconnected` sanal yöntemlerini geçersiz kılın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample43.cs?highlight=3,14,22)]
 
 <a id="onreconnected"></a>
 
-### <a name="when-onconnected-ondisconnected-and-onreconnected-are-called"></a>OnConnected OnDisconnected ve OnReconnected olduğunda çağırılır
+### <a name="when-onconnected-ondisconnected-and-onreconnected-are-called"></a>OnConnected, OnConnected ve OnConnected çağrıldığında
 
-Bir tarayıcı yeni bir sayfaya gider her seferinde yeni bir bağlantı kurulması SignalR yürütülecek anlamına gelir sahip `OnDisconnected` yöntemi arkasından `OnConnected` yöntemi. Yeni bir bağlantı kurulduğunda SignalR her zaman yeni bir bağlantı kimliği oluşturur.
+Her tarayıcı yeni bir sayfaya gittiğinde, yeni bir bağlantı kurulması gerekir. Bu, SignalR 'in, `OnDisconnected` yöntemi ve ardından `OnConnected` yöntemi tarafından yürütüleceği anlamına gelir. SignalR yeni bir bağlantı oluşturulduğunda her zaman yeni bir bağlantı KIMLIĞI oluşturur.
 
-`OnReconnected` Olduğunda geçici kesme SignalR otomatik olarak, ne zaman kablo geçici olarak bağlantısı kesilir ve bağlantı zaman aşımına uğramadan önce yeniden bağlantı kuruldu gibi kurtarabileceğiniz bağlantılar yöntemi çağrılır. `OnDisconnected` İstemcinin bağlantısı kesildi ve SignalR olamaz otomatik olarak yeniden, ne zaman yeni bir sayfaya bir tarayıcı gider gibi yöntemi çağrılır. Bu nedenle, olası belirli bir istemcinin olayları dizisidir `OnConnected`, `OnReconnected`, `OnDisconnected`; veya `OnConnected`, `OnDisconnected`. Sıra görmezsiniz `OnConnected`, `OnDisconnected`, `OnReconnected` belirli bir bağlantı için.
+`OnReconnected` yöntemi, bir kablonun geçici olarak kesilmesi ve bağlantı zaman aşımına uğramadan önce yeniden bağlanması gibi, SignalR 'nin otomatik olarak kurtarabileceği bir bağlantıda geçici bir kesme olduğunda çağrılır. `OnDisconnected` yöntemi, istemcinin bağlantısı kesildiğinde çağrılır ve bir tarayıcı yeni bir sayfaya gittiğinde, SignalR otomatik olarak yeniden bağlanamaz. Bu nedenle, belirli bir istemci için olası bir olay dizisi `OnConnected`, `OnReconnected``OnDisconnected`; ya da `OnConnected``OnDisconnected`. Belirli bir bağlantı için sıra `OnConnected`, `OnDisconnected``OnReconnected` görmezsiniz.
 
-`OnDisconnected` Değil yönteminden ne zaman bir sunucu arıza gibi bazı senaryolarda veya uygulama etki alanı geri alır. Başka bir sunucuya gelinceye veya uygulama etki alanı, geri dönüşüm tamamlandıktan, bazı istemciler bağlanın ve yangın mümkün olabilir `OnReconnected` olay.
+`OnDisconnected` yöntemi, bir sunucunun kapanması ya da uygulama etki alanının geri dönüştürülmesi gibi bazı senaryolarda çağrılmaz. Başka bir sunucu satır üzerine geldiğinde veya uygulama etki alanının geri dönüşümü tamamlandığında, bazı istemciler `OnReconnected` olayı yeniden oluşturabilir ve tetiklenebilir.
 
-Daha fazla bilgi için [anlama ve signalr'da bağlantı ömrü olaylarını işleme](index.md).
+Daha fazla bilgi için bkz. [SignalR 'de bağlantı ömrü olaylarını anlama ve işleme](index.md).
 
 <a id="nocallerstate"></a>
 
-### <a name="caller-state-not-populated"></a>Arayan durumu değil doldurulur
+### <a name="caller-state-not-populated"></a>Çağıran durum doldurulmamış
 
-Bağlantı ömrü olay işleyicisi yöntemleri içine girdiğiniz herhangi bir durumu anlamına sunucudan adlı `state` istemci üzerinde nesne değil doldurulacak içinde `Caller` sunucudaki özelliği. Hakkında bilgi için `state` nesne ve `Caller` özelliği bkz [Hub sınıfına ve istemciler arasında durumunu nasıl](#passstate) bu konuda.
+Bağlantı ömrü olay işleyicisi yöntemleri sunucudan çağrılır, bu, istemcideki `state` nesnesine yerleştirdiğiniz herhangi bir durumun sunucudaki `Caller` özelliğinde doldurulmayacağı anlamına gelir. `state` nesnesi ve `Caller` özelliği hakkında daha fazla bilgi için, bu konunun ilerleyen kısımlarında [istemciler ve hub sınıfı arasında durum geçirme](#passstate) konusuna bakın.
 
 <a id="contextproperty"></a>
 
-## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Bağlam özelliği istemci bilgilerini alma
+## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Bağlam özelliğinden istemci hakkında bilgi alma
 
-İstemcisi hakkında bilgi almak için kullanın `Context` Hub sınıfın özelliği. `Context` Özelliği döndürür bir [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) aşağıdaki bilgilere erişim sağlayan nesne:
+İstemci hakkında bilgi almak için, hub sınıfının `Context` özelliğini kullanın. `Context` özelliği, aşağıdaki bilgilere erişim sağlayan bir [Hubcallercontext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) nesnesi döndürür:
 
 - Çağıran istemcinin bağlantı kimliği.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample44.cs?highlight=1)]
 
-    Bağlantı kimliği (değeri kendi kodunuzda belirtemezsiniz) SignalR tarafından atanan bir GUID'dir. Her bağlantı ve uygulamanızda birden çok hub'a varsa tüm hub'ları tarafından kullanılan kimliği aynı bağlantı için bir bağlantı kimliği yok.
-- HTTP üst bilgisi verileri.
+    Bağlantı KIMLIĞI, SignalR tarafından atanan bir GUID 'dir (değeri kendi kodunuzda belirtemezsiniz). Her bağlantı için bir bağlantı KIMLIĞI vardır ve uygulamanızda birden çok hub varsa, tüm Hub 'Lar tarafından aynı bağlantı KIMLIĞI kullanılır.
+- HTTP üstbilgisi verileri.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample45.cs?highlight=1)]
 
-    HTTP üst bilgiler de alabilirsiniz `Context.Headers`. Aynı şeyi birden çok başvuru nedeni `Context.Headers` ilk olarak oluşturulduğu `Context.Request` özelliği daha sonra eklenen ve `Context.Headers` geriye dönük uyumluluk için tutulmaktadır.
-- Dize verileri sorgulayın.
+    Ayrıca, `Context.Headers`HTTP üst bilgilerini de alabilirsiniz. Aynı şey için birden çok başvuru olmasının nedeni `Context.Headers` ilk olarak oluşturulmuştur, `Context.Request` özelliği daha sonra eklenmiştir ve `Context.Headers` geriye dönük uyumluluk için tutulmuştur.
+- Sorgu dizesi verileri.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample46.cs?highlight=1)]
 
-    Sorgu dizesi verileri da edinebilirsiniz `Context.QueryString`.
+    `Context.QueryString`sorgu dizesi verilerini de alabilirsiniz.
 
-    Bu özelliği alma sorgu dizesi SignalR bağlantısı HTTP isteği ile kullanılan paroladır. İstemci istemci hakkındaki verileri istemciden sunucuya geçirmek için kullanışlı bir yoldur bağlantı yapılandırarak, sorgu dizesi parametreleri ekleyebilirsiniz. Aşağıdaki örnek, oluşturulan proxy kullandığınızda, JavaScript istemci olarak bir sorgu dizesi eklemek için yollarından biri gösterilmektedir.
+    Bu özelliğe alacağınız sorgu dizesi, SignalR bağlantısını oluşturan HTTP isteğiyle birlikte kullanılmış olan bir dizedir. İstemciden sunucuya istemci hakkında verileri geçirmek için kullanışlı bir yol olan bağlantıyı yapılandırarak istemciye sorgu dizesi parametreleri ekleyebilirsiniz. Aşağıdaki örnek, oluşturulan proxy 'yi kullandığınızda JavaScript istemcisine bir sorgu dizesi eklemenin bir yolunu gösterir.
 
     [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample47.js?highlight=1)]
 
-    Sorgu dizesi parametreleri ayarlama hakkında daha fazla bilgi için bkz. API kılavuzları için [JavaScript](index.md) ve [.NET](index.md) istemciler.
+    Sorgu dizesi parametreleri ayarlama hakkında daha fazla bilgi için, [JavaScript](index.md) ve [.net](index.md) istemcileri için API kılavuzlarını inceleyin.
 
-    SignalR tarafından dahili olarak kullanılan bazı diğer değerler yanı sıra sorgu dize verileri, bağlantı için kullanılan aktarım yöntemi bulabilirsiniz:
+    Sorgu dizesi verilerinde bağlantı için kullanılan aktarım yöntemini, SignalR tarafından dahili olarak kullanılan bazı diğer değerlerle birlikte bulabilirsiniz:
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample48.cs)]
 
-    Değerini `transportMethod` "webSockets", "serverSentEvents", "foreverFrame" veya "longPolling" olacaktır. Bu değer iade gerçekleştiriyorsanız `OnConnected` olay işleyicisi yönteminde, bazı senaryolarda ilk bağlantı için son anlaşılan taşıma yöntemini değil bir taşıma değeri alabilirsiniz. Bu durumda yöntem bir özel durum oluşturur ve daha sonra tekrar son taşıma yöntemi oluşturulduğunda çağrılır.
-- Tanımlama bilgileri.
+    `transportMethod` değeri "webSockets", "serverSentEvents", "foreverFrame" veya "longPolling" olacaktır. Bu değeri `OnConnected` olay işleyicisi yönteminde denetlebileceğinizi unutmayın, bazı senaryolarda başlangıçta bağlantı için en son anlaşmalı aktarım yöntemi olmayan bir aktarım değeri alabilirsiniz. Bu durumda yöntem bir özel durum oluşturur ve daha sonra son taşıma yöntemi oluşturulduğunda yeniden çağrılacaktır.
+- Özgü.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample49.cs?highlight=1)]
 
-    Tanımlama bilgilerini de alabilirsiniz `Context.RequestCookies`.
+    `Context.RequestCookies`tanımlama bilgilerini de alabilirsiniz.
 - Kullanıcı bilgileri.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample50.cs?highlight=1)]
@@ -491,91 +491,91 @@ Bağlantı ömrü olay işleyicisi yöntemleri içine girdiğiniz herhangi bir d
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample51.cs?highlight=1)]
 
-    Almak yerine bu yöntemi kullanmak `HttpContext.Current` almak için `HttpContext` SignalR bağlantı nesnesi.
+    SignalR bağlantısı için `HttpContext` nesnesini almak üzere `HttpContext.Current` almak yerine bu yöntemi kullanın.
 
 <a id="passstate"></a>
 
-## <a name="how-to-pass-state-between-clients-and-the-hub-class"></a>Nasıl durumu Hub sınıfına ve istemciler arasında geçirme
+## <a name="how-to-pass-state-between-clients-and-the-hub-class"></a>İstemcilerle hub sınıfı arasında durum geçirme
 
-İstemci proxy sağlayan bir `state` içinde depolayabileceğiniz her yöntem çağrısının ile sunucuya aktarılması istediğiniz veri nesnesi. Sunucu üzerinde bu verilerine erişebilir `Clients.Caller` istemciler tarafından çağrılan Hub yöntemlerini bir özellik. `Clients.Caller` Özelliği için bağlantı ömrü olay işleyicisi yöntemleri doldurulmamışsa `OnConnected`, `OnDisconnected`, ve `OnReconnected`.
+İstemci proxy 'si, her yöntem çağrısıyla sunucuya aktarılmasını istediğiniz verileri depolayabilmeniz için bir `state` nesnesi sağlar. Sunucusunda, bu verilere istemciler tarafından çağrılan hub yöntemlerinde `Clients.Caller` özelliğindeki erişebilirsiniz. `Clients.Caller` özelliği, bağlantı ömrü olay işleyicisi yöntemleri `OnConnected`, `OnDisconnected`ve `OnReconnected`için doldurulmaz.
 
-Oluşturma veya güncelleştirme verilerinde `state` nesne ve `Clients.Caller` özelliği, her iki yönde de çalışır. Değerleri sunucusunda güncelleştirebilirsiniz ve bunlar istemciye geçirilir.
+`state` nesnesindeki verileri oluşturma veya güncelleştirme ve `Clients.Caller` özelliği her iki yönde de kullanılabilir. Sunucudaki değerleri güncelleştirebilir ve istemciye geri geçirilir.
 
-Aşağıdaki örnek, iletilmesi için her yöntem çağrısının ile sunucu durumunu depolayan JavaScript istemci kodu gösterir.
+Aşağıdaki örnek, her yöntem çağrısıyla sunucuya iletilmek üzere durum depolayan JavaScript istemci kodunu gösterir.
 
 [!code-javascript[Main](signalr-1x-hubs-api-guide-server/samples/sample52.js?highlight=1-2)]
 
-Aşağıdaki örnek bir .NET istemci eşdeğer kod gösterir.
+Aşağıdaki örnek, bir .NET istemcisinde denk kodu gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample53.cs?highlight=1-2)]
 
-Hub sınıfınızda, bu verilerine erişebilir `Clients.Caller` özelliği. Aşağıdaki örnek, önceki örnekte başvurulan durumunu alır. kod gösterir.
+Hub sınıfınız içinde, `Clients.Caller` özelliğindeki bu verilere erişebilirsiniz. Aşağıdaki örnek, önceki örnekte başvurulan durumu alan kodu gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample54.cs?highlight=3-4)]
 
 > [!NOTE]
-> Kalıcı hale getirme durumu için bu düzenek itibaren her şeyi içine girdiğiniz büyük miktarlarda veri için tasarlanmamıştır `state` veya `Clients.Caller` özellik gidiş dönüşlü ile her yöntem çağırma. Kullanıcı adlarını veya sayaçları gibi küçük öğeler için kullanışlıdır.
+> Kalıcı duruma yönelik bu mekanizma, büyük miktarlarda veri için tasarlanmamıştır çünkü `state` veya `Clients.Caller` özelliğine yerleştirdiğiniz her şey, her yöntem çağrısı ile birlikte yuvarlama yaptığından. Kullanıcı adları veya sayaçlar gibi daha küçük öğeler için faydalıdır.
 
 <a id="handleErrors"></a>
 
-## <a name="how-to-handle-errors-in-the-hub-class"></a>Hub sınıfında hatalarını işleme
+## <a name="how-to-handle-errors-in-the-hub-class"></a>Hub sınıfında hataları işleme
 
-Hub sınıfı yöntemlerinde meydana gelen hataları işlemek için aşağıdakilerden birini veya her ikisi de aşağıdaki yöntemlerden birini kullanın:
+Hub sınıfı yöntemleriniz içinde oluşan hataları işlemek için aşağıdaki yöntemlerden birini veya her ikisini kullanın:
 
-- Try-catch bloğu içinde yöntemi kodunuzu sarın ve özel durum nesnesi oturum açın. Hata ayıklama amacıyla istemciye bir özel durum gönderebilir, ancak güvenlik için üretim istemciler için ayrıntılı bilgi gönderme nedeniyle önerilmez.
-- İşleme bir hub'ları işlem hattı modülünüzü oluşturmak [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) yöntemi. Aşağıdaki örnek, hatalar, modül hub ardışık düzene ekler Global.asax içindeki kod tarafından izlenen günlüklerini bir işlem hattı modül gösterir.
+- Yöntem kodunuzu try-catch bloklarına sarın ve özel durum nesnesini günlüğe kaydedin. Hata ayıklama amacıyla, özel durumu istemciye gönderebilirsiniz, ancak üretimde istemcilere ayrıntılı bilgi gönderilmesi için güvenlik nedenleriyle önerilmez.
+- [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) yöntemini Işleyen bir hub işlem hattı modülü oluşturun. Aşağıdaki örnek, hataları kaydeden bir işlem hattı modülünü ve ardından modülü hub işlem hattına veren Global. asax dosyasındaki kodu gösterir.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample55.cs)]
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample56.cs?highlight=3)]
 
-Hub ardışık düzen modüllerine hakkında daha fazla bilgi için bkz: [hub ardışık düzeni özelleştirildiği nasıl](#hubpipeline) bu konuda.
+Merkez ardışık düzen modülleri hakkında daha fazla bilgi için, bu konunun ilerleyen bölümlerinde hub işlem hattını [Özelleştirme](#hubpipeline) bölümüne bakın.
 
 <a id="tracing"></a>
 
 ## <a name="how-to-enable-tracing"></a>İzlemeyi etkinleştirme
 
-System.diagnostics öğesi sunucu-tarafı izlemeyi etkinleştirmek için Web.config dosyasına, bu örnekte gösterildiği gibi ekleyin:
+Sunucu tarafı izlemeyi etkinleştirmek için, aşağıdaki örnekte gösterildiği gibi, Web. config dosyanıza bir System. Diagnostics öğesi ekleyin:
 
 [!code-html[Main](signalr-1x-hubs-api-guide-server/samples/sample57.html?highlight=17-72)]
 
-Visual Studio'da uygulamayı çalıştırdığınızda, günlükleri görüntüleyebilirsiniz **çıkış** penceresi.
+Uygulamayı Visual Studio 'da çalıştırdığınızda, günlükleri **Çıkış** penceresinde görebilirsiniz.
 
 <a id="callfromoutsidehub"></a>
 
-## <a name="how-to-call-client-methods-and-manage-groups-from-outside-the-hub-class"></a>İstemci yöntemleri çağırmak ve Hub sınıfına dışındaki grupları yönetme
+## <a name="how-to-call-client-methods-and-manage-groups-from-outside-the-hub-class"></a>İstemci yöntemlerini çağırma ve grupları hub sınıfı dışından yönetme
 
-İstemci Hub sınıfınıza daha farklı bir sınıftaki yöntemleri çağırmak için hub'ı için SignalR bağlam nesnesi bir başvuru almak ve, istemcide yöntemlerini çağıran veya grupları yönetmek için kullanın.
+Hub sınıfınızın farklı bir sınıfından istemci yöntemlerini çağırmak için, Hub için SignalR bağlam nesnesine bir başvuru alın ve bunu istemci üzerindeki yöntemleri çağırmak veya grupları yönetmek için kullanın.
 
-Aşağıdaki örnek `StockTicker` sınıfı bağlam nesnesini alır, sınıfının bir örneğini depolar, statik özellik bir sınıf örneğini depolar ve çağırmak için singleton sınıfı örneğinden bağlamı kullanır `updateStockPrice` istemciler yöntemi adlı bir Hub'ına bağlı `StockTickerHub`.
+Aşağıdaki örnek `StockTicker` sınıfı, bağlam nesnesini alır, onu sınıfının bir örneğine depolar, sınıf örneğini statik bir özellikte depolar ve `StockTickerHub`adlı bir hub 'a bağlı istemcilerde `updateStockPrice` yöntemini çağırmak için singleton sınıfı örneğinden bağlamını kullanır.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample58.cs?highlight=8,24)]
 
-Uzun süreli bir nesne bağlamı birden çok kez kullanmanız gerekiyorsa, başvuru kez almak ve bunun yerine her zaman yeniden başlama kaydedin. Bir kez bağlamı alma SignalR istemcilere içinde ve Hub yöntemlerinizi istemci yöntem çağrıları yapmak aynı sıradaki iletiler gönderir sağlar. SignalR bağlamı için bir hub'ı kullanmayı gösteren bir öğretici için bkz. [ASP.NET SignalR ile sunucu yayını](index.md).
+İçeriği uzun süreli bir nesnede birden çok kez kullanmanız gerekiyorsa, başvuruyu bir kez alın ve her seferinde yeniden almak yerine kaydedin. Bağlam bir kez alındıktan sonra, SignalR 'nin, hub yöntemlerinizin istemci yöntemi etkinleştirmeleri haline gelen aynı sıradaki istemcilere ileti göndermesi güvence altına alınır. Bir hub için SignalR bağlamını nasıl kullanacağınızı gösteren bir öğretici için, bkz. [ASP.NET SignalR Ile sunucu yayını](index.md).
 
 <a id="callingclientsoutsidehub"></a>
 
-### <a name="calling-client-methods"></a>İstemci yöntemleri çağırma
+### <a name="calling-client-methods"></a>İstemci yöntemlerini çağırma
 
-Hangi istemcilerin RPC alırsınız belirtebilirsiniz, ancak bir Hub sınıftan çağrısı yaparken daha az seçeneğiniz vardır. Bunun nedeni herhangi bir yöntem gibi geçerli bir bağlantı kimliği bilgisi gerektiren şekilde bağlamı bir istemci belirli bir çağrıdan ilişkilendirilmiş olmasıdır `Clients.Others`, veya `Clients.Caller`, veya `Clients.OthersInGroup`, kullanılabilir değil. Aşağıdaki seçenekler mevcuttur:
+Hangi istemcilerin RPC alacağını belirtebilirsiniz, ancak bir hub sınıfından çağrı yaparken daha az seçeneğiniz olur. Bunun nedeni, bağlamın bir istemciden gelen belirli bir çağrıyla ilişkilendirilmediği, yani `Clients.Others`veya `Clients.Caller`ya da `Clients.OthersInGroup`gibi geçerli bağlantı KIMLIĞI hakkında bilgi gerektiren tüm yöntemler kullanılamaz. Aşağıdaki seçenekler mevcuttur:
 
 - Bağlanan tüm istemciler.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample59.cs)]
-- Bağlantı kimliği ile tanımlanan belirli bir istemci
+- Bağlantı KIMLIĞIYLE tanımlanan belirli bir istemci.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample60.css)]
-- Bağlantı kimliği ile tanımlanan belirtilen istemcileri dışındaki tüm bağlı istemcileri
+- Belirtilen istemciler dışındaki tüm bağlı istemciler, bağlantı KIMLIĞIYLE tanımlanır.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample61.cs)]
-- Belirli bir grubun tüm bağlı istemcileri.
+- Belirtilen bir gruptaki tüm bağlı istemciler.
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample62.css)]
-- Bağlantı kimliği ile tanımlanan, belirtilen istemcilerin dışında belirtilen gruptaki tüm bağlı istemcileri
+- Belirtilen bir gruptaki, belirtilen istemciler hariç, bağlantı KIMLIĞIYLE tanımlanan tüm bağlı istemciler.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample63.cs)]
 
-Hub sınıfınızda yöntemlerinden Hub olmayan sınıfınıza çağırıyorsanız, geçerli bağlantı kimliği geçirin ve ile kullanan `Clients.Client`, `Clients.AllExcept`, veya `Clients.Group` benzetimini yapmak için `Clients.Caller`, `Clients.Others`, veya `Clients.OthersInGroup`. Aşağıdaki örnekte, `MoveShapeHub` sınıfı için bağlantı kimliği geçirir `Broadcaster` sınıfı böylece `Broadcaster` sınıfı benzetimini yapmak `Clients.Others`.
+Hub sınıfınızın metotlarından hub olmayan sınıfa çağrı yapıyorsanız, geçerli bağlantı KIMLIĞINI geçirebilir ve `Clients.Caller`, `Clients.Others`veya `Clients.OthersInGroup`benzetimini yapmak için `Clients.Client`, `Clients.AllExcept`veya `Clients.Group` ile kullanabilirsiniz. Aşağıdaki örnekte, `MoveShapeHub` sınıfı bağlantı KIMLIĞINI `Broadcaster` sınıfına geçirir `Broadcaster` sınıfının `Clients.Others`benzetimini yapabilir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample64.cs?highlight=12,36)]
 
@@ -583,25 +583,25 @@ Hub sınıfınızda yöntemlerinden Hub olmayan sınıfınıza çağırıyorsan�
 
 ### <a name="managing-group-membership"></a>Grup üyeliğini yönetme
 
-Bir Hub sınıfta olarak grupları yönetme için aynı seçeneklere sahip.
+Grupları yönetmek için bir hub sınıfında yaptığınız seçeneklerle aynı seçeneklere sahip olursunuz.
 
-- Bir gruba istemci Ekle
+- Bir gruba istemci ekleme
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample65.cs)]
-- Bir istemci bir gruptan kaldırma
+- Bir gruptan bir istemciyi kaldırma
 
     [!code-css[Main](signalr-1x-hubs-api-guide-server/samples/sample66.css)]
 
 <a id="hubpipeline"></a>
 
-## <a name="how-to-customize-the-hubs-pipeline"></a>Hub ardışık düzeni özelleştirme
+## <a name="how-to-customize-the-hubs-pipeline"></a>Hub ardışık düzenini özelleştirme
 
-SignalR Hub ardışık düzende kendi kod eklemesini sağlar. Aşağıdaki örnek, istemci ve istemci üzerinde çağrılır giden yöntem çağrısının alınan gelen her yöntem çağrısının günlükleri özel bir Hub ardışık düzen modülü gösterir:
+SignalR, kendi kodunuzu hub işlem hattına eklemenizi sağlar. Aşağıdaki örnek, istemcisinde çağrılan her bir gelen yöntem çağrısını günlüğe kaydeden özel bir hub işlem hattı modülünü ve istemcide çağrılan giden yöntem çağrısını gösterir:
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample67.cs)]
 
-Aşağıdaki kod içinde *Global.asax* dosyayı, işlem hattında hub'ı çalıştırmak için modül kaydeder:
+*Global. asax* dosyasında aşağıdaki kod, modülü hub işlem hattında çalışacak şekilde kaydeder:
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample68.cs?highlight=3)]
 
-Geçersiz kılabilirsiniz birçok farklı yöntem vardır. Tam bir listesi için bkz. [HubPipelineModule yöntemleri](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).
+Geçersiz kılabileceğiniz birçok farklı yöntem vardır. Tüm liste için bkz. [Hubpipelinemodule yöntemleri](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).

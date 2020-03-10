@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-cookies
-title: HTTP tanımlama bilgileri ASP.NET Web API'si - ASP.NET 4.x
+title: ASP.NET Web API-ASP.NET 4. x içindeki HTTP tanımlama bilgileri
 author: MikeWasson
-description: Gönderme ve HTTP tanımlama bilgileri için ASP.NET Web API'de alma işlemini açıklamaktadır 4.x.
+description: ASP.NET 4. x için Web API 'de HTTP tanımlama bilgilerinin nasıl gönderileceğini ve alınacağını açıklar.
 ms.author: riande
 ms.date: 09/17/2012
 ms.custom: seoapril2019
@@ -10,23 +10,23 @@ ms.assetid: 243db2ec-8f67-4a5e-a382-4ddcec4b4164
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
 ms.openlocfilehash: 8ca26ff6776daa13bc4f8b06c2eba61afcfefba2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126250"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557689"
 ---
 # <a name="http-cookies-in-aspnet-web-api"></a>ASP.NET Web API’de HTTP Tanımlama Bilgileri
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Bu konu, göndermek ve Web API'de HTTP tanımlama bilgileri almak açıklar.
+Bu konuda, Web API 'de HTTP tanımlama bilgilerinin nasıl gönderileceği ve alınacağı açıklanmaktadır.
 
-## <a name="background-on-http-cookies"></a>Arka planda HTTP tanımlama bilgileri
+## <a name="background-on-http-cookies"></a>HTTP tanımlama bilgilerinde arka plan
 
-Bu bölüm, tanımlama bilgisi HTTP düzeyinde nasıl uygulandığını kısa genel bakış sağlar. Ayrıntılar için başvurun [RFC 6265](http://tools.ietf.org/html/rfc6265).
+Bu bölüm, tanımlama bilgilerinin HTTP düzeyinde nasıl uygulandığı hakkında kısa bir genel bakış sunar. Ayrıntılar için bkz. [RFC 6265](http://tools.ietf.org/html/rfc6265).
 
-Bir tanımlama bilgisi, HTTP yanıtında bir sunucuya gönderdiği verilerin bir parçasıdır. İstemci (isteğe bağlı) tanımlama bilgisi depolar ve sonraki isteklerde authenticateasync döndürür. Bu, istemci ve sunucu durumu paylaşmak sağlar. Bir tanımlama bilgisi ayarlamak için sunucunun yanıtta bir Set-Cookie üst bilgisini içerir. Bir tanımlama bilgisinin biçimi isteğe bağlı öznitelikleri ile bir ad-değer çiftidir. Örneğin:
+Tanımlama bilgisi, bir sunucunun HTTP yanıtında gönderdiği bir veri parçasıdır. İstemci (isteğe bağlı olarak) tanımlama bilgisini depolar ve sonraki isteklere geri döndürür. Bu, istemci ve sunucunun durum paylaşmasına izin verir. Bir tanımlama bilgisi ayarlamak için, sunucu yanıtta bir set-Cookie üst bilgisi içerir. Tanımlama bilgisinin biçimi, isteğe bağlı özniteliklere sahip bir ad-değer çiftleridir. Örneğin:
 
 [!code-powershell[Main](http-cookies/samples/sample1.ps1)]
 
@@ -34,78 +34,78 @@ Bir tanımlama bilgisi, HTTP yanıtında bir sunucuya gönderdiği verilerin bir
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-Bir tanımlama bilgisinin sunucuya döndürülmesi için istemcinin sonraki istekleri tanımlama bilgisi üstbilgisi içerir.
+Sunucuya bir tanımlama bilgisi döndürmek için, istemci sonraki isteklere bir tanımlama bilgisi üstbilgisi içerir.
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
 ![](http-cookies/_static/image1.png)
 
-Bir HTTP yanıtı birden çok Set-Cookie üst bilgi içerebilir.
+Bir HTTP yanıtı, birden çok Set-Cookie üst bilgisi içerebilir.
 
 [!code-powershell[Main](http-cookies/samples/sample4.ps1)]
 
-İstemciyi tek bir tanımlama bilgisi üstbilgisi kullanarak çok sayıda tanımlama bilgisini döndürür.
+İstemci tek bir tanımlama bilgisi üstbilgisi kullanarak birden çok tanımlama bilgisi döndürür.
 
 [!code-console[Main](http-cookies/samples/sample5.cmd)]
 
-Projenin kapsamına ve süresine bir tanımlama bilgisinin Set-Cookie üst bilgisindeki aşağıdaki öznitelikleri tarafından denetlenir:
+Tanımlama bilgisinin kapsamı ve süresi, set-Cookie üstbilgisindeki öznitelikler tarafından denetlenir:
 
-- **Etki alanı**: İstemci, hangi etki alanı tanımlama bilgisi alması gereken söyler. Örneğin, etki alanı "example.com" ise, istemci her alt etki alanının example.com tanımlama bilgisini döndürür. Belirtilmezse, kaynak sunucu etki alanıdır.
-- **Yol**: Tanımlama bilgisinin etki alanı içinde belirtilen yol kısıtlar. Belirtilmezse, istek URI'si yolu kullanılır.
-- **Süresi dolmadan**: Tanımlama bilgisinin süre sonu ayarlar. Belirtecin süresi dolduğunda, istemcinin tanımlama bilgisi siler.
-- **Max-Age**: Tanımlama bilgisinin yaş üst sınırını ayarlar. En uzun geçerlilik süresi ulaştığında istemci tanımlama bilgisi siler.
+- **Etki alanı**: istemciye hangi etki alanının tanımlama bilgisini alacağını söyler. Örneğin, etki alanı "example.com" ise, istemci, example.com öğesinin her alt etki alanını tanımlama bilgisini döndürür. Belirtilmezse, etki alanı kaynak sunucusudur.
+- **Yol**: tanımlama bilgisini, etki alanı içinde belirtilen yol ile sınırlandırır. Belirtilmemişse, istek URI 'sinin yolu kullanılır.
+- **Süre sonu**: tanımlama bilgisi için bir sona erme tarihi ayarlar. İstemci, süresi dolduğu zaman tanımlama bilgisini siler.
+- **Maksimum yaş**: tanımlama bilgisi için maksimum yaşı ayarlar. İstemci, en yüksek yaş sınırına ulaştığında tanımlama bilgisini siler.
 
-Her iki `Expires` ve `Max-Age` ayarlanması `Max-Age` önceliklidir. Ayarlanmış ise, geçerli oturumu sona erdiğinde istemci tanımlama bilgisi siler. ("Oturumu" tam anlamı kullanıcı aracısı tarafından belirlenir.)
+Hem `Expires` hem de `Max-Age` ayarlanırsa `Max-Age` öncelik kazanır. Hiçbiri ayarlanmazsa, geçerli oturum sona erdiğinde istemci tanımlama bilgisini siler. ("Oturumun" tam anlamı Kullanıcı Aracısı tarafından belirlenir.)
 
-Ancak, istemciler tanımlama bilgilerini yoksayabilirsiniz unutmayın. Örneğin, kullanıcı gizlilik nedenleriyle tanımlama bilgilerini devre dışı bırakabilirsiniz. Süresi dolacak veya depolanan tanımlama bilgisi sayısını sınırlamak için önce istemcileri tanımlama bilgilerini silebilirsiniz. Gizlilik nedeniyle istemciler genellikle "üçüncü taraf" tanımlama bilgilerini, kaynak sunucu etki alanı burada eşleşmiyor reddeder. Kısacası, sunucu tanımlama bilgilerini ayarlar geri alamazsınız güvenmemelisiniz.
+Ancak, istemcilerin tanımlama bilgilerini yoksayabilir farkında olun. Örneğin, bir kullanıcı gizlilik nedenleriyle tanımlama bilgilerini devre dışı bırakabilir. İstemciler, tanımlama bilgilerini süresi dolmadan önce silebilir veya depolanan tanımlama bilgilerinin sayısını sınırlandırabilir. Gizlilik nedenleriyle, istemciler genellikle etki alanının kaynak sunucuyla eşleşmediği "üçüncü taraf" tanımlama bilgilerini reddeder. Kısacası, sunucu, ayarladığı tanımlama bilgilerini geri almaya bağlı olmamalıdır.
 
-## <a name="cookies-in-web-api"></a>Web API'de tanımlama bilgileri
+## <a name="cookies-in-web-api"></a>Web API 'de tanımlama bilgileri
 
-Bir HTTP yanıtına bir tanımlama bilgisi eklemek için oluşturun bir **CookieHeaderValue** tanımlama bilgisini temsil eden örneği. Ardından çağırın **AddCookies** alanında tanımlanan genişletme yöntemi **System.Net.Http. HttpResponseHeadersExtensions** tanımlama bilgisi eklemek için sınıfı.
+Bir HTTP yanıtına bir tanımlama bilgisi eklemek için, tanımlama bilgisini temsil eden bir **pişirme ıeheadervalue** örneği oluşturun. Ardından, System .net. http dosyasında tanımlanan **addCookies** uzantı yöntemini çağırın **. Tanımlama bilgisini eklemek için HttpResponseHeadersExtensions** sınıfı.
 
-Örneğin, aşağıdaki kod, içinde bir denetleyici eylemi bir tanımlama bilgisi ekler:
+Örneğin, aşağıdaki kod bir denetleyici eylemi içine bir tanımlama bilgisi ekler:
 
 [!code-csharp[Main](http-cookies/samples/sample6.cs)]
 
-Dikkat **AddCookies** dizisi alır **CookieHeaderValue** örnekleri.
+**AddCookies** 'in bir dizi **ıeheadervalue** örneği aldığını unutmayın.
 
-Bir istemci isteğinde tanımlama bilgileri ayıklamak için çağrı **GetCookies** yöntemi:
+İstemci isteğinden tanımlama bilgilerini ayıklamak için **GetCookies** metodunu çağırın:
 
 [!code-csharp[Main](http-cookies/samples/sample7.cs)]
 
-A **CookieHeaderValue** koleksiyonunu içeren **CookieState** örnekleri. Her **CookieState** bir tanımlama bilgisi temsil eder. Almak için dizin oluşturucu yöntemi kullanın. bir **CookieState** adıyla gösterildiği gibi.
+Bir **pişirme ıeheadervalue** , bir **CookieState** örnekleri koleksiyonu içerir. Her bir **CookieState** bir tanımlama bilgisini temsil eder. Adlı Dizin Oluşturucu yöntemini kullanarak, gösterildiği gibi, ada göre bir **CookieState** alın.
 
-## <a name="structured-cookie-data"></a>Yapılandırılmış bir tanımlama bilgisi verisi
+## <a name="structured-cookie-data"></a>Yapılandırılmış tanımlama bilgisi verileri
 
-Bunlar depolar kaç tanımlama bilgilerini çoğu tarayıcısı sınırlamak&#8212;toplam hem etki alanı sayısı. Bu nedenle, çok sayıda tanımlama bilgisini ayarlamak yerine tek bir tanımlama, yapılandırılmış veriler yerleştirmenin yararlı olabilir.
+Birçok tarayıcı, hem toplam numarayı hem de etki&#8212;alanı başına sayıyı depolayabileceği tanımlama bilgilerinin sayısını sınırlar. Bu nedenle, birden çok tanımlama bilgisi ayarlamak yerine, yapılandırılmış verileri tek bir tanımlama bilgisine yerleştirmek yararlı olabilir.
 
 > [!NOTE]
-> RFC 6265 tanımlama bilgisi veri yapısı tanımlamıyor.
+> RFC 6265, tanımlama bilgisi verilerinin yapısını tanımlamaz.
 
-Kullanarak **CookieHeaderValue** sınıfı, tanımlama bilgisi verisi için ad-değer çiftlerinin listesini iletebilir. Bu ad-değer çiftleri Set-Cookie üst bilgisindeki formu URL kodlanmış veriler olarak kodlanmış:
+**Pişirme ıeheadervalue** sınıfını kullanarak, tanımlama bilgisi verileri için ad-değer çiftleri listesini geçirebilirsiniz. Bu ad-değer çiftleri, set-Cookie üstbilgisinde URL kodlu form verileri olarak kodlanır:
 
 [!code-csharp[Main](http-cookies/samples/sample8.cs)]
 
-Önceki kod, şu Set-Cookie üst bilgisini üretir:
+Önceki kod, aşağıdaki set-Cookie üst bilgisini üretir:
 
 [!code-powershell[Main](http-cookies/samples/sample9.ps1)]
 
-**CookieState** sınıfı bir tanımlama bilgisinde istek iletisi alt değerleri okumak için bir dizin oluşturucu yöntemi sağlar:
+**CookieState** sınıfı, istek iletisindeki bir tanımlama bilgisinden alt değerleri okumak için bir Dizin Oluşturucu yöntemi sağlar:
 
 [!code-csharp[Main](http-cookies/samples/sample10.cs)]
 
-## <a name="example-set-and-retrieve-cookies-in-a-message-handler"></a>Örnek: Ayarlayın ve bir ileti işleyicisi tanımlama bilgilerini alma
+## <a name="example-set-and-retrieve-cookies-in-a-message-handler"></a>Örnek: bir Ileti Işleyicisinde tanımlama bilgilerini ayarlama ve alma
 
-Önceki örneklerde, bir Web API denetleyicisi içinde tanımlama bilgilerini kullanma gösterdi. Başka bir seçenek kullanmaktır [ileti işleyicileri](http-message-handlers.md). İleti işleyicileri denetleyicileri daha işlem hattındaki daha önce çağrılır. Bir ileti işleyicisi isteği ulaşır denetleyicisi önce tanımlama bilgilerini istekten okuyun veya denetleyicisi yanıt oluşturduktan sonra yanıta tanımlama bilgileri ekleyin.
+Önceki örneklerde, bir Web API denetleyicisi içinden tanımlama bilgilerinin nasıl kullanılacağı gösterildi. Başka bir seçenek de [ileti işleyicilerini](http-message-handlers.md)kullanmaktır. İleti işleyicileri, ardışık düzende denetleyicilerden daha önce çağrılır. İleti işleyicisi, istek denetleyiciye ulaşmadan önce istekten tanımlama bilgilerini okuyabilir veya denetleyici yanıtı oluşturduktan sonra yanıta tanımlama bilgilerini ekleyebilir.
 
 ![](http-cookies/_static/image2.png)
 
-Aşağıdaki kod, oturum kimliklerini oluşturmaya yönelik bir ileti işleyicisi gösterir. Oturum kimliği, bir tanımlama bilgisinde depolanır. Oturum tanımlama bilgisi için istek işleyicisi denetler. İstek tanımlama bilgisi içermiyorsa, işleyici, yeni bir oturum kimliği oluşturur. Her iki durumda da, oturum kimliği işleyici depolar **HttpRequestMessage.Properties** özellik paketi. Ayrıca HTTP yanıtı oturum tanımlama bilgisi ekler.
+Aşağıdaki kod, oturum kimlikleri oluşturmak için bir ileti işleyicisi gösterir. Oturum KIMLIĞI bir tanımlama bilgisinde depolanır. İşleyici, oturum tanımlama bilgisi isteğini denetler. İstek tanımlama bilgisini içermiyorsa, işleyici yeni bir oturum KIMLIĞI oluşturur. Her iki durumda da işleyici, oturum KIMLIĞINI **HttpRequestMessage. Properties** Özellik paketinde depolar. Ayrıca, oturum tanımlama bilgisini HTTP yanıtına ekler.
 
-Bu uygulama, istemciden gelen oturum kimliği, sunucu tarafından gerçekten verildiğini doğrulamaz. Form kimlik doğrulaması olarak kullanmayın! HTTP tanımlama bilgisi yönetim noktası örneğin göstermektir.
+Bu uygulama, istemciden gelen oturum KIMLIĞININ sunucu tarafından gerçekten yayımlandığını doğrulamaz. Kimlik doğrulama formu olarak kullanmayın! Örneğin noktası, HTTP tanımlama bilgisi yönetimini gösterir.
 
 [!code-csharp[Main](http-cookies/samples/sample11.cs)]
 
-Bir denetleyici oturum kimliği alabilirsiniz **HttpRequestMessage.Properties** özellik paketi.
+Denetleyici, **HttpRequestMessage. Properties** Özellik çantasından oturum kimliğini alabilir.
 
 [!code-csharp[Main](http-cookies/samples/sample12.cs)]

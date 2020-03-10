@@ -9,11 +9,11 @@ ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: fbb4cd7afa2506879d47bce980bf0164aad40c2c
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519277"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555225"
 ---
 # <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013’te ASP.NET Web Projeleri Oluşturma
 
@@ -31,7 +31,7 @@ ms.locfileid: "76519277"
 > Azure Cloud Services veya Azure Mobile Services için Web projeleri oluşturma hakkında daha fazla bilgi için bkz. [azure Cloud Services Ile çalışmaya başlama ve ASP.net](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/) ve [Azure Mobile Services .net arka ucu Ile bir Leaderboard uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
 
 <a id="prerequisites"></a>
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makale, [güncelleştirme 3](https://go.microsoft.com/fwlink/?linkid=397827&amp;clcid=0x409) ' ün yüklü olduğu [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566) için geçerlidir.
 
@@ -59,13 +59,13 @@ Aşağıdaki adımlarda bir Web projesinin nasıl oluşturulacağı gösterilmek
     ![Yeni Proje iletişim kutusu](creating-web-projects-in-visual-studio/_static/image2.png)
 5. Bir şablona tıklayın.
 
-    ![Bir şablon seçin](creating-web-projects-in-visual-studio/_static/image3.png)
+    ![Şablon seçin](creating-web-projects-in-visual-studio/_static/image3.png)
 6. Şablona dahil olan ek çerçeveler için destek eklemek istiyorsanız, ilgili onay kutusuna tıklayın. (Gösterilen örnekte, bir Web Forms projesine MVC ve/veya Web API 'SI ekleyebilirsiniz.)
 
     ![Çerçeve ekleme](creating-web-projects-in-visual-studio/_static/image4.png)
 7. <a id="testproj"></a>Birim testi projesi eklemek istiyorsanız **birim testleri Ekle**' ye tıklayın.
 
-    ![Birim testleri ekleme](creating-web-projects-in-visual-studio/_static/image5.png)
+    ![Birim testi ekleme](creating-web-projects-in-visual-studio/_static/image5.png)
 8. Şablonun varsayılan olarak sağladığı farklı bir kimlik doğrulama yöntemi istiyorsanız, **kimlik doğrulamasını Değiştir**' e tıklayın.
 
     ![Kimlik doğrulama düğmesini Yapılandır](creating-web-projects-in-visual-studio/_static/image6.png)
@@ -257,7 +257,7 @@ Visual Studio 'da Web Forms Tasarımcısını kullanıyorsanız, tasarımcı 'n�
 
 Bir şablon seçtiğinizde, şablon tarafından kullanılan çerçeve (ler) i onay kutusu otomatik olarak seçilir. Örneğin, **Web Forms** şablonunu seçerseniz, **Web Forms** onay kutusu seçilidir ve bunu temizleyemezsiniz.
 
-![Bir şablon seçin](creating-web-projects-in-visual-studio/_static/image21.png)
+![Şablon seçin](creating-web-projects-in-visual-studio/_static/image21.png)
 
 ![Çerçeve ekleme](creating-web-projects-in-visual-studio/_static/image22.png)
 
@@ -284,7 +284,7 @@ MVC, Razor ve Web sayfası NuGet paketlerini yükleme, boş *uygulama\_verileri*
 WebApi ve Newtonsoft. JSON NuGet paketlerini yükleyip boş *uygulama\_veri*, *Denetleyici*ve *model* klasörleri oluşturur, *WebApiConfig.cs* dosyası ile *uygulama\_başlangıç* klasörü oluşturur ve *Global. asax* dosyası oluşturur.
 
 <a id="auth"></a>
-## <a name="authentication-methods"></a>Kimlik Doğrulama Yöntemleri
+## <a name="authentication-methods"></a>Kimlik Doğrulaması Yöntemleri
 
 Visual Studio 2013, Web Forms, MVC ve Web API şablonları için çeşitli kimlik doğrulama seçenekleri sunar:
 

@@ -1,173 +1,173 @@
 ---
 uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
-title: ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme | Microsoft Docs
+title: ASP.NET Web API 2 ' de çapraz kaynak Isteklerini etkinleştirme | Microsoft Docs
 author: MikeWasson
-description: ASP.NET Web API'de çıkış noktaları arası kaynak paylaşımı (CORS) destekleyecek şekilde gösterilmektedir.
+description: ASP.NET Web API 'sinde, çıkış noktaları arası kaynak paylaşımı 'nı (CORS) nasıl desteklemenin gösterir.
 ms.author: riande
 ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 9d3016d98fa6c3a55359c6dab0737407b29925f1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403837"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555708"
 ---
-# <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme
+# <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 ' de çapraz kaynak isteklerini etkinleştirme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. Bu kısıtlama adlı *aynı çıkış noktası İlkesi*ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, web API'si çağırma diğer sitelere izin vermek isteyebilirsiniz.
+> Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. Bu kısıtlamaya *aynı-Origin ilkesi*adı verilir ve kötü amaçlı bir sitenin başka bir siteden hassas verileri okumasını önler. Ancak, bazen diğer sitelerin Web API 'nizi çağırmasını sağlamak isteyebilirsiniz.
 >
-> [Kaynağın kaynak paylaşımını çapraz](http://www.w3.org/TR/cors/) (CORS) olan gevşek bir aynı çıkış noktası ilkesi izin veren bir W3C standart. CORS kullanarak, bir sunucu açıkça bazı çıkış noktaları arası istekleri izin verirken diğerlerini. CORS güvenli ve önceki teknikler daha esnek gibi [JSONP](http://en.wikipedia.org/wiki/JSONP). Bu öğreticide, Web API uygulamanıza CORS'yi etkinleştirme işlemi gösterilmektedir.
+> [Çapraz kaynak kaynak paylaşımı](http://www.w3.org/TR/cors/) (CORS), bir sunucunun aynı kaynak ilkeyi rahat bir şekilde sağlamasına olanak tanıyan bir W3C standardıdır. CORS kullanarak, bir sunucu bazı çapraz kaynak isteklerine, diğerlerini reddetirken açık bir şekilde izin verebilir. CORS, [JSONP](http://en.wikipedia.org/wiki/JSONP)gibi önceki tekniklerin daha güvenli ve daha esnektir. Bu öğreticide, Web API uygulamanızda CORS 'nin nasıl etkinleştirileceği gösterilmektedir.
 >
-> ## <a name="software-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım
+> ## <a name="software-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım
 >
 > - [Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
-> - Web API 2.2
+> - Web API 2,2
 
 ## <a name="introduction"></a>Giriş
 
-Bu öğreticide, ASP.NET Web API CORS desteği gösterilmektedir. – "Web API denetleyicisi barındıran, bir çağrılan Web hizmetini" ve "Web hizmetini çağıran diğer adlı WebClient", iki ASP.NET projesi oluşturarak başlayacağız. İki uygulama farklı etki alanlarında barındırıldığından, WebClient bir AJAX isteği WebService çıkış noktaları arası isteğidir.
+Bu öğreticide, ASP.NET Web API 'sinde CORS desteği gösterilmektedir. Bir Web API denetleyicisi barındıran "WebService" adlı, diğeri de WebService 'yi çağıran "WebClient" adlı iki ASP.NET projesi oluşturarak başlayacağız. İki uygulama farklı etki alanlarında barındırıldığından, WebClient 'dan WebService 'a yönelik bir AJAX isteği bir çapraz kaynak isteği olur.
 
 ![](enabling-cross-origin-requests-in-web-api/_static/image1.png)
 
 ### <a name="what-is-same-origin"></a>"Aynı kaynak" nedir?
 
-Aynı düzeni, konaklar ve bağlantı noktaları varsa iki URL aynı kaynağa sahip. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+Aynı şemalara, konaklara ve bağlantı noktalarına sahip olmaları durumunda iki URL aynı kaynağa sahiptir. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
-Bu iki URL aynı kaynağa sahip:
+Bu iki URL aynı kaynağa sahiptir:
 
 - `http://example.com/foo.html`
 - `http://example.com/bar.html`
 
-Bu URL'ler önceki değerinden farklı kaynakları iki vardır:
+Bu URL 'Ler, önceki iki değerden farklı kaynaklardan farklıdır:
 
-- `http://example.net` -Farklı bir etki alanı
-- `http://example.com:9000/foo.html` -Farklı bir bağlantı noktası
-- `https://example.com/foo.html` -Farklı düzeni
-- `http://www.example.com/foo.html` -Farklı bir alt etki alanı
-
-> [!NOTE]
-> Internet Explorer bağlantı noktası kaynakları karşılaştırılırken göz önünde bulundurmaz.
-
-## <a name="create-the-webservice-project"></a>Web hizmeti projesi oluşturma
+- `http://example.net`-farklı etki alanı
+- `http://example.com:9000/foo.html`-farklı bağlantı noktası
+- `https://example.com/foo.html`-farklı düzen
+- `http://www.example.com/foo.html`-farklı alt etki alanı
 
 > [!NOTE]
-> Bu bölümde, Web API projeleri oluşturma bildiğiniz varsayılır. Aksi takdirde bkz [ASP.NET Web API'si ile çalışmaya başlama](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
+> Internet Explorer, kaynakları karşılaştırırken bağlantı noktasını dikkate almaz.
 
-1. Visual Studio'yu başlatın ve yeni bir **ASP.NET Web uygulaması (.NET Framework)** proje.
-2. İçinde **yeni ASP.NET Web uygulaması** iletişim kutusunda **boş** proje şablonu. Altında **klasörleri ekleyin ve çekirdek başvuruları**seçin **Web API** onay kutusu.
+## <a name="create-the-webservice-project"></a>WebService projesi oluşturma
 
-   ![Visual Studio'da yeni ASP.NET projesi iletişim kutusu](enabling-cross-origin-requests-in-web-api/_static/new-web-app-dialog.png)
+> [!NOTE]
+> Bu bölümde, Web API projeleri oluşturmayı bildiğiniz varsayılmaktadır. Aksi takdirde, bkz. [ASP.NET Web API 'si Ile çalışmaya](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)başlama.
 
-3. Adlı bir Web API denetleyicisi ekleme `TestController` aşağıdaki kod ile:
+1. Visual Studio 'Yu başlatın ve yeni bir **ASP.NET Web uygulaması (.NET Framework)** projesi oluşturun.
+2. **Yeni ASP.NET Web uygulaması** Iletişim kutusunda **boş** proje şablonunu seçin. **Klasör ve temel başvuru Ekle**' nin altında **Web API** onay kutusunu seçin.
+
+   ![Visual Studio 'da yeni ASP.NET Project iletişim kutusu](enabling-cross-origin-requests-in-web-api/_static/new-web-app-dialog.png)
+
+3. Aşağıdaki kodla `TestController` adlı bir Web API denetleyicisi ekleyin:
 
    [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
 
-4. Uygulamayı yerel olarak çalıştırmak veya Azure'a dağıtın. (Ekran görüntüleri için Bu öğreticide, Azure App Service Web Apps için uygulamayı dağıtır.) Web API'si çalıştığını doğrulamak için gidin `http://hostname/api/test/`burada *hostname* uygulamanın dağıtıldığı etki alanıdır. Yanıt metni görmelisiniz &quot;alın: Sınama iletisi&quot;.
+4. Uygulamayı yerel olarak çalıştırabilir veya Azure 'a dağıtabilirsiniz. (Bu öğreticideki ekran görüntüleri için, uygulama Azure App Service Web Apps dağıtılır.) Web API 'sinin çalıştığını doğrulamak için, *ana bilgisayar adının* uygulamayı dağıttığınız etki alanı olduğu `http://hostname/api/test/`' a gidin. &quot;al: test Iletisi&quot;yanıt metnini görmeniz gerekir.
 
-   ![Web tarayıcı gösteren sınama iletisi](enabling-cross-origin-requests-in-web-api/_static/image4.png)
+   ![Sınama iletisini gösteren Web tarayıcısı](enabling-cross-origin-requests-in-web-api/_static/image4.png)
 
 ## <a name="create-the-webclient-project"></a>WebClient projesi oluşturma
 
-1. Hesaplanmış sütun oluşturabiliriz **ASP.NET Web uygulaması (.NET Framework)** seçin ve proje **MVC** proje şablonu. İsteğe bağlı olarak **kimlik doğrulamayı Değiştir** > **kimlik doğrulaması yok**. Bu öğretici için kimlik doğrulaması gerekmez.
+1. Başka bir **ASP.NET Web uygulaması (.NET Framework)** projesi oluşturun ve **MVC** proje şablonunu seçin. İsteğe bağlı olarak **, kimlik doğrulaması > ** **kimlik doğrulamasını Değiştir** ' i seçin Bu öğretici için kimlik doğrulamaya gerek yoktur.
 
-   ![Yeni ASP.NET projesi iletişim kutusunda Visual Studio'da MVC şablonu](enabling-cross-origin-requests-in-web-api/_static/new-web-app-dialog-mvc.png)
+   ![Visual Studio 'da yeni ASP.NET proje iletişim kutusunda MVC şablonu](enabling-cross-origin-requests-in-web-api/_static/new-web-app-dialog-mvc.png)
 
-2. İçinde **Çözüm Gezgini**, dosyayı açma *Views/Home/Index.cshtml*. Bu dosyadaki kodu aşağıdakiyle değiştirin:
+2. **Çözüm Gezgini**' de, *Görünümler/Home/Index. cshtml*dosyasını açın. Bu dosyadaki kodu aşağıdaki kodla değiştirin:
 
    [!code-cshtml[Main](enabling-cross-origin-requests-in-web-api/samples/sample2.cshtml?highlight=13)]
 
-   İçin *serviceUrl* değişkeni, Web hizmeti uygulama URI'sini kullanın.
+   *ServiceUrl* değişkeni için WEBSERVICE uygulamasının URI 'sini kullanın.
 
-3. WebClient uygulamayı yerel olarak çalıştırmak veya başka bir Web sitesine yayımlayabilirsiniz.
+3. WebClient uygulamasını yerel olarak çalıştırın veya başka bir Web sitesinde yayımlayın.
 
-"Try It" düğmesine tıkladığınızda, listelenen HTTP yöntemini kullanarak Web hizmeti uygulaması için bir AJAX isteği gönderilir açılan kutuda (GET, POST veya PUT). Bu farklı çıkış noktaları arası istekleri incelemenize olanak sağlar. Şu anda düğmesine tıklarsanız bir hata alırsınız. Bu nedenle Web hizmeti uygulama CORS desteklemiyor.
+"Dene" düğmesine tıkladığınızda, Web hizmeti uygulamasına açılan kutuda listelenen HTTP yöntemi kullanılarak bir AJAX isteği gönderilir (GET, POST veya PUT). Bu, farklı çapraz kaynak isteklerini incelemenizi sağlar. Şu anda, Web hizmeti uygulaması CORS 'yi desteklemez, bu nedenle düğmeye tıkladığınızda bir hata alırsınız.
 
-![Tarayıcı 'try' hatası](enabling-cross-origin-requests-in-web-api/_static/image7.png)
+![Tarayıcıda ' deneyin ' hatası](enabling-cross-origin-requests-in-web-api/_static/image7.png)
 
 > [!NOTE]
-> Bir aracının HTTP trafiğini izleme hoşlanıyorsanız [Fiddler](https://www.telerik.com/fiddler), tarayıcı GET isteği gönderir ve isteğin başarılı ancak AJAX çağrısı bir hata döndürür görürsünüz. Aynı çıkış noktası İlkesi tarayıcıdan engellemez anlaşılması önemlidir *gönderme* istek. Bunun yerine, uygulama görmesini engeller *yanıt*.
+> HTTP trafiğini [Fiddler](https://www.telerik.com/fiddler)gibi bir araçta izleyebilirsiniz, tarayıcının get isteğini göndereceğini ve isteğin başarılı olduğunu, ancak Ajax çağrısının bir hata döndürdüğünü görürsünüz. Aynı kaynak ilkenin tarayıcının isteği *göndermesini* önleyemediğinden emin olmak önemlidir. Bunun yerine, uygulamanın *yanıtı*görmesini önler.
 
-![Fiddler'ı web hata ayıklayıcısı Web istekleri gösteriliyor](enabling-cross-origin-requests-in-web-api/_static/image8.png)
+![Web isteklerini gösteren Fiddler Web hata ayıklayıcısı](enabling-cross-origin-requests-in-web-api/_static/image8.png)
 
 ## <a name="enable-cors"></a>CORS'yi etkinleştirme
 
-Şimdi github'dan WebService uygulamada CORS'yi etkinleştirme. İlk olarak, CORS NuGet paketini ekleyin. Visual Studio'da gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu yazın:
+Şimdi WebService uygulamasında CORS 'yi etkinleştirelim. İlk olarak CORS NuGet paketini ekleyin. Visual Studio 'da, **Araçlar** menüsünden **NuGet Paket Yöneticisi**' ni ve ardından **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsolu penceresinde aşağıdaki komutu yazın:
 
 [!code-powershell[Main](enabling-cross-origin-requests-in-web-api/samples/sample3.ps1)]
 
-Bu komut, en son paketini yükler ve çekirdek Web API kitaplıkları dahil olmak üzere tüm bağımlılıkları güncelleştirir. Kullanım `-Version` belirli bir sürümü hedeflemek için bayrak. CORS paketi, Web API 2.0 veya sonraki sürümünü gerektirir.
+Bu komut, en son paketi yüklenir ve çekirdek Web API kitaplıkları da dahil olmak üzere tüm bağımlılıkları günceller. Belirli bir sürümü hedeflemek için `-Version` bayrağını kullanın. CORS paketi için Web API 2,0 veya üzeri gerekir.
 
-Dosyayı açmak *uygulama\_Start/WebApiConfig.cs*. Aşağıdaki kodu ekleyin **WebApiConfig.Register** yöntemi:
+*Start/WebApiConfig. cs\_dosya uygulamasını*açın. **WebApiConfig. Register** yöntemine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample4.cs?highlight=9)]
 
-Ardından, ekleme **[EnableCors]** özniteliğini `TestController` sınıfı:
+Sonra, `TestController` sınıfına **[Enablecors]** özniteliğini ekleyin:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample5.cs?highlight=3,7)]
 
-İçin *kaynakları* parametresi WebClient uygulamanın dağıtıldığı bir URI kullanın. Bu çıkış noktaları arası istekleri WebClient tüm diğer etki alanları arası istekleri engelleyerek hala çalışırken sağlar. Daha sonra parametrelerini açıklayacağız **[EnableCors]** daha ayrıntılı bir şekilde.
+*Kaynakları* parametresi Için, WebClient UYGULAMASıNı dağıttığınız URI 'yi kullanın. Bu, aynı zamanda diğer tüm etki alanları arası isteklere izin verdiğinden WebClient kaynaklı çapraz kaynak isteklerine izin verir. Daha sonra, **[Enablecors]** parametrelerini daha ayrıntılı olarak açıklayacağım.
 
-Sonunda eğik çizgi içermez *kaynakları* URL'si.
+*Çıkış* URL 'sinin sonuna eğik çizgi eklemeyin.
 
-Güncelleştirilmiş WebService uygulamayı yeniden dağıtın. WebClient güncelleştirmek gerekmez. WebClient AJAX isteği başarılı olmalıdır. GET, PUT ve POST yöntemleri tüm izin verilir.
+Güncelleştirilmiş Web hizmeti uygulamasını yeniden dağıtın. WebClient 'ı güncelleştirmeniz gerekmez. Şimdi WebClient 'daki AJAX isteği başarılı olmalıdır. GET, PUT ve POST yöntemlerine izin verilir.
 
-![Web tarayıcı gösteren başarılı bir sınama iletisi](enabling-cross-origin-requests-in-web-api/_static/image9.png)
+![Başarılı sınama iletisini gösteren Web tarayıcısı](enabling-cross-origin-requests-in-web-api/_static/image9.png)
 
-## <a name="how-cors-works"></a>CORS nasıl çalışır?
+## <a name="how-cors-works"></a>CORS nasıl kullanılır?
 
-Bu bölümde, HTTP iletileri düzeyinde bir CORS isteğinde ne açıklanmaktadır. Böylece yapılandırabileceğiniz CORS nasıl çalıştığını anlamak önemlidir **[EnableCors]** doğru öznitelik ve beklediğiniz gibi şeyler çalışmazsa sorun giderme.
+Bu bölümde, HTTP iletileri düzeyinde bir CORS isteğinde ne olacağı açıklanmaktadır. CORS 'nin nasıl çalıştığını anlamak önemlidir. böylece, **[Enablecors]** özniteliğini doğru şekilde yapılandırabilir ve her şeyin beklendiği gibi çalışmadığına sorun giderebilirsiniz.
 
-CORS belirtimi çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üst bilgilerini ortaya çıkarır. Bir tarayıcı CORS destekliyorsa, bu üstbilgileri çıkış noktaları arası istekleri için otomatik olarak ayarlar; JavaScript kodunuza özel herhangi bir şey yapmanız gerekmez.
+CORS belirtimi, çıkış noktaları arası istekleri etkinleştiren birkaç yeni HTTP üst bilgisi sunar. Bir tarayıcı CORS 'yi destekliyorsa, bu üst bilgileri, çıkış noktaları arası istekler için otomatik olarak ayarlar; JavaScript kodunuzda özel bir şey yapmanız gerekmez.
 
-Çıkış noktaları arası isteğinin bir örneği aşağıda verilmiştir. "Kaynak" üst bilgisi istekte site etki alanı sağlar.
+Bir çapraz kaynak isteğine bir örnek aşağıda verilmiştir. "Origin" üstbilgisi, isteği yapan sitenin etki alanını verir.
 
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample6.cmd?highlight=5)]
 
-Sunucu isteği izin veriyorsa, Access-Control-Allow-Origin üst bilgi ayarlar. Bu üst bilgi değeri ile eşleşen kaynak üst bilgisi ya da joker karakter değeri "\*", yani her türlü kaynağa izin verilir.
+Sunucu isteğe izin veriyorsa, erişim-denetim-Izin-kaynak üst bilgisini ayarlar. Bu üstbilginin değeri, kaynak üstbilgisiyle eşleşir veya "\*" joker değeri, yani herhangi bir kaynağa izin verilir.
 
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample7.cmd?highlight=5)]
 
-Access-Control-Allow-Origin üst bilgi yanıtı içermez AJAX isteği başarısız olur. Özellikle, tarayıcının isteği izin vermiyor. Tarayıcı yanıt, sunucunun başarılı bir yanıt döndürürse bile, istemci uygulama tarafından kullanılabilir yapmaz.
+Yanıt, erişim-denetim-Izin verme-kaynak üst bilgisini içermiyorsa, AJAX isteği başarısız olur. Özellikle, tarayıcı isteğe izin vermez. Sunucu başarılı bir yanıt döndürse bile tarayıcı, yanıtı istemci uygulaması için kullanılabilir hale getirmez.
 
-**Denetim öncesi isteği**
+**Ön kontrol Istekleri**
 
-Bazı CORS istekleri için tarayıcı kaynak gerçek isteği göndermeden önce bir "Denetim öncesi isteği" adlı ek bir istek gönderir.
+Bazı CORS istekleri için, tarayıcı kaynağın gerçek isteğini göndermeden önce "ön kontrol isteği" olarak adlandırılan ek bir istek gönderir.
 
-Aşağıdaki koşullar doğruysa, tarayıcının denetim öncesi isteği atlayabilirsiniz:
+Aşağıdaki koşullar doğruysa tarayıcı, ön kontrol isteğini atlayabilir:
 
-- İstek yöntemini GET, HEAD veya sonrası, olan *ve*
-- Uygulama dışındaki içeriği kabul et, Accept-Language, dil, herhangi bir istek üst ayarlamaz Content-Type veya son-Event-ID *ve*
-- Content-Type üst bilgisi (varsa ayarlayın) aşağıdakilerden biridir:
+- İstek yöntemi al, HEAD veya POST, *ve*
+- Uygulama, kabul etme, kabul etme dili, Içerik-dil, Içerik türü veya son olay KIMLIĞI dışında bir istek üst bilgisi ayarlanmamış *ve*
+- Content-Type üst bilgisi (ayarlandıysa) aşağıdakilerden biridir:
 
-    - Application/x-www-form-urlencoded işlemek
-    - multipart/form-data
+    - Application/x-www-form-urlencoded
+    - multipart/form-Data
     - metin/düz
 
-Uygulama çağırarak ayarlar üst istek üst bilgileri hakkında kuralın uygulanacağı **setRequestHeader** üzerinde **XMLHttpRequest** nesne. (Bu "Yazar istek üstbilgilerini" CORS belirtimi çağırır.) Kural üstbilgileri uygulanmaz *tarayıcı* kullanıcı aracısı, konak veya Content-Length gibi ayarlayabilirsiniz.
+İstek üstbilgileri hakkındaki kural, uygulamanın **setRequestHeader** **XMLHttpRequest** nesnesine çağırarak ayarladığı üst bilgiler için geçerlidir. (CORS belirtimi bu "yazar istek üstbilgilerini" çağırır.) Kural, *tarayıcı* tarafından ayarlanan Kullanıcı Aracısı, ana bilgisayar veya içerik uzunluğu gibi üstbilgilere uygulanmaz.
 
-Denetim öncesi isteğinin bir örneği aşağıda verilmiştir:
+Bir ön kontrol isteğine bir örnek aşağıda verilmiştir:
 
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample8.cmd?highlight=4-5)]
 
-Uçuş öncesi isteğinin HTTP OPTIONS yöntemini kullanır. Bu, iki özel üst bilgileri içerir:
+Uçuş öncesi isteği HTTP SEÇENEKLERI yöntemini kullanır. İki özel üst bilgi içerir:
 
-- Erişim-Control-Request-Method: Fiili istek için kullanılacak HTTP yöntemi.
-- Access-Control-Request-Headers: İstek üst bilgilerinin bir listesi, *uygulama* gerçek istek üzerinde ayarlanan. (Yeniden, bu tarayıcı ayarlar üst bilgileri içermez.)
+- Access-Control-Request-Method: gerçek istek için kullanılacak HTTP yöntemi.
+- Erişim-denetim-Istek-üstbilgiler: *uygulamanın* gerçek istekte ayarlandığı istek üst bilgilerinin bir listesi. (Yine, bu, tarayıcının ayarladığı üst bilgileri içermez.)
 
-Sunucunun isteği izin varsayılarak bir yanıt örneği, şu şekildedir:
+Sunucunun isteğe izin verdiğini kabul eden örnek bir yanıt aşağıda verilmiştir:
 
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample9.cmd?highlight=6-7)]
 
-Yanıt, izin verilen yöntemleri listeleyen bir erişim-denetim-Allow-Methods üst bilgisi ve isteğe bağlı olarak izin verilen üstbilgileri listeleyen bir Access-Control-izin ver-Headers üstbilgisi içeriyor. Denetim öncesi isteği başarıyla sonuçlanırsa, tarayıcı daha önce açıklandığı gibi gerçek bir istek gönderir.
+Yanıt, izin verilen yöntemleri ve isteğe bağlı olarak izin verilen üst bilgileri listeleyen bir erişim-denetimi-Izin-üstbilgiler başlığını listeleyen bir Access-Control-Allow-Methods üst bilgisi içerir. Ön kontrol isteği başarılı olursa, tarayıcı, daha önce açıklandığı gibi gerçek isteği gönderir.
 
-Uç nokta denetim öncesi OPTIONS istekleri ile test etmek için yaygın olarak kullanılan araçlar (örneğin, [Fiddler](https://www.telerik.com/fiddler) ve [Postman](https://www.getpostman.com/)) varsayılan olarak gerekli seçenekleri üst bilgileri gönderme. Onaylayın `Access-Control-Request-Method` ve `Access-Control-Request-Headers` üstbilgileri, istekle birlikte gönderilir ve Seçenekler üst bilgileri uygulama IIS üzerinden ulaşın.
+Sık kullanılan araçlar, ön uç noktalarını (örneğin, [Fiddler](https://www.telerik.com/fiddler) ve [Postman](https://www.getpostman.com/)), varsayılan olarak gerekli seçenek üstbilgilerini göndermez. `Access-Control-Request-Method` ve `Access-Control-Request-Headers` üst bilgilerinin istekle birlikte gönderildiğini ve seçenekler başlıklarının IIS aracılığıyla uygulamaya ulaşmasını onaylayın.
 
-IIS almak ve seçeneği isteklerini işlemek bir ASP.NET uygulaması izin verecek şekilde yapılandırmak için aşağıdaki yapılandırma uygulamanın ekleme *web.config* dosyası `<system.webServer><handlers>` bölümü:
+IIS 'yi bir ASP.NET uygulamasının seçenek isteklerini almasına ve işlemesine izin verecek şekilde yapılandırmak için, aşağıdaki yapılandırmayı `<system.webServer><handlers>` bölümünde uygulamanın *Web. config* dosyasına ekleyin:
 
 ```xml
 <system.webServer>
@@ -179,86 +179,86 @@ IIS almak ve seçeneği isteklerini işlemek bir ASP.NET uygulaması izin verece
 </system.webServer>
 ```
 
-Kaldırılmasını `OPTIONSVerbHandler` IIS OPTIONS istekleri işleme öğesinden engeller. Adlandırılan `ExtensionlessUrlHandler-Integrated-4.0` OPTIONS istekleri varsayılan modülün kaydını yalnızca GET, HEAD, POST ve hata ayıklama isteği uzantısız URL'lerle izin verdiğinden, uygulamanıza ulaşmasına izin verir.
+`OPTIONSVerbHandler` kaldırılması, IIS 'nin seçenek isteklerini işlemesini engeller. Varsayılan modül kaydı yalnızca uzantısız URL 'Ler ile alma, baş, POST ve hata ayıklama isteklerine izin verdiğinden, `ExtensionlessUrlHandler-Integrated-4.0` değişimi, SEÇENEKLERE ulaşmak için izin verir.
 
-## <a name="scope-rules-for-enablecors"></a>Kapsam kuralları [EnableCors] için
+## <a name="scope-rules-for-enablecors"></a>[EnableCors] için kapsam kuralları
 
-Uygulamanızdaki her eylem, denetleyici başına veya genel olarak tüm Web APİ'si denetleyicilerinin için CORS etkinleştirebilirsiniz.
+Uygulamanızdaki tüm Web API denetleyicileri için işlem başına CORS 'yi, denetleyici başına veya genel olarak etkinleştirebilirsiniz.
 
 **Eylem başına**
 
-Tek bir eylem için CORS etkinleştirmek için ayarlayın **[EnableCors]** özniteliği eylem yöntemi. Aşağıdaki örnek için CORS `GetItem` yalnızca yöntemi.
+CORS 'yi tek bir eylem için etkinleştirmek üzere, eylem yönteminde **[Enablecors]** özniteliğini ayarlayın. Aşağıdaki örnek, CORS 'yi yalnızca `GetItem` yöntemi için etkinleştirilir.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample10.cs)]
 
-**Denetleyici**
+**Denetleyici başına**
 
-Ayarlarsanız **[EnableCors]** denetleyici sınıfı üzerinde denetleyicinin tüm eylemleri için geçerlidir. Bir eylem için CORS devre dışı bırakmak için ekleme **[DisableCors]** eyleme özniteliği. Aşağıdaki örnek her yöntemi dışında için CORS sağlar `PutItem`.
+Denetleyici sınıfında **[Enablecors]** ayarlarsanız, denetleyici üzerindeki tüm eylemler için geçerli olur. Bir eylemde CORS 'yi devre dışı bırakmak için, eyleme **[Disablecors]** özniteliğini ekleyin. Aşağıdaki örnek, `PutItem`hariç her yöntemde CORS 'yi mümkün.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample11.cs)]
 
-**Genel olarak**
+**Görünüm**
 
-Uygulamanızdaki tüm Web APİ'si denetleyicilerinin CORS'yi etkinleştirmek için geçirmek bir **EnableCorsAttribute** için örnek **EnableCors** yöntemi:
+Uygulamanızdaki tüm Web API denetleyicileri için CORS 'yi etkinleştirmek üzere **Enablecorsattribute** örneğini **enablecors** yöntemine geçirin:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample12.cs)]
 
-Birden fazla kapsamda öznitelik ayarlanırsa, öncelik sırası şöyledir:
+Özniteliği birden fazla kapsamda ayarlarsanız, öncelik sırası şu şekilde olur:
 
 1. Eylem
 2. Denetleyici
 3. Global
 
-## <a name="set-the-allowed-origins"></a>İzin verilen çıkış noktaları ayarlama
+## <a name="set-the-allowed-origins"></a>İzin verilen kaynakları ayarla
 
-*Kaynakları* parametresinin **[EnableCors]** özniteliği belirtir kaynağa erişmek için hangi çıkış noktaları kullanılabilir. İzin verilen çıkış noktaları, virgülle ayrılmış listesini değerdir.
+**[Enablecors]** özniteliğinin *kaynaklar parametresi,* kaynağa hangi kaynakların erişmelerine izin verildiğini belirtir. Değer, izin verilen çıkış noktaları için virgülle ayrılmış bir listesidir.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample13.cs)]
 
-Joker karakter değeri de kullanabilirsiniz "\*" tüm kaynaklar gelen isteklere izin vermek için.
+Tüm kaynaklardan gelen isteklere izin vermek için "\*" joker değerini de kullanabilirsiniz.
 
-Her türlü kaynağa gelen isteklere izin vermeden önce dikkatlice düşünün. Bu, tam anlamıyla herhangi bir Web sitesinde Web API AJAX çağrıları yapabileceğini anlamına gelir.
+Herhangi bir kaynaktan isteklere izin vermeden önce dikkatlice düşünün. Bu, tam olarak herhangi bir Web sitesinin Web API 'niz için AJAX çağrıları yapabileceği anlamına gelir.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample14.cs)]
 
-## <a name="set-the-allowed-http-methods"></a>İzin verilen HTTP yöntemleri Ayarla
+## <a name="set-the-allowed-http-methods"></a>İzin verilen HTTP yöntemlerini ayarlama
 
-*Yöntemleri* parametresinin **[EnableCors]** özniteliği belirtir kaynağa erişmek için hangi HTTP yöntemlerine izin verilir. Tüm yöntemlere izin için joker karakter değeri kullanın. "\*". Aşağıdaki örnek yalnızca GET ve POST istekleri sağlar.
+**[Enablecors]** özniteliğinin *Methods* parametresi, hangi http yöntemlerinin kaynağa erişmelerine izin verileceğini belirtir. Tüm yöntemlere izin vermek için "\*" joker karakter değerini kullanın. Aşağıdaki örnek yalnızca GET ve POST isteklerine izin verir.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample15.cs)]
 
-## <a name="set-the-allowed-request-headers"></a>İzin verilen istek üstbilgilerini Ayarla
+## <a name="set-the-allowed-request-headers"></a>İzin verilen istek üst bilgilerini ayarlama
 
-Daha önce nasıl bir denetim öncesi isteği uygulama tarafından ayarlanıp HTTP üst bilgileri listeleyen bir Access-Control-Request-Headers üstbilgisi içeriyor olabilir, bu makalede açıklanan (Malum "yazar, istek üst bilgileri"). *Üstbilgileri* parametresinin **[EnableCors]** özniteliği belirtir hangi yazar istek üst bilgiye izin verilir. Üst bilgileri izin verecek şekilde ayarlanmış *üstbilgileri* için "\*". Izin verilenler listesi belirli üstbilgileri için ayarlanmış *üstbilgileri* izin verilen üstbilgileri virgülle ayrılmış bir listesi için:
+Bu makalede, bir ön kontrol isteğinin, uygulama tarafından ayarlanan HTTP üstbilgilerini (yani, "yazar istek üstbilgileri") listeleyerek bir erişim denetimi-Istek-üstbilgiler üst bilgisi nasıl dahil olabileceği açıklanmaktadır. **[Enablecors]** özniteliğinin *Headers* parametresi hangi yazar istek üst bilgilerine izin verileceğini belirtir. Tüm üstbilgilere izin vermek için *üst bilgileri* "\*" olarak ayarlayın. Belirli üstbilgileri beyaz listelemek için *üst bilgileri* izin verilen üst bilgilerin virgülle ayrılmış listesine ayarlayın:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample16.cs)]
 
-Ancak, tarayıcılar nasıl bunlar Access-Control-Request-Headers kümesinde tamamen tutarlı değil. Örneğin, Chrome, şu anda "Başlangıç" içerir. Bile uygulama bunları betikte ayarladığında FireFox "Kabul et" gibi standart başlıklarını içermez.
+Ancak, tarayıcılar erişim-denetim-Istek üst bilgilerini ayarlama konusunda tamamen tutarlı değildir. Örneğin, Chrome şu anda "Origin" i içerir. FireFox, uygulama bunları betikte ayarlarsa bile, "kabul et" gibi standart üstbilgileri içermez.
 
-Ayarlarsanız *üstbilgileri* dışında herhangi bir şey için "\*", "kabul", "content-type" ve "Başlangıç" yanı sıra, desteklemek istediğiniz tüm özel üst en az içermelidir.
+*Üst bilgileri* "\*" dışında bir şeye ayarlarsanız, en az "kabul", "içerik türü" ve "kaynak" ve ayrıca desteklemek istediğiniz tüm özel üstbilgileri dahil etmelisiniz.
 
-## <a name="set-the-allowed-response-headers"></a>İzin verilen yanıt üstbilgilerini Ayarla
+## <a name="set-the-allowed-response-headers"></a>İzin verilen yanıt üst bilgilerini ayarlama
 
-Varsayılan olarak, tarayıcı tüm yanıt üstbilgilerini uygulamaya kullanıma sunmuyor. Varsayılan olarak kullanılabilir olan yanıt üstbilgilerini şunlardır:
+Varsayılan olarak tarayıcı, tüm yanıt üst bilgilerini uygulamaya sunmaz. Varsayılan olarak kullanılabilen yanıt üstbilgileri şunlardır:
 
-- Önbellek denetimi
-- İçerik dili
+- Cache-Control
+- İçerik-dil
 - İçerik Türü
-- Süre sonu
-- Son değiştirilme
-- Pragma
+- Süresi Dolacak
+- Son değiştirme
+- Prag
 
-CORS spec bu çağrıları [basit yanıt üstbilgilerini](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header). Diğer üst bilgileri uygulama için kullanılabilir hale getirmek için ayarlanmış *exposedHeaders* parametresinin **[EnableCors]** .
+CORS belirtimi bu [basit yanıt üstbilgilerini](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header)çağırır. Diğer üst bilgileri uygulama için kullanılabilir hale getirmek için, **[Enablecors]** *exposedHeaders* parametresini ayarlayın.
 
-Aşağıdaki örnekte, denetleyici 's `Get` yöntemi 'X-Custom-Header' adlı bir özel üst bilgi ayarlar. Varsayılan olarak, tarayıcı bu çıkış noktaları arası istek üstbilgisinde açığa çıkarmamak. Üst bilgi kullanılabilir hale getirmek için 'X-Custom-Header' dahil *exposedHeaders*.
+Aşağıdaki örnekte, denetleyicinin `Get` yöntemi ' X-Custom-Header ' adlı bir özel üst bilgi ayarlıyor. Varsayılan olarak tarayıcı, bu üst bilgiyi bir çapraz kaynak isteğinde kullanıma sunmaz. Üstbilgiyi kullanılabilir hale getirmek için, *exposedHeaders*Içine ' X-Custom-Header ' ekleyin.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample17.cs)]
 
-## <a name="pass-credentials-in-cross-origin-requests"></a>Çıkış noktaları arası istekleri Pass kimlik bilgileri
+## <a name="pass-credentials-in-cross-origin-requests"></a>Kimlik bilgilerini, çıkış noktaları arası isteklere geçirme
 
-Özel işleme bir CORS isteğinde kimlik bilgilerini gerektirir. Varsayılan olarak, tarayıcının çıkış noktaları arası istek ile herhangi bir kimlik bilgisi göndermez. Kimlik bilgileri, tanımlama bilgilerinin yanı sıra HTTP kimlik doğrulama düzenleri içerir. İstemci kimlik bilgileriyle bir çıkış noktaları arası istek göndermek için ayarlamalısınız **XMLHttpRequest.withCredentials** true.
+Kimlik bilgileri CORS isteğinde özel işleme gerektirir. Varsayılan olarak tarayıcı, bir çapraz kaynak isteğiyle kimlik bilgileri göndermez. Kimlik bilgileri, HTTP kimlik doğrulama düzenlerini de içerir. Bir çapraz kaynak isteğiyle kimlik bilgilerini göndermek için, istemcinin **XMLHttpRequest. withcredentials** öğesini true olarak ayarlaması gerekir.
 
-Kullanarak **XMLHttpRequest** doğrudan:
+Doğrudan **XMLHttpRequest** kullanma:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample18.cs)]
 
@@ -266,36 +266,36 @@ JQuery içinde:
 
 [!code-javascript[Main](enabling-cross-origin-requests-in-web-api/samples/sample19.js)]
 
-Ayrıca, sunucunun kimlik bilgilerini izin vermeniz gerekir. Web API'de çıkış noktaları arası kimlik bilgileri'izin verecek şekilde ayarlanmış **SupportsCredentials** özelliğini true olarak **[EnableCors]** özniteliği:
+Ayrıca, sunucu kimlik bilgilerine izin vermelidir. Web API 'sinde, çıkış noktaları arası kimlik bilgilerine izin vermek için, **[Enablecors]** özniteliğinde **SupportsCredentials** özelliğini true olarak ayarlayın:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample20.cs)]
 
-Bu özellik true ise, HTTP yanıtı erişim-denetim-Allow-Credentials üst bilgisini içerir. Bu üst bilgi, tarayıcı sunucunun bir çıkış noktaları arası istek için kimlik bilgilerini sağlar söyler.
+Bu özellik true ise, HTTP yanıtı bir erişim-denetim-Izin-kimlik bilgileri üst bilgisi içerecektir. Bu üst bilgi, tarayıcıya sunucunun bir çapraz kaynak isteği için kimlik bilgilerini verdiğini söyler.
 
-Tarayıcı bilgilerini gönderir, ancak yanıt, geçerli bir erişim-denetim-Allow-Credentials üst bilgisi içermez, tarayıcı uygulamaya yanıt açığa çıkarmamak ve AJAX isteği başarısız olur.
+Tarayıcı kimlik bilgilerini gönderirse, ancak yanıt geçerli bir erişim-denetim-Izin-kimlik bilgileri üst bilgisi içermiyorsa, tarayıcı uygulamaya yanıtı kullanıma sunmaz ve AJAX isteği başarısız olur.
 
-Ayar hakkında dikkatli olun **SupportsCredentials** başka bir etki alanındaki bir Web sitesi gönderebilir bir oturum açmış kullanıcı kimlik bilgilerini kullanıcının adına, Web API'niz için farkına varmadan kullanıcı anlamına geldiğinden, true. CORS spec Ayrıca bu ayar durumları *kaynakları* için &quot; \* &quot; geçersiz olursa **SupportsCredentials** geçerlidir.
+**SupportsCredentials** değeri true olarak ayarlanırken, başka bir etki alanındaki bir Web sitesinin kullanıcı adına Kullanıcı adına, oturum açmış bir kullanıcının kimlik bilgilerini, Kullanıcı tarafından farkında olmadan BIR Web API 'nize gönderebildiğinden emin olun. CORS belirtimi Ayrıca, **SupportsCredentials** true ise &quot;\*&quot; için *Çıkış* ayarının geçersiz olduğunu belirtir.
 
-## <a name="custom-cors-policy-providers"></a>CORS ilkesini sağlayıcılar
+## <a name="custom-cors-policy-providers"></a>Özel CORS ilke sağlayıcıları
 
-**[EnableCors]** özniteliğini uygular **ICorsPolicyProvider** arabirimi. Türetilen bir sınıf oluşturarak kendi uygulamanız sağlayabilir **özniteliği** ve uygulayan **ICorsPolicyProvider**.
+**[Enablecors]** özniteliği **ıcorspolicyprovider** arabirimini uygular. **Özniteliğinden** türetilen ve **ıcorspolicyprovider**uygulayan bir sınıf oluşturarak kendi uygulamanızı sağlayabilirsiniz.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample21.cs)]
 
-Artık tüm yerleştirme, koyabilirsiniz öznitelik uygulayabilirsiniz **[EnableCors]** .
+Artık özniteliği, **[Enablecors]** yerine koyabileceğiniz herhangi bir yerde uygulayabilirsiniz.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample22.cs)]
 
-Örneğin, özel bir CORS ilke sağlayıcısı, ayarlar yapılandırma dosyasından okuyabilir.
+Örneğin, özel bir CORS ilke sağlayıcısı yapılandırma dosyasından ayarları okuyabilir.
 
-Öznitelikleri kullanarak alternatif olarak, kaydedebileceğiniz bir **ICorsPolicyProviderFactory** oluşturan nesne **ICorsPolicyProvider** nesneleri.
+Öznitelikleri kullanmanın bir alternatifi olarak **ıcorspolicyprovider** nesneleri oluşturan bir **ıcorspolicyproviderfactory** nesnesini kaydedebilirsiniz.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample23.cs)]
 
-Ayarlanacak **ICorsPolicyProviderFactory**, çağrı **SetCorsPolicyProviderFactory** genişletme yöntemi aşağıdaki gibi başlangıçta:
+**Icorspolicyproviderfactory**ayarlamak için, başlangıç sırasında **setcorspolicyproviderfactory** genişletme yöntemini aşağıdaki gibi çağırın:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample24.cs)]
 
 ## <a name="browser-support"></a>Tarayıcı desteği
 
-Web API CORS, bir sunucu tarafı teknoloji paketidir. Ayrıca kullanıcının tarayıcı CORS desteği gerekir. Neyse ki, tüm temel tarayıcılarda geçerli sürümleri dahil [desteklemek için CORS](http://caniuse.com/cors).
+Web API CORS paketi, sunucu tarafı teknolojisidir. Kullanıcının tarayıcısının de CORS 'yi desteklemesi gerekir. Neyse ki, tüm büyük tarayıcıların geçerli sürümleri [cors desteği](http://caniuse.com/cors)içerir.

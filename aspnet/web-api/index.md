@@ -1,8 +1,8 @@
 ---
 uid: web-api/index
-title: ASP.NET Web API - ASP.NET 4.x
+title: ASP.NET Web API-ASP.NET 4. x
 author: rick-anderson
-description: ASP.NET MVC 4'ü indirmek ve bir çeşit istemciye ulaşan HTTP Hizmetleri oluşturun.
+description: ASP.NET MVC 4 ' ü indirin ve çok çeşitli istemcilere ulaşan HTTP Hizmetleri oluşturun.
 ms.author: riande
 ms.date: 01/17/2012
 ms.custom: seoapril2019
@@ -10,11 +10,11 @@ ms.assetid: f571ca7a-c06b-400d-8051-f62f9f0bcc9b
 msc.legacyurl: /web-api
 msc.type: categoryindex
 ms.openlocfilehash: c04719e06c6c0900c8f8268b73f833b525ea3dd6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410844"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557731"
 ---
 # <a name="aspnet-web-api"></a>ASP.NET Web API
 
@@ -26,14 +26,14 @@ ms.locfileid: "59410844"
         - [Web API 2’de Eylem Sonuçları](overview/getting-started-with-aspnet-web-api/action-results.md)
         - [ASP.NET Web Forms ile Web API Kullanma](overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
         - [Web API Yardım Sayfaları Oluşturma](overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-        - [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturun](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+        - [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma](overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
     - [Yönlendirme](overview/web-api-routing-and-actions/index.md)
 
         - [Web API'de Yönlendirme](overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)
         - [Web API’de Yönlendirme ve Eylem Seçimi](overview/web-api-routing-and-actions/routing-and-action-selection.md)
         - [Web API 2’de Öznitelik Yönlendirme](overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md)
         - [Web API 2’de Öznitelik Yönlendirme ile REST API Oluşturma](overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing.md)
-    - [Verilerle Çalışma](overview/data/index.md)
+    - [Verilerle çalışma](overview/data/index.md)
 
         - [Web API 2’yi Entity Framework 6 ile Kullanma](overview/data/using-web-api-with-entity-framework/index.md)
 
@@ -114,15 +114,15 @@ ms.locfileid: "59410844"
         - [Bir .NET İstemcisinden Web API'ye Çağrı Yapma (C#)](overview/advanced/calling-a-web-api-from-a-net-client.md)
         - [Web API’de HTTP İleti İşleyicileri](overview/advanced/http-message-handlers.md)
         - [Web API’de HttpClient İleti İşleyicileri](overview/advanced/httpclient-message-handlers.md)
-        - [Web API'de HTML Form verileri gönderme: Form-urlencoded verileri](overview/advanced/sending-html-form-data-part-1.md)
-        - [Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME](overview/advanced/sending-html-form-data-part-2.md)
+        - [Web API’de HTML Form Verileri Gönderme: Form-urlencoded Verileri](overview/advanced/sending-html-form-data-part-1.md)
+        - [Web API’de HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME](overview/advanced/sending-html-form-data-part-2.md)
         - [ASP.NET Web API’de HTTP Tanımlama Bilgileri](overview/advanced/http-cookies.md)
     - [Yayınlar](overview/releases/index.md)
 
         - [Web API OData 5.3 Sürümündeki Yenilikler](overview/releases/whats-new-in-aspnet-web-api-odata-53.md)
         - [ASP.NET Web API 2.2 Sürümündeki Yenilikler](overview/releases/whats-new-in-aspnet-web-api-22.md)
         - [ASP.NET Web API 2.1 Sürümündeki Yenilikler](overview/releases/whats-new-in-aspnet-web-api-21.md)
-    - [Eski Sürümler](overview/older-versions/index.md)
+    - [Eski Ssürümler](overview/older-versions/index.md)
 
         - [Web API 1'de CRUD İşlemlerini Etkinleştirme](overview/older-versions/creating-a-web-api-that-supports-crud-operations.md)
         - [ASP.NET Web API 1’i Entity Framework 5 ile Kullanma](overview/older-versions/using-web-api-1-with-entity-framework-5/index.md)
@@ -141,10 +141,10 @@ ms.locfileid: "59410844"
     - [Genel Bakış ve Çalışmaya Başlama](videos/getting-started/index.md)
 
         - [ASP.NET Web API](videos/getting-started/aspnet-web-api.md)
-        - [ASP.NET Web API, 1. Bölüm: İlk Web API'nizi](videos/getting-started/your-first-web-api.md)
-        - [ASP.NET Web API, 2. Bölüm: Veri alma](videos/getting-started/getting-data.md)
-        - [ASP.NET Web API, 3. Bölüm: Silme ve güncelleştirme](videos/getting-started/delete-and-update.md)
-        - [ASP.NET Web API, 4. Bölüm: Sayfalama ve sorgulama](videos/getting-started/paging-and-querying.md)
-        - [ASP.NET Web API, 5. Bölüm: Özel doğrulama](videos/getting-started/custom-validation.md)
+        - [ASP.NET Web API, 1. Bölüm: İlke Web API’niz](videos/getting-started/your-first-web-api.md)
+        - [ASP.NET Web API, 2. Bölüm: Verileri Alma](videos/getting-started/getting-data.md)
+        - [ASP.NET Web API, 3. Bölüm: Silme ve Güncelleştirme](videos/getting-started/delete-and-update.md)
+        - [ASP.NET Web API, 4. Bölüm: Sayfalama ve Sorgulama](videos/getting-started/paging-and-querying.md)
+        - [ASP.NET Web API, 5. Bölüm: Özel Doğrulama](videos/getting-started/custom-validation.md)
         - [ASP.NET Web API, 6. Bölüm: Yetkilendirme](videos/getting-started/authorization.md)
 - [Web API Örnekleri Listesi](samples-list.md)

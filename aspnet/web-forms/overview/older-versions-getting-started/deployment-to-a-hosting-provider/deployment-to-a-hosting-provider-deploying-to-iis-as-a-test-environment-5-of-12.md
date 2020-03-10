@@ -9,11 +9,11 @@ ms.assetid: 493b2a66-816c-485c-8315-952ed1085ccc
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 5d85232ff2cb229d771d517db7173721c9e277bf
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633413"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78635130"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: IIS 'e test ortamı olarak dağıtma-5/12
 
@@ -172,7 +172,7 @@ Kopyalanacak dosyaların listesini görmek için **Önizleme** sekmesinde **öni
 
 ![Publish_Web_wizard_Preview_tab_Test_with_file_list](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/_static/image15.png)
 
-**Yayımla**' ya tıklayın.
+**Yayımla**’ta tıklayın.
 
 Visual Studio Yönetici modunda değilse, bir izin hatasını belirten bir hata iletisi alabilirsiniz. Bu durumda, Visual Studio 'yu kapatın, yönetici modunda açın ve yeniden yayımlamayı deneyin.
 
@@ -233,7 +233,7 @@ Bu ek bağlantı dizesi, veritabanı şeması güncelleştirmeleri için bir kul
 
 Uygulamanızı geliştirme bilgisayarınızda IIS 'e dağıtmış ve orada test edersiniz. Bu, dağıtım işleminin uygulamanın içeriğini doğru konuma (dağıtmak istemediğiniz dosyalar hariç) kopyaladığını ve ayrıca dağıtım sırasında Web Dağıtımı IIS 'nin doğru şekilde yapılandırıldığını doğrular. Sonraki öğreticide, henüz yapılmamış bir dağıtım görevini bulan bir test daha çalıştıracaksınız: *ELMAH* klasöründe klasör izinlerini ayarlama.
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha Fazla Bilgi
 
 IIS veya IIS Express Visual Studio 'da çalıştırma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 

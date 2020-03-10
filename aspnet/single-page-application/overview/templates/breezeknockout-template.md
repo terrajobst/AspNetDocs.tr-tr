@@ -1,109 +1,109 @@
 ---
 uid: single-page-application/overview/templates/breezeknockout-template
-title: BREEZE/Knockout şablonu | Microsoft Docs
+title: Breeze/altını gizleme şablonu | Microsoft Docs
 author: madskristensen
-description: BREEZE/Knockout tek sayfalı uygulama şablonu
+description: Breeze/altını gizleme tek sayfalı uygulama şablonu
 ms.author: riande
 ms.date: 01/30/2013
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
 ms.openlocfilehash: 5bb9ee8f758a25afa6baf3ccbaf7d5864754c7df
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113365"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558193"
 ---
 # <a name="breezeknockout-template"></a>Breeze/Knockout şablonu
 
-tarafından [Mads Kristensen](https://github.com/madskristensen)
+[Mads Kristensen](https://github.com/madskristensen) tarafından
 
-> Breeze/Knockout MVC şablonu Atla zil tarafından yazılmıştır.
+> Breeze/altını gizleme MVC şablonu Ward tarafından yazılmıştır
 > 
-> [Breeze/Knockout MVC şablonu indirin](https://go.microsoft.com/fwlink/?LinkId=282649)
+> [Breeze/altını gizleme MVC şablonunu indirin](https://go.microsoft.com/fwlink/?LinkId=282649)
 
-"Tek sayfalı uygulama" çok sayıda öneri aldık (SPA) ve bunun ne olduğunu merak. Bu konuda okuyabilir, ancak, bunun yerine, kendiniz deneyimleyeceği. Ancak, bir örnek yüklemek için süre kimler? Visual Studio kendinizi örneği SPA gerekir ve ASP.NET MVC 4 "Breeze/Knockout tek sayfalı uygulama" şablonu saniye içinde değerinden 60'ı çalıştıran.
+"Tek sayfalı uygulama" (SPA) duydunuz ve ne olduğunu merak etmiş olursunuz. Onunla ilgili bilgi edinebilirsiniz, sizin için bunu sizin için de yaşarsınız. Ancak bir örneği indirmek için zaman zamanı var mı? Visual Studio 'Yu aldıysanız, ASP.NET MVC 4 "Breeze/altını gizleme tek sayfalı uygulama" şablonu ile 60 saniyeden az bir örnek SPA çalıştırıyor ve çalışır.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ZephyrRunning.png)
 
-## <a name="what-is-the-breezeknockout-spa-template"></a>Breeze/Knockout SPA şablonu nedir?
+## <a name="what-is-the-breezeknockout-spa-template"></a>Breeze/altını gizleme SPA şablonu nedir?
 
-Çoğu proje şablonları, bir uygulama çatısı oluşturur. Kod ekleyerek bu kemikler üzerinde beklemiyoruz yerleştirin ve sonunda çalışan bir uygulama sunun. Breeze/Knockout SPA şablon farklıdır. Bu, üzerinde çalışmanız örnek bir uygulama oluşturur. Bu, bir SPA uygulama tasarımı ve birçok bir SPA oluşturmaya yönelik teknikleri gösterir.
+Çoğu proje şablonu bir uygulama iskelet oluşturur. Kodunuzu ekleyerek ve sonunda çalışan bir uygulama sunarak bu kemiklerin üzerine buorsh koyabilirsiniz. Breeze/altını gizleme SPA şablonu farklı. Çalışmanız için örnek bir uygulama oluşturur. SPA uygulama tasarımını ve SPA oluşturma tekniklerinin çoğunu gösterir.
 
-Breeze/Knockout şablonu bir değişim açıktır [SPA KnockoutJS şablonu](../introduction/knockoutjs-template.md) ASP.NET ve Web Araçları 2012.2 güncelleştirme dahil. Breeze SPA şablon aynı kullanıcı deneyimi ile bir uygulama oluşturur, ancak Breeze veri yönetimi için kullanarak, farklı bir uygulama vardır.
+Breeze/altını gizleme şablonu, ASP.NET and Web Tools 2012,2 güncelleştirmesine dahil olan [altını gizleme Koutjs Spa şablonunda](../introduction/knockoutjs-template.md) bulunan bir çeşitçdır. Breeze SPA şablonu, aynı kullanıcı deneyimine sahip bir uygulama oluşturur, ancak veri yönetimi için Breeze kullanılarak farklı bir uygulamaya sahiptir.
 
-SPA KnockoutJS şablonu, basit bir uygulama için yeterli olan ham jQuery, AJAX olan hizmet istekleri yapar. Ancak, daha gelişmiş uygulamalar daha zorlu veri yönetimi gereksinimlerine sahip. Örneğin, çoğu uygulama:
+Altını gizleme Koutjs SPA şablonu, bir basit uygulama için yeterli olan ham jQuery AJAX ile hizmet istekleri yapar. Ancak daha karmaşık uygulamalar daha yoğun veri yönetimi gereksinimlerine sahiptir. Örneğin, çoğu uygulama:
 
-- Sorgulamak ve bir genişletilmiş kullanıcı oturumu sırasında sunucu için yeniden sorgular.
-- Sıralama ve disk belleği sorgu filtreleri ekleyin.
-- Aynı verileri birden çok ekranlar arasında paylaşın.
-- Çok sayıda nesne değişiklikleri accumulate, sonra bunları tek bir işlem olarak kaydedin.
-- Kullanıcı veritabanına değişiklikleri yapmadan önce hataları düzeltmek için istemci üzerindeki değişiklikleri doğrulayın.
+- Genişletilmiş bir Kullanıcı oturumu sırasında sunucuyu sorgulayın ve yeniden sorgulayın.
+- Sorgu filtreleri, sıralama ve sayfalama ekleyin.
+- Aynı verileri birden çok ekranda paylaşabilirsiniz.
+- Değişiklikleri birçok nesneye biriktir ve bunları tek bir işlem olarak kaydedin.
+- Kullanıcının değişiklikleri veritabanına kaydetmeden önce hataları düzeltebilmesi için istemcideki değişiklikleri doğrulayın.
 
-Bu, sizin için en önemli uygulama mantığını ve kullanıcı deneyimini geliştirmek için serbest bırakma BreezeJS kitaplığı işler.
+BreezeJS kitaplığı sizin için bu seçim uygular, en çok bir uygulama mantığı ve Kullanıcı deneyimi geliştirmenize olanak sağlar.
 
-[**Meltem** ](http://www.breezejs.com/?utm_source=ms-spa) zengin veri uygulamalarında JavaScript ve HTML, tür tarihsel olarak tek başına bir masaüstü uygulaması olarak sunulan uygulamalar oluşturmaya yönelik bir açık kaynak kitaplığı.
+[**Breeze**](http://www.breezejs.com/?utm_source=ms-spa) , JAVASCRIPT ve HTML 'de zengin veri uygulamaları oluşturmaya yönelik açık kaynaklı bir kitaplıktır. Bu, geçmişte tek başına masaüstü uygulamaları olarak teslim edilen uygulamalar türleridir.
 
-Breeze/Knockout şablonu daha sağlam bir veri yönetim altyapısı ilk bu önemli adım yararlanmanıza yardımcı olur. Bu, KnockoutJS SPA şablona edilemezler aynı olan örnek bir Todo uygulaması üretir. İç, AJAX veri katmanı Deneyimlerle değiştirir, yan yana iki karşılaştırabilmeniz yaklaşıyor. Elbette, Barındırmamıza uygulama potansiyelini şekilleri ilgilendiriyor. Ancak, Barındırmamıza nasıl çalıştığını görürsünüz ve bu geçiş yapmak için nasıl biraz gereklidir.
+Breeze/altını gizleme şablonu, bu ilk önemli adımı daha sağlam bir veri yönetimi altyapısına almanıza yardımcı olur. Outwardly Koutjs SPA şablonuyla özdeş olan örnek bir ToDo uygulaması oluşturur. İçinde, AJAX veri katmanını Breeze ile değiştirir, böylece iki yaklaşımı yan yana karşılaştırabilirsiniz. Tabii ki, bir Breeze uygulamasının potansiyelini çok dokunur. Ancak, Breeze 'ın nasıl çalıştığını ve bu geçişi yapmak için ne kadar küçük bir süre gerektiğini göreceksiniz.
 
-Haydi başlayalım.
+Başlayalım.
 
-## <a name="create-a-breezeknockout-template-project"></a>Breeze/Knockout şablonu projesi oluşturma
+## <a name="create-a-breezeknockout-template-project"></a>Kreeze/altını gizleme şablonu projesi oluşturma
 
-İndirin ve yukarıdaki indir düğmesine tıklayarak şablonu yükleyin. Şablon, Visual Studio Uzantısı (VSIX) dosyası olarak paketlenir. Visual Studio'yu yeniden başlatmanız gerekebilir.
+Yukarıdaki Indir düğmesine tıklayarak şablonu indirip yükleyin. Şablon, Visual Studio uzantısı (VSıX) dosyası olarak paketlenmiştir. Visual Studio 'Yu yeniden başlatmanız gerekebilir.
 
-İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Projeyi adlandırın ve tıklayın **Tamam**.
+**Şablonlar** bölmesinde, **yüklü şablonlar** ' ı seçin ve **görsel C#**  düğümünü genişletin. **Görsel C#** bölümünde **Web**' i seçin. Proje şablonları listesinde **ASP.NET MVC 4 Web uygulaması**' nı seçin. Projeyi adlandırın ve **Tamam**' a tıklayın.
 
-İçinde **yeni proje** seçin **Breeze Knockout SPA**.
+**Yeni proje** sihirbazında **Breeze gizleme Spa**' yı seçin.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/SelectBreezeKOSpaTemplate.png)
 
-Derleme ve hata ayıklama olmadan uygulamayı çalıştırmak için CTRL-F5 tuşuna basın veya hata ayıklamayla çalıştırmak için F5 tuşuna basın.
+Hata ayıklama olmadan uygulamayı derlemek ve çalıştırmak için CTRL-F5 tuşlarına basın ya da hata ayıklama ile çalıştırmak için F5 'e basın.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ZephyrRunning.png)
 
-Uygulamayı ilk kez çalıştırdığında, oturum açma ekranını görüntüler. "Kaydolma" bağlantısına tıklayın ve yeni bir sayfa görünüme, bir kullanıcı adı ve parola girebileceğiniz glides. (Oturum açma ve kayıt sayfaları ASP.NET MVC kullanılarak oluşturulur.) Kayıt formu gönderdiğinde, sunucu, hesabınız için iki öğeli bir Yapılacaklar listesi oluşturur. Ardından, bunları size sarı bir not üzerinde sunar.
+Uygulama ilk kez çalıştırıldığında, oturum açma ekranını görüntüler. "Kaydolun" bağlantısına ve yeni bir sayfaya göz atmak için bir Kullanıcı adı ve parola girebileceğiniz Görünüm ' e tıklayın. (Oturum açma ve kayıt sayfaları ASP.NET MVC kullanılarak oluşturulur.) Kayıt formunu gönderdiğinizde sunucu, hesabınız için iki öğeyle bir TodoList oluşturur. Daha sonra bunları bir sarı notta size gösterir.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/TodoList.png)
 
-' In kara SPA sunulmuştur. Her şeyi görmek ve istemci Knockout ve Breeze yardımıyla üzerinde yönetilen ve işlenen açıklamada düzenleme deneyimi. Uygulama, bir kullanıcı olarak araştırın... Ancak bir geliştiricinin göz. Ağ trafiğini yakalamak için tarayıcınızda geliştirici araçlarını kullanın. (Internet Explorer'da: F12 tuşuna basın, select **ağ** sekmesine ve tıklayın **Yakalamayı Başlat**.) Şimdi aşağıdakileri deneyin:
+Artık SPA 'nın aratada olursunuz. Todos işleme sırasında gördüğünüz ve deneyimle ilgili her şey, altını gizleme ve Breeze yardımıyla istemcisinde işlenir ve yönetilir. Uygulamayı kullanıcı olarak keşfet... Ancak geliştirici gözle. Ağ trafiğini yakalamak için tarayıcınızda geliştirici araçlarını kullanın. (Internet Explorer 'da: F12 tuşuna basın, ağ sekmesini seçin ve **Yakalamayı Başlat**' **a** tıklayın.) Şimdi şunları deneyin:
 
-- Yeni bir Todo öğesini ekleyin.
-- Etiket tıklayın ve Todo öğesi başlığını Düzenle
-- Öğesi tamamlandı olarak işaretlemek için bir onay kutusunu işaretleyin. Başlığın artık düzenlenemez, bu nedenle, metin kutusu devre dikkat edin.
-- Etiketin sağında 'x' tıklayın. Öğe kaybolur ve veritabanından silinir.
-- Başka bir öğe seçin ve başlığını temizleyin. Başlık gereklidir bir doğrulama hatası alırsınız. Kısa bir duraklamadan sonra önceki başlığı geri yüklenir.
-- Gerçekten uzun bir başlık yazın. Başlık çok uzun farklı bir doğrulama hatası alırsınız.
-- "Yapılacaklar Listesi Ekle" düğmesine tıklayın. Yeni bir liste, önceki listede solunda görünür.
-- TodoList başlık, kendi gerekli tetikleme ve uzunluğu doğrulamaları ile yürütün.
-- Hata iletisi temizlemek için başlığı metin kutusuna tıklayın.
-- Daire TodoList ve kendi açıklamada silmek için sağ üst köşedeki "x"'a tıklayın.
+- Yeni bir Todo öğesi ekleyin.
+- Etikete tıklayın ve Todo öğesi başlığını düzenleyin
+- Öğenin yapıldığını işaretlemek için bir onay kutusu işaretleyin. TextBox 'ın devre dışı bırakıldığına dikkat edin, böylece başlık artık düzenlenebilir olmaz.
+- Etiketin sağındaki ' x ' öğesine tıklayın. Öğe kaybolur ve veritabanından silinir.
+- Başka bir öğe seçin ve başlığını temizleyin. Başlığın gerekli olduğu bir doğrulama hatası alırsınız. Kısa bir duraklama sonrasında, önceki başlık geri yüklenir.
+- Daha dikkatli bir uzun başlık yazın. Başlığın çok uzun olduğu farklı bir doğrulama hatası alırsınız.
+- "Yapılacaklar listesi ekle" düğmesine tıklayın. Önceki listenin solunda yeni bir liste görüntülenir.
+- Gerekli ve uzunluk doğrulamaları tetikleyerek TodoList başlığıyla yürütün.
+- Hata iletisini temizlemek için title metin kutusuna tıklayın.
+- TodoList ve Todos ' ı silmek için sağ üst köşedeki daire içinde "x" simgesine tıklayın.
 
-Doğrulama mantığını Breeze tarafından gerçekleştirilen istemci-tarafı ' dir. Doğrulama öznitelikleri sunucusu model sınıfları istemciye yayılır ve sunucunun istemci irtibata geçmeden önce otomatik olarak yürütülür.
+Doğrulama mantığı, istemci tarafında Breeze tarafından gerçekleştirilir. Sunucu modeli sınıflarında doğrulama öznitelikleri istemciye yayılır ve istemci sunucu ile iletişim kurmadan önce otomatik olarak yürütülür.
 
-Ağ trafiği gözden geçirin. Meltem bir hata algılandığında sunucuya çağrı olduğunu dikkat edin. Geçerli her değişiklik, bir POST isteğinde "/ Todo/API/SaveChanges" sonuçlandı. Meltem değişiklikleri oluşturur ve Web API denetleyicinin birlikte tek bir istek gönderir `SaveChanges` yöntemi. GÖNDERİN ve her öğe için olan istekleri ayrı ayrı silmek yerine getiren KnockoutJS SPA şablondan farklı olmasıdır.
+Ağ trafiğini gözden geçirin. Breeze bir hata algıladığında sunucuya hiçbir çağrı olmadığına dikkat edin. Her geçerli değişiklik, "/api/Todo/SaveChanges" için bir POST isteğiyle sonuçlandı. Breeze, değişiklikleri paketleyip Web API denetleyicisinin `SaveChanges` yöntemine tek bir istek olarak gönderir. Bu, her öğe için ayrı ayrı PUT, POST ve DELETE istekleri yapan altını gizleme Koutjs SPA şablonundan farklıdır.
 
-## <a name="peek-inside"></a>İçinde Özet
+## <a name="peek-inside"></a>İçine göz atın
 
-Bu uygulama, istemci tarafı ve sunucu tarafı sahiptir. Üçüncü taraf JavaScript kitaplıkları ("Komut" klasöründe) artı küçük bir HTML ve uygulama JavaScript modüllerinde ("uygulama" klasöründe) birleşimi, istemci tarafı yığın oluşur.
+Bu uygulamanın bir istemci tarafı ve sunucu tarafı vardır. İstemci tarafı yığını, bir HTML ve uygulama JavaScript modüllerinin ("uygulama" klasöründe) yanı sıra üçüncü taraf JavaScript kitaplıklarının ("betikler" klasöründe) bir birleşiminden oluşur.
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ClientArchitecture.png)
 
-SPA KnockoutJS şablonu araştırılması, bu tanıdık gelecektir. Mavi kutular odaklanın. Model-View-ViewModel (hangi görünümün HTML pencere öğeleri düzgün bir şekilde görünüm modeli destekleyici sunu koddan ayrılmış MVVM), kullanıcı Arabirimi mimaridir. Her işini diğer tutun bilgisi olmadan yapabilir, böylece bir veri bağlama sistemine (Bu durumda Knockout) görünümü ve görünüm modeli düzenler.
+Altını gizleme Koutjs SPA şablonunu araştırdıysanız bu, çok tanıdık görünmelidir. Mavi kutulara odaklanın. Kullanıcı arabirimi mimarisi, görünümün HTML Pencere öğelerinin görünüm-modelindeki destekleyici sunum kodundan düzgün şekilde ayrıldığı Model-View-ViewModel (MVVM) ' dir. Veri bağlama sistemi (Bu durumda altını gizleme), görünümü ve görünüm modelini koordine eder, böylece her biri intimate bilgisi olmadan işini gerçekleştirebilir.
 
-Todo veri modeli kapsüller. Görünümünde pencere öğeleri için doğrudan bağlanabilir şekilde modeli'ndeki varlıkları Knockout gözlemlenebilir özelliklerle Breeze tarafından oluşturulur. Görünüm modeli almak ve modeli varlıklarından kaydetmek için veri bağlamı ister. Veri bağlamı Breeze işin çoğunu atar.
+Model Todo verilerini saklar. Modeldeki varlıklar, altını gizleme observable özellikleriyle Breeze tarafından oluşturulur, bu nedenle doğrudan görünümdeki Pencere öğelerinin içine bağlanabilir. Görünüm modeli, veri bağlamını Model varlıklarını elde etmek ve kaydetmek için sorar. Veri bağlamı çalışmanın çoğunu Breeze olarak devreder.
 
-Sunucu tarafı yığın, bazı Geliştirici kod ve üç ilkesi .NET kitaplıkları oluşur: Web API'si, Entity Framework ve Breeze.NET:
+Sunucu tarafı yığını bazı geliştirici kodları ve üç prensibi .NET kitaplıklarından oluşur: Web API, Entity Framework ve Breeze.NET:
 
 ![](http://www.breezejs.com/sites/all/images/spa-template/ServerArchitecture.png)
 
-Temel mimari SPA KnockoutJS şablonu ile aynıdır. Ancak, uygulama çok daha kolaydır: Dto'lar silindi ve Entity Framework ayrıntılarını çoğu için Breeze.NET vermiş olması gerekir.
+Temel mimari, altını gizleme Koutjs SPA şablonuyla aynıdır. Ancak, uygulama çok daha basittir: DTOs silinmişse ve Entity Framework ayrıntılarının çoğu Breeze.NET için temsilci olarak kaldırılmıştır.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Tarafından destekli kod keşfedin öneririz [kapsamlı tartışma](http://www.breezejs.com/spa-template?utm_source=ms-spa) hem istemci hem de sunucu yığınları Breeze Web sitesinde.
+Breeze Web sitesinde hem istemci hem de sunucu yığınları hakkında [kapsamlı tartışmayla](http://www.breezejs.com/spa-template?utm_source=ms-spa) Kılavuzlu kodu araştırmanızı öneririz.
 
-Meltem istemci-tarafı sorgu yürütmeyi deneyebilirsiniz; Bazı filtreleri ve sıralamayı ekleyin. Daha fazla model özellikleri ve uçtan uca SPA geliştirme için daha iyi bir genel görünüm almak için daha fazla varlık ekleyebilirsiniz. Tasarımını olduğunuzda Todo özellikleri ayırma ve bunları kendi değerlerinizle değiştirin.
+İstemci tarafı sorgusuyla Breeze ile yürütmeyi deneyebilirsiniz; bazı filtreler ve sıralamalar ekleyin. Uçtan uca SPA geliştirmesi için daha iyi bir fikir almak üzere daha fazla model özelliği ve daha varlık ekleyebilirsiniz. Tasarımın bir sahibiyseniz, Todo özelliklerini ve bunları kendi kendinize yerleştirebilirsiniz.
 
-Hemen bir sonraki büyük adım için hazır olacaksınız: İstemci tarafı ekranları ekleme ve aralarında gezinme. Bu SPA şablon gerisine bırakmak ve daha eksiksiz bir SPA yığınına gibi kapatma [John Papa'nın Hot Towel](https://github.com/johnpapa/HotTowel#readme "Hot Towel"), Barındırmamıza ve Knockout Karışıma Durandal ekler.
+Yakında bir sonraki Big Step: istemci tarafı ekranları ekleme ve bunlar arasında gezinme. Bu SPA şablonunu arka planda bırakarak [John Papa 'nın](https://github.com/johnpapa/HotTowel#readme "Etkin simgesi"), Breeze ve altını gizleme karışımına Durandal ekleyen bir daha fazla spa yığınına geçiş yapabilirsiniz.

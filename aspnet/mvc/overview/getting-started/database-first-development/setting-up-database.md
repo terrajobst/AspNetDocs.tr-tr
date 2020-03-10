@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
-title: 'Öğretici: EF veritabanı MVC 5 kullanarak First ile çalışmaya başlama'
-description: Bu öğreticide, başlama mevcut bir veritabanı ve hızlı bir şekilde kullanıcıların verilerle etkileşime olanak sağlayan bir web uygulaması oluşturma gösterilmektedir.
+title: 'Öğretici: MVC 5 kullanarak EF ile çalışmaya başlama Database First'
+description: Bu öğretici, mevcut bir veritabanıyla nasıl başlayacağınızı ve kullanıcıların verilerle etkileşime geçmesini sağlayan bir Web uygulamasını hızlıca oluşturmayı gösterir.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/15/2019
@@ -10,94 +10,94 @@ ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
 ms.openlocfilehash: a760767839a834a9c7e9fe358a3fd806a833261f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121171"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583526"
 ---
-# <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Öğretici: EF veritabanı MVC 5 kullanarak First ile çalışmaya başlama
+# <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Öğretici: MVC 5 kullanarak EF ile çalışmaya başlama Database First
 
-MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir. Serisinin son bölümünde, şunların nasıl doğrulama gereksinimlerini belirtin ve biçimlendirme görüntülemek için veri modeline veri ek açıklamalarını ekleyin. İşiniz bittiğinde, bir .NET uygulaması ve SQL veritabanı, Azure App Service'e dağıtma hakkında bilgi edinmek için bir Azure makaleye ilerletebilirsiniz.
+MVC, Entity Framework ve ASP.NET Scafkatı kullanarak var olan bir veritabanına arabirim sağlayan bir Web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, kullanıcıların bir veritabanı tablosunda yer alan verileri görüntülemesini, düzenlemesini, oluşturmasını ve silmesini sağlayan nasıl otomatik olarak kod üretileyeceğiniz gösterilmektedir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir. Serinin son bölümünde, doğrulama gereksinimlerini belirtmek ve biçimlendirmeyi göstermek için veri modeline veri açıklamalarını ekleme hakkında bilgi edineceksiniz. İşiniz bittiğinde, Azure App Service için bir .NET uygulaması ve SQL veritabanı dağıtmayı öğrenmek üzere bir Azure makalesine ilerleyebilirsiniz.
 
-Bu öğreticide, başlama mevcut bir veritabanı ve hızlı bir şekilde kullanıcıların verilerle etkileşime olanak sağlayan bir web uygulaması oluşturma gösterilmektedir. Bu Entity Framework 6 ve MVC 5 web uygulaması oluşturmak için kullanır. ASP.NET iskeleti oluşturma özelliği, görüntülemek, güncelleştirmek, oluşturmak ve verileri silme kod otomatik olarak oluşturmanıza olanak sağlar. Visual Studio'dan yayımlama araçları kullanarak, kolayca sitenizi ve veritabanınızı Azure'a dağıtabilirsiniz.
+Bu öğretici, mevcut bir veritabanıyla nasıl başlayacağınızı ve kullanıcıların verilerle etkileşime geçmesini sağlayan bir Web uygulamasını hızlıca oluşturmayı gösterir. Web uygulamasını derlemek için 6 ve MVC 5 Entity Framework kullanır. ASP.NET Scafkatlama özelliği, verileri görüntülemek, güncelleştirmek, oluşturmak ve silmek için otomatik olarak kod üretmenizi sağlar. Visual Studio 'da yayımlama araçlarını kullanarak, siteyi ve veritabanını kolayca Azure 'a dağıtabilirsiniz.
 
-Bu serinin veritabanı oluşturma ve verilerle doldurma odaklanır.
+Serinin bu bölümü, veritabanı oluşturmaya ve verilerle doldurmaya odaklanır.
 
-Bu seri, Tom Dykstra ve Rick Anderson katkılar ile yazılmıştır. Bu temel kullanıcıların yorumlar bölümünde geri bildirim üzerinde geliştirildi.
+Bu seri, Tom Dykstra ve Rick Anderson ' den katkılarla yazılmıştır. Yorumlar bölümünde kullanıcılardan gelen geri bildirimlere göre geliştirilmiştir.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Veritabanı ayarlama
+> * Veritabanını ayarlama
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="set-up-the-database"></a>Veritabanı ayarlama
+## <a name="set-up-the-database"></a>Veritabanını ayarlama
 
-Mevcut bir veritabanına sahip olmanın ortamınızın benzetimini yapmak için önce önceden doldurulmuş bazı verilerle bir veritabanı oluşturun ve ardından veritabanına bağlanan web uygulamanızı oluşturma.
+Var olan bir veritabanına sahip olma ortamını taklit etmek için, önce önceden doldurulan bazı verileri içeren bir veritabanı oluşturun ve sonra veritabanına bağlanan Web uygulamanızı oluşturun.
 
-Bu öğreticide, LocalDB ile Visual Studio 2017 kullanılarak geliştirilmiştir. LocalDB yerine mevcut bir veritabanı sunucusunu kullanabilirsiniz, ancak Visual Studio ve veritabanı türüne, sürümüne bağlı olarak, tüm Visual Studio veri Araçları'nın desteklenmiyor. Araçları, veritabanı için mevcut değilse, veritabanınız için bazı yönetim paketi içinde veritabanı özgü adımlarını gerçekleştirmek gerekebilir.
+Bu öğretici, Visual Studio 2017 ile LocalDB kullanılarak geliştirilmiştir. LocalDB yerine var olan bir veritabanı sunucusunu kullanabilirsiniz, ancak Visual Studio sürümünüze ve veritabanı türüne bağlı olarak, Visual Studio 'daki tüm veri araçları desteklenmeyebilir. Araçlar veritabanınız için kullanılabilir değilse, veritabanınızın yönetim paketi içindeki bazı veritabanına özgü adımlardan bazılarını gerçekleştirmeniz gerekebilir.
 
-Visual Studio sürümünde veritabanı araçları ile ilgili bir sorun varsa, Veritabanı Araçları'nın en son sürümünü yüklediğinizden emin olun. Güncelleştirme veya veritabanı araçlarını yükleme hakkında daha fazla bilgi için bkz: [Microsoft SQL Server veri Araçları](https://msdn.microsoft.com/data/hh297027).
+Visual Studio sürümünüzde veritabanı araçlarıyla ilgili bir sorununuz varsa, veritabanı araçlarının en son sürümünü yüklediğinizden emin olun. Veritabanı araçları 'nı güncelleştirme veya yükleme hakkında bilgi için bkz. [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 
-Visual Studio'yu başlatın ve oluşturma bir **SQL Server veritabanı projesi**. Projeyi adlandırın **ContosoUniversityData**.
+Visual Studio 'Yu başlatın ve bir **SQL Server veritabanı projesi**oluşturun. Projeyi **Contososıtydata**olarak adlandırın.
 
-![veritabanı projesi oluşturun](setting-up-database/_static/image1.png)
+![veritabanı projesi oluştur](setting-up-database/_static/image1.png)
 
-Artık bir boş veritabanı projesi vardır. Bu veritabanı Azure'e dağıtabildiğiniz emin olmak için Azure SQL veritabanı projesi için hedef platform olarak ayarlarsınız. Hedef platform ayarlama, veritabanı gerçekten dağıtmayan; Bu, yalnızca veritabanı projesini veritabanı tasarımı hedef platform ile uyumlu olduğunu doğrular anlamına gelir. Hedef platform ayarlamak için açın **özellikleri** seçin ve proje için **Microsoft Azure SQL veritabanı** hedef platformu için.
+Artık boş bir veritabanı projeniz var. Bu veritabanını Azure 'a dağıtabilmeniz için, Azure SQL veritabanı 'nı projenin hedef platformu olarak ayarlarsınız. Hedef platformun ayarlanması aslında veritabanını dağıtmaz; yalnızca veritabanı projesinin hedef platformla uyumlu olduğunu doğrulayacağı anlamına gelir. Hedef platformu ayarlamak için, projenin **özelliklerini** açın ve hedef platform için **Microsoft Azure SQL veritabanı** seçin.
 
-Tabloları tanımlama SQL komut dosyaları ekleyerek Bu öğretici için gerekli olan tablolar oluşturabilirsiniz. Projenize sağ tıklayın ve yeni bir öğe ekleyin. Seçin **tabloları ve görünümleri** > **tablo** ve adlandırın *Öğrenci*.
+Tabloları tanımlayan SQL betikleri ekleyerek, bu öğretici için gereken tabloları oluşturabilirsiniz. Projenize sağ tıklayın ve yeni bir öğe ekleyin. **Tablolar ve görünümler** > **tablosu** seçin ve *öğrenci*olarak adlandırın.
 
-Tablo dosyasında T-SQL komutu tablo oluşturmak için aşağıdaki kod ile değiştirin.
+Tablo dosyasında, tabloyu oluşturmak için T-SQL komutunu aşağıdaki kodla değiştirin.
 
 [!code-sql[Main](setting-up-database/samples/sample1.sql)]
 
-Tasarım penceresinde kod ile otomatik olarak eşitler dikkat edin. Kod veya Tasarımcısı ile çalışabilirsiniz.
+Tasarım penceresinin kodla otomatik olarak eşitlendiğine dikkat edin. Kod ya da tasarımcı ile çalışabilirsiniz.
 
-![kod ve tasarımının Göster](setting-up-database/_static/image5.png)
+![kodu ve tasarımı göster](setting-up-database/_static/image5.png)
 
-Başka bir tablo ekleyin. Bu kez, kurs adlandırın ve aşağıdaki T-SQL komutunu kullanın.
+Başka bir tablo ekleyin. Bu kez kurs yapın ve aşağıdaki T-SQL komutunu kullanın.
 
 [!code-sql[Main](setting-up-database/samples/sample2.sql)]
 
-Ayrıca, kayıt adında bir tablo oluşturmak için bir kez daha yineleyin.
+Ve kayıt adlı bir tablo oluşturmak için bir kez daha tekrarlayın.
 
 [!code-sql[Main](setting-up-database/samples/sample3.sql)]
 
-Veritabanınızı veritabanı dağıtıldıktan sonra çalıştırılacak bir komut dosyası aracılığıyla verilerle doldurabilirsiniz. Dağıtım sonrası komut dosyası projeye ekleyin. Projenize sağ tıklayın ve yeni bir öğe ekleyin. Seçin **kullanıcı betikleri** > **dağıtım sonrası betiği**. Varsayılan adı kullanabilirsiniz.
+Veritabanınızı, veritabanı dağıtıldıktan sonra çalıştırılan bir betik aracılığıyla verilerle doldurabilirsiniz. Projeye bir dağıtım sonrası betiği ekleyin. Projenize sağ tıklayın ve yeni bir öğe ekleyin. **Dağıtım sonrası betiği** > **Kullanıcı betikleri** ' ni seçin. Varsayılan adı kullanabilirsiniz.
 
-Dağıtım sonrası betiği aşağıdaki T-SQL kodu ekleyin. Eşleşen bir kaydı bulunduğunda bu betik yalnızca veritabanına veri ekler. Üzerine değil veya veritabanına girilir tüm verileri silebilirsiniz.
+Dağıtım sonrası betiğine aşağıdaki T-SQL kodunu ekleyin. Bu betik, eşleşen bir kayıt bulunduğunda veritabanına veri ekler. Veritabanına girmiş olduğunuz herhangi bir veriyi üzerine yazmaz veya silmez.
 
 [!code-sql[Main](setting-up-database/samples/sample4.sql)]
 
-Veritabanı projenizde dağıttığınız her zaman dağıtım sonrası betiği çalıştırılır dikkat edin önemlidir. Bu nedenle, gereksinimlerinizi bu betik yazarken dikkatli bir şekilde göz önünde bulundurmanız gerekir. Bazı durumlarda, projeyi dağıtılan her zaman bilinen bir veri kümesinden başlamak isteyebilirsiniz. Diğer durumlarda, var olan verilere herhangi bir şekilde alter istemeyebilirsiniz. Gereksinimlerinize göre bir dağıtım sonrası komut dosyası veya betik eklemek gerekenler ihtiyacınız karar verebilirsiniz. Uygulamanızın bir dağıtım sonrası betiği veritabanıyla doldurma hakkında daha fazla bilgi için bkz. [dahil olmak üzere verileri bir SQL Server veritabanı projesi](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx).
+Veritabanı projenizi her dağıttığınızda dağıtım sonrası komut dosyasının çalıştırıldığını unutmayın. Bu nedenle, bu betiği yazarken gereksinimlerinize dikkatlice göz önüne almanız gerekir. Bazı durumlarda, projenin her dağıtılışında bilinen bir veri kümesinden baştan başlamak isteyebilirsiniz. Diğer durumlarda, mevcut verileri dilediğiniz şekilde değiştirmek istemeyebilirsiniz. Gereksinimlerinize bağlı olarak, dağıtım sonrası bir betik veya betiğe dahil etmek için gerekenler hakkında karar verebilirsiniz. Veritabanınızı bir dağıtım sonrası betiği ile doldurma hakkında daha fazla bilgi için, [SQL Server veritabanı projesine veri ekleme](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx)bölümüne bakın.
 
-Artık 4 SQL komut dosyaları ancak gerçek tablo vardır. Yerel veritabanına, veritabanı projenizi dağıtmaya hazırsınız. Visual Studio'da oluşturmak ve veritabanı projenizi dağıtmak için Başlat düğmesine (veya F5) tıklayın. Denetleme **çıkış** derleme ve dağıtım başarılı olduğunu doğrulamak için sekmesinde.
+Artık 4 SQL betik dosyasına sahipsiniz ancak gerçek tablo yok. Veritabanı projenizi LocalDB 'ye dağıtmaya hazırlanıyor. Visual Studio 'da, veritabanı projenizi derlemek ve dağıtmak için Başlat düğmesine (veya F5) tıklayın. Derleme ve dağıtımın başarılı olduğunu doğrulamak için **Çıkış** sekmesini kontrol edin.
 
-Yeni veritabanı oluşturulduğunu görmek için **SQL Server Nesne Gezgini** ve doğru yerel veritabanı sunucusundaki projesinin adını bulun (Bu durumda **(localdb) \ProjectsV13**).
+Yeni veritabanının oluşturulduğunu görmek için **SQL Server Nesne Gezgini** açın ve projenin adını doğru yerel veritabanı sunucusunda (Bu durumda **(LocalDB) \ProjectsV13**) arayın.
 
-Tabloları verilerle doldurulmuş olduğunu görmek için tabloyu sağ tıklatın ve seçin **görünüm verilerini**.
+Tabloların verilerle doldurulduğunu görmek için bir tabloya sağ tıklayın ve **verileri görüntüle**' yi seçin.
 
-![tablo verilerini Göster](setting-up-database/_static/image9.png)
+![tablo verilerini göster](setting-up-database/_static/image9.png)
 
-Tablo verilerini düzenlenebilir bir görünümü görüntülenir. Örneğin, **tabloları** > **dbo.course** > **görünüm verilerini**, üç sütun içeren bir tablo görürsünüz (**Kurs**, **Başlık**, ve **KREDİLERİ**) ve dört satır.
+Tablo verilerinin düzenlenebilir bir görünümü görüntülenir. Örneğin, **tablo** > **dbo. kurs** > **verileri görüntüle**' yi seçerseniz, üç sütunlu (**Kurs**, **başlık**ve **krediler**) ve dört satır içeren bir tablo görürsünüz.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Code First geliştirmeye giriş örneği için bkz: [ASP.NET MVC 5 ile çalışmaya başlama](../introduction/getting-started.md). Daha gelişmiş bir örnek için bkz: [ASP.NET MVC 4 uygulaması için bir Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+Code First geliştirmenin açıklayıcı bir örneği için bkz. [ASP.NET MVC 5 Ile çalışmaya](../introduction/getting-started.md)başlama. Daha gelişmiş bir örnek için bkz. [ASP.NET MVC 4 uygulaması için Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
-Kullanmak için hangi Entity Framework yaklaşım seçme konusunda yönergeler için bkz [Entity Framework Geliştirme yaklaşımları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
+Hangi Entity Framework yaklaşımın kullanılacağını seçme kılavuzu için, bkz. [Entity Framework geliştirme yaklaşımları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Veritabanı ayarlama
+> * Veritabanını ayarlama
 
-Web uygulama ve veri modelleri oluşturma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Web uygulaması ve veri modelleri oluşturmayı öğrenmek için bir sonraki öğreticiye ilerleyin.
 > [!div class="nextstepaction"]
-> [Web uygulama ve veri modelleri oluşturma](creating-the-web-application.md)
+> [Web uygulaması ve veri modellerini oluşturma](creating-the-web-application.md)

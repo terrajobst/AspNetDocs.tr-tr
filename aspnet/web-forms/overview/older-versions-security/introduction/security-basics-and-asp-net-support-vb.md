@@ -9,11 +9,11 @@ ms.assetid: ab68a92b-fc81-40a4-a7dc-406625d2c5d4
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 99e986013cb5a923ddb150022013e3a75852ce55
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621628"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575343"
 ---
 # <a name="security-basics-and-aspnet-support-vb"></a>Temel Güvenlik Kavramları ve ASP.NET Desteği (VB)
 
@@ -67,7 +67,7 @@ Tarayıcılar, varsayılan olarak herhangi bir tanımlama bilgisi sıralaması o
 
 Windows kimlik doğrulama iş akışı aşağıdaki kimlik doğrulama tekniklerinden birini kullanır:
 
-- Temel kimlik doğrulaması
+- Temel kimlik doğrulama
 - Özet kimlik doğrulaması
 - Windows Tümleşik Kimlik Doğrulaması
 
@@ -156,7 +156,7 @@ Kullanıcı hesaplarını destekleyen tüm Web uygulamaları, gibi benzer özell
 
 Sonraki birkaç öğreticilerde, bir adım adım izleyerek çalışan bir Web uygulamasını baştan sona oluşturarak bu yönleri inceleyeceğiz. Sonraki iki öğreticide, Forms kimlik doğrulamasını ayrıntılı olarak keşfedecektir. Forms kimlik doğrulaması iş akışını çalışırken, Forms kimlik doğrulama biletini dissect, güvenlik sorunlarını tartışacak ve ziyaretçilerin oturum açmasını ve oturumu açmasını sağlayan bir Web uygulaması oluştururken Forms kimlik doğrulaması sisteminin nasıl yapılandırılacağını görürsünüz.
 
-Happy Programming!
+Programlamanın kutlu olsun!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
@@ -174,13 +174,13 @@ Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdak
 - [Professional ASP.NET 2,0 güvenlik, üyelik ve rol yönetimi](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ısbn: 978-0-7645-9698-8)
 - [Sağlayıcı araç seti](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
-## <a name="about-the-author"></a>About the Author
+## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), author of seven ASP/ASP.NET books and founder of [4GuysFromRolla.com](http://www.4guysfromrolla.com), has been working with Microsoft Web technologies since 1998. Scott works as an independent consultant, trainer, and writer. His latest book is [*Sams Teach Yourself ASP.NET 2.0 in 24 Hours*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He can be reached at [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) or via his blog, which can be found at [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Special Thanks To
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-This tutorial series was reviewed by many helpful reviewers. Bu öğretici için müşteri adayı gözden geçireni, bu öğretici serisinin birçok yararlı gözden geçiren tarafından incelendi. Bu öğreticide lider gözden geçirenler, Alicja Maziarz, John suru ve Teresa Murphy ' i içerir. Interested in reviewing my upcoming MSDN articles? If so, drop me a line at [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğretici için müşteri adayı gözden geçireni, bu öğretici serisinin birçok yararlı gözden geçiren tarafından incelendi. Bu öğreticide lider gözden geçirenler, Alicja Maziarz, John suru ve Teresa Murphy ' i içerir. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](forms-authentication-configuration-and-advanced-topics-cs.md)

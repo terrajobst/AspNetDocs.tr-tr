@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'Öğretici: Bir ASP.NET MVC uygulamasında EF ile zaman uyumsuz ve saklı yordamlar kullanma'
-description: Bu öğreticide, zaman uyumsuz programlama modeli uygulamak ve saklı yordamlar kullanma konusunda bilgi almak nasıl görürsünüz.
+title: 'Öğretici: bir ASP.NET MVC uygulamasında EF ile zaman uyumsuz ve saklı yordamlar kullanın'
+description: Bu öğreticide, zaman uyumsuz programlama modelini uygulamayı ve saklı yordamları nasıl kullanacağınızı öğreneceksiniz.
 author: tdykstra
 ms.author: riande
 ms.date: 01/18/2019
@@ -10,158 +10,158 @@ ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 5612f2f25d06feb904a205505ed8f048d2263266
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67410936"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583442"
 ---
-# <a name="tutorial-use-async-and-stored-procedures-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: Bir ASP.NET MVC uygulamasında EF ile zaman uyumsuz ve saklı yordamlar kullanma
+# <a name="tutorial-use-async-and-stored-procedures-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: bir ASP.NET MVC uygulamasında EF ile zaman uyumsuz ve saklı yordamlar kullanın
 
-Önceki öğreticilerde okumasına ve güncelleştirmesine eşzamanlı programlama modeli kullanarak verileri öğrendiniz. Bu öğreticide, zaman uyumsuz programlama modeli nasıl göreceksiniz. Zaman uyumsuz kod, uygulamanın daha iyi server kaynakları kullanmayı kolaylaştırdığından daha iyi performans yardımcı olabilir.
+Önceki öğreticilerde, zaman uyumlu programlama modelini kullanarak verileri okuma ve güncelleştirme hakkında bilgi edinirsiniz. Bu öğreticide, zaman uyumsuz programlama modelinin nasıl uygulanacağını görürsünüz. Zaman uyumsuz kod, sunucu kaynaklarını daha iyi kullandığından, uygulamanın daha iyi performans sağlanmasına yardımcı olabilir.
 
-Bu öğreticide ekleme, güncelleştirme ve silme işlemleri bir varlıkta saklı yordamlar kullanma de görebilirsiniz.
+Bu öğreticide, bir varlıkta ekleme, güncelleştirme ve silme işlemleri için saklı yordamları nasıl kullanacağınızı da görürsünüz.
 
-Son olarak, uygulamayı azure'a tüm dağıttıysanız bu yana ilk kez uyguladık veritabanı değişikliklerinin yanı sıra yeniden dağıtın.
+Son olarak, uygulamayı Azure 'a yeniden dağıtırsınız ve ilk kez dağıttığınız zamandan beri uyguladığınız tüm veritabanı değişiklikleri vardır.
 
-Aşağıdaki çizimler ile çalışma sayfaları bazılarını göstermektedir.
+Aşağıdaki çizimlerde, üzerinde çalıştığınız sayfaların bazıları gösterilmektedir.
 
-![Departmanlar Sayfası](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+![Departmanlar sayfası](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
-![Bölüm oluşturma](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+![Departman oluşturma](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * Zaman uyumsuz kod hakkında bilgi edinin
-> * Bir bölüm denetleyicisi oluşturun
-> * Saklı yordamlar kullanma
+> * Departman denetleyicisi oluşturma
+> * Saklı yordamları kullanma
 > * Azure’a dağıtma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [İlgili Verileri Güncelleştirme](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
-## <a name="why-use-asynchronous-code"></a>Zaman uyumsuz kodu neden kullanın
+## <a name="why-use-asynchronous-code"></a>Neden zaman uyumsuz kod kullanılmalıdır?
 
-Sınırlı sayıda iş parçacığı kullanılabilir bir web sunucusuna sahip ve yüksek yük durumlarda tüm kullanılabilir iş parçacıklarının kullanımda olabilir. Bu durum oluştuğunda, sunucunun iş parçacıklarının serbest bırakılana kadar yeni istekleri işleyemiyor. G/ç tamamlanması bekleniyor çünkü bunlar herhangi bir iş gerçekten yapmamanız sırasında eş zamanlı kod ile birçok iş parçacığı bağlanması. İşlemi tamamlamak, g/ç için beklerken zaman uyumsuz kod ile diğer istekleri işlemek için kullanılacak sunucuyu için kendi iş parçacığı serbest bırakılır. Sonuç olarak, zaman uyumsuz kod, sunucu kaynaklarını daha verimli bir şekilde kullanmasına ve sunucu gecikmeler olmadan daha fazla trafik işlemek için etkin olmasını sağlar.
+Sınırlı sayıda iş parçacığı kullanılabilir bir web sunucusuna sahip ve yüksek yük durumlarda tüm kullanılabilir iş parçacıklarının kullanımda olabilir. Bu durum oluştuğunda, sunucunun iş parçacıklarının serbest bırakılana kadar yeni istekleri işleyemiyor. G/ç tamamlanması bekleniyor çünkü bunlar herhangi bir iş gerçekten yapmamanız sırasında eş zamanlı kod ile birçok iş parçacığı bağlanması. İşlemi tamamlamak, g/ç için beklerken zaman uyumsuz kod ile diğer istekleri işlemek için kullanılacak sunucuyu için kendi iş parçacığı serbest bırakılır. Sonuç olarak, zaman uyumsuz kod sunucu kaynaklarının daha verimli bir şekilde kullanılmasını ve sunucunun gecikmeler olmadan daha fazla trafiği işlemesini sağlar.
 
-.NET önceki sürümlerinde, yazma ve zaman uyumsuz kod test karmaşık, hata yapmaya açık ve hata ayıklamak sabit. .NET 4.5 içinde yazma, test ve zaman uyumsuz kod hata ayıklama için bir nedeniniz yoksa zaman uyumsuz kod genellikle yazmalısınız çok daha kolay olur. Zaman uyumsuz kod az miktarda bir ek yükü sağladıkları gerektirmez, ancak olası performans artışını uğradığı performans düşüşünü yüksek trafik durumlar için göz ardı edilebilir, çalışırken, düşük trafiğe durumlar için önemli.
+.NET 'in önceki sürümlerinde, zaman uyumsuz kodu yazma ve test etme karmaşık, hataya açık ve hata ayıklama zor idi. .NET 4,5 ' de, zaman uyumsuz kodu yazma, test etme ve hata ayıklama gibi bir nedeniniz olmadığı takdirde genellikle zaman uyumsuz kod yazmanız çok daha kolay olur. Zaman uyumsuz kod, az miktarda yük getirir, ancak düşük trafik durumlarında performans artışı göz ardı edilebilir, ancak yüksek trafik durumları için olası performans iyileştirmesi oldukça önemlidir.
 
-Zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [çağrıları engellemekten kaçınacak şekilde kullanım .NET 4.5'ın zaman uyumsuz Destek](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices.md#async).
+Zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [çağrı engellemeyi önlemek için .NET 4.5 'in zaman uyumsuz desteğini kullanma](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices.md#async).
 
 ## <a name="create-department-controller"></a>Departman denetleyicisi oluşturma
 
-Bu süre dışında önceki denetleyicileri yaptığınız gibi seçin bir bölümü denetleyicisi oluşturmak **zaman uyumsuz denetleyici eylemlerini kullanmak** onay kutusu.
+Daha önceki denetleyicilerle aynı şekilde bir departman denetleyicisi oluşturun, bu süre dışında **zaman uyumsuz denetleyici eylemlerini kullan** onay kutusunu seçin.
 
-Ne zaman uyumlu koda eklenmiş olan aşağıdaki önemli özelliklerle Göster `Index` yöntemini zaman uyumsuz sağlamak için:
+Aşağıdaki önemli noktalar, zaman uyumsuz hale getirmek için `Index` yöntemi için zaman uyumlu koda nelerin eklendiğini gösterir:
 
 [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=1,4)]
 
-Zaman uyumsuz olarak yürütmek Entity Framework veritabanı sorgusu etkinleştirmek için dört değişiklikleri uygulandı:
+Entity Framework veritabanı sorgusunun zaman uyumsuz olarak yürütülmesine olanak tanımak için dört değişiklik uygulandı:
 
-- Yöntem ile işaretlenmiş `async` derleyiciye geri çağırmaları yöntem gövdesini bölümleri için oluşturulacak ve otomatik olarak oluşturmak için anahtar sözcüğü `Task<ActionResult>` döndürülen nesne.
-- Dönüş türü değiştirildi `ActionResult` için `Task<ActionResult>`. `Task<T>` Türünü temsil eden bir sonuç türü ile devam eden çalışma `T`.
-- `await` Anahtar sözcüğü, web hizmeti çağrısı uygulandı. Derleyici bu anahtar sözcük gördüğünde arka planda bu yöntemin iki bölüme ayırır. İlk bölüm ile zaman uyumsuz olarak başlatıldığında işlemi sonlandırır. İkinci bölümü, işlemi tamamlandıktan sonra çağrılan bir geri çağırma yöntemi yerleştirilir.
-- Zaman uyumsuz sürümü `ToList` genişletme yöntemi çağrıldı.
+- Yöntemi, derleyicinin Yöntem gövdesinin bölümlerine geri çağrılar oluşturmasını ve döndürülen `Task<ActionResult>` nesnesini otomatik olarak oluşturmasını bildiren `async` anahtar sözcüğüyle işaretlenir.
+- Dönüş türü, `ActionResult` `Task<ActionResult>`olarak değiştirildi. `Task<T>` türü, `T`türünde bir sonuçla devam eden işi temsil eder.
+- `await` anahtar sözcüğü Web hizmeti çağrısına uygulandı. Derleyici bu anahtar sözcüğü gördüğünde, arka planda yöntemi iki parçaya böler. İlk bölüm, zaman uyumsuz olarak başlatılan işlemle biter. İkinci bölüm, işlem tamamlandığında çağrılan bir geri çağırma yöntemine konur.
+- `ToList` uzantısı yönteminin zaman uyumsuz sürümü çağrıldı.
 
-Neden olduğu `departments.ToList` deyimi değiştirilmiş ancak `departments = db.Departments` deyimi? Sorguları veya veritabanına gönderilecek komutları neden deyimleri zaman uyumsuz olarak yürütülür nedenidir. `departments = db.Departments` Sorgu deyimi ayarlar ancak sorgu kadar yürütülmez `ToList` yöntemi çağrılır. Bu nedenle, yalnızca `ToList` yöntemi zaman uyumsuz olarak yürütülür.
+`departments.ToList` deyimleri neden değiştirildi, ancak `departments = db.Departments` deyimleri değil mi? Bu nedenle, yalnızca sorgu veya komutların veritabanına gönderilmesine neden olan deyimler zaman uyumsuz olarak yürütülür. `departments = db.Departments` ifade bir sorgu ayarlıyor, ancak `ToList` yöntemi çağrılana kadar sorgu yürütülmez. Bu nedenle, yalnızca `ToList` yöntemi zaman uyumsuz olarak yürütülür.
 
-İçinde `Details` yöntemi ve `HttpGet` `Edit` ve `Delete` yöntemleri `Find` , zaman uyumsuz olarak yürütülen yöntemi, bu nedenle veritabanına gönderilmek üzere bir sorgu neden olan bir yöntemdir:
+`Details` yönteminde ve `HttpGet` `Edit` ve `Delete` yöntemlerinde, `Find` yöntemi bir sorgunun veritabanına gönderilmesine neden olan bir yöntemdir, böylece zaman uyumsuz olarak yürütülen yöntem olur:
 
 [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs?highlight=7)]
 
-İçinde `Create`, `HttpPost Edit`, ve `DeleteConfirmed` yöntemleri olduğu `SaveChanges` yürütülecek bir komut neden olan yöntem çağrısı, gibi deyimler `db.Departments.Add(department)` yalnızca neden varlıkları bellekte değiştirilecek.
+`Create`, `HttpPost Edit`ve `DeleteConfirmed` yöntemlerinde, bu, yalnızca bellekte bulunan varlıkların değiştirilmesine neden olan `db.Departments.Add(department)` gibi deyimler değil, bir komutun yürütülmesine neden olan `SaveChanges` yöntem çağrıdır.
 
 [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs?highlight=6)]
 
-Açık *Views\Department\Index.cshtml*, şablonu kodu aşağıdaki kodla değiştirin:
+*Views\Department\Index.cshtml*'i açın ve şablon kodunu şu kodla değiştirin:
 
 [!code-cshtml[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cshtml?highlight=3,5,20-22,36-38)]
 
-Bu kod başlığı dizinden Departmanlar için değişiklikleri yönetici adı sağa taşır ve yöneticinin tam adı sağlar.
+Bu kod, başlığı dizinden departmanlar olarak değiştirir, yönetici adını sağa taşımakta ve yöneticinin tam adını sağlar.
 
-Oluşturma, silme, Ayrıntılar ve düzenleme görünümleri, başlığını değiştirme `InstructorID` "Yönetici" değiştirdiğiniz departmanı ad alanı "Departman" için kursu görünümlerinde aynı şekilde alanı.
+Oluşturma, silme, Ayrıntılar ve düzenleme görünümlerinde, `InstructorID` alanının başlığını, Bölüm adı alanını kurs görünümlerinde "Departman" olarak değiştirdiğiniz şekilde "Yönetici" olarak değiştirin.
 
-Oluşturma ve düzenleme görünümleri aşağıdaki kodu kullanın:
+Oluşturma ve düzenleme görünümlerinde aşağıdaki kodu kullanın:
 
 [!code-cshtml[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cshtml)]
 
-Silme ve ayrıntıları görünümlerinde aşağıdaki kodu kullanın:
+Silme ve Ayrıntılar görünümlerinde aşağıdaki kodu kullanın:
 
 [!code-cshtml[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cshtml)]
 
-Uygulamayı çalıştırın ve **Departmanlar** sekmesi.
+Uygulamayı çalıştırın ve **Departmanlar** sekmesine tıklayın.
 
-Her şey aynı diğer denetleyicilerin olduğu gibi çalışır, ancak bu denetleyicide tüm SQL sorguları zaman uyumsuz olarak yürütülen.
+Her şey diğer denetleyicilerle aynı şekilde çalışıyor, ancak bu denetleyicide tüm SQL sorguları zaman uyumsuz olarak yürütülüyor.
 
-Zaman uyumsuz programlama Entity Framework ile kullandığınızda dikkat edilecek bazı noktalar:
+Entity Framework zaman uyumsuz programlama kullanırken dikkat etmeniz gereken bazı şeyler:
 
-- Zaman uyumsuz kod, iş parçacığı güvenli değildir. Diğer bir deyişle, diğer bir deyişle, aynı bağlam örneğini kullanarak işlemi paralel olarak birden çok işlem yapmak çalışmayın.
-- Zaman uyumsuz kodun performans avantajlarından yararlanmak istiyorsanız herhangi bir kitaplığı paketleri emin olun (örneğin, disk belleği) kullanıyorsanız, bunlar sorgular veritabanına neden herhangi bir Entity Framework yöntem çağırırsanız zaman uyumsuz de kullanın.
+- Zaman uyumsuz kod iş parçacığı güvenli değildir. Diğer bir deyişle, diğer bir deyişle, aynı bağlam örneğini kullanarak paralel olarak birden çok işlem yapmayı denemeyin.
+- Zaman uyumsuz kodun performans avantajlarından yararlanmak isterseniz, kullanmakta olduğunuz tüm kitaplık paketlerinin (örneğin, sayfalama için), sorguların veritabanına gönderilmesine neden olan herhangi bir Entity Framework yöntemini çağırıyorsa, zaman uyumsuz olarak da kullanılmasını sağlayın.
 
-## <a name="use-stored-procedures"></a>Saklı yordamlar kullanma
+## <a name="use-stored-procedures"></a>Saklı yordamları kullanma
 
-Bazı geliştiriciler ve Dba'lar veritabanı erişimi için saklı yordamlar'ı kullanmayı tercih eder. Entity Framework'ün önceki sürümlerinde bir saklı yordam tarafından kullanarak verileri alabilir [ham bir SQL sorgusu yürütme](advanced-entity-framework-scenarios-for-an-mvc-web-application.md), ancak depolanan yordamları güncelleştirme işlemleri için kullanılacak EF toplamasını olamaz. EF 6'da Code First saklı yordamları kullanmak için yapılandırmak kolaydır.
+Bazı geliştiriciler ve DBAs, veritabanı erişimi için saklı yordamları kullanmayı tercih eder. Entity Framework önceki sürümlerinde, [Ham BIR SQL sorgusu yürüterek](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)saklı yordam kullanarak verileri alabilirsiniz, ancak güncelleştirme işlemlerine yönelik saklı yordamları kullanmak için EF 'e talimat verebilirsiniz. EF 6 ' da, saklı yordamları kullanmak için Code First yapılandırmak kolaydır.
 
-1. İçinde *DAL\SchoolContext.cs*, vurgulanmış kodu ekleyin `OnModelCreating` yöntemi.
+1. *DAL\SchoolContext.cs*' de, vurgulanan kodu `OnModelCreating` yöntemine ekleyin.
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs?highlight=9)]
 
-    Bu kod, INSERT saklı yordamlara Entity Framework bildirir. güncelleştirme ve silme işlemleri üzerinde `Department` varlık.
-2. Paket yönetme konsolunda aşağıdaki komutu girin:
+    Bu kod, `Department` varlığındaki ekleme, güncelleştirme ve silme işlemleri için saklı yordamları kullanmayı Entity Framework söyler.
+2. Paket Yönetimi Konsolu ' nda, aşağıdaki komutu girin:
 
     `add-migration DepartmentSP`
 
-    Açık *geçişler\\&lt;zaman damgası&gt;\_DepartmentSP.cs* kodu görmek için `Up` oluşturan yöntemine INSERT, Update ve Delete saklı yordamlar:
+    *\\&lt;zaman damgası&gt;\_* , ekleme, güncelleştirme ve silme saklı yordamlarını oluşturan `Up` yönteminde kodu görmek için zaman damgası ' nı açın:
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs?highlight=3-4,26-27,42-43)]
-3. Paket yönetme konsolunda aşağıdaki komutu girin:
+3. Paket Yönetimi Konsolu ' nda, aşağıdaki komutu girin:
 
      `update-database`
-4. Uygulamayı hata ayıklama modunda çalıştırabilir, tıklayın **Departmanlar** sekmesine ve ardından **Yeni Oluştur**.
-5. Yeni bir bölüm için veri girin ve ardından **Oluştur**.
+4. Uygulamayı hata ayıklama modunda çalıştırın, **Departmanlar** sekmesine tıklayın ve ardından **Yeni oluştur**' a tıklayın.
+5. Yeni bir departman için veri girin ve ardından **Oluştur**' a tıklayın.
 
-6. Visual Studio'da günlüklerine bakın **çıkış** yeni bölüm satır eklemek için bir saklı yordam kullanıldığını görmek için pencere.
+6. Visual Studio 'da, yeni departman satırını eklemek için bir saklı yordamın kullanıldığını görmek için **Çıkış** penceresindeki günlüklere bakın.
 
-     ![Bölüm Ekle SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+     ![Bölüm ekleme SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Kod öncelikle varsayılan depolanmış yordam adları oluşturur. Varolan bir veritabanını kullanıyorsanız, zaten veritabanında tanımlı saklı yordamları kullanmak için depolanmış yordam adları özelleştirmek gerekebilir. Bunu nasıl yapacağınız hakkında daha fazla bilgi için bkz. [Entity Framework kod ilk Insert/Update/Delete saklı yordamlar](https://msdn.microsoft.com/data/dn468673).
+Code First varsayılan saklı yordam adlarını oluşturur. Var olan bir veritabanını kullanıyorsanız, veritabanında önceden tanımlanmış saklı yordamları kullanabilmeniz için saklı yordam adlarını özelleştirmeniz gerekebilir. Bunun nasıl yapılacağı hakkında bilgi için, bkz. [Entity Framework Code First saklı yordamları ekleme/güncelleştirme/silme](https://msdn.microsoft.com/data/dn468673).
 
-Saklı yordamları ne oluşturulan özelleştirmek istiyorsanız, geçişler için iskele kurulan kodu düzenleyebileceğiniz `Up` saklı yordamı oluşturan yöntemi. Böylece geçiş çalıştırılır ve geçişleri çalıştırdığında, otomatik dağıtımdan sonra üretim ortamında, üretim veritabanına uygulanır değişikliklerinizi her yansıtılır.
+Oluşturulan saklı yordamları özelleştirmek istiyorsanız, saklı yordamı oluşturan geçişler `Up` yöntemi için yapı iskelesi kodunu düzenleyebilirsiniz. Bu şekilde, geçiş her çalıştırıldığında yaptığınız değişiklikler yansıtılır ve dağıtımdan sonra geçişler otomatik olarak çalıştırıldığında üretim veritabanınıza uygulanır.
 
-Önceki bir geçiş içinde oluşturulan varolan bir saklı yordam değiştirmek istiyorsanız, boş bir geçiş oluşturmak için Add-geçiş komutunu kullanın ve çağıran kodu el ile yazma [AlterStoredProcedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) yöntemi .
+Önceki bir geçişte oluşturulmuş mevcut bir saklı yordamı değiştirmek istiyorsanız, bir boş geçiş oluşturmak için Add-Migration komutunu kullanabilir ve ardından [Alterstoredprocedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) metodunu çağıran kodu el ile yazabilirsiniz.
 
 ## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
-Bu bölümde isteğe bağlı tamamlamış olmanız gerekir **uygulamasını Azure'a dağıtma** konusundaki [geçişleri ve dağıtımı](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md) öğretici serisinin bu. Veritabanı yerel projenizdeki silerek çözümlenen geçişleri hatasız tamamlanırsa, bu bölümü atlayın.
+Bu bölüm, bu serinin [geçişler ve dağıtım](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md) öğreticisinde **uygulamayı Azure 'a** isteğe bağlı olarak dağıtma bölümünü tamamladığınıza gerek duyar. Yerel projenizde veritabanını silerek çözümladığınız hataları geçirseniz, bu bölümü atlayın.
 
-1. Visual Studio'da projeye sağ **Çözüm Gezgini** seçip **Yayımla** bağlam menüsünden.
-2. Tıklayın **yayımlama**.
+1. Visual Studio 'da **Çözüm Gezgini** projeye sağ tıklayın ve bağlam menüsünden **Yayımla** ' yı seçin.
+2. **Yayımla**’ta tıklayın.
 
-    Visual Studio uygulamayı azure'a dağıtır ve uygulama Azure'da çalışan varsayılan tarayıcınızda açılır.
-3. Bunu doğrulamak için uygulamayı test etme çalışmaktadır.
+    Visual Studio uygulamayı Azure 'a dağıtır ve uygulama, Azure 'da çalışan varsayılan tarayıcınızda açılır.
+3. Çalışıp çalışmadığını doğrulamak için uygulamayı test edin.
 
-    Bir sayfa, ilk kez çalıştırdığınızda, veritabanına erişir, Entity Framework tüm geçişlerde çalıştırır `Up` veritabanı geçerli bir veri modeli ile güncel duruma getirmek için gerekli yöntemleri. Artık tüm Bu öğreticide eklediğiniz departman sayfaları dahil olmak üzere dağıtılan en son ne zaman beri eklenmiş web sayfaları kullanabilirsiniz.
+    Veritabanına erişen bir sayfayı ilk kez çalıştırdığınızda Entity Framework, geçerli veri modeliyle veritabanını güncel hale getirmek için gereken tüm geçişleri `Up` yöntemlerini çalıştırır. Artık bu öğreticide eklediğiniz departman sayfaları dahil olmak üzere, son dağıttığınız zamandan sonra eklediğiniz tüm Web sayfalarını kullanabilirsiniz.
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[Projeyi yükle](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
+[Tamamlanmış projeyi indirin](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar [ASP.NET Data Access-önerilen kaynaklarda](../../../../whitepapers/aspnet-data-access-content-map.md)bulunabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Zaman uyumsuz kod hakkında bilgi edindiniz
-> * Bir bölüm denetleyicisi oluşturuldu
-> * Saklı yordamlar kullanılır.
-> * Azure'a dağıtılan
+> * Zaman uyumsuz kod hakkında öğrenildi
+> * Bir departman denetleyicisi oluşturuldu
+> * Kullanılan saklı yordamlar
+> * Azure 'a dağıtıldı
 
-Birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarını işleme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Aynı anda birden çok kullanıcı aynı varlığı güncelleştirilişinde çakışmaların nasıl işleneceğini öğrenmek için sonraki makaleye ilerleyin.
 > [!div class="nextstepaction"]
-> [Eşzamanlılığı işleme](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Eşzamanlılık işleme](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -1,115 +1,115 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
-title: JQuery UI Datepicker model bağlama ve web forms ile tümleştirme | Microsoft Docs
+title: JQuery UI DatePicker model bağlama ve Web formlarıyla tümleştirme | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
+description: Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama, veri etkileşimini daha düz-... hale getirir
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
 ms.openlocfilehash: c8d711dd44950116f3a3e09d5d12c507918c543f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132005"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78642480"
 ---
-# <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>JQuery UI Datepicker model bağlama ve web forms ile tümleştirme
+# <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>JQuery UI DatePicker model bağlama ve Web formlarıyla tümleştirme
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.
+> Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama veri kaynağı nesneleriyle (örneğin, ObjectDataSource veya SqlDataSource) çok daha basit hale getirir. Bu seri giriş malzemesiyle başlar ve sonraki öğreticilerde daha gelişmiş kavramlara gider.
 > 
-> Bu öğreticide, JQuery kullanıcı Arabirimi ekleme işlemi açıklanır [Datepicker pencere öğesi](http://jqueryui.com/datepicker/) bir Web formu ve kullanım modeli ile seçilen değeri veritabanını güncellemek için bağlama.
+> Bu öğretici, JQuery UI [DatePicker pencere](http://jqueryui.com/datepicker/) öğesinin bir Web formuna nasıl ekleneceğini ve veritabanını seçili değerle güncellemek için model bağlamayı nasıl kullanacağınızı gösterir.
 > 
-> Bu öğreticide oluşturulan proje geliştirir [ilk](retrieving-data.md) ve [ikinci](updating-deleting-and-creating-data.md) dizisinin bölümleri.
+> Bu öğreticide, serinin [Birinci](retrieving-data.md) ve [ikinci](updating-deleting-and-creating-data.md) bölümlerinde oluşturulan projede derleme yapılır.
 > 
-> Yapabilecekleriniz [indirme](https://go.microsoft.com/fwlink/?LinkId=286116) tam projeyi C# veya vb İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile çalışır. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklıdır Visual Studio 2012 şablonu kullanır.
+> Tüm projeyi [](https://go.microsoft.com/fwlink/?LinkId=286116) C# veya vb 'ye indirebilirsiniz. İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile birlikte kullanılabilir. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklı olan Visual Studio 2012 şablonunu kullanır.
 
-## <a name="what-youll-build"></a>Derleme
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Bu öğreticide, gerekir:
+Bu öğreticide şunları yapmanız gerekir:
 
-1. Öğrenci kayıt tarihi kaydetmek için model bir özelliği Ekle
-2. JQuery UI Datepicker pencere öğesi kullanarak kayıt tarih seçmesini etkinleştirin
-3. Doğrulama kuralları uygulamak için kayıt tarihi
+1. Öğrencinin kayıt tarihini kaydetmek için modelinize bir özellik ekleyin
+2. Kullanıcının JQuery Kullanıcı arabirimi DatePicker pencere öğesini kullanarak kayıt tarihini seçmesini sağlama
+3. Kayıt tarihi için doğrulama kurallarını zorla
 
-JQuery UI Datepicker pencere öğesi, kullanıcıların kolayca kullanıcı alanı ile etkileşim kurduğunda görüntülenen iletideki bir takvimden bir tarih seçmek üzere sağlar. Bu pencere öğesini kullanarak bir tarih el ile yazmak daha kullanıcılar için daha kullanışlı olabilir. Datepicker pencere öğesi veri işlemleri için model bağlama kullanan bir sayfa ile tümleştirme, yalnızca az miktarda ek iş gerektirir.
+JQuery kullanıcı ARABIRIMI DatePicker pencere öğesi, kullanıcıların alanla etkileşime geçtiğinde bir takvimden bir tarihi kolayca seçmesini sağlar. Bu pencere öğesinin kullanılması, kullanıcıların el ile tarih yazmakla daha kullanışlı olabilir. DatePicker pencere öğesini, veri işlemleri için model bağlama kullanan bir sayfayla tümleştirmek yalnızca az miktarda ek iş gerektirir.
 
-## <a name="add-a-new-property-to-the-model"></a>Yeni bir özellik modele eklemek
+## <a name="add-a-new-property-to-the-model"></a>Modele yeni bir özellik ekleyin
 
-İlk olarak ekleyecek bir **Datetime** Tutkusu özelliğini model ve bu değişiklik veritabanına geçirin. Açık **UniversityModels.cs**, Öğrenci modele vurgulanmış kodu ekleyin.
+İlk olarak, öğrenci modelinize bir **DateTime** özelliği ekleyecek ve bu değişikliği veritabanına geçirecaksınız. **UniversityModels.cs**' yi açın ve vurgulanan kodu öğrenci modeline ekleyin.
 
 [!code-csharp[Main](integrating-jquery-ui/samples/sample1.cs?highlight=16-18)]
 
-**RangeAttribute** özelliği için doğrulama kuralları uygulamak dahil edilir. Bu öğreticide, Contoso University 1 Ocak 2013'ün üzerinde kurulmuştur ve bu nedenle önceki kayıt tarihleri geçerli olmayan varsayacağız.
+**RangeAttribute** , özelliği için doğrulama kurallarını zorlamak için eklenmiştir. Bu öğreticide, Contoso University 'in 1 Ocak 2013 ' de yer aldığı ve bu nedenle daha önceki kayıt tarihlerinin geçerli olmadığı varsayıyoruz.
 
-Komutunu çalıştırarak paket Yönetimi penceresinde bir geçiş ekleyin **ekleme geçiş AddEnrollmentDate**. Geçiş kodu Öğrenci tabloya yeni bir Datetime sütunu eklediğine dikkat edin. RangeAttribute içinde belirtilen değerle eşleşecek şekilde aşağıdaki vurgulanmış kodu gösterildiği gibi yeni bir sütun için varsayılan bir değer ekleyin.
+Paket Yönetimi penceresinde, **Add-Migration AddEnrollmentDate**komutunu çalıştırarak bir geçiş ekleyin. Geçiş kodunun yeni tarih saat sütununu öğrenci tablosuna eklediğine dikkat edin. RangeAttribute içinde belirttiğiniz değeri eşleştirmek için, aşağıdaki vurgulanan kodda gösterildiği gibi yeni sütun için varsayılan bir değer ekleyin.
 
 [!code-csharp[Main](integrating-jquery-ui/samples/sample2.cs?highlight=11)]
 
-Değişikliğinizi geçiş dosyaya kaydedin.
+Değişiklerinizi geçiş dosyasına kaydedin.
 
-Verileri yeniden dağıtılması gerekmez. Bu nedenle, açık **Configuration.cs** geçişler klasöründe kaldırın ya da kod açıklama **çekirdek** yöntemi. Dosyayı kaydedin ve kapatın.
+Verileri yeniden temel almanız gerekmez. Bu nedenle, geçişler klasöründe **Configuration.cs** açın ve **çekirdek** yöntemindeki kodu kaldırın veya not edin. Dosyayı kaydedin ve kapatın.
 
-Şimdi komutu çalıştırın **veritabanını Güncelleştir**. Sütun artık veritabanında bulunmuyor ve var olan kayıtların tümünün EnrollmentDate için varsayılan değere sahip olduğuna dikkat edin.
+Şimdi, **Update-Database**komutunu çalıştırın. Sütunun artık veritabanında var olduğunu ve var olan tüm kayıtların kayıt tarihi için varsayılan değere sahip olduğuna dikkat edin.
 
-## <a name="add-dynamic-controls-for-enrollment-date"></a>Kayıt tarihi için Dinamik denetimler ekleme
+## <a name="add-dynamic-controls-for-enrollment-date"></a>Kayıt tarihi için dinamik denetimler ekleme
 
-Şimdi, görüntülemek ve kayıt tarihi düzenleme denetimleri de ekleyeceksiniz. Bu noktada, değerin bir metin kutusu düzenlenmiştir. Öğreticinin sonraki bölümlerinde JQuery Datepicker pencere öğesi için metin kutusu değişecektir.
+Şimdi kayıt tarihini görüntüleme ve düzenlemeyle ilgili denetimler ekleyeceksiniz. Bu noktada, değer bir metin kutusuyla düzenlenir. Öğreticide daha sonra, metin kutusunu JQuery DatePicker pencere öğesi olarak değiştirirsiniz.
 
-İlk olarak, herhangi bir değişiklik yapmanız gerekmez unutmayın **AddStudent.aspx** dosya. DynamicEntity denetimi otomatik olarak yeni bir özellik olarak işlenir.
+İlk olarak, **Addstudent. aspx** dosyasında herhangi bir değişiklik yapmanız gerekmediğini unutmayın. DynamicEntity denetimi, yeni özelliği otomatik olarak işler.
 
-Açık **Students.aspx**, aşağıdaki vurgulanmış kodu ekleyin.
+**Öğrenciler. aspx**' i açın ve aşağıdaki vurgulanmış kodu ekleyin.
 
 [!code-aspx[Main](integrating-jquery-ui/samples/sample3.aspx?highlight=13)]
 
-Uygulamayı çalıştırın ve kayıt tarih değerini bir tarih yazarak ayarlayabilirsiniz dikkat edin. Yeni bir öğrenci eklendiği zaman:
+Uygulamayı çalıştırın ve bir tarih yazarak kayıt tarihinin değerini ayarlayabildiğinize dikkat edin. Yeni öğrenci eklerken:
 
-![tarihi ayarlama](integrating-jquery-ui/_static/image1.png)
+![tarihi ayarla](integrating-jquery-ui/_static/image1.png)
 
-Veya var olan bir değer düzenleme:
+Ya da varolan bir değeri düzenleyebilirsiniz:
 
 ![tarihi Düzenle](integrating-jquery-ui/_static/image2.png)
 
-Müşteri deneyimini sağlamak istediğiniz tarih çalışır, ancak yazmayı olmayabilir. Sonraki bölümde, bir takvim aracılığıyla bir tarih seçerek olanak sağlar.
+Çalışma tarihi yazılması, ancak sağlamak istediğiniz müşteri deneyimi olmayabilir. Sonraki bölümde, bir takvim üzerinden tarih seçmeyi etkinleştirecektir.
 
-## <a name="install-nuget-package-to-work-with-jquery-ui"></a>JQuery kullanıcı Arabirimi ile çalışmak için NuGet paketini yükle
+## <a name="install-nuget-package-to-work-with-jquery-ui"></a>JQuery Kullanıcı arabirimi ile çalışmak için NuGet paketini yükler
 
-**Suyu UI** NuGet paketi, web uygulamanıza JQuery kullanıcı Arabirimi pencere öğeleri kolay tümleştirme sağlar. Bu paketi kullanmak için NuGet yükleyin.
+Bu **Kullanıcı arabirimi** NuGet paketi, jQuery kullanıcı arabirimi Pencere öğelerinin Web uygulamanıza kolay bir şekilde tümleştirilmesini sunar. Bu paketi kullanmak için NuGet aracılığıyla yükleyemezsiniz.
 
-![suyu kullanıcı Arabirimi ekleme](integrating-jquery-ui/_static/image3.png)
+![SBU Kullanıcı arabirimi Ekle](integrating-jquery-ui/_static/image3.png)
 
-Yüklediğiniz suyu UI sürümü, uygulamanızdaki JQuery sürümüyle çakışabilir. Bu öğretici ile devam etmeden önce uygulamanızı çalıştırmayı deneyin. Bir JavaScript hatayla karşılaşırsanız, JQuery sürüm mutabakat sağlamak gerekir. JQuery beklenen sürümü betikleri klasörünüze (Bu öğreticide yazma zamanında sürüm 1.8.2) ekleyin veya Site.master JQuery dosyanın yolunu belirtin.
+Yüklediğiniz bu kullanıcı arabirimi sürümü uygulamanızdaki JQuery sürümü ile çakışabilir. Bu öğreticiye devam etmeden önce, uygulamanızı çalıştırmayı deneyin. JavaScript hatasıyla karşılaşırsanız, JQuery sürümünü bağdaştırmanız gerekir. JQuery 'in beklenen sürümünü Scripts klasörünüze (Bu öğreticiyi yazma sırasında sürüm 1.8.2) veya sitesinde ekleyebilirsiniz. Master JQuery dosyasının yolunu belirtin.
 
 [!code-aspx[Main](integrating-jquery-ui/samples/sample4.aspx)]
 
-## <a name="customize-datetime-template-to-include-datepicker-widget"></a>DatePicker pencere öğesi eklemek için DateTime şablonunu özelleştirme
+## <a name="customize-datetime-template-to-include-datepicker-widget"></a>DateTime şablonunu DatePicker pencere öğesini içerecek şekilde özelleştirme
 
-Datepicker pencere öğesi, bir datetime değeri düzenlemek için dinamik veri şablona ekleyeceksiniz. Şablona pencere öğesi ekleyerek bunu otomatik olarak yeni bir öğrenci eklemek için her iki formu ve düzenleme Öğrenciler için kılavuz görünümünde oluşturulur. Açık **DateTime\_Edit.ascx**, aşağıdaki vurgulanmış kodu ekleyin.
+DatePicker pencere öğesini dinamik veri şablonuna ekleyerek bir tarih saat değerini düzenleyebilirsiniz. Pencere öğesini şablona ekleyerek, otomatik olarak yeni öğrenci ekleme ve öğrencilerin düzenlenmesine yönelik kılavuz görünümünde otomatik olarak işlenir. **Tarih/saat\_açın. ascx**' i düzenleyin ve aşağıdaki vurgulanmış kodu ekleyin.
 
 [!code-aspx[Main](integrating-jquery-ui/samples/sample5.aspx?highlight=3)]
 
-Arka plan kod dosyasında, minimum ve maksimum tarih tarih seçici için ayarlanır. Bu değerleri ayarlayarak, kullanıcıların geçersiz tarihlere gitmesini engeller. Minimum ve maksimum değerleri alır **RangeAttribute** sağlanmazsa, bir DateTime özellikte. Açık **DateTime\_Edit.ascx.cs**, sayfaya aşağıdaki vurgulanmış kodu ekleyin\_yükleme yöntemi.
+Arka plan kod dosyasında, DatePicker için en düşük ve en büyük tarihleri ayarlayacaksınız. Bu değerleri ayarlayarak, kullanıcıların geçersiz tarihlere gitmesini önleyecaksınız. Tarih saat özelliğindeki en düşük ve en yüksek değerleri, varsa DateTime özelliğinde elde edersiniz. **DateTime\_Edit.ascx.cs**açın ve sayfa\_Load yöntemine aşağıdaki vurgulanmış kodu ekleyin.
 
 [!code-csharp[Main](integrating-jquery-ui/samples/sample6.cs?highlight=9-14)]
 
-Web uygulamasını çalıştırmak ve AddStudent sayfasına gidin. Alanlar için değerler sağlayın ve kayıt tarihi için metin kutusunu tıkladığınızda, Takvim görüntülendiğini dikkat edin.
+Web uygulamasını çalıştırın ve Addöğrenci sayfasına gidin. Alanlar için değerler sağlayın ve kayıt tarihi için metin kutusuna tıkladığınızda takvimin görüntülendiğini unutmayın.
 
 ![Tarih Seçici](integrating-jquery-ui/_static/image4.png)
 
-Bir tarih seçin ve tıklayın **Ekle**. Sunucu doğrulamasını RangeAttribute zorlar. Datepicker üzerinde minDate özelliğini ayarlayarak, ayrıca doğrulama istemcide uygulayın. Takvime bir tarihten önce minDate değerini gidin kullanıcı izin vermez.
+Bir tarih seçin ve **Ekle**' ye tıklayın. RangeAttribute, sunucuda doğrulamayı zorlar. DatePicker üzerinde minDate özelliğini ayarlayarak, istemciye doğrulama de uygularsınız. Takvim, kullanıcının minDate değerinden önceki bir tarihe gitmasına izin vermez.
 
-Izgara görünümünde bir kayıt düzenlediğinizde, Takvim de görüntülenir.
+Kılavuz görünümünde bir kayıt düzenlediğinizde, takvim de görüntülenir.
 
-![DatePicker GridView içinde](integrating-jquery-ui/_static/image5.png)
+![GridView 'da DatePicker](integrating-jquery-ui/_static/image5.png)
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, model bağlama kullanan bir web formu JQuery pencere öğesi eklemek öğrendiniz.
+Bu öğreticide, bir JQuery pencere öğesini model bağlama kullanan bir Web formuna nasıl ekleyeceğinizi öğrendiniz.
 
-Sonraki [öğretici](using-query-string-values-to-retrieve-data.md), verileri seçerken bir sorgu dizesi değerini kullanın.
+Sonraki [öğreticide](using-query-string-values-to-retrieve-data.md), veri seçerken bir sorgu dizesi değeri kullanacaksınız.
 
 > [!div class="step-by-step"]
 > [Önceki](sorting-paging-and-filtering-data.md)

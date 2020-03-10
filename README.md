@@ -1,10 +1,10 @@
-# <a name="aspnet-docs"></a>ASP.NET belgeleri
+# <a name="aspnet-docs"></a>ASP.NET docs
 
-Bu depo, barındırılan kavramsal ASP.NET 4.x belgeleri içeren [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). Bkz: [katkıda bulunan Kılavuzu](CONTRIBUTING.md) ve [sorunlar listesinde](https://github.com/aspnet/AspNetDocs/issues) yardımcı öğrenmek istiyorsanız.
+Bu depo, [docs.Microsoft.com/ASPNET](https://docs.microsoft.com/aspnet)adresinde barındırılan kavramsal ASP.NET 4. x belgelerini içerir. Yardım almak istiyorsanız [katkıda bulunan kılavuza](CONTRIBUTING.md) ve [sorunlar listesine](https://github.com/dotnet/AspNetDocs/issues) bakın.
 
-API belgeleri değişiklikleri içinde yapılacak [ApiDocs depo](https://github.com/aspnet/ApiDocs) üç eğik çizgi karşı `///` yorumlar.
+API belge değişiklikleri, [Apıdoc deposunda](https://github.com/aspnet/ApiDocs) üç eğik çizgi `///` açıklamalara karşı yapılmalıdır.
 
-## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft açık kaynak kullanım kuralları
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft Açık Kaynak Kullanım Kuralları
 
-Bu proje başlamıştır [Microsoft açık kaynak kullanım şartları](https://opensource.microsoft.com/codeofconduct/).
-Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun [ opencode@microsoft.com ](mailto:opencode@microsoft.com) herhangi bir ek sorularınız ya da yorumlarınız ile.
+Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur.
+Daha fazla bilgi için [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Kullanım Kuralları Hakkında SSS) konusuna bakın veya sorularınızı ya da görüşlerinizi bildirmek için [opencode@microsoft.com](mailto:opencode@microsoft.com) adresinden bize ulaşın.

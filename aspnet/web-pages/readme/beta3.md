@@ -1,6 +1,6 @@
 ---
 uid: web-pages/readme/beta3
-title: Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 yayını Benioku dosyası | Microsoft Docs
+title: Web Matrix ve ASP.NET Web Pages (Razor) Beta 3 yayın Benioku | Microsoft Docs
 author: rick-anderson
 description: WebMatrix ve ASP.NET Web Sayfaları (Razor) Beta 3 Yayını Benioku Dosyası
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: ffa3d5c9-91e5-4da3-b409-560b0c7fbbf0
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
 ms.openlocfilehash: dc1d9237c04a7fcdbf4db6ccc8c36d255f6de003
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124112"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628900"
 ---
 # <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>WebMatrix ve ASP.NET Web Sayfaları (Razor) Beta 3 Yayını Benioku Dosyası
 
@@ -25,238 +25,238 @@ ms.locfileid: "65124112"
 
 - [Genel bakış](#Overview)
 - [Yükleme](#Installation_Notes)
-- [Yeni özellikleri, değişiklikler ve Beta 3 Yayını'te bilinen sorunlar](#Known_Issues)
+- [Beta 3 sürümündeki yeni özellikler, değişiklikler ve bilinen sorunlar](#Known_Issues)
 
     - [WebMatrix yükleme sorunları](#Known_Issues_Installation)
     - [ASP.NET Web Sayfaları](#Known_Issues_ASPNET)
     - [SQL Server Compact](#Known_Issues_SQL_Server_Compact)
     - [Uygulamaları yükleme](#Known_Issues_Installing_Applications)
-    - [Uygulama yayımlama](#Known_Issues_Publishing_Applications)
+    - [Uygulamaları yayımlama](#Known_Issues_Publishing_Applications)
     - [Diğer Sorunlar](#Known_Issues_Other_Issues)
 - [Daha fazla bilgi için](#More_Info)
 
 <a id="Overview"></a>
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-> Microsoft WebMatrix Beta dakikalar içinde yüklenen bir ücretsiz web geliştirme yığınıdır. Veritabanını ve programlama çerçevelerini tek, tümleşik bir deneyim oluşturmak için bir web sunucusu tümleştirir. DotNetNuke, Umbraco, WordPress ve Joomla gibi popüler açık kaynak uygulamalar kullanarak yeni bir Web sitesini başlatmak için WebMatrix Beta kullanabilirsiniz veya kod, test ve kendi ASP.NET veya PHP Web sitesi yayımlama yolu kolaylaştırmak için WebMatrix Beta kullanabilirsiniz. WebMatrix Beta, aynı güçlü web sunucusu, veritabanı altyapısı ve Web sitenizi geliştirmeden üretime geçişinizin düzgün ve sorunsuz kılan Internet üzerinde çalışır ve çerçeveler ortamının kullanır.
+> Microsoft WebMatrix Beta, dakikalar içinde yüklenen ücretsiz bir Web geliştirme yığınıdır. Tek ve tümleşik bir deneyim oluşturmak için veritabanı ve programlama çerçeveleri ile bir Web sunucusunu tümleştirir. WebMatrix Beta 'yı kullanarak kendi ASP.NET veya PHP Web sitenizi kodlamanıza, test etmeniz ve yayımlamanıza olanak sağlayabilir veya DotNetNuke, dönen Raco, WordPress veya Joomla gibi popüler açık kaynaklı uygulamaları kullanarak yeni bir Web sitesi başlatmak için WebMatrix Beta 'yı kullanabilirsiniz. WebMatrix Beta, geliştirmeden üretime sorunsuz ve sorunsuz bir şekilde geçiş yapan web sitenizi Internet üzerinde çalıştıracak olan güçlü Web sunucusu, veritabanı altyapısı ve çerçeveler ortamını kullanır.
 
 <a id="Installation_Notes"></a>
 
 ## <a name="installation"></a>Yükleme
 
-> WebMatrix Beta 3'ü yüklemek için kullandığınız [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/fwlink/?LinkID=194638). Web Platformu yükleyicisi yükledikten sonra WebMatrix Beta 3'ü yüklemek için kullanabilirsiniz.
+> WebMatrix Beta 3 ' ü yüklemek için [Microsoft Web Platformu Yükleyicisi 3,0](https://go.microsoft.com/fwlink/?LinkID=194638)' i kullanırsınız. Web Platformu Yükleyicisi 'ni yükledikten sonra, WebMatrix Beta 3 ' ü yüklemek için kullanabilirsiniz.
 > 
-> Yükleme sırasında sorunlarla karşılaşırsanız, başvurmak [Microsoft Web Platformu Yükleyicisi ile sorunları giderme](https://go.microsoft.com/fwlink/?LinkId=196212).
+> Yükleme sırasında sorunlarla karşılaşırsanız [Microsoft Web Platformu Yükleyicisi sorun giderme sorunları](https://go.microsoft.com/fwlink/?LinkId=196212)bölümüne bakın.
 
 <a id="Installation_Notes0"></a>
 
-## <a name="instructions-for-publishing-applications"></a>Uygulamaları yayımlama yönergeleri
+## <a name="instructions-for-publishing-applications"></a>Uygulama yayımlama yönergeleri
 
-> Bkz: [uygulamaları yayımlama hakkında adım adım yönergeler](https://go.microsoft.com/fwlink/?LinkID=196149)
+> Bkz. [uygulamaları yayımlamak Için adım adım yönergeler](https://go.microsoft.com/fwlink/?LinkID=196149)
 
 <a id="Known_Issues"></a>
 
-## <a name="new-features-changes-andknown-issues"></a>Yeni özellikleri, değişiklikler, andKnown sorunları
+## <a name="new-features-changes-andknown-issues"></a>Yeni özellikler, değişiklikler ve bilinen sorunlar
 
 <a id="Known_Issues_Installation"></a>
 
-### <a name="webmatrix-beta-3-installation"></a>WebMatrix Beta 3 yükleme
+### <a name="webmatrix-beta-3-installation"></a>WebMatrix Beta 3 yüklemesi
 
-#### <a name="issue-webmatrix-beta-3-is-only-available-on-platforms-that-support-microsoft-net-framework-4"></a>Sorun: WebMatrix Beta 3 yalnızca Microsoft .NET Framework 4'ü destekleyen platformlar üzerinde kullanılabilir
+#### <a name="issue-webmatrix-beta-3-is-only-available-on-platforms-that-support-microsoft-net-framework-4"></a>Sorun: WebMatrix Beta 3 yalnızca Microsoft .NET Framework 4 ' ü destekleyen platformlarda kullanılabilir
 
-> .NET Framework sürüm 4 WebMatrix Beta için gereklidir. Bazı durumlarda, WebMatrix Beta yükleyici, desteklenen bir yapılandırma kümesinin parçası olmayan bir platformda yüklemeye olanak tanır. Özellikle, Windows Vista SP1 Güncelleştirmesi olmadan, WebMatrix Beta yüklemesi başlamadan olanak tanır, ancak .NET Framework 4 bileşeni başarısız olur ve yüklemenizi engelleme.
+> WebMatrix Beta için .NET Framework sürüm 4 gereklidir. Bazı durumlarda, WebMatrix Beta yükleyicisi, desteklenen yapılandırma kümesinin parçası olmayan bir platforma yükleme denemenize imkan tanır. Özellikle, SP1 güncelleştirmesi olmayan Windows Vista, WebMatrix Beta yüklemesine başlamanızı sağlar, ancak .NET Framework 4 bileşeni başarısız olur ve yüklemenizi engeller.
 > 
 > **Geçici çözüm**  
-> İçeren desteklenen bir platform üzerinde yükleyin:
+> Aşağıdakileri içeren desteklenen bir platforma yükler:
 > 
-> - Windows 7
+> - Windows 7
 > - Windows Server 2008
 > - Windows Server 2008 R2
 > - Windows Vista SP1 veya sonraki sürümü
 > - Windows XP SP3
 > - Windows Server 2003 SP2
 
-#### <a name="issue-cannot-install-webmatrix-beta-3-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Sorun: Microsoft Visual Studio 2008 Microsoft Visual Studio 2008 SP1 yüklediyseniz, WebMatrix Beta 3'ü yükleyemezsiniz
+#### <a name="issue-cannot-install-webmatrix-beta-3-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Sorun: Microsoft Visual Studio 2008 SP1 olmadan Microsoft Visual Studio 2008 yüklenirse WebMatrix Beta 3 yüklenemiyor
 
 > **Geçici çözüm**  
-> Yükleme [Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) Microsoft İndirme Merkezi'nden.
+> [Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) 'ı Microsoft İndirme Merkezi ' nden yükleyin.
 
-#### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>Sorun: SQL Server Compact 4.0 için bazı derlemeler GAC yüklü değil
+#### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>Sorun: SQL Server Compact 4,0 için bazı derlemeler GAC 'de yüklü değil
 
-> SQL Server Compact 4.0 için yönetilen derlemeleri genel derleme önbelleğinde (GAC), 64-bit bir bilgisayarda SQL Server Compact 4.0 yükledikten ve bilgisayarın yalnızca .NET Framework 3.5 SP1 istemci yüklü profili olduğunda yerleştirilmez. GAC'de kurulu değil Yönetilen derlemeler şunlardır:
+> SQL Server Compact 4,0 için yönetilen derlemeler, SQL Server Compact 4,0 ' i bir 64 bit bilgisayara yüklediğinizde ve bilgisayarda yalnızca .NET Framework 3,5 SP1 Istemci profili yüklü olduğunda genel derleme önbelleği 'ne (GAC) yerleştirilmez. GAC 'de yüklü olmayan yönetilen derlemeler şunlardır:
 > 
-> - *System.Data.SqlServerCe.dll* (ADO.NET provider)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
+> - *System. Data. SqlServerCe. dll* (ADO.NET sağlayıcısı)
+> - *System. Data. SqlServerCe. Entity. dll* (ADO.NET Entity Framework)
 > 
 > **Geçici çözüm**  
-> Kaldırma SQL Server Compact 4.0. İndirin ve .NET Framework 3.5 SP1'in tam sürümünü şu konumdan yükleyin:  
+> SQL Server Compact 4,0 'yi kaldırın. Aşağıdaki konumdan .NET Framework 3,5 SP1 'in tam sürümünü indirip yükleyin:  
 >   
-> [Microsoft .NET Framework 3.5 Service pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
+> [Microsoft .NET Framework 3,5 Service Pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
 >   
-> Ardından SQL Server Compact 4.0 yeniden yükleyin.
+> SQL Server Compact 4,0 yeniden yükleyin.
 
-#### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>Sorun: SQL Server için komut satırını kullanarak Compact kaldırılamıyor
+#### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>Sorun: komut satırı kullanılarak SQL Server Compact kaldırılamıyor
 
-> SQL Server komut satırı seçeneklerini kullanarak Compact kaldırılması, bu sürümde çalışmaz.
+> Komut satırı seçeneklerini kullanarak SQL Server Compact kaldırılması bu sürümde çalışmaz.
 > 
 > **Geçici çözüm**  
-> Kullanım *programlar ve Özellikler* Microsoft SQL Server Compact 4.0 kaldırmak için Windows Denetim Masası'nda.
+> 4,0 Microsoft SQL Server Compact kaldırmak için Windows Denetim Masası 'ndaki *Programlar ve Özellikler ' i* kullanın.
 
 <a id="Known_Issues_ASPNET"></a>
 
 ### <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
-Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi olan ASP.NET Web sayfaları'nın Beta 3 sürüm ile ilgili bilinen sorunlar açıklanmaktadır.
+Belgenin bu bölümünde, Razor söz dizimi ile ASP.NET Web sayfalarının Beta 3 sürümündeki yeni özellikler, değişiklikler ve bilinen sorunlar açıklanmaktadır.
 
 - [Yeni özellikler](#NewFeatures)
-- [Değişiklikleri](#Changes)
-- [Sorunları](#Issues)
+- [Değişikliklerine](#Changes)
+- [Sorunlar](#Issues)
 
 <a id="NewFeatures"></a>
 
-#### <a name="new-features-in-beta-3-for-aspnet-web-pages-with-razor-syntax"></a>Beta 3 ASP.NET Web sayfaları için Razor sözdizimi olan yeni özellikler
+#### <a name="new-features-in-beta-3-for-aspnet-web-pages-with-razor-syntax"></a>Razor sözdizimi olan ASP.NET Web sayfaları için Beta 3 ' teki yeni özellikler
 
-#### <a name="new-htmlraw-method-renders-unencoded-markup"></a>New: "Html.Raw" yöntemi, biçimlendirme kodlanmamış işler.
+#### <a name="new-htmlraw-method-renders-unencoded-markup"></a>Yeni: "HTML. RAW" yöntemi, kodlanmamış biçimlendirmeyi işler
 
-> Yeni `Html.Raw` kodlanmış çıkış işleme yerine biçimlendirmesi olarak HTML biçimlendirmesi oluşturmak yöntemi sağlar. (Varsayılan olarak, ASP.NET Razor dizeleri işlemeden önce kodlar.) Sözdizimi şöyledir:
+> Yeni `Html.Raw` yöntemi, HTML işaretlemesini kodlanmış çıktıyı işlemek yerine biçimlendirme olarak işlemenize olanak sağlar. (Varsayılan olarak, ASP.NET Razor dizeleri işlemeden önce kodlar.) Sözdizimi şöyledir:
 > 
 > `Html.Raw(value)`
 > 
-> Aşağıdaki örnek nasıl kullanılacağını gösterir `Html.Raw`:
+> Aşağıdaki örnek `Html.Raw`nasıl kullanacağınızı gösterir:
 > 
 > [!code-cshtml[Main](beta3/samples/sample1.cshtml)]
 
 <a id="Changes"></a>
 
-#### <a name="changes-in-beta-3-for-aspnet-web-pages-with-razor-syntax"></a>Beta 3 ASP.NET Web sayfaları için Razor sözdizimi olan değişiklikleri
+#### <a name="changes-in-beta-3-for-aspnet-web-pages-with-razor-syntax"></a>Razor sözdizimi olan ASP.NET Web sayfaları için Beta 3 değişiklikleri
 
-#### <a name="change-hrefattribute-method-removed"></a>Değiştir: Kaldırıldı "HrefAttribute" yöntemi
+#### <a name="change-hrefattribute-method-removed"></a>Değişiklik: "HrefAttribute" yöntemi kaldırıldı
 
-> `HrefAttribute` Yöntemi `WebPage` sınıfı kaldırıldı. Bu yardımcı, URL'lerde güvenli olmayan karakterleri kodlamak için kullanıldı. ASP.NET Razor otomatik olarak dizeyi kodlar için artık gerekli değildir. (Yeni `Html.Raw` kodlanmamış dizeleri işlemek için yöntemi.)
+> `WebPage` sınıfının `HrefAttribute` yöntemi kaldırıldı. Bu yardımcı, URL 'lerde güvenli olmayan karakterleri kodlamak için kullanıldı. ASP.NET Razor dizeleri otomatik olarak kodlarsa artık gerekli değildir. (Kodlanmış dizeleri işlemek için yeni `Html.Raw` yöntemini kullanın.)
 
-#### <a name="change-syntax-for-declarative-helper-helpers-changed"></a>Değiştir: Söz dizimi için bildirime dayalı "@helper" Yardımcıları değiştirildi
+#### <a name="change-syntax-for-declarative-helper-helpers-changed"></a>Değişiklik: bildirime dayalı "@helper" yardımcıları için sözdizimi değişti
 
-> Bunu nasıl kullanılarak oluşturulan Yardımcıları ayrıştırır ASP.NET Beta 3 sürümde değişiklikleri `@helper` söz dizimi. Esas olarak, `@helper` söz dizimi bir kod bloğu bir blok halinde kod içeren bir biçimlendirme olarak artık ayrıştırılır. Bu nedenle, yardımcı içinde kod içinde içine alınması gerekmez `@{ }` engeller. Buna karşılık, HTML öğeleri ya da ASP.NET Razor açıkça dahil edilmek üzere biçimlendirme içinde yardımcı olan `<text></text>` etiketler.
+> Beta 3 sürümünde, ASP.NET `@helper` söz dizimi kullanılarak oluşturulan yardımcıları nasıl ayrıştırdığı de değişir. Temelde `@helper` sözdizimi, kod içerebilen bir biçimlendirme bloğu yerine bir kod bloğu olarak ayrıştırılır. Bu nedenle, yardım içindeki kodun `@{ }` blokları içine alınması gerekmez. Buna karşılık, yardımın içindeki biçimlendirmenin HTML öğelerine veya ASP.NET Razor `<text></text>` etiketlerine açık bir şekilde eklenmesi gerekir.
 > 
-> Örneğin, aşağıdaki `@helper` söz dizimi Beta 3 sürümündeki çalışır:
+> Örneğin, aşağıdaki `@helper` sözdizimi Beta 3 sürümünde çalışmaktadır:
 > 
 > [!code-cshtml[Main](beta3/samples/sample2.cshtml)]
 > 
-> Beta 3 sürümde bu Yardımcısı aşağıdaki örneğe şekilde değiştirilmesi gerekir:
+> Beta 3 sürümünde, bu yardımcının aşağıdaki örnekteki gibi görünmesi için değiştirilmesi gerekir:
 > 
 > [!code-cshtml[Main](beta3/samples/sample3.cshtml)]
 > 
-> Dikkat `@{ }` karakter çevresinde Yardımcısı ilk kod artık kullanılmamaktadır. Bu durum, varsayılan olarak Yardımcıları içeriğini bir kod bloğu kabul edilir çünkü. Yardımcı açılırken başlatan biçimlendirme işler `<a>` etiketi. Yardımcı düz metin veya bir kapanış etiketi içermeyen etiketler oluşturma, (örneğin, `<meta>` etiketleri), işlenmek üzere içeriği olmalıdır `<text></text>` etiketler.
+> Yardımdaki ilk kod etrafında `@{ }` karakterlerin artık kullanılmadığını unutmayın. Bunun nedeni, yardımcılar içeriğinin varsayılan olarak bir kod bloğu olarak kabul edilmesidir. Yardımcısı, açma `<a>` etiketiyle başlayan biçimlendirmeyi işler. Yardımcının bir kapanış etiketi içermeyen düz metin veya etiketleri işlemesi gerekiyorsa (örneğin, `<meta>` etiketleri), işlenecek içerik `<text></text>` etiketlerinde olmalıdır.
 
-#### <a name="change-webpagecontexthttpcontext-removed"></a>Değiştir: "WebPageContext.HttpContext" removed
+#### <a name="change-webpagecontexthttpcontext-removed"></a>Değişiklik: "WebPageContext. HttpContext" kaldırıldı
 
-> `WebPageContext.HttpContext` Özelliği kaldırıldı. Bunun yerine `HttpContext.Current` kullanın. ( `WebPageContext.HttpContext` Özelliği yalnızca sarmalanmış bu.)
+> `WebPageContext.HttpContext` özelliği kaldırılmıştır. Bunun yerine `HttpContext.Current` kullanın. (`WebPageContext.HttpContext` özelliği bunu sarmalanmış.)
 
-#### <a name="change-facebook-helper-moved-to-new-package"></a>Değiştir: Yeni paket için "Facebook" Yardımcısı taşındı
+#### <a name="change-facebook-helper-moved-to-new-package"></a>Değişiklik: "Facebook" Yardımcısı yeni pakete taşındı
 
-> `Facebook` Yardımcısı taşındı *Facebook.Helper* içeren kitaplık `Facebook` Yardımcısı ve ek işlevler. Bu kitaplık ayrı bir paket halinde "Yükleme Yardımcıları ile Paket Yöneticisi'nde" açıklandığı öğreticide yüklemelisiniz [ASP.NET sayfaları ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkId=202889).
+> `Facebook` Yardımcısı, `Facebook` Yardımcısı ve ek işlevler içeren *Facebook. Helper* kitaplığına taşınmıştır. Bu kitaplığı, [ASP.net Pages Ile çalışmaya](https://go.microsoft.com/fwlink/?LinkId=202889)başlama öğreticisindeki "Paket Yöneticisi Ile yükleme yardımcıları" bölümünde açıklandığı gibi ayrı bir paket olarak yüklemeniz gerekir.
 
-#### <a name="change-membership-role-and-security-types-moves-to-new-assembly"></a>Değiştir: Üyelik ve rol güvenlik türleri için yeni bir derleme taşır
+#### <a name="change-membership-role-and-security-types-moves-to-new-assembly"></a>Değişiklik: üyelik, rol ve güvenlik türleri yeni derlemeye gider
 
-> Aşağıdaki türler için taşınan `WebMatrix.WebData` derleme:
+> Aşağıdaki türler `WebMatrix.WebData` derlemesine taşındı:
 > 
 > - `ExtendedMembershipProvider`
 > - `SimpleMembershipProvider`
 > - `SimpleRoleProvider`
 > - `WebSecurity`
 
-#### <a name="change-tagbuilder-class-moved-to-systemwebwebpagesdll-assembly"></a>Değiştir: "TagBuilder" sınıfı System.Web.WebPages.dll derlemeye taşındı
+#### <a name="change-tagbuilder-class-moved-to-systemwebwebpagesdll-assembly"></a>Değişiklik: "TagBuilder" sınıfı System. Web. Web sayfası. dll derlemesine taşındı
 
-> `TagBuilde` r sınıfı System.Web.WebPages.dll derlemeye taşındı. Daha önce ASP.NET MVC parçası olan bir derlemede oluştu. Bu değişiklik kullanmak için ASP.NET MVC yüklemek gerekmez anlamına gelir. `TagBuilder` sınıfı.
+> `TagBuilde` r sınıfı System. Web. Web sayfası. dll derlemesine taşınmıştır. Daha önce bu, ASP.NET MVC 'nin bir parçası olan bir derlemedir. Bu değişiklik, `TagBuilder` sınıfını kullanabilmeniz için ASP.NET MVC 'yi yüklemek zorunda değilsiniz anlamına gelir.
 > 
-> Ancak, yine sınıftır `System.Web.Mvc` ad alanı. Kullanmak için `TagBuilder` sınıfta (örneğin, bir özel ASP.NET Razor Yardımcısı), ad alanı başvurması gerekir (ekleyerek gibi `@using System.Web.Mvc` kodunuzda).
+> Ancak, sınıfı hala `System.Web.Mvc` ad alanında bulunur. `TagBuilder` sınıfını kullanmak için (örneğin, özel bir ASP.NET Razor Yardımcısı), ad alanına başvurmanız gerekir (örneğin, kodunuza `@using System.Web.Mvc` ekleyerek).
 
-#### <a name="change-request-validation-syntax-changed-validation-class-removed"></a>Değiştir: Değiştirilen doğrulama sözdizimi istemiş olursunuz; Kaldırıldı "Doğrulama" sınıfı
+#### <a name="change-request-validation-syntax-changed-validation-class-removed"></a>Değişiklik: Istek doğrulama sözdizimi değişti; "Doğrulama" sınıfı kaldırıldı
 
-> Beta 3 sürümde, her alan veya alanlar, bir dizi için doğrulama devre dışı bırakmak için çağırabilirsiniz `Validation.Exclude` yöntemi, ad veya doğrulamanın dışında tutulacak alanların adlarını geçirme. Yeni bir söz dizimi doğrulama atlama için Beta 3 sürümü kullanıma sunulmuştur. `Validation` Beta 3'te kullanılan yöntemi kaldırıldı.
+> Beta 3 sürümünde, tek bir alan veya alan kümesi için doğrulamayı devre dışı bırakmak üzere, doğrulamanın dışında tutulacak alanların adını veya adlarını geçirerek `Validation.Exclude` yöntemini çağırabilirsiniz. Beta 3 sürümünde doğrulamayı atlamak için yeni bir sözdizimi mevcuttur. Beta 3 ' te kullanılan `Validation` yöntemi kaldırılmıştır.
 > 
 > > [!NOTE]
-> > Kullanıcılar, HTML biçimlendirmesi (örneğin, zengin metin düzenleyicisi bir sayfada kullanarak) karşıya yüklemeye, istek doğrulamayı devre dışı bırakmayın, Web sitesi gibi bir hata rapor eder *potansiyel olarak tehlikeli olabilecek bir Request.Form değeristemcidenalgılandı*ve kullanıcı girişi kabul edilmez. İstek doğrulamanın devre dışı bırakırsanız, potansiyel olarak tehlikeli olabilecek biçimlendirme içeren veya desteklemez gibi kullanarak betik emin emin olmak için kullanıcı girişini el ile denetlemelisiniz [Microsoft virüsten arası Site komut dosyası kitaplığı V4.0](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=f4cd231b-7e06-445b-bec7-343e5884e651).
+> > İstek doğrulamasını devre dışı bırakırsanız, kullanıcılar HTML işaretlemesini karşıya yüklemeye çalışır (örneğin, bir sayfada zengin metin düzenleyicisi kullanarak), Web sitesi potansiyel olarak tehlikeli bir Istek gibi bir hata bildirir *. Istemciden form değeri algılandı* ve Kullanıcı girişi kabul edilmedi. İstek doğrulamayı devre dışı bırakırsanız, [Microsoft Anti-Cross site betik kitaplığı v 4.0](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=f4cd231b-7e06-445b-bec7-343e5884e651)gibi bir şey kullanarak potansiyel olarak tehlikeli biçimlendirme veya betik içermediğinden emin olmak için Kullanıcı girişini el ile denetlemeniz gerekir.
 > 
 > 
-> Otomatik istek doğrulamayı devre dışı bırakmak için çağrı `Request.Unvalidated` yöntemi, alan veya ait istek doğrulamayı atlamak istediğiniz diğer posta nesne adını geçirerek. Bu yöntem tüm öğeler için doğrulama atlama için kullanabileceğiniz `Form`, `QueryString`, `Cookies`, ve `ServerVariables` koleksiyonları. Aşağıdaki örnekler nasıl kullanılacağını `Unvalidated` yöntemi:
+> Otomatik istek doğrulamayı devre dışı bırakmak için `Request.Unvalidated` yöntemini çağırın, bu, alanı veya için istek doğrulamayı atlamak istediğiniz başka bir post nesnesinin adını geçirerek. `Form`, `QueryString`, `Cookies`ve `ServerVariables` koleksiyonlarındaki öğelerin doğrulanmasını atlamak için bu yöntemi kullanabilirsiniz. Aşağıdaki örneklerde `Unvalidated` yönteminin nasıl kullanılacağı gösterilmektedir:
 > 
 > [!code-csharp[Main](beta3/samples/sample4.cs)]
 
 <a id="Issues"></a>
 
-#### <a name="known-issues-for-aspnet-web-pages-with-razor-syntax"></a>Razor sözdizimi olan ASP.NET Web sayfaları için bilinen sorunlar
+#### <a name="known-issues-for-aspnet-web-pages-with-razor-syntax"></a>Razor sözdizimi ile ASP.NET Web sayfaları için bilinen sorunlar
 
-#### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>Sorun: Bir özel bir kullanıcı tablosu için üyeliği kullanılırken beklenmeyen davranışı
+#### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>Sorun: üyelik için özel bir kullanıcı tablosu kullanılırken beklenmeyen davranış
 
-> Bir ASP.NET Razor Web sitesi için üyelik sağlayıcıyı başlatmak için çağrı `WebSecurity.InitializeDatabaseConnection` yöntemi. (Webmatrix'te, başlangıç sitesi şablonunda bu yönteme bir çağrı içerir.  *\_AppStart.cshtml* dosyası.) Varsa `autoCreateTables` bu yöntemin bir parametrenin ayarlanmış true (varsayılan olarak ayarlanır başlangıç sitesi şablonunda true), ve bir tanınmayan tablo adı (ikinci parametresi) yöntemine geçirilen, yöntem bir hata oluşturmaz. Bunun yerine, otomatik olarak bir tablo oluşturur.
+> Bir ASP.NET Razor Web sitesinin üyelik sağlayıcısını başlatmak için `WebSecurity.InitializeDatabaseConnection` yöntemini çağırın. (WebMatrix 'te, başlatıcı site şablonu *\_AppStart. cshtml* dosyasında Bu metoda bir çağrı içerir.) Bu yöntemin `autoCreateTables` parametresi true olarak ayarlanmışsa (varsayılan olarak, başlatıcı site şablonunda true olarak ayarlanır) ve tanınmayan bir tablo adı yönteme (ikinci parametre) geçirilirse Yöntem bir hata oluşturmaz. Bunun yerine, tabloyu otomatik olarak oluşturur.
 > 
-> Üyelik için bir özel bir kullanıcı tablosu kullanır ancak yanlış tablo adına geçirmek istiyorsanız, bu bir sorun olabilir `WebSecurity.InitializeDatabaseConnection` yöntemi. Belirttiğiniz tablo mevcut değilse yöntemi varsayılan olarak bir hata oluşturmaz, çünkü ve bunun yerine yeni bir tablo oluşturur çünkü uygulama çalışıyor gibi görünür. Ancak, özel kullanıcı tablonuzda (ve bu alanlara) kullanan uygulama kodu sonunda beklenmeyen hatalarla başarısız olabilir.
-> 
-> **Geçici çözüm**  
-> İçinde geçirilen ad emin `InitializeDatabaseConnection` kullanıcı profili tablosunda üyelik veritabanında veya devre dışı olduğundan emin olun yöntemi eşleşme `autoCreateTables` parametresini false olarak ayarlayın.
-
-#### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>Sorun: "SQL Server'ın bir kullanıcı örneği oluşturulamadı" hatası
-
-> Bir WebMatrix Web uygulaması, SQL Server Express kullanan ve IIS 7.5 Windows 7 veya Windows Server 2008 R2 çalıştıran, SQL Server çalışma zamanında kullanıcının yerel uygulama yolu alınamıyor belirten bir hata görebilirsiniz.
-> 
-> **Geçici çözüm** uygulama (genellikle altında ağ hizmeti) çalıştıran Windows hesabı gibi uygulamanın kök klasörler ve alt klasörleri için okuma/yazma izinlerine sahip olduğundan emin olun *uygulama\_veri*. Bilgi Bankası makalesinde daha ayrıntılı bilgi kullanılabilir [sorunları kullanıcı SQL Server Express örneği oluşturmayı ve ASP.net Web uygulaması projelerinde](https://support.microsoft.com/kb/2002980).
-
-#### <a name="issue-in-visual-studio-namespaces-for-custom-assemblies-dlls-are-not-imported-automatically"></a>Sorun: Visual Studio'da ad alanları (DLL'ler) özel derlemeler için otomatik olarak alınmaz
-
-> Visual Studio projede özel derlemeler kullanırsanız, tasarım zamanında bu derlemeleri bildirilen ad alanları otomatik olarak alınmaz. Sonuç olarak, özel tür başvuruları tasarım zamanında tanınmayabilir ve (bir "dalgalı" kullanarak) içinde tanınan Visual Studio işaretlenir. Visual Studio'da tasarım zamanında yalnızca bu sorun oluşur; Uygulama düzgün şekilde çalışır.
+> Bu, üyelik için özel bir kullanıcı tablosu kullanmayı amaçlıyorsanız ancak yanlış tablo adını `WebSecurity.InitializeDatabaseConnection` yöntemine geçirirseniz bir sorun olabilir. Yöntemi varsayılan olarak, belirttiğiniz tablo yoksa ve bunun yerine yeni bir tablo oluşturduğunda bir hata oluşturmaz, uygulama çalışıyor olarak görünebilir. Ancak, Özel Kullanıcı tablonuza (ve içindeki alanlarda) bağlı olan uygulama kodu sonunda beklenmedik hatalarla başarısız olabilir.
 > 
 > **Geçici çözüm**  
-> Dahil bir `using` deyimi (`imports` Visual Basic'te), tasarım zamanında tanınmıyor varlıkları başvuruyor.
+> `InitializeDatabaseConnection` yönteminde geçirilen adın, üyelik veritabanındaki kullanıcı profili tablosuyla eşleştiğinden emin olun veya `autoCreateTables` parametresinin false olarak ayarlandığından emin olun.
 
-#### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>Sorun: Visual Studio IntelliSense ve proje şablonları yalnızca ASP.NET MVC 3. sürüm kullanılabilir
+#### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>Sorun: "SQL Server bir kullanıcı örneği oluşturulamadı" hatası
 
-> ASP.NET Web sayfaları yüklenmesi de araçları Visual Studio için ASP.NET Web Pages uygulamaları için IntelliSense ve proje şablonları gibi yüklemez.
+> Bir WebMatrix Web uygulaması SQL Server Express kullanıyorsa ve Windows 7 veya Windows Server 2008 R2 üzerinde IIS 7,5 çalıştırıyorsa, SQL Server kullanıcının yerel uygulama yolunu çalışma zamanında alamadığını belirten bir hata görebilirsiniz.
 > 
-> **Geçici çözüm** IntelliSense ve proje şablonları ASP.NET Web Pages uygulamaları Visual Studio'da kullanmak için ASP.NET MVC 3 RC Web Platformu yükleyicisi aracılığıyla yükleyin veya [tek başına yükleyici](https://go.microsoft.com/fwlink/?LinkID=191797).
+> **Geçici çözüm** Uygulamanın altında çalıştığı Windows hesabının (genellikle ağ HIZMETI) uygulamanın kök klasörleri ve *App\_verileri*gibi alt klasörler için okuma/yazma izinlerine sahip olduğundan emin olun. [SQL Server Express Kullanıcı örneği oluşturma ve ASP.NET Web uygulaması projeleriyle](https://support.microsoft.com/kb/2002980)Ilgili Bilgi Bankası makalesi sorunlarını daha ayrıntılı olarak bulabilirsiniz.
 
-#### <a name="issue-lthelpergt-class-cannot-be-found-error"></a>Sorun: "&lt;Yardımcısı&gt; sınıfı bulunamıyor" hatası
+#### <a name="issue-in-visual-studio-namespaces-for-custom-assemblies-dlls-are-not-imported-automatically"></a>Sorun: Visual Studio 'Da özel derlemeler (dll 'Ler) için ad alanları otomatik olarak içeri aktarılmaz
 
-> Beta 3'e yükselttikten sonra bir hata görebilirsiniz, yardımcı bir sınıf (örneğin, `Facebook` sınıfı) bulunamıyor. Beta 2'de başlangıç ve devam etmeden Beta 3'te, açıkça yüklemeniz gereken paketleri Yardımcıları taşınmıştır. Bu paketleri dahil etmek için var olan siteler yükseltilmeden değil; Bu sitede içerir *\My Documents\IISExpress* veya *\My Documents\My Web siteleri* klasörleri. Özellikle, varsayılan sitenin kullanıyorsanız bu hata iletisiyle karşılaşırsınız *Sitelerim* (Websitesi1), bir başvuru içeren `Twitter` Yardımcısı.
+> Visual Studio 'da bir projede özel derlemeler kullanıyorsanız, bu derlemelerde belirtilen ad alanları tasarım zamanında otomatik olarak içeri aktarılmaz. Sonuç olarak, özel türlere yapılan başvurular tasarım zamanında tanınmayabilir ve Visual Studio 'da tanınmıyor olarak işaretlenir ("dalgalı çizgi" kullanılarak). Bu sorun yalnızca Visual Studio 'da tasarım zamanında oluşur; uygulamanın kendisi düzgün şekilde çalışır.
 > 
 > **Geçici çözüm**  
-> Açıklama satırı çalıştırın, sitedeki tüm yardımcıları çağrıları  *\_yönetici* sayfasında ve paket veya kullanmak istediğiniz Yardımcıları içeren paketleri yükleyin. Paketi yükledikten sonra Yardımcıları başvuran satırları açıklama durumundan çıkarabilirsiniz.
+> Tasarım zamanında tanınmayan varlıklara başvuran bir `using` deyimin (Visual Basic`imports`) dahil edin.
 
-#### <a name="issue-deploying-beta-3-aspnet-razor-assemblies-to-the-bin-folder-might-not-work-on-hosting-sites"></a>Sorun: Bin klasörüne erişmeye Beta 3 ASP.NET Razor derlemeleri dağıtma siteleri barındırma sunucusunda çalışmıyor olabilir
+#### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>Sorun: Visual Studio IntelliSense ve proje şablonları yalnızca ASP.NET MVC sürüm 3 ' te kullanılabilir
 
-> Bir ASP.NET Web Pages Web sitesi barındırma bir siteye dağıtırsanız ve sitenin ASP.NET Razor Beta 3 derlemeleri dağıtırsanız *Bin* klasörü, hatalar, aşağıdakiler dahil olmak üzere karşılaşabilirsiniz:
+> ASP.NET Web sayfalarının yüklenmesi, Visual Studio için IntelliSense ve ASP.NET Web sayfaları uygulamalarına yönelik proje şablonları gibi araçları da yüklemez.
+> 
+> **Geçici çözüm** Visual Studio 'da ASP.NET Web Pages uygulamaları için IntelliSense ve proje şablonları kullanmak üzere, Web Platformu Yükleyicisi veya [tek başına yükleyici](https://go.microsoft.com/fwlink/?LinkID=191797)aracılığıyla ASP.NET MVC 3 RC 'yi yükleme.
+
+#### <a name="issue-lthelpergt-class-cannot-be-found-error"></a>Sorun: "&lt;yardımcı&gt; sınıfı bulunamıyor" hatası
+
+> Beta 3 ' e yükselttikten sonra bir yardımcı sınıfın (örneğin, `Facebook` sınıfı) bulunamadığını belirten bir hata görebilirsiniz. Beta 2 ' den itibaren ve Beta 3 ' te devam eden yardımcılar, açıkça yüklenmesi gereken paketlere taşınmıştır. Mevcut siteler bu paketleri içerecek şekilde yükseltilmemiştir; Bu, *\Belgelerim\iisexpress* veya *\Belgelerim\web siteleri* klasörlerindeki siteleri içerir. Özellikle, *sitemdeki* (websitesi1) varsayılan siteyi kullanıyorsanız, `Twitter` Yardımcısı 'na bir başvuru içeren bu hatayı görürsünüz.
+> 
+> **Geçici çözüm**  
+> Sitedeki herhangi bir yardımcıya yönelik çağrıları açıklama olarak *\_yönetici* sayfasını çalıştırın ve kullanmak istediğiniz yardımcıları içeren paketi veya paketleri yükleyebilirsiniz. Paketi yükledikten sonra, yardımcılar 'a başvuru yapan satırların açıklamasını kaldırabilirsiniz.
+
+#### <a name="issue-deploying-beta-3-aspnet-razor-assemblies-to-the-bin-folder-might-not-work-on-hosting-sites"></a>Sorun: Beta 3 ASP.NET Razor derlemelerini bin klasörüne dağıtmak barındırma sitelerinde çalışmayabilir
+
+> Bir barındırma sitesine ASP.NET Web sayfaları Web sitesini dağıtırsanız ve ASP.NET Razor Beta 3 derlemelerini sitenin *bin* klasörüne dağıtırsanız, aşağıdakiler de dahil olmak üzere hatalarla karşılaşabilirsiniz:
 > 
 > `Could not load type 'Microsoft.Web.Infrastructure.DynamicModuleHelper.DynamicModuleUtility' from assembly 'Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.`
 > 
-> Barındırma sağlayıcısı, sunucunun genel uygulama önbelleğine (GAC) ASP.NET Web sayfaları Beta 1 derlemeleri yüklediyse bu durum oluşabilir. Derlemeler GAC içindeki yerel olarak yüklenen derlemeler üzerinde önceliği alma *Bin* klasör.
+> Barındırma sağlayıcısı, ASP.NET Web sayfaları Beta 1 derlemelerini sunucunun genel uygulama önbelleğine (GAC) yüklemişse bu durum oluşabilir. GAC içindeki derlemeler, *bin* klasöründe yerel olarak yüklenen derlemelerin üzerine önceliğe sahip olur.
 > 
-> **Geçici çözüm** gördüğünüzü hataları sağlayıcının sürümleri arasında bir çakışma nedeniyle olduğunu onaylamak için barındırma sağlayıcınızla bağlantı kurun derlemelerin ve kullanacağınıza kendiniz karar verebilirsiniz. Bu durumda, barındırma sağlayıcısı sunucunun GAC derlemelerde güncelleştirme isteği.
+> **Geçici çözüm** Gördüğünüz hataların sağlayıcının derlemelerin sürümleri ve sizinkilerle ilgili olduğunu doğrulamak için barındırma sağlayıcınızla iletişim kurun. Bu durumda, barındırma sağlayıcısının derlemeleri sunucunun GAC 'de güncelleştirmesini isteyin.
 
-#### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>Sorun: Akışları okuma veya diğer dış veri bir ara sunucu aracılığıyla
+#### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>Sorun: bir ara sunucu aracılığıyla akışları veya diğer dış verileri okuma
 
-> Site sunucusunu bir proxy sunucusu arkasında ise, Ara sunucu bilgileri yapılandırmanız gerekebilir *Web.config* dosyasını, site dışında geldiği bilgileri okuyabilir. Örneğin, kullanırsanız `ReCaptcha` yardımcı, yardımcı reCAPTCHA hizmetiyle iletişim kurar, ancak proxy sunucunuz tarafından engelleniyor olabilir. Benzer şekilde, Paket Yöneticisi tarafından kullanılan akış gibi ASP.NET Web sayfaları'nda kullanılan akışları proxy yapılandırma gerektirebilir.
+> Siteyi çalıştıran sunucu bir proxy sunucusunun arkasındaysa, sitenizin dışından gelen bilgileri okuyabilmeniz için *Web. config* dosyasındaki proxy bilgilerini yapılandırmanız gerekebilir. Örneğin, `ReCaptcha` yardımcısını kullanıyorsanız, yardımcı, reCAPTCHA hizmeti ile iletişim kurar, ancak proxy sunucunuz tarafından engelleniyor olabilir. Benzer şekilde, ASP.NET Web sayfalarında kullanılan ve paket yöneticisi tarafından kullanılan akış gibi akışlar ara sunucu yapılandırması gerektirebilir.
 > 
-> Bir dış hizmet çalışmaya veya akış paketi ile çalışırken sorunlarla karşılaşırsanız, aşağıdaki öğeleri, uygulamanızın kök ile put *Web.config* dosyası:
+> Bir dış hizmetle çalışırken veya paket akışı ile çalışırken sorunlarla karşılaşırsanız, aşağıdaki öğeleri uygulamanızın kök *Web. config* dosyasına yerleştirin:
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> Bir proxy sunucusu yapılandırma hakkında daha fazla bilgi için bkz. [ &lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web sitesinde.
+> Proxy sunucu yapılandırma hakkında daha fazla bilgi için, MSDN Web sitesindeki [&lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) bölümüne bakın.
 
-#### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>Sorun: "Microsoft.Web.Infrastructure.dll yüklenemiyor" hatası
+#### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>Sorun: "Microsoft. Web. Infrastructure. dll yüklenemiyor" hatası
 
-> Daha önce Razor sözdizimi olan ASP.NET Web sayfaları, Beta 1 sürümü yüklü ve Beta 3 sürümünü yüklemeyi, tüm uygun derlemelere dışında GAC'deki yüklenir *Microsoft.Web.Infrastructure.dll*. Sonuç olarak, ASP.NET Razor sayfaları çalıştırdığınızda bildiren bir hata görürsünüz *Microsoft.Web.Infrastructure.dll* yüklenemedi.
+> Daha önce ASP.NET Web sayfalarının Beta 1 sürümünü Razor söz dizimi ve ardından Beta 3 sürümünü yüklerseniz, tüm uygun derlemeler *Microsoft. Web. Infrastructure. dll*hariç GAC 'ye yüklenir. Sonuç olarak, ASP.NET Razor sayfaları çalıştırdığınızda, *Microsoft. Web. Infrastructure. dll ' nin* yüklenemediğini belirten bir hata görürsünüz.
 > 
-> Temiz bir bilgisayarda Beta 3 yayını yüklerse, bu sorun gerçekleşmez.
+> Beta 3 sürümünü temiz bir bilgisayara yüklediyseniz bu sorun oluşmaz.
 > 
 > **Geçici çözüm**  
-> Denetim Masası'nda, ASP.NET Web Pages kaldırın. Ardından Beta 3 sürümünü yeniden yükleyin.
+> Denetim Masası 'nda ASP.NET Web sayfalarını kaldırın. Ardından Beta 3 sürümünü yeniden yükleyin.
 
-#### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Sorun: Razor sözdizimi olan ASP.NET Web Pages .NET Framework sürüm 4 kaldırma devre dışı bırakır
+#### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Sorun: .NET Framework sürüm 4 ' ü kaldırmak, Razor sözdizimi ile ASP.NET Web sayfalarını devre dışı bırakır
 
-> .NET Framework sürüm 4 kaldırın ve daha sonra yeniden yüklerseniz, Razor sözdizimi olan ASP.NET Web sayfaları devre dışı bırakıldı. İle sayfaları *.cshtml* uzantısı düzgün çalışmaz. ASP.NET Web sayfaları kaydeder derleme makinesi kök dizininde *Web.config* dosyasını ve .NET Framework kaldırarak bu dosyayı kaldırır. .NET Framework yeniden yapılandırma dosyasının yeni bir sürümü yükler, ancak başvuru için ASP.NET Web Pages derleme eklemez.
+> .NET Framework sürüm 4 ' ü kaldırıp yeniden yüklerseniz, Razor söz dizimi Web sayfaları devre dışı bırakılır. *. Cshtml* uzantılı sayfalar düzgün çalışmaz. ASP.NET Web sayfaları, bir derlemeyi makine kök *Web. config* dosyasına kaydeder ve .NET Framework kaldırıldığında bu dosya kaldırılır. .NET Framework yeniden yüklemek, yapılandırma dosyasının yeni bir sürümünü yüklüyor, ancak ASP.NET Web Pages derlemesinin başvurusunu eklemez.
 > 
-> **Geçici çözüm** .NET Framework yeniden yükledikten sonra Razor sözdizimi olan ASP.NET Web sayfaları yeniden yükleyin. Bu şu öğeye ekler *Web.config* genellikle şu konumdadır makine kök dosyasında:  
+> **Geçici çözüm** .NET Framework yeniden yükledikten sonra, ASP.NET Web sayfalarını Razor söz dizimi yeniden yükleyin. Bu, genellikle aşağıdaki konumda olan makine kökündeki *Web. config* dosyasına aşağıdaki öğeyi ekler:  
 > 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > 
@@ -264,89 +264,89 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
 
-#### <a name="issue-applications-previously-deployed-with-aspnet-assemblies-in-the-bin-folder-experience-errors"></a>Sorun: Bin klasörü derlemelerde ASP.NET ile daha önce dağıttığınız uygulamaların trafiğinde yaşanan hataları
+#### <a name="issue-applications-previously-deployed-with-aspnet-assemblies-in-the-bin-folder-experience-errors"></a>Sorun: bin klasör deneyimi hatalarında daha önce ASP.NET Derlemeleriyle dağıtılan uygulamalar
 
-> ASP.NET Web Pages derleme kopyaları, dağıtım sırasında (örneğin, *Microsoft.WebPages.dll*) için *Bin* Web sitesinin sunucusunda klasör. (Bu otomatik olarak dağıtım sırasında durum meydana gelmiş veya Geliştirici derlemelerin açıkça kopyalanır.) Ancak, Beta 3 sürümü yüklendiğinde, hatalar oluşur, belirli türler bulunamadığı hataları gibi. Bu durum, bir ASP.NET Web Pages türlerinin sayısı Beta 3 sürümüyle farklı ad alanında taşınan kaynaklanır.
+> Dağıtım sırasında, ASP.NET Web sayfaları derlemelerinin (örneğin, *Microsoft. Web sayfaları. dll*), sunucudaki Web sitesinin *bin* klasörüne kopyaları. (Dağıtım sırasında veya geliştirici derlemeleri açıkça kopyalandığı için bu durum otomatik olarak oluşmuş olabilir.) Ancak, Beta 3 sürümü yüklendiğinde, belirli türlerin hataları gibi hatalar oluşur. Bu durum, Beta 3 sürümü için bir dizi ASP.NET Web sayfası türünün farklı ad alanlarına taşındığı için oluşur.
 > 
 > **Geçici çözüm**   
-> NET *Bin* dağıtılan bir uygulama klasörü yeni derlemeleri klasöre kopyalayın (veya uygulama yeniden) ve ardından uygulamayı yeniden başlatın.
+> Dağıtılan uygulamanın *bin* klasörünü temizleyin, yeni derlemeleri klasöre kopyalayın (veya uygulamayı yeniden dağıtın) ve uygulamayı yeniden başlatın.
 
-#### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Sorun: Uzantısız URL'ler IIS 7 ya da IIS 7.5.cshtml/.vbhtml dosyada bulunamadı
+#### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Sorun: Extensionless URL 'Leri IIS 7 veya IIS 7,5 üzerinde. cshtml/. vbhtml dosyalarını bulamıyor
 
-> IIS 7 veya IIS 7.5, aşağıdaki gibi bir URL isteklerle sahip sayfalar bulmak mümkün değildir *.cshtml* veya *.vbhtml* uzantısı:  
+> IIS 7 veya IIS 7,5 ' de, aşağıdakine benzer bir URL 'ye sahip istekler *. cshtml* veya *. vbhtml* uzantısına sahip sayfaları bulamaz:  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
-> URL yeniden yazma varsayılan olarak IIS 7 veya IIS 7.5 için etkin olmadığından, sorun ortaya çıkar. IIS Express kullanarak yerel olarak test ederken sorun görmüyorsanız, ancak Web sitenizi barındıran bir Web sitesine dağıttığınızda deneyimi, denetçilerinde bir senaryodur.
+> Bu sorun ortaya çıkar çünkü URL yeniden yazma özelliği IIS 7 veya IIS 7,5 için varsayılan olarak etkinleştirilmemiştir. Likeliest senaryosu, IIS Express kullanarak yerel olarak test ederken sorunu görmemelidir, ancak Web sitenizi bir barındırma web sitesine dağıttığınızda bu sorunla karşılaşırsınız.
 > 
 > **Geçici çözüm**
 > 
-> - Sunucu bilgisayarı üzerinde denetime sahip olursunuz, sunucu bilgisayarda açıklanan güncelleştirmeyi yükleyin. [etkinleştirir işlemek için IIS 7.0 veya IIS 7.5 işleyicilerinin URL'leri istekleri belirli bir nokta ile bitmeyen bir güncelleştirme kullanılabilir](https://support.microsoft.com/kb/980368).
-> - Sunucu bilgisayarı üzerinde denetim yoksa (örneğin, bir barındırma Web sitesine dağıtıyorsanız), Web sitenizin ekleyin *Web.config* dosyası:
+> - Sunucu bilgisayar üzerinde denetiminiz varsa, sunucu bilgisayarda, [belırlı ııs 7,0 veya ııs 7,5 işleyicilerinin, URL 'lerin noktayla bitmeyen istekleri işlemesini sağlayan bir güncelleştirmede](https://support.microsoft.com/kb/980368)açıklanan güncelleştirmeyi yükleyebilirsiniz.
+> - Sunucu bilgisayarı üzerinde denetiminiz yoksa (örneğin, bir barındırma web sitesine dağıtıyorsanız), aşağıdakileri Web sitesinin *Web. config* dosyasına ekleyin:
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample7.xml)]
 
-#### <a name="issue-using-web-application-project-or-aspnet-mvc-and-aspnet-web-pages-in-the-same-application"></a>Sorun: Web uygulaması projesi veya ASP.NET MVC ve ASP.NET Web sayfaları aynı uygulamada kullanma
+#### <a name="issue-using-web-application-project-or-aspnet-mvc-and-aspnet-web-pages-in-the-same-application"></a>Sorun: Web uygulaması projesi veya ASP.NET MVC ve ASP.NET Web sayfalarını aynı uygulamada kullanma
 
-> ASP.NET Web sayfaları, bir Web uygulaması projesi ya da ASP.NET MVC uygulaması kullandıysanız, bir hata görebilirsiniz, *WebPageHttpApplication* bulunamıyor.
+> Web uygulaması projesinde veya ASP.NET MVC uygulamasında ASP.NET Web sayfaları kullanıyorsanız, *Webpagehttpapplication* 'un bulunamadığını belirten bir hata görebilirsiniz.
 > 
 > **Geçici çözüm**  
-> Bu hata alırsanız, uygulama türetildiği temel sınıf değiştirin. İçinde *Global.asax* dosyasında, aşağıdaki satırı değiştirin:
+> Bu hatayı alırsanız, uygulamanın türettiği temel sınıfı değiştirin. *Global. asax* dosyasında aşağıdaki satırı değiştirin:
 > 
 > [!code-csharp[Main](beta3/samples/sample8.cs)]
 > 
-> Şu şekilde:
+> Bunun için:
 > 
 > [!code-csharp[Main](beta3/samples/sample9.cs)]
 > 
-> Bu uygulamada, sunulan bir değişiklik tersine çevirir Razor sözdizimi olan ASP.NET Web sayfaları, Beta 1 sürümü için.
+> Bu efekt, Razor söz dizimi ile ASP.NET Web sayfalarının Beta 1 sürümü için tanıtılan bir değişikliği tersine çevirir.
 
-#### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>Sorun: SQL Server yüklü Compact sahip olmayan bir bilgisayara uygulama dağıtma
+#### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>Sorun: SQL Server Compact yüklü olmayan bir bilgisayara uygulama dağıtma
 
-> SQL Server Compact veritabanı içeren uygulamalar, SQL Server Compact değil yüklü olduğu bir bilgisayarda çalıştırabilirsiniz. Microsoft WebMatrix Beta 3 otomatik olarak bu ikili dosyalar, kopyalar ve uygun gerçekleştirir *Web.config* dosya dönüşümler.
+> SQL Server Compact veritabanlarını içeren uygulamalar, SQL Server Compact yüklü olmayan bir bilgisayarda çalıştırılabilir. Microsoft WebMatrix Beta 3, bu ikili dosyaları sizin için otomatik olarak kopyalar ve uygun *Web. config* dosyası dönüşümlerini gerçekleştirir.
 > 
-> **Geçici çözüm** bu dosyaları kopyalayın ve gerekirse *Web.config* dosya değişikliklerini el ile şunları yapın:
+> **Geçici çözüm** Bu dosyaları kopyalamanız ve *Web. config* dosyasının el ile değişiklikleri yapmanız gerekiyorsa, şunları yapın:
 > 
-> 1. Veritabanı altyapısı derlemeleri kopyalamak *Bin* uygulamanın hedef bilgisayardaki klasör (ve klasörleri): 
+> 1. Veritabanı altyapısı derlemelerini hedef bilgisayardaki uygulamanın *bin* klasörüne (ve alt klasörlerine) kopyalayın: 
 > 
->     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll* **to** *\Bin*
->     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **to** *\Bin\x86*
->     - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
-> 2. Web sitesinin kök klasöründeki oluşturun veya açın bir *Web.config* dosya. (WebMatrix Beta 3'te, bu dosya türü tıklarsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
-> 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin **&lt;yapılandırma&gt;** öğesi (değilken **&lt;system.web&gt;** öğesi):
+>     - *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll* **'i** *\Bin* 'e Kopyala
+>     - *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* *  **'i** *\bin\x86* ' ya kopyalayın
+>     - *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\* *  **'i** *\bin\amd64* dizinine kopyalayın
+> 2. Web sitesinin kök klasöründe bir *Web. config* dosyası oluşturun veya açın. (WebMatrix Beta 3 ' te, **dosya türü seç** Iletişim kutusunda **Tümü** ' ne tıkladığınızda bu dosya türü kullanılabilir.)
+> 3. Aşağıdaki öğeyi **&lt;configuration&gt;** öğesinin bir alt öğesi olarak ekleyin ( **&lt;system. Web&gt;** öğesinin içinde değil):
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
 
-#### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>Sorun: Veritabanı ve WebGrid Yardımcıları Medium Trust Visual Basic içindeki mtm'de çalışmıyor
+#### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>Sorun: veritabanı ve WebGrid yardımcıları Visual Basic sürümünde Orta güvende çalışmıyor
 
-> Visual Basic kullanıyorsanız (oluşturma *.vbhtml* dosyaları), `Database` ve `WebGrid` uygulama Medium Trust kullanmak üzere ayarlanmışsa Yardımcıları çalışmaz.
+> Visual Basic kullanıyorsanız ( *. vbhtml* dosyaları oluşturma), uygulama orta güveni kullanmak üzere ayarlandıysa `Database` ve `WebGrid` yardımcıları çalışmaz.
 > 
 > **Geçici çözüm**  
-> Tam güven kullanmak için uygulamayı geçici olarak ayarlar.
+> Uygulamayı tam güven kullanacak şekilde geçici olarak ayarlayın.
 
 <a id="Known_Issues_SQL_Server_Compact"></a>
 ### <a name="sql-server-compact"></a>SQL Server Compact
 
-#### <a name="issue-encrypt-property-is-not-recognized"></a>Sorun: "Şifrele" özelliği tanınmıyor
+#### <a name="issue-encrypt-property-is-not-recognized"></a>Sorun: "Encrypt" özelliği tanınmıyor
 
-> SQL Server Compact 4.0 tanımıyor `Encrypt` özelliği `SqlCeConnection` sınıfı. Veritabanı dosyaları şifrelemek için bu özelliği kullanmamanız gerekir. `Encrypt` Özelliği SQL Server Compact 3.5 sürümde kullanım dışı bırakıldı ve yalnızca geriye dönük uyumluluk için tutulmaktadır. 
+> SQL Server Compact 4,0, `SqlCeConnection` sınıfının `Encrypt` özelliğini tanımıyor. Veritabanı dosyalarını şifrelemek için bu özelliği kullanmamalısınız. `Encrypt` özelliği SQL Server Compact 3,5 sürümünde kullanımdan kaldırılmıştır ve yalnızca geriye dönük uyumluluk için korunur. 
 > 
 > **Geçici çözüm**  
-> Kullanım `Encryption Mode` özelliği `SqlCeConnection` SQL Server Compact 4.0 veritabanı dosyaları şifrelemek için sınıf. Aşağıdaki örnek, şifrelenmiş bir SQL Server Compact 4.0 veritabanını kullanarak oluşturma işlemi gösterilmektedir `Encryption Mode` özelliği:
+> SQL Server Compact 4,0 veritabanı dosyalarını şifrelemek için `SqlCeConnection` sınıfının `Encryption Mode` özelliğini kullanın. Aşağıdaki örnek, `Encryption Mode` özelliğini kullanarak nasıl şifreli SQL Server Compact 4,0 veritabanı oluşturulacağını gösterir:
 > 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
 > 
 > [!code-vb[Main](beta3/samples/sample12.vb)]
 > 
-> Mevcut bir SQL Server Compact 4.0 veritabanı şifreleme modunu değiştirmek için aşağıdakileri yapın:
+> Mevcut bir SQL Server Compact 4,0 veritabanının şifreleme modunu değiştirmek için aşağıdakileri yapın:
 > 
 > [!code-csharp[Main](beta3/samples/sample13.cs)]
 > 
 > [!code-vb[Main](beta3/samples/sample14.vb)]
 > 
-> Şifrelenmemiş bir SQL Server Compact 4.0 veritabanı şifrelemek için aşağıdakileri yapın:
+> Şifrelenmemiş bir SQL Server Compact 4,0 veritabanını şifrelemek için aşağıdakileri yapın:
 > 
 > [!code-csharp[Main](beta3/samples/sample15.cs)]
 > 
@@ -354,142 +354,142 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 #### <a name="issue-microsoft-visual-c-2008-runtime-libraries-are-required"></a>Sorun: Microsoft Visual C++ 2008 çalışma zamanı kitaplıkları gereklidir
 
-> Yerel DLL'leri, SQL Server Compact 4.0 Hizmet Paketi 1, Microsoft Visual C++ 2008 çalışma zamanı kitaplıkları (x 86, IA64 ve x 64) gerekir.
+> SQL Server Compact 4,0 ' in yerel dll 'Leri Microsoft Visual C++ 2008 çalışma zamanı kitaplıklarını (x86, IA64 ve x64), hizmet paketi 1 ' i gerektirir.
 > 
 > **Geçici çözüm**  
-> .NET Framework 3.5 SP1 yükleyin. Bu, Visual C++ 2008 çalışma zamanı kitaplıkları SP1'i de yükler. Kitaplıklar şu konumdan indirebilirsiniz:   
+> .NET Framework 3,5 SP1 'i yükler. Bu, Visual C++ 2008 çalışma zamanı kitaplıkları SP1 de yüklenir. Kitaplıkları aşağıdaki konumdan indirebilirsiniz:   
 >   
-> [Microsoft Visual C++ 2008 Service Pack 1 Redistributable paketi ATL güvenlik güncelleştirmesi](https://go.microsoft.com/fwlink/?LinkId=194827)
+> [Microsoft Visual C++ 2008 Service Pack 1 yeniden DAĞITILABILIR paket ATL güvenlik güncelleştirmesi](https://go.microsoft.com/fwlink/?LinkId=194827)
 > 
 > [!NOTE]
-> Unutmayın, .NET Framework 2.0, 3.0, yükleme veya 4 mu *değil* Visual C++ 2008 çalışma zamanı kitaplıkları SP1'i yükleyin.
+> 2,0, 3,0 veya 4 *.NET Framework yükleme Visual* C++ 2008 çalışma zamanı kitaplıkları SP1 'i yüklemediğini unutmayın.
 
-#### <a name="issue-if-sql-server-compact-is-installed-prior-to-installing-net-framework-on-the-computer-its-provider-invariant-name-is-not-registered-in-the-net-framework-machineconfig-file"></a>Sorun: SQL Server Compact bilgisayarda .NET Framework yüklenmeden önce yüklü değilse, sağlayıcı değişmez adı .NET Framework machine.config dosyasında kayıtlı değil
+#### <a name="issue-if-sql-server-compact-is-installed-prior-to-installing-net-framework-on-the-computer-its-provider-invariant-name-is-not-registered-in-the-net-framework-machineconfig-file"></a>Sorun: bilgisayara .NET Framework yüklemeden önce SQL Server Compact yüklüyse, sağlayıcının sabit adı .NET Framework Machine. config dosyasında kayıtlı değil
 
-> SQL Server Compact, SQL Server Compact .NET framework gerektirdiği için .NET Framework yüklü olmayan bir makineye yüklenebilir. SQL Server Compact yüklemeden önce .NET Framework sürüm 3.5 ve 4 ne yüklü ise SQL Server Compact Kurulumu sağlayıcı değişmez adını kaydetmez *machine.config* dosya. SQL Server Compact girişi dayanan herhangi bir uygulama *machine.config* dosyası başarısız olur. Değişmez adı kayıt girişi *machine.config* aşağıdaki örnek gibi görünür:
+> SQL Server Compact, SQL Server Compact .NET Framework gerektirdiğinden .NET Framework yüklü olmayan bir makineye yüklenebilir. SQL Server Compact yüklemeden önce .NET Framework sürüm 3,5 veya 4 yüklü değilse SQL Server Compact kurulum, *Machine. config* dosyasına sağlayıcının sabit adını kaydetmez. *Machine. config* dosyasında SQL Server Compact girişi kullanan herhangi bir uygulama başarısız olur. *Machine. config* dosyasındaki sabit ad kayıt girdisi aşağıdaki örneğe benzer şekilde görünür:
 > 
 > [!code-xml[Main](beta3/samples/sample17.xml)]
 > 
 > **Geçici çözüm**  
-> SQL Server Compact 4.0 CTP1 kaldırın. İndirin ve tam .NET Framework sürümleri şu konumdan yükleyin:
+> SQL Server Compact 4,0 CTP1 'yi kaldırın. Aşağıdaki konumdan .NET Framework tam sürümlerini indirip yükleyin:
 > 
-> [Microsoft .NET Framework 3.5 Service pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
-> [Microsoft .NET Framework 4.0 sürümü (tüm paket)](https://www.microsoft.com/downloads/details.aspx?FamilyID=9cfb2d51-5ff4-4491-b0e5-b386f32c0992&amp;displaylang=en)
+> [Microsoft .NET Framework 3,5 Service Pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
+> [Microsoft .NET Framework 4,0 sürümü (tam paket)](https://www.microsoft.com/downloads/details.aspx?FamilyID=9cfb2d51-5ff4-4491-b0e5-b386f32c0992&amp;displaylang=en)
 > 
-> Yeniden [SQL Server Compact 4.0 CTP1](https://www.microsoft.com/downloads/details.aspx?FamilyID=0d2357ea-324f-46fd-88fc-7364c80e4fdb&amp;displaylang=en).
+> [SQL Server Compact 4,0 CTP1](https://www.microsoft.com/downloads/details.aspx?FamilyID=0d2357ea-324f-46fd-88fc-7364c80e4fdb&amp;displaylang=en)yeniden yükleyin.
 
 <a id="Known_Issues_Installing_Applications"></a>
 
 ### <a name="installing-applications"></a>Uygulamaları yükleme
 
-#### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: Bir uygulamayı yüklemek kullanıcının Belgelerim klasöründeki bir ağ paylaşımına yönlendirilir, uzun bir zaman alabilir
+#### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: kullanıcının Belgelerim klasörü bir ağ paylaşımında yeniden yönlendiriliyorsa, uygulamanın yüklenmesi uzun zaman alabilir
 
 > **Geçici çözüm**  
-> Yok. Uygulama yüklemek için biraz sürebilir ancak düzgün yüklenecektir.
+> Yok. Uygulamanın yüklenmesi biraz zaman alabilir, ancak doğru şekilde yüklenir.
 
 <a id="Known_Issues_Publishing_Applications"></a>
 
-### <a name="publishing-applications"></a>Uygulama yayımlama
+### <a name="publishing-applications"></a>Uygulamaları yayımlama
 
-#### <a name="issue-site-might-not-work-after-publishing-if-the-destination-url-field-is-not-prefixed-with-http-or-https"></a>Sorun: Site "Hedef URL'si" alanında http:// veya https:// ile eklenmedi, yayımladıktan sonra çalışmayabilir
+#### <a name="issue-site-might-not-work-after-publishing-if-the-destination-url-field-is-not-prefixed-with-http-or-https"></a>Sorun: "hedef URL" alanı http://veya https://ön eki değilse, site yayımlamadan sonra çalışmayabilir
 
-> İçinde **yayımlama ayarları** iletişim kutusunda, hedef URL ile başlamıyorsa `http://` veya `https://`, site dağıtımdan sonra çalışmayabilir.
+> **Yayımlama ayarları** iletişim kutusunda, hedef URL `http://` veya `https://`ile başlamadıysanız, site dağıtımdan sonra çalışmayabilir.
 > 
 > **Geçici çözüm**  
-> Bir siteyi hedef URL yayımlamadan önce emin **yayımlama ayarları** iletişim kutusu ile başlayan `http://` veya `https://`.
+> Bir siteyi yayımlamadan önce, **yayınlama ayarları** iletişim KUTUSUNDAKI hedef URL 'nin `http://` veya `https://`ile başlayacağını doğrulayın.
 
-#### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>Sorun: Bir MySQL veritabanı yayımlama "veritabanı yayımlanamadı. şu hata ile başarısız Uzak veritabanı betiği çalıştırırsanız bu durum oluşabilir."
+#### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>Sorun: bir MySQL veritabanının yayımlanması "veritabanı yayımlanamadı. Uzak veritabanı betiği çalıştıramadığı takdirde bu durum oluşabilir. "
 
-> Hata, bir dizi nedenden ötürü ortaya çıkabilir. Bu hatayı görebilirsiniz. bir veritabanı betik, tek tırnak karakterini (') içerir ve hedef MySQL veritabanının varsayılan karakter kümesini UTF-8'e değil nedenidir.
+> Hata çeşitli nedenlerden kaynaklanabilir. Bu hatayı görebileceğiniz bir nedeni, veritabanı betiğinin tek tırnak karakteri (') içermesi ve hedef MySQL veritabanının varsayılan karakter kümesinin UTF-8 ' e olmaması olabilir.
 > 
 > **Geçici çözüm**  
-> Uzak bir MySQL veritabanı için UTF-8'e ayarlanmış varsayılan karakter kümesi.
+> Uzak MySQL veritabanı için varsayılan karakter kümesini UTF-8 olarak ayarlayın.
 
 <a id="Known_Issues_Other_Issues"></a>
 
 ### <a name="other-issues"></a>Diğer Sorunlar
 
-#### <a name="issue-searchfilter-does-not-work-in-reports-for-group-by-issue-type"></a>Sorun: Arama/filtresi, Group By için raporlarda çalışmaz: Sorun türü
+#### <a name="issue-searchfilter-does-not-work-in-reports-for-group-by-issue-type"></a>Sorun: arama/filtreleme, gruplandırma ölçütü: sorun türü raporlarında çalışmıyor
 
-> Çalıştırdığınızda, site için bir rapor metin girerseniz *URL'ye göre filtre* kutusuna ve tıklatın *arama*, hiçbir şey olmaz. Bu denetim sırasında işlevsel değil olmasıdır *Group By* durumu raporu ayarlandığında *sorun türü*, varsayılan değerdir.
+> Bir site için rapor çalıştırdığınızda, *URL 'ye göre filtrele* kutusuna metin girip *Ara*' yı tıklatırsanız, hiçbir şey olmaz. Bunun nedeni, raporun eyalet *ölçütü* , varsayılan değer olan durum *türü*olarak ayarlandığı sürece bu denetim işlevsel değildir.
 > 
-> **Geçici çözüm** içinde *Group By* sekmesi, Şerit tıklayın *URL* girişleri kendi kaynak URL'ye göre gruplandırmak için. Bu durumda, metin kutusu ve düğme girişleri filtrelemenin işlevseldir.
+> **Geçici çözüm** Şerit 'in *Gruplandırma ölçütü* sekmesinde, GIRDILERI kaynak URL 'lerine göre gruplandırmak için *URL* ' ye tıklayın. Bu durumda, girdileri filtrelemek için metin kutusu ve düğme işlevseldir.
 
-#### <a name="issue-wcf-applications-fail-to-run-with-iis-express"></a>Sorun: IIS Express ile çalıştırmak WCF uygulamaları başarısız
+#### <a name="issue-wcf-applications-fail-to-run-with-iis-express"></a>Sorun: WCF uygulamaları IIS Express ile çalıştırılamaz
 
-> Bir WCF uygulamaya göz atma aşağıdakine benzer bir hatayla sonuçlanır:
+> Bir WCF uygulamasına göz atmak aşağıdakine benzer bir hata ile sonuçlanır:
 > 
-> *Dosya veya derleme yüklenemedi ' Microsoft.Web.Administration, sürüm 7.0.0.0'dan, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' veya bağımlılıklarından biri. Sistem belirtilen dosyayı bulamıyor.*
+> *Dosya veya derleme ' Microsoft. Web. Administration, version = 7.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' veya bağımlılıklarından biri yüklenemedi. Sistem belirtilen dosyayı bulamıyor.*
 > 
-> IIS Express Beta sürümü, varsayılan olarak WCF desteklemediğinden bu oluşur.
+> Bu durum IIS Express beta sürümü varsayılan olarak WCF 'yi desteklemediğinden oluşur.
 > 
-> **Geçici çözüm** aşağıdaki geçici çözümlerden birini kullanın (geçici çözüm #2 gerektiren Microsoft Windows Vista veya üzeri):
+> **Geçici çözüm** Aşağıdaki geçici çözümlerden birini kullanın (geçici çözüm #2 Microsoft Windows Vista veya üstünü gerektirir):
 > 
 > 
-> 1. Kopyalama *Microsoft.Web.dll* ve *Microsoft.Web.Administration.dll* WebMatrix yükleme konumuna derlemelerden *bin* WCF dizin uygulama. WebMatrix varsayılan olarak, yüklü *Microsoft WebMatrix* alt sistemin altında *Program dosyaları* klasör.
-> 2. Microsoft Windows Vista veya sonraki derlemelerde için bir sembolik bağlantısını oluşturun *bin* aşağıdaki komutları kullanarak dizin. (Bu yaklaşım bir kopyasını derlemeleri oluşturmaz avantajına sahiptir.)
+> 1. WebMatrix yükleme konumundan *Microsoft. Web. dll* ve *Microsoft. Web. Administration. dll* derlemelerini WCF uygulamasının *bin* dizinine kopyalayın. Varsayılan olarak, WebMatrix, sistemin *Program Files* klasörü altındaki *Microsoft WebMatrix* alt klasörüne yüklenir.
+> 2. Microsoft Windows Vista veya üzeri sürümlerde, *bin* dizinindeki derlemeler için aşağıdaki komutları kullanarak bir oluşturmaksızın oluşturun. (Bu yaklaşım, derlemelerin bir kopyasını oluşturmadığından faydalanır.)
 > 
 >     [!code-console[Main](beta3/samples/sample18.cmd)]
-> 3. İki derlemenin GAC'de yükleyin. Yükseltilmiş bir isteminden aşağıdaki komutları çalıştırın:
+> 3. GAC 'de iki derlemeyi yükler. Yükseltilmiş bir komut isteminden aşağıdaki komutları çalıştırın:
 > 
 >     [!code-console[Main](beta3/samples/sample19.cmd)]
 
-#### <a name="issue-webmatrix-beta-3-is-unable-to-perform-certain-tasks-that-require-elevation"></a>Sorun: WebMatrix Beta 3 ayrıcalık gerektiren belirli görevleri gerçekleştirmek alamıyor
+#### <a name="issue-webmatrix-beta-3-is-unable-to-perform-certain-tasks-that-require-elevation"></a>Sorun: WebMatrix Beta 3, yükseltme gerektiren belirli görevleri gerçekleştiremiyor
 
-> Aşağıdaki durumlarda ek bileşenler yükleme gibi yetki yükseltmesi gerektiren bazı görevleri gerçekleştirmek WebMatrix Beta 3'ü silemiyor:
+> WebMatrix Beta 3, aşağıdaki durumlarda ek bileşenler yükleme gibi yükseltme gerektiren belirli görevleri gerçekleştiremiyor:
 > 
-> - Windows Vista veya Windows 7'de, yönetici ayrıcalıklarına sahip olmayan bir hesapla oturum günlüğe kaydedilir ve kullanıcı hesabı denetimi (UAC) devre dışı bırakıldı.
-> - Microsoft Windows XP veya Microsoft Windows Server 2003 kullanıyor.
-> 
-> **Geçici çözüm**  
-> Çoğu görevi WebMatrix Beta 3'te Yönetim iznini gerektirmez. Olmayanlar için yönetici olarak işlemi gerçekleştirebilir, veya bu adımları izleyin:
-> 
-> - UAC Windows Vista veya Windows 7'de etkinleştirin.
-> - Windows XP'de, kullanıcı Administrators güvenlik grubuna ekleyin.
-
-#### <a name="issue-site-from-web-gallery-is-disabled"></a>Sorun: "Web Galerisi sitesinden" devre dışı bırakıldı
-
-> **Web Galerisi sitesinden** Web Platformu yükleyicisi 3.0 yüklü değilse seçeneği devre dışıdır.
+> - Windows Vista veya Windows 7 ' de, yönetici ayrıcalıklarına sahip olmayan bir hesapla oturum açarsınız ve Kullanıcı hesabı denetimi (UAC) devre dışı bırakılır.
+> - Microsoft Windows XP veya Microsoft Windows Server 2003 kullanıyorsunuz.
 > 
 > **Geçici çözüm**  
-> Yükleme [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/fwlink/?LinkID=194638).
+> WebMatrix Beta 3 ' teki çoğu görev yönetici izni gerektirmez. Bu işlemler için, işlemi yönetici olarak gerçekleştirebilir veya aşağıdaki adımları izleyebilirsiniz:
+> 
+> - Windows Vista veya Windows 7 ' de UAC 'yi etkinleştirin.
+> - Windows XP 'de, kullanıcıyı Administrators güvenlik grubuna ekleyin.
 
-#### <a name="issue-on-windows-server-2003-iis-express-does-not-start-for-a-non-administrative-user"></a>Sorun: Windows Server 2003'te, IIS Express için yönetici olmayan bir kullanıcısı başlamıyor
+#### <a name="issue-site-from-web-gallery-is-disabled"></a>Sorun: "Web galerisinden site" devre dışı
 
-> Bir sayfasını başlatmak veya IIS Express, Başlat, Windows Server 2003'te, IIS Express başlamıyor. Web sayfaları için uygulama yönetici olmayan bir kullanıcı tarafından başlatılmış olduğunu belirten bir hata görüntülenir.
+> Web Platformu Yükleyicisi 3,0 yüklü değilse, **Web galerisinden site** seçeneği devre dışıdır.
 > 
 > **Geçici çözüm**  
-> Yönetici kullanıcı olarak WebMatrix Beta 3'ü başlatın. Daha fazla bilgi için aşağıdaki Bilgi Bankası makalesine bakın:  
+> [3,0 Microsoft Web Platformu Yükleyicisi](https://go.microsoft.com/fwlink/?LinkID=194638)'yi yükler.
+
+#### <a name="issue-on-windows-server-2003-iis-express-does-not-start-for-a-non-administrative-user"></a>Sorun: Windows Server 2003 ' de IIS Express yönetici olmayan bir kullanıcı için başlamıyor
+
+> Windows Server 2003 ' de, bir sayfa başlattığınızda veya IIS Express başlattığınızda IIS Express başlamaz. Web sayfaları için, uygulamanın yönetici olmayan bir kullanıcı tarafından başlatıldığını belirten bir hata görüntülenir.
+> 
+> **Geçici çözüm**  
+> WebMatrix Beta 3 ' ü Yönetici Kullanıcı olarak başlatın. Daha fazla ayrıntı için aşağıdaki Bilgi Bankası makalesine bakın:  
 >   
-> [Yönetici olmayan bir kullanıcı tarafından başlatılan bir uygulama üzerinde uygulama Windows Vista, Windows Server 2003 veya Windows XP çalıştıran bilgisayarın HTTP trafiğini dinleyemiyor.](https://support.microsoft.com/kb/939786)
+> [Yönetici olmayan bir kullanıcı tarafından başlatılan bir uygulama, uygulamanın Windows Vista, Windows Server 2003 veya Windows XP 'de çalıştığı bilgisayarın HTTP trafiğini dinleyemeyen bir uygulamadır.](https://support.microsoft.com/kb/939786)
 
-#### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>Sorun: Google Chrome, bir çalıştırma seçeneği olarak kullanılabilir değil.
+#### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>Sorun: Google Chrome bir çalıştır seçeneği olarak kullanılamıyor
 
-> Google Chrome, tarayıcılar altında listesinde görüntülenmez **çalıştırma** üzerinde **giriş** sekmesi.
+> Google Chrome, **giriş** sekmesinde **Çalıştır** altında bulunan tarayıcılar listesinde gösterilmez.
 > 
 > **Geçici çözüm**  
-> Google Chrome'nün bazı sürümleri kendilerini doğru Windows varsayılan programlar özelliğiyle kaydetmeyin. Geçici bir çözüm olarak, Google Chrome Başlat'a tıklayın *özelleştirme ve denetim Google Chrome* menüsünde tıklatın *seçenekleri*ve ardından *yapma Google Chrome varsayılan tarayıcımda*.
+> Google Chrome 'un bazı sürümleri, Windows 'daki varsayılan programlar özelliği ile kendilerini doğru bir şekilde kaydetmez. Geçici bir çözüm olarak, Google Chrome 'u başlatın, *Google Chrome ' ı Özelleştir ve denetle* menüsüne tıklayın, *Seçenekler*' e ve ardından *Google Chrome varsayılan tarayıcımı oluştur*' a tıklayın.
 
-#### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>Sorun: "Yabancı anahtarı" iletişim kutusu, birincil bir anahtar girilmesi izin vermez
+#### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>Sorun: "yabancı anahtar" iletişim kutusu birincil anahtar girmeye izin vermiyor
 
-> **Yabancı anahtar** iletişim kutusu izin vermemektedir birincil anahtar tablosunda birincil anahtar adı girin.
+> **Yabancı anahtar** iletişim kutusu birincil anahtar tablosundan birincil anahtar adını girmenize izin vermez.
 > 
 > **Geçici çözüm**  
-> Bu kasıtlıdır. Birincil anahtar tablosundaki birincil anahtarın adını girmeniz gerekmez.
+> Bu bilerek yapılır. Birincil anahtar tablosundan birincil anahtar adını girmeniz gerekmez.
 
-#### <a name="issue-the-relationships-button-is-disabled"></a>Sorun: "İlişkiler" düğmesini devre dışı bırakıldı
+#### <a name="issue-the-relationships-button-is-disabled"></a>Sorun: "Ilişkiler" düğmesi devre dışı
 
-> **İlişkileri** düğmesini **tablo** sekmesinde **veritabanları** çalışma alanı, SQL Server Compact veritabanları için devre dışı.
+> **Veritabanları** çalışma alanındaki **tablo** sekmesinin altındaki **ilişkiler** düğmesi SQL Server Compact veritabanları için devre dışıdır.
 > 
 > **Geçici çözüm**  
-> Yok. SQL Server Compact, tablolar arasında ilişki desteklemez.
+> Yok. SQL Server Compact, tablolar arasındaki ilişkileri desteklemez.
 
-#### <a name="issue-parameterized-sql-queries-throw-exceptions"></a>Sorun: Parametrelenmiş SQL sorgularını, özel durumlar
+#### <a name="issue-parameterized-sql-queries-throw-exceptions"></a>Sorun: parametreli SQL sorguları özel durumlar oluşturur
 
-> SQL Server Compact bir veri türü gibi belirtmezseniz, 4.0, `SqlDbType` veya `DbType` sorgu çalıştırıldığında parametreli sorgular parametreleri için bir özel durum oluşturulur.
+> SQL Server Compact 4,0 ' de, parametreli sorgularda parametreler için `SqlDbType` veya `DbType` gibi bir veri türü belirtmezseniz, sorgu çalıştırıldığında bir özel durum oluşturulur.
 > 
 > **Geçici çözüm**  
-> Parametreler için veri türü gibi açıkça ayarlamak `SqlDbType` veya `DbType`. Bu BLOB veri türleri söz konusu olduğunda önemlidir (`image` ve `ntext`). Kod aşağıdaki gibi kullanın:
+> `SqlDbType` veya `DbType`gibi parametreler için veri türünü açık olarak ayarlayın. BLOB veri türleri (`image` ve `ntext`) söz konusu olduğunda bu kritik öneme sahiptir. Aşağıdaki gibi bir kod kullanın:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
 > 
@@ -499,7 +499,7 @@ Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi
 
 ## <a name="for-more-information"></a>Daha Fazla Bilgi İçin
 
-WebMatrix Beta 3 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
+WebMatrix Beta 3 hakkında daha fazla bilgi için, aşağıdaki Web sitelerine bakın:
 
 - [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
@@ -507,4 +507,4 @@ WebMatrix Beta 3 hakkında daha fazla bilgi için aşağıdaki Web sitelerine ba
 
 ---
 
-© 2010 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşullarını](https://msdn.microsoft.cos/cc300389.aspx).
+© 2010 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşulları](https://msdn.microsoft.cos/cc300389.aspx).

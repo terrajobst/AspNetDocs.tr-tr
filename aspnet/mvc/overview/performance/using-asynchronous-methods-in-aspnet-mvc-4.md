@@ -9,13 +9,13 @@ ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
 ms.openlocfilehash: 15692b18fc112c4c6cce4d50a243a0e8d5fb52a4
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457758"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78538523"
 ---
-# <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te Zaman Uyumsuz Yöntemler Kullanma
+# <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma
 
 [Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 

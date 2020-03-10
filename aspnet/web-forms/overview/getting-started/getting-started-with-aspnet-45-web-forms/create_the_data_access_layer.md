@@ -9,11 +9,11 @@ ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
 ms.openlocfilehash: 0fcf050474a57be9ed53ec0783a6d6b7dde2bf4c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74575744"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544928"
 ---
 # <a name="create-the-data-access-layer"></a>Veri Erişim Katmanını Oluşturma
 
@@ -25,7 +25,7 @@ by [Erik Reitan](https://github.com/Erikre)
 
 Bu öğreticide, ASP.NET Web Forms ve Code First Entity Framework kullanarak bir veritabanında veri oluşturma, erişme ve gözden geçirme açıklanmaktadır. Bu öğretici, önceki öğreticide "Projeyi oluşturma" ve Wingtip oyuncak mağaza öğreticisi serisinin bir parçası olarak oluşturulur. Bu öğreticiyi tamamladığınızda, projenin *modeller* klasöründe olan bir veri erişim sınıfları grubu oluşturacaksınız.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 - Veri modellerini oluşturma.
 - Veritabanını başlatma ve çekirdek oluşturma.
@@ -34,7 +34,7 @@ Bu öğreticide, ASP.NET Web Forms ve Code First Entity Framework kullanarak bir
 ### <a name="these-are-the-features-introduced-in-the-tutorial"></a>Öğreticide sunulan özellikler şunlardır:
 
 - Entity Framework Code First
-- Yerel Veritabanı
+- Yerel veritabanı
 - Veri Açıklamaları
 
 ## <a name="creating-the-data-models"></a>Veri modellerini oluşturma

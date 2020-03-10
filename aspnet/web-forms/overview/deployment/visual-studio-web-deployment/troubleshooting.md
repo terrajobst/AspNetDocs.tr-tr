@@ -9,11 +9,11 @@ ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
 ms.openlocfilehash: b42476fca18b04f4557a216ee205cfd9220023e8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623580"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576099"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio kullanarak Web dağıtımı ASP.NET: sorun giderme
 
@@ -148,7 +148,7 @@ HTTP hatası 500-Iç sunucu hatası.
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-500 hataların pek çok nedeni vardır, ancak bu öğreticilerden sonra, Web. config dönüşüm dosyalarından birinde yanlış yere bir XML öğesi yerleştirmesiniz. Örneğin, doğrudan yapılandırma &lt;altında değil, &lt;System. Web&gt; altına bir &lt;location&gt; öğesi ekleyen dönüşümü yerleştirirseniz bu hatayı alırsınız. Dönüşümlerinin amaçlanan gibi çalıştığını doğrulamak için Web. config dönüşüm önizleme özelliğini kullanabilirsiniz. Çözüm, yanlış kodlanmış bir dönüşüm bulursanız dönüştürme dosyasını düzeltmek ve yeniden dağıtmak için kullanılır. Bir hata belirgin değilse, hangi birinin 500 hatasına neden olduğunu görmek için dönüşümler ve yeniden dağıtım için yorum yapmayı deneyin.
+500 hataların pek çok nedeni vardır, ancak bu öğreticilerden sonra, Web. config dönüşüm dosyalarından birinde yanlış yere bir XML öğesi yerleştirmesiniz. Örneğin, doğrudan yapılandırma &lt;altında değil, &lt;System. Web&gt; altına bir &lt;location&gt; öğesi ekleyen dönüşümü yerleştirirseniz bu hatayı alırsınız.&gt; Dönüşümlerinin amaçlanan gibi çalıştığını doğrulamak için Web. config dönüşüm önizleme özelliğini kullanabilirsiniz. Çözüm, yanlış kodlanmış bir dönüşüm bulursanız dönüştürme dosyasını düzeltmek ve yeniden dağıtmak için kullanılır. Bir hata belirgin değilse, hangi birinin 500 hatasına neden olduğunu görmek için dönüşümler ve yeniden dağıtım için yorum yapmayı deneyin.
 
 ## <a name="http-50021-internal-server-error"></a>HTTP 500,21 Iç sunucu hatası
 

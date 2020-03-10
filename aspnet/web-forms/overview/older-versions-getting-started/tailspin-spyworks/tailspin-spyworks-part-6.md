@@ -1,111 +1,111 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: 'Bölüm 6: ASP.NET üyelik | Microsoft Docs'
+title: 'Bölüm 6: ASP.NET üyeliği | Microsoft Docs'
 author: JoeStagner
-description: Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 6. bölüm ASP.NET üyelik ekler.
+description: Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. Bölüm 6, ASP.NET üyeliği ekler.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: f70a310c-9557-4743-82cb-655265676d39
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
 ms.openlocfilehash: b0caa89dc9ffb5bb7451fa2d9d346c7db2bf1466
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130867"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78564185"
 ---
-# <a name="part-6-aspnet-membership"></a>Bölüm 6: ASP.NET Üyeliği
+# <a name="part-6-aspnet-membership"></a>6\. Bölüm: ASP.NET Üyeliği
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
+> Tailspin Spyworks, .NET platformu için güçlü ve ölçeklenebilir uygulamalar oluşturmanın ne kadar kolay olduğunu gösterir. Alışveriş, kullanıma alma ve yönetim dahil olmak üzere çevrimiçi mağaza oluşturmak için ASP.NET 4 ' te harika yeni özelliklerin nasıl kullanılacağını gösterir.
 > 
-> Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 6. bölüm ASP.NET üyelik ekler.
+> Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. Bölüm 6, ASP.NET üyeliği ekler.
 
-## <a id="_Toc260221672"></a>  ASP.NET üyeliği ile çalışma
+## <a id="_Toc260221672"></a>ASP.NET üyeliğiyle çalışma
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
-Güvenlik'e tıklayın
+Güvenlik 'e tıklayın
 
 ![](tailspin-spyworks-part-6/_static/image1.jpg)
 
-Form kimlik doğrulaması kullandığınızdan emin olun.
+Forms kimlik doğrulaması kullandığınızdan emin olun.
 
 ![](tailspin-spyworks-part-6/_static/image2.jpg)
 
-Birkaç kullanıcı oluşturmak için "Create User" bağlantısını kullanın.
+Birkaç kullanıcı oluşturmak için "Kullanıcı Oluştur" bağlantısını kullanın.
 
 ![](tailspin-spyworks-part-6/_static/image3.jpg)
 
-İşiniz bittiğinde, Çözüm Gezgini penceresinde başvurun ve görünümü yenileyin.
+İşiniz bittiğinde Çözüm Gezgini penceresine bakın ve görünümü yenileyin.
 
 ![](tailspin-spyworks-part-6/_static/image2.png)
 
-Unutmayın ASPNETDB. MDF ince oluşturuldu. Bu dosya, üyelik gibi temel ASP.NET hizmetlerini desteklemek için tabloları içerir.
+ASPNETDB 'nin olduğunu unutmayın. MDF ince oluşturulmuş. Bu dosya, üyelik gibi çekirdek ASP.NET hizmetlerini destekleyecek tabloları içerir.
 
-Artık kullanıma alma işlemini uygulayan başlayabilirsiniz.
+Artık kullanıma alma işlemini uygulamaya başlayabiliriz.
 
-CheckOut.aspx sayfası oluşturarak başlayın.
+Bir kullanıma alma. aspx sayfası oluşturarak başlayın.
 
-CheckOut.aspx sayfası, yalnızca kullanıcılar ve oturum açma sayfasına açmadınız yeniden yönlendirme kullanıcılar kaydedilen biz erişimi kısıtlar için oturum açmış olan kullanıcılar tarafından kullanılabilir olmalıdır.
+CheckOut. aspx sayfası yalnızca oturum açmış kullanıcılar tarafından kullanılabilir olmalıdır, bu sayede oturum açan kullanıcılara erişimi kısıtlayacağız ve oturum açan kullanıcıları oturum açma sayfasında yeniden yönlendiririz.
 
-Bunu yapmak için aşağıdaki yapılandırma bölümüne bizim web.config dosyasının ekleyeceğiz.
+Bunu yapmak için, Web. config dosyasının yapılandırma bölümüne aşağıdakileri ekleyeceğiz.
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample1.xml)]
 
-ASP.NET Web formları uygulamalarını şablon, otomatik olarak bir kimlik doğrulaması bölümü bizim web.config dosyasına eklenir ve varsayılan oturum açma sayfası oluşturulur.
+ASP.NET Web Forms uygulamalar şablonu, Web. config dosyasına otomatik olarak bir kimlik doğrulama bölümü ekledi ve varsayılan oturum açma sayfasını kurdu.
 
 [!code-xml[Main](tailspin-spyworks-part-6/samples/sample2.xml)]
 
-Biz, kullanıcı oturum açtığında, anonim bir alışveriş sepetini geçirme için dosyanın arkasındaki Login.aspx kodunu değiştirmeniz gerekir. Sayfayı Değiştir\_olay şu şekilde yükleyin.
+Kullanıcı oturum açtığında anonim bir alışveriş sepetini geçirmek için login. aspx kodu dosyasının arkasında değişiklik yapılmalıdır. Sayfa\_yükleme olayını aşağıda gösterildiği gibi değiştirin.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample3.cs)]
 
-Ardından bu yeni oturum açan kullanıcının oturum adı ayarlayın ve alışveriş sepetine geçici oturum kimliği, kullanıcının bizim MyShoppingCart sınıfında MigrateCart yöntemi çağırarak değiştirmek için gibi bir "LoggedIn" olayı işleyicisi ekleyin. (.cs dosya içinde uygulanmış)
+Ardından, oturum adını yeni oturum açmış olan kullanıcıya ayarlamak için bu şekilde bir "LoggedIn" olay işleyicisi ekleyin ve MyShoppingCart sınıfımızda MigrateCart yöntemini çağırarak alışveriş sepetindeki geçici oturum kimliğini kullanıcıya değiştirin. (. Cs dosyasında uygulandı)
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample4.cs)]
 
-Uygulama MigrateCart() yöntemi bu ister.
+Bunun gibi MigrateCart () yöntemini uygulayın.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample5.cs)]
 
-Alışveriş sepeti sayfamızı yaptığımız kadar checkout.aspx içinde bir EntityDataSource ve GridView bizim kullanıma sayfa içinde kullanacağız.
+Kullanıma alma. aspx ' te, alışveriş sepeti sayfamızda yaptığımız kadar çok sayıda kullanıma alma sayfamızda bir EntityDataSource ve GridView kullanacağız.
 
 [!code-aspx[Main](tailspin-spyworks-part-6/samples/sample6.aspx)]
 
-GridView denetimimiz MyList adlı bir "ondatabound" olay işleyicisi belirtir Not\_RowDataBound Haydi bu olay işleyicisi böyle uygulayın.
+GridView Denetimimizin, MyList\_Rowveriye bağlı bir "onumuza" olay işleyicisini belirttiğinden emin olmak için bu olay işleyicisini bu şekilde uygulayalim.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample7.cs)]
 
-Her satır bağlıdır ve en alttaki GridView güncelleştirmeleri alışveriş toplamı sepete yöntemi kalmasını sağlar.
+Bu yöntem, her satır bağlandığı ve GridView 'un alt satırını güncelleştiren bir alışveriş sepetinin çalışma toplamı tutar.
 
-Bu aşamada sizi yerleştirilecek sırası "İnceleme" sunumu uyguladınız.
+Bu aşamada, yerleştirilecek siparişin bir "Gözden geçirme" sunumunu uyguladık.
 
-Şimdi bir boş Sepeti senaryosu sayfamıza birkaç satır kod ekleyerek işlemek\_yükleme olayı:
+Sayfa\_Load olayına birkaç satır kod ekleyerek boş bir sepet senaryosunu işleyelim:
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample8.cs)]
 
-Kullanıcı "Gönder" düğmesine tıkladıktan sonra aşağıdaki kodu Gönder düğmesini tıklatın olay işleyicisi yürütülür.
+Kullanıcı "Gönder" düğmesine tıkladığında, Gönder düğmesine tıklama olay işleyicisi ' nde aşağıdaki kodu yürütecektir.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample9.cs)]
 
-Sipariş gönderme işlemi "et" bizim MyShoppingCart sınıfının SubmitOrder() yönteminde uygulanması sağlamaktır.
+Order gönderim işleminin "et" i MyShoppingCart sınıfımız SubmitOrder () yönteminde uygulanmalıdır.
 
-SubmitOrder olur:
+SubmitOrder:
 
-- Tüm satır öğeleri alışveriş sepetini alın ve bunları yeni bir sipariş kaydı ve ilişkili OrderDetails kayıtları oluşturmak için kullanın.
-- Sevkiyat Tarihi hesaplayın.
-- Alışveriş sepeti temizleyin.
+- Alışveriş sepetindeki tüm satır öğelerini alıp yeni bir sipariş kaydı ve ilişkili OrderDetails kayıtları oluşturmak için bunları kullanın.
+- Sevkiyat tarihini hesaplayın.
+- Alışveriş sepetini temizleyin.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample10.cs)]
 
-Bu örnek uygulama amaçları için yalnızca iki gün geçerli tarihe ekleyerek biz bir kullanıma sunulduğundan hesaplayın.
+Bu örnek uygulamanın amaçları doğrultusunda, geçerli tarihe yalnızca iki gün ekleyerek bir sevk tarihi hesaplayacağız.
 
 [!code-csharp[Main](tailspin-spyworks-part-6/samples/sample11.cs)]
 
-Şimdi uygulamayı çalıştıran bize alışveriş işlemi baştan sona test etmek için izin verir.
+Şimdi uygulamayı çalıştırmak, alışveriş sürecini baştan sona test etmemize olanak sağlayacak.
 
 > [!div class="step-by-step"]
 > [Önceki](tailspin-spyworks-part-5.md)

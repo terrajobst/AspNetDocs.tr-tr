@@ -1,75 +1,75 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
-title: Ana sayfaları ve kısmi bölümleri kullanarak kullanıcı arabirimini yeniden kullanma | Microsoft Docs
+title: Ana sayfaları ve partileri kullanarak Kullanıcı arabirimini yeniden kullanma | Microsoft Docs
 author: microsoft
-description: 7. adım, kısmi görünüm şablonları ve ana sayfaları kullanarak kod çoğaltma ortadan kaldırmak için Görünüm şablonlarımızı içinde biz 'KURU ilke' uygulayabilirsiniz yöntem incelenir.
+description: Adım 7 ' de, kısmi görünüm şablonları ve ana sayfalar kullanarak kod yinelemeyi ortadan kaldırmak için görünüm Şablonlarımızda ' Kuru prensibi ' uygulayabildiğimiz yöntemlere bakar.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: d4243a4a-e91c-4116-9ae0-5c08e5285677
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
 ms.openlocfilehash: 0b17cb6ac14b7f187bf1f175097a37907689d46e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128347"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78580334"
 ---
 # <a name="re-use-ui-using-master-pages-and-partials"></a>Ana Sayfaları ve Kısmi Bölümleri Kullanarak Kullanıcı Arabirimini Yeniden Kullanma
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 7 bir ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) adım 7 ' dir.
 > 
-> 7. adım, kısmi görünüm şablonları ve ana sayfaları kullanarak kod çoğaltma ortadan kaldırmak için Görünüm şablonlarımızı içinde biz "KURU ilkesini" uygulayabilirsiniz yöntem incelenir.
+> Adım 7, kısmi görünüm şablonları ve ana sayfalar kullanarak kod yinelemeyi ortadan kaldırmak için görünüm Şablonlarımızda "Kuru prensibi" uygulayabildiğimiz yöntemlere bakar.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-7-partials-and-master-pages"></a>NerdDinner adım 7: Kısmi ve ana sayfalar
+## <a name="nerddinner-step-7-partials-and-master-pages"></a>Nerdakşam yemeği 7. Adım: partileri ve ana sayfalar
 
-ASP.NET MVC benimsediğini tasarım felsefeleri birini (genellikle "KURU" adlandırılır) "Yapmak değil yineleyin kendiniz" ilkesidir. KURU tasarım, kod ve uygulamaları oluşturmak için daha hızlı ve kolay bir şekilde korumak sonunda getiren mantıksal çoğaltılması ortadan yardımcı olur.
+Design felsefeleri ASP.NET MVC emayraçlarından biri, "kendinizi Yinelemeyin" prensibi (genellikle "kuru" olarak adlandırılır). KURUTMA tasarımı, uygulamanın daha hızlı derlenmesi ve bakımının daha kolay hale gelmesini sağlayan kod ve mantık çoğaltmasını ortadan kaldırmaya yardımcı olur.
 
-Bizim NerdDinner senaryolardan birkaç uygulanan KURU ilkeye zaten gördük. Birkaç örnek: bizim Doğrulama mantığı üzerinde hem düzenleme zorunlu ve denetleyicimizin; senaryoları oluşturmanıza etkinleştirir bizim modeli katmanı içinde uygulanır "Bulunamadı" Görünüm şablonu düzen, Ayrıntılar ve Sil eylem yöntemleri arasında yeniden kullanıyoruz; Biz View() yardımcı yöntemini çağırdığınızda adı açıkça belirtmek için gereğini ortadan kaldırır bizim görünümü şablonlar sayesinde, bir kuralı - adlandırma deseni kullanıyoruz; ve DinnerFormViewModel sınıfı yeniden her iki düzenleme için kullanarak ve eylem senaryoları oluşturun.
+Nerdakşam yemeği senaryolarımızın birkaç bölümünde uygulanan kurutma ilkesini zaten gördük. Birkaç örnek: doğrulama mantığımız, denetleyicimizde hem düzenleme hem de oluşturma senaryolarında uygulanmasını sağlayan model katmanımız içinde uygulanır; Düzenleme, Ayrıntılar ve silme eylemi yöntemlerinde "NotFound" görünüm şablonunu yeniden kullanıyoruz; Görünüm şablonlarımızla bir kural adlandırma modelini kullanıyoruz. Bu, View () yardımcı yöntemini çağırdığımız sırada adı açıkça belirtme ihtiyacını ortadan kaldırır; hem düzenleme hem de oluşturma eylemi senaryoları için DinnerFormViewModel sınıfını yeniden kullanacağız.
 
-Şimdi biz "KURU ilkesini" uygulayabilirsiniz yöntemlerine kod yinelemesinden de ortadan kaldırmak için Görünüm şablonlarımızı içinde göz atalım.
+Şimdi de, kod çoğaltmayı da ortadan kaldırmak için görünüm Şablonlarımızda "Kuru prensibi" uygulayabildiğimiz yöntemlere göz atalım.
 
-### <a name="re-visiting-our-edit-and-create-view-templates"></a>Bizim düzenleme yeniden ziyaret ve görüntüleme şablonları oluşturma
+### <a name="re-visiting-our-edit-and-create-view-templates"></a>Düzenleme ve oluşturma görünüm şablonlarımızı yeniden ziyaret edin
 
-Akşam Yemeği formumuzu kullanıcı arabirimini görüntülemek için iki farklı görünümü şablonları – "Edit.aspx" ve "Create.aspx" – şu anda kullanıyoruz. Bunları hızlı visual karşılaştırması olduklarından nasıl benzer vurgular. Form oluştur benzer aşağıdadır:
+Şu anda, akşam yemeği form Kullanıcı arabirimimizi görüntülemek için iki farklı görünüm şablonu kullanıyoruz: "Edit. aspx" ve "Create. aspx". Bunların hızlı bir şekilde karşılaştırılması, ne kadar benzer olduğunu vurgular. Aşağıda, oluşturma formu şöyle görünür:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image1.png)
 
-Ve "Düzenle" formumuzu gibi görünür:
+"Düzenleme" formumuz şöyle görünür:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image2.png)
 
-Büyük bir fark var mı? Form düzeni ve giriş denetimleri başlık ve üst bilgi metni dışında aynıdır.
+Farklılık büyük bir fark değil mi? Başlık ve başlık metni dışında, form düzeni ve giriş denetimleri de aynıdır.
 
-Biz biz bulabilirsiniz şablonları göster "Edit.aspx" ve "Create.aspx" Yedekleme açarsanız aynı form düzeni ve giriş denetim kodu içerirler. Bu çoğaltma, iki kez biz tanıtmak veya iyi değil bir yeni Dinner özelliği - değiştirmek zaman değişiklik yapmak zorunda son anlamına gelir.
+"Edit. aspx" ve "Create. aspx" şablonlarını açdığımızda, aynı form düzeni ve giriş denetimi kodu içerdiğini bulacağız. Bu yineleme, yeni bir akşam yemeği özelliği oluşturduğumuza veya değiştirdiğimiz her yerde değişiklik yapmak için gereken bir şey olduğu anlamına gelir.
 
 ### <a name="using-partial-view-templates"></a>Kısmi görünüm şablonları kullanma
 
-ASP.NET MVC Görünüm işleme mantığı bir sayfa alt bir kısmı için kapsüllemek için kullanılabilecek "kısmi Görünüm" şablonlarını tanımlamak için özelliğini destekler. "Kısmi" kez görünümü işleme mantığı tanımlamak için kullanışlı bir yol sağlar ve ardından birden fazla yerde bir uygulamanın tamamında yeniden kullanın.
+ASP.NET MVC, bir sayfanın alt bölümü için Görünüm işleme mantığını kapsüllemek üzere kullanılabilecek "kısmi görünüm" şablonları tanımlama yeteneğini destekler. "Partileri", Görünüm işleme mantığını bir kez tanımlamak için kullanışlı bir yol sağlar ve bunu bir uygulama genelinde birden fazla yerde yeniden kullanın.
 
-"KURU-yukarı" bizim Edit.aspx ve Create.aspx görünüm şablonu çoğaltma yardımcı olmak için "form düzeninden ve ortak giriş öğelerini Kapsüller DinnerForm.ascx" adlı bir kısmi görünüm şablonu oluşturabilirsiniz. Bizim/Views/azalma dizinde sağ tıklayıp seçerek bunu "Add -&gt;görünümü" menü komutu:
+Edit. aspx ve Create. aspx görünüm şablonu çoğalttığımız "kurma" konusunda yardımcı olmak için, form düzeni ve giriş öğelerini her ikisi için de kapsülleyen "DinnerForm. ascx" adlı kısmi bir görünüm şablonu oluşturarız. Bunu,/views/dinetleri dizinimize sağ tıklayıp "Ekle-&gt;görünümü" menü komutunu seçerek yapacağız:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image3.png)
 
-Bu "Görünüm Ekle" iletişim kutusu görüntüler. Biz, biz "DinnerForm" oluşturmak istediğiniz iletişim kutusunda "kısmi Görünüm Oluştur" onay kutusunu işaretleyin ve biz bunu DinnerFormViewModel sınıfı geçer belirtmek yeni görünüm adı:
+"Görünüm Ekle" iletişim kutusu görüntülenir. "DinnerForm" oluşturmak istediğimiz yeni görünümü adlandırın, iletişim kutusunda "kısmi görünüm oluştur" onay kutusunu işaretleyin ve bunu bir DinnerFormViewModel sınıfı geçitireceğiz belirtir:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image4.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni bir "DinnerForm.ascx" Görünüm şablonu bizim için "\Views\Dinners" dizin içinde oluşturur.
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dıntik" dizininde bizimle ilgili yeni bir "DinnerForm. ascx" görünüm şablonu oluşturacaktır.
 
-Biz ardından kopyalama/yinelenen form düzenini yapıştırma / sunduğumuz yeni "DinnerForm.ascx" kısmi görünüm şablonuna Edit.aspx/ Create.aspx görünümü şablonlarımızı denetim koddan giriş:
+Daha sonra, Edit. aspx/Create. aspx görünüm şablonlarımızdan yinelenen form düzeni/giriş denetimi kodunu yeni "DinnerForm. ascx" kısmi görünüm şablonumuza kopyalayabilir/yapıştırabilirsiniz:
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample1.aspx)]
 
-Ardından, biz DinnerForm kısmi şablonu çağırmak ve form çoğaltma ortadan kaldırmak için düzenleme ve oluşturma görünümü şablonlarımızı güncelleştirebilirsiniz. Tarafından çağıran Html.RenderPartial("DinnerForm") görünümü şablonlarımızı içinde bunu yapabilirsiniz:
+Daha sonra, DinnerForm kısmi şablonunu çağırmak ve form yinelemesi kaldırmak için düzenleme ve oluşturma görünüm şablonlarımızı güncelleştirebiliriz. Bunu, görünüm şablonlarımız içinde HTML. RenderPartial ("DinnerForm") çağırarak yapabiliriz:
 
-##### <a name="createaspx"></a>Create.aspx
+##### <a name="createaspx"></a>. Aspx oluştur
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample2.aspx)]
 
@@ -77,61 +77,61 @@ Ardından, biz DinnerForm kısmi şablonu çağırmak ve form çoğaltma ortadan
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample3.aspx)]
 
-Açıkça Html.RenderPartial çağrılırken istediğiniz kısmi şablonun yolunu belirtebilme (örneğin: ~ Views/Dinners/DinnerForm.ascx "). Yukarıdaki bizim kodu ancak biz ASP.NET MVC içindeki kural tabanlı adlandırma deseni yararlanarak ve yalnızca "DinnerForm" işlenecek kısmi adını belirtme. Bunu, ASP.NET MVC (için DinnersController bu/Views/azalma olur) kural tabanlı görünümleri dizinde ilk görünecektir. Kısmi şablonu bulamazsa var. Bunun ardından için /Views/Shared dizinde görünür.
+HTML. RenderPartial çağrılırken istediğiniz kısmi şablonun yolunu açıkça niteleyebilirsiniz (örneğin: ~ views/dinler/DinnerForm. ascx "). Yukarıdaki kodumuza karşın, ASP.NET MVC içindeki kural tabanlı adlandırma düzeninden faydalanır ve yalnızca "DinnerForm" öğesini işlemek için kısmi ad olarak belirttik. Bunu yaptığımızda, MVC ilk olarak kural tabanlı görünümler dizininde görünür (Bu, DinnersController için/views/dinlenebilir). Kısmi şablonu bulamazsa, bu durumda/Views/Shared dizininde arama yapılır.
 
-Yalnızca kısmi görünümün adı ile Html.RenderPartial() çağrıldığında, ASP.NET MVC kısmi görünüme arama görünümü şablon tarafından kullanılan aynı modeli ve ViewData sözlük nesneleri geçirin. Alternatif olarak, diğer Model nesnesi ve/veya ViewData sözlük kullanmak kısmi görünüm için geçirmenize olanak tanıyan aşırı yüklü sürümler Html.RenderPartial(), vardır. Bu, yalnızca bir alt kümesini tam Model/ViewModel geçirmek istediğiniz senaryolar için kullanışlıdır.
+HTML. RenderPartial () yalnızca kısmi görünümün adı ile çağrıldığında, ASP.NET MVC, çağıran görünüm şablonu tarafından kullanılan model ve ViewData sözlük nesnelerini kısmi görünüme geçicektir. Alternatif olarak, kullanılacak kısmi görünüm için alternatif bir model nesnesi ve/veya ViewData sözlüğü geçirmenize olanak sağlayan HTML. RenderPartial () öğesinin aşırı yüklenmiş sürümleri vardır. Bu, yalnızca tam model/ViewModel 'in bir alt kümesini geçirmek istediğiniz senaryolar için yararlıdır.
 
-| **Yan konu: Neden &lt;%%&gt; yerine &lt;% = %&gt;?** |
+| **Kenar konusu: neden%%&gt; &lt;% =%&gt;&lt;değil?** |
 | --- |
-| Fark etmiş yukarıdaki kodla Zarif şeylerden biri biz kullanarak bir &lt;%%&gt; bloğu yerine bir &lt;% = %&gt; Html.RenderPartial() çağırırken engelleyin. &lt;% = %&gt; ASP.NET bloklarında belirtmek belirtilen değerini işlemek bir geliştirici istediğini (örneğin: &lt;% = "Hello" %&gt; "Hello" getiren). &lt;%%&gt; bloklar yerine belirtmek Geliştirici kod yürütmek ister ve tüm bunları çıktısı işlenen açıkça yapılmalıdır (örneğin: &lt;Response.Write("Hello") %&gt;. Kullandığımız nedeni bir &lt;%%&gt; Html.RenderPartial kodumuz yukarıdaki ile bloğudur Html.RenderPartial() yöntem bir dize döndürmüyor ve bunun yerine içeriği doğrudan çağıran şablonu görüntüle stream çıkış çıkarır çünkü. Bunu bir geçici (büyük olasılıkla çok büyük) dize nesnesi oluşturmaya gerek önler Böyle yaparak ve performans verimliliği nedeniyle yapar. Bu işlem, bellek kullanımını azaltır ve genel uygulama aktarım hızını artırır. Html.RenderPartial() içinde olduğunda çağrının sonunda noktalı virgül ekleyin kullanırken yaygın bir yanlış bir &lt;%%&gt; blok. Örneğin, bu kod bir derleyici hatasına neden olur: &lt;Html.RenderPartial("DinnerForm") %&gt; yerine yazmanız gereken: &lt;% Html.RenderPartial("DinnerForm"); %&gt; Bunun nedeni, &lt;%%&gt; taşlarıdır kendi içinde kod deyimlerini ve kullanırken C# kod deyimlerini noktalı virgülle sonlandırılması gerekir. |
+| Yukarıdaki kod ile fark etmiş olabileceğiniz hafif şeylerden biri, HTML. RenderPartial () çağrılırken &lt;% =%&gt; bloğu yerine%%&gt; bloğunu kullandığımızda &lt;. ASP.NET içindeki% =%&gt; blokları, bir geliştiricinin belirtilen bir değeri (örneğin: &lt;% = "Hello"%&gt; "Hello") işlemesini istediğini gösterir. &lt; Bunun yerine &lt;%%&gt; blokları, geliştiricinin kod yürütmek istediğini ve bunların içindeki tüm işlenmiş çıkışın açıkça yapılması gerektiğini belirtir (örneğin: &lt;% Response. Write ("Hello")%&gt;. Yukarıdaki HTML. RenderPartial kodu ile &lt;%%&gt; bloğunu kullandığımızda, HTML. RenderPartial () yönteminin bir dize döndürmediği ve bunun yerine içeriği doğrudan çağıran görünüm şablonunun çıkış akışına çıktısı almamız gerekir. Bunu performansı verimlilik nedenleriyle yapar ve bunu yaparak, (potansiyel olarak çok büyük) geçici bir dize nesnesi oluşturma gereksinimini ortadan kaldırır. Bu, bellek kullanımını azaltır ve genel uygulama verimini geliştirir. HTML. RenderPartial () kullanılırken yaygın bir hata, çağrının sonuna noktalı virgül eklemeyi unutmak için &lt;%%&gt; bloğunun içinde. Örneğin, bu kod bir derleyici hatasına neden olur: &lt;% HTML. RenderPartial ("DinnerForm")%&gt; yazmanız gerekir: &lt;% HTML. RenderPartial ("DinnerForm"); %&gt; bunun nedeni,%%&gt; bloklarının &lt;bağımsız kod deyimleri olması ve kod deyimlerinin kullanılması C# için noktalı virgül ile sonlandırılmalıdır. |
 
-### <a name="using-partial-view-templates-to-clarify-code"></a>Kod açıklamak için kısmi görünüm şablonları kullanma
+### <a name="using-partial-view-templates-to-clarify-code"></a>Kodu netleştirmek için kısmi görünüm şablonları kullanma
 
-Görünüm işleme mantığı birden çok yerde yinelemekten "DinnerForm" kısmi görünüm şablonu oluşturduk. Kısmi görünüm şablonları oluşturmak için en yaygın nedeni budur.
+Birden çok yerde Görünüm işleme mantığını çoğaltmaktan kaçınmak için "DinnerForm" kısmi görünüm şablonunu oluşturduk. Bu, kısmi görünüm şablonları oluşturmanın en yaygın nedenidir.
 
-Bazen hala bile, yalnızca tek bir yerde çağrıldığında, kısmi görünümleri oluşturmak için mantıklıdır. Çok karmaşık görüntüleme şablonları genellikle zaman kendi Görünüm işleme mantığı ayıklanan ve bölümlenmiş bir veya daha iyi şablonlarının kısmi adlı çok daha kolay hale gelebilir.
+Bazen yalnızca tek bir yerde çağrıldıklarında bile kısmi görünümler oluşturmak mantıklı olur. Çok karmaşık görünüm şablonları, genellikle görünüm işleme mantığı ayıklandığında ve kısmi şablonlarda bir veya daha fazla şekilde bölümlendiğinde okunması çok daha kolay hale gelebilir.
 
-Örneğin, aşağıdaki kod parçacığını (Bu, size en kısa süre içinde gönderdiğimizde) Projemizin Site.master dosyasından. Kodu görece sorunsuz bir oturum açma/kapatma görüntülenecek mantıksal kısmen bağlantı çünkü en üstünde – okumak için ekranın sağ "LogOnUserControl" kısmi içinde kapsüllenir:
+Örneğin, projemizdeki site. master dosyasından aşağıdaki kod parçacığını göz önünde bulundurun (kısa süre içinde ekleyeceğiz). Kod görece düz olarak okunabilir – kısmi olarak, ekranın sağ üst köşesinde bir oturum açma/kapatma bağlantısı görüntüleme mantığı "LogOnUserControl" kısmi içinde kapsüllenir.
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample4.aspx)]
 
-Kendinizi bu yanıltıcı bulduğunuz her çalışılırken bir görünüm şablonu içindeki html/kod biçimlendirme anlamak, bu, bazıları ise ayıklanan ve iyi adlandırılmış kısmi görünümlere yeniden düzenlenen NET olmaz mıydı olup olmadığını göz önünde bulundurun.
+Bir görünüm şablonu içindeki HTML/kod işaretlemesini anlamaya çalışırken ne olursa olsun, bir kısmı ayıklanmışsa daha açık olup olmadığını ve iyi adlandırılmış kısmi görünümlere yeniden düzenlenmiş göz önünde bulundurun.
 
 ### <a name="master-pages"></a>Ana Sayfalar
 
-ASP.NET MVC kısmi görünümler hizmetinin yanı sıra, bir sitenin üst düzey html ve yaygın bir düzen tanımlamak için kullanılan "ana sayfa" şablonları oluşturma olanağı da destekler. Yer tutucu denetimler sonra geçersiz kılınan veya "görünümler tarafından doldurulur" değiştirilebilir bölgeleri belirlemek için ana sayfasına eklenebilir içerik. Bu yaygın bir düzen uygulama uygulamak için çok etkili (ve KURU) bir yol sağlar.
+ASP.NET MVC, kısmi görünümleri desteklemeye ek olarak, bir sitenin ortak düzen ve üst düzey HTML 'ini tanımlamak için kullanılabilecek "Ana sayfa" şablonları oluşturma özelliğini de destekler. İçerik yer tutucusu denetimleri daha sonra, görünümler tarafından geçersiz kılınabilen veya "doldurulan" değiştirilebilir bölgeleri belirlemek için ana sayfaya eklenebilir. Bu, bir uygulama genelinde ortak bir düzen uygulamak için çok etkili (ve kuru) bir yol sağlar.
 
-Varsayılan olarak, yeni ASP.NET MVC projeleri otomatik olarak kendilerine eklenen bir ana sayfası şablonu vardır. Bu ana sayfa "Site.master" ve hayatını \Views\Shared\ klasördeki adlandırılır:
+Varsayılan olarak, yeni ASP.NET MVC projelerinin otomatik olarak bunlara eklenmiş bir ana sayfa şablonu vardır. Bu ana sayfa "site. Master" olarak adlandırılmıştır ve \Views\Shared\ klasörü içinde bulunur:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image5.png)
 
-Varsayılan Site.master dosyanın aşağıdaki gibi görünür. Bu, bir üst gezinti menüsü ile birlikte sitenin dış html tanımlar. – Bir başlık ve diğeri için birincil bir sayfanın içeriğini değiştirildiği desene iki değiştirilebilir içerik yer tutucusu denetimleri aşağıdakileri içerir:
+Varsayılan site. master dosyası aşağıdaki gibi görünür. Üst kısımdaki gezinme için bir menü ile birlikte sitenin dış HTML 'sini tanımlar. İki değiştirilebilir içerik yer tutucu denetimi içerir – biri başlık için, diğeri ise sayfanın birincil içeriğinin değiştirilmeleridir:
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample5.aspx)]
 
-Tüm şablonları göster NerdDinner uygulamamız için ("List", "Details", "Düzenle", "Oluşturma", "Bulunamadı", vb.) oluşturduk bu Site.master şablona dayalı. Bu varsayılan olarak en üstüne eklendi "MasterPageFile" özniteliği aracılığıyla gösterilir &lt;% @ sayfa %&gt; biz "Görünüm Ekle" iletişim kutusunu kullanarak bizim görünümleri oluştururken yönergesi:
+Nerdakşam yemeği uygulamamız için oluşturduğumuz tüm Görünüm şablonları ("Listeleme", "Ayrıntılar", "Düzenle", "oluşturma", "NotFound" vb.) Bu site. Master şablonunu temel alır. Bu, "Görünüm Ekle" iletişim kutusunu kullanarak Görünümlerimizi oluşturduğumuzda, varsayılan olarak en üstteki &lt;% @ Page%&gt; yönergesine eklenen "MasterPageFile" özniteliği aracılığıyla belirtilir:
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample6.aspx)]
 
-Ne bu Site.master içeriği Değiştirebiliriz ve sahip değişiklikleri otomatik olarak olması uygulanan ve biz görünümü şablonlarımızdan birini işlendiğinde kullanılan anlamına gelir.
+Bunun anlamı, site. Master içeriğini değiştirebilmemiz ve değişikliklerin otomatik olarak uygulanmasını ve görünüm şablonlarımızdan herhangi birini oluşturduğumuzda kullanılmasını sağlayabilir.
 
-Böylece uygulamamızın başlığını "MVC Uygulamam" yerine "NerdDinner" bizim Site.master ait üst bilgisi bölümü güncelleştirelim. Şimdi ilk sekme olan "A (HomeController'ın İNDİS() eylem yöntemi tarafından işlenen) Dinner Bul" ve "Konak a (DinnersController'ın Create() eylem yöntemi tarafından işlenen) Dinner" adlı yeni bir sekme ekleyelim de bizim Gezinti Menüsü güncelleştirin:
+Sitemizi "My MVC Uygulamam" yerine "Nerdakşam yemeği" olması için sitemizi ana başlık bölümünü güncelleştirelim. Ayrıca, ilk sekmenin "akşam yemeği bul" (HomeController dizini () eylem yöntemi tarafından işlenir) ve "akşam yemeği ana bilgisayarı" adlı yeni bir sekme ekleyebilmesini sağlamak için gezinti menümüzü güncelleştirelim:
 
 [!code-aspx[Main](re-use-ui-using-master-pages-and-partials/samples/sample7.aspx)]
 
-Biz yenileme ve Site.master dosyayı kaydettiğinizde bizim üstbilgi görüyoruz bizim tarayıcı Göster uygulamamız içindeki tüm görünümler arasında değişiklikleri. Örneğin:
+Site. Master dosyasını kaydettiğimde ve tarayıcımızı yenilediğimde, üst bilgi değişikliklerimizi uygulamamız içindeki tüm görünümlerde göstereceğiz. Örneğin:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image6.png)
 
-İle */Dinners/düzenleme / [ID]* URL'si:
+*/Dinners/Edit/[kimlik]* URL 'si ile:
 
 ![](re-use-ui-using-master-pages-and-partials/_static/image7.png)
 
 ### <a name="next-step"></a>Sonraki adım
 
-Kısmi ve ana sayfalar düzgün bir şekilde görünümleri düzenleyin olanak tanıyan çok esnek seçenekler sağlar. Bunlar görünümü dll'sindedir Yardım içerik / kod ve görünüm şablonlarınızı okunması ve düzenlenmesi daha kolay hale getirmek bulabilirsiniz.
+Partileri ve ana sayfalar, görünümleri düzgün bir şekilde düzenlemenizi sağlayan çok esnek seçenekler sağlar. İçeriği ve kodu çoğaltmaktan kaçınmanıza ve görünüm şablonlarınızı okumayı ve bakımını daha kolay hale getirmenize yardımcı olduklarını göreceksiniz.
 
-Şimdi artık daha önce oluşturduğumuz listeleme senaryoyu yeniden ziyaret ve ölçeklenebilir sayfalama desteğini etkinleştirin.
+Şimdi, daha önce oluşturduğumuz listeleme senaryosunu yeniden ziyaret edin ve ölçeklenebilir sayfalama desteğini etkinleştirin.
 
 > [!div class="step-by-step"]
 > [Önceki](use-viewdata-and-implement-viewmodel-classes.md)

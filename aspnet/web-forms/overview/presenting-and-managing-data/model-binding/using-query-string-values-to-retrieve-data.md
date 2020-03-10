@@ -1,85 +1,85 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
-title: Sorgu dizesi değerlerini kullanarak model bağlama ile verileri filtreleme ve web forms | Microsoft Docs
+title: Model bağlama ve Web formlarıyla verileri filtrelemek için sorgu dizesi değerlerini kullanma | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
+description: Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama, veri etkileşimini daha düz-... hale getirir
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: b90978bd-795d-4871-9ade-1671caff5730
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
 ms.openlocfilehash: 143ddcb40b576a3129e659b90bfc8321c061a547
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130229"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639099"
 ---
-# <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Sorgu dizesi değerlerini verilere filtre uygulamak, model bağlama ve web forms ile kullanma
+# <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Model bağlama ve Web formlarıyla verileri filtrelemek için sorgu dizesi değerlerini kullanma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.
+> Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama veri kaynağı nesneleriyle (örneğin, ObjectDataSource veya SqlDataSource) çok daha basit hale getirir. Bu seri giriş malzemesiyle başlar ve sonraki öğreticilerde daha gelişmiş kavramlara gider.
 > 
-> Bu öğreticide, sorgu dizesinde bir değer geçirmek ve model bağlama aracılığıyla veri almak için bu değeri gösterilir.
+> Bu öğreticide, sorgu dizesinde bir değerin nasıl geçirileceğini ve model bağlama yoluyla verileri almak için bu değerin nasıl kullanılacağı gösterilmektedir.
 > 
-> Bu öğreticide oluşturulan proje geliştirir [önceki](retrieving-data.md) dizisinin bölümleri.
+> Bu öğreticide, serinin [önceki](retrieving-data.md) bölümlerinde oluşturulan projede derleme yapılır.
 > 
-> Yapabilecekleriniz [indirme](https://go.microsoft.com/fwlink/?LinkId=286116) tam projeyi C# veya vb İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile çalışır. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklıdır Visual Studio 2012 şablonu kullanır.
+> Tüm projeyi [](https://go.microsoft.com/fwlink/?LinkId=286116) C# veya vb 'ye indirebilirsiniz. İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile birlikte kullanılabilir. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklı olan Visual Studio 2012 şablonunu kullanır.
 
-## <a name="what-youll-build"></a>Derleme
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Bu öğreticide, gerekir:
+Bu öğreticide şunları yapmanız gerekir:
 
-1. Bir öğrenci için kayıtlı kursları göstermek için yeni bir sayfa ekleyin
-2. Sorgu dizesinde bir değere göre seçilen Öğrenci için kayıtlı kursları Al
-3. Bir sorgu dizesi değerini içeren bir köprü kılavuz görünümünden yeni sayfaya ekleyin.
+1. Bir öğrenciye yönelik kayıtlı kursları göstermek için yeni bir sayfa ekleyin
+2. Sorgu dizesindeki bir değere göre seçili öğrenci için kayıtlı kursları alın
+3. Kılavuz görünümünden yeni sayfaya sorgu dizesi değeri olan bir köprü ekleyin
 
-Bu öğreticide, yaptığınız için oldukça benzer adımlarla önceki [öğretici](sorting-paging-and-filtering-data.md) bir açılan liste kullanıcı seçimine göre görüntülenen öğrencilere filtre uygulamak için. Bu öğreticide kullandığınız **denetimi** select yöntemindeki parametre değeri bir denetimden geldiğini belirtmek için özniteliği. Bu öğreticide kullanacaksınız **QueryString** select yöntemindeki parametre değeri, Sorgu dizesinden geldiğini belirtmek için özniteliği.
+Bu öğreticideki adımlar, bir açılan listede Kullanıcı seçimine bağlı olarak görüntülenen öğrencileri filtrelemek için daha önceki [öğreticide](sorting-paging-and-filtering-data.md) yaptığınız şekilde oldukça benzerdir. Bu öğreticide, parametre değerinin bir denetimden geldiğini belirtmek için Select yöntemindeki **Denetim** özniteliğini kullandınız. Bu öğreticide, parametre değerinin sorgu dizesinden geldiğini belirtmek için Select yönteminde **QueryString** özniteliğini kullanacaksınız.
 
-## <a name="add-new-page-for-displaying-a-students-courses"></a>Bir öğrenci kursları görüntülemek için Yeni Sayfa Ekle
+## <a name="add-new-page-for-displaying-a-students-courses"></a>Öğrencinin kurslarını görüntülemek için yeni sayfa ekle
 
-Site.master ana sayfa kullanan yeni bir web formu ekleyin ve sayfayı adlandırın **kursları**.
+Site. Master ana sayfasını kullanan yeni bir Web formu ekleyin ve sayfa **kurslarını**adlandırın.
 
-İçinde **Courses.aspx** Kurslar için seçilen Öğrenci görüntülemek için bir kılavuz görünümüne ekleyin.
+**Kurslar. aspx** dosyasında seçili öğrenci için kursları görüntülemek üzere bir kılavuz görünümü ekleyin.
 
 [!code-aspx[Main](using-query-string-values-to-retrieve-data/samples/sample1.aspx)]
 
-## <a name="define-the-select-method"></a>Select yöntemi tanımlayın
+## <a name="define-the-select-method"></a>Select metodunu tanımlama
 
-İçinde **Courses.aspx.cs**, select yöntemi kılavuz görünümünün belirtilen adla ekleyeceksiniz **SelectMethod** özelliği. Bu yöntemde, bir öğrencinin kurslar almak için sorgu tanımlama ve parametre, parametre olarak aynı ada sahip bir sorgu dizesi değerinden geldiğini belirtmek.
+**Courses.aspx.cs**' de, Select yöntemini Grid görünümünün **SelectMethod** özelliğinde belirttiğiniz adla eklersiniz. Bu yöntemde, öğrencinin kurslarını almak için sorgu tanımlayacaksınız ve parametrenin parametreyle aynı ada sahip bir sorgu dizesi değerinden geldiğini belirtmeniz gerekir.
 
-İlk olarak, aşağıdaki ekleyin **kullanarak** deyimleri.
+İlk olarak, aşağıdaki **using** deyimlerini eklemeniz gerekir.
 
 [!code-csharp[Main](using-query-string-values-to-retrieve-data/samples/sample2.cs)]
 
-Ardından, Courses.aspx.cs için aşağıdaki kodu ekleyin:
+Ardından, aşağıdaki kodu Courses.aspx.cs öğesine ekleyin:
 
 [!code-csharp[Main](using-query-string-values-to-retrieve-data/samples/sample3.cs)]
 
-Sorgu dizesi öznitelik StudentID adlı bir sorgu dizesi değerini bu yöntem parametresi için otomatik olarak atandığı anlamına gelir.
+QueryString özniteliği, bu yöntemdeki parametreye otomatik olarak Studentitıd adlı bir sorgu dizesi atanır.
 
-## <a name="add-hyperlink-with-query-string-value"></a>Sorgu dizesi değeri ile köprü ekleme
+## <a name="add-hyperlink-with-query-string-value"></a>Sorgu dizesi değeri olan köprü ekleme
 
-Students.aspx ızgara görünümünde, yeni kursları sayfasına bağlayan bir köprü alanına ekler. Köprüyü öğrencinin kimliğine sahip bir sorgu dizesi değerini içerir.
+Öğrenciler. aspx üzerinde kılavuz görünümünde, yeni kurslar sayfanıza bağlanan bir köprü alanı ekleyeceksiniz. Köprü, öğrencinin kimliğiyle bir sorgu dizesi değeri içerecektir.
 
-Students.aspx içinde aşağıdaki alan ızgara görünümü sütunları hemen altındaki alanı için toplam kredi ekleyin.
+Öğrenciler. aspx ' te, toplam krediler için alanın hemen altındaki kılavuz görünümü sütunlarına aşağıdaki alanı ekleyin.
 
 [!code-aspx[Main](using-query-string-values-to-retrieve-data/samples/sample4.aspx?highlight=7-8)]
 
-Uygulamayı çalıştırmak ve ızgara görünümü artık kursları bağlantı içerdiğine dikkat edin.
+Uygulamayı çalıştırın ve kılavuz görünümünün şimdi kurslar bağlantısını içerdiğine dikkat edin.
 
-![Köprü ekleme](using-query-string-values-to-retrieve-data/_static/image1.png)
+![Köprü Ekle](using-query-string-values-to-retrieve-data/_static/image1.png)
 
-Bağlantılardan birine tıkladığınızda, bu öğrencinin kayıtlı kursları görürsünüz.
+Bağlantılardan birine tıkladığınızda, öğrencinin kayıtlı kurslarını görürsünüz.
 
 ![kursları göster](using-query-string-values-to-retrieve-data/_static/image2.png)
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, bir sorgu dizesi değerini içeren bir bağlantı eklendi. Bu sorgu dizesi değerini select yöntemi parametresinin değeri için kullanılır.
+Bu öğreticide, sorgu dizesi değeri olan bir bağlantı eklediniz. Select yöntemindeki parametre değeri için bu sorgu dizesi değerini kullandınız.
 
-Sonraki [öğretici](adding-business-logic-layer.md), kod ile iş mantığı katmanı ve veri erişim katmanı arka plan kod dosyaları taşınır.
+Sonraki [öğreticide](adding-business-logic-layer.md), kodu arka plan kod dosyalarından iş mantığı katmanına ve veri erişim katmanına taşıyacaksınız.
 
 > [!div class="step-by-step"]
 > [Önceki](integrating-jquery-ui.md)

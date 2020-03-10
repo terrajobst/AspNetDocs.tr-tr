@@ -1,201 +1,201 @@
 ---
 uid: whitepapers/aspnet-and-iis6
-title: ASP.NET 1.1 IIS 6.0 ile çalışan | Microsoft Docs
+title: IIS 6,0 ile ASP.NET 1,1 çalıştırma | Microsoft Docs
 author: rick-anderson
-description: Bu bileşenler, Windows Server 2003 hem IIS 6.0 hem de ASP.NET 1.1 içerse de, varsayılan olarak devre dışıdır. Bu teknik incelemede IIS 6.0 etkinleştirmeyi açıklar bir...
+description: Windows Server 2003 hem IIS 6,0 hem de ASP.NET 1,1 içerdiğinde, bu bileşenler varsayılan olarak devre dışıdır. Bu teknik incelemede IIS 6,0 a 'nın nasıl etkinleştirileceği açıklanmaktadır...
 ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: 5a5537bf-2aaa-49e7-839f-9e6522b829d8
 msc.legacyurl: /whitepapers/aspnet-and-iis6
 msc.type: content
 ms.openlocfilehash: 2e7812f34481afe9a71927c0d9ba2a9abc9632e4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106801"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78523312"
 ---
 # <a name="running-aspnet-11-with-iis-60"></a>IIS 6.0 ile Çalışan ASP.NET 1.1
 
-> Bu bileşenler, Windows Server 2003 hem IIS 6.0 hem de ASP.NET 1.1 içerse de, varsayılan olarak devre dışıdır. Bu teknik incelemede IIS 6.0 ve ASP.NET 1.1 etkinleştirmeyi açıklar ve IIS ve ASP.NET en iyi performans almak için çeşitli yapılandırma ayarlarını önerir.
+> Windows Server 2003 hem IIS 6,0 hem de ASP.NET 1,1 içerdiğinde, bu bileşenler varsayılan olarak devre dışıdır. Bu teknik incelemede IIS 6,0 ve ASP.NET 1,1 ' nin nasıl etkinleştirileceği açıklanır ve IIS ve ASP.NET ' den en iyi performansı elde etmek için çeşitli yapılandırma ayarları önerilmektedir.
 > 
-> 1.1 ASP.NET ve IIS 6.0 için geçerlidir.
+> ASP.NET 1,1 ve IIS 6,0 için geçerlidir.
 
-ASP.NET 1.1, Windows Server Internet Information Server (IIS) sürüm 6.0, en son sürümünü içeren 2003 ile birlikte gelir. IIS 6.0 ve ASP.NET 1.1 sorunsuz bir şekilde tümleştirmek için tasarlanmıştır ve artık varsayılan olarak yeni IIS 6.0 çalışan işlem modeli ASP.NET.
+ASP.NET 1,1, Internet Information Server (IIS) sürüm 6,0 ' nin en son sürümünü de içeren Windows Server 2003 ile birlikte gelir. IIS 6,0 ve ASP.NET 1,1, sorunsuz ve ASP.NET Now varsayılan olarak yeni IIS 6,0 çalışan işlem modeliyle tümleştirilecek şekilde tasarlanmıştır.
 
-## <a name="aspnet-11-is-not-installed-by-default"></a>ASP.NET 1.1 varsayılan olarak yüklü değil
+## <a name="aspnet-11-is-not-installed-by-default"></a>ASP.NET 1,1 varsayılan olarak yüklü değildir
 
-Microsoft'un sunucu işletim sistemlerinin önceki sürümlerden farklı olarak, Internet Information Server (IIS) varsayılan olarak etkin değildir; ya da ASP.NET 1.1 silinmez. IIS etkinleştirmek için iki seçenek vardır:
+Microsoft 'un sunucu işletim sistemlerinin önceki sürümlerinden farklı olarak Internet Information Server (IIS) varsayılan olarak etkinleştirilmemiştir; ASP.NET 1,1. IIS 'yi etkinleştirmek için iki seçenek vardır:
 
-### <a name="enabling-iis-option-1---configure-your-server-wizard"></a>Seçenek #1 - IIS Sunucu Yapılandırma Sihirbazı etkinleştirme
+### <a name="enabling-iis-option-1---configure-your-server-wizard"></a>IIS 'yi etkinleştirme, seçenek #1-Sunucu Yapılandırma Sihirbazı
 
-Windows Server 2003, bir yeni 'sunucu yapılandırma sunucunuzu istenen modunda düzgün şekilde yapılandırmanıza yardımcı olması için Sihirbazı' birlikte gelir.
+Windows Server 2003, sunucunuzu istediğiniz modda doğru bir şekilde yapılandırmanıza yardımcı olmak için yeni bir ' Sunucu Yapılandırma Sihirbazı ' ' nı sevk eder.
 
--Sihirbazı başlatmak için - yönetici olarak oturum Sihirbazı çalıştırmak için Not gidin: Başlangıç | Programlar | Yönetim Araçları ve Seç 'sunucunuzu'.
+Sihirbazı başlatmak için, Sihirbazı çalıştırmak üzere yönetici olarak oturum açmış olmanız gerekir; şuraya gidin: Başlat | Programlar | Yönetim Araçları ve ' sunucunuzu yapılandırın ' seçeneğini belirleyin.
 
-Bir kez seçili 'Sunucu Yapılandırma Sihirbazı' açılış ekranı görürsünüz:
+' İ seçtikten sonra, ' Sunucu Yapılandırma Sihirbazı ' açma ekranını görmeniz gerekir:
 
 ![](aspnet-and-iis6/_static/image1.jpg)
 
-Tıklatın ' sonraki &gt;':
+' Ileri &gt;' seçeneğine tıklayın:
 
 ![](aspnet-and-iis6/_static/image2.jpg)
 
-Tıklatın ' sonraki &gt;'
+' Ileri &gt;' seçeneğine tıklayın
 
 ![](aspnet-and-iis6/_static/image3.jpg)
 
-Bu ekranda seçmeniz gerekecek ' yapılandırma seçenekleri olarak uygulama sunucusu (IIS, ASP.NET).
+Bu ekranda, yapılandırma seçenekleri olarak ' uygulama sunucusu (IIS, ASP.NET) seçeneğini belirlemeniz gerekir.
 
-Tıklatın ' sonraki &gt;'.
+' Ileri &gt;' seçeneğine tıklayın.
 
 ![](aspnet-and-iis6/_static/image4.jpg)
 
-Sunucuyu, uygulama sunucusu olarak yapılandırma seçtikten sonra bu ekran ek yetenekler yüklenmelidir isteyen görüntülenir. Her iki seçeneği varsayılan olarak seçilidir. ASP.NET otomatik olarak etkinleştirmek için seçmeniz gerekir ' ASP etkinleştirin. NET'.
+Sunucuyu bir uygulama sunucusu olarak yapılandırmayı seçtikten sonra bu ekran, hangi ek yeteneklerin yüklenmesi gerektiğine ilişkin istem görüntülenecektir. Hiçbir seçenek varsayılan olarak seçilidir. ASP.NET otomatik olarak etkinleştirmek için, ' ASP 'yi etkinleştir ' i seçmeniz gerekir. NET '.
 
-Tıklatın ' sonraki &gt;'.
+' Ileri &gt;' seçeneğine tıklayın.
 
 ![](aspnet-and-iis6/_static/image5.jpg)
 
-Bu ekran, yüklenecek seçenekleri nelerdir görüntüler.
+Bu ekran hangi seçeneklerin yükleneceğini gösterir.
 
-Tıklatın ' sonraki &gt;'.
+' Ileri &gt;' seçeneğine tıklayın.
 
 ![](aspnet-and-iis6/_static/image6.jpg)
 
-Seçtiğiniz seçenekler yüklenirken şu ekranı görürsünüz. Diğer iletişim kutuları Hizmetleri yüklü olarak görünür görmek için normal bir durumdur. Ayrıca Windows 2003 Server yükleme CD'sinde konumunu istenebilir.
+Seçtiğiniz seçenekler yüklenirken bu ekran görüntülenir. Hizmetler yüklendiği sürece diğer iletişim kutularının görünmesine bakmak normaldir. Ayrıca, Windows 2003 Server yükleme CD 'sinin konumu istenebilir.
 
-Tıklatın ' sonraki &gt;' tamamlandığında.
+Tamamlandığında ' Ileri &gt;' seçeneğine tıklayın.
 
 ![](aspnet-and-iis6/_static/image7.jpg)
 
-'Son' düğmesini tıklatın,-Windows Server 2003 IIS 6.0 ve ASP.NET 1.1 desteklemek için artık yapılandırılmıştır.
+' Son ' düğmesine tıklayın. Windows Server 2003 artık IIS 6,0 ve ASP.NET 1,1 ' i destekleyecek şekilde yapılandırılmıştır.
 
-### <a name="enabling-iis-option-2---manually-configuring-iis-and-aspnet"></a>IIS, #2 - el ile IIS ve ASP.NET yapılandırma seçeneğini etkinleştirme
+### <a name="enabling-iis-option-2---manually-configuring-iis-and-aspnet"></a>IIS, seçenek #2 etkinleştirme-IIS ve ASP.NET El Ile yapılandırma
 
-'Sunucu Yapılandırma Sihirbazı' kullanmak istemiyorsanız, isteğe bağlı olarak IIS 6.0 ve ASP.NET 1.1 'Program Ekle veya Kaldır' kullanarak Denetim Masası'ndan yükleyebilirsiniz.
+' Sunucu Yapılandırma Sihirbazı ' nı kullanmak istemiyorsanız, Denetim Masası 'ndan ' Program Ekle veya Kaldır ' öğesini kullanarak IIS 6,0 ve ASP.NET 1,1 ' ü isteğe bağlı olarak yükleyebilirsiniz.
 
-İlk kullanarak denetim masasını açın:
+Önce denetim masasını açın:
 
 ![](aspnet-and-iis6/_static/image8.jpg)
 
-Ardından, ' Ekle/Kaldır Windows 'Windows Bileşenleri Sihirbazı' açılır bileşenleri üzerinde' tıklayın:
+Sonra ' Windows Bileşenleri Sihirbazı ' ' nı açacak ' Windows Bileşenlerini Ekle/Kaldır ' seçeneğine tıklayın:
 
 ![](aspnet-and-iis6/_static/image9.jpg)
 
-Vurgulayın ve 'Uygulama sunucusu' denetleyin ve 'Ayrıntılar?' ı Düğme:
+' Uygulama sunucusu ' nu vurgulayın ve denetleyin ve sonra ' Ayrıntılar? ' düğmesine tıklayın Bu
 
 ![](aspnet-and-iis6/_static/image10.jpg)
 
-ASP.NET yüklemek için kontrol ' ASP. NET'.
+ASP.NET yüklemek için, ' ASP ' yi kontrol edin. NET '.
 
-Windows Bileşen Sihirbazı için ' Tamam' ı tıklatın. Tıklatın ' sonraki &gt;' yüklemeye başlamak için Windows Bileşen Sihirbazı:
+Windows Bileşen sihirbazına dönmek için ' Tamam 'a tıklayın. Yüklemeye başlamak için Windows Bileşen Sihirbazı 'nda ' Ileri &gt;' seçeneğine tıklayın:
 
 ![](aspnet-and-iis6/_static/image11.jpg)
 
-Diğer iletişim kutuları Hizmetleri yüklü olarak görünür görmek için normal bir durumdur. Ayrıca Windows 2003 Server yükleme CD'sinde konumunu istenebilir.
+Hizmetler yüklendiği sürece diğer iletişim kutularının görünmesine bakmak normaldir. Ayrıca, Windows 2003 Server yükleme CD 'sinin konumu istenebilir.
 
-Yükleme tamamlandığında Windows Bileşen Sihirbazı'nın son ekranı görürsünüz:
+Yükleme tamamlandığında, Windows Bileşen Sihirbazı 'nın son ekranını görürsünüz:
 
 ![](aspnet-and-iis6/_static/image12.jpg)
 
-IIS 6.0 ve ASP.NET 1.1 artık yapılandırılmış ve kullanılabilir.
+IIS 6,0 ve ASP.NET 1,1 artık yapılandırılmıştır ve kullanılabilir.
 
 ## <a name="recommended-settings"></a>Önerilen ayarlar
 
-ASP.NET 1.1 IIS 6.0 ile çalışan ASP.NET tarafından en iyi performans almak için önerilen bazı yapılandırma ayarları vardır:
+IIS 6,0 ile ASP.NET 1,1 çalıştırılırken, ASP.NET adresinden en iyi performansı elde etmek için önerilen birkaç yapılandırma ayarı vardır:
 
-- Yapılandırma çalışan işlem bellek sınırları
-- Çalışan işlemi geri dönüşümü yapılandırma
+- Çalışan işlem belleği sınırlarını yapılandırma
+- Çalışan işlemi geri dönüşümünü yapılandırma
 
-### <a name="configuring-worker-process-memory-limits"></a>Yapılandırma çalışan işlem bellek sınırları
+### <a name="configuring-worker-process-memory-limits"></a>Çalışan işlem belleği sınırlarını yapılandırma
 
-Varsayılan olarak IIS 6.0 IIS kullanmasına izin verilen bellek miktarı sınırı ayarlamaz. ASP. Önbellek, proaktif olarak kullanılmayan öğeleri bellekten kaldırabilmeniz için NET önbellek özelliği sınırlaması bellek kullanır.
+Varsayılan olarak IIS 6,0, IIS 'nin kullanmasına izin verilen bellek miktarı için bir sınır yapmaz. ASP.net. NET ' in önbellek özelliği bir bellek sınırlaması kullanır, bu sayede önbelleğin kullanılmayan öğeleri bellekten önceden kaldırabilmesini sağlayabilirsiniz.
 
-Bu, IIS 6.0 özelliğini geri dönüştürme bellek yapılandırmanız önerilir. Bu açık Internet Information Services Manager'ı yapılandırmak için (Başlangıç | Programlar | Yönetimsel Araçlar | Internet Information Services). Açık bir kez 'Uygulama havuzları' klasörünü genişletin:
+IIS 6,0 'nin bellek geri dönüştürme özelliğini yapılandırmanız önerilir. Bu açık Internet Information Services yöneticisini yapılandırmak için (Başlat | Programlar | Yönetim Araçları | Internet Information Services). ' İ açtıktan sonra ' uygulama havuzları ' klasörünü genişletin:
 
-Her bir uygulama havuzu için:
+Her uygulama havuzu için:
 
 ![](aspnet-and-iis6/_static/image13.jpg)
 
-1. Örneğin uygulama havuzunda sağ tıklayın 'DefaultAppPool' ve 'Özellikler' i seçin:
+1. Uygulama havuzuna sağ tıklayın, örn. ' DefaultAppPool ' ve ' Özellikler ' öğesini seçin:
 
 ![](aspnet-and-iis6/_static/image14.jpg)
 
-2. Ardından, üzerinde tıklayarak bellek geri dönüşümü Etkinleştir ' en çok kullanılan bellek (megabayt cinsinden):'. Birden çok sunucu (sanal olmayan) fiziksel bellek miktarı değeri olmamalıdır, iyi bir yaklaşık % 60 ' 512 MB fiziksel bellek seçin 310 ile bir sunucu için başka bir deyişle, fiziksel bellek. Ayrıca, en fazla 800 MB 2 GB adres alanı kullanırken aşmaması, önerilir. Sunucunun bellek adresi alanının 3 GB ise, çalışan işlem için maksimum bellek sınırını 1 800 MB olarak yüksek olabilir:
+2. Daha sonra, ' en fazla kullanılan bellek ' i (megabayt cinsinden) tıklatarak belleği geri dönüştürmeyi etkinleştirin. Değer, sunucudaki fiziksel (sanal değil) bellek miktarından daha fazla olmamalıdır; Örneğin, 512 MB fiziksel belleği olan bir sunucu için, yaklaşık olarak %60, fiziksel belleğin% ' i 310 seçin. 2 GB 'LIK bir adres alanı kullanırken en fazla 800MB 'yi aşmamalıdır. Sunucunun bellek adres alanı 3GB ise, çalışan işlem için en fazla bellek sınırı 1, 800MB olarak yüksek olabilir:
 
 ![](aspnet-and-iis6/_static/image15.jpg)
 
-Özellikler iletişim kutusundan çıkmak için 'Uygula' ve 'Tamam' seçeneğine tıklayın. Bu, tüm kullanılabilir uygulama havuzları için yineleyin.
+Özellikler iletişim kutusundan çıkmak için ' Uygula ' ve ' Tamam ' seçeneğine tıklayın. Bunu, kullanılabilir tüm uygulama havuzları için tekrarlayın.
 
-### <a name="configuring-worker-recycling"></a>Geri Dönüşüm çalışan yapılandırma
+### <a name="configuring-worker-recycling"></a>Çalışan geri dönüşümünü yapılandırma
 
-Varsayılan olarak, IIS 6.0, 29 saatte bir çalışan işlemi geri dönüştürmek için yapılandırılır. ASP.NET çalışan bir uygulama için biraz agresif budur ve otomatik çalışan işlem geri dönüşümü devre dışı bırakıldı önerilir.
+Varsayılan olarak IIS 6,0, çalışan işlemini 29 saatte bir geri dönüştürmek üzere yapılandırılmıştır. Bu, ASP.NET çalıştıran bir uygulama için biraz ısrarlı ve otomatik çalışan işlem geri dönüştürme işleminin devre dışı bırakılması önerilir.
 
-Otomatik çalışan işlem geri dönüşümü devre dışı bırakmak için önce Internet Information Services Manager açın (Başlat | Programlar | Yönetimsel Araçlar | Internet Information Services). Açık bir kez 'Uygulama havuzları' klasörünü genişletin:
+Otomatik çalışan işlemi geri dönüşümünü devre dışı bırakmak için önce Internet Information Services Manager 'ı açın (Başlat | Programlar | Yönetim Araçları | Internet Information Services). ' İ açtıktan sonra ' uygulama havuzları ' klasörünü genişletin:
 
 ![](aspnet-and-iis6/_static/image16.jpg)
 
-Her bir uygulama havuzu için:
+Her uygulama havuzu için:
 
-1. Örneğin uygulama havuzunda sağ tıklayın 'DefaultAppPool' ve 'Özellikler' i seçin:
+1. Uygulama havuzuna sağ tıklayın, örn. ' DefaultAppPool ' ve ' Özellikler ' öğesini seçin:
 
 ![](aspnet-and-iis6/_static/image17.jpg)
 
-2. Onay kutusunu temizleyin ' Geri Dönüşüm çalışan işlemi (dakika):':
+2. ' Çalışan işlemini geri kazan (dakika): ' işaretini kaldırın:
 
 ![](aspnet-and-iis6/_static/image18.jpg)
 
-Özellikler iletişim kutusundan çıkmak için 'Uygula' ve 'Tamam' seçeneğine tıklayın. Bu, tüm kullanılabilir uygulama havuzları için yineleyin.
+Özellikler iletişim kutusundan çıkmak için ' Uygula ' ve ' Tamam ' seçeneğine tıklayın. Bunu, kullanılabilir tüm uygulama havuzları için tekrarlayın.
 
-## <a name="granting-write-access-to-the-file-system"></a>Dosya sistemine yazma erişim izni verme
+## <a name="granting-write-access-to-the-file-system"></a>Dosya sistemine yazma erişimi verme
 
-Uygulamanızın gerektirdiği dosya sistemine yazma erişimi ve NTFS kullanıyorsanız, bir erişim denetimi listesi (ASP.NET erişim izni vermek için ACL) klasör veya dosya çubuğunda değiştirmeniz gerekir.
+Uygulamanız dosya sistemine yazma erişimi gerektiriyorsa ve NTFS kullanıyorsanız, ASP.NET erişimi sağlamak için klasör veya dosya üzerinde bir Access Control listesini (ACL) değiştirmeniz gerekir.
 
-Örneğin, ASP.NET vermek c:\inetpub\wwwroot yazma erişimi ilk Gezgini'ni açın ve dizine gidin:
+Örneğin, c:\ınetpub\wwwroot ilk kez açık gezgin 'e ASP.NET yazma erişimi vermek ve dizine gitmek için:
 
 ![](aspnet-and-iis6/_static/image19.jpg)
 
-Ardından, sağ tıklayarak dizine, örneğin 'wwwroot' ve Özellikler'i seçin. Özellikler iletişim kutusu açıldıktan sonra 'Güvenlik' sekmesinde'ı seçin:
+Ardından, dizine sağ tıklayıp, örneğin ' Wwwroot ' ve Özellikler ' i seçin. Özellikler iletişim kutusu açıldıktan sonra ' Güvenlik ' sekmesini seçin:
 
 ![](aspnet-and-iis6/_static/image20.jpg)
 
-C:\inetpub\wwwroot\ dizindir, özel bir dizinde özel IIS 6.0 grup ' IIS\_WPG' okuma zaten verilmiş &amp; yürütme, klasör içeriklerini listeleme ve Okuma izinleri. Ancak, yazma izni vermek için yazmaya izin ver onay kutusuna tıklayın gerekir:
+C:\Inetpub\Wwwroot\ Dizin, ' IIS\_WPG ' özel IIS 6,0 grubunun zaten okuma &amp; yürütme, klasör Içeriğini listeleme ve okuma izinleri vermiş olduğu özel bir dizindir. Bununla birlikte, yazma izni vermek için, yazma için Izin ver onay kutusuna tıklamanız gerekir:
 
 ![](aspnet-and-iis6/_static/image21.jpg)
 
-IIS 6.0, artık bu klasörde yazma izni vardır. Şu adımları - izleyin diğer klasörler üzerinde yazma izinleri vermek için Not: IIS eklemeniz gerekebilir\_zaten yoksa, WPG grubu.
+IIS 6,0 artık bu klasörde yazma iznine sahiptir. Diğer klasörlerde yazma izinleri vermek için, bu adımları izleyin, zaten yoksa IIS\_WPG grubunu eklemeniz gerekebileceğini göz önünde bulabilirsiniz.
 
 > [!CAUTION]
-> IIS için yazma izni verme\_WPG bu dizine yazabilmek herhangi bir ASP.NET uygulama sağlayacaktır.
+> IIS\_WPG 'ye yazma izni verilmesi, tüm ASP.NET uygulamalarının bu dizine yazmasına izin verir.
 
-## <a name="supporting-integrated-authentication-with-sql-server"></a>SQL sunucusu ile tümleşik kimlik doğrulamasını destekleme
+## <a name="supporting-integrated-authentication-with-sql-server"></a>SQL Server ile tümleşik kimlik doğrulamayı destekleme
 
-Tümleşik kimlik doğrulaması, SQL Server oturum açma hesapları doğrulamak için SQL Server'ın Windows NT kimlik doğrulaması yararlanmasını sağlar. Bu kullanıcının standart SQL Server oturum açma işlemi atlamasını sağlar. Bu yaklaşımda, bir ağ kullanıcı bir SQL Server veritabanını SQL Server Windows NT ağ güvenlik işleminden elde ettiği, parola bilgisi ve kullanıcı için ayrı bir oturum açma kimliği veya parola sağlamadan erişebilir.
+Tümleşik kimlik doğrulaması, SQL Server SQL Server oturum açma hesaplarını doğrulamak için Windows NT kimlik doğrulamasının yararlanmasını sağlar. Bu, kullanıcının standart SQL Server oturum açma işlemini atlamasına izin verir. Bu yaklaşımda, SQL Server Windows NT ağ güvenlik işlemindeki Kullanıcı ve parola bilgilerini elde ettiğinden, bir ağ kullanıcısı ayrı bir oturum açma kimliği veya parola sağlamadan SQL Server veritabanına erişebilir.
 
-Kimlik bilgisi bağlantı dizenizi uygulamanızın içinde hiç olmadığı kadar depolandığından ASP.NET uygulamaları için tümleşik kimlik doğrulaması'nı seçerek iyi bir seçimdir. Bunun yerine SQL'e bağlanmak için kullanılan bağlantı dizesi şu şekilde görünür:
+Uygulamanız için bağlantı dizeniz içinde hiçbir kimlik bilgisi depolanmadığından, ASP.NET uygulamaları için tümleşik kimlik doğrulaması seçme iyi bir seçimdir. Bunun yerine, SQL 'e bağlanmak için kullanılan bağlantı dizesi aşağıdaki gibi görünür:
 
 `"server=localhost; database=Northwind;Trusted_Connection=true"`
 
-Bu bağlantı dizesi, SQL Server'ın SQL Server erişmeye çalışan uygulamanın Windows kimlik bilgilerini söyler. ASP.NET/IIS 6 söz konusu olduğunda bu bir hesap IIS'de olacaktır\_WPG grubu.
+Bu bağlantı dizesi, SQL Server SQL Server erişmeye çalışan uygulamanın Windows kimlik bilgilerini kullanmasını söyler. ASP.NET/IIS 6 durumunda bu, IIS\_WPG grubunda bir hesap olabilir.
 
-SQL Server ve ASP.NET arasında tümleşik kimlik doğrulamasını etkinleştirmek için önce SQL Server tümleşik kimlik doğrulaması veya karma mod kimlik doğrulaması - için yapılandırılmış olduğundan emin olun gerekecektir bunu belirlemek için DBA ile denetleyin. SQL Server, bu iki moddan birini ise, tümleşik kimlik doğrulaması kullanabilirsiniz.
+SQL Server ve ASP.NET arasında tümleşik kimlik doğrulamasını etkinleştirmek için öncelikle SQL Server tümleşik kimlik doğrulaması veya karma mod kimlik doğrulaması için yapılandırılmış olduğundan emin olmanız gerekir. bunu öğrenmek için SQL Server bu iki moddan birinde ise, tümleşik kimlik doğrulaması kullanabilirsiniz.
 
-SQL Server Enterprise Manager'ı açın (Başlat | Programlar | Microsoft SQL Server | Kurumsal Yöneticisi), uygun sunucuyu seçin ve güvenlik klasörü genişletin:
+SQL Server Enterprise Yöneticisi 'Ni açın (Başlat | Programlar | Microsoft SQL Server | Enterprise Manager), uygun sunucuyu seçin ve Güvenlik klasörünü genişletin:
 
 ![](aspnet-and-iis6/_static/image22.jpg)
 
-Varsa ' BUILTINT\IIS\_WPG' grup listelenmiyorsa, oturum açma bilgilerini sağ tıklayın ve 'Yeni oturum açma' seçin:
+' BUıLT\ııS\_WPG ' grubu listelenmiyorsa, oturum açma bilgileri ' ne sağ tıklayın ve ' yeni Login' ' ı seçin:
 
 ![](aspnet-and-iis6/_static/image23.jpg)
 
-İçinde ' adı:' metin girin ya da ' [sunucu/etki alanı adı] \IIS\_WPG' ya da Windows NT kullanıcı/Grup Seçici'yi açmak için üç nokta düğmesine tıklayın:
+' Name: ' metin kutusunda ' [sunucu/etki alanı adı] \ııS\_WPG ' girin veya Windows NT Kullanıcı/Grup seçicisini açmak için üç nokta düğmesine tıklayın:
 
 ![](aspnet-and-iis6/_static/image24.jpg)
 
-Geçerli makinenin IIS seçin\_WPG grubu tıklatın 'Add' ve seçiciyi kapatmak için Tamam.
+Geçerli makinenin IIS\_WPG grubunu seçin ve seçiciyi kapatmak için ' Ekle ' ve Tamam ' ı tıklatın.
 
-Ardından varsayılan veritabanı ve veritabanına erişmek için izinleri ayrıca ayarlamanız gerekir. Ayarlamak için varsayılan veritabanını seçin ve açılan listesinde, örneğin aşağıdaki Northwind seçilir:
+Daha sonra, varsayılan veritabanını ve veritabanına erişmek için izinleri de ayarlamanız gerekir. Varsayılan Veritabanı Seç ' i açılan listeden seçin. Örneğin, Northwind 'nin altında:
 
 ![](aspnet-and-iis6/_static/image25.jpg)
 
@@ -203,18 +203,18 @@ Ardından, veritabanı erişimi sekmesine tıklayın:
 
 ![](aspnet-and-iis6/_static/image26.jpg)
 
-Erişime izin vermek istediğiniz her veritabanı için izin ver onay kutusuna tıklayın. Ayrıca veritabanı rolleri seçmek db denetimi ihtiyacınız olacak\_sahibi, oturum açma bilgilerinizi yönetmek ve seçili veritabanını kullanmak için tüm gerekli izinlere sahip olmadığını olun.
+Erişimine izin vermek istediğiniz her veritabanı için Izin ver onay kutusuna tıklayın. Ayrıca, veritabanı rolleri ' ni seçmeniz gerekir. veritabanı\_sahibi, oturum açma izninizin seçili veritabanını yönetmek ve kullanmak için gereken tüm izinlere sahip olduğundan emin olur.
 
-Özellik iletişim kutusundan çıkmak için Tamam'a tıklayın. ASP.NET uygulamanızı, tümleşik SQL Server kimlik doğrulamasını desteklemek için artık yapılandırılmıştır.
+Özellik iletişim kutusundan çıkmak için Tamam ' ı tıklatın. ASP.NET uygulamanız artık tümleşik SQL Server kimlik doğrulamasını destekleyecek şekilde yapılandırılmıştır.
 
-## <a name="dont-run-aspnet-10-in-iis-60-native-mode"></a>ASP.NET 1.0 IIS 6.0 yerel modda çalıştırma
+## <a name="dont-run-aspnet-10-in-iis-60-native-mode"></a>IIS 6,0 Native modda ASP.NET 1,0 çalıştırma
 
-ASP.NET 1.0 IIS 6.0, yalnızca IIS 5 uyumluluk modunda desteklenir.
+IIS 6,0 üzerinde ASP.NET 1,0 yalnızca IIS 5 uyumluluk modunda desteklenir.
 
-ASP.NET IIS 5.0 uyumluluk modunda çalışacak şekilde 1.0 yapılandırmak için Internet Hizmetleri Yöneticisi'ni açın ve Web siteleri sağ tıklayın ve Özellikler'i seçin:
+ASP.NET 1,0 'i IIS 5,0 uyumluluk modunda çalışacak şekilde yapılandırmak için İnternet Hizmetleri Yöneticisi açın ve Web siteleri ' ne sağ tıklayıp Özellikler ' i seçin:
 
 ![](aspnet-and-iis6/_static/image27.jpg)
 
-Hizmet sekmesine gidin ve kontrol? WWW hizmetini IIS 5.0 yalıtım modunda çalıştır?:
+Hizmet sekmesine geçip emin misiniz? WWW hizmetini IIS 5,0 yalıtım modunda çalıştırın mi?:
 
 ![](aspnet-and-iis6/_static/image28.jpg)

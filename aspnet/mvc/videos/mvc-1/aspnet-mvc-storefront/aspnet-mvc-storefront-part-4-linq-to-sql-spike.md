@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
-title: 'ASP.NET MVC Storefront Bölüm 4: LINQ To Sql ani artışı | Microsoft Docs'
+title: 'ASP.NET MVC storefront Bölüm 4: LINQ to SQL ani | Microsoft Docs'
 author: robconery
-description: "'Ani' Rob oluşturur - bit bir düşünce veya ilham test - için LINQ, Sql emin olmak için işlevsellik my veri erişim modelini çalışır."
+description: Ramiz, veri erişim modelimde LINQ to SQL 'ın çalıştığından emin olmak için bir veya daha fazla yöneltmeden test etmek üzere bir ' ani ' işlevi oluşturur.
 ms.author: riande
 ms.date: 05/27/2008
 ms.assetid: 990262a5-4c06-472a-8083-ed11e14f1e5a
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
 msc.type: video
 ms.openlocfilehash: 937451d8cfa5bb96ca6abebf440af86c2c2746ab
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59411468"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537732"
 ---
-# <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>ASP.NET MVC Storefront Bölüm 4: Linq To Sql Değişikliği
+# <a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>ASP.NET MVC Storefront 4. Bölüm: Linq To zSql Ani Artışı
 
-tarafından [Rob Conery](https://github.com/robconery)
+[ramiz](https://github.com/robconery) 'e göre
 
-"Depo" Rob oluşturur - bit bir düşünce veya ilham test - için LINQ, Sql emin olmak için işlevsellik my veri erişim modelini çalışır.
+Ramiz, veri erişim modelimde LINQ to SQL ' in çalıştığından emin olmak için bir "ani" bir işlev oluşturur.
 
-[&#9654;Videoyu (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
+[&#9654;Videoyu izleyin (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-mvc-storefront-part-3-pipes-and-filters.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
-title: Ana bilgisayar ASP.NET Web API 2 Azure çalışan rolünde - ASP.NET 4.x
+title: Azure çalışan rolünde Host ASP.NET Web API 2-ASP.NET 4. x
 author: MikeWasson
-description: "Öğretici: OWIN barındırma Web API çerçevesini kullanarak bir Azure çalışan rolünde ASP.NET Web API'si barındırın."
+description: "Öğretici: Web API çerçevesini Self barındırmak için OWıN kullanarak bir Azure çalışan rolünde ASP.NET Web API 'SI barındırın."
 ms.author: riande
 ms.date: 04/02/2014
 ms.custom: seoapril2019
@@ -10,140 +10,140 @@ ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
 ms.openlocfilehash: ec9904e0bff090be0f504036ae73977cfca0cb31
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130827"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556632"
 ---
-# <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 Azure çalışan rolünde barındırın
+# <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Azure çalışan rolünde Host ASP.NET Web API 2
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Bu öğreticide bir Azure çalışan rolünde ASP.NET Web API'yi barındırmak nasıl OWIN barındırma Web API çerçevesi kullanmayı gösterir.
+> Bu öğreticide, Web API çerçevesini Self barındırmak için OWIN kullanılarak Azure çalışan rolünde ASP.NET Web API 'sinin nasıl barındıralınacağını gösterilmektedir.
 >
-> [.NET için açık Web arabirimi](http://owin.org/) (OWIN) .NET web sunucuları ve web uygulaması arasında bir Özet tanımlar. OWIN ayırır OWIN kendi işleminizde IIS dışında bir web uygulaması kendi kendine barındırma için ideal hale getirir sunucu web uygulamasından – Örneğin, bir Azure çalışan rolü içinde.
+> [.Net Için açık Web arabirimi](http://owin.org/) (owın), .NET Web sunucuları ile Web uygulamaları arasında bir soyutlama tanımlar. OWIN, Web uygulamasını sunucudan ayırır, bu da bir Web uygulamasını kendi işleminizde, IIS dışında (örneğin, bir Azure çalışan rolü içinde) kendine barındırmak için ideal hale getirir.
 >
-> Bu öğreticide, Microsoft.Owin.Host.HttpListener paket kullanacağınız, bir HTTP sunucusu sağlayan Self OWIN uygulamalarını barındırmak için kullanılabilir.
+> Bu öğreticide, kendi kendini barındırmak için kullanılan bir HTTP sunucusu sağlayan Microsoft. Owin. Host. HttpListener paketini kullanacaksınız.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
-> - [.NET 2.3 için Azure SDK](https://azure.microsoft.com/downloads/)
+> - [.NET 2,3 için Azure SDK](https://azure.microsoft.com/downloads/)
 
 ## <a name="create-a-microsoft-azure-project"></a>Microsoft Azure projesi oluşturma
 
-Visual Studio'yu yönetici ayrıcalıklarıyla başlatın. Azure işlem öykünücüsü kullanarak uygulamayı yerel olarak hata ayıklama için yönetici ayrıcalıkları gerekir.
+Visual Studio 'Yu yönetici ayrıcalıklarıyla başlatın. Azure işlem öykünücüsü kullanılarak uygulamanın yerel olarak hata ayıklaması için yönetici ayrıcalıkları gerekir.
 
-Üzerinde **dosya** menüsünde tıklayın **yeni**, ardından **proje**. Gelen **yüklü şablonlar**, Visual C# altında tıklayın **bulut** ve ardından **Windows Azure bulut hizmeti**. "AzureApp" Projeyi adlandırın ve tıklayın **Tamam**.
+**Dosya** menüsünde **Yeni**' ye ve ardından **Proje**' ye tıklayın. **Yüklü şablonlardan**, Visual C#altında **bulut** ' a ve ardından **Windows Azure bulut hizmeti**' ne tıklayın. Projeyi "AzureApp" olarak adlandırın ve **Tamam**' a tıklayın.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image2.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image1.png)
 
-İçinde **yeni Windows Azure bulut hizmeti** iletişim kutusunda, çift **çalışan rolü**. ("WorkerRole1") varsayılan adı bırakın. Bu adım, bir çalışan rolü çözüme ekler. **Tamam**'ı tıklatın.
+**Yeni Windows Azure bulut hizmeti** Iletişim kutusunda **çalışan rolü**' ne çift tıklayın. Varsayılan adı bırakın ("WorkerRole1"). Bu adım çözüme bir çalışan rolü ekler. **Tamam**’a tıklayın.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image4.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image3.png)
 
-Oluşturulan Visual Studio çözümünü iki proje içerir:
+Oluşturulan Visual Studio çözümü iki proje içerir:
 
-- &quot;AzureApp&quot; Azure uygulaması için yapılandırma ve rolleri tanımlar.
-- &quot;WorkerRole1&quot; çalışan rolü kodunu içerir.
+- &quot;AzureApp&quot;, Azure uygulamasının rollerini ve yapılandırmasını tanımlar.
+- &quot;WorkerRole1&quot;, çalışan rolü için kodu içerir.
 
-Genel olarak, bu öğreticide tek bir rol olsa da Azure uygulaması birden çok rol içerebilir.
+Genel olarak, bir Azure uygulaması birden çok rol içerebilir, ancak bu öğretici tek bir rol kullanıyor olabilir.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image5.png)
 
-## <a name="add-the-web-api-and-owin-packages"></a>Web API ve OWIN paketleri Ekle
+## <a name="add-the-web-api-and-owin-packages"></a>Web API 'sini ve OWIN paketlerini ekleyin
 
-Gelen **Araçları** menüsünde tıklayın **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
+**Araçlar** menüsünde **NuGet Paket Yöneticisi**' ne ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
 
 Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample1.cmd)]
 
-## <a name="add-an-http-endpoint"></a>Bir HTTP uç noktası ekleme
+## <a name="add-an-http-endpoint"></a>HTTP uç noktası ekleme
 
-Çözüm Gezgini'nde AzureApp projeyi genişletin. Rolleri düğümünü genişletin, WorkerRole1 sağ tıklatın ve seçin **özellikleri**.
+Çözüm Gezgini ' de, AzureApp projesini genişletin. Roller düğümünü genişletin, WorkerRole1 öğesine sağ tıklayın ve **Özellikler**' i seçin.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image6.png)
 
-Tıklayın **uç noktaları**ve ardından **uç nokta Ekle**.
+**Uç noktalar**' a ve ardından **uç nokta Ekle**' ye tıklayın.
 
-İçinde **Protokolü** açılan listeyi seçin "http". İçinde **genel bağlantı noktası** ve **özel bağlantı noktası**, 80 yazın. Bu bağlantı noktası numaraları farklı olabilir. Role bir isteği gönderdiğinizde istemciler kullandıklarınız genel bağlantı noktasıdır.
+**Protokol** açılan listesinde "http" öğesini seçin. **Genel bağlantı noktası** ve **özel bağlantı noktası**alanına 80 yazın. Bu bağlantı noktası numaraları farklı olabilir. Genel bağlantı noktası, istemcilerin role bir istek gönderdiklerinde kullandıkları şeydir.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image8.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image7.png)
 
-## <a name="configure-web-api-for-self-host"></a>Web API'si için yapılandırma barındırma
+## <a name="configure-web-api-for-self-host"></a>Self-Host için Web API 'YI yapılandırma
 
-Çözüm Gezgini'nde WorkerRole1 projeyi sağ tıklatın ve seçin **Ekle** / **sınıfı** yeni bir sınıf eklemek için. Sınıf adını `Startup`.
+Çözüm Gezgini ' de, WorkerRole1 projesine sağ tıklayın ve yeni bir sınıf eklemek için / **sınıfı** **Ekle** ' yi seçin. `Startup`sınıfı adlandırın.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image9.png)
 
-Tüm bu dosya ortak kodun aşağıdakiyle değiştirin:
+Bu dosyadaki tüm ortak kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample2.cs)]
 
-## <a name="add-a-web-api-controller"></a>Web API denetleyici ekleme
+## <a name="add-a-web-api-controller"></a>Web API denetleyicisi ekleme
 
-Ardından, bir Web API denetleyici sınıfı ekleyin. WorkerRole1 projeye sağ tıklayıp **Ekle** / **sınıfı**. TestController sınıfı adı. Tüm bu dosya ortak kodun aşağıdakiyle değiştirin:
+Sonra, bir Web API denetleyici sınıfı ekleyin. WorkerRole1 projesine sağ tıklayın ve / **sınıfı** **Ekle** ' yi seçin. Test denetleyicisi sınıfını adlandırın. Bu dosyadaki tüm ortak kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample3.cs)]
 
-Kolaylık olması için bu denetleyici yalnızca düz metin döndürür iki GET yöntemleri tanımlar.
+Kolaylık olması için bu denetleyici yalnızca düz metin döndüren iki GET yöntemi tanımlar.
 
-## <a name="start-the-owin-host"></a>OWIN konağını Başlat
+## <a name="start-the-owin-host"></a>OWıN konağını başlatma
 
 WorkerRole.cs dosyasını açın. Bu sınıf, çalışan rolü başlatıldığında ve durdurulduğunda çalışan kodu tanımlar.
 
-Aşağıdaki using deyimi:
+Şu deyimi kullanarak aşağıdakileri ekleyin:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample4.cs)]
 
-Ekleme bir **IDisposable** üyesine `WorkerRole` sınıfı:
+`WorkerRole` sınıfına bir **IDisposable** üyesi ekleyin:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample5.cs)]
 
-İçinde `OnStart` yöntemi, ana bilgisayarı başlatmak için aşağıdaki kodu ekleyin:
+`OnStart` yönteminde, ana bilgisayarı başlatmak için aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample6.cs?highlight=5)]
 
-**WebApp.Start** yöntemi OWIN ana bilgisayarı başlatır. Adını `Startup` yöntem bir tür parametresine bir sınıftır. Kural gereği, konak çağıracak `Configure` bu sınıfın yöntemi.
+**WebApp. Start** yöntemi owın konağını başlatır. `Startup` sınıfının adı, yöntemin tür parametresidir. Kurala göre, ana bilgisayar bu sınıfın `Configure` yöntemini çağırır.
 
-Geçersiz kılma `OnStop` elden çıkarmak  *\_uygulama* örneği:
+*\_uygulama* örneğinin atılırken `OnStop` geçersiz kılın:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample7.cs)]
 
-WorkerRole.cs için tam kod aşağıdaki gibidir:
+WorkerRole.cs için kodun tamamı aşağıda verilmiştir:
 
 [!code-csharp[Main](host-aspnet-web-api-in-an-azure-worker-role/samples/sample8.cs)]
 
-Çözümü derleyin ve uygulamayı Azure işlem öykünücüsü'nde yerel olarak çalıştırmak için F5 tuşuna basın. Güvenlik duvarı ayarlarınıza bağlı olarak, güvenlik duvarı üzerinden öykünücü izin gerekebilir.
+Çözümü oluşturun ve F5 tuşuna basarak uygulamayı Azure Işlem öykünücüsünde yerel olarak çalıştırın. Güvenlik duvarınızın ayarlarına bağlı olarak, güvenlik duvarınız aracılığıyla öykünücüye izin vermeniz gerekebilir.
 
 > [!NOTE]
-> Lütfen aşağıdaki gibi bir özel durum alırsanız bkz [bu blog gönderisini](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx) geçici bir çözüm için. "Dosyası veya bütünleştirilmiş kod yüklenemedi ' Microsoft.Owin, sürüm 2.0.2.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' veya bağımlılıklarından biri. Bildirim tanımı bulunduğu derlemenin, derleme başvurusunu eşleşmiyor. (HRESULT özel durum döndürdü: 0x80131040)"
+> Aşağıdakiler gibi bir özel durum alırsanız, geçici çözüm için lütfen [Bu blog gönderisine](https://blogs.msdn.com/b/praburaj/archive/2013/11/20/fileloadexception-on-microsoft-owin-when-running-on-worker-role.aspx) bakın. "Dosya veya derleme ' Microsoft. Owin, Version = 2.0.2.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' veya bağımlılıklarından biri yüklenemedi. Konumlandırılan derlemenin bildirim tanımı derleme başvurusuyla eşleşmiyor. (HRESULT özel durumu: 0x80131040) "
 
-İşlem öykünücüsü, uç nokta için bir yerel IP adresi atar. IP adresi, işlem öykünücüsü kullanıcı Arabiriminde görüntüleyerek bulabilirsiniz. Görev çubuğu bildirim alanında bulunan öykünücü simgesine sağ tıklayın ve seçin **Göster işlem öykünücüsü kullanıcı Arabiriminde**.
+İşlem öykünücüsü uç noktaya bir yerel IP adresi atar. Işlem öykünücüsü Kullanıcı arabirimini görüntüleyerek IP adresini bulabilirsiniz. Görev çubuğu bildirim alanında öykünücü simgesine sağ tıklayın ve **Işlem öykünücüsü Kullanıcı arabirimini göster**' i seçin.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-IP adresi hizmet dağıtımları, dağıtım [ID] hizmet ayrıntıları altında bulabilirsiniz. Bir web tarayıcısı açın ve http:// gidin<em>adresi</em>/test/1, burada <em>adresi</em> ; işlem öykünücüsü tarafından atanan IP adresi gibi `http://127.0.0.1:80/test/1`. Web API denetleyicisi yanıtı görmeniz gerekir:
+Hizmet dağıtımları, dağıtım [kimlik], hizmet ayrıntıları altındaki IP adresini bulun. Bir Web tarayıcısı açın ve http://<em>Address</em>/test/1 adresine gidin; burada <em>Adres</em> , Işlem öykünücüsü tarafından atanan IP adresidir; Örneğin, `http://127.0.0.1:80/test/1`. Web API denetleyicisinden yanıtı görmeniz gerekir:
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 
 ## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
-Bu adım için bir Azure hesabınızın olması gerekir. Zaten yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Microsoft Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+Bu adım için bir Azure hesabınızın olması gerekir. Henüz bir hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [ücretsiz deneme Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
-Çözüm Gezgini'nde AzureApp projeye sağ tıklayın. **Yayımla**’yı seçin.
+Çözüm Gezgini, AzureApp projesine sağ tıklayın. **Yayımla**’yı seçin.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image13.png)
 
-Azure hesabınızda oturum açmadınız tıklatmak **oturum**.
+Azure hesabınızda oturum açmadıysanız **oturum aç**' a tıklayın.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image15.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image14.png)
 
-Oturum açtıktan sonra bir abonelik seçin ve tıklayın **sonraki**.
+Oturum açtıktan sonra bir abonelik seçin ve **İleri**' ye tıklayın.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
 
@@ -151,15 +151,15 @@ Bulut hizmeti için bir ad girin ve bir bölge seçin. **Oluştur**'u tıklatın
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
 
-Tıklayın **yayımlama**.
+**Yayımla**’ta tıklayın.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 
-Azure Etkinlik Günlüğü penceresini dağıtımın ilerleme durumunu gösterir. Uygulama dağıtıldığında, Gözat http://appname.cloudapp.net/test/1.
+Azure etkinlik günlüğü penceresinde dağıtım ilerleme durumu gösterilir. Uygulama dağıtıldığında http://appname.cloudapp.net/test/1gidin.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image21.png)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 - [Project Katana’ya Genel Bakış](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
-- [Github'da Katana proje](https://github.com/aspnet/AspNetKatana)
+- [GitHub üzerinde Katana proje](https://github.com/aspnet/AspNetKatana)

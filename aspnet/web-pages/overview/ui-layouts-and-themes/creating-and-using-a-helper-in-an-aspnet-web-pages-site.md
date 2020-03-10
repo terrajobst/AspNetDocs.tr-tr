@@ -1,82 +1,82 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
-title: Oluşturma ve bir Yardımcısı kullanarak bir ASP.NET Web sayfaları (Razor) sitesinde | Microsoft Docs
+title: ASP.NET Web Pages (Razor) sitesinde yardımcı oluşturma ve kullanma | Microsoft Docs
 author: Rick-Anderson
-description: Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı oluşturulacağını açıklar. Bir yardımcı kod ve iyileştirilmiş işaretlemede içeren yeniden kullanılabilir bir bileşen olan...
+description: Bu makalede, bir ASP.NET Web Pages (Razor) Web sitesinde nasıl yardımcı oluşturulacağı açıklanır. Yardımcı, kod ve perf için biçimlendirme içeren yeniden kullanılabilir bir bileşendir...
 ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
 ms.openlocfilehash: 380663951094c9fc7d5f0601e30995fa073a204b
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67410972"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563513"
 ---
-# <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Oluşturma ve bir ASP.NET Web sayfaları (Razor) sitesinde bir Yardımcısını kullanma
+# <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>ASP.NET Web Pages (Razor) sitesinde yardımcı oluşturma ve kullanma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı oluşturulacağını açıklar. A *Yardımcısı* kod ve yorucu bir süreç veya karmaşık olabilir bir görevi gerçekleştirmek için biçimlendirme içeren yeniden kullanılabilir bir bileşendir.
+> Bu makalede, bir ASP.NET Web Pages (Razor) Web sitesinde nasıl yardımcı oluşturulacağı açıklanır. *Yardımcı* , sıkıcı veya karmaşık olabilecek bir görevi gerçekleştirmek için kod ve biçimlendirme içeren yeniden kullanılabilir bir bileşendir.
 > 
-> **Öğrenecekleriniz:** 
+> **Şunları öğreneceksiniz:** 
 > 
-> - Nasıl oluşturmak ve basit bir Yardımcısı'nı kullanın.
+> - Basit bir yardımcı oluşturma ve kullanma.
 > 
-> Bu makalede sunulan ASP.NET özellikleri şunlardır:
+> Makalesinde sunulan ASP.NET özellikleri şunlardır:
 > 
-> - `@helper` Söz dizimi.
+> - `@helper` sözdizimi.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
 >   
 > 
-> Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
+> Bu öğretici, ASP.NET Web Pages 2 ile de kullanılabilir.
 
-## <a name="overview-of-helpers"></a>Yardımcıları genel bakış
+## <a name="overview-of-helpers"></a>Yardımcıların Özeti
 
-Aynı görevleri, sitedeki farklı sayfalar gerçekleştirmeniz gerekiyorsa yardımcıyı kullanabilirsiniz. ASP.NET Web sayfaları içeren bir dizi yardımcıları ve indirip yükleme çok daha fazlası vardır. (Bir listesi yerleşik ASP.NET Web Pages'de yardımcıların listelenen [ASP.NET API hızlı başvurusu](https://go.microsoft.com/fwlink/?LinkId=202907).) Mevcut Yardımcıları hiçbiri gereksinimlerinizi karşılamıyorsa, kendi Yardımcısı oluşturabilirsiniz.
+Sitenizdeki farklı sayfalarda aynı görevleri gerçekleştirmeniz gerekiyorsa, bir yardımcı kullanabilirsiniz. ASP.NET Web sayfaları bir dizi yardımcı içerir ve indirebileceğiniz ve yükleyebileceğiniz pek çok daha vardır. (ASP.NET Web sayfalarındaki yerleşik yardımcılar listesi, [ASP.NET API hızlı başvurusu](https://go.microsoft.com/fwlink/?LinkId=202907)' nda listelenmiştir.) Mevcut yardımcıların hiçbiri gereksinimlerinizi karşılamıyorsa, kendi yardımcınızın oluşturulmasını sağlayabilirsiniz.
 
-Yardımcı, ortak bir kod bloğu birden çok sayfada kullanmanızı sağlar. Sayfanızın, genellikle normal paragraflar dışında ayarlanmış bir not öğesi oluşturmak istediğinizi varsayalım. Belki Not olarak oluşturulan bir `<div>` öğesi, bir sınır içeren bir kutu olarak biçimlendirilmiş. Not görüntülemek istediğiniz her zaman bir sayfaya bu aynı biçimlendirme eklemek yerine, bir yardımcı işaretleme paketleyebilirsiniz. Daha sonra tek bir kod satırı ile Not ekleyebileceğiniz herhangi bir yere ihtiyacınız.
+Yardımcı, birden çok sayfada ortak bir kod bloğu kullanmanıza olanak sağlar. Sayfanızda genellikle normal paragraflardan ayrı olarak ayarlanan bir dekont öğesi oluşturmak istediğinizi varsayalım. Büyük olasılıkla, bir kenarlık içeren bir kutu olarak stillendirilmiş bir `<div>` öğesi olarak oluşturulur. Her bir notun görüntülenmesini istediğiniz her seferinde aynı biçimlendirmeyi bir sayfaya eklemek yerine, biçimlendirmeyi bir yardımcı olarak paketleyebilir. Daha sonra, tek bir kod satırıyla ihtiyacınız olan her yerde nota ekleyebilirsiniz.
 
-Böyle bir Yardımcısını kullanarak kodu her sayfalarınızın daha basit ve okuması daha kolay hale getirir. Notları nasıl görüneceğini değiştirmeniz gerekiyorsa, tek bir yerde işaretleme değişebildiğinden, ayrıca, sitenizin bakımı kolaylaştırır.
+Bunun gibi bir yardımcı kullanmak, sayfalarınızın her birinde kodu daha basit ve daha kolay okunabilir hale getirir. Ayrıca, notlarınızın nasıl görüneceğini değiştirmeniz gerekiyorsa, biçimlendirmeyi tek bir yerde değiştirebilirsiniz, ancak bu da sitenizin korunmasını kolaylaştırır.
 
-## <a name="creating-a-helper"></a>Bir yardımcı oluşturma
+## <a name="creating-a-helper"></a>Yardımcı oluşturma
 
-Bu yordam yalnızca tanımlandığı gibi bir not oluşturur yardımcı oluşturulacağını gösterir. Bu basit bir örnektir, ancak özel yardımcı herhangi bir işaretleme ve ihtiyaç duyduğunuz ASP.NET kod içerebilir.
+Bu yordam, yalnızca açıklandığı gibi, notun oluşturulduğu yardımcıyı nasıl oluşturacağınız gösterilmektedir. Bu basit bir örnektir ancak özel yardımcı, ihtiyacınız olan herhangi bir biçimlendirme ve ASP.NET kodu içerebilir.
 
-1. Web sitesinin kök klasöründe adlı bir klasör oluşturun *uygulama\_kod*. Kod yardımcıları gibi bileşenlerin yere koyabilirsiniz ayrılmış bir klasör adı ASP.NET budur.
-2. İçinde *uygulama\_kod* yeni bir klasör oluşturun *.cshtml* adlandırın ve dosya *MyHelpers.cshtml*.
-3. Mevcut içeriğini aşağıdakiyle değiştirin:
+1. Web sitesinin kök klasöründe, *uygulama\_kodu*adlı bir klasör oluşturun. Bu, ASP.NET ' de, yardımcılar gibi bileşenler için kod koyabileceğiniz ayrılmış bir klasör adıdır.
+2. *Uygulama\_kodu* klasöründe yeni bir *. cshtml* dosyası oluşturun ve *myyardımcıları. cshtml*olarak adlandırın.
+3. Var olan içeriği aşağıdaki ile değiştirin:
 
     [!code-cshtml[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample1.cshtml)]
 
-    Kod `@helper` adlı yeni bir Yardımcısı bildirmek için söz dizimi `MakeNote`. Bu belirli Yardımcısı adlı bir parametre olarak geçirmenize olanak tanır `content` metni ve biçimlendirmeyi bir birleşimini içerebilir. Yardımcı, Not gövdesi kullanarak bir dize ekler `@content` değişkeni.
+    Kod, `MakeNote`adlı yeni bir yardımcı bildirmek için `@helper` sözdizimini kullanır. Bu belirli yardımcı, metin ve biçimlendirme birleşimini içerebilen `content` adlı bir parametreyi geçirmenize olanak sağlar. Yardımcı, dizeyi `@content` değişkenini kullanarak notun gövdesine ekler.
 
-    Dosya olarak adlandırıldığına dikkat edin *MyHelpers.cshtml*, ancak yardımcı adlı `MakeNote`. Tek bir dosyada birden çok özel Yardımcıları koyabilirsiniz.
+    Dosyanın *myhelper. cshtml*olarak adlandırıldığına, ancak yardımcının `MakeNote`adlandırıldığına dikkat edin. Birden çok özel yardımcıları tek bir dosyaya yerleştirebilirsiniz.
 4. Dosyayı kaydedin ve kapatın.
 
-## <a name="using-the-helper-in-a-page"></a>Bir sayfa Yardımcısını kullanma
+## <a name="using-the-helper-in-a-page"></a>Bir sayfada yardımcı kullanma
 
-1. Adlı yeni bir boş dosyası kök klasöründe oluşturma *TestHelper.cshtml*.
+1. Kök klasörde, *TestHelper. cshtml*adlı yeni bir boş dosya oluşturun.
 2. Dosyaya aşağıdaki kodu ekleyin:
 
     [!code-html[Main](creating-and-using-a-helper-in-an-aspnet-web-pages-site/samples/sample2.html)]
 
-    Oluşturduğunuz Yardımcısı çağırmak için kullanın `@` yardımcı olduğu bir nokta, dosya adının ardından ve yardımcı adı. (Birden çok klasör olsaydı *uygulama\_kod* klasörü, aşağıdaki söz dizimini kullanabilirsiniz `@FolderName.FileName.HelperName` yardımcınız herhangi içinde çağırmak için klasör düzeyinde iç içe geçmiş). Parantez içindeki tırnak işaretleri içindeki eklediğiniz yardımcı Not web sayfasındaki bir parçası olarak görüntülenecek metni metindir.
-3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın. Yardımcı adlı burada yardımcı Not öğesi hemen oluşturur: iki paragraflar arasındaki.
+    Oluşturduğunuz yardımcı 'yı çağırmak için, `@` ve ardından yardımcı, bir nokta ve ardından yardımcı adı olan dosya adı ' nı kullanın. ( *App\_Code* klasöründe birden çok klasörünüz varsa, yardımcı uygulamanızı herhangi bir iç içe klasör düzeyinde çağırmak için `@FolderName.FileName.HelperName` sözdizimini kullanabilirsiniz. Parantez içinde tırnak işaretleri içine eklediğiniz metin, yardımcının Web sayfasındaki notun bir parçası olarak görüntüleyeceği metindir.
+3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın. Yardımcı, iki paragraf arasında Yardımcısı nerede olduğunu doğrudan bir şekilde oluşturur.
 
-    ![Tarayıcı ve yardımcı belirtilen metin etrafına bir kutu koyar biçimlendirme nasıl oluşturulacağını sayfasını gösteren ekran görüntüsü.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
+    ![Tarayıcıdaki sayfanın yanı sıra, belirtilen metnin etrafına bir kutu yerleştiren nasıl yardımcı olan biçimlendirme gösteren ekran görüntüsü.](creating-and-using-a-helper-in-an-aspnet-web-pages-site/_static/image1.png)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Bir Razor yardımcı olarak yatay menü](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341). Bu blog girişi Mike Pope tarafından biçimlendirme, CSS ve kod kullanarak bir yardımcı yatay menü oluşturma işlemi gösterilmektedir.
+[Razor Yardımcısı olarak yatay menü](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2341). Mike Pope tarafından yapılan bu blog girişi, biçimlendirme, CSS ve kod kullanarak bir yardımcı olarak yatay bir menü oluşturmayı gösterir.
 
-[Yararlanarak HTML5'te ASP.NET Web sayfaları Yardımcıları WebMatrix ve ASP.NET MVC3](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx). Bu blog girişi Sam Abraham tarafından bir HTML5 işleyen bir yardımcı gösterir `Canvas` öğesi.
+[WebMatrix ve ASP.net mvc3 için ASP.NET Web sayfaları yardımcılarını kullanarak HTML5](http://geekswithblogs.net/wildturtle/archive/2010/11/08/html5-in-asp.net-web-pages-helpers-for-webmatrix-and_aspnet_mvc3.aspx)'yi kullanma. Sam Abkıham tarafından bu blog girdisi HTML5 `Canvas` öğesi işleyen bir yardımcı gösterir.
 
-[Arasındaki fark @Helpers ve @Functions webmatrix'te](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix). Bu blog girişi Mike Brind tarafından açıklar `@helper` söz dizimi ve `@function` söz dizimi ve ne zaman her kullanılır.
+[WebMatrix 'te @Helpers ve @Functions arasındaki fark](http://www.mikesdotnetting.com/Article/173/The-Difference-Between-@Helpers-and-@Functions-In-WebMatrix). Mike Brind tarafından yapılan bu blog girdisi `@helper` sözdizimini ve `@function` sözdizimini ve ne zaman kullanılacağını açıklar.

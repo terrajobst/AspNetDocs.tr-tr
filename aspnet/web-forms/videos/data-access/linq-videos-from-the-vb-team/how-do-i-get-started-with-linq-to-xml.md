@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq-to-xml
-title: '[Bunu nasıl yaparım:] LINQ to XML ile çalışmaya başlama? | Microsoft Docs'
+title: '[Nasıl yapılır:] LINQ to XML kullanmaya başlayın | Microsoft Docs'
 author: bethmassi
-description: Visual Basic geliştiricileri, Visual Basic'te XML değişmez değerleri, katıştırılmış ifadeler ve XML eksen özellikleri kullanarak sorgu oluşturmak için XML ile nasıl çalışılacağını öğreneceksiniz ve...
+description: Visual Basic geliştiriciler, Create, Query ve... için XML değişmez değerleri, katıştırılmış ifadeler ve XML eksen özellikleri kullanarak Visual Basic XML ile nasıl çalışacağınızı öğrenlerdir.
 ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: dc3dedcd-5daf-4f0e-9afa-9ccad94f2ce0
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq-to-xml
 msc.type: video
 ms.openlocfilehash: bbe5c24f88562d2e4eb0b70e8d83dbd92a90460f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384805"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78565116"
 ---
-# <a name="how-do-i-get-started-with-linq-to-xml"></a>[Bunu nasıl yaparım:] LINQ to XML ile çalışmaya başlama?
+# <a name="how-do-i-get-started-with-linq-to-xml"></a>[Nasıl yapılır:] LINQ to XML kullanmaya başlayın
 
-tarafından [Beth Massi](https://github.com/bethmassi)
+[Beth Massi](https://github.com/bethmassi) tarafından
 
-Visual Basic geliştiricileri, oluşturmak, sorgulamak ve kolayca XML belgelerini dönüştürmek için XML değişmez değerleri, katıştırılmış ifadeler ve XML eksen özellikleri kullanarak Visual Basic'te XML ile nasıl çalışılacağını öğreneceksiniz.
+Visual Basic geliştiriciler, XML belgelerini kolayca oluşturmak, sorgulamak ve dönüştürmek için XML değişmez değerleri, katıştırılmış ifadeler ve XML eksen özellikleri kullanarak Visual Basic XML ile nasıl çalışacağınızı öğrenirsiniz.
 
-[&#9654;Videoyu (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-linq-to-xml)
+[&#9654;Videoyu izleyin (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-get-started-with-linq-to-xml)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-upgrade-visual-basic-projects-to-enable-linq.md)

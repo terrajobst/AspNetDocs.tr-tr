@@ -1,41 +1,41 @@
 ---
 uid: webhooks/receiving/receivers
-title: ASP.NET Web kancaları alıcılar | Microsoft Docs
+title: ASP.NET Web kancası alıcıları | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web kancaları alıcılar
+description: ASP.NET Web kancaları alıcıları
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
 ms.openlocfilehash: d771a588b23abcd7b1b33e694af17b219683fc48
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070326"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574195"
 ---
-# <a name="aspnet-webhooks-receivers"></a>ASP.NET Web kancaları alıcılar
+# <a name="aspnet-webhooks-receivers"></a>ASP.NET Web kancaları alıcıları
 
-Web kancaları almaya kimin gönderen olduğuna bağlıdır. Bazen abone gerçekten dinlediğini doğrulama Web kancası kaydetme ek adımlar vardır. Bazı Web kancaları burada HTTP POST isteği ise bağımsız olarak alınmaları olay bilgilerine bir başvuru yalnızca içeren bir anında iletme çekme modeli sağlar. Genellikle güvenlik modeli oldukça biraz farklılık gösterir.
+Web kancalarını alma, gönderenin kim olduğuna bağlıdır. Bazen, abonenin gerçekten dinlediğini doğrulayan bir Web kancası kaydı için ek adımlar vardır. Bazı Web kancaları, HTTP POST isteğinin yalnızca bağımsız olarak alınabilecek olay bilgilerine bir başvuru içerdiği bir istek temelli model sağlar. Genellikle güvenlik modeli oldukça bir bit olarak değişir.
 
-Microsoft ASP.NET WebHooks amacı daha basit ve daha tutarlı çok fazla zaman ayırabiliriz herhangi belirli bir Web kancaları türevi işlemek harcama olmadan API'nizi kablo olmaktır.
+Web kancaları Microsoft ASP.NET amacı, Web kancalarının belirli bir çeşitlerini nasıl işleyeceğinizi öğrenmek zorunda kalmadan API 'nizi daha basit ve daha tutarlı hale getirir.
 
-Bir Web kancası alıcı kabul etmek ve Web kancaları belirli bir kişiden doğrulama sorumludur. Bir Web kancası alıcı her kendi yapılandırma ile Web Kancalarını herhangi bir sayıda destekleyebilir. Örneğin, GitHub Web kancası alıcı GitHub depoları herhangi bir sayıda Web kancaları kabul edebilir.
+Web kancası alıcısı, belirli bir gönderenden Web kancalarını kabul edip doğrulamaktan sorumludur. Web kancası alıcısı, her biri kendi yapılandırmasına sahip olan herhangi bir sayıda Web kancasını destekleyebilir. Örneğin, GitHub Web kancası alıcısı herhangi bir sayıdaki GitHub depoağından Web kancalarını kabul edebilir.
 
-## <a name="webhook-receiver-uris"></a>Web kancası alıcı URI'ler
+## <a name="webhook-receiver-uris"></a>Web kancası alıcı URI 'Leri
 
-Microsoft ASP.NET WebHooks yükleyerek açık uçlu bir hizmet sayısı Web kancası isteklerden kabul eden bir genel Web kancası denetleyicisi alın. Bir istek ulaştığında, belirli bir Web kancası gönderenden işleme için yüklediğiniz uygun alıcı seçer.
+Microsoft ASP.NET Web kancaları yükleyerek, açık uçlu hizmetlerden gelen Web kancası isteklerini kabul eden genel bir Web kancası denetleyicisi alırsınız. Bir istek geldiğinde, belirli bir Web kancası Göndericisini işlemek için yüklediğiniz uygun alıcıyı seçer.
 
-Bu denetleyici URI'sini hizmete kaydolmak Web kancası URI ve formu şöyledir:
+Bu denetleyicinin URI 'si, hizmete kaydolmanızı sağlayan Web kancası URI 'sidir ve şu biçimdedir:
 
 ```
 https://<host>/api/webhooks/incoming/<receiver>/{id}
 ```
 
-Güvenlik nedenleriyle, birçok Web kancası alıcılar URI olduğunu gerektiren bir *https* URI ve bazı durumlarda yalnızca hedeflenen taraf Web kancaları yukarıdaki URI gönderebilir, uygulamak için kullanılan bir ek sorgu parametresini içermelidir .
+Güvenlik nedenleriyle birçok Web kancası alıcısı URI 'nin bir *https* URI olmasını gerektirir ve bazı durumlarda, yalnızca amaçlanan TARAFıN yukarıdaki URI 'ye Web kancaları gönderebildiğini zorlamak için kullanılan ek bir sorgu parametresi de içermelidir.
 
-`<receiver>` Bileşendir alıcı adı örneğin `github` veya `slack`.
+`<receiver>` bileşen alıcının adı, örneğin `github` veya `slack`.
 
-*{İd}* belirli bir Web kancası alıcı yapılandırması tanımlamak için kullanılabilecek isteğe bağlı bir tanımlayıcı. Bu N Web kancaları ile belirli bir alıcı kaydetmek için kullanılabilir. Örneğin, aşağıdaki üç URI'ler için üç bağımsız Web kancaları kaydetmek için kullanılabilir:
+*{İd}* , belirli bir Web kancası alıcı yapılandırmasını tanımlamak için kullanılabilen isteğe bağlı bir tanıtıcıdır. Bu, belirli bir alıcı ile N Web kancalarını kaydetmek için kullanılabilir. Örneğin, aşağıdaki üç URI üç bağımsız Web kancalarına kaydolmak için kullanılabilir:
 
 ```
 https://<host>/api/webhooks/incoming/github
@@ -43,35 +43,35 @@ https://<host>/api/webhooks/incoming/github/12345
 https://<host>/api/webhooks/incoming/github/54321
 ```
 
-## <a name="installing-a-webhook-receiver"></a>Bir Web kancası alıcı yükleme
+## <a name="installing-a-webhook-receiver"></a>Web kancası alıcısı yükleme
 
-Web kancaları Microsoft ASP.NET WebHooks kullanarak almak için önce Web kancası sağlayıcının veya Web kancaları'ndan almak istediğiniz sağlayıcıları Nuget paketini yükleyin. Nuget paketlerini adlı [Microsoft.AspNet.WebHooks.Receivers.*](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers) burada son bölümü desteklenen hizmet gösterir. Örneğin:
+Web kancalarını Microsoft ASP.NET kullanarak Web kancaları almak için, önce Web kancaları almak istediğiniz Web kancası sağlayıcısı veya sağlayıcıları için NuGet paketini yüklersiniz. NuGet paketleri, son bölümün desteklenen hizmeti gösterdiği [Microsoft. Aspnet. Webkancaları. alıcılar. *](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers) olarak adlandırılır. Örneğin:
 
-[Microsoft.AspNet.WebHooks.Receivers.GitHub](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.GitHub) Github'dan Web kancaları almak için destek sağlar ve [Microsoft.AspNet.WebHooks.Receivers.Custom](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.Custom) ASP tarafından oluşturulan Web kancaları almak için destek sağlar. NET Web kancaları.
+[Microsoft. Aspnet. Webkancalar. alıcılar. GitHub](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.GitHub) , GitHub 'Dan ve [Microsoft. Aspnet. Webkancaları. alıcılar. alıcıları](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers.Custom) tarafından oluşturulan Web kancalarını almak için destek sağlar.
 
-Kullanıma hazır, Dropbox, GitHub, MailChimp, PayPal, iletici, Salesforce, Slack, Şerit, Trello ve WordPress desteği bulabilirsiniz ancak herhangi bir sayıda diğer sağlayıcılar desteklemek mümkündür.
+Box, GitHub, MailChimp, PayPal, Iletici, Salesforce, bolluk, Stripe, Trello ve WordPress için destek bulabilirsiniz, ancak herhangi bir sayıda diğer sağlayıcıyı desteklemek mümkündür.
 
-## <a name="configuring-a-webhook-receiver"></a>Bir Web kancası alıcı yapılandırma
+## <a name="configuring-a-webhook-receiver"></a>Web kancası alıcısını yapılandırma
 
-Web kancası alıcılar yapılandırılır [IWebHookReceiverConfig](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/IWebHookReceiverConfig.cs) arabirime ve o arabirimin belirli uygulamaları herhangi bir bağımlılık ekleme model kullanılarak kaydedilebilir. Varsayılan Uygulama Web.config dosyasında ayarlanabilir veya Azure Web Apps kullanıyorsanız aracılığıyla ayarlanabilir uygulama ayarlarını kullanan [Azure portalı](https://portal.azure.com/).
+Web kancası alıcıları [IWebHookReceiverConfig](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/IWebHookReceiverConfig.cs) arabirimini aracılığıyla yapılandırılır ve bu arabirimin belirli uygulamaları herhangi bir bağımlılık ekleme modeli kullanılarak kaydedilebilir. Varsayılan uygulama, Web. config dosyasında ayarlanmış olan veya Azure Web Apps kullanılıyorsa [Azure portalından](https://portal.azure.com/)ayarlanabilir olan uygulama ayarlarını kullanır.
 
-![Azure uygulama ayarları](_static/AzureAppSettings.png)
+![Azure Uygulama ayarları](_static/AzureAppSettings.png)
 
-Uygulama ayarı anahtarları biçimi aşağıdaki gibidir:
+Uygulama ayarı anahtarlarının biçimi aşağıdaki gibidir:
 
 ```
 MS_WebHookReceiverSecret_<receiver>
 ```
 
-İle eşleşen değerlerin virgülle ayrılmış listesini değerdir *{id}* değerleri için Web kancaları kaydedildi, örneğin:
+Bu değer, Web kancalarının kaydedildiği *{ID}* değerleriyle eşleşen değerlerin virgülle ayrılmış bir listesidir, örneğin:
 
 ```
 MS_WebHookReceiverSecret_GitHub = <secret1>, 12345=<secret2>, 54321=<secret3>
 ```
 
-## <a name="initializing-a-webhook-receiver"></a>Bir Web kancası alıcı başlatılıyor
+## <a name="initializing-a-webhook-receiver"></a>Web kancası alıcısı başlatılıyor
 
-Web kancası alıcılar, genellikle de kaydederek başlatılır *WebApiConfig* statik sınıf, örneğin:
+Web kancası alıcıları, genellikle *WebApiConfig* statik sınıfında kaydederek başlatılır, örneğin:
 
 ```csharp
 namespace WebHookReceivers

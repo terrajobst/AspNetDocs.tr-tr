@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-1
-title: "ASP.NET Web API'de HTML Form verileri gönderme: Form-urlencoded verileri - ASP.NET 4.x"
+title: "ASP.NET Web API 'sinde HTML form verileri gönderme: form-urlencoded Data-ASP.NET 4. x"
 author: MikeWasson
-description: Bu makalede, ASP.NET ile Web API denetleyicisi form-urlencoded verileri gönderileceği gösterilmektedir 4.x
+description: Bu makalede, form-urlencoded verilerinin ASP.NET 4. x ile bir Web API denetleyicisine nasıl nakledileceği gösterilmektedir
 ms.author: riande
 ms.date: 06/15/2012
 ms.custom: seoapril2019
@@ -10,124 +10,124 @@ ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
 ms.openlocfilehash: 7243069dbd8051b1374ed6e0112c273b8fe26f61
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115465"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557605"
 ---
-# <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>ASP.NET Web API'de HTML Form verileri gönderme: Form-urlencoded Verileri
+# <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>ASP.NET Web API 'sinde HTML form verileri gönderme: form-urlencoded Data
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-## <a name="part-1-form-urlencoded-data"></a>Bölüm 1: Form-urlencoded Verileri
+## <a name="part-1-form-urlencoded-data"></a>1\. kısım: form-urlencoded verileri
 
-Bu makalede, bir Web API denetleyicisi için form-urlencoded verileri gönderileceği gösterilmektedir.
+Bu makalede, form-urlencoded verilerinin bir Web API denetleyicisine nasıl nakledileceği gösterilmektedir.
 
-- [HTML formu genel bakış](#overview_of_html_forms)
-- [Karmaşık türler gönderme](#sending_complex_types)
-- [AJAX üzerinden form verileri gönderme](#sending_form_data_via_ajax)
-- [Gönderen basit türler](#sending_simple_types)
+- [HTML formlarına genel bakış](#overview_of_html_forms)
+- [Karmaşık türler gönderiliyor](#sending_complex_types)
+- [AJAX aracılığıyla form verileri gönderme](#sending_form_data_via_ajax)
+- [Basit türler gönderiliyor](#sending_simple_types)
 
 > [!NOTE]
-> [Tamamlanmış projeyi indirmek](https://code.msdn.microsoft.com/ASPNET-Web-API-Sending-a6f9d007).
+> [Tamamlanmış projeyi indirin](https://code.msdn.microsoft.com/ASPNET-Web-API-Sending-a6f9d007).
 
 <a id="overview_of_html_forms"></a>
-## <a name="overview-of-html-forms"></a>HTML formu genel bakış
+## <a name="overview-of-html-forms"></a>HTML formlarına genel bakış
 
-HTML form kullanımı alın veya veri sunucuya göndermek için gönderin. **Yöntemi** özniteliği **form** öğesi HTTP yöntemi sunar:
+HTML formları, verileri sunucuya göndermek için GET veya POST kullanır. **Form** öğesinin **Method** özniteliği http yöntemini verir:
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample1.html)]
 
-GET için varsayılan yöntemdir. Form kullanıyorsa, formun URI sorgu dizesi olarak kodlanmış verileri alın. Form POST kullanıyorsa, form verilerini istek gövdesinde yer alır. Deftere nakledilen veri **Notenctype** özniteliği, istek gövdesi biçimini belirtir:
+Varsayılan yöntem Al ' dır. Form GET kullanıyorsa, form verileri URI 'de bir sorgu dizesi olarak kodlanır. Form POST kullanıyorsa, form verileri istek gövdesine yerleştirilir. Postalanan veriler için, **Enctype** özniteliği istek gövdesinin biçimini belirtir:
 
-| Notenctype | Açıklama |
+| Enctype | Açıklama |
 | --- | --- |
-| Application/x-www-form-urlencoded işlemek | Ad/değer çiftleri, benzer bir URI sorgu dizesi olarak kodlanmış bir form verileri. Bu GÖNDERİ için varsayılan biçimidir. |
-| multipart/form-data | Form verileri çok parçalı MIME ileti olarak kodlanır. Bir dosya sunucusuna yüklüyorsanız bu biçimi kullanın. |
+| Application/x-www-form-urlencoded | Form verileri, bir URI sorgu dizesine benzer şekilde ad/değer çiftleri olarak kodlanır. Bu, POST için varsayılan biçimdir. |
+| multipart/form-Data | Form verileri çok parçalı bir MIME iletisi olarak kodlanır. Sunucuya bir dosya yüklüyorsanız bu biçimi kullanın. |
 
-Bu makalede, bölüm 1 x-www-form-urlencoded işlemek biçimi arar. [2. bölüm](sending-html-form-data-part-2.md) çok parçalı MIME açıklar.
+Bu makalenin 1. bölümü, x-www-form-urlencoded biçimine bakar. [Bölüm 2](sending-html-form-data-part-2.md) çok parçalı MIME tanımlar.
 
 <a id="sending_complex_types"></a>
-## <a name="sending-complex-types"></a>Karmaşık türler gönderme
+## <a name="sending-complex-types"></a>Karmaşık türler gönderiliyor
 
-Genellikle, birden çok form denetimlerini alınan değerleri oluşan karmaşık bir tür gönderir. Durum güncelleştirmesi temsil eden şu model göz önünde bulundurun:
+Genellikle, çeşitli form denetimlerinden alınan değerlerden oluşan karmaşık bir tür gönderilir. Bir durum güncelleştirmesini temsil eden aşağıdaki modeli göz önünde bulundurun:
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample2.cs)]
 
-Kabul eden bir Web API denetleyicisi İşte bir `Update` POST aracılığıyla nesne.
+GÖNDERI aracılığıyla `Update` nesnesini kabul eden bir Web API denetleyicisi aşağıda verilmiştir.
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample3.cs)]
 
 > [!NOTE]
-> Bu denetleyicisi kullanan [eylem tabanlı yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md#routing_by_action_name), rota şablonu, bu nedenle &quot;API / {denetleyici} / {eylem} / {id}&quot;. İstemci verileri post gerçekleştireceği &quot;/api/updates/complex&quot;.
+> Bu denetleyici [eylem tabanlı yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md#routing_by_action_name)kullanır, bu nedenle yol şablonu &quot;API/{Controller}/{Action}/{id}&quot;. İstemci, verileri/api/Updates/Complex&quot;&quot;nakleder.
 
-Artık kullanıcıların durumu güncelleştirmeyi göndermek bir HTML formuna yazalım.
+Şimdi, kullanıcıların bir durum güncelleştirmesi göndermesi için bir HTML formu yazalım.
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample4.html)]
 
-Dikkat **eylem** özniteliktir formdaki denetleyicisi eylemimiz URI'si. Girilen bazı değerler formu şöyledir:
+Form üzerindeki **Action** özniteliğinin Controller eylemizin URI 'si olduğunu unutmayın. Aşağıda, bazı değerlerin girildiği form verilmiştir:
 
 ![](sending-html-form-data-part-1/_static/image1.png)
 
-Kullanıcı gönderme tıkladığında tarayıcı bir HTTP isteği aşağıdakine benzer gönderir:
+Kullanıcı Gönder ' e tıkladığında tarayıcı aşağıdakine benzer bir HTTP isteği gönderir:
 
 [!code-console[Main](sending-html-form-data-part-1/samples/sample5.cmd)]
 
-İstek gövdesini form verileri, ad/değer çiftleri biçimlendirilmiş içerdiğine dikkat edin. Web API'si bir örneğine otomatik olarak ad/değer çiftleri dönüştürür `Update` sınıfı.
+İstek gövdesinin, ad/değer çiftleri olarak biçimlendirilen form verilerini içerdiğine dikkat edin. Web API 'SI, ad/değer çiftlerini otomatik olarak `Update` sınıfının bir örneğine dönüştürür.
 
 <a id="sending_form_data_via_ajax"></a>
-## <a name="sending-form-data-via-ajax"></a>AJAX üzerinden form verileri gönderme
+## <a name="sending-form-data-via-ajax"></a>AJAX aracılığıyla form verileri gönderme
 
-Kullanıcı formu gönderdiğinde, tarayıcı Geçerli sayfadan ayrılmak gider ve yanıt iletisinin gövdesini işler. Yanıtı HTML sayfası Tamam andır. Bir web API ile ancak yanıt gövdesinin genellikle geçerli boş veya JSON gibi yapılandırılmış verilerin içerir. Bu durumda, bu istek bir AJAX kullanarak form verilerini, sayfanın yanıt işleyebilmesi göndermek için daha anlamlı olur.
+Kullanıcı bir form gönderdiğinde, tarayıcı geçerli sayfadan uzağa gider ve yanıt iletisinin gövdesini işler. Yanıt bir HTML sayfası olduğunda bu tamam. Ancak, bir Web API 'SI ile yanıt gövdesi genellikle boştur veya JSON gibi yapılandırılmış verileri içerir. Bu durumda, bir AJAX isteği kullanarak form verilerinin gönderilmesi daha anlamlı hale gelir, böylece sayfa yanıtı işleyebilir.
 
-Aşağıdaki kod, jQuery kullanarak form verileri gönderileceği gösterilmektedir.
+Aşağıdaki kod, form verilerinin jQuery kullanılarak nasıl nakledileceğini gösterir.
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample6.html)]
 
-JQuery **gönderme** işlevi, form eylemi yeni bir işlev ile değiştirir. Bu, Gönder düğmesinin varsayılan davranışı geçersiz kılar. **Serileştirmek** işlevi ad/değer çiftlerine form verilerini serileştirir. Form verileri sunucuya göndermek için arama `$.post()`.
+JQuery **Gönder** işlevi form eyleminin yerine yeni bir işlev koyar. Bu, Gönder düğmesinin varsayılan davranışını geçersiz kılar. Serileştirme işlevi, form verilerini ad/değer çiftlerine seri **hale** getirir. Form verilerini sunucuya göndermek için `$.post()`çağırın.
 
-İstek tamamlandıktan sonra `.success()` veya `.error()` işleyicisi, kullanıcı için uygun bir ileti görüntülenir.
+İstek tamamlandığında, `.success()` veya `.error()` işleyicisi kullanıcıya uygun bir ileti gösterir.
 
 ![](sending-html-form-data-part-1/_static/image2.png)
 
 <a id="sending_simple_types"></a>
-## <a name="sending-simple-types"></a>Gönderen basit türler
+## <a name="sending-simple-types"></a>Basit türler gönderiliyor
 
-Önceki bölümlerde, Web API'si için bir model sınıfının bir örneği seri durumdan bir karmaşık tür gönderdik. Ayrıca, bir dize gibi basit türler de gönderebilirsiniz.
+Önceki bölümlerde, bir model sınıfının örneğine bir Web API 'SI seri durumdan çıkarılan karmaşık bir tür gönderdik. Ayrıca, bir dize gibi basit türler de gönderebilirsiniz.
 
 > [!NOTE]
-> Basit bir tür göndermeden önce değerin bir karmaşık türü yerine sarmalama göz önünde bulundurun. Bu, sunucu tarafında model doğrulama avantajlarını sağlar ve gerekirse modelinizi genişletmek daha kolay hale getirir.
+> Basit bir tür göndermeden önce, bunun yerine değeri karmaşık bir türde kaydırmayı düşünün. Bu, sunucu tarafında model doğrulamanın avantajlarından yararlanmanızı sağlar ve gerekirse modelinizi genişletmeyi kolaylaştırır.
 
-Basit bir tür göndermek için temel adımlar aynıdır, ancak iki küçük farklılıklar vardır. İlk olarak, denetleyicisi, parametre adı ile tasarlamanız gerekir **FromBody** özniteliği.
+Basit bir tür göndermek için temel adımlar aynıdır, ancak iki hafif farklılık vardır. İlk olarak, denetleyicide, parametre adını **Frombody** özniteliğiyle tasarlamanız gerekir.
 
 [!code-csharp[Main](sending-html-form-data-part-1/samples/sample7.cs?highlight=3)]
 
-Varsayılan olarak, Web API'si basit türler istek URI'SİNDEN almaya çalışır. **FromBody** öznitelik değeri gövdeden okunacak Web API söyler.
+Web API 'SI varsayılan olarak istek URI 'sinden basit türler almaya çalışır. **Frombody** özniteliği, Web API 'sinin istek gövdesinden değeri okumasını söyler.
 
 > [!NOTE]
-> Web API yanıt gövdesinin en fazla bir kez, bu nedenle yalnızca tek bir eylem parametresinin gövdeden gelebilir okur. Gövdeden birden çok değer almanız gerekirse, bir karmaşık tür tanımlar.
+> Web API 'SI, yanıt gövdesini en çok bir kez okur. bu nedenle, bir eylemin yalnızca bir parametresi istek gövdesinden gelebilir. İstek gövdesinden birden çok değer almanız gerekiyorsa, karmaşık bir tür tanımlayın.
 
-İkinci olarak, istemci aşağıdaki biçimde değeri göndermesi gerekiyor:
+İkinci olarak, istemcinin değeri aşağıdaki biçimle gönderebilmesi gerekir:
 
 [!code-xml[Main](sending-html-form-data-part-1/samples/sample8.xml)]
 
-Özellikle, ad/değer çiftinin ad bölümünü basit bir tür için boş olmalıdır. Tüm tarayıcılar bu için HTML formları desteklemez, ancak, bu biçim şu şekilde oluştur:
+Özel olarak, basit bir tür için ad/değer çiftinin ad kısmı boş olmalıdır. Tüm tarayıcılar bunu HTML formları için desteklemez, ancak bu biçimi komut dosyasında aşağıdaki gibi oluşturursunuz:
 
 [!code-javascript[Main](sending-html-form-data-part-1/samples/sample9.js)]
 
-Bir örnek formu şöyledir:
+Örnek bir form aşağıda verilmiştir:
 
 [!code-html[Main](sending-html-form-data-part-1/samples/sample10.html)]
 
-Ve form değer göndermek için komut dosyası aşağıdadır. Tek fark önceki komut dosyası içine geçirilen bağımsız değişken, **sonrası** işlevi.
+Form değerini göndermek için komut dosyası aşağıda verilmiştir. Önceki betikten tek fark, **Post** işlevine geçirilen bağımsız değişkendir.
 
 [!code-javascript[Main](sending-html-form-data-part-1/samples/sample11.js?highlight=2)]
 
-Basit bir tür dizisi göndermek için aynı yaklaşımı kullanabilirsiniz:
+Basit türden bir diziyi göndermek için aynı yaklaşımı kullanabilirsiniz:
 
 [!code-javascript[Main](sending-html-form-data-part-1/samples/sample12.js)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Bölüm 2: Karşıya dosya yükleme ve çok parçalı MIME](sending-html-form-data-part-2.md)
+[Bölüm 2: dosya yükleme ve çok parçalı MIME](sending-html-form-data-part-2.md)

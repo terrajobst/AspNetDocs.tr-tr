@@ -2,67 +2,67 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 title: Kurumsal ortamlara üyelik veritabanları dağıtma | Microsoft Docs
 author: jrjlee
-description: Bu konuda ASP.NET uygulama Hizmetleri veritabanları (daha fazla ortak... sağladığınızda üstesinden gelmek için ihtiyacınız olacak zorlukları ve önemli noktalar yer açıklanmaktadır.
+description: Bu konuda, ASP.NET uygulama hizmetleri veritabanları sağladığınızda (daha yaygın...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 3cf765df-d311-4f68-a295-c9685ceea830
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
 ms.openlocfilehash: 50f49af502b75aa5ad52756a76a5e7340aca53f7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131957"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78526007"
 ---
 # <a name="deploying-membership-databases-to-enterprise-environments"></a>Kurumsal Ortamlara Üyelik Veritabanları Dağıtma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu, test, hazırlama veya üretim ortamlarında veritabanları (Üyelik veritabanları daha yaygın olarak adlandırılır) ASP.NET uygulaması sağlama hizmetleri çalıştırıldığında üstesinden gelmek ihtiyacınız olacak zorlukları ve önemli noktalar yer açıklar. Ayrıca, bu zorluklar karşılamak için kullanabileceğiniz yaklaşım açıklar.
+> Bu konuda, test, hazırlama veya üretim ortamlarında ASP.NET uygulama hizmetleri veritabanları (üyelik veritabanları olarak da bilinir) sağladığınızda aşmaya ihtiyacınız olan önemli noktalar ve güçlükler açıklanmaktadır. Ayrıca, bu zorlukları karşılamak için kullanabileceğiniz yaklaşımları açıklar.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme işleminin her hedef ortam için uygulanan derleme yönergelerini içeren ve ortama özel yapı ve dağıtım ayarlarını içeren iki proje&#x2014;dosyası tarafından kontrol edilen proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="what-are-the-issues-when-you-deploy-a-membership-database"></a>Bir üyelik veritabanı dağıttığınızda sorunlar nelerdir?
+## <a name="what-are-the-issues-when-you-deploy-a-membership-database"></a>Üyelik veritabanını dağıtırken sorunlar nelerdir?
 
-Bir Dağıtım stratejisi için bir veritabanı, Answering çoğu durumda, dikkate almanız gereken ilk şey, dağıtmak istediğiniz verileri andır. Bir geliştirme veya test ortamında, hızlı ve kolay bir şekilde test edilmesini kolaylaştırmak için kullanıcı hesabı verileri dağıtmak isteyebilirsiniz. Bir hazırlık veya üretim ortamında, kullanıcı hesabı verileri dağıtmak istediğiniz çok düşüktür.
+Çoğu durumda, bir veritabanı için bir dağıtım stratejisi devetiniz varsa, dikkate almanız gereken ilk şey, hangi verileri dağıtmaktır. Geliştirme veya test ortamında, hızlı ve kolay testi kolaylaştırmak için Kullanıcı hesabı verilerini dağıtmak isteyebilirsiniz. Hazırlama veya üretim ortamında, Kullanıcı hesabı verilerini dağıtmak istemeniz çok düşüktür.
 
-Ne yazık ki, bu çok daha karmaşık bir karar belirli bazı zorluklar ASP.NET üyelik veritabanları tanıtmaktadır:
+Ne yazık ki ASP.NET üyelik veritabanları, bu kararı çok daha karmaşık hale getirmek için bazı özel güçlükleri ortaya çıkarabilir:
 
-- Yalnızca şema dağıtımı, üyelik veritabanının çalışmaz durumda bırakır. Üyelik veritabanında bazı yapılandırma verilerini içeren olmasıdır (içinde **aspnet\_SchemaVersions** tablosu), veritabanı çalışabilmesi için gerekli. Bu nedenle, kullanıcı hesabı verileri dışlamak için üyelik veritabanının yalnızca şema dağıtımı yapıyorsanız, temel yapılandırma verilerini eklemek için bir dağıtım sonrası betiği çalıştırmanız gerekir.
-- Üyelik veritabanınızı nasıl yapılandırıldığına bağlı olarak, üyelik sağlayıcısının, parolaları şifrelenemiyor ve veritabanında saklamak için makine anahtarı kullanabilir. Bu durumda, veritabanı ile dağıttığınız herhangi bir kullanıcı hesabı verileri hedef sunucuda kullanılamaz hale gelir. Bu nedenle, kullanıcı hesabı verileri dağıtma desteklenen bir senaryo değildir.
+- Yalnızca şemadan oluşan bir dağıtım, üyelik veritabanını işlemsel olmayan bir durumda bırakır. Bunun nedeni, üyelik veritabanının, veritabanının çalışması için ihtiyaç duyduğu bazı yapılandırma verilerini ( **aspnet\_SchemaVersions** tablosunda) içermesidir. Bu nedenle, Kullanıcı hesabı verilerini dışlamak üzere üyelik veritabanınızın yalnızca şema dağıtımını gerçekleştirirseniz, temel yapılandırma verilerini eklemek için bir dağıtım sonrası betiği çalıştırmanız gerekir.
+- Üyelik veritabanınızın nasıl yapılandırıldığına bağlı olarak, üyelik sağlayıcısı, parolaları şifrelemek ve veritabanında depolamak için makine anahtarını kullanabilir. Bu durumda, veritabanıyla dağıttığınız tüm Kullanıcı hesabı verileri hedef sunucuda kullanılamaz hale gelir. Bu nedenle, Kullanıcı hesabı verilerinin dağıtımı desteklenen bir senaryo değildir.
 
-## <a name="choosing-a-membership-database-strategy"></a>Bir üyelik veritabanı stratejisini seçme
+## <a name="choosing-a-membership-database-strategy"></a>Üyelik veritabanı stratejisi seçme
 
-Kurumsal bir sunucu ortamı üyelik veritabanında sağlamasını yapma seçeneğini belirlediğinizde bu yönergeleri kullanın:
+Bir kurumsal sunucu ortamında üyelik veritabanının nasıl sağlanacağını seçerken bu yönergeleri kullanın:
 
-- Mümkün olduğunda, üyelik veritabanları dağıtma. Bunun yerine, üyelik veritabanının hedef veritabanı sunucusunda el ile oluşturun. Üyelik veritabanı şemanızı özelleştirmediyseniz, yalnızca yeni bir giriş situ hedef kullanarak oluşturabileceğiniz [ASP.NET SQL Server Kayıt Aracı (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
-- Ancak bir üyelik veritabanı dağıtımı için hiçbir seçenek varsa&#x2014;veritabanı şeması kapsamlı değişiklikler yaptıysanız, örneğin,&#x2014;kullanıcı hesabı verileri dışlamak için üyelik veritabanının yalnızca şema bir dağıtım gerçekleştirmeniz gerekir ve ardından Tüm gerekli yapılandırma verileri eklemek için bir dağıtım sonrası betiği çalıştırın. İçinde bu yaklaşımlar geniş kapsamlı bir kılavuzu bulabilirsiniz [nasıl yapılır: Kullanıcı hesapları dahil olmak üzere ASP.NET üyelik veritabanı dağıtma](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
+- Mümkün olan yerlerde, üyelik veritabanlarını dağıtmayın. Bunun yerine, hedef veritabanı sunucusunda üyelik veritabanını el ile oluşturun. Üyelik veritabanı şemanızı özelleştirmediyseniz, [ASP.NET SQL Server kayıt aracı 'nı (aspnet\_regsql. exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx)kullanarak hedefte SITU 'da yeni bir tane oluşturmanız yeterlidir.
+- Bir üyelik veritabanını dağıtmak istiyorsanız, ancak bir üyelik veritabanı&#x2014;dağıtmak istiyorsanız, veritabanı şemasında&#x2014;kapsamlı değişiklikler yaptıysanız, Kullanıcı hesabı verilerini hariç tutmak için üyelik veritabanının yalnızca şema bir dağıtımını gerçekleştirmeniz, sonra gerekli yapılandırma verilerini eklemek için dağıtım sonrası bir betik çalıştırmanız gerekir. [Nasıl yapılır: ASP.NET üyelik veritabanını Kullanıcı hesapları dahil etmeden dağıtma](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx)konusunda şu yaklaşımlar hakkında geniş kapsamlı yönergeler bulabilirsiniz.
 
-Unutulmaması önemlidir *, üyelik veritabanı şeması oldukça statik olması olasıdır*. Üyelik veritabanında özelleştirdiyseniz bile düzenli olarak şema güncellemeniz gerekecektir olası&#x2014;kodu bir web uygulaması veya bir veritabanı projesi olarak aynı sıklıkta değiştirmek için giderek değil. Bu nedenle, tüm dağıtım otomatik olarak veya tek adımlı işlemler üyelik veritabanına eklemek gerekmez.
+*Üyelik veritabanınızın şemasının büyük olasılıkla oldukça statik*olduğunu unutmamak önemlidir. Üyelik veritabanını özelleştirmiş olsanız bile, şemayı düzenli&#x2014;olarak güncelleştirmeniz gerekecektir. Bu, bir Web uygulamasındaki kodla veya bir veritabanı projesinde aynı sıklıkta değiştirilmeyeceğidir. Bu nedenle, herhangi bir otomatik veya tek adımlı dağıtım işlemlerine üyelik veritabanını eklemeniz gerekmez.
 
-## <a name="using-vsdbcmd-to-update-a-membership-database-schema"></a>Bir üyelik veritabanı şeması güncelleştirilecek VSDBCMD kullanma
+## <a name="using-vsdbcmd-to-update-a-membership-database-schema"></a>VSDBCMD kullanarak bir üyelik veritabanı şemasını güncelleştirme
 
-İlk dağıtımdan sonra üyelik veritabanının yapısını değiştirirseniz, Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) veritabanının yeniden dağıtmak için kullanmak istediğiniz değil. Web dağıtımı veritabanı dağıtım işlevleri bir hedef veritabanı için değişiklik güncelleştirmelerini kılma özelliği içermez&#x2014;bunun yerine, Web dağıtımı bırakın ve veritabanını yeniden oluşturmanız gerekir. Başka bir deyişle, hazırlama veya üretim ortamlarında istenmeyen genellikle tüm var olan kullanıcı hesabı verileri kaybedersiniz.
+İlk dağıtımdan sonra üyelik veritabanınızın yapısını değiştirirseniz, veritabanını yeniden dağıtmak için Internet Information Services (IIS) Web Dağıtım aracı 'nı (Web Dağıtımı) kullanmak istemeyebilirsiniz. Web Dağıtımı ' deki veritabanı dağıtım işlevleri, bir hedef veritabanına&#x2014;değişiklik güncellemeleri yapma özelliğini içermez, bu da veritabanını bırakıp yeniden oluşturmanız gerekir Web dağıtımı. Bu, genellikle hazırlama veya üretim ortamlarında istenmeyen olan mevcut kullanıcı hesabı verilerinin kaybedilmediği anlamına gelir.
 
-Alternatif hedef veritabanınızın şemasını güncelleştirmek için VSDBCMD yardımcı programını kullanmaktır. VSDBCMD iki önemli özellikleri içerir. İlk olarak, var olan bir veritabanı şeması .dbschema dosyasına aktarabilirsiniz. İkinci olarak, bunu .dbschema dosya mevcut bir veritabanına yalnızca hedef veritabanında güncel duruma getirmek için gerekli değişiklikleri yapar ve herhangi bir veri kaybetmeyin fark bir güncelleştirme olarak dağıtabilirsiniz.
+Alternatif, VSDBCMD yardımcı programını kullanarak hedef veritabanınızın şemasını güncelleştirebilir. VSDBCMD iki önemli özelliği içerir. İlk olarak, var olan bir veritabanının şemasını bir. dbschema dosyasına aktarabilir. İkinci olarak, bir. dbschema dosyasını varolan bir veritabanına fark güncelleştirmesi olarak dağıtabilir, bu da yalnızca hedef veritabanını güncel hale getirmek için gerekli değişiklikleri yaptığı ve herhangi bir veri kaybetmemeniz anlamına gelir.
 
-Bir üyelik veritabanı şeması güncelleştirmek için aşağıdaki üst düzey adımları kullanabilirsiniz:
+Bu üst düzey adımları, bir üyelik veritabanı şemasını güncelleştirmek için kullanabilirsiniz:
 
-1. VSDBCMD kullanın **alma** .dbschema dosyası için kaynak üyelik veritabanınızı oluşturmak için eylem. Bu yordamda açıklanan [nasıl yapılır: Bir komut istemi'nden şema içe](https://msdn.microsoft.com/library/dd172135.aspx).
-2. VSDBCMD kullanın **Dağıt** .dbschema dosyasını hedef üyelik veritabanınızı dağıtmak için eylem. Bu yordamda açıklanan [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema içeri aktarma)](https://msdn.microsoft.com/library/dd193283.aspx).
+1. Kaynak üyelik veritabanınız için bir. dbschema dosyası oluşturmak üzere VSDBCMD **Import** eylemini kullanın. Bu yordam, [komut Isteminden nasıl yapılır: bir şemayı Içeri aktarma](https://msdn.microsoft.com/library/dd172135.aspx)konusunda açıklanmaktadır.
+2. . Dbschema dosyasını hedef üyelik veritabanınıza dağıtmak için VSDBCMD **Deploy** eylemini kullanın. Bu yordam, [VSDBCMD Için komut satırı başvurusunda açıklanmıştır. EXE (dağıtım ve şema Içeri aktarma)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda, ASP.NET üyelik veritabanları farklı hedef ortamlarında sağlamak ihtiyacınız olduğunda karşılaşabilecekleri sorunlarından bazıları açıklanmaktadır. Özellikle, neden yalnızca şema dağıtımları üyelik veritabanını çalışmaz durumda bırakır ve neden kullanıcı hesabı verileri dağıtma desteklenmez açıklanmıştır. Konusunda rehberlik sağlamak, dağıtmak ve farklı senaryolarda üyelik veritabanlarını güncelleştirmek nasıl de sunulmaktadır.
+Bu konuda, çeşitli hedef ortamlarda ASP.NET üyelik veritabanları sağlamanız gerektiğinde karşılaşabileceğiniz bazı sorunlar açıklanmaktadır. Özellikle, yalnızca şema dağıtımlarının üyelik veritabanını işlemsel olmayan bir durumda bırakacağı ve Kullanıcı hesabı verilerinin dağıtılmasının neden desteklenmediği açıklanmıştı. Bu konu başlığı altında, üyelik veritabanlarının farklı senaryolarda nasıl sağlanması, dağıtılması ve güncelleştirilmesi konusunda yönergeler de sunulmuştur.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Daha fazla rehberlik ve VSDBCMD kullanma örnekleri için bkz. [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema içeri aktarma)](https://msdn.microsoft.com/library/dd193283.aspx) ve [nasıl yapılır: Bir komut istemi'nden şema içe](https://msdn.microsoft.com/library/dd172135.aspx). ASP.NET kullanma hakkında daha fazla bilgi için\_regsql.exe üyelik veritabanları oluşturmak için bkz. [ASP.NET SQL Server Kayıt Aracı (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Üyelik veritabanları dağıtma konusunda daha fazla genel yönergeler için bkz: [nasıl yapılır: Kullanıcı hesapları dahil olmak üzere ASP.NET üyelik veritabanı dağıtma](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
+VSDBCMD kullanma hakkında daha fazla bilgi ve örnek için bkz [. VSDBCMD Için komut satırı başvurusu. EXE (dağıtım ve şema Içeri aktarma)](https://msdn.microsoft.com/library/dd193283.aspx) ve [nasıl yapılır: bir şemayı komut Isteminden içeri aktarma](https://msdn.microsoft.com/library/dd172135.aspx). ASPNET\_regsql. exe ' yi kullanarak üyelik veritabanları oluşturma hakkında daha fazla bilgi için bkz. [ASP.NET SQL Server kayıt aracı (aspnet\_regsql. exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Üyelik veritabanlarının dağıtımı hakkında daha fazla genel bilgi için, bkz. [nasıl yapılır: ASP.NET üyelik veritabanını Kullanıcı hesapları dahil etmeden dağıtma](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-database-role-memberships-to-test-environments.md)

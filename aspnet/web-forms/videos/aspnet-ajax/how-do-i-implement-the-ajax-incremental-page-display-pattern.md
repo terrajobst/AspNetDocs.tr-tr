@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-incremental-page-display-pattern
-title: '[Bunu nasıl yaparım:] AJAX artımlı sayfa görüntüleme desenini uygulansın mı? | Microsoft Docs'
+title: '[Nasıl yapılır:] AJAX artımlı sayfa görüntüleme deseninin uygulanması gerekiyor mu? | Microsoft Docs'
 author: JoeStagner
-description: Geleneksel olarak bir Web sayfası istendiğinde kullanıcı sayfanın tamamını sonra sudde Tamamlandı sayfasında görünür sunucudan alınana kadar bekleyin gerekir...
+description: Geleneksel olarak bir Web sayfası istendiğinde, sayfanın tamamı tüm sayfa başarılı bir şekilde göründükten sonra, tüm sayfanın bu sunucudan alınması beklenirken, kullanıcının beklemesi gerekir...
 ms.author: riande
 ms.date: 03/05/2007
 ms.assetid: 17dfc331-1186-4240-8abf-f0220c90e081
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-incremental-page-display-pattern
 msc.type: video
 ms.openlocfilehash: f4678ca375c55c7bd3b02fb9707059418adb1bb7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395192"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78545299"
 ---
-# <a name="how-do-i-implement-the-ajax-incremental-page-display-pattern"></a>[Bunu nasıl yaparım:] AJAX artımlı sayfa görüntüleme desenini uygulansın mı?
+# <a name="how-do-i-implement-the-ajax-incremental-page-display-pattern"></a>[Nasıl yapılır:] AJAX artımlı sayfa görüntüleme deseninin uygulanması gerekiyor mu?
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Geleneksel olarak bir Web sayfası istendiğinde kullanıcı sayfanın tamamını sonra tamamlandı sayfası tarayıcıda aniden görünen sunucudan alındığı sırada beklemesi gerekir. Bu videoda, hızlı ve sorunsuz bir şekilde getiriliyor ve Web sayfasının bölümlerini görüntüleme AJAX artımlı sayfa görüntüleme desenini kullanıcı deneyimini nasıl artırır gösterilmektedir.
+Geleneksel olarak bir Web sayfası istendiğinde, sayfanın tamamı tarayıcıda aniden sayfanın tamamen göründüğü sırada kullanıcının beklemesi gerekir. Bu videoda, AJAX artımlı sayfa görüntüleme deseninin, Web sayfasının bölümlerini hızla ve sorunsuz bir şekilde getirme ve görüntüleme ile Kullanıcı deneyimini nasıl geliştirdiği gösterilmektedir.
 
-[&#9654;Videoyu (11 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-ajax-incremental-page-display-pattern)
+[&#9654;Videoyu izleyin (11 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-ajax-incremental-page-display-pattern)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-implement-the-ajax-paging-pattern.md)

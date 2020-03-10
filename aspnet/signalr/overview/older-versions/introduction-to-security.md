@@ -1,46 +1,46 @@
 ---
 uid: signalr/overview/older-versions/introduction-to-security
-title: SignalR güvenliğine giriş (SignalR 1.x) | Microsoft Docs
+title: SignalR güvenliğine giriş (SignalR 1. x) | Microsoft Docs
 author: bradygaster
-description: Bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik konularını açıklar.
+description: Bir SignalR uygulaması geliştirirken göz önünde bulundurmanız gereken güvenlik sorunlarını açıklar.
 ms.author: bradyg
 ms.date: 10/17/2013
 ms.assetid: 715a4059-d307-4631-abbb-c789c95d6eb4
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
 ms.openlocfilehash: 34172c0a2a15a7ab0d782704d5831ce236f5c989
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117075"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78536731"
 ---
 # <a name="introduction-to-signalr-security-signalr-1x"></a>SignalR Güvenliğine Giriş (SignalR 1.x)
 
-tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+, [Patrick Fleti](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu makalede bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik konularını açıklar.
+> Bu makalede, bir SignalR uygulaması geliştirirken göz önünde bulundurmanız gereken güvenlik sorunları açıklanmaktadır.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bu belgede aşağıdaki bölümler yer alır:
 
 - [SignalR güvenlik kavramları](#concepts)
 
     - [Kimlik Doğrulaması ve Yetkilendirme](#authentication)
-    - [Bağlantı simgesi](#connectiontoken)
-    - [Bağlanırken gruplarına yeniden katılma](#rejoingroup)
-- [SignalR siteler arası istek sahteciliğini nasıl önler?](#csrf)
+    - [Bağlantı belirteci](#connectiontoken)
+    - [Yeniden bağlanıldığında grupları yeniden birleştirme](#rejoingroup)
+- [SignalR, siteler arası Istek sahteciliği nasıl engeller](#csrf)
 - [SignalR güvenlik önerileri](#recommendations)
 
-    - [Güvenli Yuva Katmanı (SSL) Protokolü](#ssl)
+    - [Güvenli Yuva katmanları (SSL) protokolü](#ssl)
     - [Grupları bir güvenlik mekanizması olarak kullanmayın](#groupsecurity)
-    - [Güvenli bir şekilde istemcilerden giriş işleme](#input)
-    - [Kullanıcı durumu etkin bir bağlantı ile bir değişiklik mutabık kılma](#reconcile)
-    - [Otomatik olarak oluşturulan JavaScript proxy'si dosyaları](#autogen)
-    - [Özel Durumlar](#exceptions)
+    - [İstemcilerden gelen girişi güvenle işleme](#input)
+    - [Etkin bağlantıyla Kullanıcı durumunda değişiklik mutabık kılma](#reconcile)
+    - [Otomatik olarak oluşturulan JavaScript proxy dosyaları](#autogen)
+    - [Özel durumlar](#exceptions)
 
 <a id="concepts"></a>
 
@@ -50,70 +50,70 @@ Bu belgede aşağıdaki bölümler yer alır:
 
 ### <a name="authentication-and-authorization"></a>Kimlik doğrulaması ve yetkilendirme
 
-SignalR, bir uygulama için var olan kimlik doğrulama yapısında tümleştirilecek şekilde tasarlanmıştır. Herhangi bir özellik kullanıcıların kimlik doğrulamasını sağlamaz. Bunun yerine, uygulamanızda normalde ve kimlik doğrulama sonuçlarını SignalR kodunuzda çalışmak için kullanıcıların kimliğini. Örneğin, ASP.NET formları kimlik doğrulaması ile kullanıcılarınızın kimliğini ve ardından hub'ınızda, hangi kullanıcıların zorunlu veya bir yöntemi çağırmak için roller yetkilidir. Hub'ınızda, kullanıcı adı veya bir kullanıcı istemciye bir role ait olup gibi kimlik doğrulama bilgilerini de geçirebilirsiniz.
+SignalR, bir uygulamanın mevcut kimlik doğrulama yapısıyla tümleştirilecek şekilde tasarlanmıştır. Kullanıcıların kimliğini doğrulamak için herhangi bir özellik sağlamaz. Bunun yerine, uygulamanızda normalde yaptığınız gibi kullanıcıların kimliğini doğrular ve ardından SignalR kodunuzda kimlik doğrulamanın sonuçlarıyla çalışırsınız. Örneğin, ASP.NET Forms kimlik doğrulaması ile kullanıcılarınızın kimliğini doğrulayabilir ve sonra merkezinizdeki bir yöntemi çağırmak için hangi kullanıcıların veya rollerin yetkilendirileceğini zorlayabilirsiniz. Hub 'ınızda, Kullanıcı adı gibi kimlik doğrulama bilgilerini veya bir kullanıcının bir role ait olup olmadığını istemciye geçirebilirsiniz.
 
-SignalR sağlar [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) hangi kullanıcıların erişimi bir hub veya yöntemi belirtmek için özniteliği. Bir hub'ı veya belirli bir hub yöntemleri için Authorize özniteliğini uygulayın. Authorize özniteliği hub'da tüm genel yöntemleri hub'ına bağlı bir istemci kullanılabilir. Hub'ları hakkında daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme SignalR hub'ları için](../security/hub-authorization.md).
+SignalR, hangi kullanıcıların bir hub veya metoda erişimi olduğunu belirtmek için [Yetkilendir](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) özniteliği sağlar. Yetkilendir özniteliğini bir hub 'da veya belirli yöntemlere uygularsınız. Yetkilendirme özniteliği olmadan, hub 'daki tüm ortak Yöntemler hub 'a bağlı bir istemci tarafından kullanılabilir. Hub 'lar hakkında daha fazla bilgi için bkz. [SignalR hub 'ları Için kimlik doğrulaması ve yetkilendirme](../security/hub-authorization.md).
 
-`Authorize` Özniteliği yalnızca hub'larla kullanılır. Kullanırken yetkilendirme kurallarını zorunlu tutmak için bir `PersistentConnection` geçersiz kılmanız gerekir `AuthorizeRequest` yöntemi. Kalıcı bağlantılar hakkında daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme kalıcı SignalR bağlantıları için](../security/persistent-connection-authorization.md).
+`Authorize` özniteliği yalnızca Hub 'larla kullanılır. `PersistentConnection` kullanırken yetkilendirme kurallarını zorlamak için `AuthorizeRequest` metodunu geçersiz kılmanız gerekir. Kalıcı bağlantılar hakkında daha fazla bilgi için bkz. [SignalR kalıcı bağlantıları Için kimlik doğrulaması ve yetkilendirme](../security/persistent-connection-authorization.md).
 
 <a id="connectiontoken"></a>
 
-### <a name="connection-token"></a>Bağlantı simgesi
+### <a name="connection-token"></a>Bağlantı belirteci
 
-SignalR gönderenin kimliğini doğrulayarak kötü amaçlı komutlar yürütülürken riskini azaltır. Kimliği doğrulanmış kullanıcılar için kullanıcı adı ve bağlantı kimliğini içeren bir bağlantı belirteci her istek için istemci ve sunucu arasında geçirilir. Bağlantı kimliği yeni bir bağlantı oluşturulur ve bağlantının süresi boyunca kalıcı olan rastgele sunucu tarafından oluşturulan benzersiz bir tanımlayıcıdır. Kullanıcı adı, web uygulaması için kimlik doğrulama mekanizması tarafından sağlanır. Bağlantı belirteci, şifreleme ve dijital imza ile korunur.
+SignalR, gönderenin kimliğini doğrulayarak kötü amaçlı komutları yürütme riskini azaltır. Kimliği doğrulanmış kullanıcılar için bağlantı kimliği ve Kullanıcı adı içeren bir bağlantı belirteci, istemci ile sunucu arasında her istek için geçirilir. Bağlantı kimliği, yeni bir bağlantı oluşturulduğunda sunucu tarafından rastgele oluşturulan ve bağlantı süresince kalıcı olan benzersiz bir tanımlayıcıdır. Kullanıcı adı, Web uygulaması için kimlik doğrulama mekanizması tarafından sağlanır. Bağlantı belirteci, şifreleme ve dijital imza ile korunur.
 
 ![](introduction-to-security/_static/image2.png)
 
-Her istek için sunucu içeriği isteğinin belirtilen kullanıcıdan geldiğini emin olmak için belirteci doğrular. Kullanıcı adı, bağlantı kimliğine karşılık gelmelidir. Bağlantı kimliği hem kullanıcı adı doğrulayarak SignalR kötü niyetli bir kullanıcı başka bir kullanıcının kimliğine bürünmek kolayca gelen engeller. Sunucu bağlantı belirteci doğrulanamıyor. istek başarısız olur.
+Her istek için sunucu, isteğin belirtilen kullanıcıdan geldiğinden emin olmak için belirtecin içeriğini doğrular. Kullanıcı adı bağlantı kimliğine karşılık gelmelidir. SignalR hem bağlantı kimliğini hem de Kullanıcı adını doğrulayarak kötü niyetli bir kullanıcının başka bir kullanıcıyı kolayca taklit etmesini engeller. Sunucu bağlantı belirtecini doğrulayamazsa istek başarısız olur.
 
 ![](introduction-to-security/_static/image4.png)
 
-Bağlantı kimliğini doğrulama işleminin bir parçası olduğundan, bir kullanıcının bağlantı kimliği diğer kullanıcılara göstermek veya gerekir değeri istemcide bir tanımlama bilgisinde depolayıp gibi.
+Bağlantı kimliği doğrulama işleminin bir parçası olduğundan, bir kullanıcının bağlantı kimliğini diğer kullanıcılara açığa çıkarmamalıdır veya bir tanımlama bilgisinde olduğu gibi istemci üzerindeki değeri depolamamalısınız.
 
 <a id="rejoingroup"></a>
 
-### <a name="rejoining-groups-when-reconnecting"></a>Bağlanırken gruplarına yeniden katılma
+### <a name="rejoining-groups-when-reconnecting"></a>Yeniden bağlanıldığında grupları yeniden birleştirme
 
-Varsayılan olarak, SignalR uygulama otomatik olarak bir kullanıcı uygun gruplara ne zaman bir bağlantı bırakılan ve bağlantı zaman aşımına uğramadan önce yeniden oluşturulan gibi geçici bir kesintisinden bağlanırken yeniden atar. Bağlanırken, istemcinin bağlantı kimliği ve atanan grupları içeren bir grup belirteç geçirir. Grup belirteç dijital olarak imzalanmış ve şifrelenmiş. İstemci aynı bağlantı kimliği sonra bir yeniden korur; Bu nedenle, yeniden bağlanan istemciden geçirilen bağlantı kimliği istemci tarafından kullanılan önceki bağlantı kimliği ile eşleşmelidir. Bu doğrulama, kötü niyetli bir kullanıcı bağlanırken yetkisiz gruplara katılma isteklerini geçmesini engeller.
+Varsayılan olarak, SignalR uygulaması, bağlantı zaman aşımına uğramadan önce bir bağlantının düşürülme ve yeniden oluşturulması gibi geçici bir kesintiden yeniden bağlanıldığında bir kullanıcıyı uygun gruplara otomatik olarak yeniden atar. Yeniden bağlanıldığında, istemci bağlantı kimliği ve atanan grupları içeren bir grup belirteci geçirir. Grup belirteci dijital olarak imzalanır ve şifrelenir. İstemci, bir yeniden bağlantıdan sonra aynı bağlantı kimliğini korur; Bu nedenle, yeniden bağlanan istemciden geçirilen bağlantı kimliğinin, istemci tarafından kullanılan bir önceki bağlantı kimliğiyle eşleşmesi gerekir. Bu doğrulama, kötü niyetli bir kullanıcının yeniden bağlanıldığında yetkisiz gruplara katılması için istekleri geçmesini engeller.
 
-Ancak, unutmayın Grup belirteci dolmaz önemlidir. Bir kullanıcı, geçmişte bir gruba ait, ancak o gruptan yasaklanmış, kullanıcı yasaklanmış grubu içeren bir grup belirteç taklit etmek mümkün olabilir. Hangi kullanıcıların hangi gruba ait güvenli bir şekilde yönetmeniz gerekiyorsa, bir veritabanı gibi sunucu üzerinde bu verileri depolamak gerekir. Ardından, mantıksal uygulamanızı sunucu üzerinde bir kullanıcı grubuna ait olup olmadığını doğrular ekleyin. Grup üyeliği doğrulanırken bir örnek için bkz: [gruplarıyla çalışma](../guide-to-the-api/working-with-groups.md).
+Ancak, Grup belirtecinin süre sonu olmadığı unutulmamalıdır. Bir Kullanıcı geçmişte bir gruba aitdi, ancak bu gruptan yasaklanmış ise, bu kullanıcı yasaklanmış grubu içeren bir grup belirtecini taklit edebilir. Hangi kullanıcıların hangi gruplara ait olduğunu güvenli bir şekilde yönetmeniz gerekiyorsa, bu verileri sunucuda (örneğin,) bir veritabanında depolamanız gerekir. Ardından, uygulamanıza bir kullanıcının bir gruba ait olup olmadığını doğrulayan bir mantığı ekleyin. Grup üyeliğini doğrulama örneği için bkz. [gruplarla çalışma](../guide-to-the-api/working-with-groups.md).
 
-Geçici bir kesinti sonra bağlantı yeniden bağlandığında otomatik olarak grupları aşamalarını yalnızca geçerlidir. Bir kullanıcı tarafından kesilirse giderek uygulama veya uygulama yeniden başlatılmadan, uygulamanızın uzağa doğru gruplara kullanıcı ekleme işlemesi gerekir. Daha fazla bilgi için [gruplarıyla çalışma](../guide-to-the-api/working-with-groups.md).
+Grupları otomatik olarak yeniden birleştirme işlemi yalnızca geçici bir kesinti sonrasında bağlantı yeniden bağlandığında geçerlidir. Kullanıcının bağlantısı kesilirse veya uygulama yeniden başlatıldıktan sonra, uygulamanız bu kullanıcının doğru gruplara nasıl ekleneceğini ele almalıdır. Daha fazla bilgi için bkz. [gruplarla çalışma](../guide-to-the-api/working-with-groups.md).
 
 <a id="csrf"></a>
 
-## <a name="how-signalr-prevents-cross-site-request-forgery"></a>SignalR siteler arası istek sahteciliğini nasıl önler?
+## <a name="how-signalr-prevents-cross-site-request-forgery"></a>SignalR, siteler arası Istek sahteciliği nasıl engeller
 
-Siteler arası istek sahteciliği (CSRF), burada bir kötü niyetli site burada kullanıcı şu anda oturum savunmasız sitesine bir istek gönderir bir saldırıdır. SignalR, SignalR uygulamanız için geçerli bir isteği oluşturmak kötü amaçlı bir site için son derece düşüktür yaparak CSRF engeller.
+Siteler arası Istek forgery (CSRF), kötü niyetli bir sitenin kullanıcının şu anda oturum açtığı bir güvenlik açığı olan siteye istek gönderdiği bir saldırıya neden olur. SignalR, kötü amaçlı bir sitenin SignalR uygulamanız için geçerli bir istek oluşturması için son derece olası bir durum oluşturarak CSRF 'yi önler.
 
-### <a name="description-of-csrf-attack"></a>CSRF saldırı açıklaması
+### <a name="description-of-csrf-attack"></a>CSRF saldırısı açıklaması
 
-CSRF saldırılarının bir örnek aşağıda verilmiştir:
+CSRF saldırılarına bir örnek aşağıda verilmiştir:
 
-1. Bir kullanıcının oturum açtığı `www.example.com`, forms kimlik doğrulaması kullanma.
-2. Sunucusu kullanıcının kimliğini doğrular. Sunucu yanıtı bir kimlik doğrulama tanımlama bilgisi içerir.
-3. Kullanıcı oturumu kapatmak olmadan kötü amaçlı web sitesini ziyaret eder. Bu kötü niyetli site aşağıdaki HTML formu içerir: 
+1. Kullanıcı, Forms kimlik doğrulaması kullanarak `www.example.com`oturum açar.
+2. Sunucu, kullanıcının kimliğini doğrular. Sunucudan gelen yanıt bir kimlik doğrulama tanımlama bilgisi içerir.
+3. Oturum açmadan, Kullanıcı kötü amaçlı bir Web sitesi ziyaret ettiğinde. Bu kötü amaçlı site aşağıdaki HTML biçimini içerir: 
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
-   Form eylemi kötü niyetli site için güvenlik açığı siteye gönderir dikkat edin. CSRF "siteler arası" parçasıdır.
-4. Kullanıcının gönder düğmesine tıklar. Tarayıcı, kimlik doğrulama tanımlama bilgisi ile istek içerir.
-5. İstek, kullanıcının kimlik doğrulaması bağlamı example.com sunucunuz üzerinde çalışan ve kimliği doğrulanmış bir kullanıcıyı yapmak için izin verilen herhangi bir şey yapabilirsiniz.
+   Form eyleminin kötü amaçlı siteye değil, güvenlik açığı bulunan siteye gönderdiğine dikkat edin. Bu, CSRF 'nin "siteler arası" parçasıdır.
+4. Kullanıcı Gönder düğmesine tıklar. Tarayıcı, istekle kimlik doğrulama tanımlama bilgisini içerir.
+5. İstek, example.com sunucusunda kullanıcının kimlik doğrulama içeriğiyle çalışır ve kimliği doğrulanmış bir kullanıcının yapmasına izin verilen her şeyi yapabilir.
 
-Bu örnekte form düğmesini tıklatarak kullanıcı gerektirse de, kötü amaçlı sayfası kolayca SignalR uygulamanız için bir AJAX isteği gönderen betik çalıştırma gibi olabilir. Ayrıca, SSL kullanarak, bunlar "https://" istek kötü niyetli site gönderebileceğinden bile, CSRF saldırısını engellemez.
+Bu örnek, kullanıcının form düğmesine tıklayabilmesine rağmen, kötü amaçlı sayfa yalnızca SignalR uygulamanıza yönelik bir AJAX isteği gönderen bir betiği kolayca çalıştırabilir. Üstelik, SSL kullanmak CSRF saldırılarına engel değildir çünkü kötü amaçlı site "https://" isteği gönderebilir.
 
-Genellikle, tarayıcılar ilgili tüm tanımlama bilgilerini hedef web sitesine göndermek için CSRF saldırılarına karşı kimlik doğrulaması için tanımlama bilgileri kullanan web siteleri mümkün olabilir. Ancak, CSRF saldırıları tanımlama bilgilerinin kötüye için sınırlı değildir. Örneğin, temel ve Özet kimlik doğrulaması ayrıca savunmasız. Bir kullanıcının temel veya Özet kimlik doğrulaması ile oturum açtığı sonra oturum sonlandırılana kadar tarayıcının otomatik olarak kimlik bilgilerini gönderir.
+Genellikle, tarayıcılar tüm ilgili tanımlama bilgilerini hedef Web sitesine gönderdikleri için kimlik bilgilerini kullanan Web sitelerine karşı CSRF saldırıları mümkündür. Ancak, CSRF saldırıları, tanımlama bilgilerini kötüye ile sınırlı değildir. Örneğin, temel ve Özet kimlik doğrulaması da savunmasız olacaktır. Kullanıcı temel veya Özet kimlik doğrulamasıyla oturum açtıktan sonra, oturum sona erene kadar tarayıcı kimlik bilgilerini otomatik olarak gönderir.
 
-### <a name="csrf-mitigations-taken-by-signalr"></a>SignalR tarafından alınan CSRF risk azaltma işlemleri
+### <a name="csrf-mitigations-taken-by-signalr"></a>SignalR tarafından alınan CSRF azaltmaları
 
-SignalR, SignalR uygulamanıza geçerli istekleri oluşturmasını kötü niyetli site önlemek için aşağıdaki adımları alır. Bu adımlar, varsayılan olarak alınır ve kodunuzda hiçbir eylem gerektirmez.
+SignalR, kötü amaçlı bir sitenin SignalR uygulamanıza geçerli istekler oluşturmasını engellemek için aşağıdaki adımları alır. Bu adımlar varsayılan olarak alınır ve kodunuzda herhangi bir işlem gerektirmez.
 
-- **Etki alanları arası isteklere devre dışı bırak**  
- Varsayılan olarak, etki alanı, SignalR uç nokta dış etki alanından çağırmasını kullanıcıları engellemek için bir SignalR uygulamasındaki istekleri devre dışıdır. Dış etki alanından gelen tüm istekleri otomatik olarak geçersiz olarak kabul edilir ve engellenir. Bu varsayılan davranışı tutmanız önerilir; Aksi takdirde, kötü niyetli site sitenize komut gönderme uygulamasına kullanıcılar ikna edebilir. Etki alanları arası istek kullanmanız gerekiyorsa, bkz. [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Tanımlama bilgisi değil, sorgu dizesi bağlantı belirtecin geçip**  
- SignalR bağlantı belirteci bir sorgu dizesi değeri olarak bir tanımlama bilgisi yerine geçer. Kötü amaçlı kod karşılaşıldığında bağlantı belirteci bir tanımlama bilgisi depolayarak değil, bağlantı belirteci yanlışlıkla tarayıcı tarafından iletilmez. Ayrıca, bağlantı belirteci geçerli bağlantı kalıcı olmaz. Bu nedenle, kötü niyetli bir kullanıcı bir istek başka bir kullanıcının kimlik doğrulama kimlik bilgileri altında yapamaz.
-- **Bağlantı belirteci doğrulayın**  
- Bölümünde anlatıldığı gibi [bağlantı belirteci](#connectiontoken) bölümünde, sunucu bilir hangi bağlantı kimliği doğrulanmış her kullanıcıyla ilişkilendirilir. Sunucu, herhangi bir kullanıcı adı eşleşmiyor bir bağlantı kimliği istekten işlemez. Kötü niyetli bir kullanıcının kullanıcı adı ve geçerli işareti, rasgele üretilen bağlantı kimliği biliyor olması gerekir çünkü kötü niyetli bir kullanıcının geçerli bir isteği tahmin edilemedi düşüktür. Bağlantı sona erer hemen sonra bu bağlantı kimliği geçersiz hale gelir. Anonim kullanıcılar, herhangi bir önemli bilgi erişimi olmamalıdır.
+- **Etki alanları arası istekleri devre dışı bırak**  
+ Varsayılan olarak, kullanıcıların bir SignalR uygulamasında dış etki alanından bir SignalR uç noktası aramasını engellemek için, çapraz etki alanı istekleri bir SignalR uygulamasında devre dışıdır. Dış etki alanından gelen her türlü istek otomatik olarak geçersiz kabul edilir ve engellenir. Bu varsayılan davranışı tutmanız önerilir; Aksi takdirde, kötü amaçlı bir site kullanıcıların sitenize komut göndermesini sağlayabilir. Çapraz etki alanı istekleri kullanmanız gerekiyorsa bkz. [etki alanları arası bağlantı oluşturma](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Bağlantı belirtecini tanımlama bilgisine değil sorgu dizesinde geçir**  
+ SignalR bağlantı belirtecini tanımlama bilgisi olarak değil sorgu dizesi değeri olarak geçirir. Bağlantı belirtecini bir tanımlama bilgisi olarak depolamadığınızda, kötü amaçlı kod ile karşılaşıldığında bağlantı belirteci yanlışlıkla tarayıcı tarafından iletilmez. Ayrıca, bağlantı belirteci geçerli bağlantının ötesinde kalıcı değildir. Bu nedenle, kötü niyetli bir Kullanıcı başka bir kullanıcının kimlik doğrulama kimlik bilgileri altında istek yapamaz.
+- **Bağlantı belirtecini doğrula**  
+ [Bağlantı belirteci](#connectiontoken) bölümünde açıklandığı gibi, sunucu, kimliği doğrulanmış her kullanıcıyla ilişkili bağlantı kimliğini bilir. Sunucu, Kullanıcı adıyla eşleşmeyen bir bağlantı kimliğinden gelen isteği işlemez. Kötü amaçlı Kullanıcı Kullanıcı adını ve geçerli rastgele oluşturulan bağlantı kimliğini bilmemiz gerektiğinden, kötü niyetli bir kullanıcının geçerli bir isteği tahmin etmesi olası değildir. Bağlantı sona erdikten hemen sonra bu bağlantı kimliği geçersiz hale gelir. Anonim kullanıcıların herhangi bir hassas bilgilere erişimi olmamalıdır.
 
 <a id="recommendations"></a>
 
@@ -121,52 +121,52 @@ SignalR, SignalR uygulamanıza geçerli istekleri oluşturmasını kötü niyetl
 
 <a id="ssl"></a>
 
-### <a name="secure-socket-layers-ssl-protocol"></a>Güvenli Yuva Katmanı (SSL) Protokolü
+### <a name="secure-socket-layers-ssl-protocol"></a>Güvenli Yuva katmanları (SSL) protokolü
 
-SSL protokolü, istemci ve sunucu arasında veri taşıma güvenli için şifrelemeyi kullanır. SignalR uygulamanız istemci ve sunucu arasındaki hassas bilgileri iletir, SSL taşıma için kullanın. SSL ayarlama hakkında daha fazla bilgi için bkz. [IIS 7 üzerinde SSL kurma](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
+SSL protokolü, istemci ve sunucu arasında veri aktarımını güvenli hale getirmek için şifrelemeyi kullanır. SignalR uygulamanız, istemci ve sunucu arasında hassas bilgiler gönderiyorsa, aktarım için SSL kullanın. SSL ayarlama hakkında daha fazla bilgi için bkz. [IIS 7 ' de SSL ayarlama](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 <a id="groupsecurity"></a>
 
 ### <a name="do-not-use-groups-as-a-security-mechanism"></a>Grupları bir güvenlik mekanizması olarak kullanmayın
 
-Grubu toplama ilgili kullanıcılar için kullanışlı bir yol, ancak bunlar hassas bilgilere erişimi sınırlayan güvenli bir mekanizma değildir. Bu, kullanıcıların bir yeniden bağlanma sırasında otomatik olarak grupları katılabilir, özellikle doğrudur. Bunun yerine, ayrıcalıklı kullanıcıların rol ekleme ve yalnızca o rolünün üyeleri bir hub yöntemine erişimi sınırlandırma göz önünde bulundurun. Bir rol tabanlı erişimi kısıtlama örnek için bkz [kimlik doğrulama ve yetkilendirme SignalR hub'ları için](../security/hub-authorization.md). Bağlanırken gruplara kullanıcı erişimi denetimini bir örnek için bkz: [gruplarıyla çalışma](../guide-to-the-api/working-with-groups.md).
+Gruplar ilgili kullanıcıları toplamanın kolay bir yoludur, ancak gizli bilgilere erişimin sınırlandırılmasının güvenli bir mekanizması değildir. Bu özellikle, kullanıcılar yeniden bağlanma sırasında gruplara otomatik olarak katılabileceği durumlarda geçerlidir. Bunun yerine, ayrıcalıklı kullanıcıları bir role eklemeyi ve bir hub yöntemine erişimi yalnızca o rolün üyelerine sınırlamayı göz önünde bulundurun. Bir role göre erişimi kısıtlama örneği için bkz. [SignalR hub 'ları Için kimlik doğrulaması ve yetkilendirme](../security/hub-authorization.md). Yeniden bağlanıldığında, gruplara kullanıcı erişimini denetleme örneği için bkz. [gruplarla çalışma](../guide-to-the-api/working-with-groups.md).
 
 <a id="input"></a>
 
-### <a name="safely-handling-input-from-clients"></a>Güvenli bir şekilde istemcilerden giriş işleme
+### <a name="safely-handling-input-from-clients"></a>İstemcilerden gelen girişi güvenle işleme
 
-Kötü niyetli bir kullanıcı diğer kullanıcılara betiği göndermediğinden emin olmak için diğer istemcilere yayın yönelik tüm girişler istemcilerden kodlanmış olması gerekir. SignalR uygulamanız farklı türlerde istemciler olabileceğinden sunucusu yerine alan istemciler iletileri kodlamak idealdir. Bu nedenle, HTML kodlaması için bir web istemcisi, ancak diğer istemci türlerini çalışır. Örneğin, Sohbet iletisi görüntülemek için bir web istemci yöntemi güvenli bir şekilde kullanıcı adını ve iletisini çağırarak işlemek `html()` işlevi.
+Diğer istemcilere yayın için tasarlanan istemcilerden gelen tüm girişler, kötü niyetli bir kullanıcının diğer kullanıcılara betik gönderemediğinden emin olmak için kodlanmalıdır. SignalR uygulamanızda birçok farklı türde istemci olabileceğinden, iletileri sunucu yerine alıcı istemcilere kodlamak en iyisidir. Bu nedenle, HTML kodlaması bir Web istemcisi için geçerlidir, ancak diğer istemci türlerine yönelik değildir. Örneğin, bir sohbet iletisini görüntüleyen Web istemcisi yöntemi, `html()` işlevini çağırarak kullanıcı adını ve iletisini güvenle işleyebilir.
 
 [!code-html[Main](introduction-to-security/samples/sample2.html?highlight=3-4)]
 
 <a id="reconcile"></a>
 
-### <a name="reconciling-a-change-in-user-status-with-an-active-connection"></a>Kullanıcı durumu etkin bir bağlantı ile bir değişiklik mutabık kılma
+### <a name="reconciling-a-change-in-user-status-with-an-active-connection"></a>Etkin bağlantıyla Kullanıcı durumunda değişiklik mutabık kılma
 
-Etkin bir bağlantı bulunduğu sürece bir kullanıcının kimlik doğrulama durumu değişirse, kullanıcı belirten bir hata alır, "kullanıcı kimliği etkin bir SignalR bağlantısı sırasında değiştirilemez." Bu durumda, uygulamanızın kullanıcı adı ve bağlantı kimliği Eşgüdümlü olduğundan emin olmak için sunucuya yeniden bağlanmanız gerekir. Örneğin, uygulamanızın etkin bağlantınız varken oturumunuzu kullanıcıya izin veriyorsa, bağlantı için kullanıcı adı artık bir sonraki istek için geçirilen adla eşleşir. Kullanıcının oturumunu kapatır önce bağlantı durdurmak istiyor ve yeniden başlatın.
+Etkin bağlantı varken kullanıcının kimlik doğrulama durumu değişirse, "Kullanıcı kimliği etkin bir SignalR bağlantısı sırasında değiştiremeyecektir." şeklinde bir hata alır. Bu durumda, bağlantı kimliği ve Kullanıcı adının koordine olduğundan emin olmak için uygulamanızın sunucuya yeniden bağlanması gerekir. Örneğin, uygulamanız etkin bir bağlantı varken kullanıcının oturumu açmasına izin veriyorsa, bağlantı için Kullanıcı adı artık sonraki istek için geçirilen adla eşleşmez. Kullanıcı oturumu kapatmadan önce bağlantıyı durdurup yeniden başlatmanız gerekir.
 
-Ancak, çoğu uygulama bağlantıyı el ile durdurup gerekmez, dikkat edin önemlidir. Uygulamanızın kullanıcıları, varsayılan davranışı bir Web Forms uygulaması veya MVC uygulaması gibi açtıktan sonra ayrı bir sayfasına yönlendirir. ya da oturum kapatıldıktan sonra geçerli sayfa yenilendikten etkin bağlantı otomatik olarak kesilir ve yok başka bir işlem gerektirir.
+Ancak, çoğu uygulamanın bağlantıyı el ile durdurmanız ve yeniden başlatmanız gerektiğini unutmayın. Uygulamanız, bir Web Forms uygulaması veya MVC uygulamasındaki varsayılan davranış gibi, Kullanıcı oturum kapatıldıktan sonra ayrı bir sayfaya yeniden yönlendirirse veya oturum kapatıldıktan sonra geçerli sayfayı yenileirse, etkin bağlantının bağlantısı otomatik olarak kesilir ve ek eylem gerektirir.
 
-Aşağıdaki örnek, durdurmak ve kullanıcı durumu değiştirdiği zaman bir bağlantı başlatmak gösterilmektedir.
+Aşağıdaki örnek, Kullanıcı durumu değiştiğinde bir bağlantının nasıl durdurulacağını ve başlatılacağını gösterir.
 
 [!code-html[Main](introduction-to-security/samples/sample3.html)]
 
-Veya, kullanıcının kimlik doğrulama durumu, sitenize form kimlik doğrulaması ile olmaadığını kullanır ve kimlik doğrulama tanımlama geçerliliğini sürdürmek için hiçbir etkinliği değişebilir. Bu durumda, kullanıcı kapatılacak ve kullanıcı adı artık bağlantı belirteci kullanıcı adıyla eşleşir. Düzenli aralıklarla kimlik doğrulama tanımlama geçerliliğini sürdürmek için web sunucusunda bir kaynak isteklerini bazı kod ekleyerek bu sorunu düzeltebilirsiniz. Aşağıdaki örnek, her 30 dakikada bir kaynak isteği gösterilmektedir.
+Ya da sitenizin form kimlik doğrulaması ile kayan süre sonu kullanıyorsa ve kimlik doğrulama tanımlama bilgisinin geçerli tutulması için bir etkinlik yoksa kullanıcının kimlik doğrulaması durumu değişebilir. Bu durumda, Kullanıcı oturumu kapatılır ve Kullanıcı adı bağlantı belirtecindeki Kullanıcı adıyla eşleşmez. Kimlik doğrulama tanımlama bilgisinin geçerli tutulması için, Web sunucusunda düzenli aralıklarla bir kaynak isteyen bir betik ekleyerek bu sorunu çözebilirsiniz. Aşağıdaki örnek, her 30 dakikada bir kaynağın nasıl isteneceğini gösterir.
 
 [!code-javascript[Main](introduction-to-security/samples/sample4.js)]
 
 <a id="autogen"></a>
 
-### <a name="automatically-generated-javascript-proxy-files"></a>Otomatik olarak oluşturulan JavaScript proxy'si dosyaları
+### <a name="automatically-generated-javascript-proxy-files"></a>Otomatik olarak oluşturulan JavaScript proxy dosyaları
 
-Tüm hub'ları ve yöntemlerinin her kullanıcı için JavaScript proxy'si dosyasını dahil etmek istemiyorsanız, dosyayı otomatik olarak oluşturulmasını devre dışı bırakabilirsiniz. Birden çok hub ve yöntem varsa, ancak her kullanıcının tüm yöntemlerin bilincinde olmasını istemiyorsanız bu seçeneği belirleyebilirsiniz. Ayarlayarak otomatik oluşturma devre dışı **EnableJavaScriptProxies** için **false**.
+Her bir kullanıcı için JavaScript ara sunucu dosyasına tüm Hub 'ları ve yöntemleri dahil etmek istemiyorsanız, dosyanın otomatik olarak oluşturulmasını devre dışı bırakabilirsiniz. Birden çok hub ve yöntemlere sahipseniz ancak her kullanıcının tüm yöntemlerin farkında olmasını istemiyorsanız bu seçeneği belirleyebilirsiniz. **Enablejavascriptproxy 'leri** **false**olarak ayarlayarak otomatik oluşturmayı devre dışı bırakabilirsiniz.
 
 [!code-csharp[Main](introduction-to-security/samples/sample5.cs)]
 
-JavaScript proxy'si dosyaları hakkında daha fazla bilgi için bkz. [oluşturulan proxy ve sizin için yaptığı](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy). <a id="exceptions"></a>
+JavaScript proxy dosyaları hakkında daha fazla bilgi için bkz. [oluşturulan ara sunucu ve sizin için ne yapar](../guide-to-the-api/hubs-api-guide-javascript-client.md#genproxy). <a id="exceptions"></a>
 
 ### <a name="exceptions"></a>Özel Durumlar
 
-Nesneleri istemcilere hassas bilgileri kullanıma sunabileceğinden istemcilere özel durum nesneleri geçirme kaçınmanız gerekir. Bunun yerine, ilgili hata iletisini gösteren istemcide bir yöntemini çağırın.
+Nesneler, istemcilere hassas bilgiler sergilebileceğinden, istemcilere özel durum nesneleri geçirmekten kaçınmalısınız. Bunun yerine, ilgili hata iletisini görüntüleyen istemcisinde bir yöntemi çağırın.
 
 [!code-csharp[Main](introduction-to-security/samples/sample6.cs)]

@@ -1,699 +1,699 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
-title: ASP.NET ve Web geliştirme Visual Studio 2012'deki yenilikler | Microsoft Docs
+title: Visual Studio 2012 ' de ASP.NET ve Web geliştirme yenilikleri | Microsoft Docs
 author: rick-anderson
-description: Visual Studio'nun yeni sürümü, performans ve deneyimini Web teknolojileri ile çalışırken geliştirmeye odaklı geliştirmeleri sunar...
+description: Visual Studio 'nun yeni sürümü, Web teknolojileriyle çalışırken deneyim ve performansı iyileştirmeye odaklanan birkaç geliştirme sunar...
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: 80c77ec65ed86b06e417d3f6ba608e404c46768b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132097"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525937"
 ---
 # <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Visual Studio 2012'de ASP.NET ve Web Geliştirme Yenilikleri
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-> Visual Studio'nun yeni sürümü, performans ve deneyimini Web teknolojileri ile çalışırken geliştirmeye odaklı geliştirmeleri tanıtır. En çok talep kod Yardımcıları, IntelliSense ve Otomatik girintili yazma gibi birçok dahil etmek için Visual Studio Düzenleyicisi, CSS, JavaScript ve HTML tamamen modernize. Sayfa kolayca azaltmak için yerleşik özellikleri yükleme süresi gibi performans, artık paketleme ve küçültme tümleşiktir.
+> Visual Studio 'nun yeni sürümü, Web teknolojileriyle çalışırken deneyim ve performansı iyileştirmeye odaklanmış bir dizi geliştirme sunar. CSS, JavaScript ve HTML için Visual Studio düzenleyicileri, IntelliSense ve otomatik girintileme gibi en çok isteğe bağlı kod yardımlarının çoğunu kapsayacak şekilde tamamen yeniden belirlenmiştir. Performans, paketleme ve küçültmeye yönelik özellikler artık sayfa yükleme süresini kolayca azaltmak için yerleşik özellikler olarak tümleşiktir.
 > 
-> Visual Studio, en son Web teknolojilerini ile çalışmanıza olanak sağlar. Yeni HTML5 öğeleri ve özellikleri de çekerken istemci platformları ne olursa olsun, sitenizi çalıştığından emin olmak için tarayıcılar arası CSS3 parçacıkları kullanabilirsiniz.
+> Visual Studio, en son Web sitesi teknolojileriyle çalışmanıza olanak sağlar. Ayrıca, yeni HTML5 öğelerinden ve özelliklerden yararlanarak sitenizin istemci platformundan bağımsız olarak çalıştığından emin olmak için tarayıcılar arası CSS3 kod parçacıklarını kullanabilirsiniz.
 > 
-> Yazma ve profil oluşturma JavaScript kodunu bu Visual Studio sürümü ile daha kolay olmalıdır. IntelliSense listeleri, tümleşik XML belgeleri ve gezinti özellikleri artık JavaScript kodu için kullanılabilir. JavaScript Kataloğu artık parmaklarınızın ucunda sahipsiniz. Ayrıca, betiklerinizi ile ECMAScript5 uyumluluk denetimi ve erken bir aşamada söz dizimi hataları algılayın.
+> JavaScript kodu yazma ve profil oluşturma, bu Visual Studio sürümü ile daha kolay olmalıdır. IntelliSense listeleri, tümleşik XML belgeleri ve gezinti özellikleri artık JavaScript kodu için kullanılabilir. Artık JavaScript kataloğu elinizin altında. Ayrıca, betiklerle ECMAScript5 uyumluluğunu denetleyebilir ve sözdizimi hatalarını erken bir aşamada tespit edebilirsiniz.
 > 
-> Son ancak, bu Visual Studio sürümü yerleşik paketleme ve küçültme uygular. Komut dosyalarını ve stil sayfalarını paketlenmiş ve böylece sitenin daha hızlı gerçekleştirir sıkıştırılmış.
+> Son olarak, bu Visual Studio sürümü yerleşik paketlemeyi ve küçültmeye göre kullanır. Betik dosyalarınız ve stil sayfaları, sitenin daha hızlı bir şekilde gerçekleşmesini sağlayacak şekilde paketlenecek ve sıkıştırılır.
 > 
-> Bu Laboratuvar, küçük değişiklikler kaynak klasördeki sağlanan örnek bir Web uygulamasına uygulayarak daha önce açıklanan yeni özellikler ve iyileştirmeler açıklanmaktadır.
+> Bu laboratuvar, daha önce kaynak klasörde sunulan örnek bir Web uygulamasına küçük değişiklikler uygulayarak açıklanan geliştirmeler ve yeni özellikler konusunda size kılavuzluk eder.
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tüm örnek kod ve kod parçacıkları [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)adresinden erişilebilen Web Camps eğitim seti ' ne dahildir.
 
 <a id="Objectives"></a>
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Bu uygulamalı Laboratuvar, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- CSS Düzenleyicisi'nde yeni özellikler ve geliştirmeler kullanın
-- HTML Düzenleyicisi'nde yeni özellikler ve geliştirmeler kullanın
-- Yeni özellikler ve geliştirmeler içindeki JavaScript düzenleyicisi kullanın.
-- Yapılandırma ve paketleme ve küçültme kullanma
+- CSS düzenleyicisinde yeni özellikleri ve geliştirmeleri kullanın
+- HTML düzenleyicisinde yeni özellikleri ve geliştirmeleri kullanın
+- JavaScript düzenleyicisinde yeni özellikleri ve geliştirmeleri kullanın
+- Paketlemeyi ve küçültmeye göre yapılandırma ve kullanma
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-- [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya üst (okuma [ek A](#AppendixA) nasıl yükleneceği hakkında yönergeler için).
-- [Windows PowerShell](https://support.microsoft.com/kb/968930/) (için ayar betikleri - Windows 8 ve Windows Server 2008 R2 üzerinde zaten yüklü)
-- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home) - veya HTML5 ile uyumlu bir tarayıcı
+- [Web veya üst için Microsoft Visual Studio Express 2012](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) (nasıl yükleneceğine ilişkin yönergeler Için [Ek A](#AppendixA) oku).
+- [Windows PowerShell](https://support.microsoft.com/kb/968930/) (Kurulum betikleri Için, Windows 8 ve windows Server 2008 R2 'de zaten yüklü)
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home) veya HTML5 uyumlu tarayıcı
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
+## <a name="exercises"></a>Alıştırmalarda
 
-Bu uygulamalı Laboratuvar aşağıdaki alıştırmaları içerir:
+Laboratuvar için bu uygulamalı, aşağıdaki alıştırmaları içerir:
 
-1. [Alıştırma 1: CSS Düzenleyicisi'nde yenilikler nelerdir?](#Exercise1)
-2. [Alıştırma 2: HTML Düzenleyicisi'nde yenilikler nelerdir?](#Exercise2)
-3. [Alıştırma 3: JavaScript Düzenleyicisi'nde yenilikler nelerdir?](#Exercise3)
-4. [Alıştırma 4: Paketleme ve küçültme](#Exercise4)
+1. [Alıştırma 1: CSS düzenleyicideki yenilikler](#Exercise1)
+2. [Alıştırma 2: HTML Düzenleyicinizdeki yenilikler](#Exercise2)
+3. [Alıştırma 3: JavaScript düzenleyicideki yenilikler](#Exercise3)
+4. [Alıştırma 4: paketleme ve Minbirleşme](#Exercise4)
 
-Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **60 dakika**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Whats_New_in_the_CSS_Editor"></a>
-### <a name="exercise-1-whats-new-in-the-css-editor"></a>Alıştırma 1: CSS Düzenleyicisi'nde yenilikler nelerdir?
+### <a name="exercise-1-whats-new-in-the-css-editor"></a>Alıştırma 1: CSS düzenleyicideki yenilikler
 
-Web geliştiricileri, CSS düzenlemeye ilgili zorluklarla birçoğu ile ilgili bilgi sahibi olmalıdır. CSS stil en büyük sorunlardan biri, tarayıcılar arası uyumluluktur. Genellikle, başka bir tarayıcı veya cihaz açarsanız sitenize stilleri uyguladıktan sonra farklı görünüyor dikkat edin, gerçekleşir. Bu nedenle, son olarak, bir tarayıcıda yaptığınızda, bu diğer ayrılır, hayata geçirmek için bu görsel sorunlarını düzeltmeye büyük miktarda zaman harcayabilir.
+Web geliştiricileri, CSS düzenlemeyle ilgili birçok zorluklara alışkın olmalıdır. CSS stillendirme en büyük sorunlarından biri tarayıcılar arası uyumlulukta olur. Bu, genellikle sitenize Stil uygulandıktan sonra başka bir tarayıcı veya cihazda açtığınızda farklı göründüğünü fark etmeksizin meydana gelir. Bu nedenle, bu görsel sorunları düzeltmek için önemli bir zaman harcayabilir ve son olarak bir tarayıcıda çalıştığını fark edebilirsiniz.
 
-Visual Studio artık, geliştiricilerin erişim, iş ve CSS stil sayfaları etkili bir şekilde düzenlemenize yardımcı olan özellikler içerir. Bu alıştırmada yeni özellikler için etkili bir kuruluşun her büyüklükteki yanı sıra, tarayıcılar arası uyumluluk için CSS3 kod parçacıkları karşılar.
+Visual Studio artık geliştiricilerin CSS stil sayfalarını etkin bir şekilde erişmesine, çalışmasına ve düzenlenmesine yardımcı olan özellikler içerir. Bu alıştırmada, etkin bir kuruluş ve sürüm için yeni özellikleri ve tarayıcılar arası uyumluluk için CSS3 kod parçacıklarını karşılamanız gerekir.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_New_Editor_Features"></a>
-#### <a name="task-1---new-editor-features"></a>Görev 1 - yeni düzenleyici özellikleri
+#### <a name="task-1---new-editor-features"></a>Görev 1-yeni düzenleyici özellikleri
 
-Bu görevde, yeni özellikler CSS Düzenleyicisi'nin keşfeder. Bu yeni düzenleyici yeni akıllı girinti, geliştirilmiş kod açıklamaları ve Gelişmiş IntelliSense listesini avantajlarından yararlanarak üretkenliğinizi artırmanıza yardımcı olur.
+Bu görevde, CSS düzenleyicisinin yeni özelliklerini keşfedeceksiniz. Bu yeni düzenleyici, yeni akıllı girintileme, geliştirilmiş kod açıklamaları ve geliştirilmiş IntelliSense listesinden yararlanarak üretkenliğinizi artırmanıza yardımcı olur.
 
-1. Başlangıç **Visual Studio** açın **WhatsNewASPNET.sln** çözüm bulunan **Source\WhatsNewASPNET** , bu Laboratuvarın klasör.
-2. Çözüm Gezgini'nde açın **Site.css** altında bulunan dosya **stilleri** klasör. Emin **metin düzenleyici** araçları araç çubuğunda görünür. Bunu yapmak için seçin **görünümü** | **araç çubukları** menü seçeneği ve onay **metin düzenleyici** seçenekleri. Bu yeni sürümün bu yana fark edeceksiniz **yorum** düğmesine (![Açıklama düğmesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image1.png) ) ve **açıklamayı Kaldır** düğmesine (![açıklamasını Kaldır düğmesine](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image2.png)) için CSS Düzenleyicisi de etkinleştirilir.
+1. **Visual Studio 'yu** başlatın ve bu laboratuvarın **Source\WhatsNewASPNET** klasöründe bulunan **WhatsNewASPNET. sln** çözümünü açın.
+2. Çözüm Gezgini, **Stiller** klasörünün altında bulunan **site. css** dosyasını açın. **Metin düzenleyici** araçlarının araç çubuğunda göründüğünden emin olun. Bunu yapmak için, | **araç çubuklarını** **görüntüle** menü seçeneğini belirleyin ve **metin Düzenleyicisi** seçeneklerini işaretleyin. Bu yeni sürüm, **yorum** düğmesi (![açıklama düğmesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image1.png)) **ve açıklama düğmesi** (![Açıklama düğmesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image2.png)) CSS Düzenleyicisi için de etkinleştirildiğinden emin olun.
 
-    ![Düzenleyici ve CSS araçları etkinleştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image3.png "Düzenleyicisi ve CSS Araçları'nı etkinleştirme")
+    ![Düzenleyici ve CSS araçlarını etkinleştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image3.png "Düzenleyici ve CSS araçlarını etkinleştirme")
 
-    *Düzenleyici ve CSS Araçları'nı etkinleştirme*
-3. Kod kaydırın ve herhangi bir CSS sınıfı tanımını seçin. Tıklayın **yorum** (![Açıklama düğmesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image4.png) ) düğmesini seçili satırları açıklama satırı yapın. ' A tıklayarak **açıklamayı Kaldır** (![açıklamasını Kaldır düğmesine](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image5.png) ) değişiklikleri geri düğmesi.
-4. Tıklayın **Daralt** (![Daralt](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image6.png) ) ve **genişletme** (![genişletin](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image7.png) ) düğmeleri bulunan metnin sol kenar boşluğu. Şimdi daha net bir görünüm için kullanmayın stilleri gizleyebilirsiniz dikkat edin.
+    *Düzenleyici ve CSS araçlarını etkinleştirme*
+3. Kodu kaydırın ve herhangi bir CSS sınıfı tanımını seçin. Seçili satırları **açıklamaya yönelik açıklama (![** yorum-düğme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image4.png)) düğmesine tıklayın. Ardından, değişiklikleri geri almak için **Açıklama** (![açıklama/adım](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image5.png)) düğmesine tıklayın.
+4. **Daraltma** (![daraltma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image6.png) **) ve metnin** sol kenar boşluğunda bulunan (![Genişlet](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image7.png)) düğmeleri ' ne tıklayın. Artık, daha temiz bir görünüm sağlamak için kullandığınız stilleri gizleyebildiğinize dikkat edin.
 
-    ![CSS sınıfları daraltma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image8.png "daraltma CSS sınıfları")
+    ![CSS sınıflarını daraltma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image8.png "CSS sınıflarını daraltma")
 
-    *CSS sınıfları daraltma*
-5. Akıllı girintileme özelliği etkin olduğundan emin olun. Seçin **Araçları** | **seçenekleri** seçeneğine tıklayın ve ardından **metin düzenleyici** | **CSS**  |  **Biçimlendirme** ekranın sol bölmede sayfası. Denetleme **hiyerarşik girintileme** seçeneği.
+    *CSS sınıflarını daraltma*
+5. Akıllı girintileme özelliğinin etkinleştirildiğinden emin olun. **Araçlar** | **Seçenekler** menü seçeneğini belirleyin ve ardından ekranın sol bölmesindeki **metin düzenleyici** | **CSS** | **biçimlendirme** sayfasını seçin. **Hiyerarşik girintileme** seçeneğini işaretleyin.
 
-    ![Hiyerarşik girintileme etkinleştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image9.png "hiyerarşik girintileme etkinleştirme")
+    ![Hiyerarşik girintileme etkinleştiriliyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image9.png "Hiyerarşik girintileme etkinleştiriliyor")
 
-    *Hiyerarşik girintileme etkinleştirme*
-6. Ana sınıf tanımı (.main) bulun ve div öğelere stil eklemek. Kodu otomatik olarak üst bir bakışta sınıfları bulmak için kullanıcılara yardımcı olma hizalar fark edeceksiniz.
+    *Hiyerarşik girintileme etkinleştiriliyor*
+6. Ana sınıf tanımını (. Main) bulun ve div öğelerine bir stil ekleyin. Kodun otomatik olarak hizalandığını fark edersiniz. Bu, kullanıcıların üst sınıfları bir bakışta bulmasına yardımcı olur.
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample1.css)]
 
-    ![CSS hiyerarşik hizalama](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image10.png "CSS hiyerarşik hizalama")
+    ![CSS 'de hiyerarşik hizalama](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image10.png "CSS 'de hiyerarşik hizalama")
 
-    *CSS hiyerarşik hizalama*
-7. İçinde **.main div** sınıfı, imleç sonunda bulun **kenarlık: 0px;**  basın **Enter** IntelliSense listesini görüntülemek için. Yazmaya başlayın **üst** ve siz yazarken liste nasıl filtrelenmiştir dikkat edin. Liste içeren öğeleri görüntüler **üst** word'ün herhangi bir bölümü, (Visual Studio'nun önceki sürümleri liste öğeleri tarafından filtrelenir, *başlamak* terim ile).
+    *CSS 'de hiyerarşik hizalama*
+7. **. Main div** sınıfı içinde, kenarlığın sonundaki imleci bulun **: 0px;** ve IntelliSense listesini göstermek için **ENTER** tuşuna basın. **Üste** yazmaya başlayın ve siz yazarken listenin nasıl filtrelendiğine dikkat edin. Listede, sözcüğün herhangi bir bölümünde **üst** olan öğeler görüntülenir (Visual Studio 'nun önceki sürümlerinde, liste terimle *başlayan* öğelere göre filtrelenir).
 
-    ![CSS IntelliSense geliştirmeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image11.png "CSS IntelliSense geliştirmeleri")
+    ![CSS 'de IntelliSense geliştirmeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image11.png "CSS 'de IntelliSense geliştirmeleri")
 
-    *CSS IntelliSense geliştirmeleri*
+    *CSS 'de IntelliSense geliştirmeleri*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_The_Color_Picker"></a>
-#### <a name="task-2---the-color-picker"></a>Görev 2 - Renk Seçici
+#### <a name="task-2---the-color-picker"></a>Görev 2-renk seçici
 
-Bu görevde, Visual Studio IntelliSense yeni CSS Renk Seçici tümleşik keşfeder.
+Bu görevde, Visual Studio IntelliSense ile tümleştirilmiş yeni CSS renk seçiciyi keşfedeceksiniz.
 
-1. İçinde **Site.css,** üst sınıf tanımı (.header) bulun ve yanındaki imleci **arka plan rengi** arasında öznitelik &quot;:&quot; ve &quot; # &quot; kodun o satırına karakterlere **.**
+1. **Site. css ' de,** üstbilgi sınıfı tanımını (. Header) bulun ve imleci &quot;:&quot; ve Bu kod satırındaki &quot; karakter &quot;# **.**
 
-    ![İmleci konumlandırma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image12.png "imleci konumlandırma")
+    ![İmleci bulma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image12.png "İmleci bulma")
 
-    *İmleci konumlandırma*
-2. Silme **iki nokta üst üste** (:) ve Renk Seçici yeniden görüntülemek içinn yazabilirsiniz. Göreceğiniz ilk renkleri sitenizin en sık kullanılan renkleri olduğuna dikkat edin. Beyaz renk tıklarsanız, HTML renk kodu (#fff) stil sayfası geçerli renk kodu yerini alır.
+    *İmleci bulma*
+2. **İki nokta üst üste** (:) ve renk seçiciyi göstermek için yeniden yazın. Göreceğiniz ilk renklerin sitenizin en sık kullanılan renkleriyle olduğunu unutmayın. Beyaz renge tıklarsanız, HTML renk kodu (#fff), stil sayfasındaki geçerli renk kodunun yerini alır.
 
-    ![Renk Seçici](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image13.png "Renk Seçici")
+    ![Renk seçici](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image13.png "Renk seçici")
 
-    *Renk Seçici*
-3. Tuşuna **genişletme** (![com](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image14.png) ) düğmesine Renk Seçici renk gradyanı görüntülemek ve farklı bir renk seçmek için gradyan imleç sürükleyin. Bundan sonra tıklayın **damlalığı** düğmesini tıklatın ve ekranından herhangi bir renk seçin. İmleç taşırken arka plan renk değeri dinamik olarak değiştiğine dikkat edin.
+    *Renk seçici*
+3. Renk degradesini göstermek için renk seçicisindeki **genişletme** (![com](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image14.png)) düğmesine basın ve ardından farklı bir renk seçmek için gradyan imlecini sürükleyin. Bundan sonra, **damlalık** düğmesine tıklayın ve ekrandaki herhangi bir rengi seçin. İmleci taşırken arka plan rengi değerinin dinamik olarak değiştiğine dikkat edin.
 
-    ![Renk Seçici gradyan](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image15.png "Renk Seçici gradyan")
+    ![Renk seçici gradyanı](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image15.png "Renk seçici gradyanı")
 
-    *Renk Seçici gradyan*
-4. İçinde **Opaklık** kaydırıcı, seçici opaklık azaltmak için çubuğunun merkezine taşımanızı. Arka plan renk değeri RGBA için artık, ölçeği değiştiğine dikkat edin.
+    *Renk seçici gradyanı*
+4. **Opaklık kaydırıcısının** saydamlığını azaltmak için seçiciyi çubuğun ortasına taşıyın. Arka plan rengi değerinin artık ölçeğini RGBA olarak değiştirdiğine dikkat edin.
 
-    ![Renk Seçici Opaklık](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image16.png "opaklık Renk Seçici")
+    ![Renk seçici geçirgenliği](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image16.png "Renk seçici geçirgenliği")
 
-    *Renk Seçici opaklığı*
+    *Renk seçici geçirgenliği*
 
     > [!NOTE]
-    > CSS3 RGBA (kırmızı, yeşil, mavi, alfa) renk tanımı tek bir öğe renk opaklık değerini tanımlamanızı sağlar. Farklı **Opaklık -** benzer bir CSS öznitelik **-** RGBA renklerdir ayrıca en son tarayıcıları ile uyumlu.
+    > CSS3 ' deki RGBA (kırmızı, yeşil, mavi, alfa) renk tanımı, tek bir öğe için renk opaklık değerini tanımlamanızı sağlar. **Opaklığın** aksine, RGBA renkleri **-** benzer bir CSS özniteliği de en son tarayıcılarla uyumludur.
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_CSS_Compatible_Code_Snippets"></a>
-#### <a name="task-3---css-compatible-code-snippets"></a>Görev 3 - CSS uyumlu kod parçacıkları
+#### <a name="task-3---css-compatible-code-snippets"></a>Görev 3-CSS uyumlu kod parçacıkları
 
-Bu görevde, bazı özellikler siteniz uygulamak için tarayıcılar arası uyumlu CSS3 parçacıkları kullanmayı öğreneceksiniz.
+Bu görevde, Web sitenizde bazı özellikler uygulamak için tarayıcılar arası uyumlu CSS3 parçacıklarını nasıl kullanacağınızı öğreneceksiniz.
 
-1. İçinde **Site.css** bulun, dosya **üstbilgi** CSS sınıf tanımını (.header) ve aşağıdaki imleci **/ \*kenarlık RADIUS\* /** yeni bir kod parçacığı eklemek için yer tutucu. Tuşuna **Enter** türü ve IntelliSense listesini görüntülemek için **RADIUS** listeyi filtrelemek için. Seçin **border-radius** seçenek listesinden bir çift tıklamayla ve tuşuna **sekmesini** kod parçacığını eklemek için anahtar. Ardından, bir RADIUS boyutunu piksel ve ENTER tuşuna yazın **Enter**. Örneğin, türü **15px**.
+1. **Site. css** dosyasında **üst bilgi** CSS sınıf tanımını (. Header) bulun ve imleci **/\*Border Radius /\*** yeni bir kod parçacığı eklemek için buraya yerleştirin. IntelliSense listesini göstermek için **ENTER** tuşuna basın ve listeyi filtrelemek için **RADIUS** yazın. Bir çift tıklama ile listeden **Border-Radius** seçeneğini seçin ve ardından parçacığı eklemek için **sekme** tuşuna basın. Sonra, piksel cinsinden bir yarıçap boyutu yazın ve **ENTER**tuşuna basın. Örneğin, **15 piksel**yazın.
 
-    Kod parçacığı tarafından eklenen CSS3 öznitelikleri Mozilla ve WebKit tabanlı tarayıcılar dahil olmak üzere çoğu HTML5 uyumluluk tarayıcılarda yuvarlatılmış Kenarlıklar işlenir.
+    Kod parçacığı tarafından eklenen CSS3 öznitelikleri, Mozilla ve WebKit tabanlı tarayıcılar dahil olmak üzere çoğu HTML5 uyumluluk tarayıcılarında yuvarlatılmış kenarlıkları işler.
 
-    ![Border-radius kod parçacığını kullanarak](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image17.png "border-radius kod parçacığını kullanarak")
+    ![Border-Radius parçacığı kullanma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image17.png "Border-Radius parçacığı kullanma")
 
-    *Border-radius kod parçacığını kullanarak*
-2. Aynı uygulama **kenarlık** kod parçacıkları, sayfa stili (.page).
+    *Border-Radius parçacığı kullanma*
+2. Sayfa stilinde (. Page) aynı **Kenarlık** parçacıklarını uygulayın.
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample2.css)]
-3. Tuşuna **F5** çözümü çalıştırın. Her sayfanın Kenarlıklar artık yuvarlatılmış olduğuna dikkat edin.
+3. Çözümü çalıştırmak için **F5** tuşuna basın. Her sayfanın artık kenarlığı yuvarlatılmış olduğuna dikkat edin.
 
-    ![Yuvarlak köşeler](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image18.png "yuvarlatılmış köşeler")
+    ![Yuvarlak köşeler](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image18.png "Yuvarlak köşeler")
 
-    *Yuvarlatılmış köşeler*
-4. Tarayıcıyı kapatın ve Visual Studio'ya geri dönün.
-5. Açık **Custom.css** altında bulunan dosya **stilleri** klasörü ve imleci yerleştirin **div.images ul li img** sınıf tanımını.
-6. Enter tuşuna basın IntelliSense listesini görüntülemek için tür **kutusu gölge** tuşuna basın **sekmesini** iki kez sınıf tanımı içinde varsayılan gölge kod parçacığını eklemek için anahtar. Gölge değerlerini ayarlamak **10px 10px 5px #888**. Ardından yazın **border-radius** ve kod parçacığını ekleyin. Tür **15px** yarıçapı ve ENTER tuşuna ayarlanacak **ENTER**.
+    *Yuvarlak köşeler*
+4. Tarayıcıyı kapatın ve Visual Studio 'ya geri dönün.
+5. **Stiller** klasörünün altında bulunan **Custom. css** dosyasını açın ve imleci **div. Images ul li img** Class tanımının içine yerleştirin.
+6. IntelliSense listesini göstermek için ENTER tuşuna basın, **Box-Shadow** yazın ve varsayılan gölge kod parçacığını sınıf tanımının içine eklemek için **Tab** tuşuna iki kez basın. Gölge değerlerini **10px 10px 5px #888**olarak ayarlayın. Ardından **Border-Radius** yazın ve kod parçacığını ekleyin. Yarıçap boyutunu ayarlamak için **15 piksel** yazın ve **ENTER**tuşuna basın.
 
-    ![Yuvarlak köşeler gölgeli](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image19.png "yuvarlatılmış köşelere sahip Gölge")
+    ![Gölgeli yuvarlak köşeler](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image19.png "Gölgeli yuvarlak köşeler")
 
-    *Gölgeli yuvarlatılmış köşeler*
+    *Gölgeli yuvarlak köşeler*
 
     > [!NOTE]
-    > Şu anda Webkit (Chrome, Safari Konkeror) tarayıcılar ve karşılık gelen önek (moz webkit, o) Mozilla desteklemek için ile gölge özniteliği eklenir.
-7. Yeni bir sınıf oluşturun **div.images ul li img:hover** aşağıda **div.images ul li img** sınıf tanımını ve imleci ayraçlar içinde **.**
+    > Bu anda, Mozilla ve WebKit (Chrome, Safari, Konkeror) tarayıcılarını desteklemek için ilgili önek (Moz, WebKit, o) ile birlikte Shadow özniteliği eklenir.
+7. Yeni bir sınıf **div oluşturun. bu görüntüleri ul li img:** **div. Images ul li img** Class tanımının altına gelin ve imleci köşeli ayracın içine yerleştirin **.**
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample3.css)]
-8. Tür **dönüştürme** basın **sekmesini** iki kez dönüştürme kod parçacığını eklemek için anahtar. Ardından, girin **rotate(-15deg)** görüntüleri seçildiğinde döndürme açısı değeri değiştirmek için.
+8. Dönüştürme kod parçacığını eklemek için **Dönüştür** yazın ve **Tab** tuşuna iki kez basın. Ardından, görüntülerin üzerine gelindiğinde döndürme açısı değerini değiştirmek için **döndürme (-15deg)** girin.
 
     CSS
 
     [!code-css[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample4.css)]
-9. Tuşuna **F5** çözümü çalıştırın ve CSS3 sayfasına göz atın. Görüntüleri yuvarlak köşeler olacak ve shadows kutusunda olduğuna dikkat edin. Fare görüntülerin gelin ve döndürme izleyeceksiniz.
+9. **F5** tuşuna basarak çözümü ÇALıŞTıRıN ve CSS3 sayfasına gidin. Görüntülerin köşeleri ve kutu gölgeleri yuvarlatılmış olduğuna dikkat edin. Fareyi görüntülerin üzerine getirin ve döndürmeyi izleyin.
 
-    ![Görüntü döndürme kod parçacığı dönüştürme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image20.png "görüntü döndürme dönüşümü kod parçacığı")
+    ![Görüntü döndürme parçacığı dönüştürme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image20.png "Görüntü döndürme parçacığı dönüştürme")
 
-    *Görüntü döndürme kod parçacığı dönüştürme*
+    *Görüntü döndürme parçacığı dönüştürme*
 
     > [!NOTE]
-    > Internet Explorer 10 kullanıyorsanız ve shadows göremez ıe10 standartları belge modu ayarlandığından emin olun. Tuşuna **F12** Internet Explorer Geliştirici Araçları'nı açın ve tıklatın **belge modu** ıe10 standartları değiştirmek için.
+    > Internet Explorer 10 kullanıyorsanız ve gölgeleri göremiyorsanız, belge modunun ıE10 standartları olarak ayarlandığından emin olun. Internet Explorer Geliştirici Araçları 'nı açmak için **F12** tuşuna basın ve IE10 standartlarına geçmek Için **belge modu** ' na tıklayın.
 
-    ![hakkında-ABD](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
+    ![yaklaşık-US](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image21.png)
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Whats_New_in_the_HTML_Editor"></a>
-### <a name="exercise-2-whats-new-in-the-html-editor"></a>Alıştırma 2: HTML Düzenleyicisi'nde yenilikler nelerdir?
+### <a name="exercise-2-whats-new-in-the-html-editor"></a>Alıştırma 2: HTML Düzenleyicinizdeki yenilikler
 
-Visual Studio, Gelişmiş bir HTML düzenleyicisi sahiptir. Bu sürümde eklenen iyileştirmeler HTML belgeleri, HTML5 kod parçacıkları, HTML başlangıç ve bitiş etiketi ile eşleşen ve HTML doğrulama akıllı girintileme bazılarıdır. Bu alıştırmada, Web sitesi biçimlendirme içinde çalışırken bu değişiklikler, fluency nasıl geliştirmek görürsünüz.
+Visual Studio 'Nun gelişmiş bir HTML Düzenleyicisi vardır. Bu sürüme dahil olan geliştirmelerden bazıları HTML belgelerindeki akıllı girintileme, HTML5 parçacıkları, HTML başlangıç ve bitiş etiketi eşleştirmesi ve HTML doğrulaması ' na sahiptir. Bu alıştırmada, Web sitesi biçimlendirmesinde çalışırken bu değişikliklerin akıcı bir şekilde nasıl iyileştirebileceğinizi göreceksiniz.
 
-CSS Düzenleyicisi gibi HTML düzenleyicisi de İyileştirildi. Bu geliştirmeler çoğu Web geliştiricinin kolaylaştıracak küçük olanlardır. Düzenleme ve doğrulama HTML belgesi DOCTYPE hedefleyen bu geliştirmelerin bazılarını olduğu başlangıç ve bitiş etiketleri eşleşen HTML5 için akıllı girinti daha fazla kod parçacıkları gibi şeyler.
+CSS Düzenleyicisi gibi, HTML Düzenleyicisi de geliştirilmiştir. Bu geliştirmelerin çoğu, Web geliştiricisi ömrünü daha kolay hale getirir. HTML belgesi DOCTYPE 'ı hedeflemek ve doğrulamak için kod parçacıkları, akıllı girintileme, eşleşen başlangıç ve bitiş etiketleri gibi şeyler bu geliştirmelerden bazılarıdır.
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Improved_DOCTYPE_Validation"></a>
-#### <a name="task-1---improved-doctype-validation"></a>Görev 1 - geliştirilmiş DOCTYPE doğrulama
+#### <a name="task-1---improved-doctype-validation"></a>Görev 1-Iyileştirilmiş DOCTYPE doğrulaması
 
-Tanımı ana sayfasında olsa bile HTML düzenleyici artık, sayfanızın DOCTYPE denetlemek için özelliğine sahiptir. DOCTYPE sayfanızın bağlı olarak HTML düzenleyicisi doğru kuralları kümesiyle doğrulanır ve DOCTYPE öğeleri dikkate IntelliSense listesini filtreler.
+Bu, tanım ana sayfada olsa da, HTML Düzenleyicisi artık sayfanızın DOCTYPE 'ı kontrol edebilir. Sayfanızın DOCTYPE öğesine bağlı olarak, HTML Düzenleyicisi doğru kurallar kümesiyle doğrulanır ve IntelliSense listesini, DOCTYPE öğelerini ele alacak şekilde filtreleyecek.
 
-Bu görevde, HTML düzenleyici davranışı buna göre nasıl değiştiğini görmek için DOCTYPE sayfasının değişecektir.
+Bu görevde, HTML Düzenleyicisi davranışının uygun şekilde nasıl değiştiği görmek için bir sayfanın DOCTYPE öğesini değiştirirsiniz.
 
-1. Henüz açık değilse başlatmak **Visual Studio** açın **WhatsNewASPNET.sln** çözüm bulunan **Source\WhatsNewASPNET** klasör, bu Laboratuvarın.
-2. Açık **Site.Master** sayfası.
-3. Hedef şema doğrulama araç dikkat edin. HTML düzenleyicisi davranır (doğrulama, IntelliSense, vb.) düzgün seçili Doctype uyacak şekilde değiştirecek.
+1. Zaten açık değilse, **Visual Studio 'yu** başlatın ve bu laboratuvarın **Source\WhatsNewASPNET** klasöründe bulunan **WhatsNewASPNET. sln** çözümünü açın.
+2. **Site. Master** sayfasını açın.
+3. Doğrulama araç çubuğunun hedef şemasına dikkat edin. HTML düzenleyicisinin davranış şekli (doğrulama, IntelliSense, vb.), seçilen doctype öğesine uyacak şekilde düzgün şekilde değişir.
 
-    ![Doctype HTML kaynak düzenlemesi araç kullanmak](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image22.png "kullanım Doctype HTML kaynak düzenlemesi araç çubuğu")
+    ![HTML kaynak düzenlemesi araç çubuğunda DOCTYPE kullanın](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image22.png "HTML kaynak düzenlemesi araç çubuğunda DOCTYPE kullanın")
 
-    *Doctype HTML kaynak düzenlemesi araç çubuğunda kullanın*
-4. HTML 4.01 hedef şema değiştirin.
+    *HTML kaynak düzenlemesi araç çubuğunda DOCTYPE kullanın*
+4. Hedef şemayı HTML 4,01 olarak değiştirin.
 
-    ![Doctype HTML kaynak düzenlemesi araç çubuğunda değiştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image23.png "değiştirme Doctype HTML kaynak düzenlemesi araç çubuğu")
+    ![HTML kaynak düzenlemesi araç çubuğunda DOCTYPE 'ı değiştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image23.png "HTML kaynak düzenlemesi araç çubuğunda DOCTYPE 'ı değiştirme")
 
-    *Doctype HTML kaynak düzenlemesi araç çubuğunda değiştirme*
-5. İmlecin altındaki yerleştirmek **gövdesi** öğesi ve bir HTML5 öğenin adını yazmaya (örneğin, **video**). Öğe, IntelliSense listede olmadığına dikkat edin.
+    *HTML kaynak düzenlemesi araç çubuğunda DOCTYPE 'ı değiştirme*
+5. İmleci **gövde** öğesinin altına YERLEŞTIRIN ve HTML5 öğesinin adını yazmaya başlayın (örneğin, **video**). Öğesinin IntelliSense listesinde mevcut olmadığına dikkat edin.
 
-    ![HTML5 öğeleri listede](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image24.png "HTML5 öğeleri listede")
+    ![HTML5 öğeleri listelenmemiş](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image24.png "HTML5 öğeleri listelenmemiş")
 
-    *HTML5 öğeleri listede*
-6. Hedef şema değişiklikleri geri al doğrulama için araç çubuğunda DOCTYPE çekme: Aşağı açılan listeden XHTML5.
+    *HTML5 öğeleri listelenmemiş*
+6. Doğrulama araç çubuğunun hedef şemasında yapılan değişiklikleri geri almak için, açılan listeden DOCTYPE: XHTML5 öğesini seçerek.
 
-    ![Doctype HTML kaynak düzenlemesi araç kullanmak](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image25.png "kullanım Doctype HTML kaynak düzenlemesi araç çubuğu")
+    ![HTML kaynak düzenlemesi araç çubuğunda DOCTYPE kullanın](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image25.png "HTML kaynak düzenlemesi araç çubuğunda DOCTYPE kullanın")
 
-    *Doctype HTML kaynak düzenlemesi araç çubuğunda Sıfırla*
-7. İmlecin altındaki yerleştirmek **gövdesi** öğesi ve bir HTML5 öğe yeniden yazmaya (örneğin, gibi **video**). HTML5 öğeleri IntelliSense listesinde kullanılabilir olduğuna dikkat edin.
+    *HTML kaynak düzenlemesi araç çubuğunda DOCTYPE 'ı Sıfırla*
+7. İmleci **gövde** öğesinin altına YERLEŞTIRIN ve HTML5 öğesini yeniden yazmaya başlayın (örneğin, **video**gibi). HTML5 öğelerinin artık IntelliSense listesinde kullanılabilir olduğuna dikkat edin.
 
-    ![HTML5 öğeleri listelenmesini](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image26.png "listelenmesini HTML5 öğeleri")
+    ![Listelenen HTML5 öğeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image26.png "Listelenen HTML5 öğeleri")
 
-    *Listelenmesini HTML5 öğeleri*
+    *Listelenen HTML5 öğeleri*
 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_StartEnd_Tags_Automatic_Update"></a>
-#### <a name="task-2---startend-tags-automatic-update"></a>Görev 2 - Başlangıç/bitiş etiketleri otomatik güncelleştirme
+#### <a name="task-2---startend-tags-automatic-update"></a>Görev 2-başlangıç/bitiş etiketleri otomatik güncelleştirme
 
-Visual Studio artık açma veya kapatma etiketleri birbirine eşleştirilecek düzenlemekte olduğunuz öğenin HTML güncelleştirir. Bu yeni özellik, HTML etiketleri düzenlerken üretkenliğinizi artırır.
+Visual Studio artık, düzenlemekte olduğunuz öğenin HTML açılış veya kapanış etiketlerini birbirleriyle eşleşecek şekilde güncelleştirir. Bu yeni özellik, HTML etiketlerini düzenlenirken üretkenliğinizi artırır.
 
-1. Üzerinde **Default.aspx** sayfasında, eklemek bir **H3** öğesi ile bir başlık (örneğin, Visual Studio 2012 Rocks!).
+1. **Default. aspx** sayfasında, başlıklı bir **H3** öğesi ekleyin (örneğin, Visual Studio 2012 Rok!).
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
-2. Değişiklik **H3** etiketi ve tür **H2** veya **H1.**
+2. **H3** etiketini değiştirin ve **H2** veya H1 yazın **.**
 
-    Bitiş etiketi otomatik olarak güncelleştirildiğine dikkat edin. Bitiş etiketi başlangıç etiketiyle buna göre çok güncelleştirdiğini görmek için de değiştirebilirsiniz.
+    Bitiş etiketinin otomatik olarak güncelleştirdiğine dikkat edin. Başlangıç etiketinin de aynı şekilde güncelleştii görmek için bitiş etiketini de değiştirebilirsiniz.
 
-    ![Kapanış etiketinin otomatik güncelleştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image27.png "bitiş etiketi otomatik güncelleştirilmesi")
+    ![Bitiş etiketinin otomatik güncelleştirilmesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image27.png "Bitiş etiketinin otomatik güncelleştirilmesi")
 
-    *Kapanış etiketinin otomatik güncelleştirme*
+    *Bitiş etiketinin otomatik güncelleştirilmesi*
 
 <a id="Ex2Task3"></a>
 
 <a id="Task_3_-_New_HTML5_Code_Snippets"></a>
-#### <a name="task-3---new-html5-code-snippets"></a>Görev 3 - Yeni HTML5 kod parçacıkları
+#### <a name="task-3---new-html5-code-snippets"></a>Görev 3-yeni HTML5 kod parçacıkları
 
-Visual Studio artık birkaç HTML5 kod parçacıklarını içerir. Bu görevde, bu kod parçacıklarının bazılarını kullanacaksınız.
+Visual Studio artık birkaç HTML5 kod parçacığı içerir. Bu görevde, bu kod parçacıklarında bazılarını kullanacaksınız.
 
-1. Adlı yeni bir klasör eklemek **ses** kök web site klasörü. Windows Gezgini'ni açın ve herhangi bir ses dosyasına kopyalayın **ses** klasörü **WhatsNewASPNET.sln** çözüm.
-2. İçinde **Default.aspx** sayfasında, imleci Web11 Rocks altında bulun!! Üst bilgisi. Tür **ses** ve SEKME tuşuna basın.
+1. Web sitesi klasörünün köküne **Ses** adlı yeni bir klasör ekleyin. Windows Gezgini 'ni açın ve tüm ses dosyalarını **WhatsNewASPNET. sln** çözümünün **Ses** klasörüne kopyalayın.
+2. **Default. aspx** sayfasında, Web11 Rosin!! altındaki imleci bulun. Üst bilgi. **Ses** YAZıN ve Tab tuşuna basın.
 
-    HTML düzenleyicisi kod parçacıkları HTML5 içerik içerir. HTML5 parçacıkları etkinleştirmek için uygun belge türü tanımı kullanmayı unutmayın.
+    Yeni HTML Düzenleyicisi HTML5 içeriğine yönelik kod parçacıklarını içerir. HTML5 parçacıklarını etkinleştirmek için uygun DOCTYPE tanımını kullanmayı unutmayın.
 
     ![HTML5 kod parçacıkları ekleme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image28.png "HTML5 kod parçacıkları ekleme")
 
     *HTML5 kod parçacıkları ekleme*
-3. Ses kaynağından mevcut bir ses dosyasına işaret edecek şekilde güncelleştirin.
+3. Ses kaynağını, var olan bir ses dosyasına işaret etmek üzere güncelleştirin.
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
 
     > [!NOTE]
-    > Ses dosyası çözüme eklemeniz gerekir.
-4. Tuşuna **F5** siteyi çalıştırmak ve ses çal.
+    > Bu çözüme ses dosyası eklemeniz gerekir.
+4. Siteyi çalıştırmak ve sesi oynatmak için **F5** tuşuna basın.
 
-    ![Ses denetimini çalıştıran](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "ses denetimini çalıştırma")
+    ![Ses denetimini çalıştırma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "Ses denetimini çalıştırma")
 
     *Ses denetimini çalıştırma*
 
     > [!NOTE]
-    > Visual Studio'da bulunan video, Şekil vb. gibi daha fazla sayıda parçacık de deneyebilirsiniz.
-5. Bazı sayfa kısmında bir denetim eklemek şimdi deneyin. Örneğin, eklemeyi denerseniz bir **GridView** denetimi, ancak yazmayı yerine  **&lt;oyutlandır,** yazmaya başlayın  **&lt;GV**. IntelliSense listesini gösteren uyarı **asp: GridView** denetimi.
+    > Visual Studio 'da video, şekil vb. dahil olmak üzere daha fazla kod parçacığı de deneyebilirsiniz.
+5. Şimdi sayfanın bazı bölümünde bir denetim eklemeyi deneyin. Örneğin, bir **GridView** denetimi eklemeyi deneyin, ancak **&lt;oyutlandır** yazmak yerine **GV&lt;** yazmaya başlayın. IntelliSense listesinde **ASP: GridView** denetimi gösterildiğine dikkat edin.
 
-    HTML Düzenleyicisi'nde IntelliSense şimdi başlık büyük/küçük harf arama yanı sıra kısmi eşleştirme (terimini içeren tüm öğeleri alınıyor) sağlar.
+    HTML düzenleyicisinde IntelliSense artık başlık büyük-küçük harf araması ve kısmi eşleştirme (terimi içeren tüm öğeleri alma) sağlar.
 
-    ![GridView IntelliSense listeleriyle ekleme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image30.png "IntelliSense listeleriyle GridView ekleme")
+    ![IntelliSense listeleriyle GridView ekleme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image30.png "IntelliSense listeleriyle GridView ekleme")
 
-    *GridView IntelliSense listeleriyle ekleme*
+    *IntelliSense listeleriyle GridView ekleme*
 
-    Yazarsanız  **&lt;kılavuz** terimiyle eşleşen tüm öğeleri alırsınız, ancak Visual Studio önerisinde bulunacak **gridview** denetimi:
+    **&lt;Grid** yazarsanız, terimiyle eşleşen tüm öğeleri alırsınız, ancak Visual Studio **GridView** denetimini önerir:
 
-    ![GridView IntelliSense listeler ve kısmi eşleşme ile ekleme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image31.png "GridView IntelliSense listeler ve kısmi eşleşme ile ekleme")
+    ![IntelliSense listeleriyle bir GridView ekleme ve kısmi eşleştirme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image31.png "IntelliSense listeleriyle bir GridView ekleme ve kısmi eşleştirme")
 
-    *GridView IntelliSense listeler ve kısmi eşleşme ile ekleme*
+    *IntelliSense listeleriyle bir GridView ekleme ve kısmi eşleştirme*
 
 <a id="Ex2Task4"></a>
 
 <a id="Task_4_-_HTML_Editor_Smart_Tags"></a>
-#### <a name="task-4---html-editor-smart-tags"></a>Görev 4 - HTML düzenleyicisi akıllı etiketleri
+#### <a name="task-4---html-editor-smart-tags"></a>Görev 4-HTML Düzenleyicisi akıllı etiketleri
 
-Başka bir geliştirme HTML Düzenleyicisi'nde akıllı etiketler özelliğidir. Akıllı etiketler bir denetim başına temelinde ortak ve yinelenen geliştirme görevlerinin gerçekleştirilebilmek kolaylaştırır. Bu özellik zaten HTML Tasarımcısı'nda ancak olmayan HTML Düzenleyicisi'nde.
+HTML düzenleyicisinde başka bir geliştirme de Akıllı Etiketler özelliğidir. Akıllı Etiketler, genel veya yinelenen geliştirme görevlerini denetim başına temelinde gerçekleştirmeyi kolaylaştırır. Bu özellik HTML tasarımcısında zaten kullanılabilir, ancak HTML düzenleyicisinde mevcut değil.
 
-1. Açık **Site.Master** bulun **asp: menü** öğesi. Başlangıç etiketi ve dikkat öğe - alt kısmında görüntülenen küçük simge Akıllı görevler menüsünü açmak için tıklayın imleci yerleştirin. Menü denetimi ile ilgili bazı görevleri hızlı erişimi olduğunu fark edeceksiniz.
+1. **Site. Master** ' i açın ve **ASP: Menu** öğesini bulun. İmleci başlangıç etiketine yerleştirin ve küçük glifin öğenin altında görüntülendiğini unutmayın. akıllı görevler menüsünü açmak için tıklayın. Menü denetimiyle ilgili bazı görevlere hızlı erişiminizin olduğuna dikkat edin.
 
-    ![Menü denetimi için görevleri akıllı](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image32.png "akıllı görevleri için menü denetimi")
+    ![Menü denetimi için akıllı görevler](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image32.png "Menü denetimi için akıllı görevler")
 
-    *Menü denetimi için akıllı görevleri*
+    *Menü denetimi için akıllı görevler*
 
 <a id="Ex2Task5"></a>
 
 <a id="Task_5_-_Smart_Indentation"></a>
-#### <a name="task-5---smart-indentation"></a>Görev 5 - akıllı girinti
+#### <a name="task-5---smart-indentation"></a>Görev 5-akıllı girintileme
 
-Bir HTML en iyi kod okunabilir tutmak için iç içe öğelerin girintileme. Visual Studio 2012'de kod yazarken düzenleyicide öğeleri otomatik olarak girintiler fark edeceksiniz.
+HTML 'deki en iyi uygulamalardan biri, kodu okunabilir tutmak için iç içe geçmiş öğeleri girintileyerek. Visual Studio 2012 ' de, kodu yazarken düzenleyicinin öğeleri otomatik olarak girintiettiğini fark edeceksiniz.
 
 > [!NOTE]
-> Akıllı girintileme önceki Visual Studio sürümünde kullanılabilir olan XML düzenleyicisinde ancak HTML düzenleyicisi içinde değil.
+> Visual Studio 'nun önceki sürümünde, akıllı girintileme, XML düzenleyicisinde kullanılabilir ancak HTML düzenleyicisinde yok.
 
-1. Indenting yapılandırma üzerinde HTML düzenleyicisi akıllı girintileme için ayarlanmış olduğundan emin olun. Bunu yapmak için seçin **araçları | Seçenekleri** menü seçeneğini ve ardından **metin düzenleyicisi | HTML | Sekmeleri** ekranın sol bölmede sayfası. Akıllı girintileme seçeneğini belirleyin.
+1. HTML düzenleyicisinde girintileme yapılandırmasının akıllı girintileme olarak ayarlandığından emin olun. Bunu yapmak için **araçları seçin | Seçenekler** menü seçeneği ve sonra **metin düzenleyiciyi seçin | HTML |** Ekranın sol bölmesindeki sekmeler sayfası. Akıllı girintileme seçeneğini belirleyin.
 
-    ![HTML Düzenleyici ayarları](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "HTML düzenleyicisi ayarları")
+    ![HTML Düzenleyicisi ayarları](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image33.png "HTML Düzenleyicisi ayarları")
 
-    *HTML düzenleyicisi ayarları*
-2. Üzerinde **Default.aspx** sayfasında, ses öğesinin altındaki tüm içeriğini kaldırın.
-3. Açılış sonunda imleci **ses** öğesi ve isabet **ENTER**.
+    *HTML Düzenleyicisi ayarları*
+2. **Default. aspx** sayfasında, Audio öğesinin altındaki tüm içeriği kaldırın.
+3. İmleci açma **sesi** öğesinin sonuna yerleştirin ve **ENTER**tuşuna basın.
 
-    Yeni imleç konumu bir ek girinti düzeyi olduğuna dikkat edin.
+    İmlecin yeni konumunun ek bir girintileme düzeyine sahip olduğuna dikkat edin.
 
-    ![Akıllı girintileme HTML Düzenleyicisi'nde](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image34.png "akıllı girintileme HTML Düzenleyicisi'nde")
+    ![HTML düzenleyicisinde akıllı girintileme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image34.png "HTML düzenleyicisinde akıllı girintileme")
 
-    *HTML Düzenleyicisi'nde akıllı girinti*
-4. Ses etiketini kaldırdıysanız veya kapatın içerikle geri **Default.aspx** değişiklikleri kaydetmeden.
+    *HTML düzenleyicisinde akıllı girintileme*
+4. Kaldırdığınız içerikle ses etiketini geri yükleyin veya değişiklikleri kaydetmeden **default. aspx** ' i kapatın.
 
 <a id="Ex2Task6"></a>
 
 <a id="Task_6_-_Extract_to_User_Control"></a>
-#### <a name="task-6---extract-to-user-control"></a>Görev 6 - kullanıcı denetimi ayıklayın
+#### <a name="task-6---extract-to-user-control"></a>Görev 6-Kullanıcı denetimine Ayıkla
 
-Bir işlev kodu bir kısmını ayıklama gibi Visual Studio'da bulunan yeniden düzenleme araçları, geliştirme ve mevcut kodu yeniden düzenlemeye kolaylaştıran harika özellikleridir. ASP.NET sayfaları için karşılık gelen HTML kod ayıklama için bir kullanıcı denetimi olacaktır. El ile yapılması yeni bir kullanıcı denetimi oluşturma, kullanıcı denetimine kod bölümünde taşıma, kullanıcı denetim için etiket öneki kaydetme ve, son olarak, kullanıcı denetimi sayfalarında örnekleme gibi çeşitli adımları içerir. Şimdi, yeni *kullanıcı denetimine çıkar* aracı otomatik olarak gerçekleştirir bu adımların tümünü sizin için.
+Visual Studio 'ya eklenen ve kodun bir bölümünü bir işleve ayıklama gibi yeniden düzenleme araçları, geliştirme ve mevcut kodu yeniden düzenleme işlemlerini kolaylaştıran harika özelliklerdir. ASP.NET sayfaları için karşılık gelen, bir kullanıcı denetimine HTML kodunun ayıklanması olacaktır. Bunu el ile yapmak, yeni bir kullanıcı denetimi oluşturma, kod bölümünü Kullanıcı denetimine taşıma, Kullanıcı denetimi için bir etiket öneki kaydetme ve son olarak sayfalardaki Kullanıcı denetiminin örneğini oluşturma gibi çeşitli adımları kapsar. Şimdi, yeni *kullanıcıya Ayıkla denetim* aracı sizin için tüm bu adımları otomatik olarak gerçekleştirir.
 
-Bu görevde, yeni kullanıcı denetimi bağlamsal işlemi ayıklayın, seçilen kod yeni bir kullanıcı denetimi oluşturmak için kullanır.
+Bu görevde, seçilen koddan yeni bir kullanıcı denetimi oluşturmak için yeni bir kullanıcı denetimi bağlama işlemini kullanacaksınız.
 
-1. Üzerinde **Default.aspx** sayfasında **H2** ve **ses** öğeleri.
-2. Sağ tıklatın ve seçin **kullanıcı denetimine çıkar**.
+1. **Default. aspx** sayfasında **H2** ve **Audio** öğelerini seçin.
+2. Sağ tıklayın ve **Kullanıcı denetimine Ayıkla**' yı seçin.
 
-    ![Kullanıcı denetimi menü seçeneğine ayıklamak](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image35.png "kullanıcı denetimi menü seçeneğine ayıklayın")
+    ![Kullanıcıya Ayıkla Denetim menüsü seçeneği](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image35.png "Kullanıcıya Ayıkla Denetim menüsü seçeneği")
 
-    *Kullanıcı denetimi menü seçeneğine ayıklayın*
-3. Yeni kullanıcı denetimi için bir ad yazın. Örneğin, **Jukebox.ascx**ve ardından **Tamam**.
+    *Kullanıcıya Ayıkla Denetim menüsü seçeneği*
+3. Yeni Kullanıcı denetimi için bir ad yazın. Örneğin, **Jukebox. ascx**' i ve ardından **Tamam**' ı tıklatın.
 
-    ![Ayıklanan kullanıcı denetimine kaydetme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image36.png "ayıklanan kullanıcı denetimi kaydediliyor")
+    ![Ayıklanan Kullanıcı denetimini kaydetme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image36.png "Ayıklanan Kullanıcı denetimini kaydetme")
 
-    *Ayıklanan kullanıcı denetimi kaydediliyor*
-4. Seçilen koda bir kullanıcı denetimine ayıklanan ve yeni kullanıcı denetimi örneğini seçili kodunun özgün konumuna değiştirildi dikkat edin.
+    *Ayıklanan Kullanıcı denetimini kaydetme*
+4. Seçili kodun bir kullanıcı denetimine ayıklandığına ve seçili kodun özgün konumunun yeni kullanıcı denetiminin bir örneğiyle değiştirildiğini unutmayın.
 
-    ![Sayfa yeni kullanıcı denetimi kullanmak için otomatik olarak güncelleştirilen](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image37.png "sayfası yeni kullanıcı denetimi kullanmak için otomatik olarak güncelleştirildi")
+    ![Sayfa Yeni Kullanıcı denetimini kullanacak şekilde otomatik olarak güncelleştirildi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image37.png "Sayfa Yeni Kullanıcı denetimini kullanacak şekilde otomatik olarak güncelleştirildi")
 
-    *Sayfayı yeni kullanıcı denetimi kullanmak için otomatik olarak güncelleştirilir.*
-5. Tuşuna **F5** çalıştırırsanız ve denetim çalıştığını doğrulayın.
+    *Sayfa Yeni Kullanıcı denetimini kullanacak şekilde otomatik olarak güncelleştirildi*
+5. Sayfayı çalıştırmak için **F5** tuşuna basın ve denetimin çalıştığını doğrulayın.
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Whats_New_in_the_JavaScript_Editor"></a>
-### <a name="exercise-3-whats-new-in-the-javascript-editor"></a>Alıştırma 3: JavaScript Düzenleyicisi'nde yenilikler nelerdir?
+### <a name="exercise-3-whats-new-in-the-javascript-editor"></a>Alıştırma 3: JavaScript düzenleyicideki yenilikler
 
-Yazma veya JavaScript kod düzenleme bir kolayca görev özellikle boyutları büyürken, uygulamanız başlar ve kendiniz uzun dosyalarını uğraşmanızı ve işlevleri yüzlerce bulun, değil. Betik geliştiriciler genellikle kod Okunaklılık korumak ve dosyalar arasında gezinmek için ek iş yapması gerekir. JQuery gibi JavaScript kitaplıklarını eklenmesi ile betik Gezinti kod uzunluğu nedeniyle zor kendisini haline gelmiştir.
+Özellikle uygulamanız boyutu büyümeye başladığı ve uzun dosyalarla ve yüzlerce işlevlerle ilgilenirken JavaScript kodu yazmak veya düzenlenmesinin kolay bir görev değildir. Betik geliştiricilerinin genellikle kod okunabilirliğini sürdürmek ve dosyalar arasında gezinmek için bazı ek işler yapması gerekir. JQuery gibi JavaScript kitaplıklarının dahil edilmesi halinde, kod uzunluğu nedeniyle betik gezintisi bir sınama haline geldi.
 
-Visual Studio JavaScript Düzenleyicisi kod modu, erişilebilir ve düzenli hale getirmek için promise ile yeniledi. Zaten varolan birçok Visual Studio özellikleri C# veya VB düzenleyiciler artık JavaScript Düzenleyicisi'nde uygulanır: Tanıma Git, Otomatik girintili yazma, belgelere ve siz yazarken doğrulama. Yenilenen IntelliSense listesiyle parmaklarınızın ucunda JavaScript işlevi Kataloğu gerekir.
+Visual Studio, kod modunu erişilebilir ve düzenlenebilir hale getirmek için Promise ile JavaScript düzenleyicisini yeniledi. C# Veya vb düzenleyicilerinde zaten var olan birçok Visual Studio özelliği artık JavaScript düzenleyicisinde uygulandı: yazarken tanıma, otomatik girintileme, belgeler ve doğrulama bölümüne gidin. Yenilenen IntelliSense listesinde, JavaScript işlev kataloğuna parmaklarınızın ucunda olursunuz.
 
-Bu alıştırmada, bazı yeni özellikler ve geliştirmeler JavaScript düzenleyicisinin öğreneceksiniz. Siz örnek dosyalara göz atın ve her biri, JavaScript programlama Visual Studio 2012 içinde daha verimli hale getirecek yeni özellikleri keşfedin.
+Bu alıştırmada, JavaScript Düzenleyicisi 'nin yeni özellik ve iyileştirmelerinden bazılarını öğreneceksiniz. Örnek dosyalara gözatıp, JavaScript programlarınızın Visual Studio 2012 içinde daha verimli olmasını sağlayacak yeni özelliklerden her birini keşfedeceksiniz.
 
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_JavaScript_Editor_New_Features"></a>
-#### <a name="task-1---javascript-editor-new-features"></a>Görev 1 - JavaScript Düzenleyicisi yeni özellikleri
+#### <a name="task-1---javascript-editor-new-features"></a>Görev 1-JavaScript Düzenleyicisi yeni özellikler
 
-Bu görev için bazı kod düzenleme ve daha iyi bir kullanıcı deneyimi getirme yeni JavaScript Düzenleyicisi özellikleri kullanıma sunacak.
+Bu görev sizi, kodunuzun düzenlenmesine ve daha iyi bir kullanıcı deneyimi getirmeye odaklanarak yeni JavaScript Düzenleyicisi özelliklerinden bazılarını tanıtacaktır.
 
-1. Henüz açık değilse başlatmak **Visual Studio** açın **WhatsNewASPNET.sln** çözüm bulunan **Source\WhatsNewASPNET** klasör, bu Laboratuvarın.
-2. Tuşuna **F5** uygulamayı çalıştırmak için Gezinti çubuğundaki JavaScript bağlantıya tıklayın. Sayfanın birkaç kez ve onay nasıl Yenile sayacını artırır.
+1. Zaten açık değilse, **Visual Studio 'yu** başlatın ve bu laboratuvarın **Source\WhatsNewASPNET** klasöründe bulunan **WhatsNewASPNET. sln** çözümünü açın.
+2. Uygulamayı çalıştırmak için **F5** tuşuna basın, ardından gezinti çubuğundaki JavaScript bağlantısına tıklayın. Sayfayı birkaç kez yenileyin ve sayacın nasıl artısaymadığını denetleyin.
 
-    ![Sayfa Sayacı](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image38.png "sayfa sayacı")
+    ![Sayfa sayacı](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image38.png "Sayfa sayacı")
 
-    *Sayfa Sayacı*
-3. Tarayıcıyı kapatın ve Visual Studio'ya geri dönün.
-4. Açık **JavaScript.aspx** bulun ve sayfa **&lt;betik&gt;** blok (aşağıda gösterilmiştir).
+    *Sayfa sayacı*
+3. Tarayıcıyı kapatın ve Visual Studio 'ya geri dönün.
+4. **JavaScript. aspx** sayfasını açın ve **&lt;betiği&gt;** bloğunu (aşağıda gösterilmiştir) bulun.
 
-    Aşağıdaki kod, saklamak için yerel HTML5 depolama kullanır. bir *pageLoadCount* sayfanın geçerli kullanıcı tarafından ziyaret kaç kez depolayan değişken. Yerel depolama ile HTML5 standart sunulan bir istemci-tarafı anahtar-değer veritabanı hizmetidir. Veriler, yerel makinede, kullanıcının tarayıcı içinde kaydedilir.
+    Aşağıdaki kod, sayfanın geçerli kullanıcı tarafından ziyaret edilme sayısını depolayan *Pageloadcount* değişkenini depolamak için HTML5 yerel depolama kullanır. Yerel depolama, HTML5 standardına göre sunulan bir istemci tarafı anahtar-değer veritabanıdır. Veriler, kullanıcının tarayıcısının içindeki yerel makineye kaydedilir.
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample7.html)]
 
     > [!NOTE]
-    > DOCTYPE XHTML5 için sonraki adımlara devam etmeden önce ayarlandığından emin olun.
-5. Kodu düzenleme ve JavaScript için IntelliSense gibi yerel depolama ve iç yöntemlerini HTML5 özelliklerini içerdiğine dikkat edin.
+    > Sonraki adımlarla devam etmeden önce DOCTYPE 'ın XHTML5 olarak ayarlandığından emin olun.
+5. Kodu düzenleyin ve JavaScript için IntelliSense 'in yerel depolama gibi HTML5 özellikleri ve bunların iç yöntemleri içerdiğine dikkat edin.
 
-    ![JavaScript, HTML5, JavaScript özellikleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image39.png "JavaScript HTML5 JavaScript özellikleri")
+    ![JavaScript 'te HTML5 JavaScript özellikleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image39.png "JavaScript 'te HTML5 JavaScript özellikleri")
 
-    *JavaScript, HTML5, JavaScript özellikleri*
-6. Bir açma ayracı tıklayın (**{**) komut dosyası kodu ve köşeli ayraçlar vurgulanır dikkat edin.
+    *JavaScript 'te HTML5 JavaScript özellikleri*
+6. Betik kodundan herhangi bir açma köşeli ayracı ( **{** ) tıklatın ve köşeli ayracın vurgulandığını unutmayın.
 
-    ![Köşeli ayraçlar vurgulanır](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image40.png "ayraçlar vurgulanır")
+    ![Köşeli ayraçlar vurgulanır](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image40.png "Köşeli ayraçlar vurgulanır")
 
     *Köşeli ayraçlar vurgulanır*
-7. İşlev açıklama durumundan çıkarın **testAutoAlign()** (üç satırı seçin ve kullanabileceğiniz **CTRL** + **K**; **CTRL** + **U**) ve işlev kodunu imleci bulun. İkinci satır eklemek için enter tuşuna basın. Artık kod olduğuna dikkat edin **hizalı** ve **otomatik girintili**.
+7. **Testautoalign ()** işlevinin açıklamasını kaldırın (üç satırı seçin ve **CTRL** + **K**kullanabilirsiniz; **CTRL** + **U**) ve işlev kodu içindeki imleci bulun. İkinci bir satırı eklemek için ENTER tuşuna basın. Kodun artık **hizalandığını** ve **Otomatik girintili**olduğunu unutmayın.
 
-    ![JavaScript kodudur hizalı otomatik](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image41.png "JavaScript kodu otomatik hizalanır.")
+    ![JavaScript kodu otomatik hizalı](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image41.png "JavaScript kodu otomatik hizalı")
 
-    *JavaScript kodu otomatik hizalanır.*
+    *JavaScript kodu otomatik hizalı*
 
 <a id="Ex3Task2"></a>
 
 <a id="Task_2_-_Validating_JavaScript"></a>
-#### <a name="task-2---validating-javascript"></a>Görev 2 - doğrulama JavaScript
+#### <a name="task-2---validating-javascript"></a>Görev 2-JavaScript doğrulanıyor
 
-Bu görevde, yeni bir JavaScript doğrulama ECMAScript5 standart keşfeder. Bu özellik site dağıtımdan önce kodlama engelleme sorunları oluştu uyumlu JavaScript kod yazmanıza yardımcı olur.
+Bu görevde, ECMAScript5 Standard için yeni JavaScript doğrulamasını keşfedeceksiniz. Bu özellik uyumlu JavaScript kodu yazmanıza yardımcı olur, ancak site dağıtımından önce betik oluşturma sorunlarını önler.
 
 > [!NOTE]
-> Visual Studio 2010, Visual Studio 2012 ECMAScript5 uyum sağlarken ECMAStript3 uyumluluk uygulanır.
+> Visual Studio 2010 ECMAStript3 uyumluluğunu uyguladık, Visual Studio 2012 ECMAScript5 uyumluluğu sağlar.
 
-1. Açık **ECMA5script5.js** altında bulunan **Scripts\custom** proje klasörü. Artık doğrulama ECMAScript5 standart için test eder.
+1. **Scripts\custom** proje klasörünün altında bulunan **ECMA5script5. js** ' i açın. Artık ECMAScript5 Standard için doğrulamayı test edersiniz.
 
     [!code-html[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample8.html)]
 
-    Gözden geçirin &quot; **katı kullan** &quot; ECMAScript5 sağlayan dosyanın ilk satırı yönde **katı mod**. Bu modda, son sürümünden belirsizlikleri açıklar ve nesne özellikleri alıcılar ve ayarlayıcılar, JSON ve daha eksiksiz bir yansıma için kitaplık desteği gibi bazı yeni özellikler ekler dilini alt oluşur.
-2. Açık **hata listesi** zaten açtıysanız (**görünümü** menü | **Hata listesi**). Bildirim **işlevi** bildirimi çizilir. Dil yapıları standart işlevleri ECMA5 içinde yuvalanamaz olmasıdır. Hata, uyarı ayrıntıları, aşağıdaki listede görürsünüz.
+    ECMAScript5 **katı modu**sağlayan, dosyanın ilk satırında **katı** &quot; yönü &quot; kullanıma alabilirsiniz. Bu mod, önceki sürümden belirsizlikleri açıklığa kavuşturtiren dilin bir alt kümesiyle oluşur ve alıcıları ve ayarlayıcılar, JSON için kitaplık desteği ve nesne özellikleri üzerinde daha fazla yansıma gibi bazı yeni özellikler ekler.
+2. Zaten açılmadıysa **hata listesi** açın (**Görünüm** menüsü | **Hata listesi**). **İşlev** bildiriminin altı çizili olduğuna dikkat edin. Bunun nedeni, ECMA5 standart işlevlerinin dil yapıları içinde yer alamaz. Aşağıdaki hata listesinde, uyarı ayrıntılarını görürsünüz.
 
-    ![JavaScript doğrulama hatası iletisini](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image42.png "JavaScript doğrulama hata iletisi")
+    ![JavaScript doğrulama hata iletisi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image42.png "JavaScript doğrulama hata iletisi")
 
     *JavaScript doğrulama hata iletisi*
-3. Açıklama **&quot;katı kullan&quot;** yönünü ve hataları yok, ancak uyarılar kalır dikkat edin.
-4. Dosyasının son satırında gibi herhangi bir dize yazmak **&quot;test&quot;** (dize olarak belirtmek için tırnak işaretleri dahil). Bir süre IntelliSense listesini görüntülemek ve seçmek için dize yanındaki yazma **trim** seçeneği.
+3. **&quot;katı&quot;yönünü kullanın** ve hataların kaybolduğunu, ancak uyarıların kaldığını unutmayın.
+4. Dosyanın son satırına, **&quot;test&quot;** gibi bir dize yazın (dize olarak göstermek için tırnak işaretleri ekleyin). IntelliSense listesini göstermek için dizenin yanına bir nokta yazın ve **Kırp** seçeneğini belirleyin.
 
-    ECMAScript5 standart, dize değerleri ve değişkenleri, trim, büyük harf, arama ve değiştirme gibi tanımlı dize yöntemlerini de.
+    ECMAScript5 Standard 'da, dize değerleri ve değişkenleri, trim, büyük harfler, ara ve Değiştir gibi tanımlanmış dize yöntemlerine sahiptir.
 
-    ![JavaScript IntelliSense listesinde](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image43.png "JavaScript IntelliSense listesinde")
+    ![JavaScript 'te IntelliSense listesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image43.png "JavaScript 'te IntelliSense listesi")
 
-    *JavaScript IntelliSense listesinde*
+    *JavaScript 'te IntelliSense listesi*
 
 <a id="Ex3Task3"></a>
 
 <a id="Task_3_-_XML_Documentation_for_JavaScript"></a>
-#### <a name="task-3---xml-documentation-for-javascript"></a>Görev 3 - JavaScript XML belgeleri
+#### <a name="task-3---xml-documentation-for-javascript"></a>Görev 3-JavaScript için XML belgeleri
 
-Bu görevde, JavaScript XML belgelerinde için Visual Studio özellikleri inceleyeceksiniz. JavaScript IntelliSense listesini her işlevin XML belgeleri gösterdiğini görürsünüz. Ayrıca, JavaScript gezinti özelliği keşfeder.
+Bu görevde JavaScript 'te XML belgeleri için Visual Studio özelliklerini araştıracaktır. JavaScript IntelliSense listesinin şimdi her bir işlevin XML belgelerini gösterdiğini görürsünüz. Ayrıca, gezinme özelliğini JavaScript 'te keşfedeceksiniz.
 
-1. Açık **XMLDoc.js** bulunan dosya **betikleri/özel** proje klasörü. Bu dosya, XML belgeleri her JavaScript işlevleri içerir.
+1. **Betikler/özel** proje klasöründe bulunan **xmlDoc. js** dosyasını açın. Bu dosya JavaScript işlevlerinin her birinde XML belgelerini içerir.
 
-    ![JavaScript XML belgeleri için IntelliSense tümleşik](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image44.png "JavaScript XML belgeleri için IntelliSense tümleşik")
+    ![IntelliSense ile tümleştirilmiş JavaScript XML belgeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image44.png "IntelliSense ile tümleştirilmiş JavaScript XML belgeleri")
 
-    *IntelliSense için tümleşik JavaScript XML belgeleri*
-2. Aşağıda **ekleme** işlevi **XMLDoc.js** dosya, adlı yeni bir işlev oluşturma **test**.
-3. İçinde **test** işlev, çağrı **Çarp** iki parametre alan bir işlev. Araç İpucu kutuyu gösteren fark **Çarp** işlevi belgelerine.
+    *IntelliSense ile tümleştirilmiş JavaScript XML belgeleri*
+2. **XmlDoc. js** dosyasındaki **Add** işlevi altında, **Test**adlı yeni bir işlev oluşturun.
+3. **Test** işlevinde, iki parametre alan **çarpma** işlevini çağırın. Araç ipucu kutusunda **çarpma** işlevi belgelerinin gösterildiğini görebilirsiniz.
 
     [!code-javascript[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample9.js)]
 
-    ![JavaScript işlevleri için XML belgeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image45.png "XML belgeleri için JavaScript işlevleri")
+    ![JavaScript işlevleri için XML belgeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image45.png "JavaScript işlevleri için XML belgeleri")
 
-    *XML belgeleri için JavaScript işlevleri*
-4. İşlev çağrısı ifadesi ve türü tamamlamak bir *nokta* döndürülen değerin üzerinde IntelliSense listesini açın. Visual Studio algılama Uyarısı **dönüş** değeri bir sayı olarak davranılması belgelerinde değeri.
+    *JavaScript işlevleri için XML belgeleri*
+4. İşlev çağrısı ifadesini doldurun ve döndürülen değer üzerinde IntelliSense listesini açmak için bir *nokta* yazın. Visual Studio 'Nun belgelerde **döndürülen** değeri algılayarak değeri sayı olarak kabul ettiğini unutmayın.
 
-    ![Dönüş türleri için XML belgeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image46.png "dönüş türleri için XML belgeleri")
+    ![Dönüş türleri için XML belgeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image46.png "Dönüş türleri için XML belgeleri")
 
     *Dönüş türleri için XML belgeleri*
-5. Şimdi, işlev eklemek için bir çağrı ekleyin. JavaScript Düzenleyici artık işlev aşırı yüklemelerinin içerdiğine dikkat edin. Bir işlev adı yazdığınızda, herhangi bir belgede belirtilen kullanılabilir aşırı olacaktır.
+5. Şimdi, Add işlevi için bir çağrı ekleyin. JavaScript düzenleyicisinin artık işlev aşırı yüklerini desteklediğini unutmayın. Bir işlev adı yazdığınızda, belgelerde belirtilen kullanılabilir aşırı yüklerden birini seçebileceksiniz.
 
-    ![XML belgeleri için aşırı yüklemeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image47.png "aşırı yüklemeler için XML belgeleri")
+    ![Aşırı yüklemeler için XML belgeleri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image47.png "Aşırı yüklemeler için XML belgeleri")
 
     *Aşırı yüklemeler için XML belgeleri*
-6. Açık **GotoDefinition.js** bulun ve dosya **$().html()** işlev çağrısı. İmleç bulmak **html**.
-7. Tuşuna **F12** ve tanımına gidin. Artık erişebilir ve kullanmadan JavaScript kodunuza göz atma bildirimi **Bul** aracı.
-8. İmleci, kod dosyasının sonundaki imza bloğunu önce jQuery yönerge üzerinde bulun. Tuşuna **F12**. JQuery kitaplığı dosyaya gider. JQuery kullanarak dosyaları arasında da gidebilirsiniz fark **F12**.
+6. **Sayfaydefinition. js** dosyasını açın ve **$ (). html ()** işlev çağrısını bulun. **HTML**üzerinde imleci bulun.
+7. **F12** tuşuna basın ve tanıma gidin. Artık **bul** aracını kullanmadan JavaScript kodunuza erişip erişebileceğinizi fark edebilirsiniz.
+8. Kod dosyasının alt kısmındaki imza bloğundan önce jQuery yönergesinin üzerindeki imleci bulun. **F12**tuşuna basın. JQuery kitaplık dosyasına gitmeniz gerekir. Ayrıca, **F12**kullanarak jQuery dosyaları arasında gezinmeniz fark edebilirsiniz.
 
-    ![JQuery tanımları için gezinme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image48.png "jQuery tanımları için gezinme")
+    ![JQuery tanımlarına gitme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image48.png "JQuery tanımlarına gitme")
 
-    *JQuery tanımları için gezinme*
+    *JQuery tanımlarına gitme*
 
 > [!NOTE]
-> Dosyayı kaydetmeden önce GotoDefinition.js söz dizimi hatası olduğundan emin olun.
+> Dosyayı kaydetmeden önce, Sayfaydefinition. js ' nin sözdizimi hatası olmadığından emin olun.
 
 <a id="Exercise4"></a>
 
 <a id="Exercise_4_Bundling_and_Minification"></a>
-### <a name="exercise-4-bundling-and-minification"></a>Alıştırma 4: Paketleme ve Küçültme
+### <a name="exercise-4-bundling-and-minification"></a>Alıştırma 4: paketleme ve Minbirleşme
 
-Kaç kez sitelerinizi birden fazla JavaScript ya da CSS dosyası dahil midir? Bu, burada paketleme ve küçültme dosya boyutunu azaltıp daha hızlı gerçekleştirin sitesini yardımcı olabilir, yaygın bir senaryodur. Yeni paket özelliği ASP.NET 4.5, tek bir öğe JS ya da CSS dosyaları paketleri ve içeriği (yani gerekli boşluk kaldırma açıklamaları kaldırma, tanımlayıcılar azaltma) küçültme tarafından boyutunu azaltır.
+Web siteleriniz kaç kez bir JavaScript veya CSS dosyası içeriyor? Bu, paketleme ve küçültme, dosya boyutunu azaltmaya ve sitenin daha hızlı gerçekleşmesini sağlamaya yardımcı olan çok yaygın bir senaryodur. ASP.NET 4,5 ' deki yeni paketleme özelliği, bir dizi JS veya CSS dosyasını tek bir öğe halinde paketler ve içeriği (gerekmeyen boş alanları kaldırmak, açıklamaları kaldırmak ve tanımlayıcıları azaltmak) için boyutunu azaltır.
 
-Paketleme ve küçültme ASP.NET 4.5 içinde gerçekleştirilir çalışma zamanında işlemi kullanıcı aracısı (örneğin, IE, Mozilla, vb.) tanımlamak ve bu nedenle, kullanıcı tarayıcı (Mozilla belirli olan örneği için kaldırma öğe hedefleyerek sıkıştırma geliştirin ne zaman istek IE gelir).
+ASP.NET 4,5 ' de paketleme ve küçültme, çalışma zamanında gerçekleştirilir, böylece işlem Kullanıcı aracısını tanımlayabilir (örneğin, IE, Mozilla, vb.) ve bu nedenle Kullanıcı tarayıcısını hedefleyerek (örneğin, Mozilla 'e özgü olan öğeleri kaldırma) sıkıştırma işlemini geliştirebilirsiniz istek IE 'den geldiğinde).
 
-Bu alıştırmada, etkinleştirmek ve paketleme ve küçültme farklı türde ASP.NET 4.5 içinde kullanmak öğreneceksiniz.
+Bu alıştırmada, ASP.NET 4,5 ' de farklı paketleme ve küçültme türlerini nasıl etkinleştireceğinizi ve kullanacağınızı öğreneceksiniz.
 
 <a id="Ex4Task1"></a>
 
 <a id="Task_1_-_Installing_the_Bundling_and_Minification_Package_from_NuGet"></a>
-#### <a name="task-1---installing-the-bundling-and-minification-package-from-nuget"></a>Görev 1 - yükleme paketleme ve küçültme NuGet paketi
+#### <a name="task-1---installing-the-bundling-and-minification-package-from-nuget"></a>Görev 1-NuGet 'den paketleme ve Minbirleşme paketini yükleme
 
-1. Henüz açık değilse başlatmak **Visual Studio** açın **WhatsNewASPNET.sln** çözüm bulunan **Source\WhatsNewASPNET** klasör, bu Laboratuvarın.
-2. NuGet Paket Yöneticisi konsolunu açın. Bunu yapmak için menüyü kullanın. **görünümü** | **diğer Windows** | **Paket Yöneticisi Konsolu**.
+1. Zaten açık değilse, **Visual Studio 'yu** başlatın ve bu laboratuvarın **Source\WhatsNewASPNET** klasöründe bulunan **WhatsNewASPNET. sln** çözümünü açın.
+2. NuGet Paket Yöneticisi konsolunu açın. Bunu yapmak için, **diğer Windows** | **paket Yöneticisi konsolu** | menü **görünümünü** kullanın.
 
-    ![Paket Yöneticisi file:///C:/Users/User/AppData/Local/Temp/Marker3744//media/44462/Multiple-Stylesheets-and-JavaScript-files-in-the-application.pngconsole açma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image49.png "Paket Yöneticisi konsolu açma")
+    ![Paket Yöneticisi file:///C:/Users/User/AppData/Local/Temp/Marker3744//media/44462/Multiple-Stylesheets-and-JavaScript-files-in-the-application.pngconsole açılıyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image49.png "Paket Yöneticisi konsolunu açma")
 
-    *Paket Yöneticisi konsolu açma*
-3. İçinde **Paket Yöneticisi Konsolu** türü **Install-Package Microsoft.Web.Optimization** basın **ENTER**.
+    *Paket Yöneticisi konsolunu açma*
+3. **Paket Yöneticisi konsolunda** **Install-Package Microsoft. Web. Optimization** yazın ve **ENTER**tuşuna basın.
 
 <a id="Ex4Task2"></a>
 
 <a id="Task_2_-_Default_Bundles"></a>
-#### <a name="task-2---default-bundles"></a>Görev 2 - varsayılan paketleri
+#### <a name="task-2---default-bundles"></a>Görev 2-varsayılan demeti
 
-Paketleme ve küçültme kullanmanın en basit yolu, varsayılan paketleri etkinleştirmektir. Bu yöntem, bir klasördeki JS ve CSS dosyaları ile birlikte gelen ve küçültülmüş sürümü başvuru izin vermek için kuralları kullanır.
+Paketleme ve minmate kullanmanın en basit yolu, varsayılan paketleri etkinleştirmektir. Bu yöntem, bir klasördeki JS ve CSS dosyaları için paketlenmiş ve küçültülmüş sürüme başvuru yapmanızı sağlamak için kuralları kullanır.
 
-Bu görevde, etkinleştirmek ve paketlenmiş ve küçültülmüş JS ve CSS dosyalarına başvuruda ve elde edilen çıkış görüntülemeyi öğreneceksiniz.
+Bu görevde, paketlenmiş ve küçültülmüş JS ve CSS dosyalarını nasıl etkinleştirip başvurulacağını ve elde edilen çıktıyı görüntülemenize öğreneceksiniz.
 
-1. Henüz açık değilse başlatmak **Visual Studio** açın **WhatsNewASPNET.sln** çözüm bulunan **Source\WhatsNewASPNET** klasör, bu Laboratuvarın.
-2. İçinde **Çözüm Gezgini**, genişletme **stilleri**, **Scripts\custom** ve **Scripts\bundle** klasörleri.
+1. Zaten açık değilse, **Visual Studio 'yu** başlatın ve bu laboratuvarın **Source\WhatsNewASPNET** klasöründe bulunan **WhatsNewASPNET. sln** çözümünü açın.
+2. **Çözüm Gezgini**, **Styles**, **scripts\custom** ve **scripts\demeti** klasörlerini genişletin.
 
-    Uygulama birden fazla CSS ve JS dosyası kullandığını unutmayın.
+    Uygulamanın birden fazla CSS ve JS dosyası kullandığını unutmayın.
 
-    ![Uygulama birden çok stil sayfaları ve JavaScript dosyalarında](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image50.png "uygulamadaki birden çok stil sayfaları ve JavaScript dosyaları")
+    ![Uygulamada birden çok stil sayfaları ve JavaScript dosyası](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image50.png "Uygulamada birden çok stil sayfaları ve JavaScript dosyası")
 
-    *Uygulama birden çok stil sayfaları ve JavaScript dosyaları*
-3. Açık **Global.asax.cs** dosya.
+    *Uygulamada birden çok stil sayfaları ve JavaScript dosyası*
+3. **Global.asax.cs** dosyasını açın.
 
-    Dikkat yeni **Microsoft.Web.Optimization** ad alanı dışında bırakılır dosyasının başında. Using açıklamadan çıkarın paketleme ve küçültme özelliklerinin yönergesi.
+    Yeni **Microsoft. Web. Optimization** ad alanının, dosyanın başlangıcında yorum oluşturulduğuna dikkat edin. Paketleme ve küçültmeye yönelik özellikleri eklemek için using yönergesinin açıklamasını kaldırın.
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
-4. Bulun **uygulama\_Başlat** yöntemi.
+4. **Uygulama\_start** metodunu bulun.
 
-    Bu yöntemde, aşağıdaki kod parçacığında gösterildiği gibi EnableDefaultBundles çağrı açıklamasını kaldırın. Bu, klasörün yolunu kullanarak bir klasördeki CSS dosyaları ile birlikte gelen koleksiyonu başvuru sağlıyor artı &quot;CSS&quot; veya &quot;JS&quot; soneki.
+    Bu yöntemde, aşağıdaki kod parçacığında gösterildiği gibi Enabledefaultdemeti çağrısının açıklamasını kaldırın. Bu, söz konusu klasörün yolunu ve &quot;CSS&quot; ya da &quot;JS&quot; sonekini kullanarak bir klasördeki CSS dosyalarının paketlenmiş bir koleksiyonuna başvurmamızı sağlar.
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
-5. Açık **Optimization.aspx** dosya ve bulmak için içerik denetimi **HeadContent**.
+5. **Optimizasyon. aspx** dosyasını açın ve **headcontent**denetiminin içerik denetimini bulun.
 
-    CSS dosyaları ve tek bir başvurulan etikete sahip JS dosyaları dikkat edin.
+    CSS dosyalarına ve JS dosyalarına başvurulan tek bir etiket olduğuna dikkat edin.
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
 
     > [!NOTE]
-    > Bu kod, tanıtım amaçları içindir. İdeal olarak, paketleri Site.Master dosyasına başvurur. Bu örnek kodda, bazı paketlenen dosyalar da Site.Master dosyası tarafından başvurulmayan, bu son başvuru yedekli yaparak bulabilirsiniz.
-6. Bağlantıları paketleme kuralları kullanmakta olduğunu fark **href** stilleri ve Scripts\custom tüm CSS ve JS dosyaları almak için öznitelik klasör sırasıyla.
+    > Bu kod tanıtım amaçlıdır. İdeal olarak, site. master dosyasındaki paketlerdir. Bu örnek kodda, bazı paketlenmiş dosyalara da site. master dosyası tarafından başvurulduğunu ve bu son başvurunun gereksiz olduğunu fark edersiniz.
+6. Bağlantıların, sırasıyla Styles ve Scripts\custom klasöründen tüm CSS veya JS dosyalarını almak için **href** özniteliğinde paketleme kurallarını kullandığını unutmayın.
 
-    Yol kullanabilirsiniz **betikleri/özel/JS** paketleme ve küçültme içindeki tüm JS dosyaları için aşağıda gösterildiği gibi bir **betikleri/özel** klasör. Bu varsayılan paketlerle varsayılan davranıştır.
+    **Komut dosyaları/özel** klasör IÇINDEKI tüm JS dosyalarını paketleyip daha fazla kullanmak için aşağıda gösterildiği gibi **komut dosyalarını/özel/JS** yolunu kullanabilirsiniz. Varsayılan değer olan varsayılan davranıştır.
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
-7. Açık **Styles\Site.css** dosya.
+7. **Styles\site.exe** dosyasını açın.
 
-    Özgün CSS dosyası girintili kodu, boşluk ve dosya büyütme açıklamaları içerdiğine dikkat edin. (Ayrıca JavaScript dosyası boş alanları ve açıklama içerir).
+    Özgün CSS dosyasının girintili kod, boş alanlar ve dosyayı büyüten Yorumlar içerdiğini unutmayın. (Ayrıca, JavaScript dosyası boş boşluklar ve açıklamalar içerir).
 
-    ![Bir özgün CSS dosyaları betikler klasörüne](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image51.png "biri özgün CSS, betikler klasörüne dosyalar")
+    ![Betikler klasöründeki özgün CSS dosyalarından biri](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image51.png "Betikler klasöründeki özgün CSS dosyalarından biri")
 
-    *Özgün Scripts klasörü CSS dosyalarından birini*
-8. Tuşuna **F5** gidin ve uygulamayı çalıştırmak için **iyileştirme** sayfası.
-9. Tıklayarak **CSS paket** bağlantısını indirin ve dosyayı açın.
+    *Betikler klasöründeki özgün CSS dosyalarından biri*
+8. **F5** tuşuna basarak uygulamayı çalıştırın ve **iyileştirme** sayfasına gidin.
+9. Dosyayı indirmek ve açmak için **CSS paketi** bağlantısına tıklayın.
 
-    Küçültülmüş paketlenmiş dosyasını gözden geçirin. Daha küçük bir dosya oluşturma tüm boşluk, açıklamalar ve girinti karakterler kaldırılmış olduğunu göreceksiniz.
+    Küçültülmüş olan paketlenmiş dosyaya göz atın. Tüm boş boşlukların, yorumların ve girintileme karakterlerinin kaldırıldığını, daha küçük bir dosya oluşturduğunu fark edeceksiniz.
 
-    ![CSS dosyaları paketlenmiş](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image52.png "paketlenmiş CSS dosyaları")
+    ![Paketlenmiş CSS dosyaları](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image52.png "Paketlenmiş CSS dosyaları")
 
     *Paketlenmiş CSS dosyaları*
-10. Artık tıklayın **JS paket** paketlenmiş bir JavaScript dosyasını açmaya yönelik bağlantı. Uyarı Gezgini güvenle yoksayabilirsiniz. JavaScript dosyaları altındaki fark **özel** klasör Ayrıca paket ve küçültülmüş.
+10. Şimdi, JavaScript paketlenmiş dosyasını açmak için **js paket** bağlantısına tıklayın. Gezgin uyarısını güvenle yoksayabilirsiniz. **Özel** klasör altındaki JavaScript dosyalarının da paketlenmiş ve küçültülmüş olduğunu fark edebilirsiniz.
 
-    ![JavaScript dosyaları paketlenmiş](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image53.png "paketlenmiş JavaScript dosyaları")
+    ![Paketlenmiş JavaScript dosyaları](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image53.png "Paketlenmiş JavaScript dosyaları")
 
-    *İle birlikte gelen JavaScript dosyaları*
+    *Paketlenmiş JavaScript dosyaları*
 
-    CSS veya JS dosyaları için sıkıştırmanın etkinleştirilmesi ASP.NET önceki bir sürümünde çok daha karmaşıktır. Gördüğünüz gibi artık, bir satır eklemek yeterlidir *Global.asax* paketleme etkinleştirmek için dosya ve ardından sitenizdeki paketlenen dosyalar başvuru.
+    CSS veya JS dosyaları için sıkıştırmayı etkinleştirmek, önceki ASP.NET sürümünde çok daha karmaşıktır. Artık gördüğünüz gibi, paketlemeyi etkinleştirmek için *Global. asax* dosyasına bir satır eklemeniz ve sonra sitenizdeki paketlenmiş dosyalara başvurmanız yeterlidir.
 
 <a id="Ex4Task3"></a>
 
 <a id="Task_3_-_Static_Bundles"></a>
-#### <a name="task-3---static-bundles"></a>Görev 3 - statik paket
+#### <a name="task-3---static-bundles"></a>Görev 3-statik demeti
 
-Statik paket yaklaşım paket, başvuru ve kullanılacak küçültme yöntemi dosya kümesini özelleştirmenizi sağlar.
+Statik paket yaklaşımı, kullanılacak dosya kümesini, başvuruyu ve kullanılacak minbirleşme yöntemini özelleştirmenize olanak sağlar.
 
-Bu görevde, dosyaları paketleme ve küçültme belirli bir kümesini tanımlamak için statik bir paket yapılandıracaksınız.
+Bu görevde, bir statik paketi, paketleyip daha sonra ayarlanacak belirli bir dosya kümesini tanımlayacak şekilde yapılandıracaksınız.
 
 1. Tarayıcıyı kapatın.
-2. Açık **Global.asax.cs** bulun ve dosya **uygulama\_Başlat** yöntemi.
-3. Aşağıdaki kodda gösterildiği gibi statik paket kodun açıklamasını kaldırın.
+2. **Global.asax.cs** dosyasını açın ve **uygulama\_start** metodunu bulun.
+3. Aşağıdaki kodda gösterildiği gibi statik paket kodunun açıklamasını kaldırın.
 
-    İle başvurulan statik bir paket tanımlama &quot; **~/StaticBundle** &quot; sanal yolunu ve kullanım **JsMinify** küçültme ile belirtilen tüm dosyaların için **AddFile** yöntemi. Son olarak, için statik paket ekliyoruz **BundleTable** ve onu etkinleştirme.
+    &quot; **~/Staticdemeti**&quot; sanal yol ile başvurulacak bir statik paket tanımlıyor ve tüm belirtilen dosyaları **AddFile** yöntemiyle birlikte kullanmak Için **jsminbelirt** komutunu kullanın. Son olarak, statik demeti **paketleme** ve olanaklı hale getirecek olursunuz.
 
-    Dosyaları yerinde bulunmayan dikkat edin. Varsayılan paketleme üzerinden başka bir avantajı budur.
+    Dosyaların aynı yerde olmadığına dikkat edin; Bu, varsayılan paketlemeye göre başka bir avantajdır.
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
-4. Açık **Optimization.aspx** dosya.
+4. **Optimizasyon. aspx** dosyasını açın.
 
-    Dikkat bağlantısını **statik JS paket** bildirilen statik paket Global.asax.cs dosyasında yapılandırıldığında yolu kullanarak: **/StaticBundle**.
+    **STATIK js demeti** bağlantısının, Global.asax.cs dosyasındaki statik paketi yapılandırırken bildirdiğiniz yolu kullandığını ve **/staticdemeti**olduğunu unutmayın.
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
-5. Tuşuna **F5** uygulamayı çalıştırın ve ardından gitmek **iyileştirme** sayfası.
-6. Tıklayarak **statik JS paket** dosyayı açmaya yönelik bağlantı.
+5. Uygulamayı çalıştırmak için **F5** tuşuna basın ve ardından **iyileştirme** sayfasına gidin.
+6. Dosyayı açmak için **STATIC js paket** bağlantısına tıklayın.
 
-    Bildirim küçültülmüş JavaScript dosyası paketlenmiş emin olan statik paket dosyasının yolu altında yapılandırılan tüm JavaScript dosyaları için çıkış &quot;/StaticBundle&quot;.
+    Küçültülmüş olan paketlenmiş JavaScript dosyasının, &quot;/Staticdemeti&quot;yolu altındaki statik paket dosyasında yapılandırılan tüm JavaScript dosyaları için çıkış olduğunu unutmayın.
 
-    ![Statik JavaScript dosyaları paket](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image54.png "statik JavaScript dosyaları paket")
+    ![Statik JavaScript dosyaları demeti](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image54.png "Statik JavaScript dosyaları demeti")
 
-    *JavaScript dosyaları statik paket*
-7. Tarayıcıyı kapatın ve Visual Studio'ya geri dönün.
+    *Statik JavaScript dosyaları demeti*
+7. Tarayıcıyı kapatın ve Visual Studio 'ya geri dönün.
 
 <a id="Ex4Task4"></a>
 
 <a id="Task_4_-_Dynamic_Folder_Bundles"></a>
-#### <a name="task-4---dynamic-folder-bundles"></a>Görev 4 - dinamik klasörü paketler
+#### <a name="task-4---dynamic-folder-bundles"></a>Görev 4-dinamik klasör demeti
 
-Bu görevde, dinamik klasörü paketler yapılandırma öğreneceksiniz. Dinamik paketleme, JavaScript ile derlenen dillerde statik JavaScript yanı sıra diğer dosyaları içerir ve bu nedenle, paketleme yürütülmeden önce bazı işlem yapmanız gerekmez güçtür.
+Bu görevde, dinamik klasör paketlerini yapılandırmayı öğreneceksiniz. Dinamik paket oluşturma işleminin gücü, statik JavaScript 'in yanı sıra JavaScript 'e derlenen dillerdeki diğer dosyaları da dahil edebilir ve bu nedenle, paket yürütülmeden önce bazı işlemler yapılmasını gerektirir.
 
-Bu örnekte, nasıl kullanılacağını öğreneceksiniz **DynamicFolderBundle** CofeeScript yazılmış olan dosyalar için dinamik bir paket oluşturmak için sınıf. CofeeScript JavaScript ile derlenen ve daha basit bir söz dizimi, JavaScript kodu yazarak, JavaScript'in kısaltma ve okunabilirliği için sağlayan bir programlama dilidir.
+Bu örnekte, CofeeScript içinde yazılmış dosyalar için dinamik bir paket oluşturmak üzere **Dynamicfolderdemeti** sınıfını nasıl kullanacağınızı öğreneceksiniz. CofeeScript, JavaScript 'e derlenen ve JavaScript kodunu yazmak, JavaScript 'in kısaltma ve okunabilirliğini geliştirmek için daha basit bir sözdizimi sağlayan bir programlama dilidir.
 
-1. Açık **Global.asax.cs** bulun ve dosya **uygulama\_Başlat** yöntemi.
-2. Aşağıdaki kodda gösterildiği gibi dinamik paket kodun açıklamasını kaldırın.
+1. **Global.asax.cs** dosyasını açın ve **uygulama\_start** metodunu bulun.
+2. Aşağıdaki kodda gösterildiği gibi dinamik paket kodunun açıklamasını kaldırın.
 
-    Kullanacağı bir dinamik klasör paketi tanımladığınız **CoffeeMinify** yalnızca dosyalarla uygulanacak özel küçültme İşlemci &quot; **.coffee** &quot; uzantısı () CoffeeScript dosyaları). Gibi bir klasör içinde paket dosyalarını seçmek için arama deseni kullanabilirsiniz bildirimi '\*.coffee'.
+    Yalnızca &quot; **. kahve**&quot; uzantısı (CoffeeScript dosyaları) olan dosyalara uygulanacak olan **CoffeeMinify** özel minbirleşme işlemcisini kullanacak dinamik bir klasör paketi tanımlamanız gerekir. '\*. kahve ' gibi bir klasör içinde paketedilecek dosyaları seçmek için bir arama kalıbı kullanacağınızı unutmayın.
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
-3. NuGet Paket Yöneticisi konsolunu açın. Bunu yapmak için menüyü kullanın. **görünümü** | **diğer Windows** | **Paket Yöneticisi Konsolu**.
-4. İçinde **Paket Yöneticisi Konsolu** türü **Install-Package CoffeeSharp** basın **ENTER**.
-5. Tıklayın **tüm dosyaları göster** düğmesine **Çözüm Gezgini** penceresi
+3. NuGet Paket Yöneticisi konsolunu açın. Bunu yapmak için, **diğer Windows** | **paket Yöneticisi konsolu** | menü **görünümünü** kullanın.
+4. **Paket Yöneticisi konsolunda** **Install-Package CoffeeSharp** yazın ve **ENTER**tuşuna basın.
+5. **Çözüm Gezgini** penceresindeki **tüm dosyaları göster** düğmesine tıklayın
 
-    ![Tüm dosyaları gösteren](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image55.png "tüm dosyalar gösteriliyor")
+    ![Tüm dosyalar gösteriliyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image55.png "Tüm dosyalar gösteriliyor")
 
     *Tüm dosyalar gösteriliyor*
-6. Sağ tıklayın **CoffeeMinify.cs** dosyası **Çözüm Gezgini** seçip **Proje Ekle**
+6. **Çözüm Gezgini** **CoffeeMinify.cs** dosyasına sağ tıklayın ve **projeye dahil et** ' i seçin
 
-    ![CoffeeMinify.cs dosya projeye dahil et](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image56.png "CoffeeMinify.cs dosya projeye dahil et")
+    ![CoffeeMinify.cs dosyasını projeye dahil et](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image56.png "CoffeeMinify.cs dosyasını projeye dahil et")
 
-    *CoffeeMinify.cs dosya projeye dahil et*
-7. Açık **CoffeeMinify.cs** dosya.
+    *CoffeeMinify.cs dosyasını projeye dahil et*
+7. **CoffeeMinify.cs** dosyasını açın.
 
-    Bu sınıf, CoffeeScript kodu derlemeden kaynaklanan JavaScript çıkışını küçültülecek JsMinify devralır. CoffeeScript derleyici ilk JavaScript kodunu oluşturmak için çağırır ve sonuç kodunu küçültülecek JsMinify.Process yöntemi, gönderir.
+    Bu sınıf, CoffeeScript kod derlemesinden kaynaklanan JavaScript çıkışını minmek için Jsminbelirt 'ten devralır. Önce JavaScript kodunu oluşturmak için CoffeeScript derleyicisini çağırır ve sonra ortaya çıkan kodu minsminbelirt. Process yöntemine gönderir.
 
     [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
-8. Açık **Script1.coffee** ve **Script2.coffee** dosyalarını **betikleri/paket** klasör.
+8. **Betikler/paket** klasöründen **Script1. kahve** ve **Script2. kahve** dosyalarını açın.
 
-    Bu dosyaları paketleme CoffeeMinify sınıfıyla gerçekleştirilirken derlenecek CoffeScript kod içerir.
+    Bu dosyalar, CoffeeMinify sınıfı ile paketleme gerçekleştirilirken derlenecek CoffeScript kodunu içerir.
 
-    Kolaylık olması amacıyla sağlanan CoffeeScript dosyaları yalnızca CoffeeScript örnek kod dahil. Yorumları JsMinify işlem tarafından bırakılır.
+    Kolaylık sağlamak için, belirtilen CoffeeScript dosyaları yalnızca CoffeeScript örnek kodu dahil edilmiştir. Yorumlar, Jsminbelirt işlemi tarafından dışlanır.
 
     ![CoffeeScript dosyaları](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image57.png "CoffeeScript dosyaları")
 
     *CoffeeScript dosyaları*
 
     > [!NOTE]
-    > [CofeeScript](https://github.com/jashkenas/coffeescript/) JavaScript kodu yazarak, JavaScript'in kısaltma ve okunabilirliği, hem de dizi kavrama ve desen eşleştirme gibi diğer özellikler eklemek için daha basit bir söz dizimi sağlar.
-9. Açık **Optimization.aspx** dosya ve paket bağlantıları bulun.
+    > [Cofeescript](https://github.com/jashkenas/coffeescript/) , JavaScript kodu yazmak, JavaScript 'in breçekimi ve okunabilirliğini geliştirmek için daha basit bir sözdizimi sağlar ve dizi kavrama ve model eşleştirme gibi diğer özellikleri de ekler.
+9. **Optimizasyon. aspx** dosyasını açın ve paket bağlantılarını bulun.
 
-    Dikkat bağlantısını **dinamik JS paket** başvuruyor **betikleri/paket** kullanarak klasörüne **/kahve** dinamik klasör paketi için yapılandırılmış soneki.
+    **Dınamık js demeti** bağlantısının, dinamik klasör paketi için yapılandırdığınız **/Coffee** sonekini kullanarak **betikler/paket** klasörüne başvurduğuna dikkat edin.
 
     [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
-10. Tuşuna **F5** uygulamayı çalıştırın ve ardından gitmek **iyileştirme** sayfası.
-11. Tıklayarak **dinamik JS paket** oluşturulan dosyasını açmaya yönelik bağlantı.
+10. Uygulamayı çalıştırmak için **F5** tuşuna basın ve ardından **iyileştirme** sayfasına gidin.
+11. Oluşturulan dosyayı açmak için **dınamık js paketi** bağlantısına tıklayın.
 
-    Yalnızca bu pakete eklenen içeriği içeren bir bildirim **.coffee** dosyaları. CoffeeScript kod için JavaScript derlenen ve derleme dışı bırakılan satırlar kaldırıldı de görebilirsiniz.
+    Bu pakete eklenen içeriğin yalnızca **. kahve** dosyaları içerdiğini unutmayın. Ayrıca, CoffeeScript kodunun JavaScript 'e derlendiğini ve açıklamalı hatların kaldırıldığını de görebilirsiniz.
 
-    ![Dinamik JS dosyaları paket](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image58.png "dinamik JS dosyaları paket")
+    ![Dinamik JS dosya demeti](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image58.png "Dinamik JS dosya demeti")
 
-    *Dinamik JS dosyaları paket*
+    *Dinamik JS dosya demeti*
 
 > [!NOTE]
-> Ayrıca, bu uygulama için Windows Azure Web siteleri aşağıdaki dağıtabilirsiniz [ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama](#AppendixB).
+> Ek olarak, bu uygulamayı Microsoft Azure Web siteleri ' ne ek [B: Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması yayımlamak](#AppendixB)için de dağıtabilirsiniz.
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu Laboratuvar, ASP.NET ve Web geliştirme Visual Studio 2012'deki yenilikler ve Visual Studio 2012'de çeşitli geliştirmeler yararlanmak nasıl anlamanıza yardımcı olur.
+Bu laboratuvar, Visual Studio 2012 ' de ASP.NET ve Web geliştirme 'daki yenilikleri ve Visual Studio 2012 ' deki çeşitli geliştirmelerden nasıl yararlanabilmenizi sağlar.
 
-Bu uygulamalı laboratuvarı tamamlayarak yeni özellikler ve geliştirmeler, CSS, JavaScript ve HTML için Visual Studio 2012 düzenleyicilerde kullanma modellerin. Ayrıca, Visual Studio 2012 yerleşik paketleme ve küçültme nasıl uyguladığını modellerin.
+Bu uygulamalı Laboratuvarı tamamlayarak, CSS, JavaScript ve HTML için Visual Studio 2012 düzenleyicilerde yeni özellik ve geliştirmeleri nasıl kullanacağınızı öğrenirsiniz. Ayrıca, Visual Studio 2012 'nin yerleşik paketleme ve küçültmeye nasıl uyguladığı hakkında bilgi edinirsiniz.
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Web için Express 2012 Visual Studio'yu yükleme
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Web için Visual Studio Express 2012 yükleme
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+**[Microsoft Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** kullanarak **Web için Microsoft Visual Studio Express 2012** veya başka bir &quot;Express&quot; sürümü yükleyebilirsiniz. Aşağıdaki yönergeler *Microsoft Web Platformu Yükleyicisi*kullanarak *Web Için Visual Studio Express 2012* ' i yüklemek için gereken adımlarda size yol gösterir.
 
-1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK ile Web</em>&quot;.
-2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
-3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
+1. [[https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)gidin. Alternatif olarak, Web Platformu Yükleyicisi zaten yüklüyse, <em>Microsoft Azure SDK&quot;Ile Web için Visual Studio Express 2012</em> &quot;ürünü açabilir ve bunu arayabilirsiniz.
+2. **Şimdi yüklensin**' e tıklayın. **Web platformu yükleyicinizi** yoksa, önce indirmek ve yüklemek üzere yönlendirilirsiniz.
+3. **Web Platformu Yükleyicisi** açıkken, kurulum 'u başlatmak için **yükleme** ' ye tıklayın.
 
-    ![Visual Studio Express yükleyin](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image59.png "Visual Studio Express'i yükle")
+    ![Visual Studio Express yüklensin](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image59.png "Visual Studio Express yüklensin")
 
-    *Visual Studio Express yükleyin*
-4. Tüm ürünlerin lisans ve koşulları okuyun ve tıklayın **kabul ediyorum** devam etmek için.
+    *Visual Studio Express yüklensin*
+4. Tüm ürünlerin lisanslarını ve koşullarını okuyun ve devam etmek için **kabul ediyorum** ' a tıklayın.
 
     ![Lisans koşullarını kabul etme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image60.png)
 
@@ -703,160 +703,160 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
     ![Yükleme ilerleme durumu](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image61.png)
 
     *Yükleme ilerleme durumu*
-6. Yükleme tamamlandığında, tıklayın **son**.
+6. Yükleme tamamlandığında **son**' a tıklayın.
 
     ![Yükleme tamamlandı](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image62.png)
 
     *Yükleme tamamlandı*
-7. Tıklayın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
-8. Web için Visual Studio Express'te açmak için Git **Başlat** ekranında ve yazmaya başlayabilirsiniz &quot; **VS Express**&quot;, ardından **Web için VS Express** bir kutucuk.
+7. Web Platformu Yükleyicisi 'ni kapatmak için **Çıkış** ' a tıklayın.
+8. Web için Visual Studio Express açmak için **Başlangıç** ekranına gidin ve &quot;**vs Express**&quot;yazmaya başlayın ve ardından **Web için vs Express** kutucuğuna tıklayın.
 
-    ![Web kutucuğu için VS Express](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image63.png)
+    ![Web için VS Express kutucuğu](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image63.png)
 
-    *Web kutucuğu için VS Express*
+    *Web için VS Express kutucuğu*
 
 ---
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Ek B: Bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Ek B: Web Dağıtımı kullanarak ASP.NET MVC 4 uygulaması yayımlama
 
-Bu ekte, Windows Azure Yönetim Portalı'ndan yeni bir web sitesi oluşturun ve Laboratuvar izleyerek Windows Azure tarafından sağlanan Web dağıtımı Yayımlama özelliğini avantajlarını elde ettiğiniz uygulama yayımlama gösterilmektedir.
+Bu ek, Microsoft Azure Yönetim Portalı yeni bir Web sitesi oluşturmayı ve Laboratuvarı izleyerek edindiğiniz uygulamayı yayımlamayı, Microsoft Azure tarafından sunulan Web Dağıtımı yayımlama özelliğinden yararlanarak nasıl yayımlayacağınızı gösterir.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Creating_a_New_Web_Site_from_the_Windows_Azure_Portal"></a>
-#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>Görev 1 Windows yeni bir Web sitesi oluşturma - Azure portalı
+#### <a name="task-1---creating-a-new-web-site-from-the-windows-azure-portal"></a>Görev 1-Microsoft Azure portalından yeni bir Web sitesi oluşturma
 
-1. Git [Windows Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
+1. [Windows Azure yönetim portalı](https://manage.windowsazure.com/) gidin ve aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Windows Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](https://aka.ms/aspnet-hol-azure).
+    > Windows Azure ile 10 ASP.NET Web sitesini ücretsiz olarak barındırabilir ve ardından trafiğiniz büyüdükçe ölçeklendirebilirsiniz. [Buradan](https://aka.ms/aspnet-hol-azure)kaydolabilirsiniz.
 
-    ![Windows Azure Portal'da oturum açın](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image64.png "Windows Azure Portal'da oturum açın")
+    ![Windows Azure portal oturum açın](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image64.png "Windows Azure portal oturum açın")
 
-    *Windows Azure yönetim portalında oturum açın*
-2. Tıklayın **yeni** komut çubuğunda.
+    *Windows Azure 'da oturum açma Yönetim Portalı*
+2. Komut çubuğunda **Yeni** ' ye tıklayın.
 
-    ![Yeni bir Web sitesi oluşturma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image65.png "yeni bir Web sitesi oluşturma")
+    ![Yeni bir Web sitesi oluşturma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image65.png "Yeni bir Web sitesi oluşturma")
 
     *Yeni bir Web sitesi oluşturma*
-3. Tıklayın **işlem** | **Web sitesi**. Ardından **hızlı Oluştur** seçeneği. Yeni web sitesi için kullanılabilen bir URL girin ve tıklatın **Web sitesi oluştur**.
+3. **İşlem** | **Web sitesi**' ne tıklayın. Sonra **hızlı oluştur** seçeneğini belirleyin. Yeni Web sitesi için kullanılabilir bir URL sağlayın ve **Web sitesi oluştur**' a tıklayın.
 
     > [!NOTE]
-    > Bir Windows Azure Web sitesi kontrol edebildiğiniz ve yönetebildiğiniz bulutta çalışan bir web uygulaması için ana bilgisayardır. Hızlı oluştur seçeneği, tamamlanan web uygulaması için Windows Azure Web sitesinden portalın dışında dağıtmanıza olanak sağlar. Bir veritabanını ayarlamak için adımları içermez.
+    > Bir Microsoft Azure Web sitesi, bulutta çalışan ve yönetebileceğiniz bir Web uygulaması için ana bilgisayar. Hızlı oluştur seçeneği, tamamlanmış bir Web uygulamasını Portal dışından Windows Azure Web sitesine dağıtmanızı sağlar. Bir veritabanı ayarlamaya yönelik adımları içermez.
 
-    ![Hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image66.png "hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma")
+    ![Hızlı oluşturma kullanarak yeni bir Web sitesi oluşturma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image66.png "Hızlı oluşturma kullanarak yeni bir Web sitesi oluşturma")
 
-    *Hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma*
-4. Yeni kadar bekleyin **Web sitesi** oluşturulur.
-5. Web sitesi oluşturulduktan sonra altındaki bağlantıya tıklayın **URL** sütun. Yeni Web sitesi çalışıp çalışmadığını denetleyin.
+    *Hızlı oluşturma kullanarak yeni bir Web sitesi oluşturma*
+4. Yeni **Web sitesi** oluşturuluncaya kadar bekleyin.
+5. Web sitesi oluşturulduktan sonra **URL** sütununun altındaki bağlantıya tıklayın. Yeni Web sitesinin çalışıp çalışmadığını denetleyin.
 
-    ![Yeni web sitesi için gözatma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image67.png "yeni web sitesine göz atma")
+    ![Yeni Web sitesine göz atma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image67.png "Yeni Web sitesine göz atma")
 
-    *Yeni web sitesine göz atma*
+    *Yeni Web sitesine göz atma*
 
-    ![Web sitesi çalışan](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image68.png "çalışan Web sitesi")
+    ![Web sitesi çalışıyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image68.png "Web sitesi çalışıyor")
 
-    *Çalışan Web sitesi*
-6. Portala geri dönün ve web sitesi altında adına **adı** yönetim sayfaları görüntülemek için sütun.
+    *Web sitesi çalışıyor*
+6. Portala geri dönün ve yönetim sayfalarını göstermek için **ad** sütununun altındaki Web sitesinin adına tıklayın.
 
-    ![Web sitesi Yönetim sayfalarının açma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image69.png "web sitesi Yönetim sayfalarının açma")
+    ![Web sitesi yönetim sayfalarını açma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image69.png "Web sitesi yönetim sayfalarını açma")
 
-    *Web Sitesi Yönetim sayfalarının açma*
-7. İçinde **Pano** sayfasındaki **Hızlı Bakış** bölümünde **yayımlama profili indir** bağlantı.
+    *Web sitesi yönetim sayfalarını açma*
+7. **Pano** sayfasında, **Hızlı bakış** bölümünde, **Yayımlama profilini indir** bağlantısına tıklayın.
 
     > [!NOTE]
-    > *Yayımlama profilini* tüm her etkin yayımlama yöntemi için bir Windows Azure Web sitesi için bir web uygulaması yayımlamak için gereken bilgileri içerir. Yayımlama profili URL'leri, kullanıcı kimlik bilgileri ve her bir yayımlama yönteminin etkinleştirildiği uç noktalarına karşı kimlik doğrulaması yapmak ve bağlanmak için gereken veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express Web** ve **Microsoft Visual Studio 2012** okuma desteği yayımlama profillerini yapılandırma için bu programların otomatik hale getirmek için Windows Azure Web siteleri'ne yayımlama web uygulamaları.
+    > *Yayımlama profili* , bir Web uygulamasını etkin her yayımlama yöntemi Için bir Windows Azure Web sitesinde yayımlamak için gereken tüm bilgileri içerir. Yayımlama profili, bir yayımlama yönteminin etkinleştirildiği her bir uç noktasına bağlanmak ve kimlik doğrulaması yapmak için gereken URL'leri, kullanıcı kimlik bilgilerini ve veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Web için Microsoft Visual Studio Express** ve **Microsoft Visual Studio 2012** , Web uygulamalarını Microsoft Azure Web siteleri 'ne yayımlamak üzere bu programların yapılandırılmasını otomatik hale getirmek için yayımlama profillerinin okunmasını destekler.
 
-    ![Yayımlama profili web sitesi indiriliyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image70.png "yayımlama profili web sitesi indiriliyor")
+    ![Web sitesi yayımlama profili indiriliyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image70.png "Web sitesi yayımlama profili indiriliyor")
 
-    *Yayımlama profili Web sitesi indiriliyor*
-8. Yayımlama profili dosyasını bilinen bir konuma indirin. Daha fazla Bu alıştırmada, bu dosyayı Visual Studio'dan bir web uygulaması için bir Windows Azure Web siteleri yayımlama için nasıl kullanılacağını görürsünüz.
+    *Web sitesi yayımlama profili indiriliyor*
+8. Yayımlama profili dosyasını bilinen bir konuma indirin. Bu alıştırmada, bir Web uygulamasını Visual Studio 'dan bir Windows Azure Web sitelerinde yayımlamak için bu dosyayı nasıl kullanacağınızı göreceksiniz.
 
-    ![Yayımlama profili dosyasını kaydetme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image71.png "yayımlama profili kaydediliyor")
+    ![Yayımlama profili dosyası kaydediliyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image71.png "Yayımlama profili kaydediliyor")
 
-    *Yayımlama profili dosyasını kaydetme*
+    *Yayımlama profili dosyası kaydediliyor*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
-#### <a name="task-2---configuring-the-database-server"></a>Görev 2 - veritabanı sunucusunu yapılandırma
+#### <a name="task-2---configuring-the-database-server"></a>Görev 2-veritabanı sunucusunu yapılandırma
 
-Uygulamanızı kullanan SQL Server'ın yaparsa veritabanlarını bir SQL veritabanı sunucusu oluşturmanız gerekir. SQL Server kullanmayan basit bir uygulama dağıtmak istiyorsanız bu görevi atla.
+Uygulamanız SQL Server veritabanlarını kullanıyorsa, bir SQL veritabanı sunucusu oluşturmanız gerekir. SQL Server kullanmayan basit bir uygulama dağıtmak istiyorsanız bu görevi atlayabilirsiniz.
 
-1. SQL veritabanı sunucusu, uygulama veritabanını depolamak için gerekir. SQL veritabanı sunucularını, aboneliğinizde Windows Azure Yönetim Portalı'nda görüntüleyebilirsiniz **Sql veritabanları** | **sunucuları** | **sunucunun Pano**. Oluşturulan server yoksa kullanarak bir tane oluşturabilirsiniz **Ekle** komut çubuğunda düğme. Not **sunucu adı ve URL, yönetici oturum açma adı ve parola**, sonraki görevleri kullanacağınız. Daha sonraki bir aşamasında oluşturulacak şekilde veritabanı henüz oluşturmayın.
+1. Uygulama veritabanını depolamak için bir SQL veritabanı sunucusuna ihtiyacınız olacaktır. SQL veritabanı sunucularını aboneliğinizden Windows Azure Yönetim Portalı ' nda **SQL veritabanları** | **sunucuları** | **Sunucu panosu**' nda görüntüleyebilirsiniz. Oluşturulmuş bir sunucunuz yoksa, komut çubuğunda **Ekle** düğmesini kullanarak bir tane oluşturabilirsiniz. **Sunucu adını ve URL 'yi, yönetici oturum açma adını ve parolayı**, bunları bir sonraki görevlerde kullanacaksınız gibi bir yere göz atın. Daha sonraki bir aşamada oluşturulacak şekilde veritabanını henüz oluşturmayın.
 
-    ![SQL veritabanı sunucu Panosu](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image72.png "SQL veritabanı sunucu Panosu")
+    ![SQL veritabanı sunucu panosu](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image72.png "SQL veritabanı sunucu panosu")
 
-    *SQL veritabanı sunucu Panosu*
-2. İşlemin sonraki görev ihtiyacınız sunucunun listesinde yerel IP adresinizi eklemek, bu nedenle Visual Studio'dan veritabanı bağlantısını test eder **izin verilen IP adresleri**. Bunu yapmanın tıklatın **yapılandırma**, IP adresi seçin **geçerli istemci IP adresi** ve yapıştırın **başlangıç IP adresi** ve **bitiş IP adresi** metin kutuları. Kural için bir ad girin ve tıklayın ![add-client-ip-address-ok-button](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image73.png) düğmesi.
+    *SQL veritabanı sunucu panosu*
+2. Sonraki görevde, Visual Studio 'dan veritabanı bağlantısını test edersiniz. bu nedenle, yerel IP adresinizi sunucunun **Izin VERILEN IP adresleri**listesine eklemeniz gerekir. Bunu yapmak için **Yapılandır**' a tıklayın, **geçerli ISTEMCI IP** adresinden IP ADRESINI seçin ve **Başlangıç IP adresi** ve **bitiş IP adresi** metin kutularına yapıştırın. Kural için bir ad girin ve Add-Client-ip-Address-ok-Button](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image73.png) düğmesine ![tıklayın.
 
-    ![İstemci IP adresi ekleme](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image74.png)
+    ![Istemci IP adresi ekleniyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image74.png)
 
-    *İstemci IP adresi ekleme*
-3. Bir kez **istemci IP adresi** için izin verilen IP adreslerini eklenir listesinde, tıklayın **Kaydet** değişiklikleri onaylamak için.
+    *Istemci IP adresi ekleniyor*
+3. **ISTEMCI IP adresi** ızın verilen IP adresleri listesine eklendikten sonra, değişiklikleri onaylamak için **Kaydet** ' e tıklayın.
 
-    ![Değişiklikleri onaylayın](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image75.png)
+    ![Değişiklikleri Onayla](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image75.png)
 
-    *Değişiklikleri onaylayın*
+    *Değişiklikleri Onayla*
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Görev 3 - bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Görev 3-Web Dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması yayımlama
 
-1. ASP.NET MVC 4 çözüme geri dönün. İçinde **Çözüm Gezgini**, web sitesi projesini sağ tıklatın ve seçin **Yayımla**.
+1. ASP.NET MVC 4 çözümüne geri dönün. **Çözüm Gezgini**Web sitesi projesine sağ tıklayın ve **Yayımla**' yı seçin.
 
-    ![Uygulama yayımlama](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image76.png "uygulama yayımlama")
+    ![Uygulama yayımlanıyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image76.png "Uygulamayı Yayımlama")
 
-    *Web sitesi yayımlama*
+    *Web sitesi yayımlanıyor*
 2. İlk görevde kaydettiğiniz yayımlama profilini içeri aktarın.
 
-    ![Yayımlama profilini içeri aktarma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image77.png "yayımlama profilini içeri aktarma")
+    ![Yayımlama profilini içeri aktarma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image77.png "Yayımlama profilini içeri aktarma")
 
-    *Yayımlama profilini içeri aktarma*
-3. Tıklayın **bağlantısını doğrulama**. Doğrulama tamamlandıktan sonra tıklayın **sonraki**.
+    *Yayımlama profili içeri aktarılıyor*
+3. **Bağlantıyı doğrula**' ya tıklayın. Doğrulama tamamlandıktan sonra **İleri**' ye tıklayın.
 
     > [!NOTE]
-    > Bağlantıyı doğrula düğmesi yanında görünür yeşil bir onay işareti gördükten sonra doğrulama tamamlanır.
+    > Bağlantıyı Doğrula düğmesinin yanında yeşil bir onay işareti gördüğünüzde doğrulama tamamlanır.
 
-    ![Bağlantı doğrulama](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image78.png "bağlantısı doğrulanıyor")
+    ![Bağlantı doğrulanıyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image78.png "Bağlantı doğrulanıyor")
 
-    *Bağlantı doğrulama*
-4. İçinde **ayarları** sayfasındaki **veritabanları** bölümünde, veritabanı bağlantının metin kutusunun yanındaki düğmeye tıklayın (yani **DefaultConnection**).
+    *Bağlantı doğrulanıyor*
+4. **Ayarlar** sayfasında, **veritabanları** bölümü altında, veritabanı bağlantınızın metin kutusunun yanındaki düğmeye (yani **DefaultConnection**) tıklayın.
 
-    ![Web dağıtımı yapılandırma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image79.png "Web dağıtımı yapılandırma")
+    ![Web dağıtımı yapılandırması](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image79.png "Web dağıtımı yapılandırması")
 
-    *Web dağıtımı yapılandırma*
-5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
+    *Web dağıtımı yapılandırması*
+5. Veritabanı bağlantısını aşağıdaki şekilde yapılandırın:
 
-   - İçinde **sunucu adı** , SQL veritabanı sunucu URL'sini kullanarak yazın *tcp:* önek.
-   - İçinde **kullanıcı adı** , Sunucu Yöneticisi oturum açma adı yazın.
-   - İçinde **parola** Sunucu Yöneticisi oturum açma parolanızı yazın.
-   - Örneğin, yeni bir veritabanı adı yazın: *MVC4SampleDB*.
+   - **Sunucu adı** ' nda, *TCP:* önekini kullanarak SQL veritabanı sunucunuzun URL 'nizi yazın.
+   - **Kullanıcı adı** ' nda Sunucu Yöneticisi oturum açma adınızı yazın.
+   - **Parola** alanına Sunucu Yöneticisi oturum açma parolanızı yazın.
+   - Yeni bir veritabanı adı yazın, örneğin: *MVC4SampleDB*.
 
-     ![Hedef bağlantı dizesi yapılandırma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "hedef bağlantı dizesini yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırılıyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image80.png "Hedef bağlantı dizesi yapılandırılıyor")
 
-     *Hedef bağlantı dizesini yapılandırma*
-6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
+     *Hedef bağlantı dizesi yapılandırılıyor*
+6. Daha sonra, **Tamam**'a tıklayın. Veritabanını oluşturmak isteyip istemediğiniz sorulduğunda **Evet**' e tıklayın.
 
-    ![Veritabanı oluşturma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "veritabanı dizesi oluşturma")
+    ![Veritabanı oluşturma](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image81.png "Veritabanı dizesi oluşturuluyor")
 
     *Veritabanı oluşturma*
-7. Windows Azure SQL veritabanına bağlanmak için kullanacağı bağlantı dizesini, varsayılan bağlantı metin kutusu içinde gösterilir. Sonra **İleri**'ye tıklayın.
+7. Windows Azure 'da SQL veritabanı 'na bağlanmak için kullanacağınız bağlantı dizesi varsayılan bağlantı metin kutusu içinde gösterilir. Ardından **İleri**'ye tıklayın.
 
-    ![SQL veritabanı'na işaret eden bağlantı dizesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image82.png "SQL veritabanına işaret eden bağlantı dizesi")
+    ![SQL veritabanı 'na işaret eden bağlantı dizesi](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image82.png "SQL veritabanı 'na işaret eden bağlantı dizesi")
 
-    *SQL veritabanı'na işaret eden bağlantı dizesi*
-8. İçinde **Önizleme** sayfasında **Yayımla**.
+    *SQL veritabanı 'na işaret eden bağlantı dizesi*
+8. **Önizleme** sayfasında **Yayımla**' ya tıklayın.
 
-    ![Web uygulaması yayımlama](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image83.png "web uygulaması yayımlama")
+    ![Web uygulaması yayımlanıyor](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image83.png "Web uygulaması yayımlanıyor")
 
-    *Web uygulaması yayımlama*
-9. Yayımlama işlemi tamamlandıktan sonra varsayılan tarayıcınız yayımlanan web sitesi açılır.
+    *Web uygulaması yayımlanıyor*
+9. Yayımlama işlemi tamamlandıktan sonra varsayılan tarayıcınız yayınlanan Web sitesini açar.
 
-    ![Uygulama Windows Azure'da yayımlanan](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image84.png "uygulama yayımlanan Windows Azure'a")
+    ![Windows Azure 'da yayımlanan uygulama](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image84.png "Windows Azure 'da yayımlanan uygulama")
 
-    *Windows Azure'da yayımlanan uygulama*
+    *Windows Azure 'da yayımlanan uygulama*

@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/read-write-and-delete-cookies-in-aspnet
-title: Okuma, yazma ve silme ASP.NET'te tanımlama bilgilerini | Microsoft Docs
+title: ASP.NET 'de tanımlama bilgilerini okuma, yazma ve silme | Microsoft Docs
 author: rick-anderson
-description: Bu video Chris piksel okuma, yazma ve bir ASP.NET uygulamasında tanımlama bilgilerini silmek yapmayı gösterir. İlk olarak, sunucunun temel işlemlerini cooki düzenlemek için bilgi edinin...
+description: Bu videoda Chris P, bir ASP.NET uygulamasında tanımlama bilgilerinin nasıl okunacağını, yazılacağını ve silineceğini gösterir. İlk olarak, cooki işlemek için temel işlemleri öğrenin...
 ms.author: riande
 ms.date: 01/10/2008
 ms.assetid: 228b575b-8bf9-4c1a-b8e9-1a878861a6b3
 msc.legacyurl: /web-forms/videos/how-do-i/read-write-and-delete-cookies-in-aspnet
 msc.type: video
 ms.openlocfilehash: 94fe435acbf1d51db0e65e63d012aa2afac7c6b1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59393762"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640023"
 ---
 # <a name="read-write-and-delete-cookies-in-aspnet"></a>ASP.NET’te Tanımlama Bilgilerini Okuma, Yazma ve Silme
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu video Chris piksel okuma, yazma ve bir ASP.NET uygulamasında tanımlama bilgilerini silmek yapmayı gösterir. İlk olarak, tanımlama bilgilerini düzenlemek için temel işlemleri öğrenin. Daha sonra birden çok değer alt adlı ad-değer çiftleri kullanarak tek bir tanımlama bilgisinde depolamanın yaklaşımları öğrenin. Ardından, belirli bir uygulama etki alanı veya klasöre tanımlama bilgilerinin kapsamının nasıl sınırlandırılacağını öğrenin. Değerleri ve var olan bir tanımlama bilgisi süre sonu tarihleri değişiklik yapma ve var olan bir tanımlama bilgisi silme bakın. Ayrıca, tanımlama bilgisi kullanmak için çeşitli konuları da ele alınmıştır.
+Bu videoda Chris P, bir ASP.NET uygulamasında tanımlama bilgilerinin nasıl okunacağını, yazılacağını ve silineceğini gösterir. İlk olarak, tanımlama bilgilerini düzenleme için temel işlemleri öğrenin. Ardından, alt anahtarlar adlı ad-değer çiftlerini kullanarak birden çok değeri tek bir tanımlama bilgisinde depolamanın yaklaşımlarına öğrenin. Daha sonra, tanımlama bilgilerinin kapsamını belirli bir uygulama etki alanına veya klasöre sınırlamayı öğrenin. Mevcut tanımlama bilgilerinde değerleri ve sona erme tarihlerini değiştirme ve var olan bir tanımlama bilgisinin nasıl silineceği hakkında bilgi edinme. Ayrıca, tanımlama bilgilerini kullanmayla ilgili bazı konular da ele alınmıştır.
 
-[&#9654;(25 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/read-write-and-delete-cookies-in-aspnet)
+[&#9654;Videoyu izleyin (25 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/read-write-and-delete-cookies-in-aspnet)

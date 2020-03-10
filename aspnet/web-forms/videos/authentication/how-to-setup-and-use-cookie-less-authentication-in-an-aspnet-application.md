@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application
-title: Kurulum ve bir ASP.NET uygulamasında tanımlama bilgisiz kimlik doğrulaması kullanmak nasıl | Microsoft Docs
+title: ASP.NET uygulamasında tanımlama bilgisi-Less kimlik doğrulamasını ayarlama ve kullanma | Microsoft Docs
 author: JoeStagner
-description: ALi Stagner tanımlama bilgisiz kimlik doğrulaması kullanacak şekilde nasıl yükleneceğini göstermek için bir önceki kod örneğinde kullanır. Bu Tanıtım hakkında daha fazla bilgi için bir öğretici bulunduğu...
+description: Ali Stagner, tanımlama bilgisi-daha az kimlik doğrulamanın nasıl kullanılacağını göstermek için önceki kod örneğini kullanır. Bu tanıtım hakkında daha fazla bilgi için bir öğretici bulunmaktadır...
 ms.author: riande
 ms.date: 07/16/2008
 ms.assetid: 10ba9106-514c-4776-8277-9c31312ceed2
 msc.legacyurl: /web-forms/videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application
 msc.type: video
 ms.openlocfilehash: ff6e21dad7598146a681615913dcbd37f72001ee
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404396"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78572851"
 ---
-# <a name="how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application"></a>Nasıl bir ASP.NET uygulamasında tanımlama bilgisiz kimlik kurulumu ve kullanımı
+# <a name="how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application"></a>ASP.NET uygulamasında tanımlama bilgisi-Less kimlik doğrulamasını ayarlama ve kullanma
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-ALi Stagner tanımlama bilgisiz kimlik doğrulaması kullanacak şekilde nasıl yükleneceğini göstermek için bir önceki kod örneğinde kullanır. Bu Tanıtım hakkında daha fazla bilgi için bir öğretici bulunduğu [burada](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).
+Ali Stagner, tanımlama bilgisi-daha az kimlik doğrulamanın nasıl kullanılacağını göstermek için önceki kod örneğini kullanır. Bu tanıtım hakkında daha fazla bilgi için [burada](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)bir öğretici bulunmaktadır.
 
-[&#9654;(4 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application)
+[&#9654;Videoyu izleyin (4 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application)
 
 > [!div class="step-by-step"]
 > [Önceki](how-to-change-the-forms-authentication-properties.md)

@@ -2,62 +2,62 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 title: Bir denetleyiciden modelinizin verilerine erişme | Microsoft Docs
 author: shanselman
-description: ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
+description: Bu, ASP.NET MVC 'nin temellerini tanıtan bir başlangıç öğreticisidir. Bir veritabanından okuyan ve yazan basit bir Web uygulaması oluşturun.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: 004703cd-e0e9-4ba7-9974-1b0475c71222
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
 ms.openlocfilehash: 207ed880977d794d81efdc1ea458d17a68d501d8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122890"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543752"
 ---
 # <a name="accessing-your-models-data-from-a-controller"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme
 
-tarafından [Scott Hanselman](https://github.com/shanselman)
+[Scott Hanselman](https://github.com/shanselman) tarafından
 
-> ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
+> Bu, ASP.NET MVC 'nin temellerini tanıtan bir başlangıç öğreticisidir. Bir veritabanından okuyan ve yazan basit bir Web uygulaması oluşturacaksınız. Diğer ASP.NET MVC öğreticileri ve örneklerini bulmak için [ASP.NET MVC öğrenme merkezini](../../../index.md) ziyaret edin.
 
-Bu bölümde yeni bir MoviesController sınıf oluşturun ve bizim film verileri alır ve bir görünüm şablonu kullanarak tarayıcıya görüntüleyen bazı kodlar yazma kullanacağız.
+Bu bölümde yeni bir MoviesController sınıfı oluşturacağız ve film verilerimizi alan ve bir görünüm şablonu kullanarak tarayıcıya geri görüntüleyen bir kod yazacaksınız.
 
-Denetleyicileri klasörü sağ tıklatın ve yeni MoviesController olun.
+Denetleyiciler klasörüne sağ tıklayın ve yeni bir MoviesController oluşturun.
 
-[![Denetleyici ekleme](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![denetleyicisi ekleme](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
-Bu, bizim Projemizin \Controllers klasörün altında yeni bir "MoviesController.cs" dosyası oluşturur. Sunduğumuz yeni doldurulmuş veritabanından filmler listesini almak için MovieController güncelleştirelim.
+Bu işlem, projemizdeki \Controllers klasörü altında yeni bir "MoviesController.cs" dosyası oluşturur. Yeni doldurulan veritabanımızdan film listesini almak için MovieController 'ı güncelleştirelim.
 
 [!code-csharp[Main](getting-started-with-mvc-part5/samples/sample1.cs)]
 
-Biz bir LINQ Sorgu çalışıp çalışmadığını denetleyin ve böylece yalnızca 1984 ' Yaz sonra yayınlanan film alıyoruz. Film geri bu listeyi işlemek, bu nedenle yönteminde sağ tıklatın ve görünüm oluşturmak için Ekle seçeneğini şablonu görüntüle gerekir.
+Yalnızca 1984 Yaz 'dan sonra yayınlanan filmleri alabilmesi için bir LINQ sorgusu yaptık. Bu film listesini geri işlemek için bir görünüm şablonu gerekecektir, bu yüzden yöntemi sağ tıklayıp oluşturmak için Görünüm Ekle ' yi seçin.
 
-Görünüm Ekle iletişim kutusunun içinden listesini geçiriyoruz biz belirtmek&lt;Movies.Models.Movie&gt; bizim görünüm şablonu için. Görünüm Ekle iletişim kutusu kullanılan ve bir "Boş" şablonu oluşturmak seçtiğiniz önceki saatleri, biz belirtmek, bu kez otomatik olarak "bir şablonu görüntüleme bizim için bazı varsayılan içerik ile iskele oluşturmayı" Visual Studio istiyoruz. "Görünümü içerik açılan menüsü. içinde"Listesi"öğesini seçerek bunu
+Görünüm Ekle iletişim kutusunda, film&lt;bir liste geçirdiğimiz, görünüm şablonumuza film&gt;. Önceki sürelerden farklı olarak, Görünüm Ekle iletişim kutusunu kullandık ve "boş" bir şablon oluşturmayı tercih ediyoruz. bu kez, Visual Studio 'Nun bazı varsayılan içeriklerle ilgili bir görünüm şablonunu sizin için otomatik olarak "scafkatmayı" istediğini belirteceğiz. "İçerik görüntüle açılan menüsünden" liste "öğesini seçerek bunu yapacağız.
 
-Unutmayın, oluşturulmuş bir olduğunda, Görünüm Ekle iletişim kutusunda görünmesini için uygulamanızı derlemek için ihtiyacınız olan yeni bir sınıf.
+Yeni bir sınıf oluşturduğunuz zaman, Görünüm Ekle Iletişim kutusunda görünmesi için uygulamanızı derlemeniz gerektiğini unutmayın.
 
 ![Görünüm Ekle](getting-started-with-mvc-part5/_static/image3.png)
 
-Ekle'ye ve sistem otomatik olarak kod için bir görünüm filmler listemizi görüntüleyen bizim için oluşturur. Bunu değiştirmek için iyi bir zamandır &lt;h2&gt; Hello World görünümüyle daha önce yaptığımız gibi "My film listesi" gibi bir şey başlığı.
+Ekle ' ye tıkladığınızda sistem, film listemizi görüntüleyen bir görünüm için kodu otomatik olarak oluşturur. Bu, daha önce Merhaba Dünya görünümünde yaptığımız gibi, &lt;H2&gt; başlığını "film listesi" gibi bir şekilde değiştirmek iyi bir zamandır.
 
-[![Filmler - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
+[![filmler-Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part5/_static/image5.png)](getting-started-with-mvc-part5/_static/image4.png)
 
-Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi biz denetleyici içinde temel bir sorgu kullanarak veritabanından veri alınır ve döndürülen veriler hakkında filmler bildiği bir görünüme. Bu görünüm sonra filmler listesi üzerinden sanal makineleri çalıştırır ve bizim için verilerinizin bir tablo oluşturur.
+Uygulamanızı çalıştırın ve adres çubuğunda/Filmler ' i ziyaret edin. Artık, denetleyicinin içindeki temel bir sorgu kullanarak veritabanından veri aldık ve verileri, film hakkında bilgi sahibi bir görünüme döndürtik. Bu görünümü daha sonra film listesinden dönerek ABD için bir veri tablosu oluşturur.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![film listesi-Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
-İskele şablon bizim için oluşturulan varsayılan bağlantılara ihtiyaç duymayacağımız için Biz bu uygulamayla - düzenleme, ayrıntı ve silme işlevleri uygulama olmaz. /Movies/Index.aspx dosyasını açın ve bunları kaldırın.
+Bu uygulamayla ilgili düzenleme, Ayrıntılar ve silme işlevlerini uygulamayız. bu nedenle, bizim için yapı iskelesi şablonunun oluşturduğu varsayılan bağlantılara gerek kalmaz. /Movies/Index.aspx dosyasını açın ve kaldırın.
 
-İşte Biz bu değişiklikleri yaptıktan sonra kaynak kodunu bizim güncelleştirilmiş görünüm şablonu aşağıdaki gibi görünmelidir:
+Güncelleştirilmiş görünüm şablonumuza yönelik kaynak kodu, bu değişiklikleri yaptıktan sonra şöyle görünmelidir:
 
 [!code-aspx[Main](getting-started-with-mvc-part5/samples/sample2.aspx)]
 
-Bunları bu örneğin sileceğiz şekilde ihtiyacımız yoktur, bağlantıları oluşturur. Sonraki şudur bizim oluşturma yeni bir bağlantı, saklayacağız! Uygulamamızı kaldırılmış olan sütunu nasıl göründüğünü aşağıda verilmiştir.
+İhtiyaç duymayacağımız bağlantıları oluşturuyor, bu nedenle bunları bu örnek için sileceğiz. Yeni bağlantı oluşturduğumuz gibi, yeni bağlantımız da devam edeceğiz! Uygulamamız bu sütun kaldırılmış şekilde görünür.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![film listesi-Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
-Artık basit bir film verilerimizi listesi var. Biz "Yeni Oluştur" bağlantısını tıklatın, bu bağlanmamıştır ancak biz hata yakalayacaksınız! Şimdi bir oluşturma eylemi yöntemini uygulayın ve yeni filmler veritabanımızda yer girmesini etkinleştirin.
+Şimdi film verilerimizden oluşan basit bir listemiz var. Ancak, "Yeni oluştur" bağlantısına tıkladığımızda, bağlanmadığımızda bir hata alırız! Bir oluşturma eylemi yöntemi uygulayalim ve bir kullanıcının veritabanımızda yeni filmler girmelerini olanaklı hale olalım.
 
 > [!div class="step-by-step"]
 > [Önceki](getting-started-with-mvc-part4.md)

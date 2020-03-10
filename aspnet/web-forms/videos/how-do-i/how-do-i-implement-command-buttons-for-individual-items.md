@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
-title: '[Bunu nasıl yaparım:] Tek tek öğeler için komut düğmeleri uygulama | Microsoft Docs'
+title: '[Nasıl yapılır:] Tek tek öğeler için komut düğmeleri uygulama | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel bir veriye bağlı denetim ListView denetimi gibi her bir öğenin bir düğme denetimi ile ilgili olayların nasıl işleneceğini gösterir. İlk olarak...
+description: Bu videoda Chris Pbirbirlerine, bir ListView denetimi gibi veriye dayalı bir denetimin her öğesinde bir düğme denetimiyle ilişkili olayların nasıl işleneceğini gösterir. İlk,...
 ms.author: riande
 ms.date: 07/24/2008
 ms.assetid: b883989d-4735-478e-ab56-411a2ed98f73
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
 msc.type: video
 ms.openlocfilehash: efbc7477832664b6efa5798c9a8cc63bfd148d04
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567790"
 ---
-# <a name="how-do-i-implement-command-buttons-for-individual-items"></a>[Bunu nasıl yaparım:] Tek tek öğeler için komut düğmeleri uygulama
+# <a name="how-do-i-implement-command-buttons-for-individual-items"></a>[Nasıl yapılır:] Ayrı öğeler için komut düğmeleri uygulama
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda, Chris piksel bir veriye bağlı denetim ListView denetimi gibi her bir öğenin bir düğme denetimi ile ilgili olayların nasıl işleneceğini gösterir. İlk olarak, bu verilere bağlı denetimler düzenleme veya silme gibi standart işlemleri için standart düğmesi olay işleyicileri şeklinize bakın. Ardından, özel bir eylem gerçekleştiren bir düğme ekleyin ve bu özel düğmesi eylemi için olayları işlemek nasıl öğrenin. Son olarak, veri öğesi kimliği için özel olay işleyicisine burada düğmesine kaynaklı nasıl geçireceğinizi göreceksiniz.
+Bu videoda Chris Pbirbirlerine, bir ListView denetimi gibi veriye dayalı bir denetimin her öğesinde bir düğme denetimiyle ilişkili olayların nasıl işleneceğini gösterir. İlk olarak, bu veri bağlantılı denetimlerin düzenleme veya silme gibi standart işlemler için standart düğme olay işleyicilerine sahip olduğunu görün. Ardından, özel bir eylem gerçekleştiren ve bu özel düğme eyleminin olaylarını nasıl işleyeceğinizi öğrenin. Son olarak, düğmenin kaynaklandığı öğenin tanımlanması için verileri özel olay işleyicisine geçirme konusuna bakın.
 
-[&#9654;(34 dakikada) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-command-buttons-for-individual-items)
+[&#9654;Videoyu izleyin (34 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-command-buttons-for-individual-items)

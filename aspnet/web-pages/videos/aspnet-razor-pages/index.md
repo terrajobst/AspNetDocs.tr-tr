@@ -1,23 +1,23 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: ASP.NET Razor sayfaları | Microsoft Docs
+title: ASP.NET Razor Pages | Microsoft Docs
 author: rick-anderson
-description: Hangi videoları, Web sayfalarını ve Webmatrix'i ayrıntısına inmek için görüntüleyebilirsiniz.
+description: Web sayfaları ve WebMatrix 'te ayrıntıya gitmek için görüntüleyebileceğiniz videolar.
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
 ms.openlocfilehash: c1889f0eab6d2df41ac6e19d433303198c4789f4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127796"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633394"
 ---
 # <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
-> Hangi videoları, Web sayfalarını ve Webmatrix'i ayrıntısına inmek için görüntüleyebilirsiniz.
+> Web sayfaları ve WebMatrix 'te ayrıntıya gitmek için görüntüleyebileceğiniz videolar.
 
 - [WebMatrix ve ASP.NET Web Sayfaları ile Çalışmaya Başlama](getting-started-with-webmatrix-and-aspnet-web-pages.md)
 - [ASP.NET Web Programlama Razor Söz Dizimine Giriş](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

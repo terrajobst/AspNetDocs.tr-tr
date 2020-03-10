@@ -2,18 +2,18 @@
 uid: web-pages/readme/overview
 title: WebMatrix Benioku | Microsoft Docs
 author: rick-anderson
-description: WebMatrix ve ASP.NET Web sayfaları (Razor) 1.0 sürümü Benioku
+description: WebMatrix ve ASP.NET Web Pages (Razor) 1,0 yayın Benioku dosyası
 ms.author: riande
 ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
 ms.openlocfilehash: fac53e935860a90d8f2aa96699d56d66ade3a40f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133187"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563471"
 ---
 # <a name="webmatrix-readme"></a>WebMatrix Benioku dosyası
 
@@ -22,494 +22,494 @@ ms.locfileid: "65133187"
 ## <a name="contents"></a>İçindekiler
 
 > [!NOTE]
-> Bu Benioku WebMatrix 1.0 sürümü için geçerlidir.
+> Bu benioku, WebMatrix 'in 1,0 sürümü için geçerlidir.
 
 - [Genel bakış](#Overview)
 - [Yükleme](#Installation_Notes)
-- [Uygulamaların nasıl yayımlanacağı](#InstructionsForPublishingApplications)
-- [Değişiklikleri ve sorunları](#ChangesAndIssues)
+- [Uygulamaları yayımlama](#InstructionsForPublishingApplications)
+- [Değişiklikler ve sorunlar](#ChangesAndIssues)
 
-    - [WebMatrix 1.0 yükleme](#Known_Issues_Installation)
+    - [WebMatrix 1,0 yüklemesi](#Known_Issues_Installation)
     - [ASP.NET Web Sayfaları](#Known_Issues_ASPNET)
     - [WebMatrix](#Known_Issues_WebMatrix)
     - [IIS Express](#Known_Issues_IISExpress)
     - [SQL Server Compact](#Known_Issues_SQLServerCompact)
     - [Uygulamaları yükleme](#Known_Issues_Installing_Applications)
-    - [Uygulama yayımlama](#Known_Issues_Publishing_Applications)
+    - [Uygulamaları yayımlama](#Known_Issues_Publishing_Applications)
 - [Daha fazla bilgi için](#More_Info)
 
 <a id="Overview"></a>
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-> Microsoft WebMatrix 1.0 dakikalar içinde yüklenen bir ücretsiz web geliştirme yığınıdır. Veritabanını ve programlama çerçevelerini tek, tümleşik bir deneyim oluşturmak için bir web sunucusu tümleştirir. DotNetNuke, Umbraco, WordPress ve Joomla gibi popüler açık kaynak uygulamalar kullanarak yeni bir Web sitesini başlatmak için WebMatrix kullanma veya WebMatrix kod, test ve kendi ASP.NET veya PHP Web sitesi yayımlama yolu kolaylaştırmak için kullanabilirsiniz. WebMatrix, aynı güçlü web sunucusu, veritabanı altyapısı ve Web sitenizi geliştirmeden üretime geçişinizin düzgün ve sorunsuz kılan Internet üzerinde çalışır ve çerçeveler ortamının kullanır.
+> Microsoft WebMatrix 1,0, dakikalar içinde yüklenen ücretsiz bir Web geliştirme yığınıdır. Tek ve tümleşik bir deneyim oluşturmak için veritabanı ve programlama çerçeveleri ile bir Web sunucusunu tümleştirir. WebMatrix kullanarak kendi ASP.NET veya PHP Web sitenizi kodlayın, test edin ve yayımlayın ya da DotNetNuke, dönen Raco, WordPress veya Joomla gibi popüler açık kaynaklı uygulamaları kullanarak yeni bir Web sitesini başlatmak için WebMatrix 'i kullanabilirsiniz. WebMatrix, Web sitenizi Internet üzerinde çalıştıracak olan güçlü Web sunucusu, veritabanı altyapısı ve çerçeveler ortamını kullanır. Bu, geliştirmeden üretime sorunsuz ve sorunsuz bir şekilde geçiş yapar.
 
 <a id="Installation_Notes"></a>
 
 ## <a name="installation"></a>Yükleme
 
-> WebMatrix 1.0 yüklemek için önce yüklemelisiniz [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/fwlink/?LinkID=194638). Web Platformu yükleyicisi yükledikten sonra WebMatrix yüklemek için kullanabilirsiniz.
+> WebMatrix 1,0 ' ü yüklemek için, ilk olarak [Microsoft Web Platformu Yükleyicisi 3,0](https://go.microsoft.com/fwlink/?LinkID=194638)' ü yüklemeniz gerekir. Web Platformu Yükleyicisi 'ni yükledikten sonra WebMatrix 'i yüklemek için bu uygulamayı kullanabilirsiniz.
 > 
-> Yükleme sırasında sorunlarla karşılaşırsanız, başvurmak [Microsoft Web Platformu Yükleyicisi ile sorunları giderme](https://go.microsoft.com/fwlink/?LinkId=196212).
+> Yükleme sırasında sorunlarla karşılaşırsanız [Microsoft Web Platformu Yükleyicisi sorun giderme sorunları](https://go.microsoft.com/fwlink/?LinkId=196212)bölümüne bakın.
 
 <a id="InstructionsForPublishingApplications"></a>
-## <a name="how-to-publish-applications"></a>Uygulamaların nasıl yayımlanacağı
+## <a name="how-to-publish-applications"></a>Uygulamaları yayımlama
 
-> Bkz: [uygulamaları yayımlama hakkında adım adım yönergeler](https://go.microsoft.com/fwlink/?LinkID=196149)
+> Bkz. [uygulamaları yayımlamak Için adım adım yönergeler](https://go.microsoft.com/fwlink/?LinkID=196149)
 
 <a id="ChangesAndIssues"></a>
 
-## <a name="changes-and-issues"></a>Değişiklikleri ve sorunları
+## <a name="changes-and-issues"></a>Değişiklikler ve sorunlar
 
 <a id="Known_Issues_Installation"></a>
 
-### <a name="webmatrix-10-installation-issues"></a>WebMatrix 1.0 yükleme sorunları
+### <a name="webmatrix-10-installation-issues"></a>WebMatrix 1,0 yükleme sorunları
 
-#### <a name="issue-webmatrix-10-is-available-only-on-platforms-that-support-microsoft-net-framework-4"></a>Sorun: WebMatrix 1.0 yalnızca Microsoft .NET Framework 4'ü destekleyen platformlar üzerinde kullanılabilir
+#### <a name="issue-webmatrix-10-is-available-only-on-platforms-that-support-microsoft-net-framework-4"></a>Sorun: WebMatrix 1,0 yalnızca Microsoft .NET Framework 4 ' ü destekleyen platformlarda kullanılabilir
 
-> WebMatrix için .NET Framework sürüm 4 gereklidir. Bazı durumlarda, WebMatrix 1.0 yükleyici, desteklenen bir yapılandırma kümesinin parçası olmayan bir platformda yüklemeye olanak tanır. Özellikle, Windows Vista SP1 Güncelleştirmesi olmadan, WebMatrix yüklemesini başlatmak olanak tanır, ancak .NET Framework 4 bileşeni başarısız olur ve yüklemenizi engelleme.
+> WebMatrix için .NET Framework sürüm 4 gerekir. Bazı durumlarda, WebMatrix 1,0 yükleyicisi, desteklenen yapılandırma kümesinin parçası olmayan bir platforma yükleme denemenize imkan tanır. Özellikle, SP1 güncelleştirmesi olmayan Windows Vista, WebMatrix yüklemesine başlamanızı sağlar, ancak .NET Framework 4 bileşeni başarısız olur ve yüklemenizi engeller.
 > 
 > **Geçici çözüm**  
-> İçeren desteklenen bir platform üzerinde yükleyin:
+> Aşağıdakileri içeren desteklenen bir platforma yükler:
 > 
-> - Windows 7
+> - Windows 7
 > - Windows Server 2008
 > - Windows Server 2008 R2
 > - Windows Vista SP1 veya sonraki sürümü
 > - Windows XP SP3
 > - Windows Server 2003 SP2
 
-#### <a name="issue-cannot-install-webmatrix-10-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Sorun: Microsoft Visual Studio 2008 Microsoft Visual Studio 2008 SP1 yüklediyseniz, WebMatrix 1.0 yüklenemiyor
+#### <a name="issue-cannot-install-webmatrix-10-if-microsoft-visual-studio-2008-is-installed-without-microsoft-visual-studio-2008-sp1"></a>Sorun: Microsoft Visual Studio 2008 SP1 olmadan Microsoft Visual Studio 2008 yüklenirse WebMatrix 1,0 yüklenemiyor
 
 > **Geçici çözüm**  
-> Yükleme [Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) Microsoft İndirme Merkezi'nden.
+> [Microsoft Visual Studio 2008 SP1](https://www.microsoft.com/downloads/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en) 'ı Microsoft İndirme Merkezi ' nden yükleyin.
 
-#### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>Sorun: SQL Server Compact 4.0 için bazı derlemeler GAC yüklü değil
+#### <a name="issue-some-assemblies-for-sql-server-compact-40-are-not-installed-in-the-gac"></a>Sorun: SQL Server Compact 4,0 için bazı derlemeler GAC 'de yüklü değil
 
-> SQL Server Compact 4.0 için yönetilen derlemeleri genel derleme önbelleğinde (GAC), 64-bit bir bilgisayarda SQL Server Compact 4.0 yükledikten ve bilgisayarın yalnızca .NET Framework 3.5 SP1 istemci yüklü profili olduğunda yerleştirilmez. GAC'de kurulu değil Yönetilen derlemeler şunlardır:
+> SQL Server Compact 4,0 için yönetilen derlemeler, SQL Server Compact 4,0 ' i bir 64 bit bilgisayara yüklediğinizde ve bilgisayarda yalnızca .NET Framework 3,5 SP1 Istemci profili yüklü olduğunda genel derleme önbelleği 'ne (GAC) yerleştirilmez. GAC 'de yüklü olmayan yönetilen derlemeler şunlardır:
 > 
-> - *System.Data.SqlServerCe.dll* (ADO.NET provider)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
+> - *System. Data. SqlServerCe. dll* (ADO.NET sağlayıcısı)
+> - *System. Data. SqlServerCe. Entity. dll* (ADO.NET Entity Framework)
 > 
 > **Geçici çözüm**  
-> Kaldırma SQL Server Compact 4.0. İndirin ve .NET Framework 3.5 SP1'in tam sürümünü şu konumdan yükleyin:  
+> SQL Server Compact 4,0 'yi kaldırın. Aşağıdaki konumdan .NET Framework 3,5 SP1 'in tam sürümünü indirip yükleyin:  
 >   
-> [Microsoft .NET Framework 3.5 Service pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
+> [Microsoft .NET Framework 3,5 Service Pack 1 (tam paket)](https://go.microsoft.com/fwlink/?LinkId=194828)  
 >   
-> Ardından SQL Server Compact 4.0 yeniden yükleyin.
+> SQL Server Compact 4,0 yeniden yükleyin.
 
-#### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>Sorun: SQL Server için komut satırını kullanarak Compact kaldırılamıyor
+#### <a name="issue-cannot-uninstall-sql-server-compact-using-the-command-line"></a>Sorun: komut satırı kullanılarak SQL Server Compact kaldırılamıyor
 
-> SQL Server komut satırı seçeneklerini kullanarak Compact kaldırılması, bu sürümde çalışmaz.
+> Komut satırı seçeneklerini kullanarak SQL Server Compact kaldırılması bu sürümde çalışmaz.
 > 
 > **Geçici çözüm**  
-> Kullanım *programlar ve Özellikler* Microsoft SQL Server Compact 4.0 kaldırmak için Windows Denetim Masası'nda.
+> 4,0 Microsoft SQL Server Compact kaldırmak için Windows Denetim Masası 'ndaki *Programlar ve Özellikler ' i* kullanın.
 
 <a id="Known_Issues_ASPNET"></a>
 
 ### <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
-Belgenin bu bölümünde, yeni özellikleri, değişiklikler ve Razor sözdizimi olan ASP.NET Web sayfaları, 1.0 sürümü ile ilgili bilinen sorunlar açıklanmaktadır.
+Belgenin bu bölümünde, Razor söz dizimi ile ASP.NET Web sayfalarının 1,0 sürümündeki yeni özellikler, değişiklikler ve bilinen sorunlar açıklanmaktadır.
 
 - [Yeni özellikler](#NewFeatures)
-- [Değişiklikleri](#Changes)
-- [Sorunları](#Issues)
+- [Değişikliklerine](#Changes)
+- [Sorunlar](#Issues)
 
-#### <a id="NewFeatures"></a>  Yeni Özellikler
+#### <a id="NewFeatures"></a>Yeni özellikler
 
-#### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>New: Paket Yöneticisi devre dışı bırakmak için yapılandırma ayarı eklendi
+#### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>Yeni: paket yöneticisini devre dışı bırakmak için yapılandırma ayarı eklendi
 
-> Yeni bir `asp:AdminManagerEnabled` anahtarı, kullanılabilir `<appSettings>` öğesinde *web.config* tamamen Paket Yöneticisi devre dışı bırakmanıza olanak sağlayan dosya. Bu öğe için varsayılan değer true olarak dahil edilmemişse, yani *web.config* dosyasını, Paket Yöneticisi etkinleştirilir. Paket Yöneticisi devre dışı bırakmak için aşağıdaki öğeyi ekleyin *web.config* Web sitesinin kök dosyasında:
+> *Web. config* dosyasındaki `<appSettings>` öğesi için yeni bir `asp:AdminManagerEnabled` anahtarı vardır ve bu, paket yöneticisini tamamen devre dışı bırakmanızı sağlar. Bu öğe için varsayılan değer true 'dur, yani *Web. config* dosyasına dahil edilmediğinde, Paket Yöneticisi etkindir. Paket yöneticisini devre dışı bırakmak için, aşağıdaki öğeyi Web sitesinin kökündeki *Web. config* dosyasına ekleyin:
 > 
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
-#### <a id="Changes"></a>  Değişiklikleri
+#### <a id="Changes"></a>Değişikliklerine
 
-#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Değiştir: "webPages:AdminFolderVirtualPath" anahtarını "asp: AdminFolderVirtualPath" olarak yeniden adlandırıldı
+#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Değişiklik: "Web sayfaları: AdminFolderVirtualPath" anahtarı "ASP: AdminFolderVirtualPath" olarak yeniden adlandırıldı
 
-> `webPages:AdminFolderVirtualPath` Eklenebilir anahtarı *web.config* Paket Yöneticisi konumunu belirtmek için dosya kullanmak için adlandırıldı `asp:` yerine ad alanı `webPages` ad alanı. Bu öğe kullandıysanız, yapılandırma dosyasında yeniden adlandırmanız gerekir.
+> Paket yöneticisinin konumunu belirtmek için *Web. config* dosyasına eklenebilen `webPages:AdminFolderVirtualPath` anahtarı, `webPages` ad alanı yerine `asp:` ad alanını kullanacak şekilde yeniden adlandırıldı. Bu öğeyi kullandıysanız yapılandırma dosyasında yeniden adlandırmanız gerekir.
 
-#### <a id="Issues"></a>  Bilinen sorunlar
+#### <a id="Issues"></a> Bilinen Sorunlar
 
-#### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Sorun: Üyelik kullanıcılarının artık tanınmadığı için parolaları
+#### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Sorun: üyelik kullanıcıları için parolalar artık tanınmıyor
 
-> Algoritma oluşturmak ve üyelik (oturum açma bilgileri) depolamak için daha güvenli olacak şekilde değiştirildi. Sonuç olarak, ASP.NET Razor Beta sürümlerinde oluşturulan üyeleri (kullanıcılar) için saklanan parolalar tanınmaz. 
+> Üyelik (oturum açma) parolalarının oluşturulması ve depolanması için algoritma daha güvenli olacak şekilde değiştirildi. Sonuç olarak, ASP.NET Razor 'nin Beta sürümlerinde oluşturulan Üyeler (kullanıcılar) için depolanan parolalar tanınmaz. 
 > 
-> **Geçici çözüm** site henüz üretime alındığından değil, üyelik veritabanından kullanıcı kayıtlarını kaldırın. Veritabanının Canlı olması durumunda, üyelik veritabanında var olan parolaların programlı olarak yeniden oluşturun.
+> **Geçici çözüm** Site henüz üretime yerleştirmemişse, Kullanıcı kayıtlarını üyelik veritabanından kaldırın. Veritabanı canlı ise, üyelik veritabanındaki mevcut parolaları program aracılığıyla yeniden oluşturun.
 
-#### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>Sorun: Bir özel bir kullanıcı tablosu için üyeliği kullanılırken beklenmeyen davranışı
+#### <a name="issue-unexpected-behavior-when-using-a-custom-user-table-for-membership"></a>Sorun: üyelik için özel bir kullanıcı tablosu kullanılırken beklenmeyen davranış
 
-> Bir ASP.NET Razor Web sitesi için üyelik sağlayıcıyı başlatmak için çağrı `WebSecurity.InitializeDatabaseConnection` yöntemi. (Webmatrix'te, başlangıç sitesi şablonunda bu yönteme bir çağrı içerir.  *\_AppStart.cshtml* dosyası.) Varsa `autoCreateTables` bu yöntemin bir parametrenin ayarlanmış true (varsayılan olarak ayarlanır başlangıç sitesi şablonunda true), ve bir tanınmayan tablo adı (ikinci parametresi) yöntemine geçirilen, yöntem bir hata oluşturmaz. Bunun yerine, otomatik olarak bir tablo oluşturur.
+> Bir ASP.NET Razor Web sitesinin üyelik sağlayıcısını başlatmak için `WebSecurity.InitializeDatabaseConnection` yöntemini çağırın. (WebMatrix 'te, başlatıcı site şablonu *\_AppStart. cshtml* dosyasında Bu metoda bir çağrı içerir.) Bu yöntemin `autoCreateTables` parametresi true olarak ayarlanmışsa (varsayılan olarak, başlatıcı site şablonunda true olarak ayarlanır) ve tanınmayan bir tablo adı yönteme (ikinci parametre) geçirilirse Yöntem bir hata oluşturmaz. Bunun yerine, tabloyu otomatik olarak oluşturur.
 > 
-> Üyelik için bir özel bir kullanıcı tablosu kullanır ancak yanlış tablo adına geçirmek istiyorsanız, bu bir sorun olabilir `WebSecurity.InitializeDatabaseConnection` yöntemi. Belirttiğiniz tablo mevcut değilse yöntemi varsayılan olarak bir hata oluşturmaz, çünkü ve bunun yerine yeni bir tablo oluşturur çünkü uygulama çalışıyor gibi görünür. Ancak, özel kullanıcı tablonuzda (ve bu alanlara) kullanan uygulama kodu sonunda beklenmeyen hatalarla başarısız olabilir.
+> Bu, üyelik için özel bir kullanıcı tablosu kullanmayı amaçlıyorsanız ancak yanlış tablo adını `WebSecurity.InitializeDatabaseConnection` yöntemine geçirirseniz bir sorun olabilir. Yöntemi varsayılan olarak, belirttiğiniz tablo yoksa ve bunun yerine yeni bir tablo oluşturduğunda bir hata oluşturmaz, uygulama çalışıyor olarak görünebilir. Ancak, Özel Kullanıcı tablonuza (ve içindeki alanlarda) bağlı olan uygulama kodu sonunda beklenmedik hatalarla başarısız olabilir.
 > 
 > **Geçici çözüm**  
-> İçinde geçirilen ad emin `InitializeDatabaseConnection` kullanıcı profili tablosunda üyelik veritabanında veya devre dışı olduğundan emin olun yöntemi eşleşme `autoCreateTables` parametresini false olarak ayarlayın.
+> `InitializeDatabaseConnection` yönteminde geçirilen adın, üyelik veritabanındaki kullanıcı profili tablosuyla eşleştiğinden emin olun veya `autoCreateTables` parametresinin false olarak ayarlandığından emin olun.
 
-#### <a name="issue-error-message-the-admin-module-requires-access-to-appdata"></a>Sorun: Hata iletisi "Yönetici modülü ~/App erişmesi\_veri"
+#### <a name="issue-error-message-the-admin-module-requires-access-to-app_data"></a>Sorun: "Yönetici modülü ~/App\_Data için erişim gerektiriyor" hata iletisi
 
-> Bazı durumlarda, kullanıcılar oluşturma veya aksi takdirde ASP.NET üyelik sistemi ile iş çalışılırken hata görüntülemek sayfanın neden olabilir *yönetim modülü ~/App erişmesi gerekiyor\_veri*. IIS veya IIS Express altında çalıştığı hesabı oluşturma ve yazma izinlerine sahip değilse bu gerçekleşir *uygulama\_veri* altında Web sitesinin kök klasörü. 
+> Bazı durumlarda, kullanıcı oluşturmaya veya başka bir şekilde ASP.NET üyelik sistemiyle çalışmayı denemek sayfanın *Yönetim modülünün ~/App\_verilerine erişmesi gereken*hatayı görüntülemesine neden olabilir. Bu durum, IIS veya IIS Express 'nin altında çalıştığı hesabın, Web sitesi kökünde *uygulama\_veri* klasörü oluşturma ve bu klasöre yazma izinleri yoksa oluşur. 
 > 
-> **Geçici çözüm** el ile oluşturmak bir *uygulama\_veri* Web sitesi için bir klasör. Uygulama (genellikle altında ağ hizmeti) çalıştıran Windows hesabının kök klasörleri uygulamanın ve uygulama gibi alt klasörleri için okuma/yazma izinleri bulunduğundan emin\_veri. Bilgi Bankası makalesinde daha ayrıntılı bilgi kullanılabilir [sorunları kullanıcı SQL Server Express örneği oluşturmayı ve ASP.net Web uygulaması projelerinde](https://support.microsoft.com/kb/2002980).
+> **Geçici çözüm** Web sitesi için el ile *uygulama\_veri* klasörü oluşturun. Daha sonra uygulamanın altında çalıştığı Windows hesabının (genellikle ağ HIZMETI) uygulamanın kök klasörleri ve App\_verileri gibi alt klasörler için okuma/yazma izinlerine sahip olduğundan emin olun. [SQL Server Express Kullanıcı örneği oluşturma ve ASP.NET Web uygulaması projeleriyle](https://support.microsoft.com/kb/2002980)Ilgili Bilgi Bankası makalesi sorunlarını daha ayrıntılı olarak bulabilirsiniz.
 
-#### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>Sorun: "SQL Server'ın bir kullanıcı örneği oluşturulamadı" hatası
+#### <a name="issue-failed-to-generate-a-user-instance-of-sql-server-error"></a>Sorun: "SQL Server bir kullanıcı örneği oluşturulamadı" hatası
 
-> Bir WebMatrix Web uygulaması, SQL Server Express kullanan ve IIS 7.5 Windows 7 veya Windows Server 2008 R2 çalıştıran, SQL Server çalışma zamanında kullanıcının yerel uygulama yolu alınamıyor belirten bir hata görebilirsiniz.
+> Bir WebMatrix Web uygulaması SQL Server Express kullanıyorsa ve Windows 7 veya Windows Server 2008 R2 üzerinde IIS 7,5 çalıştırıyorsa, SQL Server kullanıcının yerel uygulama yolunu çalışma zamanında alamadığını belirten bir hata görebilirsiniz.
 > 
-> **Geçici çözüm** uygulama (genellikle altında ağ hizmeti) çalıştıran Windows hesabı gibi uygulamanın kök klasörler ve alt klasörleri için okuma/yazma izinlerine sahip olduğundan emin olun *uygulama\_veri*. Bilgi Bankası makalesinde daha ayrıntılı bilgi kullanılabilir [sorunları kullanıcı SQL Server Express örneği oluşturmayı ve ASP.net Web uygulaması projelerinde](https://support.microsoft.com/kb/2002980).
+> **Geçici çözüm** Uygulamanın altında çalıştığı Windows hesabının (genellikle ağ HIZMETI) uygulamanın kök klasörleri ve *App\_verileri*gibi alt klasörler için okuma/yazma izinlerine sahip olduğundan emin olun. [SQL Server Express Kullanıcı örneği oluşturma ve ASP.NET Web uygulaması projeleriyle](https://support.microsoft.com/kb/2002980)Ilgili Bilgi Bankası makalesi sorunlarını daha ayrıntılı olarak bulabilirsiniz.
 
-#### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a>Sorun: Paket Yöneticisi parolaları veya Paket Yöneticisi kaynaklar içeren dosyaları servable altında IIS 6.0 ve önceki sürümleri
+#### <a name="issue-files-that-contains-package-manager-resources-or-package-manager-passwords-are-servable-under-iis-60-and-earlier"></a>Sorun: Package Manager kaynakları veya Package-Manager parolalarını içeren dosyalar IIS 6,0 ve öncesi sürümlerde kullanılabilir
 
-> RC2 yayın kullanılarak oluşturulmuş bir ASP.NET Web sayfaları (Razor) uygulama dağıtırsanız ve uygulama içeriyorsa, bir *password.txt* veya *packagesources.txt* altında dosya */App\_ Veri/admin*, IIS 6.0, dosyanın Paket Yöneticisi Örneğiniz için parolaları potansiyel olarak gösterme, istenmesi halinde hizmet edecektir. 
+> RC2 sürümü kullanılarak oluşturulmuş bir ASP.NET Web Pages (Razor) uygulaması dağıtırsanız ve uygulama */App\_Data/admin*altında bir *password. txt* veya *packageso,. txt* dosyası içeriyorsa, IIS 6,0, istenirse dosyayı kullanacaktır ve bu da paket yöneticisi örneğinizin parolalarını açığa çıkarmış olabilir. 
 > 
-> **Geçici çözüm** Yeniden Adlandır *password.txt* veya *packagesources.txt* dosyasını *password.config* veya *packagesources.config*. Varsayılan olarak, IIS 6.0 olan dosyalar sunmuyor *.config* uzantısı. (IIS 7 ' de hiçbir dosya *uygulama\_veri* klasör sunulan, dosyaları yeniden adlandırmak gerek yoktur.)
+> **Geçici çözüm** Password. *txt* veya *packageso,. txt* dosyasını *password. config* veya *packageso,. config*olarak yeniden adlandırın. Varsayılan olarak, IIS 6,0 *. config* uzantısına sahip dosyalara sahip değildir. (IIS 7 ' de, *uygulama\_veri* klasörüne hiçbir dosya sunulmadığından, dosyaları yeniden adlandırmanıza gerek kalmaz.)
 
-#### <a name="issue-uninstalling-packages-installed-using-the-beta-3-release-does-not-completely-remove-package-components"></a>Sorun: Beta 3 yayını kullanarak yüklü paketleri kaldırılıyor tamamen paket bileşenleri kaldırmaz
+#### <a name="issue-uninstalling-packages-installed-using-the-beta-3-release-does-not-completely-remove-package-components"></a>Sorun: Beta 3 sürümü kullanılarak yüklenen paketleri kaldırmak, paket bileşenlerini tamamen kaldırmaz
 
-> Beta 3 sürümde Paket Yöneticisi'ni kullanarak bir paket yüklü ve mevcut sürümde kullanarak kaldırmak deneyin, paket tümüyle kaldırılmamış. Paket Yöneticisi'nin kullanarak **kaldırma** düğmesi bazı bileşenleri kaldırır ancak paket kitaplık kodu bırakır ve güncelleştirilmediği *package.config* dosya.
+> Beta 3 sürümündeki Paket Yöneticisi 'ni kullanarak bir paket yüklediyseniz ve sonra geçerli sürümü kullanarak kaldırmayı denerseniz, paket tümüyle kaldırılmaz. Paket yöneticisinin **Kaldır** düğmesinin kullanılması bazı bileşenleri kaldırır, ancak paketin kitaplık kodunu bırakır ve *Package. config* dosyasını güncelleştirmez.
 > 
 > **Geçici çözüm**   
-> Aşağıdaki adımları gerçekleştirin:  
-> 1. Silme *uygulama\_Data\packages* klasör. Bu, tüm paketler kaldırılır.   
-> 2. Silme *packages.config* Web sitesinin kök dosyasında.
+> Şu adımları uygulayın:  
+> 1. *App\_Data\packages* klasörünü silin. Bu, tüm paketleri kaldırır.   
+> 2. Web sitesinin kökündeki *Packages. config* dosyasını silin.
 
-#### <a name="issue-in-visual-studio-invoking-the-web-based-package-manager-takes-the-application-offline"></a>Sorun: Visual Studio'da, web tabanlı Paket Yöneticisi çağırma uygulamayı çevrimdışı duruma getirir
+#### <a name="issue-in-visual-studio-invoking-the-web-based-package-manager-takes-the-application-offline"></a>Sorun: Visual Studio 'Da, Web tabanlı paket yöneticisini çağırmak uygulamayı çevrimdışı duruma getirir
 
-> Visual Studio'da (WebMatrix değil) çalışıyor ve kullanmak  *\_yönetici* Visual Studio Paket Yöneticisi'ni başlatmak için işlevsellik uygulamayı çevrimdışı duruma getirir ve gönderileri *uygulama\_ Offline.htm* Web sitesinin kök ile hangi bozar yeteneğinizi paket yöneticisini kullanın.
+> Visual Studio 'da (WebMatrix değil) çalışıyorsanız ve Paket Yöneticisi 'ni başlatmak için *\_yönetici* işlevini kullanırsanız, Visual Studio uygulamayı çevrimdışına alır ve *uygulamayı çevrimdışı. htm\_* Web sitesi köküne gönderir ve bu da paket yöneticisini kullanma yeteneğinizi kesintiye uğraşır.
 > 
 > [!NOTE]
-> En yaygın web tabanlı Paket Yöneticisi arabirimi kullanılırken bu davranışı görür ancak aynı davranış ekleyin, kaldırın veya herhangi bir dosyayı değiştirmek ortaya çıkar *uygulama\_veri* klasör.
+> Web tabanlı Paket Yöneticisi arabirimini kullanırken genellikle bu davranışı görseniz de, *App\_veri* klasöründeki dosyaları ekler, kaldırırsanız veya değiştirirseniz aynı davranış oluşur.
 > 
 > **Geçici çözüm**   
-> Visual Studio'da paketleriyle çalışmak için NuGet uzantısı yerine web tabanlı Paket Yöneticisi'ni kullanın. Bilgi için [NuGet belgeleri](https://docs.microsoft.com/nuget/). Diğer dosyalarıyla çalışıyorsanız *uygulama\_veri* klasör, bu sorunu önlemek için başka bir yerde dosyaları tutmaya dikkat edin. Bu pratik değilse Sil *uygulama\_offline.htm* dosyasını el ile veya otomatik olarak (varsayılan olarak 30 saniyeden sonra) sitenin tekrar çevrimiçi gelene kadar bekleyin.
+> Visual Studio 'da paketlerle çalışmak için, Web tabanlı Paket Yöneticisi yerine NuGet uzantısını kullanın. Daha fazla bilgi için bkz. [NuGet belgeleri](https://docs.microsoft.com/nuget/). *App\_Data* klasöründeki diğer dosyalarla çalışıyorsanız, bu sorundan kaçınmak için dosyaları başka bir yerde tutmayı göz önünde bulundurun. Bu pratik değilse, *uygulamayı çevrimdışı. htm dosyası\_* el ile silin veya site yeniden çevrimiçi olana kadar bekleyin (varsayılan olarak 30 saniye sonra).
 
-#### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>Sorun: Visual Studio IntelliSense ve proje şablonları yalnızca ASP.NET MVC 3. sürüm kullanılabilir
+#### <a name="issue-visual-studio-intellisense-and-project-templates-available-only-in-aspnet-mvc-version-3"></a>Sorun: Visual Studio IntelliSense ve proje şablonları yalnızca ASP.NET MVC sürüm 3 ' te kullanılabilir
 
-> ASP.NET Web sayfaları yüklenmesi de araçları Visual Studio için ASP.NET Web Pages uygulamaları için IntelliSense ve proje şablonları gibi yüklemez.
+> ASP.NET Web sayfalarının yüklenmesi, Visual Studio için IntelliSense ve ASP.NET Web sayfaları uygulamalarına yönelik proje şablonları gibi araçları da yüklemez.
 > 
-> **Geçici çözüm** IntelliSense ve proje şablonları ASP.NET Web Pages uygulamaları Visual Studio'da kullanmak için ASP.NET MVC 3 RC Web Platformu yükleyicisi aracılığıyla yükleyin veya [tek başına yükleyici](https://go.microsoft.com/fwlink/?LinkID=191797).
+> **Geçici çözüm** Visual Studio 'da ASP.NET Web Pages uygulamaları için IntelliSense ve proje şablonları kullanmak üzere, Web Platformu Yükleyicisi veya [tek başına yükleyici](https://go.microsoft.com/fwlink/?LinkID=191797)aracılığıyla ASP.NET MVC 3 RC 'yi yükleme.
 
-#### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>Sorun: Akışları okuma veya diğer dış veri bir ara sunucu aracılığıyla
+#### <a name="issue-reading-feeds-or-other-external-data-via-a-proxy-server"></a>Sorun: bir ara sunucu aracılığıyla akışları veya diğer dış verileri okuma
 
-> Site sunucusunu bir proxy sunucusu arkasında ise, Ara sunucu bilgileri yapılandırmanız gerekebilir *web.config* dosyasını, site dışında geldiği bilgileri okuyabilir. Örneğin, kullanırsanız `ReCaptcha` yardımcı, yardımcı reCAPTCHA hizmetiyle iletişim kurar, ancak proxy sunucunuz tarafından engelleniyor olabilir. Benzer şekilde, Paket Yöneticisi tarafından kullanılan akış gibi ASP.NET Web sayfaları'nda kullanılan akışları proxy yapılandırma gerektirebilir.
+> Siteyi çalıştıran sunucu bir proxy sunucusunun arkasındaysa, sitenizin dışından gelen bilgileri okuyabilmeniz için *Web. config* dosyasındaki proxy bilgilerini yapılandırmanız gerekebilir. Örneğin, `ReCaptcha` yardımcısını kullanıyorsanız, yardımcı, reCAPTCHA hizmeti ile iletişim kurar, ancak proxy sunucunuz tarafından engelleniyor olabilir. Benzer şekilde, ASP.NET Web sayfalarında kullanılan ve paket yöneticisi tarafından kullanılan akış gibi akışlar ara sunucu yapılandırması gerektirebilir.
 > 
-> Bir dış hizmet çalışmaya veya akış paketi ile çalışırken sorunlarla karşılaşırsanız, aşağıdaki öğeleri, uygulamanızın kök ile put *web.config* dosyası:
+> Bir dış hizmetle çalışırken veya paket akışı ile çalışırken sorunlarla karşılaşırsanız, aşağıdaki öğeleri uygulamanızın kök *Web. config* dosyasına yerleştirin:
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> Bir proxy sunucusu yapılandırma hakkında daha fazla bilgi için bkz. [ &lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web sitesinde.
+> Proxy sunucu yapılandırma hakkında daha fazla bilgi için, MSDN Web sitesindeki [&lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) bölümüne bakın.
 
-#### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Sorun: Razor sözdizimi olan ASP.NET Web Pages .NET Framework sürüm 4 kaldırma devre dışı bırakır
+#### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Sorun: .NET Framework sürüm 4 ' ü kaldırmak, Razor sözdizimi ile ASP.NET Web sayfalarını devre dışı bırakır
 
-> .NET Framework sürüm 4 kaldırın ve daha sonra yeniden yüklerseniz, Razor sözdizimi olan ASP.NET Web sayfaları devre dışı bırakıldı. İle sayfaları *.cshtml* uzantısı düzgün çalışmaz. ASP.NET Web sayfaları kaydeder derleme makinesi kök dizininde *web.config* dosyasını ve .NET Framework kaldırarak bu dosyayı kaldırır. .NET Framework yeniden yapılandırma dosyasının yeni bir sürümü yükler, ancak başvuru için ASP.NET Web Pages derleme eklemez.
+> .NET Framework sürüm 4 ' ü kaldırıp yeniden yüklerseniz, Razor söz dizimi Web sayfaları devre dışı bırakılır. *. Cshtml* uzantılı sayfalar düzgün çalışmaz. ASP.NET Web sayfaları, bir derlemeyi makine kök *Web. config* dosyasına kaydeder ve .NET Framework kaldırıldığında bu dosya kaldırılır. .NET Framework yeniden yüklemek, yapılandırma dosyasının yeni bir sürümünü yüklüyor, ancak ASP.NET Web Pages derlemesinin başvurusunu eklemez.
 > 
-> **Geçici çözüm** .NET Framework yeniden yükledikten sonra Razor sözdizimi olan ASP.NET Web sayfaları yeniden yükleyin. Bu şu öğeye ekler *web.config* genellikle şu konumdadır makine kök dosyasında:  
+> **Geçici çözüm** .NET Framework yeniden yükledikten sonra, ASP.NET Web sayfalarını Razor söz dizimi yeniden yükleyin. Bu, genellikle aşağıdaki konumda olan makine kökündeki *Web. config* dosyasına aşağıdaki öğeyi ekler:  
 > 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](overview/samples/sample3.xml)]
 
-#### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Sorun: Uzantısız URL'ler IIS 7 ya da IIS 7.5.cshtml/.vbhtml dosyada bulunamadı
+#### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Sorun: Extensionless URL 'Leri IIS 7 veya IIS 7,5 üzerinde. cshtml/. vbhtml dosyalarını bulamıyor
 
-> IIS 7 veya IIS 7.5, aşağıdaki gibi bir URL isteklerle sahip sayfalar bulmak mümkün değildir *.cshtml* veya *.vbhtml* uzantısı:  
+> IIS 7 veya IIS 7,5 ' de, aşağıdakine benzer bir URL 'ye sahip istekler *. cshtml* veya *. vbhtml* uzantısına sahip sayfaları bulamaz:  
 > 
 > `http://www.example.com/ExampleSite/ExampleFile`  
 > 
-> URL yeniden yazma varsayılan olarak IIS 7 veya IIS 7.5 için etkin olmadığından, sorun ortaya çıkar. IIS Express kullanarak yerel olarak test ederken sorun görmüyorsanız, ancak Web sitenizi barındıran bir Web sitesine dağıttığınızda deneyimi, denetçilerinde bir senaryodur.
+> Bu sorun ortaya çıkar çünkü URL yeniden yazma özelliği IIS 7 veya IIS 7,5 için varsayılan olarak etkinleştirilmemiştir. Likeliest senaryosu, IIS Express kullanarak yerel olarak test ederken sorunu görmemelidir, ancak Web sitenizi bir barındırma web sitesine dağıttığınızda bu sorunla karşılaşırsınız.
 > 
 > **Geçici çözüm**
 > 
-> - Sunucu bilgisayarı üzerinde denetime sahip olursunuz, sunucu bilgisayarda açıklanan güncelleştirmeyi yükleyin. [etkinleştirir işlemek için IIS 7.0 veya IIS 7.5 işleyicilerinin URL'leri istekleri belirli bir nokta ile bitmeyen bir güncelleştirme kullanılabilir](https://support.microsoft.com/kb/980368).
-> - Sunucu bilgisayarı üzerinde denetim yoksa (örneğin, bir barındırma Web sitesine dağıtıyorsanız), Web sitenizin ekleyin *web.config* dosyası: 
+> - Sunucu bilgisayar üzerinde denetiminiz varsa, sunucu bilgisayarda, [belırlı ııs 7,0 veya ııs 7,5 işleyicilerinin, URL 'lerin noktayla bitmeyen istekleri işlemesini sağlayan bir güncelleştirmede](https://support.microsoft.com/kb/980368)açıklanan güncelleştirmeyi yükleyebilirsiniz.
+> - Sunucu bilgisayarı üzerinde denetiminiz yoksa (örneğin, bir barındırma web sitesine dağıtıyorsanız), aşağıdakileri Web sitesinin *Web. config* dosyasına ekleyin: 
 > 
 >     [!code-xml[Main](overview/samples/sample4.xml)]
 
-#### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>Sorun: SQL Server yüklü Compact sahip olmayan bir bilgisayara uygulama dağıtma
+#### <a name="issue-deploying-an-application-to-a-computer-that-does-not-have-sql-server-compact-installed"></a>Sorun: SQL Server Compact yüklü olmayan bir bilgisayara uygulama dağıtma
 
-> SQL Server Compact veritabanı içeren uygulamalar, SQL Server Compact değil yüklü olduğu bir bilgisayarda çalıştırabilirsiniz. Microsoft WebMatrix 1.0 otomatik olarak bu ikili dosyalar, kopyalar ve uygun gerçekleştirir *web.config* dosya dönüşümler.
+> SQL Server Compact veritabanlarını içeren uygulamalar, SQL Server Compact yüklü olmayan bir bilgisayarda çalıştırılabilir. Microsoft WebMatrix 1,0, bu ikili dosyaları sizin için otomatik olarak kopyalar ve uygun *Web. config* dosyası dönüşümlerini gerçekleştirir.
 > 
-> **Geçici çözüm** bu dosyaları kopyalayın ve gerekirse *web.config* dosya değişikliklerini el ile şunları yapın:
+> **Geçici çözüm** Bu dosyaları kopyalamanız ve *Web. config* dosyasının el ile değişiklikleri yapmanız gerekiyorsa, şunları yapın:
 > 
-> 1. Veritabanı altyapısı derlemeleri kopyalamak *Bin* uygulamanın hedef bilgisayardaki klasör (ve klasörleri):  
+> 1. Veritabanı altyapısı derlemelerini hedef bilgisayardaki uygulamanın *bin* klasörüne (ve alt klasörlerine) kopyalayın:  
 > 
->    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->      **to** *\Bin*
->    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* **to** *\Bin\x86*
->    - Copy *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **to** *\Bin\amd64*
+>    - *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*  Kopyala  
+>      *\Bin* 'e
+>    - *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\* dosyasını *\bin\x86* ' ya kopyalayın
+>    - *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\* *  **'i** *\bin\amd64* dizinine kopyalayın
 > 
-> 2. Web sitesinin kök klasöründeki oluşturun veya açın bir *web.config* dosya. (WebMatrix 1. 0'da, bu dosya türü tıklarsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
-> 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin `<configuration>` öğesi (değilken `<system.web>` öğesi):
+> 2. Web sitesinin kök klasöründe bir *Web. config* dosyası oluşturun veya açın. (WebMatrix 1,0 ' de, **dosya türü seç** Iletişim kutusunda **Tümü** ' ne tıkladığınızda bu dosya türü kullanılabilir.)
+> 3. Aşağıdaki öğeyi `<configuration>` öğesinin bir alt öğesi olarak ekleyin (`<system.web>` öğesinin içinde değil):
 > 
 >     [!code-xml[Main](overview/samples/sample5.xml)]
 
-#### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>Sorun: Visual Basic'te Medium Trust ile de "Veritabanı" ve "WebGrid" Yardımcıları çalışmıyor
+#### <a name="issue-database-and-webgrid-helpers-do-not-work-in-medium-trust-in-visual-basic"></a>Sorun: "Database" ve "WebGrid" yardımcıları Visual Basic sürümünde Orta güvende çalışmıyor
 
-> Visual Basic kullanıyorsanız (oluşturma *.vbhtml* dosyaları), `Database` ve `WebGrid` uygulama Medium Trust kullanmak üzere ayarlanmışsa Yardımcıları çalışmaz.
+> Visual Basic kullanıyorsanız ( *. vbhtml* dosyaları oluşturma), uygulama orta güveni kullanmak üzere ayarlandıysa `Database` ve `WebGrid` yardımcıları çalışmaz.
 > 
 > **Geçici çözüm**  
-> Visual Studio 2010 kullanıyorsanız, Service Pack 1 sürüm yükleyerek bu sorunu çözebilirsiniz. SP1 sürümüne ait son sürüm kullanılabilir oluncaya kadar SP1'den Beta sürümü indirebilirsiniz [Microsoft Visual Studio 2010 Service Pack 1 Beta'ya](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) Microsoft Download Center sayfasında.   
+> Visual Studio 2010 kullanıyorsanız, Service Pack 1 sürümünü yükleyerek bu sorunu çözebilirsiniz. SP1 sürümünün son sürümü kullanılabilir olana kadar, Microsoft Indirme merkezi 'ndeki [Microsoft Visual Studio 2010 Service Pack 1 Beta](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=11ea69cb-cf12-4842-a3d7-b32a1e5642e2&amp;displaylang=en) sayfasından SP1 'in beta sürümünü indirebilirsiniz.   
 >   
-> Bunun pratik olmadığı veya Visual Studio 2010 kullanmazsanız, geçici olarak tam güven kullanmak için uygulamayı ayarlayın.
+> Bu pratik değilse veya Visual Studio 2010 kullanmıyorsanız, geçici olarak uygulamayı tam güven kullanacak şekilde ayarlayabilirsiniz.
 
-#### <a name="issue-applicationpart-resources-are-externally-accessible"></a>Sorun: Harici olarak erişilebilen "ApplicationPart" kaynakları
+#### <a name="issue-applicationpart-resources-are-externally-accessible"></a>Sorun: "ApplicationPart" kaynaklarına dışarıdan erişilebilir
 
-> Bir derlemeyi öğesinden türetilen nesneler içeriyorsa `ApplicationPart` sınıfı, derlemenin kaynakları tarafından kullanıma sunulan `ResourceRouteHandler` sınıfı. Örneğin, aşağıdaki URL'ye göz önünde bulundurun:  
+> Bir derleme `ApplicationPart` sınıfından türetilen nesneler içeriyorsa, bu derlemenin kaynakları `ResourceRouteHandler` sınıfı tarafından gösterilir. Örneğin, aşağıdaki URL 'YI göz önünde bulundurun:  
 >   
 > `~/r.ashx/System.Web.WebPages.Administration/Resources/AdminResources.resources`  
 >   
-> Bu istek kaynak dizeleri tüm indirmeleri *System.Web.WebPages.Administration.dll* derleme. Tüm katıştırılmış kaynaklar (olanlar statik içeriği olarak sunulmasını amaçlanmayan) yüklenir. Katıştırılmış kaynakları hassas bilgileri içeriyorsa, bu bir güvenlik riski temsil edebilir. 
+> Bu istek, *System. Web. Web sayfası. Administration. dll* derlemesindeki tüm kaynak dizelerini indirir. Tüm katıştırılmış kaynaklar (statik içerik olarak sunulmayı amaçlananlar bile) indirilir. Katıştırılmış kaynaklar hassas bilgiler içeriyorsa bu, bir güvenlik riskini temsil edebilir. 
 > 
 > **Geçici çözüm**   
-> Oluşturursanız, bir **ApplicationPart** nesne, gömülü kaynaklar ile ilişkili olduğundan emin olun **ApplicationPart** nesnenin derleme hassas bilgileri içermez.
+> Bir **applicationpart** nesnesi oluşturursanız, bu **applicationpart** nesnesinin derlemesi ile ilişkili gömülü kaynakların hassas bilgiler içermediğinden emin olun.
 
 <a id="Known_Issues_WebMatrix"></a>
 
 ### <a name="webmatrix"></a>WebMatrix
 
 > [!NOTE]
-> WebMatrix için yükleme sorunları hakkında ek bilgi için bkz. [WebMatrix yükleme sorunlarını](#Known_Issues_Installation) bu belgenin daha öncesinde.
+> WebMatrix 'e yönelik yükleme sorunları hakkında daha fazla bilgi için bu belgede daha önce [WebMatrix yükleme sorunları](#Known_Issues_Installation) bölümüne bakın.
 
-Belgenin bu bölümü WebMatrix geliştirme ortamı için bilinen sorunlar açıklanmaktadır.
+Belgenin bu bölümünde, WebMatrix geliştirme ortamı için bilinen sorunlar açıklanmaktadır.
 
-#### <a name="issue-changes-in-the-username-or-password-of-a-database-connection-string-in-a-webconfig-file-are-not-reflected-in-the-databases-workspace"></a>Sorun: Veritabanları çalışma alanında kullanıcı adı veya parola web.config dosyasındaki veritabanı bağlantı dizesinin değişiklikler yansıtılmaz
+#### <a name="issue-changes-in-the-username-or-password-of-a-database-connection-string-in-a-webconfig-file-are-not-reflected-in-the-databases-workspace"></a>Sorun: Web. config dosyasındaki bir veritabanı bağlantı dizesinin Kullanıcı adı veya Paroladaki değişiklikler veritabanları çalışma alanına yansıtılmıyor
 
 > **Geçici çözüm**  
 > 
-> 1. İçinde *web.config* dosya, bağlantı dizesinde veritabanı adını değiştirin (örneğin, "1" ekleyin).
-> 2. Kaydet *web.config* dosya.
-> 3. Tıklayın **veritabanları** ve yenileyin.
-> 4. Bağlantı dizesinde veritabanının adını değiştirmek *web.config* dosyasını yeniden özgün veritabanı adı.
-> 5. Kaydet *web.config* dosya.
-> 6. Tıklayın **veritabanları** ve yenileyin.
+> 1. *Web. config* dosyasında, bağlantı dizesindeki veritabanı adını değiştirin (örneğin, "1" ekleyin).
+> 2. *Web. config* dosyasını kaydedin.
+> 3. **Veritabanları** ' na tıklayın ve yenileyin.
+> 4. *Web. config* dosyasındaki bağlantı dizesindeki veritabanı adını özgün veritabanı adına geri değiştirin.
+> 5. *Web. config* dosyasını kaydedin.
+> 6. **Veritabanları** ' na tıklayın ve yenileyin.
 
-#### <a name="issue-folders-created-by-webmatrix-cannot-be-deleted"></a>Sorun: WebMatrix tarafından oluşturulan klasörler silinemiyor
+#### <a name="issue-folders-created-by-webmatrix-cannot-be-deleted"></a>Sorun: WebMatrix tarafından oluşturulan klasörler silinemez
 
-> WebMatrix yükseltilmiş izinlerle çalışıyorsa (diğer bir deyişle, WebMatrix kullanarak başlattığınız **yönetici olarak çalıştır** Windows seçeneği), Windows Gezgini'ni kullanarak WebMatrix tarafından oluşturulan klasörlere silinemiyor.
+> WebMatrix yükseltilmiş izinler kullanılarak çalışıyorsa (yani, Windows 'ta **yönetici olarak çalıştır** seçeneğini kullanarak WebMatrix 'i başlattığınızda), WebMatrix tarafından oluşturulan klasörler Windows Gezgini kullanılarak silinemez.
 > 
 > **Geçici çözüm**  
-> Yükseltilmiş izinlerle Windows Explorer'ı çalıştırın. Aşağıdaki adımları uygulayın:  
+> Yükseltilmiş izinleri kullanarak Windows Gezgini 'ni çalıştırın. Aşağıdaki adımları uygulayın:  
 > 
-> 1. Windows içinde tıklayın **Başlat**.
-> 2. "Windows Gezgini" girin ve girişini sağ tıklatın **Windows Explorer**.
-> 3. Tıklayın **yönetici olarak çalıştır**. Ardından, klasörler de silebilirsiniz.
+> 1. Windows 'ta **Başlat**' a tıklayın.
+> 2. "Windows Gezgini" yazın ve **Windows Gezgini**için girişe sağ tıklayın.
+> 3. **Yönetici olarak çalıştır**' a tıklayın. Daha sonra klasörleri silebilirsiniz.
 
-#### <a name="issue-webmatrix-10-is-unable-to-perform-certain-tasks-that-require-elevation"></a>Sorun: WebMatrix 1.0 ayrıcalık gerektiren belirli görevleri gerçekleştirmek alamıyor
+#### <a name="issue-webmatrix-10-is-unable-to-perform-certain-tasks-that-require-elevation"></a>Sorun: WebMatrix 1,0, yükseltme gerektiren belirli görevleri gerçekleştiremiyor
 
-> WebMatrix 1.0 aşağıdaki durumlarda ek bileşenler yükleme gibi yetki yükseltmesi gerektiren bazı görevleri gerçekleştirmek üzere yüklenemiyor:
+> WebMatrix 1,0, aşağıdaki durumlarda ek bileşenler yükleme gibi yükseltme gerektiren belirli görevleri gerçekleştiremiyor:
 > 
-> - Windows Vista veya Windows 7'de, yönetici ayrıcalıklarına sahip olmayan bir hesapla oturum günlüğe kaydedilir ve kullanıcı hesabı denetimi (UAC) devre dışı bırakıldı.
-> - Microsoft Windows XP veya Microsoft Windows Server 2003 kullanıyor.
-> 
-> **Geçici çözüm**  
-> Çoğu görevi WebMatrix 1.0 Yönetim iznini gerektirmez. Olmayanlar için yönetici olarak işlemi gerçekleştirebilir, veya bu adımları izleyin:
-> 
-> - UAC Windows Vista veya Windows 7'de etkinleştirin.
-> - Windows XP'de, kullanıcı Administrators güvenlik grubuna ekleyin.
-
-#### <a name="issue-site-from-web-gallery-is-disabled"></a>Sorun: "Web Galerisi sitesinden" devre dışı bırakıldı
-
-> **Web Galerisi sitesinden** Web Platformu yükleyicisi 3.0 yüklü değilse seçeneği devre dışıdır.
+> - Windows Vista veya Windows 7 ' de, yönetici ayrıcalıklarına sahip olmayan bir hesapla oturum açarsınız ve Kullanıcı hesabı denetimi (UAC) devre dışı bırakılır.
+> - Microsoft Windows XP veya Microsoft Windows Server 2003 kullanıyorsunuz.
 > 
 > **Geçici çözüm**  
-> Yükleme [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/fwlink/?LinkID=194638).
+> WebMatrix 1,0 ' deki görevlerin çoğu, yönetici izni gerektirmez. Bu işlemler için, işlemi yönetici olarak gerçekleştirebilir veya aşağıdaki adımları izleyebilirsiniz:
+> 
+> - Windows Vista veya Windows 7 ' de UAC 'yi etkinleştirin.
+> - Windows XP 'de, kullanıcıyı Administrators güvenlik grubuna ekleyin.
 
-#### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>Sorun: Google Chrome, bir çalıştırma seçeneği olarak kullanılabilir değil.
+#### <a name="issue-site-from-web-gallery-is-disabled"></a>Sorun: "Web galerisinden site" devre dışı
 
-> Google Chrome, tarayıcılar altında listesinde görüntülenmez **çalıştırma** üzerinde **giriş** sekmesi.
+> Web Platformu Yükleyicisi 3,0 yüklü değilse, **Web galerisinden site** seçeneği devre dışıdır.
 > 
 > **Geçici çözüm**  
-> Google Chrome'nün bazı sürümleri kendilerini doğru Windows varsayılan programlar özelliğiyle kaydetmeyin. Geçici bir çözüm olarak, Google Chrome Başlat'a tıklayın *özelleştirme ve denetim Google Chrome* menüsünde tıklatın *seçenekleri*ve ardından *yapma Google Chrome varsayılan tarayıcımda*.
+> [3,0 Microsoft Web Platformu Yükleyicisi](https://go.microsoft.com/fwlink/?LinkID=194638)'yi yükler.
 
-#### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>Sorun: "Yabancı anahtarı" iletişim kutusu, birincil bir anahtar girilmesi izin vermez
+#### <a name="issue-google-chrome-is-not-available-as-a-run-option"></a>Sorun: Google Chrome bir çalıştır seçeneği olarak kullanılamıyor
 
-> **Yabancı anahtar** iletişim kutusu izin vermemektedir birincil anahtar tablosunda birincil anahtar adı girin.
+> Google Chrome, **giriş** sekmesinde **Çalıştır** altında bulunan tarayıcılar listesinde gösterilmez.
 > 
 > **Geçici çözüm**  
-> Bu kasıtlıdır. Birincil anahtar tablosundaki birincil anahtarın adını girmeniz gerekmez.
+> Google Chrome 'un bazı sürümleri, Windows 'daki varsayılan programlar özelliği ile kendilerini doğru bir şekilde kaydetmez. Geçici bir çözüm olarak, Google Chrome 'u başlatın, *Google Chrome ' ı Özelleştir ve denetle* menüsüne tıklayın, *Seçenekler*' e ve ardından *Google Chrome varsayılan tarayıcımı oluştur*' a tıklayın.
 
-#### <a name="issue-intellisense-is-not-available-in-webmatrix-for-razor-syntax-c-or-visual-basic"></a>Sorun: IntelliSense, Razor sözdizimi için Webmatrix'te kullanılabilir değil C#, veya Visual Basic
+#### <a name="issue-the-foreign-key-dialog-box-doesnt-allow-entering-a-primary-key"></a>Sorun: "yabancı anahtar" iletişim kutusu birincil anahtar girmeye izin vermiyor
 
-> IntelliSense WebMatrix, HTML ve CSS için desteklenir. Ancak, diğer diller için kullanılabilir değil. 
+> **Yabancı anahtar** iletişim kutusu birincil anahtar tablosundan birincil anahtar adını girmenize izin vermez.
+> 
+> **Geçici çözüm**  
+> Bu bilerek yapılır. Birincil anahtar tablosundan birincil anahtar adını girmeniz gerekmez.
+
+#### <a name="issue-intellisense-is-not-available-in-webmatrix-for-razor-syntax-c-or-visual-basic"></a>Sorun: IntelliSense Razor söz dizimi, C#veya Visual Basic için WebMatrix 'te kullanılamaz
+
+> IntelliSense, HTML ve CSS için WebMatrix 'te desteklenir. Ancak, diğer diller için kullanılamaz. 
 > 
 > **Geçici çözüm**   
 > Yok.
 
-#### <a name="issue-intellisense-for-html-and-css-suggests-elements-that-are-not-contextually-appropriate"></a>Sorun: HTML ve CSS için IntelliSense bağlamsal uygun olmayan öğeler önerir.
+#### <a name="issue-intellisense-for-html-and-css-suggests-elements-that-are-not-contextually-appropriate"></a>Sorun: HTML ve CSS için IntelliSense, bağlamsal olarak uygun olmayan öğeler önerir
 
-> WebMatrix işaretlemesi için IntelliSense'i destekler HTML kullanarak [XHTML 1.0 geçiş şema](http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/#xhtml1-transitional) ve CSS kullanarak [CSS 2.1 şema](http://www.w3.org/TR/CSS2/). IntelliSense bu belirli şemaları temel aldığından, bazı etiketler, öznitelik veya özellikleri geçerli sayfa veya stil tanımı için uygun olmayan önerilen. HTML için hatalı biçimlendirilmiş XHTML (örneğin, etiketleri kapalı) olarak yorumlanabilir içerik beklenmeyen önerileri için de açabilir. Bu sorun, tamamlanmamış bir etiketin içine ekleme noktasını ise daha belirgin olabilir; Bu durumda, IntelliSense bir yeni etiketler açma önerin veya yanlış diğer öneriler sunar. 
+> WebMatrix 'te biçimlendirme için IntelliSense, [css 2,1 şemasını](http://www.w3.org/TR/CSS2/)kullanarak [XHTML 1,0 GEÇIŞLI şema](http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/#xhtml1-transitional) ve CSS kullanarak HTML 'yi destekler. IntelliSense bu belirli şemaları temel aldığı için, belirli Etiketler, öznitelikler veya özellikler geçerli sayfa veya stil tanımına uygun olmayan önerilebilir olabilir. HTML için Ayrıca, hatalı oluşturulmuş XHTML (örneğin, Etiketler kapatılmadığı zaman) olarak yorumlanabilecek içerikte beklenmedik önerilere yol açabilir. Bu sorun, ekleme noktası tamamlanmamış bir etiketin içindeyse daha belirgin olabilir; Bu durumda, IntelliSense yeni açma etiketleri önerebilir veya diğer hatalı öneriler sunabilir. 
 > 
 > **Geçici çözüm**   
-> HTML için doğru biçimlendirilmiş ve eksiksiz bir XHTML sayfasında çalıştığından emin olun. CSS için geçici çözüm yoktur.
+> HTML için iyi biçimlendirilmiş, tam bir XHTML sayfasında çalıştığınızdan emin olun. CSS için geçici çözüm yoktur.
 
-#### <a name="issue-intellisense-is-not-invoked-while-you-type"></a>Sorun: Siz yazarken IntelliSense çağrılır
+#### <a name="issue-intellisense-is-not-invoked-while-you-type"></a>Sorun: IntelliSense siz yazarken çağrılmıyor
 
-> HTML veya CSS Düzenleyicisi'nde giriliyor gibi zamanlarda, IntelliSense çağrılmasına değil. Özellikle, ekleme noktasını başka bir öğenin yanında doğrudan veya bir dosya sonunda olduğunda bu gerçekleşebilir. 
+> Bazen, IntelliSense HTML olarak çağrılamaz veya düzenleyicide CSS girilmeyebilir. Özellikle, ekleme noktası başka bir öğenin veya bir dosyanın sonunda doğrudan olduğunda bu durum oluşabilir. 
 > 
 > **Geçici çözüm**   
-> Ekleme noktası etrafındaki boşluk olduğunu ve ekleme noktasını dosya sonunda değil emin olun. Ctrl + Boşluk tuşlarına basarak IntelliSense el ile de çağırabilirsiniz.
+> Ekleme noktasının etrafında boşluk olduğundan ve ekleme noktasının bir dosyanın sonunda olmadığından emin olun. Ayrıca, Ctrl + Space tuşlarına basarak IntelliSense 'i el ile çağırabilirsiniz.
 
-#### <a name="issue-no-ui-is-available-for-disabling-intellisense"></a>Sorun: Kullanıcı Arabirimi, IntelliSense devre dışı bırakmak için kullanılabilir
+#### <a name="issue-no-ui-is-available-for-disabling-intellisense"></a>Sorun: IntelliSense devre dışı bırakmak için kullanılabilir bir kullanıcı arabirimi yok
 
-> WebMatrix 1.0 hiçbir kullanıcı Arabirimi veya hareket IntelliSense devre dışı bırakmak için sağlar. 
+> WebMatrix 1,0, IntelliSense 'i devre dışı bırakmak için Kullanıcı arabirimi veya hareket sağlar. 
 > 
 > **Geçici çözüm**   
-> WebMatrix IntelliSense devre dışı bırakan bir anahtar içerir aşağıdaki komutu kullanarak başlatın:  
+> , IntelliSense 'i devre dışı bırakan bir anahtar içeren aşağıdaki komutu kullanarak WebMatrix 'i başlatın:  
 >   
 > `WebMatrix.exe #ExecuteCommand# EditorIntelliSense off`
 
 <a id="Known_Issues_IISExpress"></a>
 ### <a name="iis-express"></a>IIS Express
 
-IIS Express, aşağıdaki URL'de kullanılabilir olduğundan, kendi Benioku dosyası vardır:
+IIS Express, aşağıdaki URL 'de bulunan kendi Benioku dosyasına sahiptir:
 
-[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp; CLCID = 0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
 ### <a name="sql-server-compact"></a>SQL Server Compact
 
-SQL Server Compact, aşağıdaki URL'de kullanılabilir olduğundan, kendi Benioku dosyası vardır:
+SQL Server Compact, aşağıdaki URL 'de bulunan kendi Benioku dosyasına sahiptir:
 
 [https://go.microsoft.com/fwlink/?LinkID=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
 
-WebMatrix bir parçası olarak SQL Server Compact yükleme ilgili sorunlar hakkında daha fazla bilgi için bkz. [WebMatrix yükleme sorunlarını](#Known_Issues_Installation) bu belgenin daha öncesinde.
+WebMatrix 'in bir parçası olarak SQL Server Compact yükleme ile ilgili sorunlar hakkında bilgi için, bu belgenin önceki bölümlerinde bulunan [WebMatrix yükleme sorunları](#Known_Issues_Installation) bölümüne bakın.
 
-### <a id="Known_Issues_Installing_Applications"></a>  Uygulamaları yükleme
+### <a id="Known_Issues_Installing_Applications"></a>Uygulamaları yükleme
 
-#### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: Bir uygulamayı yüklemek kullanıcının Belgelerim klasöründeki bir ağ paylaşımına yönlendirilir, uzun bir zaman alabilir
+#### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: kullanıcının Belgelerim klasörü bir ağ paylaşımında yeniden yönlendiriliyorsa, uygulamanın yüklenmesi uzun zaman alabilir
 
 > **Geçici çözüm**  
-> Yok. Uygulama yüklemek için biraz sürebilir ancak düzgün yüklenecektir.
+> Yok. Uygulamanın yüklenmesi biraz zaman alabilir, ancak doğru şekilde yüklenir.
 
-### <a id="Known_Issues_Publishing_Applications"></a>  Uygulama yayımlama
+### <a id="Known_Issues_Publishing_Applications"></a>Uygulamaları yayımlama
 
-#### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Sorun: Bir SQL Compact veritabanı yayımlama sırasında "gerekli izinler alınamıyor" hatası
+#### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Sorun: bir SQL Compact veritabanı yayımlanırken "gerekli izinler alınamıyor" hatası
 
-> WebMatrix, bir orta güven yapılandırması ile .NET Framework sürüm 3.5 çalıştıran bir sunucuda SQL Server Compact için destekleyici ikili dosyaları dağıtma tam desteklemez.
+> WebMatrix, .NET Framework sürüm 3,5 çalıştıran bir sunucuya SQL Server Compact için destek ikililerini, orta düzeydeki bir yapılandırma ile tam olarak desteklemez.
 > 
 > **Geçici çözüm**  
-> .NET Framework 4 sunucusuna yüklemek için tercih edilen çözüm olabilir. Alternatif olarak, aşağıdakileri yapın:
+> Tercih edilen geçici çözüm, .NET Framework 4 ' ü sunucuya yüklemektir. Alternatif olarak, şunları yapın:
 > 
-> 1. Aşağıdaki öğeleri ekleyin `SecurityClasses` konusundaki *Web\_MediumTrust.config* dosyası:
+> 1. Aşağıdaki öğeleri *Web\_düz güven. config* dosyasındaki `SecurityClasses` bölümüne ekleyin:
 > 
 >     [!code-html[Main](overview/samples/sample6.html)]
-> 2. Yeni bir izin kümesi oluşturma *Web\_MediumTrust.config* aşağıdaki gerekli izinlere sahip dosya:
+> 2. *Web\_düz güven. config* dosyasında aşağıdaki gerekli izinlerle yeni bir izin kümesi oluşturun:
 > 
 >     [!code-html[Main](overview/samples/sample7.html)]
-> 3. İzin şu öğeleri koyarak SQL Server Compact kümesine uygulama *Web\_MediumTrust.config* dosyası:
+> 3. Aşağıdaki öğeleri *Web\_düz güven. config* dosyasına yerleştirerek SQL Server Compact izin kümesini uygulayın:
 > 
 >     [!code-html[Main](overview/samples/sample8.html)]
 
-#### <a name="issue-gallery-and-phpbb-web-applications-display-a-service-is-unavailable-error-after-publishing"></a>Sorun: Galeri ve PhpBB web uygulamaları yayımladıktan sonra bir "Hizmet kullanılamıyor" hatası görüntüleme
+#### <a name="issue-gallery-and-phpbb-web-applications-display-a-service-is-unavailable-error-after-publishing"></a>Sorun: Galeri ve PhpBB Web uygulamaları, yayımlamadan sonra bir "hizmet kullanılamıyor" hatası görüntüler
 
-> Bazı durumlarda, bir "Hizmet kullanılamıyor" hatası olan bir uygulama yayımlama neden olur.
+> Bazı durumlarda, bir uygulamanın yayımlanması "hizmet kullanılamıyor" hatası oluşmasına neden olur.
 > 
 > **Geçici çözüm**  
-> Webmatrix'te, ters eğik çizgi ekleyin (\) sunucu adı sonuna **yayımlama ayarları** penceresi ve sonra uygulamayı yeniden yayımlayın.
+> WebMatrix 'te, **yayınlama ayarları** penceresinde sunucu adının sonuna bir ters eğik çizgi ekleyin (\) ve uygulamayı yeniden yayımlayın.
 
-#### <a name="issue-moodle-website-layout-and-links-are-broken-after-publishing"></a>Sorun: Yayımladıktan sonra Moodle Web sitesi düzenini ve bağlantıları kopmuş
+#### <a name="issue-moodle-website-layout-and-links-are-broken-after-publishing"></a>Sorun: Bu web sitesi yerleşimi ve bağlantılar yayımlandıktan sonra kopuk
 
-> Moodle uygulaması yayımladıktan sonra uygulama düzgün çalışmaz.
+> Bir Mooteksiz uygulamayı yayımladıktan sonra, uygulama düzgün çalışmaz.
 > 
 > **Geçici çözüm**  
-> Webmatrix'te, sonuna bir eğik çizgi (/) ekleyin **Site adı** alanındaki **yayımlama ayarları** penceresi ve sonra uygulamayı yeniden yayımlayın.
+> WebMatrix 'te, **yayınlama ayarları** penceresinde **site adı** alanının sonuna bir eğik çizgi (/) ekleyin ve uygulamayı yeniden yayımlayın.
 
-#### <a name="issue-publishing-nopcommerce-fails-with-a-database-error"></a>Sorun: Yayımlama nopCommerce bir veritabanı hatasıyla başarısız oluyor
+#### <a name="issue-publishing-nopcommerce-fails-with-a-database-error"></a>Sorun: nopCommerce yayımlama bir veritabanı hatasıyla başarısız oluyor
 
-> Yayımlama nopCommerce başarısız olur ve bir veritabanı hatası gibi raporları "nop Ekle\_günlüğü tablosu başarısız oldu."
+> NopCommerce 'i yayımlama başarısız oluyor ve "NOP\_günlük tablosuna ekle" gibi bir veritabanı hatası oluştu.
 > 
 > **Geçici çözüm**  
 > 
-> 1. Webmatrix'te, tıklayın **çalıştırma** nopCommerce yerel olarak başlatmak için.
-> 2. İçinde Yönetim sayfasını açın.
-> 3. Tıklayın **sistem** menüsü.
-> 4. Tıklayın **günlük** seçeneği.
-> 5. Tıklayın **Günlüğü Temizle** düğmesi.
-> 6. NopCommerce yeniden yayımlayın.
+> 1. WebMatrix 'te, nopCommerce 'i yerel olarak başlatmak için **Çalıştır** ' a tıklayın.
+> 2. Yönetim sayfasında oturum açın.
+> 3. **Sistem** menüsüne tıklayın.
+> 4. **Günlük** seçeneğine tıklayın.
+> 5. **Günlüğü Temizle** düğmesini tıklatın.
+> 6. NopCommerce 'i yeniden yayımlayın.
 
-#### <a name="issue-silverstripe-cms-displays-a-http-500-php-fcgi-error-when-you-download-a-published-site"></a>Sorun: Yayımlanmış bir siteyi yüklediğinizde Silverstripe CMS "HTTP 500 PHP FCGI hatası" görüntüler.
-
-> **Geçici çözüm**  
-> Tıkladıktan sonra **indirme sitesinde yayımlanan**, atlama `silverstripe-cache/manifest_main` içinde **yayımlama önizlemesi**. Bu dosya tarafından önbelleğe alma işlemleri için kullanılır ve her bilgisayar için geçerlidir.
-
-#### <a name="issue-subtext-displays-server-error-in--application-when-you-download-a-published-site"></a>Sorun: Subtext görüntüler "'/' uygulamasında sunucu hatası" yayımlanmış bir siteyi yüklediğiniz zaman
+#### <a name="issue-silverstripe-cms-displays-a-http-500-php-fcgi-error-when-you-download-a-published-site"></a>Sorun: yayımlanmış bir siteyi karşıdan yüklerken SilverStripe CMS bir "HTTP 500 PHP FCGı hatası" görüntülüyor
 
 > **Geçici çözüm**  
-> Sitenin açın *web.config* dosya ve kullanıcı kimliği ve veritabanı bağlantı dizesine parolayı ("sa" kimlik bilgileri) SQL Server yönetici kimlik bilgileriyle değiştirin.
+> **Yayımlanan siteyi karşıdan yükle**' ye tıkladıktan sonra, **Yayımlama önizlemesi**' nde `silverstripe-cache/manifest_main` atlayın. Bu dosya, önbelleğe alma amacıyla kullanılır ve her bilgisayara özeldir.
+
+#### <a name="issue-subtext-displays-server-error-in--application-when-you-download-a-published-site"></a>Sorun: yayımlanmış bir siteyi karşıdan yüklerken "'/' uygulamasında sunucu hatası" alt metin görüntülenir
+
+> **Geçici çözüm**  
+> Sitenin *Web. config* dosyasını açın ve veritabanı bağlantı DIZESINDEKI Kullanıcı kimliğini ve parolayı SQL Server yönetici kimlik bilgileri ("sa" kimlik bilgileri) ile değiştirin.
 > 
-> Alternatif olarak, kullanıcı hesabı ile oturum vermek için bu adımları izleyin `db_owner` izinleri:
+> Alternatif olarak, oturum açtığınız kullanıcı hesabına `db_owner` izinlerle izin vermek için aşağıdaki adımları izleyin:
 > 
-> 1. SQL Server Management Studio kullanarak Web Platformu Yükleyicisi'ni yükleyin.
+> 1. Web platformu yükleyicisini kullanarak SQL Server Management Studio yükleme.
 > 2. Yerel SQL Server Express örneğine bağlanın (varsayılan olarak, `.\SQLEXPRESS`).
-> 3. Tıklayın **veritabanları** &gt; *[localSubtextDatabase]* &gt; **güvenlik** &gt; **kullanıcılar** &gt; *[localSubtextUser*] (varsayılan değer `subtextuser`], sağ tıklatın seçeneğine tıklayıp **özellikleri**.
-> 4. Seçin **db\_sahibi** rol üyeliği bölümünde.
+> 3. &gt; [ *Localsubtextdatabase]* &gt; **güvenlik** &gt; **Kullanıcılar** &gt; *[localsubtextuser*] (varsayılan değer `subtextuser`], sağ tıklayın ve **Özellikler**' **e tıklayın.**
+> 4. Rol üyeliği bölümünde **db\_Owner** ' ı seçin.
 
-#### <a name="issue-site-might-not-work-after-publishing-if-the-destination-url-field-is-not-prefixed-with-http-or-https"></a>Sorun: Site "Hedef URL'si" alanında http:// veya https:// ile eklenmedi, yayımladıktan sonra çalışmayabilir
+#### <a name="issue-site-might-not-work-after-publishing-if-the-destination-url-field-is-not-prefixed-with-http-or-https"></a>Sorun: "hedef URL" alanı http://veya https://ön eki değilse, site yayımlamadan sonra çalışmayabilir
 
-> İçinde **yayımlama ayarları** iletişim kutusunda, hedef URL ile başlamıyorsa `http://` veya `https://`, site dağıtımdan sonra çalışmayabilir.
+> **Yayımlama ayarları** iletişim kutusunda, hedef URL `http://` veya `https://`ile başlamadıysanız, site dağıtımdan sonra çalışmayabilir.
 > 
 > **Geçici çözüm**  
-> Bir siteyi hedef URL yayımlamadan önce emin **yayımlama ayarları** iletişim kutusu ile başlayan `http://` veya `https://`.
+> Bir siteyi yayımlamadan önce, **yayınlama ayarları** iletişim KUTUSUNDAKI hedef URL 'nin `http://` veya `https://`ile başlayacağını doğrulayın.
 
-#### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>Sorun: Bir MySQL veritabanı yayımlama "veritabanı yayımlanamadı. şu hata ile başarısız Uzak veritabanı betiği çalıştırırsanız bu durum oluşabilir."
+#### <a name="issue-publishing-a-mysql-database-fails-with-the-error-failed-to-publish-the-database-this-can-happen-if-the-remote-database-cannot-run-the-script"></a>Sorun: bir MySQL veritabanının yayımlanması "veritabanı yayımlanamadı. Uzak veritabanı betiği çalıştıramadığı takdirde bu durum oluşabilir. "
 
-> Hata, bir dizi nedenden ötürü ortaya çıkabilir. Bu hatayı görebilirsiniz. bir veritabanı betik, tek tırnak karakterini (') içerir ve hedef MySQL veritabanının varsayılan karakter kümesini UTF-8'e değil nedenidir.
+> Hata çeşitli nedenlerden kaynaklanabilir. Bu hatayı görebileceğiniz bir nedeni, veritabanı betiğinin tek tırnak karakteri (') içermesi ve hedef MySQL veritabanının varsayılan karakter kümesinin UTF-8 ' e olmaması olabilir.
 > 
 > **Geçici çözüm**  
-> Uzak bir MySQL veritabanı için UTF-8'e ayarlanmış varsayılan karakter kümesi.
+> Uzak MySQL veritabanı için varsayılan karakter kümesini UTF-8 olarak ayarlayın.
 
-#### <a name="issue-some-links-are-not-visible-in-dotnetnuke-after-publishing-or-downloading-the-site"></a>Sorun: Bazı bağlantılar yayımlama veya site yükleme sonrasında DotNetNuke görünür değildir
+#### <a name="issue-some-links-are-not-visible-in-dotnetnuke-after-publishing-or-downloading-the-site"></a>Sorun: site yayımladıktan veya indirildikten sonra bazı bağlantılar DotNetNuke 'da görünür değil
 
-> Yayımlama veya DotNetNuke site indirin, sitesinde görünen yeni bağlantılar almak için önbelleğini temizlemeniz gerekebilir.
+> Bir DotNetNuke sitesi yayımladığınızda veya indirdiğinizde, sitede yeni bağlantıların görünmesini sağlamak için Önbelleği temizlemeniz gerekebilir.
 > 
 > **Geçici çözüm**
 > 
-> 1. "Ana" oturum açın.
-> 2. Ana menüye gidip seçin **konak ayarları**.
-> 3. Kaydırma aşağı ve altında **Gelişmiş ayarlar**, genişletme **performans ayarları**.
-> 4. Tıklayın **Önbelleği Temizle** sayfaları için bağlantı.
-> 5. Sayfanın alt kısmına gidin ve uygulamayı yeniden başlatın.
+> 1. "Konak" olarak oturum açın.
+> 2. Konak menüsüne gidin ve **konak ayarları**' nı seçin.
+> 3. Aşağı kaydırın ve **Gelişmiş ayarlar**altında **performans ayarları**' nı genişletin.
+> 4. Sayfalar için **önbelleği temizle** bağlantısına tıklayın.
+> 5. Sayfanın en altına gidin ve uygulamayı yeniden başlatın.
 
-#### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>Sorun: Yayımlanmış bir siteyi yükledikten sonra bazı AtomSite bağlantıları kopmuş
+#### <a name="issue-some-links-in-atomsite-are-broken-after-you-download-a-published-site"></a>Sorun: yayımlanmış bir siteyi indirdikten sonra Atomsıte içindeki bazı bağlantılar kopuk
 
 > **Geçici çözüm**  
-> İçinde *service.config* dosyası *users.config* dosyasını ve tüm *.xml* dosyaları, URL dizesini değiştirin (örneğin, `http://myhost.com/atomsite`) yerel bir (örneğin, `http://localhost:1239`).
+> *Service. config* dosyasında, *Users. config* dosyasında ve tüm *. xml* dosyalarında, URL dizesini (örneğin, `http://myhost.com/atomsite`) yerel bir dosyayla değiştirin (örneğin, `http://localhost:1239`).
 
-#### <a name="issue-mysql-based-applications-like-wordpress-fail-to-publish-and-report-a-database-error"></a>Sorun: WordPress gibi MySQL tabanlı uygulamaları yayımlama ve bir veritabanı hatası rapor yüklenemedi
+#### <a name="issue-mysql-based-applications-like-wordpress-fail-to-publish-and-report-a-database-error"></a>Sorun: WordPress gibi MySQL tabanlı uygulamalar bir veritabanı hatasını yayımlayamaz ve bildiremez
 
-> Varsayılan olarak, WebMatrix, MySQL ile UTF-8 karakter kümesini yükler. MySQL, kendi yüklemeniz ve karakter kümesini UTF-8 değilse (örneğin, Latin1 olduğu), veritabanları için yayımlama işlemi başarısız olabilir.
+> WebMatrix, varsayılan olarak MySQL 'i UTF-8 karakter kümesiyle birlikte yüklüyor. MySQL 'i kendinize yüklerseniz ve karakter kümesi UTF-8 değilse (örneğin, Latin1), veritabanları için yayımlama işlemi başarısız olabilir.
 > 
 > **Geçici çözüm**
 > 
-> 1. Karakter kümesi için MySQL UTF-8 olarak değiştirin. (Ayrıntılar için bkz [sunucu karakter kümesi ve harmanlama](http://dev.mysql.com/doc/refman/5.0/en/charset-server.html) MySQL Web sitesinde.)
+> 1. MySQL için karakter kümesini UTF-8 olarak değiştirin. (Ayrıntılar için bkz. MySQL web sitesinde [sunucu karakter kümesi ve harmanlama](http://dev.mysql.com/doc/refman/5.0/en/charset-server.html) .)
 > 2. Uygulamayı yeniden yükleyin.
 > 3. Uygulamayı yeniden yayımlayın.
 
-#### <a name="issue-download-published-site-fails-for-applications-that-have-browser-based-setup"></a>Sorun: Kurulumun tarayıcı tabanlı uygulamalar için "yayımlanmış siteyi indir" başarısız oluyor
+#### <a name="issue-download-published-site-fails-for-applications-that-have-browser-based-setup"></a>Sorun: tarayıcı tabanlı kurulum özellikli uygulamalar için "yayımlanmış siteyi Indirme" başarısız oluyor
 
-> Bazı uygulamalar (örneğin, Kentico CMS), bunları bir veritabanı oluşturma gibi yükleme sonrası kurulumu gerçekleştirmek için tarayıcıda başlatmak gerektirir. Tarayıcı tabanlı Kurulumu Tamamlanıyor olmadan bu gibi bir uygulama yayımladığınızda, aynı sitede bir Uzak sunucudan indirme girişimi başarısız olur.
+> Bazı uygulamalar (örneğin, Kentico CMS), bir veritabanı oluşturma gibi yükleme sonrası kurulumu gerçekleştirmek için bunları tarayıcıda açmanızı gerektirir. Tarayıcı tabanlı kurulumu tamamlamadan bunun gibi bir uygulamayı yayımlarsanız, uzak bir sunucudan aynı siteyi indirmeyi denemek başarısız olur.
 > 
 > **Geçici çözüm**  
-> Tarayıcı tabanlı Kurulum, site yayımlamadan önce tamamlayın.
+> Siteyi yayımlamadan önce tarayıcı tabanlı kurulumu sona erdirin.
 
-#### <a name="issue-download-published-site-fails-with-a-database-error-for-dotnetnuke-and-kooboo-cms"></a>Sorun: "Yayımlanmış siteyi indir" ile bir veritabanı hatası DotNetNuke ve Kooboo CMS başarısız
+#### <a name="issue-download-published-site-fails-with-a-database-error-for-dotnetnuke-and-kooboo-cms"></a>Sorun: "yayımlanmış siteyi Indirme" DotNetNuke ve Kooboo CMS için bir veritabanı hatasıyla başarısız oluyor
 
-> Bir sunucudan bir uygulamanın yüklemeye ve veritabanı bağlantı dizesine, yönetici kimlik bilgilerine sahip **yayımlama ayarları** iletişim kutusunda, yayımlama günlüğünde şu hatayı görebilirsiniz:
+> Bir sunucudan bir uygulamayı indirmeye çalışırsanız ve **Yayımlama ayarları** iletişim kutusunda veritabanı bağlantı dizesinde yönetici kimlik bilgileriniz varsa, yayımlama günlüğünde şu hatayı görebilirsiniz:
 > 
 > [!code-console[Main](overview/samples/sample9.cmd)]
 > 
 > **Geçici çözüm**  
-> Mümkünse, site yeniden yayımlamanız (veya yayımlanan sahip) veritabanı için yönetici olmayan kimlik bilgilerini kullanıyor.
+> Pratik ise, veritabanı için yönetici olmayan kimlik bilgilerini kullanarak siteyi yeniden yayımlayın (veya yayımladınız).
 
 <a id="More_Info"></a>
 
 ## <a name="for-more-information"></a>Daha Fazla Bilgi İçin
 
-WebMatrix 1.0 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
+WebMatrix 1,0 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
 
 - [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
 - [Microsoft.com/web](https://www.microsoft.com/web)
 
-© 2011 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşullarını](https://msdn.microsoft.cos/cc300389.aspx).
+© 2011 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşulları](https://msdn.microsoft.cos/cc300389.aspx).

@@ -10,11 +10,11 @@ ms.assetid: c125ca47-606a-4d6f-a1fc-1fc62928af93
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: a096fd1c54df33b40115907a5c2517b2e3fec5b8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600333"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556205"
 ---
 # <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API 1 ' de CRUD Işlemlerini etkinleştirme
 
@@ -36,13 +36,13 @@ Bu öğreticide, ürünlerin listesini yönetmek için çok basit bir Web API 'S
 
 Ürünler API 'SI aşağıdaki yöntemleri ortaya çıkarır.
 
-| Eylem | HTTP yöntemi | Göreli URI |
+| Eylem | HTTP yöntemi | Göreli URI'si |
 | --- | --- | --- |
-| Tüm ürünlerin bir listesini alın | Al | /api/Products |
-| KIMLIĞE göre ürün al | Al | /api/Products/*ID* |
-| Kategoriye göre bir ürün al | Al | /api/Products? kategori =*Kategori* |
-| Yeni ürün oluştur | Yayınla | /api/Products |
-| Bir ürünü güncelleştirme | KONUR | /api/Products/*ID* |
+| Tüm ürünlerin bir listesini alın | GET | /api/Products |
+| KIMLIĞE göre ürün al | GET | /api/Products/*ID* |
+| Kategoriye göre bir ürün al | GET | /api/Products? kategori =*Kategori* |
+| Yeni ürün oluştur | POST | /api/Products |
+| Bir ürünü güncelleştirme | PUT | /api/Products/*ID* |
 | Bir ürünü silme | DELETE | /api/Products/*ID* |
 
 URI 'lerden bazılarının, yoldaki ürün KIMLIĞINI içerdiğine dikkat edin. Örneğin, KIMLIĞI 28 olan ürünü almak için, istemci `http://hostname/api/products/28`için bir GET isteği gönderir.
@@ -51,7 +51,7 @@ URI 'lerden bazılarının, yoldaki ürün KIMLIĞINI içerdiğine dikkat edin. 
 
 Products API 'SI iki kaynak türü için URI tanımlar:
 
-| Kaynak | {1&gt;URI&lt;1} |
+| Kaynak | URI |
 | --- | --- |
 | Tüm ürünlerin listesi. | /api/Products |
 | Tek bir ürün. | /api/Products/*ID* |
@@ -128,7 +128,7 @@ ASP.NET MVC ile çalıştıysanız, denetleyicilerle zaten bilgi sahibisiniz. AS
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
-**Denetleyici ekleme** Sihirbazı ' nda, denetleyiciyi &quot;productscontroller&quot;olarak adlandırın. **Şablon** açılan LISTESINDE **boş API denetleyicisi**' ni seçin. Ardından **Ekle**' ye tıklayın.
+**Denetleyici ekleme** Sihirbazı ' nda, denetleyiciyi &quot;productscontroller&quot;olarak adlandırın. **Şablon** açılan LISTESINDE **boş API denetleyicisi**' ni seçin. Daha sonra **Ekle**'ye tıklayın.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image7.png)
 
@@ -150,11 +150,11 @@ ASP.NET MVC ile çalıştıysanız, denetleyicilerle zaten bilgi sahibisiniz. AS
 
 ProductStore API 'SI, birkaç &quot;okuma&quot; eylemini HTTP GET yöntemleri olarak kullanıma sunacaktır. Her eylem, `ProductsController` sınıfındaki bir yönteme karşılık gelir.
 
-| Eylem | HTTP yöntemi | Göreli URI |
+| Eylem | HTTP yöntemi | Göreli URI'si |
 | --- | --- | --- |
-| Tüm ürünlerin bir listesini alın | Al | /api/Products |
-| KIMLIĞE göre ürün al | Al | /api/Products/*ID* |
-| Kategoriye göre bir ürün al | Al | /api/Products? kategori =*Kategori* |
+| Tüm ürünlerin bir listesini alın | GET | /api/Products |
+| KIMLIĞE göre ürün al | GET | /api/Products/*ID* |
+| Kategoriye göre bir ürün al | GET | /api/Products? kategori =*Kategori* |
 
 Tüm ürünlerin listesini almak için, bu yöntemi `ProductsController` sınıfına ekleyin:
 

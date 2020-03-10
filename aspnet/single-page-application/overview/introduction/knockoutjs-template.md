@@ -1,232 +1,232 @@
 ---
 uid: single-page-application/overview/introduction/knockoutjs-template
-title: 'Tek Sayfalı Uygulama: KnockoutJS şablonu | Microsoft Docs'
+title: 'Tek sayfalı uygulama: altını gizleme Koutjs şablonu | Microsoft Docs'
 author: MikeWasson
-description: Knockout şablonu
+description: Altını gizleme şablonu
 ms.author: riande
 ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3a551db1caa9636eb7f2e04c287d3ef371263584
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113458"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578696"
 ---
 # <a name="single-page-application-knockoutjs-template"></a>Tek Sayfalı Uygulama: KnockoutJS şablonu
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Knockout MVC şablonu ASP.NET ve Web Araçları 2012.2 parçasıdır
+> Altını gizleme MVC şablonu, ASP.NET and Web Tools 2012,2 parçasıdır
 > 
-> [ASP.NET ve Web Araçları 2012.2 indirin](https://go.microsoft.com/fwlink/?LinkId=282650)
+> [2012,2 ASP.NET and Web Tools indirin](https://go.microsoft.com/fwlink/?LinkId=282650)
 
-ASP.NET ve Web Araçları 2012.2 güncelleştirme, ASP.NET MVC 4 için bir tek sayfalı uygulama (SPA) şablonu içerir. Bu şablon, etkileşimli istemci tarafı web uygulamaları hızlı bir şekilde oluşturmaya başlamanıza yardımcı olmak için tasarlanmıştır.
+ASP.NET and Web Tools 2012,2 güncelleştirmesi, ASP.NET MVC 4 için tek sayfalı uygulama (SPA) şablonu içerir. Bu şablon, etkileşimli istemci tarafı Web uygulamalarını hızlıca oluşturmaya başlamanızı sağlamak için tasarlanmıştır.
 
-"Tek sayfalı uygulama" (SPA) olduğundan tek bir HTML sayfası yükler ve ardından sayfanın dinamik olarak yeni sayfa yükleniyor yerine güncelleştiren bir web uygulaması için genel bir terimdir. Başlangıç sayfası yükleme sonrası AJAX istekleri aracılığıyla sunucusuyla SPA anlatıyor.
+"Tek sayfalı uygulama" (SPA), tek bir HTML sayfası yükleyen bir Web uygulaması için genel bir terimdir ve sonra yeni sayfalar yüklemek yerine sayfayı dinamik olarak güncelleştirir. İlk sayfa yüklendikten sonra, SPA, AJAX istekleri aracılığıyla sunucuyla iletişim kuran bir iletişim yükler.
 
 ![](knockoutjs-template/_static/image1.png)
 
-AJAX yeni bir şey değildir, ancak bugün oluşturun ve büyük ve karmaşık bir SPA uygulama sürdürmek kolaylaştıran yeni JavaScript çerçevesi vardır. Ayrıca, HTML 5 ve CSS3 zengin kullanıcı arabirimleri oluşturmak kolaylaşır.
+AJAX yeni bir şey değildir, ancak bugün büyük bir Gelişmiş SPA uygulaması oluşturmayı ve bakımını kolaylaştıran JavaScript çerçeveleri vardır. Ayrıca, HTML 5 ve CSS3 zengin Usıs oluşturmayı kolaylaştırır.
 
-Başlamanıza yardımcı olmak için örnek bir "Yapılacaklar listesi" uygulama SPA şablon oluşturur. Bu öğreticide, biz şablonu Kılavuzlu tura katılın. İlk biz Yapılacaklar listesi uygulaması kendisini arayın ve ardından bu hizmetin çalışmasını sağlayan teknolojiyi parçaları inceleyin.
+Bu işlemi kullanmaya başlamak için, SPA şablonu örnek bir "yapılacaklar listesi" uygulaması oluşturur. Bu öğreticide, şablona yönelik kılavuzlu bir tura çıkacağız. İlk olarak yapılacaklar listesi uygulamasının kendisine bakacağız ve sonra çalışmasını sağlayan teknoloji parçalarını incelemektir.
 
-## <a name="create-a-new-spa-template-project"></a>Yeni bir SPA şablonu projesi oluşturma
+## <a name="create-a-new-spa-template-project"></a>Yeni bir SPA şablonu projesi oluştur
 
 Gereksinimler:
 
-- Visual Studio 2012 veya Visual Studio Web için Express 2012
-- ASP.NET Web Araçları 2012.2 güncelleştirin. Güncelleştirmeyi yüklemeniz [burada](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2).
+- Web için Visual Studio 2012 veya Visual Studio Express 2012
+- ASP.NET Web araçları 2012,2 güncelleştirmesi. Güncelleştirmeyi [buraya](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ASPDOTNETandWebTools2012_2)yükleyebilirsiniz.
 
-Visual Studio'yu başlatın ve seçin **yeni proje** başlangıç sayfasından. Veya **dosya** menüsünde **yeni** ardından **proje**.
+Visual Studio 'Yu başlatın ve başlangıç sayfasından **Yeni proje** ' yi seçin. Ya da **Dosya** menüsünde **Yeni** ' yi ve ardından **Proje**' yi seçin.
 
-İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Projeyi adlandırın ve tıklayın **Tamam**.
+**Şablonlar** bölmesinde, **yüklü şablonlar** ' ı seçin ve **görsel C#**  düğümünü genişletin. **Görsel C#** bölümünde **Web**' i seçin. Proje şablonları listesinde **ASP.NET MVC 4 Web uygulaması**' nı seçin. Projeyi adlandırın ve **Tamam**' a tıklayın.
 
 ![](knockoutjs-template/_static/image2.png)
 
-İçinde **yeni proje** seçin **tek sayfalı uygulama**.
+**Yeni proje** sihirbazında **tek sayfalı uygulama**' yı seçin.
 
 ![](knockoutjs-template/_static/image3.png)
 
-Derleme ve uygulamayı çalıştırmak için F5 tuşuna basın. Uygulamayı ilk kez çalıştırdığında, oturum açma ekranını görüntüler.
+Uygulamayı derleyip çalıştırmak için F5'e basın. Uygulama ilk kez çalıştırıldığında, oturum açma ekranını görüntüler.
 
 ![](knockoutjs-template/_static/image4.png)
 
-Tıklayın &quot;kaydolun&quot; bağlayın ve yeni bir kullanıcı oluşturun.
+&quot;&quot; bağlantısı ' na tıklayın ve yeni bir kullanıcı oluşturun.
 
 ![](knockoutjs-template/_static/image5.png)
 
-Oturum açtıktan sonra uygulama ile iki öğe varsayılan Yapılacaklar listesi oluşturur. "Yapılacaklar Listesi Ekle" tıklayarak yeni bir liste eklemek için.
+Oturum açtıktan sonra, uygulama iki öğe ile varsayılan bir yapılacaklar listesi oluşturur. Yeni bir liste eklemek için "yapılacaklar listesi ekle" seçeneğine tıklayabilirsiniz.
 
 ![](knockoutjs-template/_static/image6.png)
 
-Listeyi yeniden adlandırma, listeye öğe eklemek ve onay kutusunu temizleyin. Öğeleri silin veya listesinin tamamını silin. Değişiklikleri otomatik olarak sunucuda bir veritabanına kalıcı (aslında LocalDB bu noktada, uygulamayı yerel olarak çalıştığından).
+Listeyi yeniden adlandırın, listeye öğe ekleyin ve bunları kapatın. Ayrıca, öğeleri silebilir veya bir listenin tamamını silebilirsiniz. Değişiklikler, uygulamayı yerel olarak çalıştırdığınız için sunucudaki bir veritabanında otomatik olarak kalıcı hale getirilir (Bu noktada aslında Yereldb).
 
 ![](knockoutjs-template/_static/image7.png)
 
-## <a name="architecture-of-the-spa-template"></a>SPA şablonu mimarisi
+## <a name="architecture-of-the-spa-template"></a>SPA şablonunun mimarisi
 
-Bu diyagram, uygulama için temel yapı taşlarını gösterir.
+Bu diyagramda uygulamanın ana yapı taşları gösterilmektedir.
 
 ![](knockoutjs-template/_static/image8.png)
 
-Sunucu tarafında, ASP.NET MVC HTML işlevi görür ve form tabanlı kimlik doğrulaması da işler.
+Sunucu tarafında, ASP.NET MVC HTML 'yi sunar ve ayrıca form tabanlı kimlik doğrulamasını da işler.
 
-ASP.NET Web API ToDoLists ve Todoıtems, alma, oluşturma, güncelleştirme ve silme de dahil olmak üzere ilgili tüm istekleri işler. İstemci Web API'si ile verileri JSON biçiminde birbiriyle değiştirir.
+ASP.NET Web API 'SI, ToDoLists ve Todoıtems ile ilgili tüm istekleri (alma, oluşturma, güncelleştirme ve silme dahil) işler. İstemci verileri JSON biçiminde Web API 'SI ile değiş tokuş eder.
 
-Entity Framework (EF), O/RM katmanıdır. Bu, ASP.NET nesne odaklı dünyası ve temel alınan veritabanı arasında aracılık. LocalDB veritabanını kullanır ancak bu Web.config dosyasında değiştirebilirsiniz. Genellikle, LocalDB yerel geliştirme için kullanın ve ardından bir SQL veritabanı sunucusunda, EF code first geçiş kullanarak dağıtın.
+Entity Framework (EF), O/RM katmanıdır. ASP.NET 'ın nesne odaklı dünyası ve temel alınan veritabanı arasında ortalaştırır. Veritabanı LocalDB kullanır, ancak bunu Web. config dosyasında değiştirebilirsiniz. Genellikle Yereldb 'yi yerel geliştirme için kullanacaksınız ve sonra EF Code-First geçişini kullanarak sunucuda bir SQL veritabanına dağıtmanız gerekir.
 
-İstemci tarafında Knockout.js kitaplığı Sayfa güncelleştirmelerini AJAX istekleri işler. Knockout veri bağlamayı sayfanın en son verileri eşitlemek için kullanır. Böylece, herhangi bir JSON verilerini aracılığıyla size yol gösterir ve DOM güncelleştiren kod yazmanız gerekmez Bunun yerine, Boşaltılan veri sunma hakkında bilgi HTML dosyasındaki bildirim temelli öznitelikleri yerleştirin.
+İstemci tarafında, altını gizleme. js kitaplığı, AJAX isteklerindeki sayfa güncelleştirmelerini işler. Altını gizleme sayfayı en son verilerle eşleştirmek için veri bağlamayı kullanır. Bu şekilde, JSON verilerinde izlenecek ve DOM güncelleştiren koddan herhangi birini yazmanız gerekmez. Bunun yerine, bildirime dayalı öznitelikleri, verileri nasıl sunacaklarını belirten HTML 'ye yerleştirebilirsiniz.
 
-Bu mimarinin büyük bir avantajı, kendisini sunu katmanı uygulama mantığından ayıran olmasıdır. Web API bölümü, web sayfanızın nasıl görüneceğini ilgili hiçbir şeyi bilmeden oluşturabilirsiniz. İstemci tarafında için "Görünüm modeli" oluşturma verileri temsil eder ve HTML olarak bağlamak için Knockout görünüm modeli kullanır. Bu görünüm modeli değiştirmeden HTML kolayca değiştirmenize olanak tanır. (Knockout biraz daha göz atacağız.)
+Bu mimarinin büyük bir avantajı, sunu katmanını uygulama mantığından ayırmadır. Web sayfanızın nasıl görüneceğine ilişkin hiçbir şey bilmeden Web API bölümünü oluşturabilirsiniz. İstemci tarafında, bu verileri temsil etmek için bir "model görüntüle" oluşturursunuz ve görünüm modeli HTML 'e bağlamak için altını gizleme kullanır. Bu, görünüm modelini değiştirmeden HTML 'yi kolayca değiştirmenize olanak sağlar. (Daha sonra bir bit altını gizleme bölümüne bakacağız.)
 
 ## <a name="models"></a>Modeller
 
-Visual Studio projesinde, sunucu tarafında kullanılan modelleri modeller klasörü içerir. (İstemci tarafında da modeli vardır; biz onlara alırsınız.)
+Visual Studio projesinde modeller klasörü, sunucu tarafında kullanılan modelleri içerir. (Ayrıca, istemci tarafında modeller de vardır; bunlar için de bir alan olacaktır.)
 
 ![](knockoutjs-template/_static/image9.png)
 
-**Todoıtem, yapılacaklar listesi**
+**TodoItem, TodoList**
 
-Veritabanı için Entity Framework Code First modelleri şunlardır. Bu modeller birbirine noktası özellikleri olduğunu fark edeceksiniz. `ToDoList` Todoıtems ve her bir koleksiyonunu içeren `ToDoItem` ToDoList üst geri bir başvuru içeriyor. Bu özellik Gezinti özellikleri olarak adlandırılır ve bire çok ilişkisi bir Yapılacaklar listesi ve kendi Yapılacaklar öğelerini gösterir.
+Bunlar, Entity Framework Code First için veritabanı modelleridir. Bu modellerin birbirini işaret eden özellikleri olduğunu unutmayın. `ToDoList` bir Todoıtems koleksiyonu içerir ve her `ToDoItem` üst ToDoList geri başvurusu vardır. Bu özelliklere, gezinti özellikleri adı verilir ve tek-çok ilişkisini ve yapılacaklar listesini ve yapılacaklar öğelerini temsil eder.
 
-`ToDoItem` Sınıfı da kullandığı **[ForeignKey]** belirtmek için öznitelik `ToDoListId` içine bir yabancı anahtar `ToDoList` tablo. Bu, bir FOREIGN key kısıtlaması veritabanına eklemek için EF bildirir.
+`ToDoItem` sınıfı, `ToDoListId` `ToDoList` tabloya yabancı anahtar olduğunu belirtmek için **[Yabancıkey]** özniteliğini de kullanır. Bu, veritabanına yabancı anahtar kısıtlaması ekleneceğini söyler.
 
 [!code-csharp[Main](knockoutjs-template/samples/sample1.cs)]
 
 **TodoItemDto, TodoListDto**
 
-Bu sınıfların istemciye gönderilecek verileri tanımlar. "DTO" "için veri aktarımı nesnesi." anlamına gelir. DTO nasıl varlıkları JSON'a seri hale tanımlar. Genel olarak, Dto'lar kullanmak için birkaç nedeni vardır:
+Bu sınıflar istemciye gönderilecek verileri tanımlar. "DTO", "veri aktarımı nesnesi" anlamına gelir. CTO, varlıkların JSON olarak nasıl serileştirilme şeklini tanımlar. Genel olarak, DTOs kullanmanın birkaç nedeni vardır:
 
-- Denetlemek için hangi özelliklerin serileştirilir. Bir etki alanı modelinden özellik alt kümesi DTO içerir. Güvenlik nedenleriyle (hassas verileri gizlemek) ya da yalnızca bunu yapabilirsiniz, gönderdiğiniz veri miktarını azaltmak için.
-- Örneğin veri – şeklini değiştirmek için daha karmaşık bir veri yapı düzleştirmektir.
-- İş mantığı DTO (ayrımı nettir) dışında tutulacak.
-- Herhangi bir nedenden dolayı etki alanı Modellerinizi seri hale getirilemez Var olan bir nesne seri olduğunda, döngüsel başvurular Web API'sindeki bu sorunu gidermek için yol sorunlara yol açabilir (bkz [işleme döngüsel nesne başvuruları](../../../web-api/overview/formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)); ancak bir DTO kullanarak yalnızca önler sorunu tamamen.
+- Hangi özelliklerin serileştirildiği denetlemek için. DTO, etki alanı modelinden özelliklerin bir alt kümesini içerebilir. Bunu güvenlik nedenleriyle (hassas verileri gizlemek için) veya yalnızca göndereceğiniz veri miktarını azaltmak için yapabilirsiniz.
+- Verilerin şeklini değiştirmek için: Örneğin, daha karmaşık bir veri yapısını düzleştirmek için.
+- Herhangi bir iş mantığını DTO dışında tutmak için (kaygıları ayrımı).
+- Etki alanı modelleriniz bazı nedenlerle serileştirilemiyor. Örneğin, bir nesneyi seri hale getirmek istediğinizde döngüsel başvurular soruna neden olabilir (bkz. [Döngüsel nesne başvurularını işleme](../../../web-api/overview/formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references)); Ancak, bir DFOR kullanarak sorunu tamamen önler.
 
-SPA şablonunda etki alanı modellerini aynı verileri Dto içerir. Ancak, bunlar bunlar Gezinti özelliklerinden döngüsel başvurulardan kaçının ve bunlar genel DTO Düzen göstermek için hala faydalıdır.
+SPA şablonunda DTOs, etki alanı modelleriyle aynı verileri içerir. Ancak, gezinti özelliklerinden döngüsel başvuruları önlemediği ve genel DTO düzenlerini gösterdikleri için bunlar hala yararlıdır.
 
 **AccountModels.cs**
 
-Bu dosya, site üyeliği modellerini içerir. `UserProfile` Sınıfı üyelik DB kullanıcı profilleri için şema tanımlar. (Bu durumda, yalnızca kullanıcı kimliği ve kullanıcı adıdır.) Bu dosyadaki diğer model sınıfları, kullanıcı kayıt ve oturum açma formlar oluşturmak için kullanılır.
+Bu dosya, site üyeliği için modeller içerir. `UserProfile` sınıfı, üyelik VERITABANıNDAKI Kullanıcı profillerinin şemasını tanımlar. (Bu durumda, tek bilgi Kullanıcı KIMLIĞI ve kullanıcı adıdır.) Bu dosyadaki diğer model sınıfları, Kullanıcı kaydı ve oturum açma formları oluşturmak için kullanılır.
 
 ## <a name="entity-framework"></a>Varlık Çerçevesi
 
-SPA şablon EF Code First kullanır. Code First geliştirme modelleri kodda önce tanımlayın ve ardından veritabanını oluşturmak için model EF kullanır. Var olan bir veritabanı EF de kullanabilirsiniz ([veritabanı ilk](https://msdn.microsoft.com/data/jj206878.aspx)).
+SPA şablonu EF Code First kullanır. Code First geliştirmek için, önce kod içinde modelleri tanımlar, sonra EF veritabanını oluşturmak için modeli kullanır. Aynı zamanda var olan bir veritabanı ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)) ile EF de kullanabilirsiniz.
 
-`TodoItemContext` Modeller klasörü sınıfında türetilir **DbContext**. Bu sınıf, model ve EF arasında "Yapıştırıcı" sağlar. `TodoItemContext` Tutan bir `ToDoItem` koleksiyonu ve `TodoList` koleksiyonu. Veritabanını sorgulamak için yalnızca bu koleksiyonlara yönelik bir LINQ Sorgu yazın. Örneğin, işte, tüm yapılacaklar listesi "Gamze adlı" kullanıcı için nasıl seçebilirsiniz:
+Modeller klasöründeki `TodoItemContext` sınıfı **DbContext**'ten türetiliyor. Bu sınıf modeller ve EF arasında "tutkalla" sağlar. `TodoItemContext`, bir `ToDoItem` koleksiyonu ve bir `TodoList` koleksiyonu barındırır. Veritabanını sorgulamak için, bu koleksiyonlara yönelik bir LINQ sorgusu yazmanız yeterlidir. Örneğin, "Gamze" kullanıcısı için tüm yapılacaklar listelerini nasıl seçebileceğiniz aşağıda verilmiştir:
 
 [!code-csharp[Main](knockoutjs-template/samples/sample2.cs)]
 
-Ayrıca koleksiyona yeni öğeler eklemek, öğeleri güncelleştirme veya öğeleri koleksiyondan silebilir ve veritabanına değişiklikleri kalıcı hale getirmek.
+Ayrıca, koleksiyona yeni öğeler ekleyebilir, öğeleri güncelleştirebilir veya öğeleri koleksiyondan silebilir ve değişiklikleri veritabanında kalıcı hale getirebilirsiniz.
 
-## <a name="aspnet-web-api-controllers"></a>ASP.NET Web API denetleyicisi
+## <a name="aspnet-web-api-controllers"></a>ASP.NET Web API 'SI denetleyicileri
 
-ASP.NET Web API'de HTTP isteklerini işleyen nesneleri denetleyicileridir. SPA şablon Web API belirtildiği gibi CRUD işlemleri etkinleştirmek için kullanır. `ToDoList` ve `ToDoItem` örnekleri. Denetleyicileri çözüm denetleyicileri klasöründe bulunur.
+ASP.NET Web API 'sinde, denetleyiciler HTTP isteklerini işleyen nesnelerdir. Belirtildiği gibi, SPA şablonu, `ToDoList` ve `ToDoItem` örneklerine CRUD işlemlerini etkinleştirmek için Web API kullanır. Denetleyiciler, çözümün denetleyiciler klasöründe bulunur.
 
 ![](knockoutjs-template/_static/image10.png)
 
-- `TodoController`: Yapılacak iş öğeleri için HTTP isteklerini işler
-- `TodoListController`: Yapılacaklar listesi için HTTP isteklerini işler.
+- `TodoController`: Yapılacaklar öğeleri için HTTP isteklerini Işler
+- `TodoListController`: Yapılacaklar listeleri için HTTP isteklerini Işler.
 
-Web API denetleyici adının URI yolu ile eşleştiği için bu adlar önemlidir. (Web API HTTP isteklerini denetleyicilerine nasıl yönlendirdiğini bilgi edinmek için [ASP.NET Web API'de yönlendirme](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).)
+Web API 'SI, denetleyici adı URI yoluyla eşleştiğinden, bu adlar önemlidir. (Web API 'sinin denetleyicilere HTTP isteklerini nasıl yönlendirdiğini öğrenmek için bkz. [ASP.NET Web API 'de yönlendirme](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).)
 
-Bakalım `ToDoListController` sınıfı. Bir tek veri üyesi aşağıdakileri içerir:
+`ToDoListController` sınıfına bakalım. Tek bir veri üyesi içerir:
 
 [!code-csharp[Main](knockoutjs-template/samples/sample3.cs)]
 
-`TodoItemContext` Daha önce açıklandığı gibi EF ile iletişim kurmak için kullanılır. Denetleyici üzerinde yöntemleri CRUD işlemleri uygular. Web API denetleyici yöntemlerinde, istemciden gelen HTTP isteklerini şu şekilde eşlenir:
+`TodoItemContext`, daha önce açıklandığı gibi EF ile iletişim kurmak için kullanılır. Denetleyicideki Yöntemler CRUD işlemlerini uygular. Web API 'SI, istemciden denetleyici yöntemlerine HTTP isteklerini aşağıdaki gibi eşleştirir:
 
-| HTTP isteği | Denetleyici yöntemi | Açıklama |
+| HTTP Isteği | Controller yöntemi | Açıklama |
 | --- | --- | --- |
-| /Api/TODO Al | `GetTodoLists` | Yapılacak işler listelerinin bir koleksiyonunu alır. |
-| GET/API'sitodo/*kimliği* | `GetTodoList` | Kimliğe göre bir Yapılacaklar listesi alır |
-| PUT/API'si/todo/*kimliği* | `PutTodoList` | Yapılacaklar listesini güncelleştirir. |
-| Todo/api/gönderin | `PostTodoList` | Yeni bir Yapılacaklar listesi oluşturur. |
-| SİLME/API'sitodo/*kimliği* | `DeleteTodoList` | Bir Yapılacaklar listesi siler. |
+| /Api/TODO Al | `GetTodoLists` | Yapılacaklar listelerinin koleksiyonunu alır. |
+| /Api/Todo/*KIMLIĞI* al | `GetTodoList` | KIMLIĞE göre yapılacaklar listesini alır |
+| /Api/Todo/*ID* koy | `PutTodoList` | Yapılacaklar listesini güncelleştirir. |
+| Todo/api/gönderin | `PostTodoList` | Yeni bir yapılacaklar listesi oluşturur. |
+| /Api/Todo/*KIMLIĞINI* Sil | `DeleteTodoList` | YAPıLACAKLAR listesini siler. |
 
-Bazı işlemleri için bir URI'leri kimlik değerini yer tutucuları içeren dikkat edin. Örneğin, bir-listeye 42 kimliği silmek için URI değil `/api/todo/42`.
+Bazı işlemler için URI 'Lerin ID değeri için yer tutucular içerdiğini unutmayın. Örneğin, KIMLIĞI 42 olan bir yapılacaklar listesini silmek için URI `/api/todo/42`.
 
-CRUD işlemleri için Web API kullanma hakkında daha fazla bilgi edinmek için [bu destekler CRUD işlemleri bir Web API'si oluşturma](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md). Bu denetleyici için kod oldukça basittir. Bazı ilginç noktaları şunlardır:
+CRUD işlemleri için Web API kullanma hakkında daha fazla bilgi edinmek için bkz. [CRUD Işlemlerini destekleyen bir Web API 'Si oluşturma](../../../web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations.md). Bu denetleyicinin kodu oldukça basittir. İşte bazı ilginç noktaları:
 
-- `GetTodoLists` Yöntemi bir LINQ Sorgu sonuçlarını oturum açmış kullanıcı Kimliğine göre filtrelemek için kullanır. Bu şekilde, bir kullanıcı yalnızca gitmesini ait verileri görür. Ayrıca, bir Select deyimi dönüştürmek için kullanılır fark `ToDoList` içine örnekler `TodoListDto` örnekleri.
-- PUT ve POST yöntemleri, veritabanı değiştirmeden önce model durumunu kontrol edin. Varsa **ModelState.IsValid** yanlış, bu yöntemler, HTTP 400 Hatalı istek döndürür. Sırasında Web API'de model doğrulama hakkında daha fazla bilgiyi [Model doğrulama](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md).
-- Denetleyici sınıfı da ile donatılmış **[Authorize]** özniteliği. Bu öznitelik, HTTP isteği kimlik doğrulaması olup olmadığını denetler. İstek Kimliği doğrulanmazsa, HTTP 401, istemci aldıktan yetkisiz. Kimlik doğrulama hakkında daha fazla bilgiyi [kimlik doğrulama ve yetkilendirme ASP.NET Web API](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md).
+- `GetTodoLists` yöntemi, oturum açmış kullanıcının KIMLIĞINE göre sonuçları filtrelemek için bir LINQ sorgusu kullanır. Bu şekilde, bir Kullanıcı yalnızca kendisine ait olan verileri görür. Ayrıca, `ToDoList` örneklerini `TodoListDto` örneklerine dönüştürmek için SELECT ifadesinin kullanıldığına dikkat edin.
+- PUT ve POST yöntemleri, veritabanını değiştirmeden önce model durumunu denetler. **ModelState. IsValid** yanlış ise, bu yöntemler HTTP 400, hatalı istek döndürür. [Model doğrulamasında](../../../web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api.md)Web API 'sinde model doğrulama hakkında daha fazla bilgi edinin.
+- Denetleyici sınıfı, **[Yetkilendir]** özniteliğiyle de donatılmış. Bu öznitelik, HTTP isteğinin kimlik doğrulamasının yapılıp yapılmayacağını denetler. İsteğin kimliği doğrulanmıyorsa, istemci HTTP 401, yetkisiz olarak alır. [ASP.NET Web API 'Sinde kimlik doğrulaması ve yetkilendirme](../../../web-api/overview/security/authentication-and-authorization-in-aspnet-web-api.md)hakkında daha fazla bilgi edinin.
 
-`TodoController` Sınıftır çok benzer `TodoListController`. En büyük fark herhangi bir GET yöntemi tanımlamaz istemci her bir Yapılacaklar listesi ile birlikte Yapılacaklar öğelerini alırsınız olmasıdır.
+`TodoController` sınıfı `TodoListController`çok benzer. En büyük fark, her bir GET yöntemini tanımlamaz çünkü istemci her yapılacaklar listesi ile birlikte yapılacaklar öğelerini alır.
 
 ## <a name="mvc-controllers-and-views"></a>MVC denetleyicileri ve görünümleri
 
-MVC denetleyicileri da çözümün denetleyicileri klasöründe bulunur. `HomeController` uygulama için ana HTML işler. Giriş denetleyicisine görünümünü Views/Home/Index.cshtml içinde tanımlanır. Giriş görünümü, kullanıcının oturum açtığı bağlı olarak farklı içerik işler:
+MVC denetleyicileri çözümün denetleyiciler klasöründe de bulunur. `HomeController` uygulama için ana HTML 'i işler. Ana denetleyicinin görünümü Görünümler/Home/Index. cshtml içinde tanımlanır. Giriş görünümü, kullanıcının oturum açmış olmasına bağlı olarak farklı içerikleri işler:
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-Kullanıcılar oturum açtığında, ana UI görürler. Aksi halde, oturum açma paneli bakın. Bu koşullu işleme sunucu tarafında olacağını unutmayın. İstemci tarafında hassas içerik gizlemek hiçbir zaman deneyin&#8212;bir HTTP yanıtında gönderdiğiniz herhangi bir şey ham HTTP iletileri izliyor birine görünür.
+Kullanıcılar oturum açtığında, ana Kullanıcı arabirimini görürler. Aksi takdirde, oturum açma paneli görüntülenir. Bu Koşullu işleme sunucu tarafında gerçekleştiğine unutmayın. İstemci tarafında&#8212;gizli içeriği gizlemeyi hiçbir şey, ham http iletilerini izleyen bir kişiye görünür.
 
-## <a name="client-side-javascript-and-knockoutjs"></a>İstemci tarafı JavaScript ve Knockout.js
+## <a name="client-side-javascript-and-knockoutjs"></a>İstemci tarafı JavaScript ve altını gizleme. js
 
-Artık istemci uygulamaya sunucu tarafındaki dönelim. SPA şablon, jQuery ve Knockout.js kesintisiz etkileşimli bir kullanıcı Arabirimi oluşturmak için kullanır. Knockout.js HTML veri bağlama kolaylaştıran bir JavaScript kitaplıktır. Knockout.js "Model-View-ViewModel." adlı bir desen kullanır.
+Şimdi uygulamanın sunucu tarafını istemciye etkinleştirelim. SPA şablonu, sorunsuz ve etkileşimli bir kullanıcı arabirimi oluşturmak için jQuery ve altını gizleme. js birleşimini kullanır. Altını gizleme. js, HTML 'yi verilere bağlamayı kolaylaştıran bir JavaScript kitaplığıdır. Altını gizleme. js, "Model-View-ViewModel" adlı bir model kullanır.
 
-- Etki alanı verileri (ToDo listeler ve ToDo öğeleri) modelidir.
-- HTML belgesi görünümüdür.
-- Görünüm modeli model verileri tutan bir JavaScript nesnesidir. Görünüm modeli, kullanıcı arabiriminin bir kod soyutlamadır. HTML gösteriminin bilgisi var. Bunun yerine, Özet görünümü "Yapılacaklar listesi" gibi özelliklerini temsil eder.
+- Model, etki alanı verileri (ToDo listeleri ve Yapılacaklar öğeleri).
+- Görünüm HTML belgesidir.
+- View-model, model verilerini tutan bir JavaScript nesnesidir. View-model, Kullanıcı arabiriminin kod soyutlamasıdır. HTML temsili bilgisine sahip değildir. Bunun yerine, görünümün soyut özelliklerini temsil eder, örneğin "ToDo öğeleri listesi".
 
-Görünüm veri görünüm modeline bağlı. Görünüm modeli güncelleştirmeler Görünümü'nde otomatik olarak yansıtılır. Bağlamalar ve diğer yöndeki de çalışır. Olayları DOM (tıkladığında gibi) verilere işlevleri için Görünüm modeli üzerinde AJAX çağrıları tetiklemek, bağlı.
+Görünüm, görünüm modeline veri ile bağlanır. Görünüm modeli güncelleştirmeleri otomatik olarak görünüme yansıtılır. Bağlamalar diğer yönle de çalışır. DOM 'daki Olaylar (tıklama gibi), AJAX çağrılarını tetikleyen görünüm modelindeki işlevlere veri bağımlıdır.
 
-SPA şablon istemci tarafı JavaScript üç katmanlara göre düzenler:
+SPA şablonu, istemci tarafı JavaScript 'ı üç katmana düzenler:
 
-- todo.datacontext.js: AJAX isteği gönderir.
-- todo.model.js: Modelleri tanımlar.
-- TODO.ViewModel.js: Görünüm modeli tanımlar.
+- Todo. DataContext. js: AJAX istekleri gönderir.
+- Todo. model. js: modelleri tanımlar.
+- Todo. ViewModel. js: görünüm modelini tanımlar.
 
 ![](knockoutjs-template/_static/image11.png)
 
-Bu komut dosyaları, çözümün betikleri/uygulama klasöründe bulunur.
+Bu betik dosyaları, çözümün betikler/App klasöründe bulunur.
 
 ![](knockoutjs-template/_static/image12.png)
 
-**TODO.DataContext** Web APİ'si denetleyicilerinin tüm AJAX çağrıları işler. (Oturum açma için AJAX çağrıları başka bir yerde ajaxlogin.js içinde tanımlanır.)
+**Todo. DataContext** , Web API denetleyicilerine YÖNELIK tüm Ajax çağrılarını işler. (Oturum açma için AJAX çağrıları, başka bir yerde, ajaxLogin. js ' de tanımlanır.)
 
-**TODO.model.js** yapılacak işler listelerinin için istemci tarafı (tarayıcı) modelleri tanımlar. İki model sınıfı vardır: Todoıtem ve yapılacaklar listesi.
+**Todo. model. js** Yapılacaklar listeleri için istemci tarafı (tarayıcı) modellerini tanımlar. İki model sınıfı vardır: TodoItem ve todoList.
 
-Model sınıfları özelliklerin birçoğu "ko.observable" türüdür. Gözlemlenenler Knockout kendi Sihirli nasıl yaptığını ' dir. Gelen [Knockout belgeleri](http://knockoutjs.com/documentation/introduction.html): Observable "aboneleri değişiklikleri bildiren bir JavaScript nesne" dir. Observable değerini değiştirdiğinde bu gözlemlenenler için ilişkili HTML öğelerinin Knockout güncelleştirir. Örneğin, Todoıtem gözlemlenenler başlık ve isDone özelliklerine sahiptir:
+Model sınıflarında birçok özellik "Ko. Observable" türündedir. Gözlemlenenler, altını gizleme 'nin Magic 'i nasıl yapar. [Gizleme belgelerinden](http://knockoutjs.com/documentation/introduction.html): bir observable, abonelere değişiklikler hakkında bildirimde bulunan bir "JavaScript nesnesidir". Bir observable değeri değiştiğinde, altını gizleme bu gözlemlenenler ilişkili HTML öğelerini güncelleştirir. Örneğin, TodoItem başlık ve Isdone özellikleri için gözlemlenenler sahiptir:
 
 [!code-javascript[Main](knockoutjs-template/samples/sample5.js)]
 
-Observable kod için abone olabilirsiniz. Örneğin, "isDone" ve "title" özelliklerindeki değişiklikler Todoıtem sınıfı kaydeder:
+Ayrıca, koddaki bir observable 'a abone olabilirsiniz. Örneğin, TodoItem sınıfı "Isdone" ve "title" özelliklerindeki değişikliklere abone olur:
 
 [!code-javascript[Main](knockoutjs-template/samples/sample6.js)]
 
-**Görünüm modeli**
+**Modeli görüntüle**
 
-Görünüm modeli todo.viewmodel.js içinde tanımlanır. Görünüm modeli, burada da HTML sayfası öğeleri uygulama etki alanı verilere bağlar merkezi noktasıdır. SPA şablonunda todoLists gözlemlenebilir bir dizi görünüm modeli içerir. Görünüm modeli aşağıdaki kodda bağlamaları uygulamak için Knockout bildirir:
+Görünüm modeli Todo. ViewModel. js ' de tanımlanmıştır. Görünüm modeli, uygulamanın HTML sayfası öğelerini etki alanı verilerine bağlandığı merkezi bir noktasıdır. SPA şablonunda, görünüm modeli bir todoLists observable dizisi içerir. Görünüm modelinde aşağıdaki kod, bağlamaları uygulamak için altını gizlemeyi söyler:
 
 [!code-javascript[Main](knockoutjs-template/samples/sample7.js)]
 
 ## <a name="html-and-data-binding"></a>HTML ve veri bağlama
 
-Ana HTML sayfası için Views/Home/Index.cshtml içinde tanımlanır. Veri bağlama de kullandığınızdan, HTML ne gerçekten işlenen için yalnızca bir şablonudur. Knockout kullanan *bildirim temelli* bağlar. "Data-bind" özniteliği öğeye ekleyerek sayfa öğeleri verilere bağlayın. Knockout belgelerinden geçen çok basit bir örneği aşağıda verilmiştir:
+Sayfa için ana HTML, görünümler/Home/Index. cshtml içinde tanımlanmıştır. Veri bağlamayı kullandığımızda, HTML yalnızca gerçekten işlenmiş olan şablona yönelik bir şablondur. Altını gizleme *bildirim temelli* bağlamaları kullanır. Öğeye bir "Data-bind" özniteliği ekleyerek sayfa öğelerini verilere bağlarsınız. Altını gizleme belgelerinden alınan çok basit bir örnek aşağıda verilmiştir:
 
 [!code-html[Main](knockoutjs-template/samples/sample8.html)]
 
-Bu örnekte, Knockout içeriğini güncelleştirir **&lt;span&gt;** değerini öğeyle `myItems.count()`. Bu değer değiştiğinde Knockout belgeyi güncelleştirir.
+Bu örnekte, altını gizleme **&lt;span&gt;** öğesinin içeriğini `myItems.count()`değeriyle güncelleştirir. Bu değer değiştiğinde, altını gizleme belgeyi güncelleştirir.
 
-Knockout birkaç farklı bağlama türleri sağlar. SPA şablonunda kullanılan bağlamaları bazıları şunlardır:
+Altını gizleme birçok farklı bağlama türü sağlar. SPA şablonunda kullanılan bağlamalardan bazıları şunlardır:
 
-- **foreach**: Bir döngü yinelemek ve listedeki her öğeye aynı biçimlendirme uygulamak olanak sağlar. Bu yapılacaklar listesi ve yapılacaklar öğelerini işlemek için kullanılır. İçinde **foreach**, bağlamaları liste öğelerine uygulanır.
-- **görünür**: Görünürlüğü değiştirmek için kullanılır. Bir koleksiyon boş olduğunda biçimlendirme gizleyebilir veya hata iletisi görünür yapın.
-- **Değer**: Form değerleri doldurmak için kullanılır.
-- **tıklayın**: Bir tıklama olayı bir işlev bir görünüm modeli bağlar.
+- **foreach**: bir döngüde yineleme yapmanızı sağlar ve listedeki her öğeye aynı biçimlendirmeyi uygulayabilirsiniz. Bu, yapılacaklar listelerini ve yapılacaklar öğelerini işlemek için kullanılır. **Foreach**içinde bağlamalar, listenin öğelerine uygulanır.
+- **görünür**: Görünürlüğü değiştirmek için kullanılır. Bir koleksiyon boş olduğunda işaretlemeyi gizleyin veya hata iletisini görünür hale getirin.
+- **değer**: form değerlerini doldurmak için kullanılır.
+- **tıklama**: bir tıklama olayını görünüm modelinde bir işleve bağlar.
 
 ## <a name="anti-csrf-protection"></a>Anti-CSRF koruması
 
-Siteler arası istek sahteciliği (CSRF), burada bir kötü niyetli site burada kullanıcı şu anda oturum savunmasız sitesine bir istek gönderir bir saldırıdır. CSRF saldırılarını önlemeye yardımcı olmak için ASP.NET MVC kullanan *sahteciliğe karşı koruma belirteçleri*, istek doğrulama belirteçleri olarak da bilinir. Sunucu web sayfasına rastgele oluşturulmuş bir belirteç geçirir olur. İstemcinin sunucuya veri gönderdiğinde, bu değer istek iletisinde içermelidir.
+Siteler arası Istek forgery (CSRF), kötü niyetli bir sitenin kullanıcının şu anda oturum açtığı bir güvenlik açığı olan siteye istek gönderdiği bir saldırıya neden olur. ASP.NET MVC, CSRF saldırılarını önlemeye yardımcı olmak için, istek doğrulama belirteçleri olarak da adlandırılan, güvenlik *yumuşatma belirteçlerini*kullanır. Fikir, sunucunun rastgele oluşturulmuş bir belirteci bir Web sayfasına yerleştirmesinden yarar. İstemci sunucuya veri gönderdiğinde, istek iletisinde bu değeri içermesi gerekir.
 
-Sahteciliğe karşı koruma belirteçleri çalışır, çünkü kötü amaçlı sayfası aynı çıkış noktası ilkeleri nedeniyle kullanıcının belirteçleri okunamıyor. (Aynı çıkış noktası ilkeler birbirlerinin içeriğe erişmesini iki farklı sitelerde barındırılan belge önler.)
+Kötü amaçlı sayfa, aynı kaynak ilkeleri nedeniyle kullanıcının belirteçlerini okuyamadığı için, karşı koruma belirteçleri çalışır. (Aynı kaynak ilkeleri, iki farklı sitede barındırılan belgelerin birbirlerinin içeriğine erişmesini önler.)
 
-ASP.NET MVC ile sahteciliğe karşı koruma belirteçleri için yerleşik destek sağlar [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) sınıfı ve [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) özniteliği. Şu anda bu işlevselliği'den sonra Web API oluşturulmadı. Ancak SPA şablonu, Web API'si için özel bir uygulamasını içerir. Bu kod tanımlanan `ValidateHttpAntiForgeryTokenAttribute` çözümün filtreleri klasöründe bulunan sınıfı. Anti-CSRF Web API hakkında daha fazla bilgi için bkz: [önleme siteler arası istek sahteciliği (CSRF) saldırılarını](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC, [antiforgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) sınıfı ve [[Validateantiforgeryıtoken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) özniteliği aracılığıyla, korsanlığa karşı koruma belirteçleri için yerleşik destek sağlar. Şu anda bu işlev Web API 'sinde yerleşik değildir. Ancak, SPA şablonu, Web API 'SI için özel bir uygulama içerir. Bu kod, çözümün Filters klasöründe bulunan `ValidateHttpAntiForgeryTokenAttribute` sınıfında tanımlanır. Web API 'sindeki Anti-CSRF hakkında daha fazla bilgi edinmek için bkz. [siteler arası Istek forgery (CSRF) saldırılarını önleme](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
 ## <a name="conclusion"></a>Sonuç
 
-SPA şablonu, hızlı bir şekilde modern, etkileşimli web uygulamaları yazmaya başlamanıza yardımcı olmak üzere tasarlanmıştır. Knockout.js kitaplığı, veri ve uygulama mantığı (HTML biçimlendirmeyi) sunudan ayırmak için kullanır. Ancak, Knockout bir SPA oluşturmak için kullanabileceğiniz tek bir JavaScript kitaplığı değil. Diğer bir seçenek keşfetmek istiyorsanız, bir göz atın [topluluk tarafından oluşturulan SPA şablonlarını](../templates/index.md).
+SPA şablonu, modern ve etkileşimli Web uygulamalarını hızlı bir şekilde yazmaya başlamanızı sağlayacak şekilde tasarlanmıştır. Veri ve uygulama mantığındaki sunumu (HTML biçimlendirmesi) ayırmak için altını gizleme. js kitaplığını kullanır. Ancak altını gizleme, SPA oluşturmak için kullanabileceğiniz tek JavaScript kitaplığı değildir. Diğer bazı seçenekleri araştırmak istiyorsanız [topluluk tarafından oluşturulan Spa şablonlarına](../templates/index.md)göz atın.

@@ -9,6 +9,6 @@
 * Buluta hazırlanma, ortam tabanlı bir yapılandırma sistemi.
 * Yerleşik bağımlılık ekleme.
 * Basit, yüksek performanslı ve modüler bir HTTP istek işlem hattı.
-* [Kestrel](/aspnet/core/fundamentals/servers/kestrel), [IIS] (XREF: Host-ve-Deploy/IIS/Index, [http. sys](xref:fundamentals/servers/httpsys), [NGINX](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache)ve [Docker](xref:host-and-deploy/docker/index)üzerinde barındırma özelliği.
+* [Kestrel](/aspnet/core/fundamentals/servers/kestrel), [IIS](xref:host-and-deploy/iis/index), [http. sys](xref:fundamentals/servers/httpsys), [NGINX](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache)ve [Docker](xref:host-and-deploy/docker/index)üzerinde barındırma özelliği.
 * Yan yana sürüm oluşturma.
 * Modern web geliştirmeyi basitleştiren araçlar.

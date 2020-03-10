@@ -1,74 +1,74 @@
 ---
 uid: whitepapers/ms03-32-issue
-title: IE için güvenlik güncelleştirmesi uygulandıktan sonra 'Sunucu uygulaması kullanılamıyor' hatası için düzeltme | Microsoft Docs
+title: IE için güvenlik güncelleştirmesi uygulandıktan sonra ' sunucu uygulaması kullanılamıyor ' hatası için düzeltme | Microsoft Docs
 author: rick-anderson
-description: Bu incelemede, bir sorunu gideren MS03 32 güvenlik güncelleştirmesiyle Wi üzerinde çalışan ASP.NET 1.0 uygulamaları etkiler Internet Explorer için düzeltme eki anlatılmaktadır...
+description: Bu yazıda, Wi üzerinde çalışan ASP.NET 1,0 uygulamalarını etkileyen Internet Explorer için MS03-32 güvenlik güncelleştirmesiyle ilgili bir sorunu gideren düzeltme eki açıklanmaktadır...
 ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
 ms.openlocfilehash: e0b6776cbfe22e341ac7105f03daac5074b480fc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121537"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574188"
 ---
 # <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE için Güvenlik Güncelleştirmesi Uygulandıktan Sonra Oluşan 'Sunucu Uygulaması Kullanılamıyor' Hatasının Çözümü
 
-> Bu yazıda, Internet Explorer, Windows XP Professional üzerinde çalışan ASP.NET 1.0 uygulamaları etkiler MS03 32 güvenlik güncelleştirmesiyle bir sorunu giderir düzeltme açıklar.
+> Bu raporda, Windows XP Professional üzerinde çalışan ASP.NET 1,0 uygulamalarını etkileyen Internet Explorer için MS03-32 güvenlik güncelleştirmesiyle ilgili bir sorunu gideren düzeltme eki açıklanmaktadır.
 > 
-> ASP.NET 1.0 ve Windows XP Professional için geçerlidir.
+> ASP.NET 1,0 ve Windows XP Professional için geçerlidir.
 
-Microsoft Internet Explorer güvenlik düzeltme ekini MS03 32 güvenlik güncelleştirmesi ve Windows XP'de çalışan ASP.NET 1.0 ile bir sorun belirledik. Bu düzeltme ekini el ile veya Windows Update sitesinden yeni kritik güncelleştirmeler edinme yüklenebilir.
+Microsoft, Windows XP 'de çalışan Internet Explorer güvenlik düzeltme eki ve ASP.NET 1,0 için MS03-32 güvenlik güncelleştirmesiyle ilgili bir sorun belirledi. Bu düzeltme eki, el ile veya Windows Update sitesinden son kritik güncelleştirmeler elde edilebilir.
 
-Bu sorunun belirtisi, Windows XP makine üzerinde düzeltme eki yükledikten sonra yerel IIS 5.1 web sunucusu üzerinde çalışan ASP.NET uygulamaları için tüm istekleri "Sunucu uygulaması kullanılamıyor" belirten bir hata iletisi neden olur. Uzak web sunucuları istekleri bundan etkilenmez.
+Bu sorunun belirtisi, düzeltme ekini bir Windows XP makinesine yükledikten sonra, yerel IIS 5,1 Web sunucusunda çalışan ASP.NET uygulamalarına yapılan tüm isteklerin "sunucu uygulaması kullanılamıyor" hatasını bildiren bir hata iletisiyle sonuçlanır. Uzak Web sunucularına gönderilen istekler etkilenmemiştir.
 
-Bu sorun, yalnızca ASP.NET 1.0 Windows XP'de çalışan yüklemeleri etkiler. Windows 2000 veya Windows Server 2003 çalıştıran makineleri etkilemez. Aynı zamanda ASP.NET 1.1 ile Windows XP çalıştıran makineleri etkilemez.
+Bu sorun yalnızca Windows XP 'de ASP.NET 1,0 çalıştıran yüklemeleri etkiler. Windows 2000 veya Windows Server 2003 çalıştıran makineleri etkilemez. Ayrıca, ASP.NET 1,1 yüklü Windows XP çalıştıran makineleri etkilemez.
 
-Unutmayın, bu sorunu **değil** ASP.NET bir güvenlik hatası. Bunu **yok** açmanız veya herhangi bir ASP.NET uygulamasını veya server kötü amaçlı saldırıları izin verin. Bunun yerine, bu düzeltme ekiyle neden yalnızca bir işlev hatadır.
+Bu **sorunun ASP.net** ile bir güvenlik hatası olmadığına lütfen unutmayın. Bir ASP.NET uygulaması veya sunucusuna karşı kötü amaçlı **saldırıları açmayın veya buna izin vermez.** Bunun yerine, yalnızca düzeltme ekinin kendisi tarafından oluşan işlevsel bir hatadır.
 
-Bu sorun için kalıcı bir çözüm üzerinde çalışıyoruz. Bu sırada, sorun için geçici bir çözüm olarak şu toplu iş dosyasını çalıştırabilirsiniz. Toplu iş dosyası şunları yapar:
+Bu soruna yönelik kalıcı bir çözüm üzerinde çalışıyoruz. Bu sırada, sorun için geçici bir çözüm olarak aşağıdaki toplu iş dosyasını çalıştırabilirsiniz. Toplu iş dosyası şunları yapar:
 
-1. IIS ve ASP.NET durum hizmetleri durdurur
-2. Siler ve bilinen bir geçici parola ASPNET hesabıyla oluşturur
-3. Windows kullanan `runas` bir ASP.NET kullanıcı profili oluşturan bir yürütülebilir dosyayı başlatmak için komut
-4. ASP.NET yeniden kaydeder. Bu hesap için yeni rastgele bir parola oluşturur ve onu için varsayılan ASP.NET erişim denetimi ayarlarını uygular
+1. IIS ve ASP.NET durum hizmetlerini durduruyor
+2. ASPNET hesabını bilinen geçici bir parolayla siler ve yeniden oluşturur
+3. ASPNET Kullanıcı profili oluşturan bir yürütülebilir dosyayı başlatmak için Windows `runas` komutunu kullanır
+4. ASP.NET yeniden kaydettirir. Bu, hesap için yeni bir rastgele parola oluşturur ve varsayılan ASP.NET Access Control ayarlarını uygular
 5. IIS hizmetini yeniden başlatır
 
-Toplu iş dosyası, sabit kodlanmış geçici bir parola içeren "<strong>1pass\@word</strong>", olacağı için toplu iş dosyasını çalıştırdığınızda runas komutunu girmesi istenir. Runas komut tamamlandıktan sonra ASPNET hesap parolası ile rastgele bir güçlü değeri yeniden oluşturulur. Toplu iş dosyası kodlanmış parola ortamınızdaki parola karmaşıklık gereksinimlerini karşılamıyorsa başarısız olabileceğini unutmayın. Bu durumda, ortamınız için uygun olan başka bir değerle değiştirebilirsiniz.
+Toplu iş dosyası, toplu iş dosyası çalıştırıldığında RunAs komutuna girmeniz istenecektir, "<strong>1pass\@Word</strong>" adlı bir sabit kodlanmış geçici parola içerir. Runas komutu tamamlandıktan sonra, ASPNET hesap parolası güçlü bir rastgele değerle yeniden oluşturulur. Sabit kodlanmış parola, ortamınızdaki parola karmaşıklığı gereksinimlerini karşılamıyorsa toplu iş dosyasının başarısız olabileceğini unutmayın. Bu durumda, bunu ortamınız için uygun olan başka bir değerle değiştirebilirsiniz.
 
-*> [!IMPORTANT]* Özel erişim denetimi ayarları veya veritabanı hesap izinlerini hesabından eklediyseniz, bu toplu iş dosyası tamamlandıktan sonra yeniden oluşturulması gerekir. Hesabı yeniden oluşturulduğunda, yeni bir güvenlik tanımlayıcısı (SID) alırsınız olmasıdır.
+*> [!IMPORTANT]* ASPNET hesabı için özel erişim denetimi ayarları veya veritabanı hesabı izinleri eklediyseniz, bu toplu iş dosyası tamamlandıktan sonra yeniden oluşturulması gerekir. Bunun nedeni, hesap yeniden oluşturulduğunda yeni bir güvenlik tanımlayıcısı (SID) alır.
 
-*> [!IMPORTANT]* Ardından ASP.NET hesabı dışında özel bir hesap ile ASP.NET işçi işlemine çalıştırıyorsanız, bu toplu iş dosyası çalıştırmamalısınız. Bunun yerine etkileşimli olarak oturum açın veya bu hesap için kullanıcı profili oluşturacak bu hesapla runas komutunu kullanın.
+*> [!IMPORTANT]* ASP.NET çalışan işlemini ASPNET hesabı dışında bir özel hesapla çalıştırıyorsanız, bu toplu iş dosyasını çalıştırmamalıdır. Bunun yerine, etkileşimli olarak oturum açmanız veya bu hesap için bir kullanıcı profili oluşturacak bu hesapla runas komutunu kullanmanız gerekir.
 
-Toplu iş dosyası, aşağıdaki kendiliğinden arşive eklenmiştir. Bunu kullanmak için:
+Toplu iş dosyası aşağıdaki otomatik ayıklama arşivine dahil edilmiştir. Bunu kullanmak için:
 
-1. Yönetici ayrıcalıklarına sahip bir hesap olarak çalıştırıyor olmalısınız
-2. [İndirin ve kendiliğinden yürütülebilir dosyasını açın](ms03-32-issue/_static/fixup1.exe)
-3. C:\ içeriği Ayıkla
-4. Select... Başlat menüsünden çalıştırın ve girin `cmd.exe`
-5. Açık komut windows yazın `c:\fixup.cmd`.
-6. İstendiğinde girin <strong>1pass\@word</strong> parolası.
-7. Daha önce özel erişim denetimi ayarları ya da ASP.NET hesabından veritabanı hesabı izinleri varsa, bu ayarlar artık yeniden uygulamanız gerekir.
+1. Yönetici ayrıcalıklarına sahip bir hesap olarak çalıştırmalısınız
+2. [Kendiliğinden ayıklanan yürütülebilir dosyayı indirin ve açın](ms03-32-issue/_static/fixup1.exe)
+3. İçeriği c:\ ' a ayıklayın
+4. Çalıştır 'ı seçin... Başlat menüsünden `cmd.exe` girin.
+5. Açık Komut pencereleri içinde `c:\fixup.cmd`yazın.
+6. İstendiğinde, parola olarak <strong>1pass\@sözcüğünü</strong> girin.
+7. ASPNET hesabı için daha önce özel erişim denetimi ayarları veya veritabanı hesabı izinleriniz varsa, bu ayarları şimdi yeniden uygulamanız gerekir.
 
-Birçok neden bu sorundan dolayı özür. Kullanıma sunulduğunda size ek bilgi gönderecektir.
+Bu sorun nedeniyle özgürlerimizi çok sayıda. Kullanılabilir hale geldiğinde ek bilgiler göndereceğiz.
 
-Matris aşağıdaki platformlara ve sürümlere bu sorundan etkilenen ayrıntılı olarak açıklanmaktadır.
+Aşağıdaki matris, bu sorundan etkilenen platformların ve sürümlerin ayrıntılarını aşağıda bulabilirsiniz.
 
 | .NET Framework | Platform | Etkilenen |
 | --- | --- | --- |
-| Sürüm 1.0 | Windows 2000 Professional | Hayır |
-| Sürüm 1.0 | Windows 2000 Server | Hayır |
-| Sürüm 1.0 | Windows XP Professional | Evet |
-| Sürüm 1.0 | Windows Server 2003 | Hayır |
-| Sürüm 1.0 | Windows XP Home Cassini'ye ile | Hayır |
-| Sürüm 1.1 | Windows 2000 Professional | Hayır |
-| Sürüm 1.1 | Windows 2000 Server | Hayır |
-| Sürüm 1.1 | Windows XP Professional | Hayır |
-| Sürüm 1.1 | Windows Server 2003 | Hayır |
-| Sürüm 1.1 | Windows XP Home Cassini'ye ile | Hayır |
+| Sürüm 1,0 | Windows 2000 Professional | Hayır |
+| Sürüm 1,0 | Windows 2000 Server | Hayır |
+| Sürüm 1,0 | Windows XP Professional | Evet |
+| Sürüm 1,0 | Windows Server 2003 | Hayır |
+| Sürüm 1,0 | Cassini ile Windows XP giriş | Hayır |
+| Sürüm 1,1 | Windows 2000 Professional | Hayır |
+| Sürüm 1,1 | Windows 2000 Server | Hayır |
+| Sürüm 1,1 | Windows XP Professional | Hayır |
+| Sürüm 1,1 | Windows Server 2003 | Hayır |
+| Sürüm 1,1 | Cassini ile Windows XP giriş | Hayır |
 
-teşekkürler   
- ASP.NET takımı
+Teşekkür ederiz,   
+ ASP.NET ekibi

@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters
-title: 'ASP.NET MVC Storefront Bölüm 3: Kanallar ve filtreler | Microsoft Docs'
+title: 'ASP.NET MVC storefront Bölüm 3: kanallar ve filtreler | Microsoft Docs'
 author: robconery
-description: Rob Conery bölümleri 1 ve 2 ve ardından hakkında ayrıntılı bilgi Iqueryable depo Kanallar ve filtreler uygulamasına geri bildirim açıklanır.
+description: Ramiz, 1 ve 2. bölümden geri bildirim ve ardından IQueryable deposundaki kanallar ve filtreler uygulamasını açıklar.
 ms.author: riande
 ms.date: 05/27/2008
 ms.assetid: 69de22ba-0129-4bb9-b32a-e99319ee8021
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters
 msc.type: video
 ms.openlocfilehash: fb9ee14d0bc06ba0a0b994a3eaeb08ddb6ed8c36
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59403265"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537753"
 ---
-# <a name="aspnet-mvc-storefront-part-3-pipes-and-filters"></a>ASP.NET MVC Storefront Bölüm 3: Kanallar ve Filtreler
+# <a name="aspnet-mvc-storefront-part-3-pipes-and-filters"></a>ASP.NET MVC Storefront 3. Bölüm: Kanallar ve Filtreler
 
-tarafından [Rob Conery](https://github.com/robconery)
+[ramiz](https://github.com/robconery) 'e göre
 
-Rob Conery bölümleri 1 ve 2 ve ardından hakkında ayrıntılı bilgi Iqueryable depo Kanallar ve filtreler uygulamasına geri bildirim açıklanır.
+Ramiz, 1 ve 2. bölümden geri bildirim ve ardından IQueryable deposundaki kanallar ve filtreler uygulamasını açıklar.
 
-[&#9654;Videoyu (16 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-3-pipes-and-filters)
+[&#9654;Videoyu izleyin (16 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-3-pipes-and-filters)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-mvc-storefront-part-2-the-repository-pattern.md)

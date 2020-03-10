@@ -1,37 +1,37 @@
 ---
 uid: mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
-title: Bir ASP.NET MVC 5 uygulamasının yaşam döngüsü | Microsoft Docs
+title: ASP.NET MVC 5 uygulamasının yaşam döngüsü | Microsoft Docs
 author: cephalin
-description: Bir ASP.NET MVC 5 uygulamasının yaşam döngüsü grafikleri bir PDF belgesini indirin. Bu yaşam döngüsü belge MVC yaşam döngüsü üst düzey bir görünümünü sağlar bir...
+description: ASP.NET MVC 5 uygulamasının yaşam döngüsünü gösteren bir PDF belgesi indirin. Bu yaşam döngüsü belgesi, MVC yaşam döngüsünün bir üst düzey görünümünü sağlar...
 ms.author: riande
 ms.date: 02/28/2014
 ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
 ms.openlocfilehash: f4a9b3fb61552b070db11fba617b5627fcd71cd5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65124091"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582203"
 ---
 # <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>Bir ASP.NET MVC 5 Uygulamasının Yaşam Döngüsü
 
-tarafından [Cephas Bağla](https://github.com/cephalin)
+[cepby Ile bağlantılı](https://github.com/cephalin)
 
-[PDF belgesini indirin](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)
+[PDF belgesini indir](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)
 
-Burada HTTP almasını her ASP.NET MVC 5 uygulamasının yaşam döngüsü İstek HTTP yanıtı göndermeyi grafikleri istemciye bir PDF belgesini indirebilirsiniz. ASP.NET MVC Acemi olanlar için eğitim bir aracı hem de de olarak bir başvuru uygulaması belirli yönlerini detaya gitmek için ihtiyacınız olanlar için tasarlanmıştır. PDF belgesinin aşağıdaki özelliklere sahiptir:
+Burada her ASP.NET MVC 5 uygulamasının yaşam döngüsünü gösteren bir PDF belgesi indirebilirsiniz, http isteğini istemciye geri göndermeye yönelik HTTP isteğini almasını sağlayabilirsiniz. Bu, ASP.NET MVC 'ye yeni olanlar için eğitim aracı olarak ve ayrıca uygulamanın belirli yönlerine ayrıntısına gitmek zorunda olanlar için bir başvuru olarak tasarlanmıştır. PDF belgesi aşağıdaki özelliklere sahiptir:
 
-- İlgili [HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) MVC tümleştirir burada anlamanıza yardımcı olması için aşamaları [ASP.NET uygulama yaşam döngüsü](https://msdn.microsoft.com/library/bb470252.aspx).
-- Burada isteği işleme işlem hattı, her bir MVC uygulaması geçtiği ana aşamaları anlayabilmeniz MVC uygulama yaşam döngüsünün üst düzey bir görünüm.  
+- MVC 'nin [ASP.NET uygulama yaşam](https://msdn.microsoft.com/library/bb470252.aspx)döngüsüne tümleştirildiğini anlamanıza yardımcı olacak ilgili [HttpApplication](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) aşamaları.
+- Her MVC uygulamasının istek işleme ardışık düzeninde geçtiği önemli aşamaları anlayabildiğiniz MVC uygulama yaşam döngüsünün üst düzey bir görünümü.  
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image1.jpg)
-- İstek işleme Ardışık düzenin ayrıntılara inmesi aşağı gösteren ayrıntılı görünüm. Üst düzey Görünüm ve çeşitli aşamaları yaşam döngüleri ayrıntılarını nasıl toplanır görmek için ayrıntılı görünüm karşılaştırabilirsiniz. [PDF'yi indirin](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) daha büyük bir görmek için.
+- İstek işleme işlem hattının ayrıntılarına gidilmesini gösteren bir ayrıntı görünümü. Yaşam döngüsü ayrıntılarının çeşitli aşamalara nasıl toplandığını görmek için üst düzey görünümü ve ayrıntı görünümünü karşılaştırabilirsiniz. Daha büyük bir görünümü görmek için [PDF 'Yi indirin](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) .
     ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image2.jpg)
-- Yerleştirme ve tüm geçersiz kılınabilir yöntemleri üzerinde bir amacı [denetleyicisi](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) istek işleme ardışık düzeninde nesne. Olabilir veya herhangi bir yöntemi geçersiz kılmak için gerek olmayabilir, ancak uygulama yaşam döngüsü içindeki rollerine için istediğinize etkisi uygun yaşam döngüsü aşamasında kod yazmaya başlayabilmeniz için önceden anlamak önemlidir.
-- Akıl yukarı diyagramları gösteren nasıl her filtre türü (kimlik doğrulaması, yetkilendirme, eylem ve sonuç) çağrılır.
-- Ayrıntılar görünümünde her ilgi çekici bir kullanışlı bir makale veya blog bağlantı.
+- İstek işleme ardışık düzeninde [Denetleyici](https://msdn.microsoft.com/library/system.web.mvc.controller.aspx) nesnesindeki tüm geçersiz kılınabilir yöntemlerin yerleştirilmesi ve amacı. Herhangi bir yöntemi geçersiz kılmanız gerekebilir veya olmayabilir, ancak istediğiniz etkiye uygun yaşam döngüsü aşamasında kod yazmak için uygulama yaşam döngüsünde rolünü anlamanız önemlidir.
+- Filtre türlerinin (kimlik doğrulama, yetkilendirme, eylem ve sonuç) nasıl çağrılabileceğini gösteren blown-up şemaları.
+- Ayrıntı görünümündeki her ilgi noktasından faydalı bir makaleye veya bloga bağlanın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Bu belge, gereksinimi karşılar mı? Görüşleriniz bizim için önemlidir. Uygulamanızda, ASP.NET MVC yaşam döngüsü üzerinde herhangi bir sorunuz varsa [Stackoverflow](http://stackoverflow.com/help) ve [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) istemek için mükemmel yerlerdir. İzleyin [bana](https://twitter.com/Cephas_MSFT) my en yeni öğreticiler güncelleştirmeleri alabilmeniz için Twitter'da.
+Bu belge gereksiniminizi karşılar mı? Geri bildiriminiz bizim için teşekkür ederiz. Uygulamanızda ASP.NET MVC yaşam döngüsü üzerinde herhangi bir sorunuz varsa, [StackOverflow](http://stackoverflow.com/help) ve [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) sormak için harika bir yerdir. En son öğreticilerimde güncelleştirmeleri alabilmeniz için Twitter 'da [beni](https://twitter.com/Cephas_MSFT) izleyin.

@@ -1,98 +1,98 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
-title: Derleme ve paketleme Web Uygulama projeleri | Microsoft Docs
+title: Web uygulaması projelerini derleme ve paketleme | Microsoft Docs
 author: jrjlee
-description: Bir web uygulaması projesi için bir uzak sunucu ortamı dağıtmak istediğinizde, projeyi derleyin ve web dağıtımı paketiDesteklenen oluşturmak için ilk göreviniz olan...
+description: Bir Web uygulaması projesini uzak bir sunucu ortamına dağıtmak istediğinizde, ilk göreviniz projeyi derlemek ve bir Web dağıtımı Packa oluşturması...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
 ms.openlocfilehash: 1d0ee0264ce6461d7b0159f1a44de4de31e2d079
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114661"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78573922"
 ---
 # <a name="building-and-packaging-web-application-projects"></a>Web Uygulaması Projelerini Derleme ve Paketleme
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bir web uygulaması projesi için bir uzak sunucu ortamı dağıtmak istediğinizde, projeyi derleyin ve web dağıtım paketi oluşturmak için ilk göreviniz olan. Bu konuda, web uygulama projeleri için derleme işleminin nasıl çalıştığı açıklanmaktadır. Özellikle, açıklar:
+> Bir Web uygulaması projesini uzak bir sunucu ortamına dağıtmak istediğinizde, ilk göreviniz projeyi derlemek ve bir Web dağıtım paketi oluşturmak olur. Bu konuda, derleme işleminin Web uygulaması projeleri için nasıl çalıştığı açıklanmaktadır. Özellikle şunları açıklar:
 > 
-> - Nasıl dağıtım işlevselliği eklemek için derleme işlemindeki Web yayımlama işlem hattı (WPP) genişletir.
-> - Nasıl Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) web uygulamanıza bir dağıtım paketi bırakır.
-> - Derleme ve paketleme işleminin nasıl çalıştığı ve dosyalar oluşturulur.
+> - Web yayımlama ardışık düzeni (WPP), yapı işlemini dağıtım işlevlerini içerecek şekilde genişletir.
+> - Internet Information Services (IIS) Web Dağıtım Aracı (Web Dağıtımı) Web uygulamanızı bir dağıtım paketine nasıl dönüştürür.
+> - Oluşturma ve paketleme işleminin nasıl çalıştığı ve hangi dosyaların oluşturulduğu.
 
-Visual Studio 2010'da web uygulama projeleri için derleme ve dağıtım işlemi WPP tarafından desteklenir. WPP MSBuild işlevlerini genişletmek ve Web dağıtımı ile tümleştirmek etkinleştiren Microsoft Build Engine (MSBuild) hedefleri sunmaktadır. Visual Studio içinden bu genişletilmiş işlevselliği için web uygulaması projenize özellik sayfalarında görebilirsiniz. **Paketle/Yayımla Web** sayfasında, birlikte **SQL Paketle/Yayımla** sayfası, yapı işlemi tamamlandığında, web uygulaması projenizin dağıtım için nasıl paketlenmiştir yapılandırmanızı sağlar.
+Visual Studio 2010 ' de, Web uygulaması projelerine yönelik derleme ve dağıtım işlemi WPP tarafından desteklenir. WPP, MSBuild işlevlerini genişleten ve Web Dağıtımı tümleştirilmesine olanak tanıyan Microsoft Build Engine (MSBuild) hedefleri kümesi sağlar. Visual Studio 'da, Web uygulaması projenizin özellik sayfalarında bu genişletilmiş işlevi görebilirsiniz. Paketle/ **Yayımla Web** sayfası, **paket/yayımlama SQL** sayfasıyla birlikte, derleme işlemi tamamlandığında Web uygulaması projenizin dağıtım için nasıl paketlenmekte olduğunu yapılandırmanıza olanak tanır.
 
 ![](building-and-packaging-web-application-projects/_static/image1.png)
 
 ## <a name="how-does-the-wpp-work"></a>WPP nasıl çalışır?
 
-Bir proje dosyasını bir C# için göz atın,-temel web uygulaması projesi, iki .targets dosyalarına aktarır görebilirsiniz.
+Bir C#tabanlı Web uygulaması projesi için proje dosyasına göz atalım, iki. targets dosyasını içeri aktaracağı görebilirsiniz.
 
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample1.xml)]
 
-İlk **alma** deyimi, tüm Visual C# projeleri için ortak. Bu dosya *Microsoft.CSharp.targets*, hedefler ve Visual C# için belirli görevler içerir. Örneğin, C# derleyicisi (**Csc**) görev burada çağrılır. *Microsoft.CSharp.targets* sırayla içeri aktarmalar dosyası *Microsoft.Common.targets* dosya. Bu gibi tüm projeler için ortak olan hedefleri tanımlar **derleme**, **yeniden**, **çalıştırma**, **derleme**, ve **Temizle** . İkinci **alma** deyimi web uygulaması projelerine özeldir. *Microsoft.WebApplication.targets* sırayla içeri aktarmalar dosyası *Microsoft.Web.Publishing.targets* dosya. *Microsoft.Web.Publishing.targets* temelde dosya *olduğu* WPP. Hedefler gibi tanımlar **paket** ve **MSDeployPublish**, çeşitli dağıtım görevlerini tamamlamak için Web dağıtımı çağırır.
+İlk **Içeri aktarma** deyimleri tüm görsel C# projelerde ortaktır. Bu dosya, *Microsoft. CSharp. targets*, görsele C#özgü hedefleri ve görevleri içerir. Örneğin, C# derleyici (**CSC**) görevi burada çağrılır. İçindeki *Microsoft. CSharp. targets* dosyası, *Microsoft. Common. targets* dosyasını içeri aktarır. Bu, **derleme**, **yeniden oluşturma**, **çalıştırma**, **derleme**ve **Temizleme**gibi tüm projelerde ortak olan hedefleri tanımlar. İkinci **Içeri aktarma** ekstresi Web uygulaması projelerine özgüdür. İçindeki *Microsoft. WebApplication. targets* dosyası, *Microsoft. Web. Publishing. targets* dosyasını içeri aktarır. *Microsoft. Web. Publishing. targets* dosyası temelde WPP *'dir* . Çeşitli dağıtım görevlerini tamamlamaya yönelik Web Dağıtımı çağıran **Package** ve **Msdeploypyayımla**gibi hedefleri tanımlar.
 
-Bu ek hedefler, kişi yöneticisi örnek çözümde kullanılma oluşturulduklarını *Publish.proj* göz atın ve dosya **BuildProjects** hedef.
+Bu ek hedeflerin nasıl kullanıldığını anlamak için, Contact Manager örnek çözümünde *Publish. proj* dosyasını açın ve **buildprojects** hedefine göz atın.
 
 [!code-xml[Main](building-and-packaging-web-application-projects/samples/sample2.xml)]
 
-Bu hedef kullanan **MSBuild** çeşitli projeleri oluşturmak için görev. Bildirim **DeployOnBuild** ve **DeployTarget** özellikleri:
+Bu hedef, çeşitli projeler oluşturmak için **MSBuild** görevini kullanır. **Deployonbuild** ve **deploytarget** özelliklerine dikkat edin:
 
-- **DeployOnBuild = true** özelliği temelde anlamına gelir "İstiyorum ek bir hedef derleme başarıyla tamamlandığında yürütülecek."
-- **DeployTarget** özelliği tanımlar, istediğiniz zaman yürütmek için hedef adını **DeployOnBuild** özelliğini eşittir **true**. Bu durumda, MSBuild yürütmek için istediğiniz belirlediniz **paket** projesini oluşturduktan sonra hedef.
+- **Deployonbuild = true** özelliği temelde "derleme başarıyla tamamlandığında ek bir hedef yürütmek istiyorum." anlamına gelir.
+- **Deploytarget** özelliği, **deployonbuild** özelliği **true**değerine eşitse yürütmek istediğiniz hedefin adını tanımlar. Bu durumda, projeyi oluşturduktan sonra MSBuild 'in **paket** hedefini yürütmesini istediğinizi belirteceğiz.
 
-**Paket** hedef tanımlanmış *Microsoft.Web.Publishing.targets* dosya. Esas olarak, bu hedef, web uygulaması projenize yapı çıkışını alır ve bir IIS web sunucusuna yayımlanan web dağıtım paketi dönüştürür.
+**Paket** hedefi, *Microsoft. Web. Publishing. targets* dosyasında tanımlanmıştır. Temelde, bu hedef Web uygulaması projenizin derleme çıkışını alır ve bir IIS Web sunucusuna yayımlanbilen bir Web dağıtım paketine dönüştürür.
 
 > [!NOTE]
-> Bir proje dosyasını görüntülemek için (örneğin, <em>ContactManager.Mvc.csproj</em>) Visual Studio 2010'da ilk çözümünüzü projeden kaldırmak gerekir. İçinde <strong>Çözüm Gezgini</strong> penceresinde proje düğümünü sağ tıklatın ve ardından <strong>projeyi</strong>. Proje düğümüne sağ tıklayın ve ardından <strong>Düzenle</strong><em>[proje dosyası]</em>). Proje dosyası, ham XML biçiminde açılır. İşiniz bittiğinde, projeyi yeniden yüklemenizi unutmayın.  
-> MSBuild hedefleri, görevleri hakkında daha fazla bilgi ve <strong>alma</strong> deyimleri bkz [proje dosyasını anlama](understanding-the-project-file.md). Proje dosyalarını ve WPP daha ayrıntılı bir giriş için bkz [içinde Microsoft Build Engine: MSBuild ve Team Foundation Yapısı kullanarak](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
+> Visual Studio 2010 ' de bir proje dosyası (örneğin, <em>ContactManager. Mvc. csproj</em>) görüntülemek için, önce projeyi çözümünüzde kaldırmanız gerekir. <strong>Çözüm Gezgini</strong> penceresinde, proje düğümüne sağ tıklayın ve ardından <strong>Projeyi Kaldır</strong>' a tıklayın. Proje düğümüne tekrar sağ tıklayın ve ardından <strong>Düzenle</strong><em>[proje dosyası]</em>' e tıklayın. Proje dosyası ham XML biçiminde açılır. İşiniz bittiğinde projeyi yeniden yüklemeyi unutmayın.  
+> MSBuild hedefleri, görevler ve <strong>Içeri aktarma</strong> deyimleri hakkında daha fazla bilgi için bkz. [Proje dosyasını anlama](understanding-the-project-file.md). Proje dosyalarına ve WPP 'ye yönelik daha ayrıntılı bir giriş için, bkz. [Microsoft Build Engine Içindeki MSBuild ve Team Foundation Build](http://amzn.com/0735645248) , Sayed Ibrampahashler ve William BARTHOLOMEW, ısbn: 978-0-7356-4524-0.
 
 ## <a name="what-is-a-web-deployment-package"></a>Web dağıtım paketi nedir?
 
-Yapı ve Visual Studio 2010 kullanılarak veya doğrudan MSBuild kullanarak bir web uygulaması projesi dağıtma, sonuç genellikle olduğu bir *web dağıtım paketi*. Web dağıtım paketi bir .zip dosyasıdır. IIS'nin her şeyi içerir ve web uygulamanızı yeniden oluşturmak için gereken Web dağıtımı dahil olmak üzere:
+Visual Studio 2010 kullanarak veya doğrudan MSBuild kullanarak bir Web uygulaması projesi derleyip dağıtırken, nihai sonuç genellikle bir *Web Dağıtım paketidir*. Web dağıtım paketi bir. zip dosyasıdır. Web uygulamanızı yeniden oluşturmak için IIS ve Web Dağıtımı gereken her şeyi içerir, örneğin:
 
-- İçerik, kaynak dosyaları, yapılandırma dosyalarını, JavaScript ve geçişli stil sayfaları (CSS) kaynakları vb. dahil olmak üzere, web uygulamanızın derlenmiş çıkışı.
-- Çözümünüzdeki projeleri başvurulan derlemeler için web uygulaması projenize ve tüm.
-- SQL betikleri, web uygulamanızla dağıtıyorsanız herhangi bir veritabanına oluşturulacak.
+- Web uygulamanızın, içerik, kaynak dosyaları, yapılandırma dosyaları, JavaScript ve geçişli stil sayfaları (CSS) kaynakları dahil olmak üzere derlenmiş çıktısı.
+- Web uygulaması projeniz ve çözümünüzde başvurulan tüm projeler için derlemeler.
+- Web uygulamanızla dağıttığınız herhangi bir veritabanı oluşturmak için SQL komut dosyaları.
 
-Web dağıtım paketi oluşturulduktan sonra bir IIS web sunucusuna çeşitli şekillerde yayımlayabilirsiniz. Örneğin, bunu uzaktan Web dağıtma Uzak Aracı hizmeti veya Web dağıtımı işleyicisi hedef web sunucusunda hedefleyerek dağıtabilirsiniz veya paket hedef web sunucusunda el ile içeri aktarmak için IIS Yöneticisi'ni kullanabilirsiniz. Dağıtım için bu yaklaşımlar hakkında daha fazla bilgi için bkz. [Web dağıtımı için doğru yaklaşımı seçme](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md).
+Web dağıtım paketi oluşturulduktan sonra, çeşitli yollarla bir IIS Web sunucusunda yayımlayabilirsiniz. Örneğin, Web Dağıtımı uzak aracı hizmetini veya hedef Web sunucusunda Web Dağıtımı Işleyicisini hedefleyerek uzaktan dağıtabilir veya paketi hedef Web sunucusunda el ile içeri aktarmak için IIS Yöneticisi 'Ni kullanabilirsiniz. Dağıtıma yönelik bu yaklaşımlar hakkında daha fazla bilgi için bkz. [Web dağıtımına doğru yaklaşımı seçme](../configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md).
 
-## <a name="how-does-the-build-process-work"></a>Derleme işlemi nasıl çalışır?
+## <a name="how-does-the-build-process-work"></a>Yapı Işlemi nasıl çalışır?
 
-Başka bir gösterilmektedir yapı ve bir web uygulaması projesi paketini ne olur:
+Bu, bir Web uygulaması projesi oluşturup paketlemeyi yaptığınızda ne olacağını gösterir:
 
 ![](building-and-packaging-web-application-projects/_static/image2.png)
 
-Bir web uygulaması projesi oluşturduğunuzda, yapı işlemi adlı bir dosya oluşturur. *[Proje adı]. SourceManifest.xml*. Proje dosyası ve yapı çıkışını yanı sıra bu *. SourceManifest.xml* dosya söyler Web dağıtımı, web dağıtım paketinin içermesi gerekir. Bu giriş kullanarak, Web dağıtımı oluşturur adlı bir web dağıtım paketi *[Proje adı] .zip*.
+Bir Web uygulaması projesi oluşturduğunuzda, derleme işlemi *[proje adı] adlı bir dosya oluşturur. SourceManifest. xml*. Proje dosyası ve derleme çıkışıyla birlikte bu *. SourceManifest. xml* dosyası, Web dağıtım paketine eklemesi gereken Web dağıtımı söyler. Bu girdileri kullanarak, Web Dağıtımı *[proje adı]. zip*adlı bir Web dağıtım paketi oluşturur.
 
-Web dağıtım paketi yanı sıra, yapı işlemi paketini kullanmanıza yardımcı olacak iki dosya oluşturur:
+Web dağıtım paketinin yanı sıra, yapı işlemi, paketi kullanmanıza yardımcı olabilecek iki dosya üretir:
 
-- *. Deploy.cmd* dosyası için uzak bir IIS web sunucusu, web dağıtım paketi yayımlama, Web dağıtımı (MSDeploy.exe) parametreli komutlar kümesi içerir. Çalışan *. deploy.cmd* dosya, uygun parametrelerle genellikle bir daha hızlı sağlar ve daha kolay bir alternatif MSDeploy.exe el ile oluşturmak için kendiniz komutları.
-- *SetParameters.xml* dosya MSDeploy.exe komut için parametre değerleri kümesi sağlar. Bu değerler dahil herhangi bir hizmet uç noktaları değerlerini paketini dağıtmak istediğiniz ve bağlantı dizeleri tanımlanan IIS web uygulamasının adı gibi özellikleri *web.config* dosya ve herhangi bir dağıtım özelliği Proje Özellikleri sayfalarında tanımlanan değerleri.
+- *. Deploy. cmd* dosyası, Web Dağıtım paketinizi uzak bir IIS Web sunucusuna yayımlatabilecek parametreli Web dağıtımı (MSDeploy. exe) komutları kümesi içerir. *. Deploy. cmd* dosyasını uygun parametrelerle çalıştırmak, genellikle MSDeploy. exe komutlarını kendiniz el ile oluşturmak için daha hızlı ve daha kolay bir alternatif sağlar.
+- *SetParameters. xml* dosyası MSDeploy. exe komutuna parametre değerleri kümesi sağlar. Bu değerler, paketini dağıtmak istediğiniz IIS Web uygulamasının adı, *Web. config* dosyasında tanımlanan herhangi bir hizmet bitiş noktası ve bağlantı dizesi ve proje özellikleri sayfalarında tanımlanan dağıtım özelliği değerleri gibi özellikleri içerir.
 
-*SetParameters.xml* dağıtım işlemini yönetmek için bir tuşa dosyasıdır. Bu dosya, web uygulaması projenize içeriğini göre dinamik olarak oluşturulur. Örneğin, bir bağlantı dizesi eklerseniz, *web.config* dosya, derleme işlemi otomatik olarak bağlantı dizesini algılar, dağıtımı buna göre Parametreleştirme ve girdi oluşturma  *SetParameters.xml* bağlantı dizesi dağıtım işleminin bir parçası olarak değiştirmenize izin vermek için dosya. Bir sonraki konu [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md), bu dosya daha ayrıntılı rolünü açıklar ve hangi değiştirebilirsiniz, derleme ve dağıtım sırasında farklı yollarını açıklar.
+*SetParameters. xml* dosyası, dağıtım işlemini yönetmeye yönelik bir anahtardır. Bu dosya, Web uygulaması projenizin içeriğine göre dinamik olarak oluşturulur. Örneğin, *Web. config* dosyanıza bir bağlantı dizesi eklerseniz, yapı işlemi otomatik olarak bağlantı dizesini algılar, dağıtımı uygun şekilde parametreleştirin ve *SetParameters. xml* dosyasında bir giriş oluşturur ve bu bağlantı dizesini dağıtım işleminin bir parçası olarak değiştirmenize olanak sağlar. Sonraki konu, [Web paketi dağıtımı Için parametreleri yapılandırmak](configuring-parameters-for-web-package-deployment.md), bu dosyanın rolünü daha ayrıntılı bir şekilde açıklar ve derleme ve dağıtım sırasında değişiklik yapmak için farklı yolları açıklar.
 
 > [!NOTE]
-> Visual Studio 2010'da, bir web uygulaması paketleme önce sayfalarında önceden derleme WPP desteklemez. Visual Studio ve WPP'ın sonraki sürümü, bir web uygulaması olarak paketleme seçeneği önceden derleme olanağı dahil edilir.
+> Visual Studio 2010 ' de, WPP, paketlemeden önce bir Web uygulamasındaki sayfaların ön derlemesini desteklemez. Visual Studio 'nun sonraki sürümü ve WPP, bir Web uygulamasını paketleme seçeneği olarak ön derleme özelliğini içerir.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda, web uygulama projeleri Visual Studio 2010 için derleme ve paketleme işlemi genel bir bakış sağlanır. Nasıl WPP MSBuild Web dağıtımı komutlarından çağırma sağladığını açıklanan ve derleme ve paketleme işleminin nasıl çalıştığı açıklanmıştır.
+Bu konu, Visual Studio 2010 ' deki Web uygulaması projelerine yönelik derleme ve paketleme sürecine genel bir bakış sağlamıştır. WPP 'nin MSBuild 'ten Web Dağıtımı komutları çağırmayı ve derleme ve paketleme işleminin nasıl çalıştığını anlatıldığı açıklanmaktadır.
 
-Web dağıtım paketi oluşturduktan sonra sonraki adımınız onu dağıtmaktır. Bunun hakkında daha fazla bilgi için bkz. [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md) ve [Web paketleri dağıtma](deploying-web-packages.md).
+Bir Web dağıtım paketi oluşturduktan sonra, bir sonraki adımınız bunu dağıtmaktır. Bunun hakkında daha fazla bilgi için bkz. [Web paketi dağıtımı Için parametreleri yapılandırma](configuring-parameters-for-web-package-deployment.md) ve [Web paketleri dağıtma](deploying-web-packages.md).
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide, sonraki konuları [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md) ve [Web paketleri dağıtma](deploying-web-packages.md), oluşturduğunuz web paketin nasıl kullanılacağı hakkında rehberlik sağlar. Bu serinin son Öğreticisi [Gelişmiş Kurumsal Web dağıtımı](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md), özelleştirme ve paketleme işleminin sorunlarını giderme konusunda rehberlik sağlar.
+Bu öğreticideki sonraki konular, [Web paketi dağıtımı Için parametreleri yapılandırmak](configuring-parameters-for-web-package-deployment.md) ve [Web paketlerini dağıtmak](deploying-web-packages.md)için, oluşturduğunuz Web paketinin nasıl kullanılacağına ilişkin yönergeler sağlar. Bu serideki son öğretici olan [Gelişmiş kurumsal Web dağıtımı](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md), Paketleme işlemini özelleştirme ve sorun giderme hakkında rehberlik sağlar.
 
-Proje dosyalarını ve WPP daha ayrıntılı bir giriş için bkz [içinde Microsoft Build Engine: MSBuild ve Team Foundation Yapısı kullanarak](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
+Proje dosyalarına ve WPP 'ye yönelik daha ayrıntılı bir giriş için, bkz. [Microsoft Build Engine Içindeki MSBuild ve Team Foundation Build](http://amzn.com/0735645248) , Sayed Ibrampahashler ve William BARTHOLOMEW, ısbn: 978-0-7356-4524-0.
 
 > [!div class="step-by-step"]
 > [Önceki](understanding-the-build-process.md)

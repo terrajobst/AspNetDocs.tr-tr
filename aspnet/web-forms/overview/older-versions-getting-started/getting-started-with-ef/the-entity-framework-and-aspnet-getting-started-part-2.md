@@ -1,29 +1,29 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
-title: ASP.NET 4 Entity Framework 4.0 Database First çalışmaya başlama ve Web Forms - 2. Bölüm | Microsoft Docs
+title: Entity Framework 4,0 Database First ve ASP.NET 4 Web Forms ile çalışmaya başlama-Bölüm 2 | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması, Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamayı ediyor...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework kullanarak nasıl ASP.NET Web Forms uygulamalar oluşturacağınızı gösterir. Örnek uygulama...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: fb63a326-a4ae-4b0c-a4f5-412327197216
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: bd6a2e29e6f0df04e39be29160e2e08cc99c4706
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126859"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566012"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 2. Bölüm
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4,0 Database First ve ASP.NET 4 Web Forms ile çalışmaya başlama-2. Bölüm
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso Üniversitesi örnek Web uygulaması, 4,0 ve Visual Studio 2010 Entity Framework kullanarak nasıl ASP.NET Web Forms uygulamalar oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](the-entity-framework-and-aspnet-getting-started-part-1.md) bakın
 
 ## <a name="the-entitydatasource-control"></a>EntityDataSource denetimi
 
-Önceki öğreticide bir veri modeli bir web sitesi ve bir veritabanı oluşturdunuz. Bu öğreticide çalıştığınız `EntityDataSource` bir Entity Framework veri modeli ile çalışmak üzere kolaylaştırmak için ASP.NET sağlayan denetimi. Oluşturacağınız bir `GridView` görüntülemek ve Öğrenci verileri düzenleme denetimi bir `DetailsView` yeni Öğrenci eklemek için Denetim ve `DropDownList` (Bu, ilgili kurslar görüntülemek için daha sonra kullanacağınız) bir bölümü seçmek için denetim.
+Önceki öğreticide bir Web sitesi, bir veritabanı ve bir veri modeli oluşturdunuz. Bu öğreticide, bir Entity Framework veri modeliyle çalışmayı kolaylaştırmak için ASP.NET tarafından sağlanan `EntityDataSource` denetimiyle çalışırsınız. Öğrenci verilerini görüntüleme ve düzenlemeyle ilgili bir `GridView` denetimi, yeni öğrenciler eklemek için bir `DetailsView` denetimi ve bir departmanı seçmeye yönelik bir `DropDownList` denetimi oluşturacaksınız (Bu, daha sonra ilişkili kursları görüntülemek için kullanacaksınız).
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-2/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image1.png)
 
@@ -31,219 +31,219 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Bu uygulamada, giriş doğrulaması veritabanını güncelleştiren sayfalara ekleme gerekmez ve bazı hata işleme bir üretim uygulamasında gerekli olacak kadar güçlü olmayacaktır unutmayın. Entity Framework'ü odaklanan bir öğretici tutar ve uzun alma tutar. Bu özellikler, uygulamanıza ekleme hakkında daha fazla bilgi için bkz. [kullanıcı girişini doğrulama ASP.NET Web Pages'de](https://msdn.microsoft.com/library/7kh55542.aspx) ve [hata işleme ASP.NET sayfaları ve uygulamalarında](https://msdn.microsoft.com/library/w16865z6.aspx).
+Bu uygulamada, veritabanını güncelleştiren sayfalara giriş doğrulaması eklememezsiniz ve bir üretim uygulamasında gerekli olduğu gibi bazı hata işlemenin bir kısmı sağlam olmayacaktır. Bu, öğreticiyi Entity Framework odaklanmasını ve çok uzun sürmasını önler. Bu özellikleri uygulamanıza ekleme hakkında ayrıntılı bilgi için bkz. [ASP.NET Web sayfalarında Kullanıcı girişini doğrulama](https://msdn.microsoft.com/library/7kh55542.aspx) ve [ASP.NET sayfalarında ve uygulamalarında hata işleme](https://msdn.microsoft.com/library/w16865z6.aspx).
 
-## <a name="adding-and-configuring-the-entitydatasource-control"></a>Ekleme ve EntityDataSource denetimi yapılandırma
+## <a name="adding-and-configuring-the-entitydatasource-control"></a>EntityDataSource denetimini ekleme ve yapılandırma
 
-Yapılandırarak başlarsınız bir `EntityDataSource` okunacak denetim `Person` varlıklardan `People` varlık kümesi.
+`People` varlık kümesinden `Person` varlıkları okumak için bir `EntityDataSource` denetimi yapılandırarak başlayacaksınız.
 
-Visual Studio'nun sahip olduğundan emin olun ve proje ile çalışıyorsanız, 1. bölümünde oluşturduğunuz. Son değişiklik yaptığınız veya veri modelleri oluşturduğunuz proje oluşturulan yapmadıysanız, projeyi şimdi derleyin. Proje oluşturulana kadar değişiklikleri veri modeline tasarımcıya kullanılabilir duruma getirilmez.
+Visual Studio 'Yu açık olduğundan ve 1. bölümde oluşturduğunuz projeyle çalıştığınızdan emin olun. Projeyi veri modelini oluştururken veya yaptığınız son değişiklikten bu yana oluşturmadıysa, projeyi şimdi oluşturun. Veri modelindeki değişiklikler, proje derlenene kadar tasarımcı için kullanılamaz hale getirilmez.
 
-Kullanarak yeni bir web sayfası oluşturma **ana sayfa kullanan Web formu** şablonunu ve adlandırın *Students.aspx*.
+**Ana sayfa şablonunu kullanarak Web formunu** kullanarak yeni bir Web sayfası oluşturun ve bunu *öğrenciler. aspx*olarak adlandırın.
 
 [![Image23](the-entity-framework-and-aspnet-getting-started-part-2/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image7.png)
 
-Belirtin *Site.Master* ana sayfa olarak. Bu öğreticiler için oluşturduğunuz tüm sayfalar, bu ana sayfanın kullanır.
+Ana sayfa olarak *site. Master* belirtin. Bu öğreticiler için oluşturduğunuz tüm sayfalar, bu ana sayfayı kullanacaktır.
 
 [![Image24](the-entity-framework-and-aspnet-getting-started-part-2/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image9.png)
 
-İçinde **kaynak** görüntüleme, ekleme bir `h2` için başlık `Content` adlı Denetim `Content2`aşağıdaki örnekte gösterildiği gibi:
+**Kaynak** görünümü ' nde, aşağıdaki örnekte gösterildiği gibi `Content2`adlı `Content` denetimine `h2` başlığını ekleyin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample1.aspx)]
 
-Gelen **veri** sekmesinde **araç kutusu**, sürükleyin bir `EntityDataSource` denetlemek için sayfanın altındaki başlığı bırakma ve Kimliğine değiştirme `StudentsEntityDataSource`:
+**Araç kutusunun** **veri** sekmesinden, sayfaya bir `EntityDataSource` denetimi sürükleyin, BAŞLıĞıN altına bırakın ve kimliği `StudentsEntityDataSource`olarak değiştirin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample2.aspx)]
 
-Geçiş **tasarım** görüntülemek, veri kaynağı denetimin akıllı etiket tıklayın ve ardından **veri kaynağı yapılandırma** başlatmak için **veri kaynağı yapılandırma** Sihirbazı.
+**Tasarım** görünümüne geçiş yapın, veri kaynağı denetiminin akıllı etiketine tıklayın ve **veri kaynağını Yapılandır sihirbazını başlatmak** için **veri kaynağını Yapılandır** ' a tıklayın.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-2/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image11.png)
 
-İçinde **yapılandırma ObjectContext** seçme Sihirbazı adımı **SchoolEntities** değeri olarak **adlı bağlantı**seçip **SchoolEntities**olarak **DefaultContainerName** değeri. Sonra **İleri**'ye tıklayın.
+**ObjectContext yapılandırma** Sihirbazı adımında, **adlandırılmış bağlantı**değeri olarak **sseçlentities** ' i seçin ve **DefaultContainerName** değeri olarak **sseçlentities** ' i seçin. Ardından **İleri**'ye tıklayın.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-2/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image13.png)
 
-Not: Bu noktada aşağıdaki iletişim kutusu alırsanız, devam etmeden önce projeyi derlemek sahip.
+Note: Bu noktada aşağıdaki iletişim kutusunu alırsanız devam etmeden önce projeyi derlemeniz gerekir.
 
 [![Image25](the-entity-framework-and-aspnet-getting-started-part-2/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image15.png)
 
-İçinde **yapılandırma veri seçimi** adım, select **kişiler** değeri olarak **EntitySetName**. Altında **seçin**, emin **seçin bir** ll onay kutusu seçilidir. Ardından Update hizmetini etkinleştirmek ve silmek için seçenekleri seçin. İşiniz bittiğinde tıklayın **son**.
+**Veri seçimini Yapılandır** adımında, **entitySetName**değeri olarak **kişiler** ' i seçin. **Seç**' in altında, **bir ll Seç** onay kutusunun seçili olduğundan emin olun. Ardından güncelleştirme ve silmeyi etkinleştirme seçeneklerini belirleyin. İşiniz bittiğinde **son**' a tıklayın.
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-2/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image17.png)
 
-## <a name="configuring-database-rules-to-allow-deletion"></a>Silinmesine izin vermek için veritabanı kuralları yapılandırma
+## <a name="configuring-database-rules-to-allow-deletion"></a>Veritabanı kurallarını silmeye Izin verecek şekilde yapılandırma
 
-Kullanıcıların öğrencilerden Sil olanak sağlayan bir sayfa oluşturma `Person` diğer tablolarla üç ilişki olan tablo (`Course`, `StudentGrade`, ve `OfficeAssignment`). Varsayılan olarak, veritabanı, bir satırda silmesini engeller `Person` başka tablolardan birinde ilişkili satırları varsa. İlişkili satırları önce el ile silin veya veritabanı sildiğinizde otomatik olarak silmek üzere yapılandırabileceğiniz bir `Person` satır. Bu öğreticide Öğrenci kayıtları için ilgili verileri otomatik olarak silmek için veritabanı yapılandıracaksınız. İlişkili satırları Öğrenciler çünkü yalnızca `StudentGrade` tablo, üç ilişki yalnızca biri yapılandırmanız gerekir.
+Kullanıcıların, diğer tablolarla (`Course`, `StudentGrade`ve `OfficeAssignment`) üç ilişkisi bulunan `Person` tablosundan öğrencileri silmesine imkan tanıyan bir sayfa oluşturacaksınız. Varsayılan olarak, diğer tablolardan birinde ilgili satırlar varsa, veritabanı `Person` bir satırı silmenizi önler. Önce ilişkili satırları el ile silebilir veya bir `Person` satırı sildiğinizde veritabanını otomatik olarak silecek şekilde yapılandırabilirsiniz. Bu öğreticideki öğrenci kayıtları için veritabanını ilgili verileri otomatik olarak silecek şekilde yapılandıracaksınız. Öğrencilerin yalnızca `StudentGrade` tablosunda ilişkili satırları olabileceğinden, üç ilişkilerden yalnızca birini yapılandırmanız gerekir.
 
-Kullanıyorsanız *School.mdf* bu öğreticiyle giden projesinden indirilen dosya, bu yapılandırma değişikliklerini yaptıktan zaten olduğundan, bu bölümü atlayabilirsiniz. Bir betik çalıştırarak veritabanı oluşturduysanız, aşağıdaki yordamlar gerçekleştirilerek veritabanını yapılandırın.
+Bu öğreticiye giden projeden indirdiğiniz *okul. mdf* dosyasını kullanıyorsanız, bu yapılandırma değişiklikleri zaten yapıldığından bu bölümü atlayabilirsiniz. Veritabanını bir komut dosyası çalıştırarak oluşturduysanız, aşağıdaki yordamları gerçekleştirerek veritabanını yapılandırın.
 
-İçinde **Sunucu Gezgini**, 1. bölümünde oluşturduğunuz veritabanı diyagramı açın. Arasındaki ilişkiyi sağ `Person` ve `StudentGrade` (tablolar arasındaki çizgi) ve ardından **özellikleri**.
+**Sunucu Gezgini**bölümünde, Bölüm 1 ' de oluşturduğunuz veritabanı diyagramını açın. `Person` ve `StudentGrade` arasındaki ilişkiye sağ tıklayın (tablolar arasındaki çizgi) ve ardından **Özellikler**' i seçin.
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-2/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image19.png)
 
-İçinde **özellikleri** penceresini genişletin **INSERT ve UPDATE tarifi** ve **DeleteRule** özelliğini **Cascade**.
+**Özellikler** penceresinde **INSERT ve Update Specification** ' ı genişletin ve **DeleteRule** özelliğini **Cascade**olarak ayarlayın.
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-2/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image21.png)
 
-Kaydet ve diyagramı kapatın. Veritabanını güncelleştirmek isteyip istemediğinizi tıklayın istenirse **Evet**.
+Diyagramı kaydedin ve kapatın. Veritabanını güncelleştirmek isteyip istemediğiniz sorulursa **Evet**' e tıklayın.
 
-Modelin bellek veritabanına yaparsanız ile eşitlenmiş olan varlıklar tutar emin olmak için karşılık gelen kuralları veri modelindeki ayarlamanız gerekir. Açık *SchoolModel.edmx*, arasındaki ilişkilendirme çizgisi sağ `Person` ve `StudentGrade`ve ardından **özellikleri**.
+Modelin bellekte bulunan varlıkların veritabanının yaptığı verilerle eşitlenmiş olduğundan emin olmak için, veri modelinde karşılık gelen kuralları ayarlamanız gerekir. *SchoolModel. edmx*' i açın, `Person` ve `StudentGrade`arasındaki ilişki hattına sağ tıklayın ve sonra **Özellikler**' i seçin.
 
 [![Image21](the-entity-framework-and-aspnet-getting-started-part-2/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image23.png)
 
-İçinde **özellikleri** penceresinde **End1 OnDelete** için **Cascade**.
+**Özellikler** penceresinde **uç1 OnDelete** öğesini **Cascade**olarak ayarlayın.
 
 [![Image22](the-entity-framework-and-aspnet-getting-started-part-2/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image25.png)
 
-Kaydet ve Kapat *SchoolModel.edmx* dosyasını bulun ve ardından projeyi yeniden derleyin.
+*SchoolModel. edmx* dosyasını kaydedip kapatın ve ardından projeyi yeniden derleyin.
 
-Genel olarak, veritabanı değiştiğinde modelini eşitleme için birkaç seçeneğiniz vardır:
+Genel olarak, veritabanı değiştiğinde modelin eşitlenmesi için çeşitli seçenekleriniz vardır:
 
-- Belirli türde değişiklikler (örneğin, "ekleyerek veya yenileme tablolar, görünümler ve saklı yordamlar), sağ tıklayın tasarımcı ve Seç ' **veritabanından bir güncelleştirme modeli** Tasarımcı marka değişiklikleri otomatik olarak sağlamak için.
-- Veri modeli yeniden oluşturun.
-- Bunun gibi el ile güncelleştirmeleri yapın.
+- Belirli değişiklik türleri (tablo, görünüm veya saklı yordam ekleme veya yenileme gibi) için tasarımcıya sağ tıklayın ve tasarımcı değişiklikleri otomatik hale getirmek için **veritabanından modeli Güncelleştir** ' i seçin.
+- Veri modelini yeniden oluşturun.
+- Bunun gibi el ile güncelleştirmeler gerçekleştirin.
 
-Bu durumda, modeli yeniden ya da ilişki değişiklikten etkilenen tablolar yenilenir ancak ardından tekrar alan adı değişikliği yapmanız gerekir (gelen `FirstName` için `FirstMidName`).
+Bu durumda, modeli yeniden oluşturabilirsiniz veya ilişki değişikliğinden etkilenen tabloları yeniledi, ancak alan adı değişikliğini bir daha (`FirstName` `FirstMidName`) yapmanız gerekir.
 
-## <a name="using-a-gridview-control-to-read-and-update-entities"></a>Bir GridView denetimi kullanarak okuyun ve varlıklarını güncelleştirme
+## <a name="using-a-gridview-control-to-read-and-update-entities"></a>Varlıkları okumak ve güncelleştirmek için bir GridView denetimi kullanma
 
-Bu bölümde kullanacaksınız bir `GridView` görüntülemek, güncelleştirmek veya silmek Öğrenciler için denetimi.
+Bu bölümde öğrencileri göstermek, güncelleştirmek veya silmek için `GridView` bir denetim kullanacaksınız.
 
-Açın veya geçin *Students.aspx* geçin **tasarım** görünümü. Gelen **veri** sekmesinde **araç kutusu**, sürükleyin bir `GridView` denetim sağındaki `EntityDataSource` denetlemek, adlandırın `StudentsGridView`akıllı etiket tıklayın ve ardından  **StudentsEntityDataSource** veri kaynağı olarak.
+*Öğrenciler. aspx* ' i açın veya değiştirin ve **Tasarım** görünümü ' ne geçin. **Araç kutusunun** **veri** sekmesinden `EntityDataSource` denetiminin sağına bir `GridView` denetimini sürükleyin, `StudentsGridView`adlandırın, akıllı etikete tıklayın ve sonra veri kaynağı olarak **StudentsEntityDataSource** ' yi seçin.
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-2/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image27.png)
 
-Tıklayın **şemasını Yenile** (tıklayın **Evet** onaylamanız istenirse), ardından **etkinleştirme disk belleği**, **etkinleştirme sıralama**, **Düzenlemeyi etkinleştir**, ve **silmeyi etkinleştir**.
+**Şemayı Yenile** ' ye tıklayın (onaylamanız istenirse **Evet** ' e tıklayın), ardından **sayfalama etkinleştir**, **sıralamayı etkinleştir**, **Düzenle**etkinleştir ve **silmeyi etkinleştir**' e tıklayın.
 
-Tıklayın **sütunları Düzenle**.
+**Sütunları Düzenle**' ye tıklayın.
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-2/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image29.png)
 
-İçinde **seçili alanlar** kutusunda, silmek **Personıd**, **LastName**, ve **İşeAlmaTarihi**. Genellikle bir kayıt anahtarı kullanıcılara gösterme, işe alım tarihi Öğrenciler için uygun değil ve böylece, yalnızca ad alanı adı kısımlarını bir alana giriyorum.)
+**Seçili alanlar** kutusunda, **PersonID**, **LastName**ve **HireDate**öğesini silin. Genellikle kullanıcılara bir kayıt anahtarı görüntülememeniz, işe alım tarihi öğrencilerle ilgili değildir ve adın her iki parçasını da bir alana yerleştirip ad alanlarından yalnızca birine ihtiyacınız vardır.)
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
 
-Seçin **FirstMidName** alan ve ardından **bu alanı bir TemplateField dönüştürün**.
+**Firstmidname** alanını seçin ve ardından **Bu alanı TemplateField olarak Dönüştür ' e**tıklayın.
 
-İçin de aynısını yapın **EnrollmentDate**.
+Kayıt **tarihi**için de aynısını yapın.
 
 [![Image13](the-entity-framework-and-aspnet-getting-started-part-2/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image33.png)
 
-Tıklayın **Tamam** dönersiniz **kaynak** görünümü. Kalan değişiklikleri doğrudan işaretlemede yapmak daha kolay olacaktır. `GridView` Denetimi aşağıdaki örnekte olduğu gibi biçimlendirme artık görünür.
+**Tamam** ' a tıklayın ve ardından **kaynak** görünümü ' ne geçin. Kalan değişiklikler doğrudan biçimlendirmede daha kolay olacaktır. `GridView` denetim biçimlendirmesi artık aşağıdaki örneğe benzer şekilde görünür.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample3.aspx)]
 
-Komut alan bir şablon şu anda alanıdır sonra ilk sütun adı görüntüler. Aşağıdaki örnekteki gibi aramak bu şablonu alan için biçimlendirmeyi Değiştir:
+Komut alanından sonraki ilk sütun, şu anda ilk adı görüntüleyen bir şablon alanıdır. Bu şablon alanının işaretlemesini aşağıdaki örneğe benzer şekilde değiştirin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample4.aspx)]
 
-Görüntüleme modunda iki `Label` denetimler adı ve Soyadı görüntüler. Adı ve Soyadı değiştirebilmeniz için düzenleme modunda iki metin kutuları sağlanır. Olduğu gibi `Label` denetimlerde görüntüleme modu, kullandığınız `Bind` ve `Eval` ifadeleri tam olarak istediğiniz veritabanına doğrudan bağlanmak veri kaynağı denetimleri ASP.NET ile. Tek fark, varlık özelliklerini veritabanı sütunlarını yerine belirlediniz.
+Görüntüleme modunda, iki `Label` denetim adı ve soyadı görüntüler. Düzenleme modunda, adı ve soyadınızı değiştirebilmek için iki metin kutusu sağlanır. Görüntüleme modundaki `Label` denetimlerde olduğu gibi, doğrudan veritabanlarına bağlanan ASP.NET veri kaynağı denetimlerinde yaptığınız gibi `Bind` ve `Eval` ifadelerini tam olarak kullanırsınız. Tek fark, veritabanı sütunları yerine varlık özelliklerini belirtmektir.
 
-Son sütun kayıt tarihi gösteren bir şablonu alandır. Aşağıdaki örnekteki gibi aramak Bu alan için biçimlendirmeyi Değiştir:
+Son sütun, kayıt tarihini gösteren bir şablon alanıdır. Bu alanın işaretlemesini aşağıdaki örneğe benzer şekilde değiştirin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample5.aspx)]
 
-Hem de görüntüleme ve düzenleme modu, Biçim dizesinde "{0, d}" "kısa tarih" biçiminde görüntülenecek tarihi neden olur. (Bilgisayarınızda bu biçimden farklı bir şekilde Bu öğreticide gösterilen ekran görüntülerini görüntülemek için yapılandırılabilir.)
+Hem görüntüleme hem de düzenleme modunda, "{0, d}" biçim dizesi tarihin "kısa tarih" biçiminde görüntülenmesine neden olur. (Bilgisayarınız Bu öğreticide gösterilen ekran görüntülerinden farklı şekilde bu biçimi farklı şekilde görüntüleyecek şekilde yapılandırılmış olabilir.)
 
-Bu alanların her biri şablon içinde Tasarımcı kullanılan fark bir `Bind` varsayılan, ancak ifadesi olarak değiştirdiniz bir `Eval` ifadesinde `ItemTemplate` öğeleri. `Bind` İfade verileri kullanılabilir kılar `GridView` kod verilere erişmek gerektiği durumlarda denetim özellikleri. Bu sayfada, kullanabilmeniz için kodda, bu verileri erişmeye ihtiyacınız yoksa `Eval`, daha verimli olan. Daha fazla bilgi için [veri denetimleri verilerinizden alma](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx).
+Bu şablon alanlarının her birinde, tasarımcının varsayılan olarak bir `Bind` ifadesi kullandığına, ancak bunu `ItemTemplate` öğelerindeki bir `Eval` ifadesine değiştirdiğine dikkat edin. `Bind` ifade, verileri koddaki verilere erişmeniz gerekebilmeniz durumunda `GridView` denetim özelliklerinde kullanılabilir hale getirir. Bu sayfada kodda bu verilere erişmeniz gerekmez, böylece daha verimli olan `Eval`kullanabilirsiniz. Daha fazla bilgi için bkz. verilerinizi [veri denetimlerinden alma](https://weblogs.asp.net/davidfowler/archive/2008/12/12/getting-your-data-out-of-the-data-controls.aspx).
 
-## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>Performansı artırmak için düzeltilmesi EntityDataSource denetimini biçimlendirme
+## <a name="revising-entitydatasource-control-markup-to-improve-performance"></a>, Performansı artırmak için EntityDataSource Denetim biçimlendirmesini yeniden gözden
 
-Biçimlendirme için `EntityDataSource` denetlemek, Kaldır `ConnectionString` ve `DefaultContainerName` öznitelikleri ve bunlarla değiştirin bir `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` özniteliği. Bu bir değişiklik yapmanız gerekir her oluşturduğunuzda, bir `EntityDataSource` denetimi sürece nesne bağlamı sınıfında sabit kodlanmış olan farklı bir bağlantı kullanmanız gerekir. Kullanarak `ContextTypeName` özniteliği aşağıdaki faydaları sağlar:
+`EntityDataSource` denetimin biçimlendirmesinde, `ConnectionString` ve `DefaultContainerName` özniteliklerini kaldırın ve bunları bir `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` özniteliğiyle değiştirin. Bu, nesne bağlamı sınıfında sabit kodlanmış bir bağlantı kullanmanız gerekmediği müddetçe, her bir `EntityDataSource` denetimi oluşturduğunuzda yapmanız gereken bir değişiklik olacaktır. `ContextTypeName` özniteliğini kullanmak aşağıdaki avantajları sağlar:
 
-- Daha iyi performans. Zaman `EntityDataSource` denetimi başlatır veri modelini kullanarak `ConnectionString` ve `DefaultContainerName` öznitelikleri her istekte meta verileri yüklemek için ek çalışma gerçekleştirir. Bu belirtirseniz gerekli değildir `ContextTypeName` özniteliği.
-- Yavaş yükleniyor açıksa varsayılan olarak oluşturulan nesne bağlamı sınıfları (gibi `SchoolEntities` bu öğreticideki) Entity Framework 4. 0'ı. Bu, ihtiyacınız sağ Gezinti özellikleri ile ilgili verileri otomatik olarak yüklenmiş olduğundan anlamına gelir. Yavaş yükleniyor, bu öğreticinin ilerleyen bölümlerinde daha ayrıntılı olarak açıklanmıştır.
-- Nesne bağlamı sınıfı için uyguladığınız özelleştirmeler (Bu durumda, `SchoolEntities` sınıfı) kullanan denetimler için kullanılabilecek `EntityDataSource` denetimi. Nesne bağlamı sınıfı özelleştirme, Bu öğretici serisinde kapsamında olmayan Gelişmiş bir konudur. Daha fazla bilgi için [Entity Framework oluşturulan türleri genişletme](https://msdn.microsoft.com/library/dd456844.aspx).
+- Daha iyi performans. `EntityDataSource` denetimi `ConnectionString` ve `DefaultContainerName` özniteliklerini kullanarak veri modelini başlattığında, her istekte meta verileri yüklemek için ek çalışma gerçekleştirir. `ContextTypeName` özniteliğini belirtirseniz bu gerekli değildir.
+- Yavaş yükleme, Entity Framework 4,0 ' de oluşturulan nesne bağlamı sınıflarında (Bu öğreticide `SchoolEntities` gibi) varsayılan olarak açıktır. Bu, gezinti özelliklerinin ihtiyacınız olduğunda otomatik olarak ilgili verilerle birlikte yüklendiği anlamına gelir. Yavaş yükleme, Bu öğreticinin ilerleyen kısımlarında daha ayrıntılı olarak açıklanmıştır.
+- Nesne bağlamı sınıfına uyguladığınız özelleştirmeler (Bu durumda `SchoolEntities` sınıfı), `EntityDataSource` denetimini kullanan denetimlerde kullanılabilir. Nesne bağlamı sınıfını özelleştirmek, bu öğretici serisinde kapsanmayan gelişmiş bir konudur. Daha fazla bilgi için bkz. [Entity Framework oluşturulan türleri genişletme](https://msdn.microsoft.com/library/dd456844.aspx).
 
-Biçimlendirme, artık (özelliklerin sırasını farklı olabilir) aşağıdaki örneğe benzer:
+Biçimlendirme artık aşağıdaki örneğe benzeyecektir (özelliklerin sırası farklı olabilir):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening` Olduğundan yabancı anahtar sütunu varlık özellikleri gösterilmeyen Entity Framework'ün önceki sürümlerinde gerekli bir özellik özniteliğini gösterir. Geçerli sürümü kullanmayı mümkün kılar *yabancı anahtar ilişkilerini*, yabancı anahtar özelliklerini başka bir deyişle, tüm çok-çok ilişkileri için sunulur. Varlıklarınızı yabancı anahtar özelliklerini ve Hayır varsa [karmaşık türler](https://msdn.microsoft.com/library/bb738472.aspx), bu öznitelik ayarlanırsa bırakabilirsiniz `False`. Varsayılan değer olduğundan, öznitelik biçimlendirmeden kaldırmayın `True`. Daha fazla bilgi için [düzleştirme nesneleri (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
+`EnableFlattening` özniteliği, yabancı anahtar sütunları varlık özellikleri olarak gösterilmediğinden, Entity Framework önceki sürümlerinde gerekli olan bir özelliğe başvurur. Geçerli sürüm *yabancı anahtar ilişkilendirmelerini*kullanmayı mümkün kılar. Bu, yabancı anahtar özelliklerinin hepsi, çoktan çoğa ilişkilendirmeler için kullanıma sunulacak anlamına gelir. Varlıklarınızda yabancı anahtar özellikleri varsa ve [karmaşık tür](https://msdn.microsoft.com/library/bb738472.aspx)yoksa, bu özniteliği `False`olarak bırakabilirsiniz. Varsayılan değer `True`olduğundan, biçimlendirmeden özniteliği kaldırmayın. Daha fazla bilgi için bkz. [nesneleri düzleştirme (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
-Sayfayı çalıştırın ve öğrenciler ve Çalışanlar (yalnızca Öğrenciler için sonraki öğreticide filtre) listesini görürsünüz. Ad ve Soyadı birlikte görüntülenir.
+Sayfayı çalıştırın ve öğrenciler ve çalışanların bir listesini görürsünüz (bir sonraki öğreticide yalnızca öğrencilerle filtrelemeniz gerekir). Ad ve soyadı birlikte görüntülenir.
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-2/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image35.png)
 
-Görüntü sıralamak için sütun adı'nı tıklatın.
+Görüntüyü sıralamak için bir sütun adına tıklayın.
 
-Tıklayın **Düzenle** herhangi bir satırdaki. Metin kutuları, adı ve Soyadı değiştirebileceğiniz görüntülenir.
+Herhangi bir satırda **Düzenle** ' ye tıklayın. İlk ve son adı değiştirebileceğiniz metin kutuları görüntülenir.
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-2/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image37.png)
 
-**Sil** düğmesini de çalışır. Öğesini silmek için bir kayıt tarihi olan bir satır ve satır kaldırılır. (Kayıt tarihi olmayan sıralar Eğitmenler temsil eder ve bir başvuru bütünlüğü hatası alabilirsiniz. Sonraki öğreticide, bu liste yalnızca öğrencileri de içerecek şekilde filtre.)
+**Sil** düğmesi de geçerlidir. Kayıt tarihi olan bir satır için Sil ' e tıklayın ve satır kaybolur. (Kayıt tarihi olmayan satırlar, Eğitmenler 'i temsil eder ve bir bilgi tutarlılığı hatası alabilirsiniz. Bir sonraki öğreticide, bu listeyi yalnızca öğrencileri içerecek şekilde filtrelemeniz gerekir.)
 
-## <a name="displaying-data-from-a-navigation-property"></a>Bir gezinme özelliği verileri görüntüleme
+## <a name="displaying-data-from-a-navigation-property"></a>Gezinti özelliğinden verileri görüntüleme
 
-Kaç tane Derslere bilmek istediğiniz varsayalım her Öğrenci, artık kaydedilmiştir. Entity Framework sağlar, bu bilgileri `StudentGrades` gezinti özelliği `Person` varlık. Veritabanı tasarımı atanmış bir sınıf zorunda kalmadan bir kursa kaydolmak bir öğrenci izin vermediğinden bu öğretici için bu satır olması kabul edilebilir `StudentGrade` kursun Kaydedilmekte aynı olup bir kurs ile ilişkili tablo satırı. ( `Courses` Gezinti özelliği için yalnızca eğitmenler.)
+Şimdi her öğrencinin kaç kursu kayıtlı olduğunu öğrenmek istediğinizi varsayalım. Entity Framework, `Person` varlığının `StudentGrades` gezinti özelliğinde bu bilgileri sağlar. Veritabanı tasarımı bir ders atanmaksızın bir öğrenciye kayıt atanmasına izin vermediğinden, bu öğreticide, kurs ile ilişkili `StudentGrade` tablo satırında bir satıra sahip olduğunu varsayabilirsiniz. (`Courses` gezinti özelliği yalnızca eğitmenler içindir.)
 
-Kullanırken `ContextTypeName` özniteliği `EntityDataSource` denetimi, Entity Framework otomatik olarak bilgileri alır bir gezinme özelliği için bu özelliğe eriştiğinde. Bu adlandırılır *yavaş Yükleniyor*. Her zaman ek bilgi gerekmiyor veritabanı ayrı bir çağrıda sonuçlandığından ancak bu verimsiz olabilir. Tarafından döndürülen her varlık için bir gezinti özelliği verilerden ihtiyacınız varsa `EntityDataSource` denetimi, bu veritabanına bir çağrı içinde varlığın kendisinin yanı sıra ilgili verileri almak üzere daha verimli. Bu adlandırılır *istekli yükleme*, ve ayarlayarak istekli yükleme bir gezinme özelliği için belirttiğiniz `Include` özelliği `EntityDataSource` denetimi.
+`EntityDataSource` denetiminin `ContextTypeName` özniteliğini kullandığınızda, bu özelliğe eriştiğinizde Entity Framework bir gezinti özelliği için bilgileri otomatik olarak alır. Bu, *yavaş yükleme*olarak adlandırılır. Ancak, bu, ek bilgi gerektiğinde veritabanına ayrı bir çağrı ile sonuçlandığından verimsiz olabilir. `EntityDataSource` denetimi tarafından döndürülen her varlık için gezinti özelliğinden veriye ihtiyacınız varsa, ilgili verileri veritabanına tek bir çağrıda varlıkla birlikte almak daha etkilidir. Buna *Eager yükleme*adı verilir ve `EntityDataSource` denetiminin `Include` özelliğini ayarlayarak bir gezinti özelliği için Eager yüklemesi belirlersiniz.
 
-İçinde *Students.aspx*kursları sayısı için her Öğrenci göstermek istiyorsunuz, bu nedenle istekli yükleme en iyi seçimdir. Tüm Öğrenciler görüntüleme ancak kursları sayısını gösteren yalnızca birkaç tanesi (hangi biçimlendirmeye ek olarak bazı kodları yazmaya gerektirir), için yavaş yükleniyor daha iyi bir seçenek olabilir.
+*Öğrenciler. aspx*' te her öğrenciye yönelik kurs sayısını göstermek istersiniz; bu nedenle yükleme en iyi seçenektir. Tüm öğrencileri görüntülüyor, ancak yalnızca birkaç tanesi için (biçimlendirmeye ek olarak bazı kod yazılmasını gerektiren) kurslar sayısını gösteriyorsa, geç yükleme daha iyi bir seçim olabilir.
 
-Açın veya geçin *Students.aspx*, geçiş **tasarım** görüntülenecek `StudentsEntityDataSource`ve **özellikleri** penceresi kümesi **INCLUDE**özelliğini **StudentGrades**. (Birden çok gezinti özellikleri almak istediyseniz, adlarını virgülle ayırarak belirtebilirsiniz; Örneğin, **StudentGrades, kursları**.)
+*Öğrenciler. aspx*' i açın veya geçiş yapın, **Tasarım** görünümü ' nü değiştirin, `StudentsEntityDataSource`' yi seçin ve **Özellikler** penceresinde **Include** özelliğini **studentnotlar**olarak ayarlayın. (Birden çok gezinti özelliği almak isterseniz, adlarını virgülle ayırarak belirtebilirsiniz; Örneğin, **Studentnotlar, kurslar**.)
 
 [![Image19](the-entity-framework-and-aspnet-getting-started-part-2/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image39.png)
 
-Geçiş **kaynak** görünümü. İçinde `StudentsGridView` en son denetim `asp:TemplateField` öğesi, aşağıdaki yeni şablon alanı ekleyin:
+**Kaynak** görünümüne geçin. `StudentsGridView` denetiminde, son `asp:TemplateField` öğesinden sonra aşağıdaki yeni şablon alanını ekleyin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample7.aspx)]
 
-İçinde `Eval` ifade gezinme özelliğini başvurabilirsiniz `StudentGrades`. Bu özellik bir koleksiyonu içerdiğinden, sahip bir `Count` Öğrenci kaydolduğunu kursları sayısını görüntülemek için kullanabileceğiniz özellik. Bir sonraki öğreticide, verileri içeren koleksiyonlar yerine tek bir varlık Gezinti özellikleri görüntülemek nasıl görürsünüz. (Kullanamazsınız Not `BoundField` Gezinti özellikleri verileri görüntülemek için öğeleri.)
+`Eval` ifadesinde, gezinti özelliğine `StudentGrades`başvurabilirsiniz. Bu özellik bir koleksiyon içerdiğinden, öğrencinin kaydolduğu kurslar sayısını göstermek için kullanabileceğiniz bir `Count` özelliğine sahiptir. Daha sonraki bir öğreticide, Koleksiyonlar yerine tek varlıklar içeren gezinti özelliklerinden verileri görüntülemeyi göreceksiniz. (Verileri gezinti özelliklerinden göstermek için `BoundField` öğelerini kullanmayacağınızı unutmayın.)
 
-Sayfayı çalıştırın ve Öğrenci kaç kursları kaydedilmiş göreceksiniz.
+Sayfayı çalıştırın ve şimdi her öğrencinin kaç kursu kayıtlı olduğunu görürsünüz.
 
 [![Image20](the-entity-framework-and-aspnet-getting-started-part-2/_static/image42.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image41.png)
 
-## <a name="using-a-detailsview-control-to-insert-entities"></a>Varlıkları eklemek için bir DetailsView denetimi kullanma
+## <a name="using-a-detailsview-control-to-insert-entities"></a>Varlıkları eklemek için DetailsView denetimi kullanma
 
-Bir sayfa oluşturmak için sonraki adımdır bir `DetailsView` yeni öğrencileri ekleme olanak tanıyan bir denetim. Tarayıcıyı kapatın ve ardından kullanarak yeni bir web sayfası oluşturma *Site.Master* ana sayfa. Sayfayı adlandırın *StudentsAdd.aspx*, dönersiniz **kaynak** görünümü.
+Sonraki adım, yeni öğrenciler eklemenize olanak sağlayacak `DetailsView` denetimine sahip bir sayfa oluşturmaktır. Tarayıcıyı kapatın ve ardından *site. Master* ana sayfasını kullanarak yeni bir Web sayfası oluşturun. Sayfayı *StudentsAdd. aspx*olarak adlandırın ve ardından **kaynak** görünümüne geçin.
 
-İçin mevcut biçimlendirme değiştirmek için aşağıdaki işaretlemeyi ekleyin `Content` adlı Denetim `Content2`:
+`Content2`adlı `Content` denetimi için varolan biçimlendirmeyi değiştirmek üzere aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample8.aspx)]
 
-Bu biçimlendirme oluşturur bir `EntityDataSource` , oluşturduğunuz bir benzer denetimi *Students.aspx*dışında ekleme sağlar. Olduğu gibi `GridView` denetim, ilişkili alanlarını `DetailsView` denetimi kodlanmış varlık özellikleri oldukları dışında tam olarak, bir veritabanına doğrudan bağlanan veri denetimi için olduğu gibi. Bu durumda, `DetailsView` denetimi için varsayılan modu ayarladığınız yalnızca satır eklemek için kullanılan `Insert`.
+Bu biçimlendirme,, ekleme işlemini etkinleştirse de, *öğrenciler. aspx*içinde oluşturduğunuz birine benzer bir `EntityDataSource` denetimi oluşturur. `GridView` denetiminde olduğu gibi, `DetailsView` denetiminin bağlı alanları, varlık özelliklerine başvurmaları dışında, doğrudan bir veritabanına bağlanan bir veri denetimine yönelik olarak kodlanır. Bu durumda, `DetailsView` denetimi yalnızca satır eklemek için kullanılır, bu nedenle varsayılan modu `Insert`olarak ayarlamanız gerekir.
 
-Sayfayı çalıştırın ve yeni bir öğrenci eklemek.
+Sayfayı çalıştırın ve yeni bir öğrenci ekleyin.
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-2/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image43.png)
 
-Hiçbir şey yeni bir öğrenci ekledikten sonra ancak şimdi çalıştırırsanız olacağını *Students.aspx*, yeni bir öğrenci bilgi görürsünüz.
+Yeni bir öğrenci ekledikten sonra hiçbir şey gerçekleşmeyecektir, ancak artık *öğrenciler. aspx*çalıştırırsanız yeni öğrenci bilgilerini görürsünüz.
 
-## <a name="displaying-data-in-a-drop-down-list"></a>Aşağı açılan listede verileri görüntüleme
+## <a name="displaying-data-in-a-drop-down-list"></a>Açılan listede verileri görüntüleme
 
-Aşağıdaki adımlarda databind gerekir bir `DropDownList` denetimi kullanılarak ayarlanan bir varlığa yönelik bir `EntityDataSource` denetimi. Öğreticinin bu bölümünde, bu liste ile olmaz. Sonraki bölümlerinde, bölümle ilişkilendirilmiş kursları görüntülemek için bir bölüm seçin kullanıcıların listesi kullanacaksınız.
+Aşağıdaki adımlarda, bir `DropDownList` denetimini bir `EntityDataSource` denetimini kullanarak bir varlık kümesine vereceksiniz. Öğreticinin bu bölümünde, bu listede çok daha fazlasını yapamayacağız. Daha sonraki bölümlerde, kullanıcıların departmanla ilişkili kursları görüntülemesi için bir departman seçmesini sağlamak üzere listeyi kullanacaksınız.
 
-Adlı yeni bir web sayfası oluşturma *Courses.aspx*. İçinde **kaynak** görüntülemek için bir başlığı ekleme `Content` adlı Denetim `Content2`:
+*Kurslar. aspx*adlı yeni bir Web sayfası oluşturun. **Kaynak** görünümü ' nde, `Content2`adlı `Content` denetimine bir başlık ekleyin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample9.aspx)]
 
-İçinde **tasarım** görüntüleme, ekleme bir `EntityDataSource` denetimi sayfası daha önce yaptığınız gibi dışında bu zaman adlandırın, `DepartmentsEntityDataSource`. Seçin **Departmanlar** olarak **EntitySetName** değeri ve yalnızca belirli **DepartmentID** ve **adı** özellikleri.
+**Tasarım** görünümü ' nde, daha önce yaptığınız gibi sayfaya bir `EntityDataSource` denetimi ekleyin, bu kez `DepartmentsEntityDataSource`adlandırın. **EntitySetName** değeri olarak **Departmanlar** ' ı seçin ve yalnızca **DepartmentID** ve **ad** özelliklerini seçin.
 
 [![Image15](the-entity-framework-and-aspnet-getting-started-part-2/_static/image46.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image45.png)
 
-Gelen **standart** sekmesinde **araç kutusu**, sürükleyin bir `DropDownList` denetlemek sayfaya, adlandırın `DepartmentsDropDownList`, akıllı etiket tıklatın ve seçin **veri kaynağı Seç** için Başlangıç **veri kaynağı Yapılandırma Sihirbazı'nı**.
+**Araç kutusunun** **Standart** sekmesinden, sayfaya bir `DropDownList` denetimi sürükleyin, `DepartmentsDropDownList`adlandırın, akıllı etikete tıklayın ve **veri kaynağını seç** ' i seçerek **DataSource Yapılandırma Sihirbazı**'nı başlatın.
 
 [![Image16](the-entity-framework-and-aspnet-getting-started-part-2/_static/image48.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image47.png)
 
-İçinde **veri kaynağı seçin** adım seçin **DepartmentsEntityDataSource** veri kaynağı olarak tıklayın **Yenile şema**ve ardından **adı** görüntülenecek veri alanı olarak ve **DepartmentID** değeri veri alanı olarak. **Tamam**'ı tıklatın.
+**Veri kaynağı seçin** adımında, veri kaynağı olarak **DepartmentsEntityDataSource** ' i seçin, **şemayı Yenile**' ye tıklayın ve ardından değer verisi alanı olarak görüntülenecek ve **DepartmentID** veri alanı olarak **ad** ' ı seçin. **Tamam**’a tıklayın.
 
 [![Image17](the-entity-framework-and-aspnet-getting-started-part-2/_static/image50.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image49.png)
 
-Diğer ASP.NET veri kaynağı denetimleri dışında varlıkları ve varlık özellikleri belirlediniz Entity Framework kullanarak denetimi databind için kullandığınız yöntem aynı olur.
+Entity Framework kullanarak denetimin kaynağını belirlemek için kullandığınız yöntem, varlıkları ve varlık özelliklerini belirtmediğimizden diğer ASP.NET veri kaynağı denetimleriyle aynıdır.
 
-Geçiş **kaynak** görüntüleme ve ekleme "bir bölüm seçin:" hemen önce `DropDownList` denetimi.
+**Kaynak** görünümüne geçin ve `DropDownList` denetiminden hemen önce "departmanı seçin:" ekleyin.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample10.aspx)]
 
-Bir anımsatıcı değiştirmek için biçimlendirme `EntityDataSource` değiştirerek bu noktada denetim `ConnectionString` ve `DefaultContainerName` ile öznitelikleri bir `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` özniteliği. Genellikle, değiştirmeden önce veri kaynak denetimine bağlı veriye bağlı denetim oluşturduktan sonra bekle en iyisidir `EntityDataSource` değişikliği yaptıktan sonra Tasarımcı sizinle sağlamadığı için biçimlendirmeyi denetleyen bir **Yenile Şema** veriye bağlı denetim seçeneği.
+Bir anımsatıcı olarak, `ConnectionString` ve `DefaultContainerName` özniteliklerini bir `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` özniteliğiyle değiştirerek `EntityDataSource` denetimin işaretlemesini bu noktada değiştirin. `EntityDataSource` denetim işaretlemesini değiştirmeden önce veri kaynağı denetimine bağlı veriye bağlı denetim oluşturmanızın ardından, tasarımcı, veri bağlantılı denetimde bir **Şemayı yenileme** seçeneği sağlamadığı için genellikle en iyi seçenektir. Bu işlem, tasarımcı, verilere bağlı denetimde bir şema seçeneğini sunmayacak.
 
-Sayfayı çalıştırın ve bir departman aşağı açılan listeden seçim yapabilirsiniz.
+Sayfayı çalıştırın ve açılan listeden bir departman seçebilirsiniz.
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image52.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image51.png)
 
-Bu kullanmaya giriş tamamlar `EntityDataSource` denetimi. Varlıklar ve tablolar ve sütunlar yerine özellikleri başvuru dışında bu denetimi ile çalışma kaynağı denetimleri diğer ASP.NET verilerle çalışmasını genellikle farklı değildir. Tek özel durum, gezinti özellikleri erişmek istediğiniz durumdur. Sonraki öğreticide söz dizimi ile kullanmanızı görürsünüz `EntityDataSource` denetim ayrıca farklı diğer veri kaynağı denetimlerini filtrelemek, Grup ve sipariş verileri.
+Bu, `EntityDataSource` denetimini kullanmaya giriş işlemini tamamlar. Bu denetimle çalışma, genellikle diğer ASP.NET veri kaynağı denetimleriyle çalışmaktan farklı değildir, ancak tablo ve sütun yerine varlıklara ve özelliklere başvurırsınız. Tek özel durum, gezinti özelliklerine erişmek istediğiniz durumdur. Sonraki öğreticide, `EntityDataSource` denetimi ile kullandığınız sözdiziminin, verileri filtreleyip, gruplandırdığınızda ve sipariş ettiğinizde diğer veri kaynağı denetimlerinden de farklı olabileceğini görürsünüz.
 
 > [!div class="step-by-step"]
 > [Önceki](the-entity-framework-and-aspnet-getting-started-part-1.md)

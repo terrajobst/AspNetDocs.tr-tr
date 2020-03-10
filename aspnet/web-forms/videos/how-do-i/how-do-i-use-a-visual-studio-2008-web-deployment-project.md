@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
-title: '[Bunu nasıl yaparım:] Bir Visual Studio 2008 Web dağıtımı projesi kullanma | Microsoft Docs'
+title: '[Nasıl yapılır:] Visual Studio 2008 Web dağıtımı projesi kullanma | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel zahmetli nasıl denetime sahip dağıtım projeleri oluşturmak için Visual Studio 2008 Web dağıtımı eklenti kullanmayı gösterir...
+description: Bu videoda, kemal 'in nasıl yapılacağı hakkında daha fazla denetime sahip dağıtım projeleri oluşturmak için Visual Studio 2008 Web dağıtımı eklentisinin nasıl kullanılacağı gösterilmektedir...
 ms.author: riande
 ms.date: 09/11/2008
 ms.assetid: 9517a342-e414-4c93-b0a6-5b52b391c908
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
 msc.type: video
 ms.openlocfilehash: 9b4266b0909e95424b28415442f1e2ef5ceae382
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59395686"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641031"
 ---
-# <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[Bunu nasıl yaparım:] Bir Visual Studio 2008 Web dağıtımı projesi kullanma
+# <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[Nasıl yapılır:] Visual Studio 2008 Web Dağıtım projesi kullanma
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu video Chris piksel zahmetli nasıl bir web sitesi derlenmiş dağıtılan ve Denetim ile dağıtım projeleri oluşturmak için Visual Studio 2008 Web dağıtımı eklenti kullanmayı gösterir. İlk olarak, Visual Studio 2008 Web dağıtımı projesi eklentiyi yüklemez nereye indirileceğini öğrenin. Ardından, bir web sitesi projesi ve bir ilişkili web dağıtımı projesi oluşturun. Web dağıtımı projesi yönelik mevcut yapılandırma seçeneklerini öğrenin. Bkz: ASP.NET kısa bir inceleme\_derleyici ve aspnet\_birleştirmek için web dağıtımı projesi tamsayı olan bir komut satırı yardımcı programları. Ardından, örneğin bir web dağıtımı projesi için birden fazla yapılandırması oluşturma, hata ayıklama için diğeri yayın modları için öğrenin. Ardından bir web uygulaması projesi ve karşılık gelen bir web dağıtımı projesi oluşturun. Son olarak, bu web sitesi projesi için aynı nasıl seçeneklerini ve web uygulaması projesi için işlem olduğuna bakın.
+Bu videoda, bir Web sitesinin derlenmesi ve dağıtılması üzerinde daha ayrıntılı bir denetim ile dağıtım projeleri oluşturmak için Visual Studio 2008 Web dağıtımı eklentisinin nasıl kullanılacağı gösterilmektedir. İlk olarak, Visual Studio 2008 için Web dağıtımı proje eklentisinin nereye indirileceği ve kurulacağı hakkında bilgi edinin. Ardından, bir Web sitesi projesi ve ilişkili bir Web Dağıtım projesi oluşturun. Bir Web dağıtımı projesi için kullanılabilir yapılandırma seçeneklerini öğrenin. Web dağıtımı projesiyle integral olan ASPNET\_derleyicisini ve ASPNET\_birleştirme komut satırı yardımcı programlarını inceleyin. Daha sonra, bir Web Dağıtım projesi (örneğin, hata ayıklama ve yayın modları için) için birden çok yapılandırma oluşturma hakkında bilgi edinin. Ardından bir Web uygulaması projesi ve buna karşılık gelen bir Web Dağıtım projesi oluşturun. Son olarak, Web uygulaması projesi için seçeneklerin ve işlemin Web sitesi projesiyle nasıl aynı olduğunu görün.
 
-[&#9654;Videoyu (26 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-visual-studio-2008-web-deployment-project)
+[&#9654;Videoyu izleyin (26 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-visual-studio-2008-web-deployment-project)

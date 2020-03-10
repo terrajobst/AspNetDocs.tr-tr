@@ -9,11 +9,11 @@ ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c9883314d6153b9816d9bad2a281ab3c0a816448
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74612626"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78524257"
 ---
 # <a name="caching-data-with-the-objectdatasource-c"></a>ObjectDataSource ile Verileri Önbelleğe Alma (C#)
 
@@ -150,7 +150,7 @@ Verilerin her sayfalanışında veya sıralandığında veritabanı verilerinin 
 Yalnızca birkaç özelliği ayarlayarak, ObjectDataSource, alınan verilerini ASP.NET veri önbelleğinde otomatik olarak önbelleğe almak üzere yapılandırılabilir. Aşağıdaki liste, ObjectDataSource 'un önbellekte ilgili özelliklerini özetler:
 
 - Önbelleğe almayı etkinleştirmek için [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) 'nin `true` olarak ayarlanması gerekir. Varsayılan, `false` değeridir.
-- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) , verilerin önbelleğe alınma süresi (saniye cinsinden). Varsayılan değer 0 ' dır. ObjectDataSource yalnızca `EnableCaching` `true` ve `CacheDuration` sıfırdan büyük bir değere ayarlandıysa verileri önbelleğe alacak.
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) , verilerin önbelleğe alınma süresi (saniye cinsinden). Varsayılan değer, 0'dur. ObjectDataSource yalnızca `EnableCaching` `true` ve `CacheDuration` sıfırdan büyük bir değere ayarlandıysa verileri önbelleğe alacak.
 - [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) , `Absolute` veya `Sliding`olarak ayarlanabilir. `Absolute`, ObjectDataSource `CacheDuration` saniye boyunca alınan verilerini önbelleğe alır; `Sliding`, verilerin süresi yalnızca `CacheDuration` saniye boyunca erişilmedi. Varsayılan, `Absolute` değeridir.
 - [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) bu özelliği, ObjectDataSource s önbellek girişlerini varolan bir önbellek bağımlılığı ile ilişkilendirmek için kullanın. ObjectDataSource 'un veri girişleri, ilişkili `CacheKeyDependency`süresi dolduğunda önbellekten erken çıkartık olabilir. Bu özellik en yaygın olarak SQL önbellek bağımlılıkları öğreticisini [kullanarak](using-sql-cache-dependencies-cs.md) keşfedediğimiz bir konu olan ObjectDataSource s Cache ile SQL önbellek bağımlılığını ilişkilendirmek için kullanılır.
 

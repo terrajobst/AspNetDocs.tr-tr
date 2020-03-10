@@ -9,11 +9,11 @@ ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
 ms.openlocfilehash: ac1dcaf1ba911fdcaeb3845c6836ec771733d93e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78643558"
 ---
 # <a name="ui-and-navigation"></a>Kullanıcı Arabirimi ve Gezinti
 
@@ -25,7 +25,7 @@ by [Erik Reitan](https://github.com/Erikre)
 
 Bu öğreticide, varsayılan Web uygulamasının Kullanıcı arabirimini Wingtip Toys Store ön uygulamasının özelliklerini destekleyecek şekilde değiştirirsiniz. Ayrıca, basit ve veri bağlantılı gezinme ekleyeceksiniz. Bu öğretici, önceki öğreticide "veri erişim katmanını oluşturma" ve Wingtip Toys öğretici serisinin bir parçası olarak oluşturulur.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 - Kullanıcı arabirimini, Wingtip Toys mağaza ön uygulamasının özelliklerini destekleyecek şekilde değiştirme.
 - Sayfa gezintisi eklemek için HTML5 öğesi yapılandırma.
@@ -208,7 +208,7 @@ Bu kod, veritabanındaki tüm kategorileri görüntüler. **ListView** denetimi 
 
 > [!NOTE] 
 > 
-> **İpucuyla**
+> **İpucu**
 > 
 > Geliştirme sırasında yazarak kod eklediğinizde, kesin belirlenmiş veri denetimleri IntelliSense 'e göre kullanılabilir üyeleri gösterebileceğinden nesnenin geçerli bir üyesinin bulunduğundan emin olabilirsiniz. IntelliSense, özellikler, Yöntemler ve nesneler gibi kod yazarken, içeriğe uygun kod seçenekleri sunar.
 
