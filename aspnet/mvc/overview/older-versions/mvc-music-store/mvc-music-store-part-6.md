@@ -1,78 +1,78 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
-title: 'Bölüm 6: Model doğrulama için veri ek açıklamalarını kullanma | Microsoft Docs'
+title: '6\. Bölüm: model doğrulaması için veri ek açıklamalarını kullanma | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 6. bölüm veri ek açıklamaları Model için V incelemektedir...
+description: Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 6\. bölüm, model V için veri ek açıklamalarını kullanmayı içerir...
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
 ms.openlocfilehash: bc031dd5be61cc6707c522f85f6af77a420c8b31
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129662"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539279"
 ---
-# <a name="part-6-using-data-annotations-for-model-validation"></a>Bölüm 6: Model Doğrulama için Veri Açıklamalarını Kullanma
+# <a name="part-6-using-data-annotations-for-model-validation"></a>6\. Bölüm: Model Doğrulama için Veri Ek Açıklamalarını Kullanma
 
-tarafından [Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) tarafından
 
-> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
+> MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Studio 'nun nasıl kullanılacağını anlatan bir öğretici uygulamadır.  
 >   
-> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik deposu, çevrimiçi olarak müzik albümlerini satan ve temel site yönetimi, Kullanıcı oturum açma ve alışveriş sepeti işlevlerini uygulayan basit bir örnek depolama uygulamasıdır.  
 >   
-> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 6. bölüm veri ek açıklamaları Model doğrulama için incelemektedir.
+> Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 6\. bölüm, model doğrulaması için veri ek açıklamalarını kullanmayı içerir.
 
-Önemli bir sorun bizim oluşturma ve düzenleme formlarla sahibiz: herhangi bir doğrulama yaptıkları değil. Fiyat alanında harflerini yazın ya da gerekli alanları boş bırakın gibi işlemler yapabileceğimiz ve görüyoruz ilk veritabanından hatadır.
+Oluşturma ve düzenleme formlarımızla ilgili önemli bir sorun var: herhangi bir doğrulama yapmadık. Gerekli alanları boş bırakma veya fiyat alanında harfler yazma gibi işlemleri yapabiliriz ve göreceğiniz ilk hata veritabanından.
 
-Kolayca doğrulama uygulamamıza bizim model sınıfları için veri ek açıklamaları ekleyerek ekleyebiliriz. Veri ek açıklamaları tanımlamak sunduğumuz modeli özelliklerine uygulanan istiyoruz kuralları olanak tanır ve ASP.NET MVC uygulamadan ve kullanıcılarımız için uygun iletileri görüntülemeyi ilgileniriz.
+Model sınıflarımıza veri ek açıklamaları ekleyerek uygulamamıza kolayca doğrulama ekleyebiliriz. Veri ek açıklamaları, model özelliklerine uygulanmasını istediğimiz kuralları açıklamanıza olanak sağlar ve ASP.NET MVC bunları zorlamaya ve kullanıcılarımıza uygun iletileri görüntülemeye yönelik bir işlem gerçekleştirir.
 
-## <a name="adding-validation-to-our-album-forms"></a>Bizim albüm formları için doğrulama ekleme
+## <a name="adding-validation-to-our-album-forms"></a>Albüm formlarımıza doğrulama ekleme
 
-Aşağıdaki veri ek açıklama öznitelikleri kullanacağız:
+Aşağıdaki veri ek açıklaması özniteliklerini kullanacağız:
 
-- **Gerekli** – gerekli bir alan özelliği belirtir
-- **DisplayName** – form alanlarını ve doğrulama iletilerinin kullanılan istiyoruz metni tanımlar
-- **StringLength** – tanımlayan bir dize alanı için en fazla uzunluk
-- **Aralık** – maksimum ve minimum değer için sayısal bir alan sağlar.
-- **Bağlama** – listeler hariç tutma veya parametresi veya form değerleri, model özellikleri bağlanırken eklemek için alanlar
-- **ScaffoldColumn** – Düzenleyicisi formlarından alanları gizleme sağlar
+- **Gerekli** – özelliğin gerekli bir alan olduğunu belirtir
+- **DisplayName** : form alanlarında ve doğrulama iletilerinde kullanmak istediğimiz metni tanımlar
+- **StringLength** : bir dize alanı için en fazla uzunluğu tanımlar
+- **Range** : sayısal bir alan için en yüksek ve en küçük değeri verir
+- **Bind** : parametre veya form değerlerini model özelliklerine bağlamada hariç tutulacak veya dahil edilecek alanları listeler
+- **ScaffoldColumn** – alanları düzenleyici formlarından gizlemeyi sağlar
 
-*Not: Veri ek açıklama öznitelikleri kullanarak Model doğrulama hakkında daha fazla bilgi için MSDN belgelerine bakın*[`https://go.microsoft.com/fwlink/?LinkId=159063`](https://go.microsoft.com/fwlink/?LinkId=159063)
+*Not: veri ek açıklaması özniteliklerini kullanarak model doğrulama hakkında daha fazla bilgi için`https://go.microsoft.com/fwlink/?LinkId=159063`ADRESINDEKI MSDN belgelerine bakın.* [ ](https://go.microsoft.com/fwlink/?LinkId=159063)
 
-Albüm sınıfını açın ve aşağıdakileri ekleyin *kullanarak* en.
+Albüm sınıfını açın ve aşağıdaki *using* deyimlerini en üste ekleyin.
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample1.cs)]
 
-Ardından, aşağıda gösterildiği gibi görünen ve doğrulama öznitelikleri eklemek için özelliklerini güncelleştirir.
+Ardından, aşağıda gösterildiği gibi, görüntüleme ve doğrulama öznitelikleri eklemek için özellikleri güncelleştirin.
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample2.cs)]
 
-Biz var. kullanmadığınız esnada özelliğin ayrıca tarz ve sanatçı sanal özelliklerine değiştirdik. Bu, yavaş bunları gerektiği şekilde yük Entity Framework sağlar.
+Biz de var olsa da, tarzı ve sanatçıya sanal özelliklere de değiştirdik. Bu, Entity Framework gerektiği gibi yavaş yüklenmesine izin verir.
 
 [!code-csharp[Main](mvc-music-store-part-6/samples/sample3.cs)]
 
-Bu öznitelikler, albüm modelimizi eklenen sonra bizim oluşturma ve düzenleme ekranı hemen başlamak alanları doğrulama ve görünen adlarını kullanarak biz (örneğin albüm resim URL'si yerine AlbumArtUrl) seçtiniz. Uygulamayı çalıştırmak ve /StoreManager/Create için göz atın.
+Bu öznitelikleri albüm modelimize ekledikten sonra, oluşturma ve düzenleme ekranımız alanları doğrulamaya başlar ve seçtiğiniz görünen adları (örn. albümle değil, albüm sanat URL 'Si) kullanın. Uygulamayı çalıştırın ve/Storemanager/createadresine gidin.
 
 ![](mvc-music-store-part-6/_static/image1.png)
 
-Ardından, biz bazı doğrulama kuralı ihlal. Bir fiyat 0 girin ve başlık boş bırakın. Biz Oluştur düğmesine tıkladığınızda, formun tanımladığımız hangi alanların doğrulama kuralları karşılamayan gösteren bir doğrulama hata iletisi ile görüntülenen göreceğiz.
+Daha sonra bazı doğrulama kurallarını bozacağız. 0 ' ın bir fiyatını girin ve başlığı boş bırakın. Oluştur düğmesine tıkladığımızda, tanımlamış olduğumuz doğrulama kurallarına uymayan alanları gösteren doğrulama hata iletileriyle birlikte görüntülenecek formu görüyoruz.
 
 ![](mvc-music-store-part-6/_static/image2.png)
 
-## <a name="testing-the-client-side-validation"></a>İstemci tarafı doğrulama sınaması
+## <a name="testing-the-client-side-validation"></a>Istemci tarafı doğrulamayı test etme
 
-Sunucu tarafı doğrulama bir uygulama açısından oldukça önemli çünkü kullanıcılar istemci tarafı doğrulama atlayabilir. Ancak, yalnızca sunucu tarafı doğrulama uygulayan Web forms üç önemli sorunlar sergiler.
+Sunucu tarafı doğrulaması bir uygulama perspektifinden çok önemlidir, çünkü kullanıcılar istemci tarafı doğrulamayı atlayabilirler. Ancak, yalnızca sunucu tarafı doğrulama uygulayan Web sayfası formları üç önemli sorun sergiler.
 
-1. Kullanıcının formun gönderilen, sunucu üzerinde doğrulanır ve kendi tarayıcıya gönderilecek yanıt için beklemek gerekir.
-2. Artık doğrulama kuralları geçirir, böylece bir alan düzeltirken kullanıcıya anında geri bildirim elde edemez.
-3. Biz, kullanıcının tarayıcı yararlanarak yerine doğrulama mantığını gerçekleştirmesi için sunucu kaynağı israfına yol.
+1. Kullanıcının, formun gönderilmesini, sunucuda doğrulanmasını ve yanıtın tarayıcıya gönderilmesi için beklemesi gerekir.
+2. Kullanıcı artık doğrulama kurallarını geçirmeden bir alanı düzelttiklerinde anında geri bildirim almaz.
+3. Sunucu kaynaklarını kullanıcının tarayıcısına göre değil, doğrulama mantığını gerçekleştirecek şekilde harcadık.
 
-Neyse ki, ASP.NET MVC 3 iskele şablonlarında yerleşik istemci tarafı doğrulama olmadan hiçbir ek iş gerek vardır.
+Neyse ki, ASP.NET MVC 3 iskele şablonlarının içinde yerleşik olarak bulunan ve başka hiçbir iş gerektirmeyen istemci tarafı doğrulaması vardır.
 
-Doğrulama iletisini hemen kaldırılır başlık alanında tek bir harf yazarak doğrulama gereksinimlerini karşılar.
+Başlık alanına tek bir harf yazmak doğrulama gereksinimlerini karşılar, bu nedenle doğrulama iletisi hemen kaldırılır.
 
 ![](mvc-music-store-part-6/_static/image3.png)
 

@@ -2,132 +2,132 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 title: Web paketi dağıtımı için parametreleri yapılandırma | Microsoft Docs
 author: jrjlee
-description: Bu konuda, Internet Information Services (IIS) web uygulama adları, bağlantı dizeleri ve hizmet uç noktaları gibi parametre değerlerini nasıl ayarlanacağı açıklanır...
+description: Bu konuda Internet Information Services (IIS) Web uygulaması adları, bağlantı dizeleri ve hizmet uç noktaları gibi parametre değerlerinin nasıl ayarlanacağı açıklanmaktadır,...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 37947d79-ab1e-4ba9-9017-52e7a2757414
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: f04ace98d81a33053b10cab7e40dbd75a6c0992c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108722"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544956"
 ---
 # <a name="configuring-parameters-for-web-package-deployment"></a>Web Paketi Dağıtımı için Parametreleri Yapılandırma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu, uzak bir IIS web sunucusu için web paketi dağıtırken hizmet uç noktaları, Internet Information Services (IIS) web uygulama adları ve bağlantı dizeleri gibi parametre değerlerini ayarlama işlemi açıklanmaktadır.
+> Bu konu, bir Web paketini uzak bir IIS Web sunucusuna dağıtırken Internet Information Services (IIS) Web uygulaması adları, bağlantı dizeleri ve hizmet uç noktaları gibi parametre değerlerinin nasıl ayarlanacağını açıklar.
 
-Bir web uygulaması projesi, derleme ve paketleme işlemi oluşturduğunuzda üç anahtar dosyalarını oluşturur:
+Bir Web uygulaması projesi oluşturduğunuzda, derleme ve paketleme işlemi üç anahtar dosyası üretir:
 
-- A *[Proje adı] .zip* dosya. Web dağıtım paketi için web uygulaması projenize budur. Bu paket, tüm derlemeleri, dosyalar, veritabanı betikleri ve uzak bir IIS web sunucusunda web uygulamanızı yeniden oluşturmak için gereken kaynakları içerir.
-- A *[Proje adı].deploy.cmd* dosya. Bu, uzak bir IIS web sunucusuna, web dağıtım paketi yayımlama, Web dağıtımı (MSDeploy.exe) parametreli komutlar kümesi içerir.
-- A *[Proje adı]. SetParameters.xml* dosya. Bu parametre değerlerini MSDeploy.exe komut kümesi sağlar. Bu dosyadaki değerleri güncelleştirin ve web paketinizi dağıttığınızda Web dağıtımı için komut satırı parametresi geçirin.
+- *[Proje adı]. zip* dosyası. Bu, Web uygulaması projeniz için Web Dağıtım paketidir. Bu paket, Web uygulamanızı uzak bir IIS Web sunucusunda yeniden oluşturmak için gereken tüm derlemeleri, dosyaları, veritabanı betiklerini ve kaynakları içerir.
+- *[Proje adı]. deploy. cmd* dosyası. Bu, Web Dağıtım paketinizi uzak bir IIS Web sunucusuna yayımlamanızı sağlayan parametreli Web Dağıtımı (MSDeploy. exe) komutlarının bir kümesini içerir.
+- A *[proje adı]. SetParameters. xml* dosyası. Bu, MSDeploy. exe komutuna parametre değerleri kümesi sağlar. Bu dosyadaki değerleri güncelleştirebilir ve Web paketinizi dağıtırken komut satırı parametresi olarak Web Dağıtımı geçirebilirsiniz.
 
 > [!NOTE]
-> Derleme ve paketleme işlemi hakkında daha fazla bilgi için bkz. [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md).
+> Derleme ve paketleme süreci hakkında daha fazla bilgi için bkz. [Web uygulaması projelerini oluşturma ve paketleme](building-and-packaging-web-application-projects.md).
 
-*SetParameters.xml* dosyası web uygulaması proje dosyasına ve tüm yapılandırma dosyaları projenize içinde dinamik olarak oluşturulur. Ne zaman oluşturun ve projenizi Web yayımlama işlem hattı (WPP) paketini veritabanı bağlantı dizelerini ve IIS web uygulamasını hedef gibi dağıtım ortamları arasında değişmesi olasılığı olan değişkenlere çok sayıda otomatik olarak algılar. Bu değerleri otomatik olarak web dağıtım paketinin parametreli ve eklenen *SetParameters.xml* dosya. Örneğin, bir bağlantı dizesi eklerseniz *web.config* dosyası web uygulaması projenize yapı işlemi, bu değişikliği algılar ve giriş ekler *SetParameters.xml* dosyası Buna göre.
+*SetParameters. xml* dosyası, Web uygulaması proje dosyanızdaki ve projenizdeki tüm yapılandırma dosyalarından dinamik olarak oluşturulur. Projenizi derleyip paketlemeyi yaparken, Web yayımlama işlem hattı (WPP), hedef IIS Web uygulaması ve herhangi bir veritabanı bağlantı dizesi gibi, dağıtım ortamları arasında değişen değişkenlerin büyük bir kısmını otomatik olarak algılar. Bu değerler, Web dağıtım paketinde otomatik olarak parametreleştirilenir ve *SetParameters. xml* dosyasına eklenir. Örneğin, Web uygulaması projenizdeki *Web. config* dosyasına bir bağlantı dizesi eklerseniz, derleme işlemi bu değişikliği algılar ve *SetParameters. xml* dosyasına uygun olarak bir giriş ekler.
 
-İçinde çok sayıda durumlarda, bu otomatik Parametreleştirme yeterli olacaktır. Kullanıcılarınızın diğer ayarları uygulama ayarları veya Hizmeti uç nokta URL'leri gibi dağıtım ortamları arasında değişen ihtiyaçları varsa ancak Usewpp_copywebapplication içinkarşılıkgelengirişlerekleyinvebudeğerleridağıtımpaketindekiParametreleştirmesöylemenizgerekir*SetParameters.xml* dosya. Aşağıdaki bölümlerde bunun nasıl yapılacağı açıklanmaktadır.
+Birçok durumda, bu otomatik Parametreleştirme yeterli olacaktır. Ancak, kullanıcılarınızın uygulama ayarları veya hizmet uç noktası URL 'Leri gibi dağıtım ortamları arasındaki diğer ayarları değiştirmek gerekiyorsa, bu değerleri dağıtım paketinde parametreleştirmek ve *SetParameters. xml* dosyasına karşılık gelen girdileri eklemek için WPP 'ye söylemeniz gerekir. Aşağıdaki bölümlerde bunun nasıl yapılacağı açıklanmaktadır.
 
 ### <a name="automatic-parameterization"></a>Otomatik Parametreleştirme
 
-Derleme ve bir web uygulaması paketi WPP otomatik olarak bunları Parametreleştirme:
+Bir Web uygulaması oluşturup paketlemeyi yaparken, WPP otomatik olarak bu işlemleri parametreleştirilecektir:
 
-- Hedef IIS web uygulaması yolu ve adı.
-- Tüm bağlantı dizeleri de, *web.config* dosya.
-- Eklediğiniz tüm veritabanları için bağlantı dizelerini **SQL Paketle/Yayımla** proje özelliği sayfalarından sekmesindedir.
+- Hedef IIS Web uygulaması yolu ve adı.
+- *Web. config* dosyanızdaki herhangi bir bağlantı dizesi.
+- Proje özellik sayfalarındaki **Package/PUBLISH SQL** sekmesine eklediğiniz tüm veritabanları için bağlantı dizeleri.
 
-Örneğin, derlemek ve paketlemek için oluşturduysanız [Kişi Yöneticisi](the-contact-manager-solution.md) Parametreleştirme işlemi hiçbir şekilde WPP dokunmadan örnek çözüm bu oluşturmak *ContactManager.Mvc.SetParameters.xml* dosyası:
+Örneğin, [Ilgili kişi Yöneticisi](the-contact-manager-solution.md) örnek çözümünü herhangi bir şekilde Parametreleştirme işlemine dokunmadan derleyip paketlemeyi SEÇTIYSENIZ, WPP bu *ContactManager. Mvc. SetParameters. xml* dosyasını oluşturur:
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample1.xml)]
 
 Bu durumda:
 
-- **IIS Web uygulaması adı** istediğiniz web uygulamasına dağıtmak için IIS yol parametresidir. Varsayılan değer alınır **Paketle/Yayımla Web** projenin özellik sayfalarındaki sayfa.
-- **ApplicationServices Web.config bağlantı dizesidir** parametre oluşturulan bir **connectionStrings ve ekleme** öğesinde *web.config* dosya. Bu uygulama, üyelik veritabanının başvurun için kullanması gereken bağlantı dizesini temsil eder. Burada sağladığınız değerin dağıtılan yerine *web.config* dosya. Varsayılan değer, dağıtım öncesi alınır *web.config* dosya.
+- **IIS Web uygulaması adı** parametresi, Web uygulamasını DAĞıTMAK istediğiniz IIS yoludur. Varsayılan değer, proje özellik sayfalarındaki **Package/Publish Web** sayfasından alınır.
+- **ApplicationServices-Web. config bağlantı dizesi** parametresi, *Web. config* dosyasındaki bir **connectionStrings/Add** öğesinden oluşturulmuştur. Uygulamanın, üyelik veritabanıyla iletişim kurmak için kullanması gereken bağlantı dizesini temsil eder. Burada sağladığınız değer dağıtılan *Web. config* dosyasının yerini alacak. Varsayılan değer dağıtım öncesi *Web. config* dosyasından alınır.
 
-WPP de bu ürettiği dağıtım paketi özelliklerinde parametreleştiren. Dağıtım paketini yüklediğinizde bu özellikler için değerleri sağlayabilirsiniz. ' % S'paketi el ile IIS Yöneticisi'ni bölümünde anlatılan şekilde yükleyin, [Web paketlerini el ile yükleme](manually-installing-web-packages.md), Yükleme Sihirbazı'nı tüm parametrelerin değerlerini sağlamasını ister. Uzaktan kullanarak paketi yüklerseniz *. deploy.cmd* açıklandığı gibi dosya [Web paketleri dağıtma](deploying-web-packages.md), Web dağıtımı görünür için *SetParameters.xml* dosya parametre değerlerini sağlayın. Değerleri düzenleyebilirsiniz *SetParameters.xml* el ile dosya veya bir otomatik derleme ve dağıtım işleminin bir parçası dosya özelleştirebilirsiniz. Bu işlem, bu konunun ilerleyen bölümlerinde daha ayrıntılı açıklanmıştır.
+WPP, oluşturduğu dağıtım paketindeki bu özellikleri de parametreleştirir. Dağıtım paketini yüklerken bu özellikler için değerler sağlayabilirsiniz. Paketi IIS Manager aracılığıyla el ile yüklerseniz, [Web paketlerinin el Ile yüklenmesi](manually-installing-web-packages.md)bölümünde açıklandığı gibi, Yükleme Sihirbazı herhangi bir parametre için değer vermenizi ister. [Web paketlerini dağıtma](deploying-web-packages.md)bölümünde açıklandığı gibi, paketi *. deploy. cmd* dosyasını kullanarak uzaktan yüklerseniz, Web dağıtımı parametre değerlerini sağlamak için bu *SetParameters. xml* dosyasına bakar. *SetParameters. xml* dosyasındaki değerleri el ile düzenleyebilir veya dosyayı otomatik derleme ve dağıtım sürecinin bir parçası olarak özelleştirebilirsiniz. Bu işlem, bu konunun ilerleyen bölümlerinde daha ayrıntılı açıklanmıştır.
 
 ### <a name="custom-parameterization"></a>Özel Parametreleştirme
 
-Daha karmaşık dağıtım senaryolarında genellikle projenizi dağıtmadan önce ek özellikler Parametreleştirme isteyebilirsiniz. Genel olarak bakıldığında, özellikleri ve hedef ortamlar arasında farklılık gösterir ayarları parametreleştirin. Bunlar şunları içerebilir:
+Daha karmaşık dağıtım senaryolarında, projenizi dağıtmadan önce genellikle ek özellikler parametreleştirmek isteyeceksiniz. Genellikle, hedef ortamlar arasında değişiklik olacak özellikleri ve ayarları parametreleştiriyor olmanız gerekir. Bunlar şunlar olabilir:
 
-- Hizmet uç noktalarını *web.config* dosya.
-- Uygulama ayarlarında *web.config* dosya.
-- İstediğiniz herhangi bir bildirim temelli özellikler belirtmek için kullanıcılara sor.
+- *Web. config* dosyasındaki hizmet uç noktaları.
+- *Web. config* dosyasındaki uygulama ayarları.
+- Kullanıcılara belirtmesini istemek istediğiniz diğer bildirim temelli Özellikler.
 
-Eklemek için bu özellikleri parametre haline getirmek için en kolay yolu olan bir *parameters.xml* web uygulaması projenizin kök klasörüne bir dosya. Örneğin, kişi yöneticisi çözümde ContactManager.Mvc proje içeren bir *parameters.xml* kök klasöründe bir dosya.
+Bu özellikleri parametreleştirmek için en kolay yol, Web uygulaması projenizin kök klasörüne *Parameters. xml* dosyası eklemektir. Örneğin, Contact Manager çözümünde, ContactManager. Mvc projesi kök klasörde *Parameters. xml* dosyasını içerir.
 
 ![](configuring-parameters-for-web-package-deployment/_static/image1.png)
 
-Bu dosyayı açmak, tek bir içerdiğini göreceksiniz **parametre** girişi. Giriş bulup ContactService Windows Communication Foundation (WCF) hizmetinin uç noktası URL'yi Parametreleştirme XML Path Language (XPath) sorgusu kullanır. *web.config* dosya.
+Bu dosyayı açarsanız, tek bir **parametre** girişi içerdiğini görürsünüz. Giriş, *Web. config* dosyasındaki contactservice WINDOWS COMMUNICATION FOUNDATION (WCF) hizmetinin uç nokta URL 'sini bulmak ve parametreleştirmek IÇIN bir XML yol dili (XPath) sorgusu kullanır.
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample2.xml)]
 
-Uç nokta URL'sini dağıtım paketinde kümesini parametreleştirme yanı sıra WPP de karşılık gelen bir giriş ekler *SetParameters.xml* yanı sıra dağıtım paketi oluşturulan dosya.
+Dağıtım paketindeki uç nokta URL 'sini parametreleştirmenin yanı sıra, WPP, dağıtım paketiyle birlikte oluşturulan *SetParameters. xml* dosyasına karşılık gelen bir giriş de ekler.
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample3.xml)]
 
-Dağıtım paketini el ile yüklerseniz, IIS Yöneticisi'ni otomatik olarak parametreli özellikleri birlikte hizmet uç noktası adresi ister. Dağıtım paketi yüklerseniz çalıştırarak *. deploy.cmd* dosyasını düzenleyebilirsiniz *SetParameters.xml* değerleri ile birlikte hizmet uç noktası adresi için bir değer sağlamak için dosya otomatik olarak parametreli özellikleri.
+Dağıtım paketini el ile yüklerseniz, IIS Yöneticisi tarafından otomatik olarak parametreleştirilen özelliklerle birlikte hizmet uç noktası adresini istenir. Dağıtım paketini *. deploy. cmd* dosyasını çalıştırarak yüklerseniz, otomatik olarak parametreleştirilen özelliklerin değerleriyle birlikte hizmet uç noktası adresi için bir değer sağlamak üzere *SetParameters. xml* dosyasını düzenleyebilirsiniz.
 
-Nasıl oluşturulacağı hakkında tüm ayrıntılar için bir *parameters.xml* bkz [nasıl yapılır: Kullanım parametreleri yapılandırma dağıtım ayarları, bir paketi yüklü](https://msdn.microsoft.com/library/ff398068.aspx). Adlı yordamı **dağıtım parametrelerini Web.config dosyası ayarlarını kullanmak için** adım adım yönergeler sağlar.
+*Parameters. xml* dosyasının nasıl oluşturulacağı hakkında tam Ayrıntılar için bkz. [nasıl yapılır: paket yüklendiğinde dağıtım ayarlarını yapılandırmak için parametreleri kullanma](https://msdn.microsoft.com/library/ff398068.aspx). **Web. config dosyası ayarları dağıtım parametrelerini kullanmak için** adlı yordam, adım adım yönergeler sağlar.
 
-## <a name="modifying-the-setparametersxml-file"></a>SetParameters.xml dosyasını değiştirme
+## <a name="modifying-the-setparametersxml-file"></a>SetParameters. xml dosyasını değiştirme
 
-Web uygulaması paketi el ile dağıtmak plan&#x2014;çalıştırarak ya da *. deploy.cmd* dosya veya komut satırından MSDeploy.exe çalıştırılıyor&#x2014;şey, el ile düzenleme durdurmak için  *SetParameters.xml* dağıtımdan önce dosya. Ancak, bir kurumsal ölçekli çözüm üzerinde çalışıyorsanız daha büyük, otomatik derleme ve dağıtım işleminin bir parçası bir web uygulaması paketi dağıtma gerekebilir. Bu senaryoda, Microsoft Build Engine (MSBuild) değiştirileceğini ihtiyacınız *SetParameters.xml* dosyayı. MSBuild kullanarak bunu yapabilirsiniz **XmlPoke** görev.
+Web uygulaması paketini *. deploy. cmd* dosyasını çalıştırarak veya&#x2014;komut satırından&#x2014;MSDeploy. exe ' yi çalıştırarak El Ile dağıtmayı planlıyorsanız, dağıtımdan önce *SetParameters. xml* dosyasını el ile düzenleyebilirsiniz. Ancak, kurumsal ölçekte bir çözümde çalışıyorsanız, bir Web uygulaması paketini daha büyük, otomatik derleme ve dağıtım sürecinin bir parçası olarak dağıtmanız gerekebilir. Bu senaryoda, sizin için *SetParameters. xml* dosyasını değiştirmek için Microsoft Build Engine (MSBuild) gerekir. Bunu, MSBuild **XmlPoke** görevini kullanarak yapabilirsiniz.
 
-[Kişi Yöneticisi örnek çözüm](the-contact-manager-solution.md) bu işlemi göstermektedir. Bu örnek için ilgili ayrıntıları göstermek için düzenlenmiş izleyen kod örnekleri.
+[Ilgili kişi Yöneticisi örnek çözümü](the-contact-manager-solution.md) bu süreci göstermektedir. Aşağıdaki kod örnekleri, yalnızca bu örnekle ilgili ayrıntıları gösterecek şekilde düzenlendi.
 
 > [!NOTE]
-> Örnek çözüm, genel özel proje dosyalarında giriş proje dosyası modeli daha geniş bir genel bakış için bkz: [proje dosyasını anlama](understanding-the-project-file.md) ve [derleme işlemini anlama](understanding-the-build-process.md).
+> Örnek çözümde proje dosya modeline daha geniş bir genel bakış ve genel olarak özel proje dosyalarına giriş için, bkz. [Proje dosyasını anlama](understanding-the-project-file.md) ve [derleme sürecini anlama](understanding-the-build-process.md).
 
-İlk olarak, ilgilenilen parametre değerlerini ortama özgü proje dosyasındaki özellikleri olarak tanımlanır (örneğin, *Env Dev.proj*).
+İlk olarak, ilgilendiğiniz parametre değerleri ortama özgü proje dosyasında özellik olarak tanımlanır (örneğin, *env-dev. proj*).
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample4.xml)]
 
 > [!NOTE]
-> Kendi server ortamları için ortama özgü proje dosyalarını özelleştirme konusunda yönergeler için bkz. [dağıtım özelliklerini yapılandırmak için bir hedef ortam](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
+> Kendi sunucu ortamlarınız için ortama özgü proje dosyalarını özelleştirmeye ilişkin yönergeler için bkz. [hedef ortam Için dağıtım özelliklerini yapılandırma](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-Ardından, *Publish.proj* dosyası bu özellikleri alır. Çünkü her *SetParameters.xml* dosyası ile ilişkili bir *. deploy.cmd* dosya ve sonuçta her çağırmak için proje dosyasını istediğiniz *. deploy.cmd* proje dosyası dosyası oluşturur bir MSBuild *öğesi* her *. deploy.cmd* ilgilendiğiniz özelliklerini tanımlar ve dosya *öğe meta verileri*.
+Daha sonra *Publish. proj* dosyası bu özellikleri içeri aktarır. Her *SetParameters. xml* dosyası bir *. deploy. cmd* dosyası ile ilişkilendirildiği ve son olarak proje dosyasının her *. deploy. cmd* dosyasını çağırmasını istiyorduk, proje dosyası her *. deploy. cmd* dosyası için bir MSBuild *öğesi* oluşturur ve ilgilendiğiniz özellikleri *öğe meta verileri*olarak tanımlar.
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample5.xml)]
 
 Bu durumda:
 
-- **ParametersXml** meta veri değeri konumunu belirtir *SetParameters.xml* dosya.
-- **IisWebAppName** değeri istediğiniz web uygulamasına dağıtmak IIS yoludur.
-- **MembershipDBConnectionString** değerdir üyelik veritabanının bağlantı dizesini ve **MembershipDBConnectionName** değer **adı** özniteliği karşılık gelen parametre, *SetParameters.xml* dosya.
-- **ServiceEndpointValue** değerdir, hedef sunucuda, WCF hizmeti için uç nokta adresini ve **ServiceEndpointParamName** karşılık gelen parametre ad özniteliğinin değeridir *SetParameters.xml* dosya.
+- **Parametersxml** meta veri değeri *SetParameters. xml* dosyasının konumunu gösterir.
+- **Iıswebappname** değeri, Web uygulamasını DAĞıTMAK istediğiniz IIS yoludur.
+- **Membershipdbconnectionstring** değeri, üyelik veritabanının bağlantı dizesidir ve **Membershipdbconnectionname** değeri *SetParameters. xml* dosyasında karşılık gelen parametrenin **ad** özniteliğidir.
+- **Serviceendpointvalue** değeri, hedef sunucudaki WCF hizmeti için uç nokta adresidir ve **Serviceendpointparamname** değeri *SetParameters. xml* dosyasında karşılık gelen parametrenin ad özniteliğidir.
 
-Son olarak *Publish.proj* dosyası **PublishWebPackages** kullandığı hedef **XmlPoke** bu değerleri değiştirmek için görev *SetParameters.xml* dosya.
+Son olarak, *Publish. proj* dosyasında, **publishwebpackages** hedefi, bu değerleri *SetParameters. xml* dosyasında değiştirmek için **XmlPoke** görevini kullanır.
 
 [!code-xml[Main](configuring-parameters-for-web-package-deployment/samples/sample6.xml)]
 
-Her fark edeceksiniz **XmlPoke** görevi, dört öznitelik değerlerini belirtir:
+Her bir **XmlPoke** görevinin dört öznitelik değeri belirttiğinden emin olun:
 
-- **XmlInputPath** özniteliği, değiştirmek istediğiniz dosyayı bulmak nereye görev söyler.
-- **Sorgu** özniteliği, değiştirmek istediğiniz XML düğümü tanımlayan bir XPath sorgusu.
-- **Değer** seçili XML düğümü eklemek istediğiniz yeni değeri bir özniteliktir.
-- **Koşul** özniteliktir ölçütleri üzerinde görevin çalıştırın veya çalışmıyor. Bu durumlarda, bir null veya boş değer olarak eklemeye çalışmayın koşul sağlar *SetParameters.xml* dosya.
+- **Xmlinputpath** özniteliği, göreve değiştirmek istediğiniz dosyayı nerede bulacağını söyler.
+- **Sorgu** özniteliği, DEğIşTIRMEk istediğiniz XML düğümünü tanımlayan bir XPath sorgusudur.
+- **Değer** özniteliği, seçili XML düğümüne eklemek istediğiniz yeni değerdir.
+- **Condition** özniteliği, görevin çalıştırılacağı veya çalıştırılmayan ölçütünüz. Bu durumlarda koşul, *SetParameters. xml* dosyasına null veya boş değer eklemeye çalışmamanızı sağlar.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda açıklanan rolünü *SetParameters.xml* dosyası ve bir web uygulaması projesi oluşturduğunuzda nasıl oluşturulduğu açıklanmaktadır. Ekleyerek ek ayarlar nasıl parametreleştirebilirsiniz açıklandığı bir *parameters.xml* projenize bir dosya. Ayrıca nasıl değiştirebileceğiniz açıklanan *SetParameters.xml* dosyası kullanarak ek olarak, daha büyük, otomatik derleme işleminin bir parçası olarak **XmlPoke** proje dosyalarınızı görevde.
+Bu konuda, *SetParameters. xml* dosyasının rolü açıklanmış ve bir Web uygulaması projesi oluşturduğunuzda nasıl oluşturulduğu açıklanmaktadır. Projenize *Parameters. xml* dosyası ekleyerek ek ayarları nasıl parametreleştirileyebilirsiniz. Ayrıca, proje dosyalarınızda **XmlPoke** görevi kullanılarak *SetParameters. xml* dosyasını daha büyük ve otomatikleştirilmiş bir yapı sürecinin bir parçası olarak nasıl değiştirebileceğiniz açıklanmıştır.
 
-Bir sonraki konu [Web paketleri dağıtma](deploying-web-packages.md), web paketi çalıştırarak ya da dağıtımı açıklayan *. deploy.cmd* dosya veya MSDeploy.exe kullanarak doğrudan komutları. Her iki durumda da belirtebilirsiniz, *SetParameters.xml* dağıtım parametresi olarak dosya.
+[Web paketlerini dağıtmaya](deploying-web-packages.md)yönelik bir sonraki konu, *. deploy. cmd* dosyasını çalıştırarak veya doğrudan MSDeploy. exe komutlarını kullanarak bir Web paketini nasıl dağıtabileceğinizi açıklar. Her iki durumda da *SetParameters. xml* dosyanızı bir dağıtım parametresi olarak belirtebilirsiniz.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Web paketleri oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md). Aslında bir web paketi dağıtma hakkında yönergeler için bkz. [Web paketleri dağıtma](deploying-web-packages.md). Oluşturma konusunda adım adım kılavuz bir *parameters.xml* bkz [nasıl yapılır: Kullanım parametreleri yapılandırma dağıtım ayarları, bir paketi yüklü](https://msdn.microsoft.com/library/ff398068.aspx).
+Web paketleri oluşturma hakkında daha fazla bilgi için bkz. [Web uygulaması projeleri oluşturma ve paketleme](building-and-packaging-web-application-projects.md). Web paketinin dağıtımı hakkında yönergeler için bkz. [Web paketleri dağıtma](deploying-web-packages.md). *Parameters. xml* dosyasının nasıl oluşturulacağı hakkında adım adım yönergeler için bkz. [nasıl yapılır: paket yüklendiğinde dağıtım ayarlarını yapılandırmak için parametreleri kullanma](https://msdn.microsoft.com/library/ff398068.aspx).
 
-Parametreleştirme Web dağıtımı hakkında daha fazla genel bilgi için bkz. [Web dağıtma Parametreleştirme eylem](https://go.microsoft.com/?linkid=9805119) (blog gönderisi).
+Web Dağıtımı Parametreleştirme hakkında daha fazla genel bilgi için, bkz. [eylem içinde Web dağıtımı Parametreleştirme](https://go.microsoft.com/?linkid=9805119) (blog gönderisi).
 
 > [!div class="step-by-step"]
 > [Önceki](building-and-packaging-web-application-projects.md)

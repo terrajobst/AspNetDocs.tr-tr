@@ -1,23 +1,23 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/index
-title: Nasıl--ı | Microsoft Docs
+title: Nasıl yapılır-ı | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC, 'Mağaza' - tamamlamak için tüm e-ticaret uygulama baştan oluşturmak nasıl dahil olmak üzere bu bölümdeki videoları kapsar.
+description: Bu bölümdeki videolar, başlangıçtan sonuna kadar olan bir e-ticaret uygulaması olan ' storefront ' öğesini nasıl derlemek dahil olmak üzere ASP.NET MVC 'yi kapsar.
 ms.author: riande
 ms.date: 09/15/2011
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 7c2fd0d57cdd6775eb027c0dc9b360443bacbfed
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120522"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537438"
 ---
 # <a name="how-do-i"></a>How-Do-I
 
-> ASP.NET MVC, "Mağaza" - tamamlamak için tüm e-ticaret uygulama baştan oluşturmak nasıl dahil olmak üzere bu bölümdeki videoları kapsar.
+> Bu bölümdeki videolar, başlangıçtan sonuna kadar "storefront" (bir e-ticaret uygulaması) oluşturma da dahil olmak üzere ASP.NET MVC 'yi kapsar.
 
 - [ASP.NET MVC ile Görev Listesi Uygulaması Oluşturma](creating-a-tasklist-application-with-aspnet-mvc.md)
 - [ASP.NET MVC ile 15 dakika içinde bir Film Veritabanı Uygulaması oluşturma (C#)](creating-a-movie-database-application-in-15-minutes-with-aspnet-mvc.md)
@@ -33,10 +33,10 @@ ms.locfileid: "65120522"
 - [Veritabanı Verilerinin Tablosunu Görüntüleme](displaying-a-table-of-database-data.md)
 - [ASP.NET MVC Nedir Geliştiricilere yönelik, NerdDinner oluşturulan 80 dakika uzunluğundaki teknik bir video](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
 - [Neden ASP.NET MVC Karar alıcılar için 3 dakika uzunluğundaki genel bakış videosu](why-aspnet-mvc-3-minute-overview-video-for-decision-makers.md)
-- [ASP.NET MVC: Geliştiriciler için teknik nasıl 10 dakikalık video](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
+- [ASP.NET MVC: Nasıl Geliştiriciler için 10 dakika uzunluğundaki teknik video](aspnet-mvc-how-10-minute-technical-video-for-developers.md)
 - [ASP.NET MVC Web Uygulamasında Bir AJAX Çağrısı için JSON Biçimli Veriler Döndürme](how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
 - [ASP.NET MVC Kısmi Görünümlerindeki Verilerle Çalışma](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-- [ASP.NET MVC görünümlerinin verilerini yönetmek için Görünüm modelleri uygulama](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
+- [ASP.NET MVC görünümleri için verileri yönetmek üzere görünüm modellerini uygulama](how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
 - [Bir MVC Uygulaması için Özel HTML Yardımcısı Oluşturma](how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
 - [Bir MVC Uygulamasında Model Bağlayıcıları ile Çalışma](how-do-i-work-with-model-binders-in-an-mvc-application.md)
 - [Bir MVC Uygulamasında HttpVerbs Özniteliklerini Kullanma](how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)

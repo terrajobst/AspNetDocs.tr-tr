@@ -1,122 +1,122 @@
 ---
 uid: web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
-title: Test denetleyicileri ASP.NET Web API 2 birim | Microsoft Docs
+title: ASP.NET Web API 2 ' deki birim testi denetleyicileri | Microsoft Docs
 author: MikeWasson
-description: Bu konu, Web API 2'de test denetleyicileri birim için belirli bazı teknikleri açıklar. Bu konuda okumadan önce öğretici birim okumak isteyebilirsiniz...
+description: Bu konuda, Web API 2 ' deki birim testi denetleyicileri için bazı özel teknikler açıklanmaktadır. Bu konuyu okumadan önce öğretici birimini okumak isteyebilirsiniz...
 ms.author: riande
 ms.date: 06/11/2014
 ms.assetid: 43a6cce7-a3ef-42aa-ad06-90d36d49f098
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: cdb1700537021e276669de1a9e0330a62659746c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121992"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554994"
 ---
 # <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>ASP.NET Web API 2’deki Birim Testi Denetleyicileri
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Bu konu, Web API 2'de test denetleyicileri birim için belirli bazı teknikleri açıklar. Bu konuda okumadan önce öğretici okumak isteyebilirsiniz [birim testi ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md), nasıl bir birim test projesi çözümünüze ekleyin.
+> Bu konuda, Web API 2 ' deki birim testi denetleyicileri için bazı özel teknikler açıklanmaktadır. Bu konuyu okumadan önce, çözümünüze bir birim testi projesinin nasıl ekleneceğini gösteren [ASP.NET Web API 2 öğretici birim testini](unit-testing-with-aspnet-web-api.md)okumak isteyebilirsiniz.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 >
 > - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web API 2
 > - [Moq](https://github.com/Moq) 4.5.30
 
 > [!NOTE]
-> Moq kullandım, ancak aynı fikir sahte herhangi bir çerçeveyi için geçerlidir. Moq 4.5.30 (ve sonraki sürümler) Visual Studio 2017, Roslyn ve .NET 4.5 ve sonraki sürümleri destekler.
+> Moq kullandım, ancak aynı fikir herhangi bir sahte işlem çerçevesi için de geçerlidir. Moq 4.5.30 (ve üzeri), Visual Studio 2017, Roslyn ve .NET 4,5 ve sonraki sürümlerini destekler.
 
-Birim testlerinde bir ortak desendir &quot;düzenleme-act-assert&quot;:
+Birim testlerinde ortak bir model &quot;düzenleme-işlem onaylama&quot;:
 
-- Düzenleyin: Çalıştırılacak test için ön koşulları ayarlayın.
-- Eylem: Test gerçekleştirin.
-- Assert: Test başarılı olduğunu doğrulayın.
+- Düzenle: testin çalıştırılacağı önkoşulları ayarlayın.
+- Davran: testi gerçekleştirin.
+- Onaylama: testin başarılı olduğunu doğrulayın.
 
-Düzenle adımda sahte veya sık kullandığınız saptama nesneleri. Bir şey testlere test odaklı için bağımlılık sayısı, en aza indirir.
+Düzenleme adımında, genellikle sahte veya saplama nesneleri kullanacaksınız. Bu, bağımlılıkların sayısını en aza indirir, böylece test bir şeyi test etmeye odaklanır.
 
-Birim testi, Web APİ'si denetleyicilerinin içinde gereken bazı noktalar şunlardır:
+Web API denetleyicilerinizde birim testi yapmanız gereken bazı şeyler aşağıda verilmiştir:
 
-- Eylem türü doğru yanıtı döndürür.
-- Geçersiz parametreler doğru hata yanıtı döndürür.
-- Eylem deposuna veya hizmet katmanı doğru yöntemi çağırır.
-- Yanıt, bir etki alanı modeli içeriyorsa, model türü doğrulayın.
+- Eylem doğru yanıt türünü döndürür.
+- Geçersiz parametreler doğru hata yanıtını döndürür.
+- Eylem, depoda veya hizmet katmanında doğru yöntemi çağırır.
+- Yanıt bir etki alanı modeli içeriyorsa, model türünü doğrulayın.
 
-Bazı test etmek için gereken genel noktalar şunlardır ancak özellikleri denetleyicisi uygulamanıza bağlıdır. Denetleyici eylemleri dönüş özellikle büyük bir fark netleştirir **HttpResponseMessage** veya **Ihttpactionresult**. Bu sonuç türleri hakkında daha fazla bilgi için bkz. [Web API 2'de eylem sonuçları](../getting-started-with-aspnet-web-api/action-results.md).
+Bunlar, test etmek için bazı genel şeylerdir, ancak Ayrıntılar denetleyici uygulamanıza bağlıdır. Özellikle, denetleyici eylemlerinizin **HttpResponseMessage** veya **ıhttpactionresult**döndürme konusunda büyük bir farklılık yapar. Bu sonuç türleri hakkında daha fazla bilgi için bkz. [Web API 2 ' de eylem sonuçları](../getting-started-with-aspnet-web-api/action-results.md).
 
-## <a name="testing-actions-that-return-httpresponsemessage"></a>Test HttpResponseMessage dönüş eylemleri
+## <a name="testing-actions-that-return-httpresponsemessage"></a>HttpResponseMessage döndüren eylemleri test etme
 
-İşte bir örnek etki alanı denetleyicisinin, Eylemler dönüş **HttpResponseMessage**.
+Eylemleri **HttpResponseMessage**döndüren bir denetleyiciye örnek aşağıda verilmiştir.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample1.cs)]
 
-Bildirim denetleyicisi eklemesine bağımlılık ekleme kullanan bir `IProductRepository`. Sahte bir depo ekleyemezsiniz çünkü, denetleyici daha test edilebilir hale getirir. Aşağıdaki birim sınama doğrular `Get` yönteminin yazma bir `Product` yanıt gövdesi için. Varsayımında `repository` bir sahte olduğu `IProductRepository`.
+Denetleyicinin bir `IProductRepository`eklemek için bağımlılık ekleme işlemini kullandığını unutmayın. Bu, bir sahte depo ekleyebildiğinden denetleyiciyi daha kararlı hale getirir. Aşağıdaki birim testi, `Get` yönteminin yanıt gövdesine bir `Product` yazdığını doğrular. `repository` bir sahte `IProductRepository`olduğunu varsayalım.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample2.cs)]
 
-Ayarlamak önemlidir **istek** ve **yapılandırma** denetleyicisinde. Aksi halde, test başarısız olur bir **ArgumentNullException** veya **InvalidOperationException**.
+Denetleyici üzerinde **istek** ve **yapılandırma** ayarlamak önemlidir. Aksi takdirde, test bir **ArgumentNullException** veya **InvalidOperationException**ile başarısız olur.
 
-## <a name="testing-link-generation"></a>Sınama bağlantısı oluşturma
+## <a name="testing-link-generation"></a>Bağlantı oluşturma test ediliyor
 
-`Post` Yöntem çağrılarını **UrlHelper.Link** yanıtta bağlantılar oluşturmak için. Bu işlem biraz daha fazla birim testi ayarında gerektirir:
+`Post` yöntemi, yanıtta bağlantı oluşturmak için **UrlHelper. Link** öğesini çağırır. Bu, birim testinde biraz daha fazla kurulum gerektirir:
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample3.cs)]
 
-**UrlHelper** sınıfı istek URL'si ve rota verilerini test için bu değerleri ayarlamak sahip olması gerekiyor. Saplama sahte veya başka bir seçenek olan **UrlHelper**. Bu yaklaşımda, varsayılan değeri değiştirin [ApiController.Url](https://msdn.microsoft.com/library/system.web.http.apicontroller.url.aspx) sabit bir değer döndüren saptama sahte veya sürüme sahip.
+**UrlHelper** sınıfı için istek URL 'si ve rota verileri gerekir, bu nedenle testin bu değerler için değerleri ayarlaması gerekir. Diğer bir seçenek de sahte veya saplama **UrlHelper**. Bu yaklaşımda, [Apicontroller. URL](https://msdn.microsoft.com/library/system.web.http.apicontroller.url.aspx) ' nin varsayılan değerini sabit bir değer döndüren bir sahte veya saplama sürümüyle değiştirirsiniz.
 
-Şimdi test kullanarak yeniden [Moq](https://github.com/Moq) framework. Yükleme `Moq` test projesinde NuGet paketi.
+[Moq](https://github.com/Moq) çerçevesini kullanarak testi yeniden yazalım. `Moq` NuGet paketini test projesine yükler.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample4.cs)]
 
-Bu sürümde, tüm rota verileri, ayarlayın çünkü gerekmez sahte **UrlHelper** sabit bir dize döndürür.
+Bu sürümde, bir yol verisi ayarlamanız gerekmez, çünkü sahte **UrlHelper** sabit bir dize döndürür.
 
-## <a name="testing-actions-that-return-ihttpactionresult"></a>Test Ihttpactionresult dönüş eylemleri
+## <a name="testing-actions-that-return-ihttpactionresult"></a>Ihttpactionresult döndüren test eylemleri
 
-Web API 2'de bir denetleyici eylemi döndürebilir **Ihttpactionresult**, alınmak üzere olduğu **ActionResult** ASP.NET mvc'de. **Ihttpactionresult** arabirimi HTTP yanıt oluşturmak için bir komut desen tanımlar. Yanıt doğrudan oluşturmak yerine, denetleyici döndürür bir **Ihttpactionresult**. Daha sonra işlem hattını çağıran **Ihttpactionresult** yanıt oluşturmak için. Kurulum için gereken çok fazla atlayabilirsiniz çünkü bu yaklaşım, birim testleri yazma kolaylaştırır **HttpResponseMessage**.
+Web API 2 ' de, bir denetleyici eylemi **ıhttpactionresult**döndürebilir ve bu, ASP.NET MVC 'de **ActionResult** öğesine benzer. **Ihttpactionresult** ARABIRIMI, http yanıtları oluşturmak için bir komut kalıbı tanımlar. Yanıt doğrudan oluşturmak yerine, denetleyici bir **ıhttpactionresult**döndürür. Daha sonra, işlem hattı yanıtı oluşturmak için **ıhttpactionresult** öğesini çağırır. Bu yaklaşım, **HttpResponseMessage**için gereken birçok ayarı atlayabilmeniz için birim testlerini yazmayı kolaylaştırır.
 
-Olan eylemler dönüş örnek controller işte **Ihttpactionresult**.
+Eylemleri **ıhttpactionresult**döndüren örnek bir denetleyici aşağıda verilmiştir.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample5.cs)]
 
-Bu örnek kullanan bazı ortak desenleri gösterir **Ihttpactionresult**. Bakalım nasıl birimine bunları test edin.
+Bu örnekte, **ıhttpactionresult**kullanılarak bazı yaygın desenler gösterilmektedir. Ayrıca, birim testinin nasıl test olduğunu görelim.
 
-### <a name="action-returns-200-ok-with-a-response-body"></a>Eylem 200 (Tamam) ile bir yanıt gövdesini döndürür
+### <a name="action-returns-200-ok-with-a-response-body"></a>Eylem, yanıt gövdesi ile 200 (Tamam) döndürür
 
-`Get` Yöntem çağrılarını `Ok(product)` ürün bulunursa. Birim test, dönüş türü olduğundan emin olun **OkNegotiatedContentResult** ve döndürülen ürün doğru kimliği.
+`Get` yöntemi, ürün bulunursa `Ok(product)` çağırır. Birim testinde, dönüş türünün **Oknegoti, ContentResult** olduğundan ve döndürülen ürünün doğru kimliğe sahip olduğundan emin olun.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample6.cs)]
 
-Birim testi dikkat edin, eylem sonucu yürütülmez. Eylem sonucu doğru HTTP yanıtını oluşturur varsayabilirsiniz. (Nedeni kendi birim testleri Web API çerçevesi olan!)
+Birim testinin eylem sonucunu yürütmediğine dikkat edin. Eylem sonucunun HTTP yanıtını doğru bir şekilde oluşturduğunu varsayabilirsiniz. (Web API çerçevesinin kendi birim testlerine neden vardır!)
 
-### <a name="action-returns-404-not-found"></a>Eylem 404 (bulunamadı) döndürür.
+### <a name="action-returns-404-not-found"></a>Eylem 404 döndürüyor (bulunamadı)
 
-`Get` Yöntem çağrılarını `NotFound()` ürüne bulunamazsa. Bu durumda, dönüş türü ise yalnızca denetimleri birim testi **NotFoundResult**.
+`Get` yöntemi, ürün bulunamazsa `NotFound()` çağırır. Bu durumda, birim testi yalnızca dönüş türünün **Notfoundsonucu**olup olmadığını denetler.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample7.cs)]
 
-### <a name="action-returns-200-ok-with-no-response-body"></a>Eylem hiç yanıt gövdesi ile 200 (Tamam) döndürür.
+### <a name="action-returns-200-ok-with-no-response-body"></a>Eylem, yanıt gövdesi olmayan 200 (Tamam) döndürür
 
-`Delete` Yöntem çağrılarını `Ok()` boş bir HTTP 200 yanıtı dönün. Bu durumda dönüş türü, önceki örnekteki gibi birim testi denetler **OkResult**.
+`Delete` yöntemi, boş bir HTTP 200 yanıtı döndürmek için `Ok()` çağırır. Önceki örnekte olduğu gibi, birim testi dönüş türünü denetler, bu durumda **Okresult**.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample8.cs)]
 
-### <a name="action-returns-201-created-with-a-location-header"></a>Eylemi bir konum üst bilgisi ile 201 (oluşturuldu) döndürür.
+### <a name="action-returns-201-created-with-a-location-header"></a>Eylem, konum üst bilgisi ile 201 (oluşturuldu) döndürüyor
 
-`Post` Yöntem çağrılarını `CreatedAtRoute` konum üst bilgisinde bir URI ile bir HTTP 201 yanıtı dönün. Birim test, eylemin doğru yönlendirme değerleri ayarlar doğrulayın.
+`Post` yöntemi, konum üstbilgisinde bir URI ile HTTP 201 yanıtı döndürmek için `CreatedAtRoute` çağırır. Birim testinde, eylemin doğru yönlendirme değerlerini ayarladiğini doğrulayın.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample9.cs)]
 
-### <a name="action-returns-another-2xx-with-a-response-body"></a>Yanıt gövdesi olan başka bir 2xx eylem döndürür
+### <a name="action-returns-another-2xx-with-a-response-body"></a>Eylem, yanıt gövdesi olan bir 2xx döndürür
 
-`Put` Yöntem çağrılarını `Content` yanıt gövdesi ile bir HTTP 202 (kabul edildi) yanıtı dönün. Bu durumda, 200 (Tamam) döndürmek için benzer, ancak birim testi ayrıca durum kodunu denetleyin.
+`Put` yöntemi bir yanıt gövdesi ile HTTP 202 (kabul edildi) yanıtı döndürmek için `Content` çağırır. Bu durum 200 (Tamam) döndürmeye benzer, ancak birim testi de durum kodunu denetlemelidir.
 
 [!code-csharp[Main](unit-testing-controllers-in-web-api/samples/sample10.cs)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Sahte Entity Framework, birim testi ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
-- [Bir ASP.NET Web API'si hizmeti için testleri yazma](https://blogs.msdn.com/b/youssefm/archive/2013/01/28/writing-tests-for-an-asp-net-webapi-service.aspx) (blog gönderisi Youssef Moussaoui tarafından).
-- [ASP.NET Web API rota hata ayıklayıcısı ile hata ayıklama](https://blogs.msdn.com/b/webdev/archive/2013/04/04/debugging-asp-net-web-api-with-route-debugger.aspx)
+- [Birim testi ASP.NET Web API 2 ' de Entity Framework Mocking](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md)
+- [Bir ASP.NET Web API hizmeti için testler yazma](https://blogs.msdn.com/b/youssefm/archive/2013/01/28/writing-tests-for-an-asp-net-webapi-service.aspx) (Youssef Moussaouı tarafından blog gönderisi).
+- [Yol hata ayıklayıcı ile ASP.NET Web API 'SI hata ayıklaması](https://blogs.msdn.com/b/webdev/archive/2013/04/04/debugging-asp-net-web-api-with-route-debugger.aspx)

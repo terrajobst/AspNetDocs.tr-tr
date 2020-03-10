@@ -2,80 +2,80 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 title: MSBuild proje dosyalarından Windows PowerShell betikleri çalıştırma | Microsoft Docs
 author: jrjlee
-description: Bu konu, bir derleme ve dağıtım işleminin bir parçası bir Windows PowerShell betiğini çalıştırmak açıklar. Bir betiği yerel olarak çalıştırabilirsiniz (diğer bir deyişle, b'de...
+description: Bu konu, bir Windows PowerShell betiğini derleme ve dağıtım sürecinin bir parçası olarak nasıl çalıştıracağınızı açıklar. Bir betiği yerel olarak (diğer bir deyişle, b üzerinde) çalıştırabilirsiniz.
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
 ms.openlocfilehash: 7b09c07b8b7c2a61ca534f7a66a929593f3d04ca
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131566"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78548512"
 ---
 # <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild Proje Dosyalarından Windows PowerShell Betikleri Çalıştırma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu, bir derleme ve dağıtım işleminin bir parçası bir Windows PowerShell betiğini çalıştırmak açıklar. (Diğer bir deyişle, yapı sunucusunda) bir betik üzerinde yerel olarak çalıştırmak veya uzaktan bir hedef web sunucusu veya veritabanı sunucusu üzerindeki ister.
+> Bu konu, bir Windows PowerShell betiğini derleme ve dağıtım sürecinin bir parçası olarak nasıl çalıştıracağınızı açıklar. Bir betiği yerel olarak (diğer bir deyişle, yapı sunucusunda) veya uzaktan bir hedef Web sunucusu ya da veritabanı sunucusu gibi uzak bir şekilde çalıştırabilirsiniz.
 > 
-> Neden bir dağıtım sonrası Windows PowerShell Betiği çalıştırmak isteyebilirsiniz nedeni çok sayıda vardır. Örneğin, aşağıdakileri yapabilirsiniz:
+> Dağıtım sonrası bir Windows PowerShell Betiği çalıştırmak isteyebileceğiniz birçok neden vardır. Örneğin, şunları yapmak isteyebilirsiniz:
 > 
-> - Özel olay kaynağı, kayıt defterine ekleyin.
-> - Karşıya yükleme için bir dosya sistemi dizini oluşturun.
-> - Derleme dizinler temizleyin.
-> - Girişler, özel bir günlük dosyasına yazmak.
-> - Yeni sağlanan web uygulamasının kullanıcıları davet e-posta gönderin.
+> - Kayıt defterine özel bir olay kaynağı ekleyin.
+> - Karşıya yüklemeler için bir dosya sistemi dizini oluşturun.
+> - Yapı dizinlerini temizleyin.
+> - Girişleri özel bir günlük dosyasına yazın.
+> - Kullanıcıları yeni sağlanan bir Web uygulamasına davet eden e-postalar gönderin.
 > - Uygun izinlere sahip kullanıcı hesapları oluşturun.
 > - SQL Server örnekleri arasında çoğaltmayı yapılandırın.
 > 
-> Bu konu, Windows PowerShell betiklerini yerel olarak veya uzaktan Microsoft Build Engine (MSBuild) proje dosyasında özel bir hedef nasıl çalıştırılacağı gösterilmektedir.
+> Bu konu, bir Microsoft Build Engine (MSBuild) proje dosyasındaki özel bir hedeften yerel olarak ve Uzaktan Windows PowerShell betiklerini nasıl çalıştıracağınızı gösterir.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme işleminin her hedef ortam için uygulanan derleme yönergelerini içeren ve ortama özel yapı ve dağıtım ayarlarını içeren iki proje&#x2014;dosyası tarafından kontrol edilen proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="task-overview"></a>Görev genel bakış
+## <a name="task-overview"></a>Göreve genel bakış
 
-Bir otomatik olarak veya tek adımlı dağıtım işleminin bir parçası bir Windows PowerShell betiğini çalıştırmak için bu üst düzey görevleri tamamlamanız gerekir:
+Bir Windows PowerShell betiğini otomatik veya tek adımlı dağıtım sürecinin bir parçası olarak çalıştırmak için, bu üst düzey görevleri gerçekleştirmeniz gerekir:
 
-- Windows PowerShell Betiği, çözümünüze ve kaynak denetimine ekleyin.
-- Windows PowerShell komut dosyasını çağıran bir komut oluşturun.
-- Komutunuz tüm ayrılmış XML karakterlerini çıkış.
-- Özel MSBuild proje dosyanızda hedef oluşturma ve kullanma **Exec** komutunuz çalıştırılacak görev.
+- Windows PowerShell betiğini çözümünüze ve kaynak denetimine ekleyin.
+- Windows PowerShell betiğinizi çağıran bir komut oluşturun.
+- Komutunuz tüm ayrılmış XML karakterlerini kaçış.
+- Özel MSBuild proje dosyanızda bir hedef oluşturun ve komutunu çalıştırmak için **Exec** görevini kullanın.
 
-Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir. Görevleri ve bu konudaki yönergeler zaten MSBuild hedefleri ve özellikleri konusunda bilgi sahibi olduğunuz, ve özel bir MSBuild proje dosyası bir derleme ve dağıtım sürecini sürücü için nasıl kullanılacağını anladığınızı varsayar. Daha fazla bilgi için [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+Bu konu başlığı altında, bu yordamların nasıl gerçekleştirileceği gösterilmektedir. Bu konudaki görevler ve izlenecek yollar, MSBuild hedefleri ve özellikleri hakkında zaten bilgi sahibi olduğunuzu ve bir derleme ve dağıtım işlemini sağlamak için özel bir MSBuild proje dosyası kullanmayı anladığınızı varsayar. Daha fazla bilgi için bkz. [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 
-## <a name="creating-and-adding-windows-powershell-scripts"></a>Oluşturma ve Windows PowerShell betiklerini ekleme
+## <a name="creating-and-adding-windows-powershell-scripts"></a>Windows PowerShell betikleri oluşturma ve ekleme
 
-Bu konu başlığı altındaki görevleri adlandırılmış bir örnek Windows PowerShell betiğini kullanın **LogDeploy.ps1** nden Msbuild'i komut dosyalarını çalıştırmak nasıl göstermek için. **LogDeploy.ps1** betik, tek satırlık giriş bir günlük dosyasına yazan basit bir işlevi içerir:
+Bu konudaki görevler, MSBuild 'ten komut dosyalarının nasıl çalıştırılacağını göstermek için **Logdeploy. ps1** adlı örnek bir Windows PowerShell betiği kullanır. **Logdeploy. ps1** betiği, bir günlük dosyasına tek satırlık bir girdi yazan basit bir işlev içerir:
 
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
-**LogDeploy.ps1** betiği iki parametre kabul eder. İlk parametre bir giriş eklemek istediğiniz günlük dosyasına tam yolunu temsil eder ve ikinci parametre günlük dosyasını kaydetmek istediğiniz dağıtım hedefi temsil eder. Betiği çalıştırdığınızda, günlük dosyası şu biçimde bir satır ekler:
+**Logdeploy. ps1** betiği iki parametreyi kabul eder. İlk parametre, giriş eklemek istediğiniz günlük dosyasının tam yolunu temsil eder ve ikinci parametre günlük dosyasında kaydetmek istediğiniz dağıtım hedefini temsil eder. Betiği çalıştırdığınızda bu biçimdeki günlük dosyasına bir satır ekler:
 
 [!code-html[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample2.html)]
 
-Yapmak **LogDeploy.ps1** MSBuild için kullanılabilir komut dosyası, şunları yapmanız gerekir:
+**Logdeploy. ps1** betiğini MSBuild için kullanılabilir hale getirmek için şunları yapmanız gerekir:
 
-- Betik, kaynak denetimine ekleyin.
-- Visual Studio 2010'daki çözümünüze betiği ekleyin.
+- Betiği kaynak denetimine ekleyin.
+- Visual Studio 2010 ' de çözümünüze betiği ekleyin.
 
-Yapı sunucusunda veya uzak bir bilgisayarda komut dosyasını çalıştırmak planlama bağımsız olarak çözüm içeriğinizi betiğiyle dağıtmak gerekmez. Komut dosyası için bir çözüm klasörü ekleme bir seçenektir. Windows PowerShell komut dosyası dağıtım sürecinin bir parçası olarak kullanmak istediğiniz çünkü Kişi Yöneticisi örnekte yayımlama Çözüm klasörü için komut dosyası eklemek için mantıklıdır.
+Betiği derleme sunucusunda mi yoksa uzak bir bilgisayarda mı çalıştırmayı planladığınızdan bağımsız olarak çözüm içeriklerinizi dağıtmanız gerekmez. Bir seçenek, betiği bir çözüm klasörüne eklemektir. Iletişim Yöneticisi örneğinde, dağıtım işleminin bir parçası olarak Windows PowerShell betiğini kullanmak istiyorsanız, betiği Publish Solution klasörüne eklemek mantıklı olur.
 
 ![](running-windows-powershell-scripts-from-msbuild-project-files/_static/image1.png)
 
-Çözüm klasörleri içeriğini yapı sunucusu kaynak malzeme kopyalanır. Ancak, herhangi bir proje çıktı işlevinin hiçbir bölümü oluşturur.
+Çözüm klasörlerinin içerikleri, derleme sunucularına kaynak malzeme olarak kopyalanır. Ancak, herhangi bir proje çıkışının hiçbir parçasını oluşturmazlar.
 
-## <a name="executing-a-windows-powershell-script-on-the-build-server"></a>Yapı sunucusunda bir Windows PowerShell Betiği yürütülüyor
+## <a name="executing-a-windows-powershell-script-on-the-build-server"></a>Yapı sunucusunda Windows PowerShell betiği yürütme
 
-Bazı senaryolarda projelerinizi oluşturan bilgisayarda Windows PowerShell betiklerini çalıştırmak isteyebilirsiniz. Örneğin, yapı klasörleri temizlemek veya girişleri özel bir günlük dosyasına yazmak için bir Windows PowerShell Betiği kullanabilirsiniz.
+Bazı senaryolarda, projelerinizi oluşturan bilgisayarda Windows PowerShell betikleri çalıştırmak isteyebilirsiniz. Örneğin, yapı klasörlerini temizlemek veya girdileri özel bir günlük dosyasına yazmak için bir Windows PowerShell betiği kullanabilirsiniz.
 
-Söz dizimi bakımından, bir Windows PowerShell Betiği çalıştıran bir MSBuild proje dosyasından normal bir komut istemi'nden Windows PowerShell Betiği çalıştırıyor ile aynı olur. Yürütülebilir powershell.exe çağırmak ve kullanmak için ihtiyaç duyduğunuz **– komut** Windows PowerShell'i çalıştırmak istediğiniz komutları sağlamak için anahtar. (Windows PowerShell v2'de de kullanabilirsiniz **– dosya** geçiş). Komut şöyle izlemesi gerekir:
+Sözdizimi açısından, bir MSBuild proje dosyasından Windows PowerShell betiğini çalıştırmak, düzenli bir komut isteminden bir Windows PowerShell betiği çalıştırma ile aynıdır. PowerShell. exe yürütülebilir dosyasını çağırmanız ve Windows PowerShell 'in çalıştırmasını istediğiniz komutları sağlamak için **– komut** anahtarını kullanmanız gerekir. (Windows PowerShell V2 'de, **– File** anahtarını da kullanabilirsiniz). Komutun şu biçimde olması gerekir:
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample3.cmd)]
 
@@ -83,77 +83,77 @@ Söz dizimi bakımından, bir Windows PowerShell Betiği çalıştıran bir MSBu
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample4.cmd)]
 
-Betik için yolu boşluk içeriyorsa, dosya yolu ve işareti tarafından tek tırnak içine almanız gerekir. Komutu içine almak için zaten kullandığınız için çift tırnak kullanamazsınız:
+Betiğinizin yolu boşluk içeriyorsa, dosya yolunu tek tırnak içine almanız gerekir. Şu komutu içerecek şekilde zaten kullanmış olduğunuzdan çift tırnak işareti kullanamazsınız:
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample5.cmd)]
 
-Bu komuttan MSBuild çağırdığınızda, bazı ek hususlar vardır. İlk olarak, içermelidir **– NonInteractive** bayrak betik sessizce çalıştığından emin olun. Ardından, içermelidir **– ExecutionPolicy** bayrağına sahip bir uygun bağımsız değişken değeri. Bu Windows PowerShell, komut dosyanız için uygulanır ve komut dosyası yürütülmesinin hızlanması engelleyebilir varsayılan yürütme ilkesini geçersiz kılmanıza da olanak tanır yürütme ilkesini belirtir. Bu bağımsız değişken değerler arasından seçim yapabilir:
+MSBuild 'ten bu komutu çağırdığınızda dikkat etmeniz gereken bazı ek durumlar vardır. İlk olarak, komut dosyasının sessizce yürütüldüğünü sağlamak için **– etkileşimsiz** bayrağını dahil etmelisiniz. Ardından, **– ExecutionPolicy** bayrağını uygun bir bağımsız değişken değeriyle birlikte eklemeniz gerekir. Bu, Windows PowerShell 'in betiğinizi uygulayabileceği Yürütme ilkesini belirtir ve varsayılan yürütme ilkesini geçersiz kılmanızı sağlar. Bu, betiğinizin yürütülmesini engelleyebilir. Bu bağımsız değişken değerleri arasından seçim yapabilirsiniz:
 
-- Değerini **Kısıtlanmamış** komut dosyası imzalı olup bağımsız olarak betiğinizi çalıştırmak Windows PowerShell izin verir.
-- Değerini **RemoteSigned** Windows PowerShell, yerel makine üzerinde oluşturulan imzalanmamış komut dosyalarının çalışmasına izin verir. Ancak, diğer yerlerde oluşturulan komut dosyalarını oturum açmanız gerekir. (Uygulamada, bir Windows PowerShell Betiği yerel olarak bir yapı sunucusunda oluşturduğunuz çok düşüktür).
-- Değerini **AllSigned** yalnızca imzalı betiklere yürütmek Windows PowerShell izin verir.
+- **Kısıtlanmamış** bir değer, komut dosyasının imzalanıp Imzalanmadığına bakılmaksızın Windows PowerShell 'in betiğinizi yürütmesine izin verir.
+- **RemoteSigned** değeri, Windows PowerShell 'in yerel makinede oluşturulan imzasız betikleri yürütmesine izin verir. Ancak, başka bir yerde oluşturulan betikler imzalanmalıdır. (Uygulamada, bir yapı sunucusunda yerel olarak bir Windows PowerShell betiği oluşturmuş olmanız çok düşüktür).
+- **AllSigned** değeri, Windows PowerShell 'in yalnızca imzalı betikleri yürütmesine izin verir.
 
-Varsayılan yürütme İlkesi **kısıtlı**, engelleyen Windows PowerShell çalışmasını herhangi komut dosyaları.
+Varsayılan yürütme ilkesi, Windows PowerShell 'in herhangi bir betik dosyasını çalıştırmasını önleyen **kısıtlanmıştır**.
 
-Son olarak, Windows PowerShell komutunda oluşan herhangi bir ayrılmış XML karakterleri kaçış yapmanız gerekir:
+Son olarak, Windows PowerShell komutunuz içinde oluşan tüm ayrılmış XML karakterlerini atlamanız gerekir:
 
-- Tek tırnak işaretleri yerine  **&amp;apos;**
-- Çift tırnak işareti yerine  **&amp;quot;**
-- İle kodlarına değiştirin  **&amp;amp;**
+- Tek tırnak **&amp;apos;** ile Değiştir
+- Çift tırnak **&amp;quot;** ile Değiştir
+- Yer işaretleri **&amp;amp** ile Değiştir
 
-- Bu değişiklik yaptığınızda bu komutunuz benzeyecektir:
+- Bu değişiklikleri yaptığınızda komutunuz şuna benzeyecektir:
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample6.cmd)]
 
-Özel MSBuild proje dosyası içinde yeni bir hedef oluşturabilir ve kullanabilirsiniz **Exec** görev bu komutu çalıştırmak için:
+Özel MSBuild proje dosyanız içinde, yeni bir hedef oluşturabilir ve bu komutu çalıştırmak için **Exec** görevini kullanabilirsiniz:
 
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample7.xml)]
 
-Bu örnekte, dikkat edin:
+Bu örnekte şunları unutmayın:
 
-- Parametre değerlerini ve Windows PowerShell yürütülebiliri konumu gibi herhangi bir değişkeni, MSBuild özellikleri bildirilir.
-- Koşullar, komut satırından bu değerleri geçersiz kılmak kullanıcıları etkinleştirmek için dahil edilir.
-- **MSDeployComputerName** özelliği başka bir proje dosyasında bildirilir.
+- Parametre değerleri ve Windows PowerShell yürütülebilir dosyasının konumu gibi tüm değişkenler, MSBuild özellikleri olarak bildirilmiştir.
+- Kullanıcıların bu değerleri komut satırından geçersiz kılmasını sağlamak için koşullar dahildir.
+- **Msdeploycomputername** özelliği proje dosyasında başka bir yerde bildirilmiştir.
 
-Yapı işleminizin bir parçası olarak bu hedef yürüttüğünüzde, Windows PowerShell komutu çalıştırın ve bir günlük girişi, belirtilen dosyaya yaz.
+Yapı işleminizin bir parçası olarak bu hedefi yürüttüğünüzde, Windows PowerShell, komutunuzu çalıştırır ve belirttiğiniz dosyaya bir günlük girdisi yazar.
 
-## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>Uzak bir bilgisayarda bir Windows PowerShell Betiği yürütülüyor
+## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>Uzak bilgisayarda Windows PowerShell betiğini yürütme
 
-Windows PowerShell betikleri uzak bilgisayarlarda çalıştırabilen [Windows Uzaktan Yönetimi](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM). Bunu yapmak için kullanmanız gerekir [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) cmdlet'i. Bu, uzak bilgisayarlara betik kopyalamadan betiğinizi bir veya daha fazla uzak bilgisayar karşı yürütmek sağlar. Betiğin çalıştırıldığı yerel bilgisayarda herhangi bir sonuç döndürülür.
+Windows PowerShell, [Windows Uzaktan Yönetimi](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM) aracılığıyla uzak bilgisayarlarda komut dosyalarını çalıştırabilme özelliğine sahiptir. Bunu yapmak için [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) cmdlet 'ini kullanmanız gerekir. Bu, betiği uzak bilgisayarlara kopyalamadan bir veya daha fazla uzak bilgisayara karşı komut dosyanızı yürütmenize olanak sağlar. Tüm sonuçlar, betiği çalıştırdığınız yerel bilgisayara döndürülür.
 
 > [!NOTE]
-> Kullanmadan önce **Invoke-Command** cmdlet'inin Windows PowerShell yürütmek için uzak bir bilgisayarda komutlar, WinRM dinleyicisi uzak iletileri kabul edecek şekilde yapılandırmanız gerekir. Komutunu çalıştırarak bunu yapabilirsiniz **winrm quickconfig** uzak bilgisayarda. Daha fazla bilgi için [yükleme ve yapılandırma için Windows Uzaktan Yönetimi](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
+> Windows PowerShell komut dosyalarını uzak bir bilgisayarda yürütmek için **Invoke-Command** cmdlet 'ini kullanmadan önce, uzak iletileri kabul etmek Için bir WinRM dinleyicisi yapılandırmanız gerekir. Bunu, uzak bilgisayarda **winrm quickconfig** komutunu çalıştırarak yapabilirsiniz. Daha fazla bilgi için bkz. [Windows Uzaktan Yönetimi Için yükleme ve yapılandırma](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
-Bir Windows PowerShell penceresinden çalıştırmak için şu sözdizimini kullanırsınız **LogDeploy.ps1** uzak bir bilgisayarda komut dosyası:
+Bir Windows PowerShell penceresinden, uzak bir bilgisayarda **Logdeploy. ps1** betiğini çalıştırmak için bu sözdizimini kullanın:
 
 [!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample8.ps1)]
 
 > [!NOTE]
-> Kullanmanın çeşitli yolları vardır **Invoke-Command** bir betik dosyası, ancak bu yaklaşım çalıştırmaktır en dolaysız parametre değerlerini sağlayın ve boşluk içeren yolları yönetmek gerektiğinde.
+> Komut dosyasını çalıştırmak için **Invoke-Command** kullanmanın farklı diğer yolları vardır ancak bu yaklaşım, parametre değerleri sağlamanız ve boşluklar içeren yolları yönetmeniz gerektiğinde en basittir.
 
-Bu bir komut isteminde çalıştırdığınızda, yürütülebilir bir Windows PowerShell çağırmak ve kullanmak gereken **– komut** parametresi, yönergeler sağlamak için:
+Bunu bir komut isteminden çalıştırdığınızda, Windows PowerShell yürütülebilirini çağırmanız ve yönergelerinizi sağlamak için **– komut** parametresini kullanmanız gerekir:
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample9.cmd)]
 
-Daha önce bazı ek anahtarlar sağlamak ve MSBuild'den komutu çalıştırdığınızda herhangi ayrılmış XML karakterleri kaçış gereksinim duyduğunuz:
+Daha önce olduğu gibi, MSBuild 'ten komutunu çalıştırdığınızda bazı ek anahtarlar sağlamanız ve ayrılmış XML karakterlerinin önüne kaçış yapmanız gerekir:
 
 [!code-console[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample10.cmd)]
 
-Son olarak, önceki örneklerde olduğu gibi kullanabileceğiniz **Exec** komutunuzu yürütmek için özel bir MSBuild hedefi görevi:
+Son olarak, daha önce olduğu gibi, komutunu yürütmek için özel bir MSBuild hedefi içindeki **Exec** görevini kullanabilirsiniz:
 
 [!code-xml[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample11.xml)]
 
-Yapı işleminizin bir parçası olarak bu hedef yürüttüğünüzde, Windows PowerShell komut, belirtilen bilgisayarda çalışmayacak **– computername** bağımsız değişken.
+Yapı işleminizin bir parçası olarak bu hedefi yürüttüğünüzde, Windows PowerShell, komut dosyanızı **– ComputerName** bağımsız değişkeninde belirttiğiniz bilgisayarda çalıştırır.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda bir MSBuild proje dosyasını bir Windows PowerShell betiğini çalıştırmak nasıl kaydedileceği açıklanır. Bu yaklaşım, yerel veya uzak bir bilgisayarda bir otomatik olarak veya tek adımlı derleme ve dağıtım sürecinin bir parçası olarak bir Windows PowerShell betiğini çalıştırmak için kullanabilirsiniz.
+Bu konu, bir MSBuild proje dosyasından Windows PowerShell komut dosyasının nasıl çalıştırılacağını açıklamaktadır. Bu yaklaşımı, bir otomatik veya tek adımlı derleme ve dağıtım sürecinin bir parçası olarak yerel olarak veya uzak bir bilgisayarda Windows PowerShell betiğini çalıştırmak için kullanabilirsiniz.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Windows PowerShell komut dosyalarını imzalama ve yürütme ilkeleri yönetme ile ilgili yönergeler için bkz: [çalışan Windows PowerShell komut](https://technet.microsoft.com/library/ee176949.aspx). Windows PowerShell komutları çalıştıran bir uzak bilgisayardan ile ilgili yönergeler için bkz. [çalıştıran uzak komutları](https://technet.microsoft.com/library/dd819505.aspx).
+Windows PowerShell betikleri imzalama ve yürütme ilkelerini yönetme hakkında rehberlik için bkz. [Windows PowerShell betiklerini çalıştırma](https://technet.microsoft.com/library/ee176949.aspx). Windows PowerShell komutlarını uzak bir bilgisayardan çalıştırmaya ilişkin yönergeler için bkz. [uzak komutları çalıştırma](https://technet.microsoft.com/library/dd819505.aspx).
 
-Dağıtım işlemini denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+Dağıtım işlemini denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 
 > [!div class="step-by-step"]
 > [Önceki](taking-web-applications-offline-with-web-deploy.md)

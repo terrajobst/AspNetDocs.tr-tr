@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
-title: 'ASP.NET MVC Storefront Bölüm 19a: Windows Workflow izleme | Microsoft Docs'
+title: 'ASP.NET MVC storefront bölüm 19A: Windows Workflow Izleme | Microsoft Docs'
 author: robconery
-description: Bu bölüm ı izleme ile Windows Workflow hakkında daha fazla bilgi ve ben bazı 19 bölümle aldım geri bildirim touch.
+description: Bu bölümde, Windows Iş akışını kullanma hakkında daha fazla bilgi aldım ve Bölüm 19 ' da aldığım geri bildirimlerinden bazılarına dokundum.
 ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 50ed58f9-f329-45a8-b8be-675040172072
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup
 msc.type: video
 ms.openlocfilehash: ca8af502d6e38d45de5b9a13694c8fa4c507487d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398397"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537844"
 ---
-# <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a>ASP.NET MVC Storefront Bölüm 19a: Windows Workflow İzleme
+# <a name="aspnet-mvc-storefront-part-19a-windows-workflow-followup"></a>ASP.NET MVC Storefront 19a Bölümü: Windows Workflow izleme
 
-tarafından [Rob Conery](https://github.com/robconery)
+[ramiz](https://github.com/robconery) 'e göre
 
-Bu bölüm ı izleme ile Windows Workflow hakkında daha fazla bilgi ve ben bazı 19 bölümle aldım geri bildirim touch.
+Bu bölümde, Windows Iş akışını kullanma hakkında daha fazla bilgi aldım ve Bölüm 19 ' da aldığım geri bildirimlerinden bazılarına dokundum.
 
-[&#9654;Videoyu (13 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
+[&#9654;Videoyu izleyin (13 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-19a-windows-workflow-followup)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)

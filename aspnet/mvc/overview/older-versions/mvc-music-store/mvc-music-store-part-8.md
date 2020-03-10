@@ -1,160 +1,160 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
-title: 'Bölüm 8: Ajax güncelleştirmeleriyle alışveriş | Microsoft Docs'
+title: '8\. kısım: Ajax güncelleştirmeleriyle alışveriş sepeti | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 8. Bölüm Ajax güncelleştirmeleriyle alışveriş sepeti kapsar.
+description: Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm, Ajax güncelleştirmeleriyle alışveriş sepetini içerir.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
 ms.openlocfilehash: 89897ad41b217764cbd17317d4bf5d6a5c5d488f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112901"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539258"
 ---
-# <a name="part-8-shopping-cart-with-ajax-updates"></a>Bölüm 8: Ajax Güncelleştirmeleriyle Alışveriş Sepeti
+# <a name="part-8-shopping-cart-with-ajax-updates"></a>8\. Bölüm: Ajax Güncelleştirmeleriyle Alışveriş Sepeti
 
-tarafından [Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) tarafından
 
-> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
+> MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Studio 'nun nasıl kullanılacağını anlatan bir öğretici uygulamadır.  
 >   
-> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik deposu, çevrimiçi olarak müzik albümlerini satan ve temel site yönetimi, Kullanıcı oturum açma ve alışveriş sepeti işlevlerini uygulayan basit bir örnek depolama uygulamasıdır.  
 >   
-> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 8. Bölüm Ajax güncelleştirmeleriyle alışveriş sepeti kapsar.
+> Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm, Ajax güncelleştirmeleriyle alışveriş sepetini içerir.
 
-Kayıt olmadan kendi arabasında albümleri yerleştirmek kullanıcılar izin veriyoruz, ancak bunlar tam kullanıma Konukları olarak kaydetmeniz gerekir. Alışveriş ve kullanıma alma işlemi iki denetleyicilerine ayrılacaktır: anonim olarak öğe için bir sepet ekleme izin veren bir ShoppingCart denetleyicisi ve kullanıma alma işlemi yürüten bir kullanıma alma denetleyicisi. Biz bu bölümdeki alışveriş sepetine ile başlayın, ardından derleme aşağıdaki bölümünde kullanıma alma işlemi.
+Kullanıcıların, kayıt yaptırmadan albümleri sepetlerine yerleştirmelerini sağlar, ancak kullanıma alma işlemini tamamlaması için konuk olarak kaydolmaları gerekir. Alışveriş ve kullanıma alma işlemi iki denetleyicide ayrılacaktır: bir alışveriş sepeti denetleyicisi ve bu, kullanıma alma işlemini işleyen bir kullanıma alma denetleyicisi. Bu bölümdeki alışveriş sepetini kullanmaya başlayacağız, ardından aşağıdaki bölümde kullanıma alma işlemini oluşturacağız.
 
-## <a name="adding-the-cart-order-and-orderdetail-model-classes"></a>Sepet, sırası ve OrderDetail model sınıfları ekleme
+## <a name="adding-the-cart-order-and-orderdetail-model-classes"></a>Sepet, sipariş ve OrderDetail model sınıfları ekleme
 
-Bizim alışveriş sepeti ve kullanıma alma işlemleri yapar bazı yeni sınıflarını kullanın. Modeller klasörü sağ tıklatın ve aşağıdaki kod ile sepet sınıfı (Cart.cs) ekleyin.
+Alışveriş sepetimiz ve kullanıma alma işlemlerimiz bazı yeni sınıfların kullanımını sağlayacak. Modeller klasörüne sağ tıklayın ve aşağıdaki kodla bir sepet sınıfı (Cart.cs) ekleyin.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample1.cs)]
 
-Bu sınıf ana kadar [anahtarı] özniteliği için kayıt kimliği özelliği dışında kullandığımız başkalarına oldukça benzerdir. Bizim sepet öğeleri anonim alışveriş izin vermek için CartID adlı bir dize tanımlayıcısına sahip olacaktır, ancak tablo RecordID adlı bir tamsayı birincil anahtarı içerir. Kural gereği, Entity Framework Code-First, sepet adlı bir tablo için birincil anahtarı CartId veya kimliği olacaktır, ancak biz istiyorsanız biz kolayca, ek açıklamalar veya kod yoluyla kılabilirsiniz bekliyor. Bu bir örnek bize uygun olduğunda basit kuralları Entity Framework Code-First nasıl kullanabileceğimizi ancak sunulmuyorsa, biz bunları tarafından kısıtlanmış değil.
+Bu sınıf, şu ana kadar kullandığımız diğerlerine, recordID özelliği için [key] özniteliği dışında oldukça benzer. Sepet öğelerimiz, adsız alışverişe izin vermek için CartId adlı bir dize tanımlayıcısına sahip olacaktır, ancak tablo, recordID adlı bir tamsayı birincil anahtar içerir. Kural gereği, Entity Framework kodu-önce sepet adlı bir tablonun birincil anahtarının CartId veya ID olacağını bekler, ancak bunu yapmak isterseniz ek açıklamalar veya kod aracılığıyla kolayca geçersiz kılabiliriz. Bu, Entity Framework kodda basit kuralları nasıl kullanabileceğimizi gösteren bir örnektir, ancak bu, ne zaman bir kez karşılaştıklarında bunlarla sınırlandırılıyoruz.
 
-Ardından, bir sipariş sınıfı (Order.cs) ile aşağıdaki kodu ekleyin.
+Ardından, aşağıdaki kodla bir order class (Order.cs) ekleyin.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample2.cs)]
 
-Bu sınıf, bir sipariş için Özet ve teslimat bilgilerini izler. **Henüz derlenemeyecektir**, henüz oluşturduğumuz henüz bir sınıfa bağlıdır bir OrderDetails gezinti özelliği mevcuttur. Şimdi artık ekleyerek bir sınıf OrderDetail.cs, aşağıdaki kodu ekleyerek adlandırdığınız düzeltelim.
+Bu sınıf, bir sipariş için Özet ve teslim bilgilerini izler. Henüz oluşturulamadığımız bir sınıfa bağlı olan bir OrderDetails gezinti özelliği olduğundan, **henüz derlenmez**. Şimdi, aşağıdaki kodu ekleyerek OrderDetail.cs adlı bir sınıf ekleyerek bunu düzeldelim.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample3.cs)]
 
-Ayrıca bir olan DB dahil olmak üzere bu yeni Model sınıfları gösterdiğiniz DbSets içerecek şekilde bizim MusicStoreEntities sınıfı bir son güncelleştirme oluşturacağız&lt;sanatçının&gt;. Güncelleştirilmiş MusicStoreEntities sınıfı olarak görünür aşağıda.
+Bir DbSet&lt;sanatçı&gt;de dahil olmak üzere, bu yeni model sınıflarını sunan DbSets 'leri dahil etmek için MusicStoreEntities sınıfımız son bir güncelleştirme yapacağız. Güncelleştirilmiş MusicStoreEntities sınıfı aşağıda gösterildiği gibi görünür.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample4.cs)]
 
-## <a name="managing-the-shopping-cart-business-logic"></a>Alışveriş sepeti iş mantığı yönetme
+## <a name="managing-the-shopping-cart-business-logic"></a>Alışveriş sepetini iş mantığını yönetme
 
-Ardından, modelleri klasöründe ShoppingCart sınıfı oluşturacağız. Sepet tablosuna veri erişimi ShoppingCart modeli işler. Buna ek olarak, ekleme ve alışveriş sepetine öğeleri kaldırma iş mantığı işleyeceği.
+Daha sonra, modeller klasöründe ShoppingCart sınıfını oluşturacağız. ShoppingCart modeli, sepet tablosuna veri erişimini işler. Ayrıca, alışveriş sepetinden öğe ekleme ve kaldırma için iş mantığını işleymeyecektir.
 
-Yalnızca öğe, alışveriş sepetine eklemek bir hesap için kaydolun gerektirmek istemiyorsanız bu yana, biz kullanıcıların geçici bir benzersiz tanımlayıcı (GUID veya genel olarak benzersiz tanımlayıcısı kullanılarak) atar alışveriş sepetini eriştiklerinde. ASP.NET oturum sınıfını kullanarak bu kimliği depolarız.
+Kullanıcıların alışveriş sepetine öğe eklemek için bir hesaba kaydolmaları gerektirmek istediğimiz için, alışveriş sepetine erişirken kullanıcılara geçici bir benzersiz tanımlayıcı (GUID veya genel benzersiz tanımlayıcı kullanarak) atayacağız. Bu KIMLIĞI ASP.NET oturum sınıfını kullanarak depolayacağız.
 
-*Not: ASP.NET oturum, bunlar site ayrıldıktan sonra süresi dolacak kullanıcıya özgü bilgileri depolamak için kullanışlı bir yerdir. Oturum durumu b.internet performans etkilerinin daha büyük sitelerinde olabilse de tanıtım amacıyla ışık kullanma çalışır.*
+*Note: ASP.NET oturumu, siteye ayrıldıktan sonra sona ereceği kullanıcıya özgü bilgileri depolamak için uygun bir yerdir. Oturum durumunun kötüye kullanımı daha büyük sitelerde performans etkilerine sahip olsa da, hafif kullanım, tanıtım amacıyla iyi bir şekilde çalışacaktır.*
 
-ShoppingCart sınıfı aşağıdaki yöntemi kullanıma sunar:
+ShoppingCart sınıfı aşağıdaki yöntemleri kullanıma sunar:
 
-**AddToCart** albüm bir parametre olarak alır ve kullanıcının sepetine ekler. Sepet tablonun her albüm miktarını izler olduğundan, gerekirse yeni bir satır oluşturun veya kullanıcı zaten bir kopyasını albümü sipariş yalnızca miktarını artırmak için mantığı içerir.
+**AddToCart** bir albümü parametre olarak alır ve kullanıcının sepetine ekler. Sepet tablosu her bir albümün miktarını izlediğinden, gerektiğinde yeni bir satır oluşturma veya Kullanıcı zaten bir albümün kopyasını sipariş eden miktarı artırma mantığını içerir.
 
-**RemoveFromCart** albüm kimliği alır ve kullanıcının sepetinden kaldırır. Kullanıcı kendi arabasında yalnızca bir kopyasını albümü olsaydı, satır kaldırılır.
+**Removefromcart** BIR albüm kimliği alır ve kullanıcının sepetinden kaldırır. Kullanıcının sepetine yalnızca bir albümün kopyası varsa, satır kaldırılır.
 
-**EmptyCart** kullanıcının alışveriş sepetini tüm öğeleri kaldırır.
+**Emptycart** bir kullanıcının alışveriş sepetinden tüm öğeleri kaldırır.
 
-**GetCartItems** görüntüleme veya işleme için CartItems listesini alır.
+**Getcartıtems** , ekran veya Işleme Için cartıtems listesini alır.
 
-**GetCount** alır bir albümleri bir kullanıcının sahip, alışveriş sepetine içinde toplam sayısı.
+**GetCount** , bir kullanıcının alışveriş sepetindeki toplam albüm sayısını alır.
 
-**GetTotal** sepetteki tüm öğelerin toplam maliyeti hesaplar.
+**Gettotal** , sepetteki tüm öğelerin toplam maliyetini hesaplar.
 
-**CreateOrder** alışveriş sepetini sipariş kullanıma alma aşamasında dönüştürür.
+**CreateOrder** , alışveriş sepetini, kullanıma alma aşamasında bir sıraya dönüştürür.
 
-**GetCart** Sepeti nesne elde etmek üzere bizim denetleyicileri sağlayan statik bir yöntemdir. Kullandığı **GetCartId** kullanıcının oturumunu CartId okuma işlemek için yöntemi. Kullanıcının oturumunu kullanıcı CartId okuyabilirsiniz GetCartId yöntemi httpcontextbase öğesini gerektirir.
+**Getcart** , denetleyicilerimizin bir sepet nesnesi elde etmesine olanak tanıyan statik bir yöntemdir. Kullanıcının oturumundan CartId 'yi okumayı işlemek için **Getcartıd** yöntemini kullanır. Getcartıd yöntemi, kullanıcının oturumunun kullanıcı oturumundan okuyabilmesi için HttpContextBase 'i gerektirir.
 
-İşte tam **ShoppingCart sınıfı**:
+Aşağıda, tüm **ShoppingCart sınıfı**verilmiştir:
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample5.cs)]
 
-## <a name="viewmodels"></a>Viewmodel'lar
+## <a name="viewmodels"></a>ViewModel 'lar
 
-Bizim alışveriş sepeti denetleyicisi bizim Model nesneleri için düzgün bir şekilde eşlemiyor karmaşık bazı bilgileri görünümlerini için iletişim kurması gerekir. Bizim modelleri, görünümleri uyacak şekilde değiştirmek istemediğiniz; Etki alanımızda, kullanıcı arabiriminde model sınıfları temsil etmelidir. Store Yöneticisi açılır bilgilerle yaptığımız, ancak birçok bilgi geçirme ViewBag yönetmek zor alır ViewBag sınıfı kullanarak bizim görünümleri için bilgi geçirmek için bir çözüm olacaktır.
+Alışveriş sepeti denetleyicinizin, bazı karmaşık bilgileri, model nesnelerimize düzgün bir şekilde eşlenmeyen görünümlerimize iletmelerini gerekecektir. Modellerimizi görünümlerimize uyacak şekilde değiştirmek istemiyorum; Model sınıfları kullanıcı arabirimini değil, etki alanını temsil etmelidir. Tek bir çözüm, mağaza yöneticisi açılan bilgileriyle yaptığımız gibi, ViewBag sınıfını kullanarak bu bilgileri görünümlerimize geçirmektir, ancak ViewBag aracılığıyla çok fazla bilgi geçirilerek yönetimi zor olur.
 
-Bu çözüme kullanmaktır *ViewModel* deseni. Bu model kullanılırken, bizim belirli görünüm senaryolar için iyileştirilen ve hangi özellikleri görünümü şablonlarımızı gerekli dinamik değerler/içerik üzerinden kullanıma sunacaksınız kesin türü belirtilmiş sınıfları oluştururuz. Bizim denetleyici sınıflarına doldurun ve kullanmak üzere bizim görünüm şablonu bu görünüm için iyileştirilmiş sınıfların geçirin. Bu tür güvenliği, derleme zamanı denetimi ve Düzenleyicisi IntelliSense içinde görüntüleme şablonları sağlar.
+Bu, *ViewModel* deseninin kullanıldığı bir çözümdür. Bu model kullanılırken, belirli görünüm senaryolarımız için optimize edilmiş ve görünüm şablonlarımız tarafından gerek duyulan dinamik değerler/içerik özelliklerini sunan kesin türü belirtilmiş sınıflar oluşturuyoruz. Denetleyici sınıflarımız daha sonra bu görünümün en iyi duruma getirilmiş sınıflarını, kullanılacak görünüm şablonumuza yerleştirebilir ve geçirebilir. Bu, Görünüm şablonları içinde tür güvenliği, derleme zamanı denetimi ve düzenleyici IntelliSense 'i sunar.
 
-Bizim alışveriş sepeti denetleyicisi kullanmak için iki görünüm modeli oluşturacağız: ShoppingCartViewModel kullanıcının alışveriş sepeti içeriğini tutacak ve ShoppingCartRemoveViewModel bir kullanıcının bir şey kaldırdığında onay bilgileri görüntülemek için kullanılacak kendi sepetinden.
+Alışveriş sepeti denetleyicimizde kullanılmak üzere iki görünüm modeli oluşturacağız: ShoppingCartViewModel kullanıcının alışveriş sepetinin içeriğini tutacağından, bir Kullanıcı bir şeyi kaldırdığında bir sorun çıkardığında, ShoppingCartRemoveViewModel, onay bilgilerini görüntülemek için kullanılacaktır , sepetlerinden.
 
-Yeni bir Viewmodel'lar klasör düzenli tutmak için proje kök dizininde oluşturalım. Projeyi sağ tıklatın, Ekle'yi seçin / yeni bir klasör.
+İşleri düzenli tutmak için projemizin ' ın kökünde yeni bir Viewmodeller klasörü oluşturalım. Projeye sağ tıklayın, Ekle/yeni klasör ' ü seçin.
 
 ![](mvc-music-store-part-8/_static/image1.jpg)
 
-Viewmodel'lar klasörün adı.
+Klasör Viewmodellerini adlandırın.
 
 ![](mvc-music-store-part-8/_static/image1.png)
 
-Ardından, ShoppingCartViewModel sınıfı Viewmodel'lar klasöre ekleyin. İki özelliğe sahiptir: alışveriş sepetini öğeleri ve tüm öğeleri toplam fiyatı arabasına tutacak bir ondalık değer listesi.
+Ardından, Viewmodeller klasörüne ShoppingCartViewModel sınıfını ekleyin. İki özelliğe sahiptir: sepet öğelerinin listesi ve sepetteki tüm öğelerin toplam fiyatını tutacak bir ondalık değer.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample6.cs)]
 
-Şimdi aşağıdaki dört özelliklerle Viewmodel'lar klasörüne ShoppingCartRemoveViewModel ekleyin.
+Şimdi, aşağıdaki dört özellik ile ShoppingCartRemoveViewModel ' i Viewmodeller klasörüne ekleyin.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample7.cs)]
 
 ## <a name="the-shopping-cart-controller"></a>Alışveriş sepeti denetleyicisi
 
-Alışveriş sepeti denetleyicisi üç temel amacı vardır: öğe için bir sepet ekleme, sepetinden öğeleri kaldırma ve arabasında öğeler görüntüleniyor. Kullanan üç sınıfları ki hale getirecek yeni oluşturduğunuz: ShoppingCartViewModel ShoppingCartRemoveViewModel ve ShoppingCart. StoreController ve StoreManagerController olduğu gibi MusicStoreEntities örneğini tutacak bir alan ekleyeceğiz.
+Alışveriş sepeti denetleyicisi üç ana amaca sahiptir: bir sepete öğe ekleme, sepetten öğe kaldırma ve sepetteki öğeleri görüntüleme. Yeni oluşturduğumuz üç sınıfı kullanacaktır: ShoppingCartViewModel, ShoppingCartRemoveViewModel ve ShoppingCart. StoreController ve StoreManagerController 'da olduğu gibi, MusicStoreEntities 'in bir örneğini tutmak için bir alan ekleyeceğiz.
 
-Yeni bir alışveriş sepeti denetleyicisi boş denetleyici şablon kullanılarak projeye ekleyin.
+Boş denetleyici şablonunu kullanarak projeye yeni bir alışveriş sepeti denetleyicisi ekleyin.
 
 ![](mvc-music-store-part-8/_static/image2.png)
 
-Tam ShoppingCart denetleyicisi aşağıda verilmiştir. Dizin ve denetleyici Ekle eylemleri tanıdık gelecektir. Remove ve CartSummary denetleyici eylemleri aşağıdaki bölümde açıklayacağız iki özel durumları işler.
+İşte bu, tüm ShoppingCart denetleyicisi. Dizin ve ekleme denetleyicisi eylemleri çok tanıdık görünmelidir. Remove ve CartSummary denetleyici eylemleri, aşağıdaki bölümde ele alacağız iki özel durumu ele alır.
 
 [!code-csharp[Main](mvc-music-store-part-8/samples/sample8.cs)]
 
-## <a name="ajax-updates-with-jquery"></a>JQuery AJAX güncelleştirmeleriyle
+## <a name="ajax-updates-with-jquery"></a>JQuery ile Ajax güncelleştirmeleri
 
-Sonraki ShoppingCartViewModel için kesin ve önce olarak aynı yöntemi kullanarak liste görünümü şablonunu kullanan bir alışveriş sepeti dizin sayfa oluşturacağız.
+Daha sonra, ShoppingCartViewModel için kesin olarak belirlenmiş bir alışveriş sepeti Dizin sayfası oluşturacak ve daha önce ile aynı yöntemi kullanarak liste görünümü şablonunu kullanıyor olacaksınız.
 
 ![](mvc-music-store-part-8/_static/image3.png)
 
-Ancak, bir Html.ActionLink sepetinden öğeleri kaldırmak için kullanmak yerine, jQuery "yukarı RemoveLink HTML sınıfı bu görünümde tüm bağlantılar için tıklama olayı wire için" kullanacağız. Form gönderme yerine bu click olay işleyicisi yalnızca bir AJAX geri çağırma RemoveFromCart denetleyicisi eylemimiz hale getirir. Bir seri hale getirilmiş JSON sonuç RemoveFromCart döndürür, bizim jQuery geri çağırma daha sonra ayrıştırır ve jQuery kullanarak sayfasına dört Hızlı güncelleştirmeler yapar:
+Ancak, sepetten öğeleri kaldırmak için bir HTML. ActionLink kullanmak yerine, bu görünümdeki HTML sınıfı RemoveLink 'e sahip tüm bağlantılar için tıklama olayını "kullanıma almak" amacıyla jQuery kullanacağız. Formu deftere nakletmek yerine, bu tıklama olayı işleyicisi yalnızca RemoveFromCart Controller eylemmiz için bir AJAX geri araması yapar. RemoveFromCart, jQuery geri çağırduğumuz, daha sonra jQuery kullanarak sayfada dört hızlı güncelleştirme gerçekleştiren JSON serileştirilmiş sonucunu döndürür.
 
-- 1. Silinen albümü listeden kaldırır.
-- 2. Sepet sayısı üst bilgisindeki güncelleştirir
-- 3. Kullanıcı için bir güncelleştirme iletisi görüntüler
-- 4. Sepet toplam fiyat güncelleştirir
+- 1. Silinen albümü listeden kaldırır
+- 2. Başlıktaki sepet sayısını güncelleştirir
+- 3. Kullanıcıya bir güncelleştirme iletisi görüntüler
+- 4. Sepet toplam fiyatını güncelleştirir
 
-Kaldır senaryo dizin görünümündeki bir Ajax geri çağırma tarafından işlenen olduğundan, ek bir görünüm için RemoveFromCart eylem gerekmez. /ShoppingCart/Index görünümü için tam kod aşağıdaki gibidir:
+Kaldırma senaryosu dizin görünümü içinde bir AJAX geri çağırması tarafından işlendiğinden, RemoveFromCart Action için ek bir görünüm gerekmez. /ShoppingCart/Index görünümü için kodun tamamı aşağıda verilmiştir:
 
 [!code-cshtml[Main](mvc-music-store-part-8/samples/sample9.cshtml)]
 
-Bu test için öğe, alışveriş sepetimizi eklemek gerekiyor. Güncelleştireceğiz bizim **Store ayrıntıları** bir "Sepete Ekle" düğmesi içerecek şekilde görünümü. Biz adresinden iken, bazı ekledik albüm ek bilgiler dahil edebilirsiniz Biz bu görünüm son güncelleştirmenizden sonra: Türe, sanatçının, fiyat ve albüm resmi. Güncelleştirilmiş kodu Store Ayrıntıları Görüntüle, aşağıda gösterildiği gibi görünür.
+Bunu test etmek için, alışveriş sepetimize öğe ekleyebilmemiz gerekiyor. **Mağaza ayrıntıları** görünümümüzü "sepetin Ekle" düğmesi içerecek şekilde güncelleştireceğiz. Bu noktada, bu görünümü son güncelleştirdiğimiz zamandan sonra eklediğimiz bazı albüm ek bilgilerini de dahil eteceğiz: tarz, sanatçı, Fiyat ve albüm resmi. Güncelleştirilmiş mağaza Ayrıntıları görünümü kodu aşağıda gösterildiği gibi görüntülenir.
 
 [!code-cshtml[Main](mvc-music-store-part-8/samples/sample10.cshtml)]
 
-Şimdi biz mağazası aracılığıyla tıklayın ve test ekleme ve albümleri, için ve alışveriş sepetimizi kaldırma. Uygulamayı çalıştırmak ve Store dizinine göz atın.
+Şimdi mağazaya tıklayabilir ve alışveriş sepetimize ve ' ye Albümler ekleme ve kaldırma testi yapabilirsiniz. Uygulamayı çalıştırın ve mağaza dizinine gidin.
 
 ![](mvc-music-store-part-8/_static/image4.png)
 
-Ardından, Albümler listesini görüntülemek için bir türe tıklayın.
+Ardından, albümler listesini görüntülemek için bir tarz üzerine tıklayın.
 
 ![](mvc-music-store-part-8/_static/image5.png)
 
-Artık bir albüm başlığına tıklayarak "Sepete Ekle" düğmesi de dahil olmak üzere güncelleştirilmiş bizim albüm Ayrıntılar görünümünü gösterir.
+Bir albüm başlığına tıkladığınızda, "Sepete Ekle" düğmesi de dahil olmak üzere güncelleştirilmiş Albüm Ayrıntıları görünümü görüntülenir.
 
 ![](mvc-music-store-part-8/_static/image6.png)
 
-"Sepete Ekle" düğmesine tıklayarak bizim alışveriş sepeti dizini görünümde alışveriş sepeti Özet listesi ile gösterilir.
+"Sepete Ekle" düğmesine tıklamak, alışveriş sepeti özet listesi ile alışveriş sepeti Dizin görünümümüzü gösterir.
 
 ![](mvc-music-store-part-8/_static/image7.png)
 
-Alışveriş sepetinize yüklendikten sonra Ajax güncelleştirme, alışveriş sepetine görmek için sepet bağlantısından Kaldır tıklayabilirsiniz.
+Alışveriş sepetinizi yükledikten sonra, alışveriş sepetinize yönelik Ajax güncelleştirmesini görmek için sepeden Kaldır bağlantısına tıklayabilirsiniz.
 
 ![](mvc-music-store-part-8/_static/image8.png)
 
-Alışveriş sepeti kaydı kendi sepetine öğe ekleme olanağı tanıyan bir çalışan bir çıkış oluşturduk. Aşağıdaki bölümde, bunları kaydetmek ve kullanıma alma işlemini tamamlamak izin veriyoruz.
+Kayıtsız kullanıcıların sepetlerinde öğe eklemesine izin veren bir çalışan alışveriş sepeti oluşturduk. Aşağıdaki bölümde, kullanıma alma işleminin kaydolmasını ve tamamlanmasına izin vereceğiz.
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-7.md)

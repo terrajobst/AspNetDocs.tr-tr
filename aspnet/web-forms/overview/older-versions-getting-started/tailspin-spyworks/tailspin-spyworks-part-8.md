@@ -1,81 +1,81 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
-title: 'Bölüm 8: Son sayfalar, özel durum işleme ve sonuç | Microsoft Docs'
+title: '8\. kısım: son sayfalar, özel durum Işleme ve sonuç | Microsoft Docs'
 author: JoeStagner
-description: Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 8. Bölüm sayfası ve özel durum hakkında bir kişi sayfası ekler...
+description: Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm, sayfa ve özel durum hakkında bir kişi sayfası ekler...
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
 ms.openlocfilehash: 707dc9d87ae324a7897c971a451e40bc54c96cb3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130598"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586886"
 ---
-# <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Bölüm 8: Son Sayfalar, Özel Durum İşleme ve Sonuç
+# <a name="part-8-final-pages-exception-handling-and-conclusion"></a>8\. Bölüm: Son Sayfalar, Özel Durum İşleme ve Sonuç
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
+> Tailspin Spyworks, .NET platformu için güçlü ve ölçeklenebilir uygulamalar oluşturmanın ne kadar kolay olduğunu gösterir. Alışveriş, kullanıma alma ve yönetim dahil olmak üzere çevrimiçi mağaza oluşturmak için ASP.NET 4 ' te harika yeni özelliklerin nasıl kullanılacağını gösterir.
 > 
-> Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 8. Bölüm sayfası ve özel durum işleme hakkında bir kişi sayfası ekler. Dizi sonuç budur.
+> Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm, sayfa ve özel durum işleme hakkında bir kişi sayfası ekler. Bu, serinin bir sonucu olur.
 
-## <a id="_Toc260221680"></a>  İlgili kişi sayfası (ASP.NET postadan gönderme)
+## <a id="_Toc260221680"></a>İletişim sayfası (ASP.NET 'den e-posta gönderme)
 
-ContactUs.aspx adlı yeni bir sayfa oluşturun
+Yeni bir sayfa oluşturun.
 
-Tasarımcı kullanarak, aşağıdaki form ToolkitScriptManager ve AjaxControlToolkit Düzenleyicisi denetiminden dahil edilecek özel not alma oluşturun. biçimindeki telefon numarasıdır.
+Tasarımcıyı kullanarak, ToolkitScriptManager ve düzenleyici denetimini AjaxControlToolkit öğesinden dahil etmek için aşağıdaki formu oluşturun. arasında yetersiz alanla karşılaştı.
 
 ![](tailspin-spyworks-part-8/_static/image1.jpg)
 
-Dosyanın arkasındaki kodda bir click olay işleyicisi oluşturmak ve kişi bilgilerini bir e-posta göndermek için bir yöntem uygulamak için "Gönder" düğmesine çift tıklayın.
+"Gönder" düğmesine çift tıklayarak, arka plan kodu dosyasında bir tıklama olayı işleyicisi oluşturun ve iletişim bilgilerini bir e-posta olarak göndermek için bir yöntem uygulayın.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample1.cs)]
 
-Bu kod, web.config dosyanız posta göndermek için kullanılacak SMTP sunucusu belirten yapılandırma bölümünde bir giriş içermesini gerektirir.
+Bu kod, Web. config dosyanızın, posta göndermek için kullanılacak SMTP sunucusunu belirten yapılandırma bölümünde bir giriş içermesini gerektirir.
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>  Sayfa hakkında
+## <a id="_Toc260221681"></a>Sayfa hakkında
 
-AboutUs.aspx adlı bir sayfa oluşturun ve dilediğiniz ne olursa olsun içeriği ekleyin.
+AboutUs. aspx adlı bir sayfa oluşturun ve dilediğiniz içeriği ekleyin.
 
-## <a id="_Toc260221682"></a>  Genel özel durum işleyicisi
+## <a id="_Toc260221682"></a>Genel özel durum Işleyicisi
 
-Son olarak, uygulamanın tamamında size özel durumlar ve başka bir öngörülemeyen durumlarda bu soğuk de web uygulamamızı neden işlenmeyen özel durumları.
+Son olarak, uygulama genelinde özel durumlar oluşturduğumuzdan, ayrıca web uygulamamız içinde işlenmemiş özel durumlara neden olan öngörülemeyen durumlar vardır.
 
-Hiçbir zaman web site ziyaretçilerini görüntülenecek işlenmeyen bir özel durum istiyoruz.
+İşlenmeyen bir özel durumun bir Web sitesi ziyaretçisine görüntülenmesini hiç istemedik.
 
 ![](tailspin-spyworks-part-8/_static/image2.jpg)
 
-İşlenmeyen özel durumları saltanatı kullanıcı deneyimi olan dışında bir güvenlik sorunu da olabilir.
+Farklı bir kullanıcı deneyimi dışında, işlenmemiş özel durumlar da güvenlik sorunu oluşturabilir.
 
-Bu sorunu çözmek için bir genel özel durum işleyicisi uygular.
+Bu sorunu çözmek için genel bir özel durum işleyicisi uygulayacağız.
 
-Bunu yapmak için Global.asax dosyası açın ve aşağıdaki önceden oluşturulan olay işleyicisini unutmayın.
+Bunu yapmak için Global. asax dosyasını açın ve aşağıdaki önceden oluşturulmuş olay işleyicisine göz önünde edin.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample3.cs)]
 
-Uygulama için kod ekleyin\_hata işleyicisi aşağıdaki gibi.
+Uygulama\_hata işleyicisini aşağıdaki şekilde uygulamak için kod ekleyin.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample4.cs)]
 
-Ardından Error.aspx çözüme adlı bir sayfa ekleyin ve bu biçimlendirme kod parçacığı ekleyin.
+Sonra çözüme Error. aspx adlı bir sayfa ekleyin ve bu biçimlendirme kod parçacığını ekleyin.
 
 [!code-aspx[Main](tailspin-spyworks-part-8/samples/sample5.aspx)]
 
-Artık sayfasındaki\_hata iletileri olay işleyicisi ayıklama istek nesnesinden yükleme.
+Şimdi sayfada olay işleyicisini yükle\_, Istek nesnesinden hata iletilerini ayıklayın.
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>  Sonuç
+## <a id="_Toc260221683"></a>İşleminin
 
-ASP.NET WebForms kolaylaştırır olduğunu gördük veritabanı erişimi, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vs. oldukça hızlı bir şekilde.
+ASP.NET WebForms 'in veritabanı erişimi, üyeliği, AJAX vb. ile gelişmiş bir Web sitesi oluşturmayı daha kolay bir şekilde gördük. oldukça hızlı.
 
-Umarım Bu öğretici, kendi ASP.NET WebForms uygulamalar oluşturmaya başlamak için ihtiyacınız olan araçları verdiği!
+Bu öğreticide, kendi ASP.NET WebForms uygulamalarınızı oluşturmaya başlamak için ihtiyacınız olan araçları vermiş olursunuz!
 
 > [!div class="step-by-step"]
-> [Önceki](tailspin-spyworks-part-7.md)
+> [Öncekini](tailspin-spyworks-part-7.md)

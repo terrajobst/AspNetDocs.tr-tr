@@ -1,123 +1,123 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
-title: 'Bölüm 1: Genel bakış ve Dosya -> Yeni Proje | Microsoft Docs'
+title: '1\. Bölüm: genel bakış ve Dosya-> Yeni proje | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 1 kapak genel bakış ve Dosya -> Yeni proje.
+description: Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 1\. bölüm, genel bakış ve Dosya > Yeni proje içerir.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
 ms.openlocfilehash: 48428ff4ab5888253ed93ac41e79006eec823ad2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112937"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559985"
 ---
-# <a name="part-1-overview-and-file-new-project"></a>Bölüm 1: Genel Bakış ve Dosya->Yeni Proje
+# <a name="part-1-overview-and-file-new-project"></a>1\. Bölüm: Genel Bakış ve Dosya->Yeni Proje
 
-tarafından [Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) tarafından
 
-> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
+> MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Studio 'nun nasıl kullanılacağını anlatan bir öğretici uygulamadır.  
 >   
-> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik deposu, çevrimiçi olarak müzik albümlerini satan ve temel site yönetimi, Kullanıcı oturum açma ve alışveriş sepeti işlevlerini uygulayan basit bir örnek depolama uygulamasıdır.  
 >   
-> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 1. Bölüm kapsayan genel bakış ve dosya -&gt;yeni bir proje.
+> Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 1\. bölüm, genel bakış ve dosya&gt;yeni proje içerir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Web Developer web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır. Biz, yavaş başlatma, başlangıç düzeyi bir web geliştirme deneyimi için uygundur.
+MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Web Developer 'ın nasıl kullanılacağı hakkında ayrıntılı bilgiler sunan bir öğretici uygulamadır. Yavaş başlayacağız, bu nedenle başlangıç düzeyi Web geliştirme deneyimi sorunsuz.
 
-Biz oluşturuyor olacaksınız basit müzik deposu uygulamasıdır. Uygulamayı üç ana bölümü vardır: alışveriş, kullanıma alma ve yönetim.
+Oluşturmakta olduğumuz uygulama basit bir müzik deposudur. Uygulamanın üç ana bölümü vardır: alışveriş, kullanıma alma ve yönetim.
 
 ![](mvc-music-store-part-1/_static/image1.jpg)
 
-Ziyaretçi Tarz albümlerini göz atabilirsiniz:
+Ziyaretçiler, tarza göre albümlere gözatabilir:
 
 ![](mvc-music-store-part-1/_static/image2.jpg)
 
-Tek bir albümü görüntülemek ve bunların sepetinize ekleyin:
+Tek bir albümü görüntüleyebilir ve bu kişinin sepetine eklemesini sağlayabilirsiniz:
 
 ![](mvc-music-store-part-1/_static/image3.jpg)
 
-Bunlar, artık istedikleri tüm öğeleri kaldırma, kendi Sepeti gözden geçirebilirsiniz:
+Sepetlerinde, artık istedikleri öğeleri kaldırarak kendi sepetini gözden geçirebilir:
 
 ![](mvc-music-store-part-1/_static/image4.jpg)
 
-Kullanıma alma için devam etmeden bunları bir kullanıcı hesabına kaydolun veya oturum açma için ister.
+Kullanıma almaya devam etmek, bir kullanıcı hesabı için oturum açmasını veya kaydolmasını ister.
 
 ![](mvc-music-store-part-1/_static/image1.png)
 
 ![](mvc-music-store-part-1/_static/image2.png)
 
-Bir hesap oluşturduktan sonra bunların sırası sevkıyat ve ödeme bilgilerini doldurarak tamamlayabilirsiniz. Örneği basit tutmak için biz harika bir yükseltme çalıştırıyorsanız: her şeyi promosyon kodunu "Ücretsiz" olacaklardır ücretsizdir!
+Hesap oluşturduktan sonra, Sevkiyat ve ödeme bilgilerini doldurarak siparişi tamamlayabilirler. Şeyleri basit tutmak için harika bir yükseltme çalıştırıyoruz: promosyon kodu "ÜCRETSIZ" olarak girerseniz her şey ücretsizdir!
 
 ![](mvc-music-store-part-1/_static/image5.jpg)
 
-Sıralandıktan sonra bunlar basit bir onay ekranı görürsünüz:
+Sipariş ettikten sonra basit bir onay ekranı görürler:
 
 ![](mvc-music-store-part-1/_static/image6.jpg)
 
-Ayrıca müşterilere yönelik sayfalarına ek olarak albümleri, yöneticiler oluşturabilir, düzenleme, listesini gösteren bir yönetici bölümü oluşturun ve albümleri Sil:
+Müşterilere yönelik sayfalara ek olarak, yöneticilerin albüm, düzenleme ve silme yapabileceği Albümler listesini gösteren bir yönetici bölümü de oluşturacağız:
 
 ![](mvc-music-store-part-1/_static/image7.jpg)
 
-## <a name="1-file--gt-new-project"></a>1. Dosya -&gt; yeni proje
+## <a name="1-file--gt-new-project"></a>1. dosya-&gt; yeni proje
 
-### <a name="installing-the-software"></a>Yazılım yükleme
+### <a name="installing-the-software"></a>Yazılımı yükleme
 
-Bu öğreticide, ücretsiz Visual Web Developer 2010 (ücretsiz olan) Express kullanarak yeni bir ASP.NET MVC 3 projesi oluşturarak başlar ve ardından eksiksiz, çalışan bir uygulamayı oluşturmak için özellikler artımlı olarak ekleyeceğiz. Ana sayfalar tutarlı sayfa düzeni için AJAX Sayfa güncelleştirmelerini ve doğrulama, kullanıcı oturum açma ve daha fazlasını kullanarak, süreç boyunca size veritabanı erişimi, formu posta senaryolar ve veri doğrulama değineceğiz.
+Bu öğretici, ücretsiz Visual Web Developer 2010 Express (ücretsiz) kullanarak yeni bir ASP.NET MVC 3 projesi oluşturarak başlayacak ve ardından tamamen çalışan bir uygulama oluşturmak için artımlı olarak Özellikler ekleyeceğiz. Bu şekilde, veritabanı erişimi, form gönderme senaryoları, veri doğrulama, tutarlı sayfa düzeni için ana sayfaları kullanma, sayfa güncelleştirmeleri ve doğrulama, Kullanıcı oturumu açma ve daha fazlası için AJAX kullanma gibi bilgileri ele alacağız.
 
-Adım adım takip edebilirsiniz veya tamamlanmış uygulamayı karşıdan yükleyebileceğiniz [MVC müzik Store](https://github.com/evilDave/MVC-Music-Store).
+Adımları adım adım takip edebilir veya tamamlanan uygulamayı [MVC-Music-Store](https://github.com/evilDave/MVC-Music-Store)' dan indirebilirsiniz.
 
-Uygulamayı oluşturmak için Visual Studio 2010 SP1 veya Visual Web Developer 2010 Express SP1 (Visual Studio 2010 ücretsiz bir sürümü) kullanabilirsiniz. SQL Server Compact (da ücretsiz) veritabanını barındırmak için kullanacağız. Başlamadan önce aşağıda listelenen ön yüklediğiniz emin olun.
+Uygulamayı derlemek için Visual Studio 2010 SP1 veya Visual Web Developer 2010 Express SP1 (Visual Studio 2010 ' in ücretsiz sürümü) kullanabilirsiniz. Veritabanını barındırmak için SQL Server Compact (de ücretsiz) kullanacağız. Başlamadan önce, aşağıda listelenen önkoşulları yüklediğinizden emin olun.
 
-- [Visual Studio Web Developer Express SP1 Önkoşullar]
-- [ASP.NET MVC 3 araçları güncelleştirme]
-- [SQL Server Compact 4.0] - hem çalışma zamanı ve araçları desteği dahil olmak üzere
+- [Visual Studio Web Developer Express SP1 önkoşulları]
+- [ASP.NET MVC 3 araç güncelleştirmesi]
+- [SQL Server Compact 4,0]-çalışma zamanı ve araçlar desteği dahil
 
 ### <a name="creating-a-new-aspnet-mvc-3-project"></a>Yeni bir ASP.NET MVC 3 projesi oluşturma
 
-Visual Web Developer Dosya menüsünden "Yeni Proje" seçerek başlayacağız. Bu, yeni proje iletişim kutusunu açar.
+Visual Web Developer 'daki Dosya menüsünden "yeni proje" seçeneğini belirleyerek başlayacağız. Bu, yeni proje iletişim kutusunu getirir.
 
 ![](mvc-music-store-part-1/_static/image5.png)
 
-Visual C# - seçeneğini belirleyeceğiz&gt; Web şablonları grup sol tarafta, ardından Orta sütunda "ASP.NET MVC 3 Web uygulaması" şablonu seçin. MvcMusicStore projenizi adlandırın ve Tamam düğmesine basın.
+Sol taraftaki görsel C#&gt; Web şablonları grubunu seçeceğiz ve ardından Orta sütundaki "ASP.NET MVC 3 Web uygulaması" şablonunu seçersiniz. Projenizi MvcMusicStore olarak adlandırın ve Tamam düğmesine basın.
 
 ![](mvc-music-store-part-1/_static/image8.jpg)
 
-Bu MVC belirli ayarlara Projemizin olmak bize izin veren bir ikincil bir iletişim kutusu görüntüler. Aşağıdakileri seçin:
+Bu, projemiz için bazı MVC 'ye özel ayarlar yapmamızı sağlayan bir ikincil iletişim kutusu görüntüler. Aşağıdakileri seçin:
 
-Şablon proje - boş seçin
+Proje şablonu-boş seçin
 
-Altyapısı görüntüleme - Razor seçin
+Görünüm altyapısı-Razor seçme
 
-Kontrol anlam biçimlendirme HTML5 - kullanın
+HTML5 anlam işaretlemesi-işaretli kullan
 
-Ayarlarınızı aşağıda gösterildiği gibi ardından Tamam düğmesine basın doğrulayın.
+Ayarlarınızın aşağıda gösterildiği gibi olduğunu doğrulayıp Tamam düğmesine basın.
 
 ![](mvc-music-store-part-1/_static/image9.jpg)
 
-Bu, bizim projesi oluşturur. Çözüm Gezgini'nde sağ tarafındaki uygulamamız eklenmiş klasörleri bir göz atalım.
+Bu, projemizi oluşturacaktır. Aşağıda, uygulamamıza eklenen klasörlere, sağ taraftaki Çözüm Gezgini göz atalım.
 
 ![](mvc-music-store-part-1/_static/image10.jpg)
 
-Boş MVC 3 şablonu tamamen boş değildir – temel klasör yapısı ekler:
+Boş MVC 3 şablonu tamamen boş değil; temel bir klasör yapısı ekler:
 
 ![](mvc-music-store-part-1/_static/image6.png)
 
-ASP.NET MVC klasör adları için bazı temel adlandırma kurallarını kullanır:
+ASP.NET MVC, klasör adları için bazı temel adlandırma kurallarını kullanır:
 
 | **Klasör** | **Amaç** |
 | --- | --- |
-| **/ Denetleyicileri** | Denetleyicileri yanıt tarayıcıdan giriş, ne ile bunu ve kullanıcıya bir yanıt döndürür. |
-| **/ Görünümler** | UI şablonlarımızı görünümleri tutun |
-| **/ Modelleri** | Modelleri basılı tutun ve verilerini işleme |
-| **/ İçerik** | Bu klasör görüntülerimizi, CSS ve diğer statik içeriklerdeki tutar. |
-| **/ Komut dosyaları** | Bu klasör tutan sunduğumuz JavaScript dosyaları |
+| **/Controllers** | Denetleyiciler tarayıcıdan girişe yanıt verir, onunla ne yapacağınıza karar verir ve kullanıcıya yanıt döndürür. |
+| **/Views** | UI şablonlarımızı tutan görünümler |
+| **/Modeller** | Modeller verileri tutar ve işleyebilir |
+| **/Content** | Bu klasör görüntülerimizi, CSS 'yi ve diğer tüm statik içerikleri barındırır |
+| **/Scripts** | Bu klasör JavaScript dosyalarımı barındırır |
 
-ASP.NET MVC çerçevesi varsayılan olarak "kuralı yapılandırmanız üzerinde" bir yaklaşım kullanır ve klasör adlandırma kurallarına dayalı bazı varsayılan varsayımlarda bulunur çünkü bu klasörleri bile bir boş ASP.NET MVC uygulamasındaki dahil edilir. Örneği için denetleyicileri görünümleri görünümleri klasöründe varsayılan olarak bu kodunuzda açıkça belirtmeniz gerek kalmadan arayın. Varsayılan kuralları ile kalmanız yazmak için gereken kod miktarını azaltır ve ayrıca, projenizi anlamak diğer geliştiriciler için kolaylaştırabilir. Bu kuralları uygulamamız ekleriz gibi daha fazla açıklayacağız.
+ASP.NET MVC çerçevesi varsayılan olarak "yapılandırma üzerinden kural" yaklaşımı kullandığından ve klasör adlandırma kurallarına göre bazı varsayılan varsayımlar yaptığından, bu klasörler boş bir ASP.NET MVC uygulamasında bile bulunur. Örneğin, denetleyicilerde açıkça bunu belirtmek zorunda kalmadan, denetleyiciler görünümler klasöründeki görünümleri varsayılan olarak arar. Varsayılan kurallara uyma, yazmanız gereken kod miktarını azaltır ve diğer geliştiricilerin projenizi anlamasına daha da kolay hale gelir. Uygulamamızı oluşturduğumuzdan bu kuralları daha anlatacağız.
 
 > [!div class="step-by-step"]
 > [Next](mvc-music-store-part-2.md)

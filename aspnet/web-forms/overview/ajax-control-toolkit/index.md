@@ -1,26 +1,26 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/index
-title: Eski sürümler - Ajax Denetim Araç Seti | Microsoft Docs
+title: Eski sürümler-AJAX denetim araç seti | Microsoft Docs
 author: rick-anderson
-description: Ajax Denetim Araç Seti ile çalışmaya başlama konusunda ve bazı en popüler denetimleri kullanma. DevExpress Ajax Sözl ücretsiz ve açık kaynağı tutar...
+description: AJAX denetim araç seti ile çalışmaya başlama ve en popüler denetimlerden bazılarını kullanma. DevExpress, ücretsiz ve açık kaynaklı Ajax Contenr 'yi tutar...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
 ms.openlocfilehash: d7d0426ed427f3b8fc8c7f9c2fe1518b1887d695
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115381"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554147"
 ---
 # <a name="older-versions---ajax-control-toolkit"></a>Eski Sürümler - Ajax Denetim Araç Seti
 
-> Ajax Denetim Araç Seti ile çalışmaya başlama konusunda ve bazı en popüler denetimleri kullanma. DevExpress Ajax Denetim Araç Seti ücretsiz ve açık kaynağı tutar.
+> AJAX denetim araç seti ile çalışmaya başlama ve en popüler denetimlerden bazılarını kullanma. DevExpress, ücretsiz ve açık kaynak AJAX denetim araç setini korur.
 > 
 > 
-> ![](index/_static/image1.png) DevExpress, ödüllü ASP.NET WebForms, MVC ve HTML5 UI denetimleri ve çerçeve, geliştiricileri, bu yüksek oranda talep açık kaynak kitaplık güvenilir bir duruma getirmek için ASP.NET AJAX Denetim Araç Seti Bakımı sürdü. [Daha fazla bilgi edinin](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx).
+> ![](index/_static/image1.png) DevExpress, ödül kazanan ASP.NET WebForms, MVC ve HTML5 Kullanıcı arabirimi denetimleri ve çerçeveleri geliştiricileri, bu yüksek oranda talep edilen açık kaynaklı Kitaplığı güvenilir bir duruma geri getirmek için ASP.NET AJAX denetim araç seti 'nin bakımını yaptı. [Daha fazla bilgi edinin](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_Tutorials.aspx).
 
 - [Başlarken](getting-started/index.md)
 

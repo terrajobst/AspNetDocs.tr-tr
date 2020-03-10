@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-to-dynamically-add-controls-to-a-web-page
-title: Dinamik olarak bir Web sayfasına denetim ekleme hakkında | Microsoft Docs
+title: Denetimleri bir Web sayfasına dinamik olarak ekleme | Microsoft Docs
 author: JoeStagner
-description: Bu videoda bir yöntem için dinamik olarak gösterilecektir denetimleri belirsiz sayıda web sayfasına ekleyin.
+description: Bu videoda, Web sayfanıza dinamik olarak belirsiz sayıda denetim eklemek için bir teknik göstereceğim.
 ms.author: riande
 ms.date: 04/16/2008
 ms.assetid: 718e7b1d-e02c-41fe-85d5-44c0d288201f
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-to-dynamically-add-controls-to-a-web-page
 msc.type: video
 ms.openlocfilehash: beffb10a649796c75c165ed28126bfcaf6bcdccf
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381763"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575245"
 ---
-# <a name="how-to-dynamically-add-controls-to-a-web-page"></a>Dinamik olarak bir Web sayfasına denetimler ekleme
+# <a name="how-to-dynamically-add-controls-to-a-web-page"></a>Denetimleri bir Web sayfasına dinamik olarak ekleme
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoda bir yöntem için dinamik olarak gösterilecektir denetimleri belirsiz sayıda web sayfasına ekleyin.
+Bu videoda, Web sayfanıza dinamik olarak belirsiz sayıda denetim eklemek için bir teknik göstereceğim.
 
-[&#9654;(31 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-dynamically-add-controls-to-a-web-page)
+[&#9654;Videoyu izleyin (31 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-dynamically-add-controls-to-a-web-page)
 
 > [!div class="step-by-step"]
 > [Önceki](how-to-dynamically-change-css-using-the-aspnet-ajax-updatepanel.md)

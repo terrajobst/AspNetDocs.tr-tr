@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers
-title: Neden ASP.NET MVC? video karar alıcılar için 3 dakikalık genel bakış | Microsoft Docs
+title: Neden ASP.NET MVC? 3 dakikalık karar mekanizmaları için genel bakış videosu | Microsoft Docs
 author: robconery
-description: ASP.NET MVC üst düzey bir genel bakış ASP.NET MVC avantajları hakkında daha fazla bilgi edinmek isteyen karar verenler için.
+description: ASP.NET MVC 'nin avantajları hakkında daha fazla bilgi almak isteyen karar mekanizmaları için ASP.NET MVC 'nin üst düzey bir genel bakışı.
 ms.author: riande
 ms.date: 08/21/2009
 ms.assetid: 5b3fb86a-3245-41a3-bd1a-bde92e37b18d
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers
 msc.type: video
 ms.openlocfilehash: 158a49553490e9faf01264b7934e48a8edece2c4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59382127"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558893"
 ---
-# <a name="why-aspnet-mvc-3-minute-overview-video-for-decision-makers"></a>Neden ASP.NET MVC? video karar alıcılar için 3 dakikalık genel bakış
+# <a name="why-aspnet-mvc-3-minute-overview-video-for-decision-makers"></a>Neden ASP.NET MVC? 3 dakikalık karar mekanizmaları için genel bakış videosu
 
-tarafından [Rob Conery](https://github.com/robconery)
+[ramiz](https://github.com/robconery) 'e göre
 
-ASP.NET MVC üst düzey bir genel bakış ASP.NET MVC avantajları hakkında daha fazla bilgi edinmek isteyen karar verenler için.
+ASP.NET MVC 'nin avantajları hakkında daha fazla bilgi almak isteyen karar mekanizmaları için ASP.NET MVC 'nin üst düzey bir genel bakışı.
 
-[&#9654;(3 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/why-aspnet-mvc-3-minute-overview-video-for-decision-makers)
+[&#9654;Videoyu izleyin (3 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/why-aspnet-mvc-3-minute-overview-video-for-decision-makers)
 
 > [!div class="step-by-step"]
 > [Önceki](what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
