@@ -1,45 +1,45 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
-title: ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma | Microsoft Docs
+title: ASP.NET Web API 2,2 kullanarak OData v4 uç noktası oluşturma | Microsoft Docs
 author: MikeWasson
-description: Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümeleri aracılığıyla CRUD işlemleri işlemek için Tekdüzen bir yol sağlar...
+description: Açık Veri Protokolü (OData) Web için bir veri erişim protokolüdür. OData, CRUD işlemleri aracılığıyla veri kümelerini sorgulamak ve işlemek için Tekdüzen bir yol sağlar...
 ms.author: riande
 ms.date: 01/23/2019
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: 81d134cbd3231b9a0d5537ccbd1bbfe6419254af
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108710"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598737"
 ---
-# <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>ASP.NET Web API kullanarak bir OData v4 uç noktası oluşturma 
+# <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>ASP.NET Web API 'SI kullanarak OData v4 uç noktası oluşturma 
 
-> Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümeleri aracılığıyla CRUD işlemleri işlemek için Tekdüzen bir yol sağlar (oluşturma, okuma, güncelleştirme ve silme).
+> Açık Veri Protokolü (OData) Web için bir veri erişim protokolüdür. OData, CRUD işlemleri (oluşturma, okuma, güncelleştirme ve silme) aracılığıyla veri kümelerini sorgulamak ve işlemek için Tekdüzen bir yol sağlar.
 >
-> ASP.NET Web API, hem v3 hem de v4 protokolü destekler. Yan yana çalışan bir v4 uç noktası bile olabilir v3 uç noktası ile.
+> ASP.NET Web API 'SI hem v3 hem de v4 protokolünü destekler. V3 uç noktasıyla yan yana çalışan bir v4 uç noktasına bile sahip olabilirsiniz.
 >
-> Bu öğreticide, CRUD işlemleri destekleyen OData v4 uç noktası oluşturma işlemi gösterilmektedir.
+> Bu öğreticide, CRUD işlemlerini destekleyen bir OData v4 uç noktası oluşturma işlemi gösterilmektedir.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 >
-> - Web API 5.2
+> - Web API 5,2
 > - OData v4
-> - Visual Studio 2017 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/))
+> - Visual Studio 2017 (Visual Studio 2017 [buraya](https://visualstudio.microsoft.com/downloads/)indirin)
 > - Entity Framework 6
 > - .NET 4.7.2
 >
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
 >
-> OData sürüm 3 için bkz: [OData v3 uç noktası oluşturma](../odata-v3/creating-an-odata-endpoint.md).
+> OData sürüm 3 için bkz. [OData v3 uç noktası oluşturma](../odata-v3/creating-an-odata-endpoint.md).
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-Visual Studio'da gelen **dosya** menüsünde **yeni** &gt; **proje**.
+Visual Studio 'da, **Dosya** menüsünden **Yeni** &gt; **Proje**' yi seçin.
 
-Genişletin **yüklü** &gt; **Visual C#**  &gt; **Web**seçip **ASP.NET Web uygulaması (.NET Framework)**  şablonu. Projeyi adlandırın &quot;ProductService&quot;.
+**Yüklü** &gt;  **C# Visual** &gt; **Web**' i genişletin ve **ASP.NET Web uygulaması (.NET Framework)** şablonunu seçin. Projeyi &quot;ProductService&quot;olarak adlandırın.
 
 [![](create-an-odata-v4-endpoint/_static/image7.png)](create-an-odata-v4-endpoint/_static/image7.png)
 
@@ -47,127 +47,127 @@ Genişletin **yüklü** &gt; **Visual C#**  &gt; **Web**seçip **ASP.NET Web uyg
 
 [![](create-an-odata-v4-endpoint/_static/image8.png)](create-an-odata-v4-endpoint/_static/image8.png)
 
-Seçin **boş** şablonu. Altında **klasörleri ekleyin ve çekirdek başvuruları:** seçin **Web API**. **Tamam**’ı seçin.
+**Boş** şablonu seçin. **İçin klasör ve çekirdek başvuruları Ekle**altında **Web API 'si**' ni seçin. **Tamam**’ı seçin.
 
-## <a name="install-the-odata-packages"></a>OData paketleri yükleme
+## <a name="install-the-odata-packages"></a>OData paketlerini yükler
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** &gt; **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde yazın:
+**Araçlar** menüsünde **NuGet Paket Yöneticisi** &gt; **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsol penceresinde, şunu yazın:
 
 [!code-console[Main](create-an-odata-v4-endpoint/samples/sample1.cmd)]
 
-Bu komut, en son OData NuGet paketlerini yükler.
+Bu komut en son OData NuGet paketlerini yükleme.
 
 ## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
-A *modeli* uygulamanızda bir veri varlığı temsil eden bir nesnedir.
+*Model* , uygulamanızdaki bir veri varlığını temsil eden bir nesnedir.
 
-Çözüm Gezgini'nde modeller klasörü sağ tıklatın. Bağlam menüsünden seçin **Ekle** &gt; **sınıfı**.
+Çözüm Gezgini modeller klasörüne sağ tıklayın. Bağlam menüsünden &gt; **sınıfı** **Ekle** ' yi seçin.
 
 [![](create-an-odata-v4-endpoint/_static/image6.png)](create-an-odata-v4-endpoint/_static/image5.png)
 
 > [!NOTE]
-> Kural olarak, model sınıfları modelleri klasörüne yerleştirilir ancak kendi projelerinizde bu kurala uymayan gerekmez.
+> Kurala göre, model sınıfları modeller klasörüne yerleştirilir, ancak bu kuralı kendi projelerinizde izlemeniz gerekmez.
 
-Sınıf adını `Product`. Product.cs dosyasındaki ortak kod aşağıdakiyle değiştirin:
+`Product`sınıfı adlandırın. Product.cs dosyasında, demirbaş kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample2.cs)]
 
-`Id` Özelliği Varlık anahtarı. İstemciler varlıkları anahtara göre sorgulayabilir. Örneğin, 5 Kimliğine sahip bir ürün almak için URI değil `/Products(5)`. `Id` Özelliği birincil anahtar arka uç veritabanı olarak da olacaktır.
+`Id` özelliği varlık anahtarıdır. İstemciler, varlıkları anahtara göre sorgulayabilir. Örneğin, KIMLIĞI 5 olan ürünü almak için URI `/Products(5)`. `Id` özelliği, arka uç veritabanında da birincil anahtar olacaktır.
 
 ## <a name="enable-entity-framework"></a>Entity Framework etkinleştir
 
-Bu öğreticide, Entity Framework (EF) Code First arka uç veritabanı oluşturmak için kullanacağız.
+Bu öğreticide, arka uç veritabanını oluşturmak için Entity Framework (EF) Code First kullanacağız.
 
 > [!NOTE]
-> Web API OData EF gerektirmez. Veritabanı varlıklarını modellerini çevirebilir herhangi bir veri erişim katmanı'nı kullanın.
+> Web API OData, EF gerektirmez. Veritabanı varlıklarını modellerle çevirebilirler herhangi bir veri erişim katmanını kullanın.
 
-İlk olarak EF için NuGet paketini yükleyin. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** &gt; **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde yazın:
+İlk olarak, EF için NuGet paketini yüklemeniz gerekir. **Araçlar** menüsünde **NuGet Paket Yöneticisi** &gt; **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsol penceresinde, şunu yazın:
 
 [!code-console[Main](create-an-odata-v4-endpoint/samples/sample3.cmd)]
 
-Web.config dosyasını açın ve içine aşağıdaki bölümü ekleyin **yapılandırma** öğesi, sonra **configSections** öğesi.
+Web. config dosyasını açın ve aşağıdaki bölümü, **configSections** öğesinden sonra **yapılandırma** öğesinin içine ekleyin.
 
 [!code-xml[Main](create-an-odata-v4-endpoint/samples/sample4.xml?highlight=6)]
 
-Bu ayar için bir LocalDB veritabanına bir bağlantı dizesi ekler. Bu veritabanı, uygulamayı yerel olarak çalıştırdığınızda kullanılır.
+Bu ayar, LocalDB veritabanı için bir bağlantı dizesi ekler. Bu veritabanı, uygulamayı yerel olarak çalıştırdığınızda kullanılacaktır.
 
-Ardından, adında bir sınıf ekleyin `ProductsContext` modeller klasörü için:
+Ardından modeller klasörüne `ProductsContext` adlı bir sınıf ekleyin:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample5.cs)]
 
-Oluşturucuya `"name=ProductsContext"` bağlantı dizesinin adını verir.
+Oluşturucuda, `"name=ProductsContext"` bağlantı dizesinin adını verir.
 
 ## <a name="configure-the-odata-endpoint"></a>OData uç noktasını yapılandırma
 
-Uygulama dosyasını açın\_Start/WebApiConfig.cs. Aşağıdaki **kullanarak** ifadeleri:
+Start/WebApiConfig. cs\_dosya uygulamasını açın. Aşağıdaki **using** deyimlerini ekleyin:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample6.cs)]
 
-Ardından aşağıdaki kodu ekleyin **kaydetme** yöntemi:
+Ardından **register** yöntemine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample7.cs)]
 
-Bu kod, iki şey yapar:
+Bu kod iki şeyi yapar:
 
-- Bir varlık veri modeli (EDM) oluşturur.
-- Bir rota ekler.
+- Bir Varlık Veri Modeli (EDM) oluşturur.
+- Bir yol ekler.
 
-Bir EDM soyut bir veri modelidir. EDM hizmet meta verileri belgesi oluşturmak için kullanılır. **ODataConventionModelBuilder** sınıf varsayılan adlandırma kurallarını kullanarak bir EDM oluşturur. Bu yaklaşım, en az kod gerektirir. EDM üzerinde daha fazla denetim istiyorsanız kullanabileceğiniz **ODataModelBuilder** açıkça özellikleri, anahtarları ve gezinti özellikleri ekleyerek EDM oluşturmak için sınıf.
+EDM, verilerin soyut bir modelidir. EDM, hizmet meta verileri belgesi oluşturmak için kullanılır. **ODataConventionModelBuilder** sınıfı varsayılan adlandırma kurallarını kullanarak bir EDM oluşturur. Bu yaklaşım için en az kod gereklidir. EDM üzerinde daha fazla denetim istiyorsanız, özellik, anahtar ve gezinti özelliklerini açıkça ekleyerek EDM oluşturmak için **ODataModelBuilder** sınıfını kullanabilirsiniz.
 
-A *rota* Web API uç noktasına HTTP istekleri yönlendirme anlatır. Bir OData v4 rota oluşturmak için arama **MapODataServiceRoute** genişletme yöntemi.
+Bir *yol* , Web API 'sine http isteklerini uç noktaya nasıl yönlendirildiğini söyler. OData v4 yolu oluşturmak için, **MapODataServiceRoute** genişletme yöntemini çağırın.
 
-Uygulamanızı birden çok OData uç noktaları varsa, her biri için ayrı bir yol oluşturun. Her yol, bir benzersiz rota adı ve ön eki ekleyin.
+Uygulamanızda birden çok OData uç noktası varsa, her biri için ayrı bir yol oluşturun. Her rotaya benzersiz bir yol adı ve ön ek verin.
 
-## <a name="add-the-odata-controller"></a>OData denetleyicisi Ekle
+## <a name="add-the-odata-controller"></a>OData denetleyicisi ekleme
 
-A *denetleyicisi* HTTP isteklerini işleyen sınıftır. OData hizmetinizi her varlık için bir ayrı denetleyicisinin oluşturduğunuz. Bu öğreticide, bir denetleyici için oluşturacağınız `Product` varlık.
+*Denetleyici* , http isteklerini işleyen bir sınıftır. OData hizmetinizde her bir varlık kümesi için ayrı bir denetleyici oluşturursunuz. Bu öğreticide, `Product` varlığı için bir denetleyici oluşturacaksınız.
 
-Çözüm Gezgini'nde denetleyicileri klasörü sağ tıklatın ve seçin **Ekle** &gt; **sınıfı**. Sınıf adını `ProductsController`.
+Çözüm Gezgini, denetleyiciler klasörüne sağ tıklayın ve &gt; **sınıfı** **Ekle** ' yi seçin. `ProductsController`sınıfı adlandırın.
 
 > [!NOTE]
-> Bu öğretici için OData v3 kullanan sürümünü **denetleyici Ekle** yapı iskelesi. Şu anda hiçbir yapı iskelesi OData v4 için yoktur.
+> OData v3 için Bu öğreticinin sürümü, **denetleyiciyi Ekle** yapı iskelesi kullanır. Şu anda OData v4 için bir yapı iskelesi yoktur.
 
-ProductsController.cs Demirbaş kodu aşağıdakiyle değiştirin.
+ProductsController.cs içindeki ortak kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample8.cs)]
 
-Denetleyici kullandığı `ProductsContext` EF kullanarak veritabanına erişmek için sınıf. Denetleyici geçersiz kılan bildirimi **Dispose** yöntemi elden çıkarmak **ProductsContext**.
+Denetleyici, EF kullanarak veritabanına erişmek için `ProductsContext` sınıfını kullanır. Denetleyicinin **Productscontext**'i atmak için **Dispose** metodunu geçersiz kıldığını unutmayın.
 
-Bu denetleyici için başlangıç noktasıdır. Ardından, tüm CRUD işlemleri için yöntemler ekleyeceğiz.
+Bu, denetleyicinin başlangıç noktasıdır. Ardından, tüm CRUD işlemleri için yöntemler ekleyeceğiz.
 
-## <a name="query-the-entity-set"></a>Varlık kümesi sorgulama
+## <a name="query-the-entity-set"></a>Varlık kümesini sorgulama
 
-Aşağıdaki yöntemi ekleyin `ProductsController`.
+`ProductsController`için aşağıdaki yöntemleri ekleyin.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample9.cs)]
 
-Parametresiz sürümünü `Get` yöntemi tüm ürünleri koleksiyonu döndürür. `Get` Yöntemi ile bir *anahtarı* parametresi anahtara göre bir ürün görünür (Bu durumda, `Id` özelliği).
+`Get` yönteminin parametresiz sürümü tüm ürünler koleksiyonunu döndürür. *Anahtar* parametresine sahip `Get` yöntemi bir ürünü anahtarıyla arar (Bu durumda, `Id` özelliği).
 
-**[EnableQuery]** özniteliği $filter $sort ve $page gibi sorgu Seçenekleri'ni kullanarak sorgu değiştirmek istemcileri etkinleştirir. Daha fazla bilgi için [OData sorgu seçeneklerini destekleme](../supporting-odata-query-options.md).
+**[Enablequery]** özniteliği, istemcilerin $filter, $sort ve $Page gibi sorgu seçeneklerini kullanarak sorguyu değiştirmesini sağlar. Daha fazla bilgi için bkz. [OData sorgu seçeneklerini destekleme](../supporting-odata-query-options.md).
 
-## <a name="add-an-entity-to-the-entity-set"></a>Varlık kümesi için bir varlık ekleme
+## <a name="add-an-entity-to-the-entity-set"></a>Varlık kümesine varlık ekleme
 
-Yeni ürün eklemek istemcileri etkinleştirmek için aşağıdaki yöntemi ekleyin. `ProductsController`.
+İstemcilerin veritabanına yeni bir ürün eklemesini sağlamak için aşağıdaki yöntemi `ProductsController`ekleyin.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample10.cs)]
 
 ## <a name="update-an-entity"></a>Varlığı güncelleştirme
 
-OData, düzeltme eki ve PUT bir varlığı güncelleştirmek için iki farklı semantikler destekler.
+OData, bir varlığı güncelleştirmek için iki farklı semantiğini destekler, yama ve PUT.
 
-- Düzeltme eki kısmi bir güncelleştirmesini yapar. İstemci, yalnızca güncelleştirilecek özelliklerini belirtir.
-- Tüm varlık PUT değiştirir.
+- Düzeltme Eki kısmi bir güncelleştirme gerçekleştirir. İstemci yalnızca güncelleştirilecek özellikleri belirtir.
+- PUT, tüm varlığın yerini alır.
 
-PUT bir dezavantajı, istemci varlıkta değil değiştirme değerleri dahil olmak üzere tüm özellikler için değerleri göndermelisiniz olmasıdır. [OData spec](http://docs.oasis-open.org/odata/odata/v4.0/os/part1-protocol/odata-v4.0-os-part1-protocol.html#_Toc372793719) düzeltme eki tercih edilen olduğunu belirtir.
+PUT 'in dezavantajı, istemcinin, değişmeyen değerler de dahil olmak üzere varlıktaki tüm özelliklerin değerlerini gönderebilmesi gerekir. [OData özelliği](http://docs.oasis-open.org/odata/odata/v4.0/os/part1-protocol/odata-v4.0-os-part1-protocol.html#_Toc372793719) , düzeltme ekinin tercih edildiğini belirtir.
 
-Herhangi bir durumda, hem düzeltme eki hem de PUT yöntemleri için kod şu şekildedir:
+Her durumda, hem düzeltme eki hem de PUT yöntemlerinin kodu aşağıda verilmiştir:
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample11.cs)]
 
-Düzeltme eki söz konusu olduğunda denetleyicisi kullanan **Delta&lt;T&gt;**  değişiklikleri izlemek için türü.
+Düzeltme durumunda, denetleyici değişiklikleri izlemek için **Delta&lt;t&gt;** türünü kullanır.
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
 
-Bir ürün veritabanından silmek istemcileri etkinleştirmek için aşağıdaki yöntemi ekleyin. `ProductsController`.
+İstemcilerin bir ürünü veritabanından silmesini sağlamak için aşağıdaki yöntemi `ProductsController`ekleyin.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample12.cs)]

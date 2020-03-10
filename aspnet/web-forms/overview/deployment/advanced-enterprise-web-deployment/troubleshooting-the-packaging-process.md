@@ -1,104 +1,104 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
-title: Paketleme işleminin sorunlarını giderme | Microsoft Docs
+title: Paketleme Işleminde sorun giderme | Microsoft Docs
 author: jrjlee
-description: Bu konu, M sürümünde EnablePackageProcessLoggingAndAssert özelliğini kullanarak paketleme işlemi hakkında ayrıntılı bilgi nasıl Toplayabileceğiniz açıklar...
+description: Bu konu başlığı altında, a... adlı EnablePackageProcessLoggingAndAssert özelliğini kullanarak paketleme işlemiyle ilgili ayrıntılı bilgileri nasıl toplayabileceğinizi açıklar.
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 794bd819-00fc-47e2-876d-fc5d15e0de1c
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
 ms.openlocfilehash: 8ad649dfff085a8774cc13c11d8a3e3d48277d66
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128698"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628214"
 ---
 # <a name="troubleshooting-the-packaging-process"></a>Paketleme İşleminin Sorunlarını Giderme
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Nasıl kullanarak paketleme işlemi hakkında ayrıntılı bilgi toplamak bu konuda açıklanmaktadır **EnablePackageProcessLoggingAndAssert** Microsoft Build Engine (MSBuild) özelliği.
+> Bu konu başlığı altında, Microsoft Build Engine (MSBuild) ' de **Enablepackageprocessloggingandassert** özelliğini kullanarak paketleme işlemi hakkında ayrıntılı bilgileri nasıl toplayabileceğinizi açıklamaktadır.
 > 
-> Ayarladığınızda **EnablePackageProcessLoggingAndAssert** özelliğini **true**, MSBuild olur:
+> **Enablepackageprocessloggingandassert** özelliğini **true**olarak belirlediğinizde MSBuild şunları olur:
 > 
-> - Paketleme işlemi hakkında daha fazla bilgi için derleme günlüklerine ekleyin.
-> - Yinelenen dosyalar paketleme listede bulunması durumunda hataları belirli koşullar altında günlüğe kaydeder.
-> - Bir günlük dizini oluşturma *ProjectName*\_paketi klasörü ve paketleme dosyaları hakkındaki bilgileri kaydetmek için kullanın.
+> - Yapı günlüklerine paketleme işlemi hakkında daha fazla bilgi ekleyin.
+> - Örneğin paketleme listesinde yinelenen dosyalar bulunursa, belirli koşullarda hataları günlüğe kaydedin.
+> - *ProjectName*\_paket klasöründe bir günlük dizini oluşturun ve paketlediğiniz dosyalarla ilgili bilgileri kaydetmek için kullanın.
 > 
-> Paketleme işlemi başarısız oluyor ya da beklediğiniz dosyaları, web dağıtımı paketleri içermeyen, burada şeyleri yanlış giden pinpoint ve işlem sorunlarını gidermek için bu bilgileri kullanabilirsiniz.
+> Paketleme işlemi başarısız olursa veya Web Dağıtım paketleriniz beklediği dosyaları içermiyorsa, bu bilgileri kullanarak işlemlerin yanlış olduğu işlem ve Pinpoint sorunlarını giderebilirsiniz.
 > 
 > > [!NOTE]
-> > **EnablePackageProcessLoggingAndAssert** özelliği yalnızca çalışır kullanarak projenize yapı **hata ayıklama** yapılandırma. Özelliği diğer yapılandırmaları göz ardı edilir.
+> > **Enablepackageprocessloggingandassert** özelliği yalnızca projenizi **hata ayıklama** yapılandırmasını kullanarak oluşturursanız işe yarar. Özelliği diğer yapılandırmalarda yok sayılır.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme işleminin her hedef ortam için uygulanan derleme yönergelerini içeren ve ortama özel yapı ve dağıtım ayarlarını içeren iki proje&#x2014;dosyası tarafından kontrol edilen proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="understanding-the-enablepackageprocessloggingandassert-property"></a>EnablePackageProcessLoggingAndAssert özelliği anlama
+## <a name="understanding-the-enablepackageprocessloggingandassert-property"></a>EnablePackageProcessLoggingAndAssert özelliğini anlama
 
-[Oluşturma ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md) nasıl Web yayımlama işlem hattı (WPP) MSBuild işlevselliğini genişleten ve Internet Information Services (IIS) Web ile tümleştirmek etkinleştirmek MSBuild hedefleri takımına açıklanan Dağıtım Aracı (Web dağıtımı). Bir web uygulaması projesi paketlediğinizde WPP hedefleri çağırma.
+Web [uygulaması projelerini derleme ve paketleme](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md) Web yayımlama işlem HATTıNıN (WPP), MSBuild 'in işlevselliğini genişleten ve Internet INFORMATION SERVICES (IIS) Web Dağıtım aracı (Web dağıtımı) ile tümleşmesini sağlayan bir MSBuild hedefleri kümesi sağlar. Bir Web uygulaması projesi paketlemeyi yaparken, WPP hedefleri çağrılıyor.
 
-Bu WPP hedefler çok sayıda ek bilgileri günlüğe kaydeder, koşullu mantık dahil olduğunda **EnablePackageProcessLoggingAndAssert** özelliği **true**. Örneğin, gözden **paket** hedef, ek günlük dizinini oluşturur ve dosyaların listesini bir metin dosyasına yazar görebilirsiniz **EnablePackageProcessLoggingAndAssert** içineşittir**true**.
+Bu WPP hedeflerinin çoğu, **Enablepackageprocessloggingandassert** özelliği **true**olarak ayarlandığında ek bilgileri kaydeden koşullu mantığı içerir. Örneğin, **paket** hedefini gözden geçirdikten sonra, ek bir günlük dizini oluşturduğunu ve **Enablepackageprocessloggingandassert** değeri **true**ise bir metin dosyasına bir dosya listesi yazabileceğini görebilirsiniz.
 
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample1.xml)]
 
 > [!NOTE]
-> WPP hedefleri tanımlanan *Microsoft.Web.Publishing.targets* % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki dosya. Bu dosyayı açın ve Visual Studio 2010 veya herhangi bir XML Düzenleyicisi hedeflerin gözden geçirin. Dosyanın içeriğini değiştirmek için dikkatli olun.
+> WPP hedefleri,% PROGRAMFILES (x86)% \ MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki *Microsoft. Web. Publishing. targets* dosyasında tanımlanmıştır. Bu dosyayı açabilir ve Visual Studio 2010 veya herhangi bir XML düzenleyicisinde hedefleri gözden geçirebilirsiniz. Dosyanın içeriğini değiştirmemelidir.
 
-## <a name="enabling-the-additional-logging"></a>Ek günlük kaydını etkinleştirme
+## <a name="enabling-the-additional-logging"></a>Ek günlüğe kaydetme etkinleştiriliyor
 
-İçin bir değer sağlayabilirsiniz **EnablePackageProcessLoggingAndAssert** nasıl projenizi bağlı olarak çeşitli şekillerde özelliği.
+Projenizin nasıl oluşturulduğuna bağlı olarak çeşitli yollarla **Enablepackageprocessloggingandassert** özelliği için bir değer sağlayabilirsiniz.
 
-Komut satırından projenizi, bir değer sağlayabilirsiniz **EnablePackageProcessLoggingAndAssert** komut satırı bağımsız değişkeni olarak özelliği:
+Projenizi komut satırından oluşturursanız, **Enablepackageprocessloggingandassert** özelliği için bir komut satırı bağımsız değişkeni olarak bir değer sağlayabilirsiniz:
 
 [!code-console[Main](troubleshooting-the-packaging-process/samples/sample2.cmd)]
 
-Projelerinizi oluşturmak için özel proje dosyası kullanıyorsanız, dahil edebileceğiniz **EnablePackageProcessLoggingAndAssert** değerini **özellikleri** özniteliği **MSBuild**görevi:
+Projelerinizi derlemek için özel bir proje dosyası kullanıyorsanız, **MSBuild** görevinin **Özellikler** özniteliğinde **Enablepackageprocessloggingandassert** değerini dahil edebilirsiniz:
 
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample3.xml)]
 
-Projelerinizi derlemek için Team Foundation Server (TFS) derleme tanımını kullanıyorsanız için bir değer sağlayabilirsiniz **EnablePackageProcessLoggingAndAssert** özelliğinde **MSBuild bağımsız değişkenleri** satır:![](troubleshooting-the-packaging-process/_static/image1.png)
+Projelerinizi derlemek için bir Team Foundation Server (TFS) derleme tanımı kullanıyorsanız, **MSBuild bağımsız değişkenleri** satırında **Enablepackageprocessloggingandassert** özelliği için bir değer sağlayabilirsiniz:![](troubleshooting-the-packaging-process/_static/image1.png)
 
 > [!NOTE]
-> Oluşturma ve derleme tanımı yapılandırma hakkında daha fazla bilgi için bkz. [bir derleme tanımı, destekleyen dağıtım oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
+> Derleme tanımlarını oluşturma ve yapılandırma hakkında daha fazla bilgi için bkz. [dağıtımı destekleyen bir yapı tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
-Alternatif olarak, her derlemede paket dahil etmek istiyorsanız, ayarlamak, web uygulaması projesi için proje dosyasını değiştirebilir **EnablePackageProcessLoggingAndAssert** özelliğini **true**. Özelliği ilk eklemelisiniz **PropertyGroup** .csproj veya .vbproj dosyanızı içindeki öğe.
+Alternatif olarak, paketi her yapıya eklemek istiyorsanız, Web uygulaması projeniz için proje dosyasını değiştirerek **Enablepackageprocessloggingandassert** özelliğini **true**olarak ayarlayabilirsiniz. Özelliği. csproj veya. vbproj dosyanızdaki ilk **PropertyGroup** öğesine eklemeniz gerekir.
 
 [!code-xml[Main](troubleshooting-the-packaging-process/samples/sample4.xml)]
 
 ## <a name="reviewing-the-log-files"></a>Günlük dosyalarını gözden geçirme
 
-Ne zaman oluşturun ve bir web uygulaması projesi ile paket **EnablePackageProcessLoggingAndAssert** kümesine **true**, MSBuild günlüğünde adlı ek bir klasör oluşturur *ProjectName* \_Paket klasörüne. Günlük klasörü çeşitli dosyaları içerir:
+**Enablepackageprocessloggingandassert** **değeri true**olarak ayarlanmış bir Web uygulaması projesi oluşturup paketlemeyi yaptığınızda MSBuild, *ProjectName*\_paket klasöründe log adlı ek bir klasör oluşturur. Günlük klasörü çeşitli dosyaları içerir:
 
 ![](troubleshooting-the-packaging-process/_static/image2.png)
 
-Gördüğünüz dosyaların listesi, projenizin ve yapı işleminizin şeyler göre değişir. Ancak, bu dosyalar, genellikle WPP toplama işleminin çeşitli aşamasında paketleme dosyaları listesini kaydetmek için kullanılır:
+Gördüğünüz dosyaların listesi, projenizdeki işlemlere ve yapı sürecinizdeki şeylere göre değişir. Ancak, bu dosyalar genellikle, işlemin çeşitli aşamalarında, WPP 'nin paketleme için topladığı dosyaların listesini kaydetmek için kullanılır:
 
-- *PreExcludePipelineCollectFilesPhaseFileList.txt* dosya dışlama için belirtilen tüm dosyaları kaldırılmadan önce paketleme MSBuild tarafından toplanan dosyaları listeler.
-- *AfterExcludeFilesFilesList.txt* dosya dışlama için belirtilen tüm dosyaları kaldırıldıktan sonra değiştirilen dosya listesini içerir.
+- *PreExcludePipelineCollectFilesPhaseFileList. txt* dosyası, dışlama için belirtilen herhangi bir dosya kaldırılmadan önce MSBuild 'in paketlenmesi için topladığı dosyaları listeler.
+- *Afterexcludefilesfileslist. txt* dosyası, dışlama için belirtilen tüm dosyalar kaldırıldıktan sonra değiştirilmiş dosya listesini içerir.
 
     > [!NOTE]
-    > Dosya ve klasörleri paketleme işleminin dışında tutarak daha fazla bilgi için bkz: [hariç dosya ve klasörleri dağıtımdan](excluding-files-and-folders-from-deployment.md).
-- *AfterTransformWebConfig.txt* dosyası için paketleme herhangi sonra toplanan dosyaları listeler *Web.config* dönüşümleri gerçekleştirilir. Bu listedeki herhangi bir yapılandırma belirli *Web.config* dosyaları gibi dönüştürme *Web.Debug.config* ve *Web.Release.config*, dosyaları listesinden dışlanmaz paketleme. Dönüştürülen tek bir *Web.config* bunun yerine dahildir.
-- *PostAutoParameterizationWebConfigConnectionStrings.txt* dosya bağlantı dizelerini sonra dosyaların listesini içeren *Web.config* dosya parametreli. Bu, paketi dağıtırken, hedef ortamınız için doğru ayarlarla bağlantı dizelerinizi değiştirmenizi sağlayan işlemidir.
-- *Prepackage.txt* dosyanın pakete dahil edilecek dosyalar sonlandırılmış derleme öncesi listesini içerir.
+    > Paketleme işleminden dosya ve klasörlerin dışlanması hakkında daha fazla bilgi için, bkz. [dosyaları ve klasörleri dağıtımdan dışlama](excluding-files-and-folders-from-deployment.md).
+- *Aftertransformwebconfig. txt* dosyası, herhangi bir *Web. config* dönüştürmesinden sonra paketleme için toplanan dosyaları listeler. Bu listede, *Web. Debug. config* ve *Web. Release. config*gibi yapılandırmaya özgü *Web. config* dönüştürme dosyaları paketleme için dosya listesinden çıkarılır. Tek bir dönüştürülmüş *Web. config* kendi yerine eklenir.
+- *Postautoparameterizationwebconfigconnectionstrings. txt* dosyası, *Web. config* dosyasındaki bağlantı dizeleri parametreli olduktan sonra dosyaların listesini içerir. Bu, paketi dağıtırken bağlantı dizelerinizi hedef ortamınız için doğru ayarlarla değiştirmenize olanak tanıyan işlemdir.
+- *Prepackage. txt* dosyası, pakete eklenecek dosyaların son oluşturma öncesi derleme listesini içerir.
 
 > [!NOTE]
-> Ek günlük dosyalarının adlarını genellikle WPP hedeflerini karşılık gelir. Bu hedefler inceleyerek inceleyebilirsiniz *Microsoft.Web.Publishing.targets* % PROGRAMFILES (x 86) %\MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki dosya.
+> Ek günlük dosyalarının adları genellikle WPP hedeflerine karşılık gelir. % PROGRAMFILES (x86)% \ MSBuild\Microsoft\VisualStudio\v10.0\Web klasöründeki *Microsoft. Web. Publishing. targets* dosyasını inceleyerek bu hedefleri gözden geçirebilirsiniz.
 
-Web paketinin içeriği beklediğiniz değilseniz, bu dosyaları gözden geçirme işlemi şeyler hangi noktasında sorun oluştu tanımlamak için kullanışlı bir yol olabilir.
+Web paketinizin içerikleri beklediğiniz gibi değilse, bu dosyaları gözden geçirmek, işlemin ne zaman hatalı olduğuna ilişkin yararlı bir yol olabilir.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konu nasıl kullanabileceğinizi açıklanan **EnablePackageProcessLoggingAndAssert** paketleme işleminin sorunlarını gidermek için MSBuild özelliği. İçinde sağlayabilirler oluşturma sürecinde özellik değeri farklı yolları açıklanmıştır ve özellik kümesine olduğunda, kaydedilen ek bilgileri açıklanan **true**.
+Bu konuda, paketleme işleminde sorun gidermek için MSBuild 'te **Enablepackageprocessloggingandassert** özelliğini nasıl kullanabileceğiniz açıklanmıştır. Yapı işlemine özellik değerini sağlayabilmeniz için farklı yollar açıklanmış ve özelliği **true**olarak ayarladığınızda kaydedilen ek bilgileri de açıklandı.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Dağıtım işlemini denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). WPP ve paketleme işlemi nasıl yönettiği hakkında daha fazla bilgi için bkz. [oluşturma ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md). Web dağıtımı paketleri, belirli dosyaları ve klasörleri dışarıda konusunda yönergeler için bkz. [hariç dosya ve klasörleri dağıtımdan](excluding-files-and-folders-from-deployment.md).
+Dağıtım işlemini denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). WPP ve paketleme sürecini yönetme hakkında daha fazla bilgi için bkz. [Web uygulaması projelerini oluşturma ve paketleme](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md). Belirli dosya ve klasörlerin Web Dağıtım paketlerinden nasıl dışlandığı hakkında yönergeler için, bkz. [dosyaları ve klasörleri dağıtımdan dışlama](excluding-files-and-folders-from-deployment.md).
 
 > [!div class="step-by-step"]
-> [Önceki](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [Öncekini](running-windows-powershell-scripts-from-msbuild-project-files.md)

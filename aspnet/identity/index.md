@@ -9,11 +9,11 @@ ms.assetid: 0c2df5d4-c2dd-486d-b0ed-fe831c6b596c
 msc.legacyurl: /identity
 msc.type: categoryindex
 ms.openlocfilehash: 48e75d6a2a151befe7ea796b149d2d030712d799
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418358"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616979"
 ---
 # <a name="aspnet-identity"></a>ASP.NET Kimlik
 
@@ -25,7 +25,7 @@ ms.locfileid: "59418358"
         - [ASP.NET Identity Önerilen Kaynaklar](overview/getting-started/aspnet-identity-recommended-resources.md)
         - [Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme](overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
         - [Azure Active Directory ile ASP.NET Uygulamaları geliştirme](overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-        - [ASP.NET Identity: Bir EntityFramework MySQL sağlayıcısı ile MySQL depolama kullanma (C#)](overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+        - [ASP.NET Identity: Bir EntityFramework MySQL Sağlayıcısı ile MySQL Depolama Kullanma (C#)](overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
     - [Özellikler ve API](overview/features-api/index.md)
 
         - [Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler](overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)

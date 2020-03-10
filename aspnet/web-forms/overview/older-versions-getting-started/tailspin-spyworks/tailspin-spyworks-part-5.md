@@ -1,187 +1,187 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
-title: 'Bölüm 5: İş mantığı | Microsoft Docs'
+title: '5\. Bölüm: Iş mantığı | Microsoft Docs'
 author: JoeStagner
-description: Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 5. Bölüm bazı iş mantığı ekler.
+description: Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm bazı iş mantığını ekler.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: eaef475a-ca91-47ea-a4a7-d074005ed80c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
 ms.openlocfilehash: c60eece9223c47304786d7b0d0ca4b11ac0572e9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131006"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630307"
 ---
-# <a name="part-5-business-logic"></a>Bölüm 5: İş Mantığı
+# <a name="part-5-business-logic"></a>5\. Bölüm: İş Mantığı
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
+> Tailspin Spyworks, .NET platformu için güçlü ve ölçeklenebilir uygulamalar oluşturmanın ne kadar kolay olduğunu gösterir. Alışveriş, kullanıma alma ve yönetim dahil olmak üzere çevrimiçi mağaza oluşturmak için ASP.NET 4 ' te harika yeni özelliklerin nasıl kullanılacağını gösterir.
 > 
-> Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 5. Bölüm bazı iş mantığı ekler.
+> Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm bazı iş mantığını ekler.
 
-## <a id="_Toc260221671"></a>  Bazı iş mantığı ekleme
+## <a id="_Toc260221671"></a>Iş mantığı ekleme
 
-Alışveriş deneyimimizi birisi web sitemizi ziyaret ne zaman kullanılabilir olmasını istiyoruz. Ziyaretçi göz atın ve bunlar katılmamaları kayıtlı veya oturum açmış olsanız bile, alışveriş sepetine öğe ekleme mümkün olacaktır. Kullanıma hazır olduğunuzda kimliğini doğrulama seçeneği sunulur ve değillerse henüz üyeleri, bir hesap oluşturmak mümkün olacaktır.
+Her biri web sitemizi ziyaret ettiğinde alışveriş deneyimimizin kullanılabilir olmasını istiyoruz. Ziyaretçiler, kayıtlı veya oturum açmış olmasalar bile alışveriş sepetini ziyaret edebilir ve bunlara öğe ekleyebilir. Kullanıma hazır olduklarında, kimlik doğrulama seçeneği verilir ve henüz üye değilse, hesap oluşturabileceksiniz.
 
-Başka bir deyişle, biz alışveriş sepetini anonim bir durumdan bir "Kullanıcı kayıtlı" duruma dönüştürmek için mantığı uygulamak gerekir.
+Bu, alışveriş sepetini anonim bir durumdan "kayıtlı Kullanıcı" durumuna dönüştürmek için mantığı uygulamamız gereken anlamına gelir.
 
-Şimdi "Sınıfları" adlı bir dizin oluşturmak ardından klasörüne sağ tıklayıp MyShoppingCart.cs adlı yeni bir "Class" dosya oluşturma
+"Classes" adlı bir dizin oluşturalım ve sonra klasöre sağ tıklayıp MyShoppingCart.cs adlı yeni bir "sınıf" dosyası oluşturma
 
 ![](tailspin-spyworks-part-5/_static/image1.jpg)
 
 ![](tailspin-spyworks-part-5/_static/image1.png)
 
-Daha önceden belirtildiği biz MyShoppingCart.aspx sayfası uygulayan sınıf genişletme ve bu kullanarak yapacağız. NET güçlü "kısmi Class" yapısı.
+Daha önce belirtildiği gibi, MyShoppingCart. aspx sayfasını uygulayan sınıfı genişletireceğiz ve bunu kullanarak yapacağız. NET ' in güçlü "kısmi sınıf" yapısı.
 
-Bizim MyShoppingCart.aspx.cf dosya için oluşturulan çağrı aşağıdaki gibi görünür.
+MyShoppingCart.aspx.cf dosyası için oluşturulan çağrı şuna benzer.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample1.cs)]
 
-"Kısmi" anahtar sözcüğü kullanımına dikkat edin.
+"Partial" anahtar sözcüğünün kullanımını aklınızda edin.
 
-Az önce oluşturulan sınıf dosyası şöyle görünür.
+Yeni oluşturduğumuz sınıf dosyası şuna benzer.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample2.cs)]
 
-Partial anahtar sözcüğü bu dosyaya ekleyerek size sunduğumuz uygulamaları birleştirecektir.
+Bu dosyaya kısmi anahtar sözcük ekleyerek uygulamalarımızı birleştiriyoruz.
 
-Sunduğumuz yeni bir sınıf dosyası artık şöyle görünür.
+Yeni sınıf dosyanız artık şuna benzer.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample3.cs)]
 
-Bizim sınıfına ekleyeceğiz ilk yöntem "AddItem" yöntemdir. Ürün listesi ve ürün ayrıntıları sayfalarında "Resim Ekle" bağlantılarında kullanıcı tıkladığında, sonuçta çağrılacak yöntem budur.
+Sınıfmıza ekleyeceğiniz ilk yöntem "Addidıtem" yöntemidir. Bu, Kullanıcı ürün listesi ve ürün ayrıntıları sayfalarındaki "resimlere Ekle" bağlantılarına tıkladığında sonunda çağrılacaktır.
 
-Aşağıdakileri kullanarak ekleme deyimini sayfasının üst.
+Aşağıdaki, sayfanın en üstündeki using deyimlerine ekleyin.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample4.cs)]
 
-Ve bu yöntem MyShoppingCart sınıfına ekleyin.
+Ve bu yöntemi MyShoppingCart sınıfına ekleyin.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample5.cs)]
 
-Öğenin zaten arabasında olup olmadığını görmek için LINQ to Entities kullanıyoruz. Bu nedenle, miktar öğesinin güncelleştirmemiz durumunda, aksi takdirde seçili öğe için yeni bir giriş oluştururuz
+Öğenin zaten sepette olup olmadığını görmek için LINQ to Entities kullandık. Bu durumda, öğenin sipariş miktarını güncelleştiririz, aksi takdirde seçili öğe için yeni bir giriş oluşturuyoruz
 
-Bu yöntem çağırmak için yalnızca bu yöntem sınıf ancak ardından öğesi eklendikten sonra bir = alışveriş geçerli görüntülenen bir AddToCart.aspx sayfası uygular.
+Bu yöntemi çağırmak için, yalnızca bu yöntemi sınıftan olmayan bir AddToCart. aspx sayfası uygulayacağız, sonra da öğe eklendikten sonra geçerli alışverişe bir = sepet görüntülendi.
 
-Çözüm Gezgini'nde çözümün adına sağ tıklayın ve eklemek ve daha önce uyguladığımız olarak AddToCart.aspx adlı yeni bir sayfa.
+Çözüm Gezgini ' nde çözüm adına sağ tıklayın ve daha önce yaptığımız gibi AddToCart. aspx adlı yeni bir sayfa ekleyin.
 
-Bu sayfada kararlılığımızın içinde düşük stok sorunları, vb., geçiş sonuçları görüntülemek için kullanabiliriz ancak sayfa gerçekten işlemek, ancak bunun yerine "Ekle" mantıksal çağrı ve yeniden yönlendirme.
+Bu sayfayı, düşük stok sorunları gibi ara sonuçları görüntülemek için kullanabiliriz, ancak uygulamamızda, sayfa aslında işlenmeyecektir, ancak "Ekle" mantığını ve yeniden yönlendirmeyi çağırır.
 
-Bunu gerçekleştirmek için aşağıdaki kod sayfasına ekleyeceğiz\_yükleme olayı.
+Bunu gerçekleştirmek için, sayfa\_Load olayına aşağıdaki kodu ekleyeceğiz.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample6.cs)]
 
-Biz bir sorgu dizesi parametresini ve bizim sınıfının addItem yöntemi çağırma alışveriş sepetine eklemek için ürün almakta olduğunu unutmayın.
+Bir QueryString parametresinden alışveriş sepetine eklemek ve sınıfınızın AddItem yöntemini çağırmak için ürünü aldığımızdan emin olmanız gerektiğini unutmayın.
 
-Hiçbir hata olmadığı kabul edilerek karşılaştı denetimi tamamen size sonraki uygulayacak SHoppingCart.aspx sayfasına geçirilir. Biz, bir hata yoksa bir özel durum.
+Bir hata ile karşılaşılmayan bir şekilde, bir sonraki adımda uygulayacağız olan SHoppingCart. aspx sayfasına geçirilen hiçbir hatayla karşılaşıyoruz. Bir hata olması halinde bir özel durum oluşturuyoruz.
 
-Şu anda henüz genel hata işleyicisi bu özel durumun uygulamamız tarafından işlenmemiş gitmesi gerekiyordu ancak Biz bu kısa bir süre içinde çözebilir uyguladık değil.
+Şu anda genel bir hata işleyicisini uyguladık, bu özel durum uygulamamız tarafından işlenmemiş olacak ancak kısa süre içinde devam edeceğiz.
 
-Ayrıca Debug.Fail() (aracılığıyla kullanılabilir deyimi kullanımına dikkat edin `using System.Diagnostics;)`
+Ayrıca, hata ayıklama. Fail () ifadesinin kullanımı (`using System.Diagnostics;)` aracılığıyla kullanılabilir)
 
-Olan uygulamayı hata ayıklayıcısı içinde çalışırken, bu yöntem belirttiğimiz hata iletisi ile birlikte uygulama durumu hakkındaki bilgileri içeren ayrıntılı bir iletişim kutusu görüntülenir.
+Uygulamanın hata ayıklayıcı içinde çalışıyor olması, bu yöntemin, uygulama durumu hakkında bilgiler içeren ayrıntılı bir iletişim kutusu görüntüler ve bu durum, belirlediğimiz hata iletisiyle birlikte, uygulamalar durumu hakkında bilgi gösterir.
 
-Üretimde deyimi yoksayıldı Debug.Fail() çalışırken.
+Üretimde çalışırken Debug. Fail () bildirisi yok sayılır.
 
-Bizim alışveriş sepeti sınıf adları "GetShoppingCartId" bir yönteme bir çağrı üzerindeki kodda fark edeceksiniz.
+"Getshoppingcartıd" alışveriş sepeti sınıfımızda bir yönteme yapılan çağrının üzerine bir çağrı yukarıdaki kodu görürsünüz.
 
-Yöntemi gibi uygulamak için kodu ekleyin.
+Yöntemi aşağıdaki şekilde uygulamak için kodu ekleyin.
 
-Ayrıca güncelleştirme ve kullanıma alma düğmeleri ve biz "Toplam" sepete burada görüntüleyebilirsiniz etiket ekledik olduğunu unutmayın.
+Ayrıca, "Toplam" sepetini görüntüleyebilmemiz için güncelleştirme ve kullanıma alma düğmelerini ve bir etiketi ekledik.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample7.cs)]
 
-Biz artık alışveriş sepetimizi öğeleri ekleyebilir, ancak bir ürün eklendikten sonra sepet görüntülenecek mantıksal uyguladık değil.
+Şimdi alışveriş sepetimize öğe ekleyebiliriz, ancak bir ürün eklendikten sonra sepeti görüntüleme mantığını uygulamadık.
 
-Bu nedenle, MyShoppingCart.aspx sayfasında EntityDataSource denetimini ve GridVire gibi ekleyeceğiz.
+Bu nedenle, MyShoppingCart. aspx sayfasında, aşağıdaki gibi bir EntityDataSource denetimi ve GridVire denetimi ekleyeceğiz.
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample8.aspx)]
 
-Form Tasarımcısı'nda ' kurmak alışveriş sepetini güncelleştir düğmesine çift tıklayın ve biçimlendirme bildiriminde belirtilen click olay işleyicisi oluşturmak için çağırın.
+Tasarımcı 'yı Güncelleştir düğmesine çift tıklayarak ve İşaretlemede bildirimde belirtilen Click olay işleyicisini oluşturabilmeniz için formu tasarımcıda çağırın.
 
-Ayrıntılar daha sonra uygulama ancak bunun yapılması oluşturacak bize ve hatasız uygulamamızı çalıştırmak.
+Ayrıntıları daha sonra uygulayacağız, ancak bunu yaptığınızda uygulamamızı hatasız olarak derleyip çalıştıralım.
 
-Uygulamayı çalıştırmak ve alışveriş sepetine öğe ekleme görürsünüz.
+Uygulamayı çalıştırıp alışveriş sepetine bir öğe eklediğinizde bunu görürsünüz.
 
 ![](tailspin-spyworks-part-5/_static/image2.jpg)
 
-Biz "varsayılan" kılavuz görüntüden üç özel sütunlar uygulayarak deviated olduğunu unutmayın.
+Üç özel sütun uygulayarak "varsayılan" kılavuz görüntüününden sapdık.
 
-İlk bir düzenlenebilir, "Bağlı" alanı miktarı için verilmiştir:
+Birincisi, miktar için düzenlenebilir, "bağlantılı" bir alandır:
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample9.aspx)]
 
-Sonraki satır (sipariş edilmesi gereken miktar kez öğesi maliyet) öğesi toplam "hesaplanan" sütununu şöyledir:
+Bir sonraki, satır öğe toplamı (sipariş edilecek miktar) gösteren "hesaplanan" bir sütundur:
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample10.aspx)]
 
-Son kullanıcının öğe alışveriş şemasından kaldırılması gerektiğini belirtmek için kullanacağı bir CheckBox denetimi içeren özel bir sütun vardır.
+Son olarak, kullanıcının öğenin alışveriş grafiğinden kaldırılması gerektiğini belirtmek için kullanacağı CheckBox denetimini içeren özel bir sütunu vardır.
 
 [!code-aspx[Main](tailspin-spyworks-part-5/samples/sample11.aspx)]
 
 ![](tailspin-spyworks-part-5/_static/image3.jpg)
 
-Gördüğünüz gibi toplam satır şimdi boş siparişin sipariş toplam hesaplamak için bazı mantık ekleyin.
+Görebileceğiniz gibi, Order Total satırı boş olduğundan, sipariş toplamını hesaplamak için bir mantık ekleyelim.
 
-Bir "GetTotal" yöntem ilk bizim MyShoppingCart sınıfına uygulayacaksınız.
+Önce MyShoppingCart sınıfımızda bir "GetTotal" yöntemi uygulayacağız.
 
-MyShoppingCart.cs dosyasına aşağıdaki kodu ekleyin.
+MyShoppingCart.cs dosyasında aşağıdaki kodu ekleyin.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample12.cs)]
 
-Ardından sayfasında\_Load olay işleyicisinde biz çağırabilir bizim GetTotal yöntemi. Aynı anda alışveriş sepetini boş olup olmadığını ve bu görüntü uygun şekilde ayarlamak için bir test ekleyeceğiz.
+Daha sonra sayfa\_Load olay işleyicisine GetTotal yönteminizi çağırabiliriz. Aynı zamanda, alışveriş sepetinin boş olup olmadığını görmek için bir test ekleyeceğiz.
 
-Alışveriş sepeti boşsa, artık bu aldığımız:
+Şimdi alışveriş sepeti boşsa şunu ediniyoruz:
 
 ![](tailspin-spyworks-part-5/_static/image4.jpg)
 
-Ve aksi takdirde, bizim toplam görüyoruz.
+Aksi takdirde, bizim toplamımızı görüyoruz.
 
 ![](tailspin-spyworks-part-5/_static/image5.jpg)
 
-Ancak, bu sayfa henüz tamamlanmadı.
+Ancak, Bu sayfa henüz tamamlanmadı.
 
-Alışveriş sepeti kaldırılmak üzere işaretlendi öğeleri kaldırarak ve bazı kılavuzda kullanıcı tarafından değiştirilmiş olabilecek yeni miktar değerlerini belirleyen ile yeniden hesaplamak için ilave bir mantık ihtiyacımız.
+Kaldırma için işaretlenen öğeleri kaldırarak ve yeni miktar değerlerini belirleyerek, Kullanıcı tarafından kılavuzda değiştirilmiş olabileceğinden, alışveriş sepetini yeniden hesaplamak için ek mantığa ihtiyacımız olacak.
 
-Bir kullanıcı bir öğeyi kaldırma işaretler, durumu işlemek için MyShoppingCart.cs bizim alışveriş sepeti sınıfında "da removeItem" yöntemi eklemek olanak tanır.
+Bir Kullanıcı bir öğeyi kaldırmak üzere işaretlediğinde durumu işlemek için MyShoppingCart.cs içindeki alışveriş sepeti sınıfımızın "RemoveItem" yöntemini eklemesini sağlar.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample13.cs)]
 
-Şimdi github'dan bir kullanıcı yalnızca içinde GridView sıralanmalıdır kalitesi değiştiğinde durumda işlemek için bir yöntem ad.
+Şimdi, bir Kullanıcı bir kaliteyi GridView 'da sipariş olacak şekilde değiştirdiğinde, bu, bir yöntemi ele alalım.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample14.cs)]
 
-Temel özelliklerle Kaldır ve güncelleştirme yerinde gerçekten veritabanında alışveriş sepetini güncelleştirme mantığı uygulayabilir. (MyShoppingCart.cs içinde)
+Temel kaldırma ve güncelleştirme özellikleriyle birlikte, veritabanındaki alışveriş sepetini gerçekten güncelleştiren mantığı uygulayabiliriz. (MyShoppingCart.cs)
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample15.cs)]
 
-Bu yöntem, iki parametre bekliyor unutmayın. Bir alışveriş sepeti kimliği ve diğer kullanıcı tanımlı türü nesnelerin dizisi.
+Bu yöntemin iki parametre beklediğini unutmayın. Bunlardan biri, alışveriş sepeti kimliğidir ve diğeri Kullanıcı tanımlı türdeki nesnelerin bir dizisidir.
 
-Bağımlılık bizim mantığı kullanıcı arabirimi özellikleri hakkında en aza indirmek için alışveriş sepetine öğe kodumuz için sunduğumuz yöntemi GridView denetiminde doğrudan bağlanmasına gerek geçirmek için kullanabileceğiniz bir veri yapısı tanımladınız.
+Bu nedenle, Kullanıcı arabirimi özellikleri üzerinde mantığımız bağımlılığı en aza indirmek için, GridView denetimine doğrudan erişme gereksinimi olmadan, alışveriş sepeti öğelerini kodumuza iletmek üzere kullandığımız bir veri yapısı tanımladık.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample16.cs)]
 
-Bizim MyShoppingCart.aspx.cs dosyasında bu yapı bizim güncelleştirme düğmesine tıklayın olay işleyicisi aşağıdaki gibi kullanabiliriz. Alışveriş sepetini güncelleştirme yanı sıra biz de sepet toplam güncelleştirileceğini unutmayın.
+MyShoppingCart.aspx.cs dosyanızda, bu yapıyı Güncelleştir düğümüzde olay işleyicisi ' ne tıklayarak aşağıda bulabilirsiniz. Sepet güncelleştirmesinin yanı sıra sepet toplamı da güncelleştirilecektir.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample17.cs)]
 
-Bu kod satırı ile yakından unutmayın:
+Bu kod satırıyla ilgili belirli bir ilgi olduğunu aklınızda edin:
 
 [!code-javascript[Main](tailspin-spyworks-part-5/samples/sample18.js)]
 
-GetValues() MyShoppingCart.aspx.cs içinde şu şekilde uygulayan bir özel yardımcı işlevdir.
+GetValues (), MyShoppingCart.aspx.cs içinde aşağıdaki gibi uygulayacağız özel bir yardımcı işlevdir.
 
 [!code-csharp[Main](tailspin-spyworks-part-5/samples/sample19.cs)]
 
-Bu, bizim GridView denetimindeki ilişkili öğe değerlerini erişmek için temiz bir yol sağlar. Bizim "Öğeyi kaldır" onay kutusu denetimi bağlı değilse bu yana biz FindControl() yöntemi erişirsiniz.
+Bu, GridView denetimizdeki bağlantılı öğelerin değerlerine erişmenin temiz bir yolunu sağlar. "Öğe kaldır" onay kutusu denetimi bağlanmadı çünkü bu, FindControl () yöntemiyle erişeceğiz.
 
-Bu, projenizin geliştirme aşamasında size kullanıma alma işlemini uygulamak hazır hazırlanıyoruz.
+Projenizin geliştirmesinde bu aşamada, kullanıma alma işlemini uygulamaya hazırız.
 
-Şimdi bunu önce üyelik veritabanı oluşturun ve üyelik depoya bir kullanıcı eklemek için Visual Studio'yu kullanın.
+Bunu yapmadan önce, üyelik veritabanını oluşturmak ve üyelik deposuna bir kullanıcı eklemek için Visual Studio 'Yu kullanalım.
 
 > [!div class="step-by-step"]
 > [Önceki](tailspin-spyworks-part-4.md)

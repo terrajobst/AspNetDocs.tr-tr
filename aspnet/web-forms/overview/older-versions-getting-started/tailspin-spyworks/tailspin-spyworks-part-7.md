@@ -1,234 +1,234 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: 'Bölüm 7: Özellik ekleme | Microsoft Docs'
+title: '7\. Bölüm: özellik ekleme | Microsoft Docs'
 author: JoeStagner
-description: Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 7. Bölüm hesabı geçirme gibi ek özellikler ekler...
+description: Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. Bölüm 7, hesap yeniden görünümü gibi ek özellikler ekler...
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 50223ee9-11b9-4cf3-bca2-e2f10bf471f3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: ffd2b862c727db9572c272b7b21bcc33c822fffa
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126866"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641997"
 ---
-# <a name="part-7-adding-features"></a>Bölüm 7: Özellik Ekleme
+# <a name="part-7-adding-features"></a>7\. Bölüm: Özellik Ekleme
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
+> Tailspin Spyworks, .NET platformu için güçlü ve ölçeklenebilir uygulamalar oluşturmanın ne kadar kolay olduğunu gösterir. Alışveriş, kullanıma alma ve yönetim dahil olmak üzere çevrimiçi mağaza oluşturmak için ASP.NET 4 ' te harika yeni özelliklerin nasıl kullanılacağını gösterir.
 > 
-> Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 7. Bölüm hesabı gözden geçirme, ürün incelemeleri ve "popüler öğeler" ve "Ayrıca satın alınan" kullanıcı denetimleri gibi ek özellikler ekler.
+> Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. Bölüm 7, hesap incelemesi, Ürün İncelemeleri ve "popüler öğeler" ve "Ayrıca satın alınan" Kullanıcı denetimleri gibi ek özellikler ekler.
 
-## <a id="_Toc260221673"></a>  Özellik ekleme
+## <a id="_Toc260221673"></a>Özellik ekleme
 
-Kullanıcılar kataloğumuzu göz atabilirsiniz ancak öğe, alışveriş sepetine içinde yerleştirin ve kullanıma alma işlemini tamamlamak, biz sitemizi geliştirmek için içerecektir destekleme birkaç özellikleri vardır.
+Kullanıcılar kataloğumuza göz atabiliyor, bunları kendi alışveriş sepetine yerleştirse ve kullanıma alma işlemini tamamlayabilse de, sitemizi geliştirmek için dahil ettiğimiz birçok destekleyici özelliği vardır.
 
-1. Hesap gözden geçirme (listesi. siparişler yerleştirilir ve ayrıntılarına bakın)
-2. Bazı bağlam belirli bir içeriğe ön sayfaya ekleyin.
-3. Kullanıcıların gözden geçirme sağlamak için bir özellik ürün kataloğunda ekleyin.
-4. Popüler öğeler ve yerde denetleyen ön sayfada görüntülemek için bir kullanıcı denetimi oluşturun.
-5. "Ayrıca satın alınan" bir kullanıcı denetimi oluşturun ve ürün ayrıntıları sayfasına ekleyin.
-6. Bir kişi Ekle sayfası.
-7. Ekleme bir sayfa hakkında.
+1. Hesap Incelemesi (verilen siparişleri listeleyin ve ayrıntıları görüntüleyin.)
+2. İlk sayfaya belirli bir içeriğe özgü içerik ekleyin.
+3. Kullanıcıların katalogdaki ürünleri Incelemesine izin vermek için bir özellik ekleyin.
+4. Popüler öğeleri göstermek ve bu denetimi ön sayfaya yerleştirmek için bir kullanıcı denetimi oluşturun.
+5. "Ayrıca satın alınmış" Kullanıcı denetimi oluşturun ve ürün ayrıntıları sayfasına ekleyin.
+6. Kişi sayfası ekleyin.
+7. Hakkında bir sayfa ekleyin.
 8. Genel hata
 
-## <a id="_Toc260221674"></a>  Hesap gözden geçirme
+## <a id="_Toc260221674"></a>Hesap Incelemesi
 
-"Hesap" klasöründe bir adlandırılmış OrderList.aspx ve adlandırılmış bir OrderDetails.aspx iki .aspx sayfası oluşturma
+"Account" klasöründe, farklı bir OrderList. aspx adlı ve diğer adlandırılmış OrderDetails. aspx adlı iki. aspx sayfası oluşturun
 
-Daha önce sahip olduğumuz kadar OrderList.aspx GridView ve EntityDataSource denetimleri özelliğinden yararlanır.
+OrderList. aspx, daha önce yaptığımız gibi GridView ve EntityDataSource denetimlerinden faydalanır.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample1.aspx)]
 
-Kullanıcı adı özniteliklerinde filtrelenmiş Siparişler tablosundan kayıtları EntityDataSource seçer (WhereParameter bakın) kullanıcı oturumunun kullanıcının, bir oturum değişkeni içinde ayarlarız.
+EntityDataSource, Kullanıcı oturumunun oturum açması sırasında bir oturum değişkeninde belirlediğimiz Kullanıcı adında (burada, bkz. parametre) filtrelenmiş Orders tablosundan kayıtlar seçer.
 
-Ayrıca bu parametreleri GridView'ın HyperlinkField dikkat edin:
+GridView 'un Hyperlinkalanındaki bu parametreleri de göz önünde bulabilirsiniz:
 
 [!code-xml[Main](tailspin-spyworks-part-7/samples/sample2.xml)]
 
-Bu bağlantı ayrıntılarını görüntüleyebilmek OrderDetails.aspx sayfasına bir sorgu dizesi parametresi olarak OrderID alan belirtilmesi her ürün için belirtin.
+Bu, OrderDetails. aspx sayfasına bir QueryString parametresi olarak OrderID alanını belirten her ürün için sipariş ayrıntıları görünümünün bağlantısını belirtir.
 
-## <a id="_Toc260221675"></a>  OrderDetails.aspx
+## <a id="_Toc260221675"></a>OrderDetails. aspx
 
-Siparişler ve tüm sipariş satır öğeleri görüntülemek için bir FormView'da sipariş verilerini ve GridView ile başka bir EntityDataSource görüntülenecek erişmek için bir EntityDataSource denetimini kullanacağız.
+Siparişe ve bir FormView 'a erişmek için bir EntityDataSource denetimi kullanacağız ve tüm sipariş satır öğelerini görüntüleyen bir GridView ile başka bir EntityDataSource 'a sahiptir.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample3.aspx)]
 
-Kod dosyasında (OrderDetails.aspx.cs) iki biraz temizlik bitlerini sahibiz.
+Arka plan kodu dosyasında (OrderDetails.aspx.cs), iki adet evetme tutuyoruz.
 
-İlk olarak biz OrderDetails her zaman bir OrderID alır emin olmanız gerekir.
+İlk olarak OrderDetails 'in her zaman bir OrderID aldığından emin olmanız gerekir.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample4.cs)]
 
-Ayrıca hesaplamak ve satır öğeleri toplam sırayı görüntülemek ihtiyacımız var.
+Ayrıca, satır öğelerinden sipariş toplamını hesaplamakta ve görüntüleriz.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>  Giriş sayfası
+## <a id="_Toc260221676"></a>Giriş sayfası
 
-Bazı statik içeriklerin Default.aspx sayfasına ekleyelim.
+Default. aspx sayfasına bazı statik içerik ekleyelim.
 
-İlk "İçerik" klasörünü oluşturacaksınız ve içerdiği bir Resimler klasörü (ve giriş sayfasında kullanılacak bir görüntü yer alacak.)
+İlk olarak bir "Içerik" klasörü ve bir Resimler klasörü oluşturacak (ana sayfada kullanılacak bir görüntü de ekleyeceğiz.)
 
-Default.aspx sayfasında alt tutucusu aşağıdaki işaretlemeyi ekleyin.
+Default. aspx sayfasının en alt yer tutucusuna aşağıdaki biçimlendirmeyi ekleyin.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>  Ürün incelemeleri
+## <a id="_Toc260221677"></a>Ürün Incelemeleri
 
-Ürün gözden geçirmesi girmek için kullanabileceğiniz bir forma ilk bağlantısını içeren bir düğme ekleyeceğiz.
+İlk olarak, bir ürün incelemesi girmek için kullandığımız bir formun bağlantısını içeren bir düğme ekleyeceğiz.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample7.aspx)]
 
 ![](tailspin-spyworks-part-7/_static/image1.jpg)
 
-ProductID sorgu dizesinde geçiriyoruz olduğunu unutmayın.
+ProductID 'yi sorgu dizesinde geçirdiğimiz unutulmamalıdır
 
-Sonraki sayfa ReviewAdd.aspx adlı ekleyelim
+Daha sonra, BelgeAdı \ Add. aspx adlı sayfayı ekleyelim
 
-Bu sayfa, ASP.NET AJAX Denetim Araç Seti kullanır. Buradan indirebileceğiniz şekilde, zaten yapmadıysanız, [DevExpress](http://devexpress.com/act) ve araç seti Visual Studio ile burada kullanmak için ayarlama hakkında yönergeler ise [ https://www.asp.net/learn/ajax-videos/video-76.aspx ](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+Bu sayfa, ASP.NET AJAX denetim araç setini kullanacaktır. Daha önce yapmadıysanız, [DevExpress](http://devexpress.com/act) 'den indirebilirsiniz ve burada [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)Visual Studio ile kullanmak üzere araç takımını ayarlamaya yönelik yönergeler vardır.
 
-Tasarım modunda denetimler ve doğrulayıcılar araç kutusundan sürükleyin ve aşağıdaki gibi bir form oluşturun.
+Tasarım modunda, araç kutusu ' ndan denetimleri ve Doğrulayıcıları sürükleyin ve aşağıdaki gibi bir form oluşturun.
 
 ![](tailspin-spyworks-part-7/_static/image2.jpg)
 
-Biçimlendirme, aşağıdaki gibi görünmelidir.
+Biçimlendirme şuna benzer şekilde görünecektir.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample8.aspx)]
 
-Biz incelemeleri girebilirsiniz, ürün sayfasında bu incelemeleri görüntülemek olanak tanır.
+İncelemeleri girebilmemiz için artık bu İncelemeleri ürün sayfasında görüntülemesine olanak tanır.
 
-Bu işaretleme ProductDetails.aspx sayfasına ekleyin.
+Bu biçimlendirmeyi ProductDetails. aspx sayfasına ekleyin.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample9.aspx)]
 
-Şimdi uygulamamız çalıştıran ve bir ürün için gezinme müşteri incelemeleri de dahil olmak üzere ürün bilgileri gösterir.
+Uygulamamızı şimdi çalıştırmak ve bir ürüne gitmek, müşteri incelemeleri dahil ürün bilgilerini gösterir.
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>  Sık kullanılan öğe denetimi (kullanıcı denetimleri oluşturma)
+## <a id="_Toc260221678"></a>Popüler öğeler denetimi (Kullanıcı denetimleri oluşturma)
 
-Web sitenizde satışları artırmak için birkaç özellik "müstehcen sell" popüler veya ilgili ürünler ekleyeceğiz.
+Web sitenizdeki satışları artırmak için, "müstehcen satış" popüler veya ilgili ürünlere birkaç özellik ekleyeceğiz.
 
-Bu özelliklerin ilk ürün kataloğu daha popüler ürün listesi olacaktır.
+Bu özelliklerden ilki, ürün kataloğumuza ait daha popüler ürünün bir listesi olacaktır.
 
-"Kullanıcı satış uygulamamız giriş sayfasındaki öğelerin üst görüntülenecek denetimi" oluşturacağız. Bu denetim olacağından, bunu herhangi bir sayfa üzerinde yalnızca sürükleyip istiyoruz herhangi bir sayfaya Visual Studio'nun Tasarımcısı'nda denetim bırakarak kullanabiliriz.
+Uygulamamızın giriş sayfasında en çok satılan öğeleri göstermek için bir "Kullanıcı denetimi" oluşturacağız. Bu bir denetim olacağı için, Visual Studio tasarımcısında denetimi istediğiniz herhangi bir sayfada sürükleyip bırakarak bu denetimi herhangi bir sayfada kullanabiliriz.
 
-Visual Studio Çözüm Gezgini'nde, çözüm adına sağ tıklayın ve "Controls" adlı yeni bir dizin oluşturun. Bunu yapmak gerekli olmamasına karşın, biz "Controls" dizininde bizim kullanıcı denetimleri oluşturarak Projemizin kalmasına yardımcı olur.
+Visual Studio 'nun Çözüm Gezgini ' nde çözüm adına sağ tıklayın ve "denetimler" adlı yeni bir dizin oluşturun. Bunun yapılması gerekli olmasa da, "denetimler" dizinindeki tüm Kullanıcı denetimlerimizi oluşturarak projemizi düzenli tutmaya yardımcı olacak.
 
-Denetimleri klasörü sağ tıklatın ve "Yeni öğe" seçin:
+Denetimler klasörüne sağ tıklayın ve "yeni öğe" yi seçin:
 
 ![](tailspin-spyworks-part-7/_static/image4.jpg)
 
-"PopularItems" bizim denetimi için bir ad belirtin. Kullanıcı denetimleri için dosya uzantısı .ascx değil .aspx olduğuna dikkat edin.
+"Popularıtems" denetiimizin bir adını belirtin. Kullanıcı denetimleri için dosya uzantısının. ascx değil. aspx olduğunu unutmayın.
 
-Popüler öğeleri kullanıcı denetimimiz şu şekilde tanımlanır.
+Popüler öğelerimiz Kullanıcı denetimi, aşağıdaki gibi tanımlanacak.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample10.aspx)]
 
-Burada henüz bu uygulamada kullandık olmayan bir yöntem kullanıyoruz. Repeater denetimiyle kullanıyoruz ve bir veri kaynağı denetimi kullanmak yerine Repeater denetiminde bir LINQ to Entities sorgusunda sonuçlarını bağlıyoruz.
+Burada, bu uygulamada henüz kullandığımız bir yöntemi kullanıyoruz. Yineleyici denetimini kullandık ve bir veri kaynağı denetimi kullanmak yerine, yineleyici denetimini bir LINQ to Entities sorgusunun sonuçlarına bağlamamız yapıyoruz.
 
-Arka plan kod bizim denetiminin içinde şu şekilde desteklemiyoruz.
+Denetiminizin arkasındaki kodda aşağıdaki gibi yaptık.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample11.cs)]
 
-Ayrıca, bu önemli satır üst bizim denetimin biçimlendirme unutmayın.
+Ayrıca Denetim işaretimizin en üstündeki bu önemli satırı göz önünde bulundurulın.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample12.aspx)]
 
-En popüler öğeleri, bir dakika için dakika başına değiştirme olmaz beri uygulamamız performansını artırmak için bir ağrıları getirir yönergesi ekleyebiliriz. Bu yönerge, önbelleğe alınan çıkış denetimi süresi dolduğunda, yalnızca yürütülecek denetimleri koda neden olur. Aksi takdirde, denetimin çıkışı önbelleğe alınmış sürümünü kullanılır.
+En popüler öğeler dakika temelinde değiştirilmeyeceği için uygulamamız performansını artırmak üzere bir aching yönergesi ekleyebiliriz. Bu yönerge, Denetim kodunun yalnızca, denetimin önbelleğe alınan çıktısı zaman aşımına uğradığında yürütülmesine neden olur. Aksi takdirde, denetimin çıktısının önbelleğe alınmış sürümü kullanılacaktır.
 
-Biz yapmanız gereken tek şey artık yeni denetimimiz Default.aspx sayfamızı içerir.
+Şimdi yaptığımız tek şey, default. aspx sayfamızda yeni denetimimizi içerir.
 
-Kullanım sürükleyip varsayılan formumuzun Aç sütununda bir denetim örneği yerleştirmek için.
+Bir denetimin örneğini varsayılan formumuzu Aç sütununa yerleştirmek için sürükle ve bırak öğesini kullanın.
 
 ![](tailspin-spyworks-part-7/_static/image5.jpg)
 
-Şimdi uygulamamız giriş sayfasında ne zaman çalıştırıyoruz, en popüler öğeleri görüntüler.
+Uygulamamızı çalıştırdığımızda, giriş sayfasında en popüler öğeler görüntülenir.
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>  "Ayrıca satın alınan" Denetim (parametrelerle kullanıcı denetimleri)
+## <a id="_Toc260221679"></a>"Ayrıca satın alınan" denetim (parametrelerle Kullanıcı denetimleri)
 
-İkinci kullanıcı denetimi oluşturacağız müstehcen içerik belirginliğe ekleyerek bir sonraki düzeye satış olacaktır.
+Oluşturacağımız ikinci Kullanıcı denetimi, bağlam özelliği ekleyerek bir sonraki düzeye göre daha fazla satıyor olacaktır.
 
-"Ayrıca satın alınan" üst öğeleri hesaplamak için mantık önemsiz değil.
+En üstteki "Ayrıca satın alınan" öğeleri hesaplama mantığı önemsiz değildir.
 
-"Ayrıca satın alınan" denetimimiz (önceden satın alınan) OrderDetails kayıtları için şu anda seçili ProductID seçin ve bulunan her bir benzersiz siparişi için OrderIDs alın.
+"Ayrıca satın almış olan" denetim, seçili olan ProductID için OrderDetails kayıtlarını (daha önce satın alınan) seçer ve bulunan her benzersiz sipariş için OrderID 'leri alacak.
 
-Ardından al ürünleri tüm bu siparişleri ve miktarları satın alınan toplam seçiyoruz. Biz ürünleri miktar toplamı sıralamak ve ilk beş öğeleri görüntüleyebilirsiniz.
+Ardından, tüm bu siparişlerden ürünleri Al ' ı seçeceğiz ve satın alınan miktarları toplammız gerekir. Ürünleri bu miktar toplamına göre sıralayacak ve ilk beş öğeyi görüntüleyecek.
 
-Bu mantık karmaşıklığını göz önünde bulundurulduğunda, biz bir saklı yordam bu algoritma uygular.
+Bu mantığın karmaşıklığı verildiğinde, bu algoritmayı saklı yordam olarak uygulayacağız.
 
 Saklı yordam için T-SQL aşağıdaki gibidir.
 
 [!code-sql[Main](tailspin-spyworks-part-7/samples/sample13.sql)]
 
-Biz bunu uygulamamız ve biz size, tablolar ve görünümler varlık veri modeli, ihtiyacımız, ek olarak belirtilen varlık veri modeli oluşturulan eklendiğinde bu saklı yordamı (SelectPurchasedWithProducts) veritabanında var olduğunu unutmayın. Bu saklı yordamı eklemeniz gerekir.
+Bu saklı yordamın (SelectPurchasedWithProducts) uygulamamıza dahil ettiğimiz sırada olduğunu ve belirttiğimiz Varlık Veri Modeli oluşturduğumuzdan, gereken tablo ve görünümlere ek olarak, Varlık Veri Modeli Bu saklı yordamı içermelidir.
 
-Varlık veri modeli saklı yordamı erişmek için biz işlevi aktarmanız gerekir.
+Saklı yordama Varlık Veri Modeli erişmek için, işlevi içeri aktarmanız gerekir.
 
-Varlık veri modeli Tasarımcısı'nda açın ve Model tarayıcı açmak için Çözüm Gezgini'nde çift tıklayın, sonra tasarımcıda sağ tıklayın ve "İşlevi Al Ekle"'ı seçin.
+Çözüm Gezgini 'ndeki Varlık Veri Modeli çift tıklayarak tasarımcıda açın ve model tarayıcısını açın, sonra tasarımcıya sağ tıklayıp "Işlev Içeri aktarma Ekle" seçeneğini belirleyin.
 
 ![](tailspin-spyworks-part-7/_static/image1.png)
 
-Bunun yapılması, bu iletişim kutusunu açar.
+Bu işlem, bu iletişim kutusunu açar.
 
 ![](tailspin-spyworks-part-7/_static/image2.png)
 
-Yukarıdaki "SelectPurchasedWithProducts" seçerek gördüğünüz gibi alanları doldurun ve yordam adı için sunduğumuz içeri aktarılan bir işlevin adını kullanın.
+Yukarıda gördüğünüz gibi alanları doldurun, "SelectPurchasedWithProducts" öğesini seçin ve içeri aktarılan işlevimizin adı için yordam adını kullanın.
 
-"Tamam" düğmesini tıklatın.
+"Tamam" a tıklayın.
 
-Bu size herhangi bir öğeyi model, olabileceği gibi biz karşı saklı yordamı yalnızca programlayabileceğiniz yapılır.
+Bunu yaptıktan sonra, modeldeki başka herhangi bir öğe olabileceğinden, saklı yordama göre programlayabilirsiniz.
 
-Bu nedenle bizim "Controls" klasöründe AlsoPurchased.ascx adlı yeni bir kullanıcı denetimi oluşturun.
+Bu nedenle, "denetimlerimiz" klasöründe AlsoPurchased. ascx adlı yeni bir kullanıcı denetimi oluşturun.
 
-Bu denetim için biçimlendirme PopularItems denetime çok tanıdık gelecektir.
+Bu denetimin biçimlendirmesi, Popularıtems denetimine çok tanıdık gelecektir.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample14.aspx)]
 
-İşlenecek öğenin ürüne göre değişir olduğundan, çıktıyı önbelleğe değil önemli fark vardır.
+Önemli farkı, öğenin işlenmesi, ürüne göre farklı olacağı için çıktıyı önbelleğe alma işlemlerdir.
 
-ProductID denetlemek için "özelliği" olacaktır.
+ProductID, denetimin bir "özelliği" olacaktır.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample15.cs)]
 
-Denetimin PreRender olayını işleyicisi şu üç şeyi yapmak için eed.
+Denetimin PreRender olay işleyicisinde üç şey yapmak için göz yorduk.
 
-1. ProductID ayarlandığından emin olun.
-2. Satın alınan geçerli ürünleriyle olup olmadığına bakın.
-3. #2'de belirlendiği bazı öğeler çıktı.
+1. ProductID 'nin ayarlandığından emin olun.
+2. Geçerli bir ürünle satın alınmış ürünler olup olmadığını görün.
+3. Bazı öğelerin #2 belirlendiği şekilde çıkışını yapın.
 
-Modeli aracılığıyla saklı yordam çağrısı ne kadar kolay olduğunu unutmayın.
+Saklı yordamı model aracılığıyla çağırmanın ne kadar kolay olduğunu öğrenin.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample16.cs)]
 
-Belirledikten sonra burada "Ayrıca satın alınan" biz yalnızca yineleyici sorgu tarafından döndürülen sonuçlar bağlayabilirsiniz.
+"Ayrıca satın alındı" olduğunu belirlemekten sonra, yineleyicisi 'ni sorgu tarafından döndürülen sonuçlara bağlayabiliriz.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample17.cs)]
 
-"Ayrıca satın alınan" tüm öğeler ise yalnızca diğer popüler öğeler bizim kataloğundan görüntüleyeceğiz.
+"Ayrıca satın alınmış" öğeler yoksa kataloğumuzdan diğer popüler öğeleri görüntüleriz.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample18.cs)]
 
-"Ayrıca satın alınan" öğeleri görüntülemek için ProductDetails.aspx sayfasını açın ve biçimlendirme içinde bu konumda görünmesi Çözüm Gezgini'nden AlsoPurchased denetimi sürükleyin.
+"Ayrıca satın alınan" öğeleri görüntülemek için ProductDetails. aspx sayfasını açın ve AlsoPurchased denetimini, bu konumda görünmesini sağlamak üzere Çözüm Gezgini 'nden sürükleyin.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample19.aspx)]
 
-Bunun yapılması tazelemek sayfanın en üstündeki denetimin bir başvuru oluşturur.
+Bu işlem, ProductDetails sayfasının en üstünde bulunan denetime bir başvuru oluşturur.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample20.aspx)]
 
-ProductID birkaç AlsoPurchased kullanıcı denetimini gerektirdiğinden denetimimiz ProductID özelliğini bir sayfanın geçerli veri modeli öğesi Eval deyimini kullanarak ayarlayacağız.
+AlsoPurchased Kullanıcı denetimi bir ProductID numarası gerektirdiğinden, sayfanın geçerli veri modeli öğesine karşı bir eval ekstresi kullanarak denetimizin ProductID özelliğini ayarlayacağız.
 
 ![](tailspin-spyworks-part-7/_static/image3.png)
 
-Oluşturmamızı ve şimdi çalıştırmak ve ürüne göz atın, "Ayrıca satın alınan" öğeleri görüyoruz.
+Şimdi oluşturup çalıştırdığımızda bir ürüne gözattığınızda, "Ayrıca satın alındı" öğelerini görtik.
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 

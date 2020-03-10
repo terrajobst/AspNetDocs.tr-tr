@@ -9,11 +9,11 @@ ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
 ms.openlocfilehash: cdcb3578725c41e3c801afd54e6d34455bc4b281
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74618523"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78636999"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: veritabanı dağıtımı için hazırlanma
 
@@ -192,7 +192,7 @@ SQL Server Yükleme Merkezi ' nin ilk sayfasında, **yeni SQL Server tek başın
 7. **BETIK kullanım veritabanını** **yanlış**olarak değiştirin. USE deyimleri Azure SQL veritabanı için geçerli değildir ve test ortamında SQL Server Express dağıtım için gerekli değildir.
 
     ![Yalnızca SSMS betik verileri, USE bildirisi yok](preparing-databases/_static/image13.png)
-8. **Tamam**'a tıklayın.
+8. **Tamam**’a tıklayın.
 9. **Komut dosyaları oluştur ve Yayımla** Iletişim kutusunda **dosya adı** kutusu, betiğin nerede oluşturulacağını belirtir. Çözüm klasörünüzün yolunu (ContosoUniversity. sln dosyasını içeren klasör) ve dosya adını *ASPNET-Data-dev. SQL*olacak şekilde değiştirin.
 10. **İleri** ' ye tıklayarak **Özet** sekmesine gidin ve ardından yeniden **İleri** ' ye tıklayarak betiği oluşturun.
 
@@ -209,7 +209,7 @@ Projeyi üretim veritabanıyla çalıştırmadığınız için, henüz LocalDB �
 2. **Veritabanları Ekle** Iletişim kutusunda **Ekle** ' ye tıklayın ve ardından *App\_veri* klasöründeki *ASPNET-ContosoUniversity-prod. mdf* dosyasına gidin.
 
      ![SSMS eklenecek. mdf dosyası Ekle](preparing-databases/_static/image16.png)
-3. **Tamam**'a tıklayın.
+3. **Tamam**’a tıklayın.
 4. Daha önce üretim dosyası için bir komut dosyası oluşturmak üzere kullandığınız yordamın aynısını izleyin. Betik dosyası *ASPNET-Data-prod. SQL*olarak adlandırın.
 
 ## <a name="summary"></a>Özet
@@ -220,7 +220,7 @@ Her iki veritabanı artık dağıtılmaya hazırdır ve çözüm klasörünüzde
 
 Aşağıdaki öğreticide, dağıtımı etkileyen proje ayarlarını yapılandırır ve dağıtılan uygulamada farklı olması gereken ayarlar için otomatik *Web. config* dosyası dönüştürmeleri ayarlarsınız.
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha Fazla Bilgi
 
 NuGet hakkında daha fazla bilgi için bkz. NuGet ve [NuGet belgeleriyle](http://docs.nuget.org/docs/start-here/overview) [Proje kitaplıklarını yönetme](https://msdn.microsoft.com/magazine/hh547106.aspx) . NuGet 'i kullanmak istemiyorsanız, ne zaman yüklendiğini belirlemek için bir NuGet paketini nasıl analiz edeceğinizi öğrenmeniz gerekir. (Örneğin, *Web. config* dönüşümlerini yapılandırabilir, PowerShell betiklerini derleme zamanında çalışacak şekilde yapılandırabilir vs.) NuGet 'in nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. bir paket ve [yapılandırma dosyası ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations) [oluşturma ve yayımlama](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) .
 

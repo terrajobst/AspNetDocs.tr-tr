@@ -1,355 +1,355 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: Temel programlama - ASP.NET Web sayfaları ile tanışın | Microsoft Docs
+title: ASP.NET Web sayfalarına giriş-Programlama Temelleri | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici, Razor sözdizimi olan ASP.NET Web Pages'de program hakkında genel bakış sağlar. Öğrenecekleriniz: Çekme isteği için kullandığınız temel \"Razor\" sözdizimi..."
+description: "Bu öğreticide, ASP.NET Web sayfalarındaki programın Razor söz dizimi ile nasıl kullanılacağına ilişkin bir genel bakış sunulmaktadır. Öğrenirsiniz: çekme isteği için kullandığınız temel ' Razor ' söz dizimi..."
 ms.author: riande
 ms.date: 06/17/2015
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
 ms.openlocfilehash: 474de7671ac2931e5ba9ff635d77385403644521
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130502"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628480"
 ---
-# <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfaları - Programlama temelleri ile tanışın
+# <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfalarına giriş-Programlama Temelleri
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici, Razor sözdizimi olan ASP.NET Web Pages'de program hakkında genel bakış sağlar.
+> Bu öğreticide, ASP.NET Web sayfalarındaki programın Razor söz dizimi ile nasıl kullanılacağına ilişkin bir genel bakış sunulmaktadır.
 > 
 > Öğrenecekleriniz:
 > 
-> - ASP.NET Web Pages'de programlamayı için kullandığınız temel "Razor" sözdizimi.
-> - Bazı temel C#, kullandığınız hesap programlama dili olan.
-> - Bazı temel programlama kavramlarını Web sayfaları için.
-> - Sitenizin kullanılacak (önceden oluşturulmuş kodu içeren bileşenleri) paketleri yükleme.
-> - Nasıl kullanılacağını *Yardımcıları* ortak programlama görevlerinin yerine getirilmesi.
+> - ASP.NET Web sayfalarında programlama için kullandığınız temel "Razor" söz dizimi.
+> - Kullanacağınız programlama C#dili olan bazı temel.
+> - Web sayfaları için bazı temel programlama kavramları.
+> - Sitenizde kullanmak için paketleri (önceden oluşturulmuş kod içeren bileşenler) yüklemek.
+> - Ortak programlama görevlerini gerçekleştirmek için *yardımcıları* kullanma.
 >   
 > 
-> Ele alınan özelliklerin/teknolojiler:
+> Ele alınan özellikler/teknolojiler:
 > 
-> - Ve NuGet Paket Yöneticisi.
+> - NuGet ve Paket Yöneticisi.
 > - `Gravatar` Yardımcısı.
 
-Bu öğretici, ASP.NET Web sayfaları için kullanacağınız için programlama sözdizimi ile tanışın, öncelikle bir alıştırma bölümüdür. Hakkında bilgi edineceksiniz *Razor sözdizimi* ve C# dilinde yazılmış kod programlama dili. Önceki öğreticide Bu sözdizimi bir bakışta aldığınız; Bu öğreticide daha fazla söz dizimi açıklayacağız.
+Bu öğretici, birincil olarak ASP.NET Web sayfaları için kullanacağınız programlama söz dizimini size tanıtan bir uygulamadır. *Razor söz dizimi* ve C# programlama dilinde yazılmış kod hakkında bilgi edineceksiniz. Önceki öğreticide bu söz dizimi hakkında bir göz aldınız; Bu öğreticide söz dizimini daha fazla açıklayacağız.
 
-Bu öğreticide, tek bir öğreticide görürsünüz ve olan yalnızca bir öğretici olduğu programlama en içerdiğini etmeyeceğiz *yalnızca* programlama hakkında. Bu kümedeki kalan öğreticilerde, ilgi çekici şeyler sayfaları gerçekten oluşturacaksınız.
+Bu öğreticinin, tek bir öğreticide göreceğiniz ve *yalnızca* programlama ile ilgili tek öğreticinin bulunduğu birçok programı gerektirdiğini taahhüt ediyoruz. Bu küme içindeki diğer öğreticilerde aslında ilginç şeyler yapan sayfalar oluşturacaksınız.
 
-Hakkında bilgi edineceksiniz *Yardımcıları*. Yardımcı bir bileşenidir; kod parçasını paketlenmiş yukarı — bir sayfaya ekleyebileceğiniz. Yardımcı, aksi takdirde tedious veya el ile yapmak için karmaşık olabilir, çalışma gerçekleştirir.
+Ayrıca, *yardımcılar*hakkında bilgi edineceksiniz. Yardımcı, bir sayfaya ekleyebileceğiniz, paketlenmiş bir kod parçası olan bir bileşendir. Yardımcı, sizin tarafınızdan sizin için sıkıcı veya karmaşık olabilecek bir şekilde iş gerçekleştirir.
 
-## <a name="creating-a-page-to-play-with-razor"></a>Razor ile yürütmek için bir sayfa oluşturma
+## <a name="creating-a-page-to-play-with-razor"></a>Razor ile oynatmak için bir sayfa oluşturma
 
-Temel söz dizimi bir fikir alabilmeniz için bu bölümde, biraz Razor ile oynatın.
+Bu bölümde, temel söz dizimi hakkında fikir sahibi olmak için Razor ile bir bit oynayacağız.
 
-WebMatrix, zaten çalışıyorsa başlatın. Önceki öğreticide oluşturulan Web sitesi kullanmanız gerekir ([Web sayfaları ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkId=251578)). Yeniden açmak için tıklayın **Sitelerim** ve **WebPageMovies**:
+Zaten çalışmıyorsa WebMatrix 'i başlatın. Önceki öğreticide oluşturduğunuz Web sitesini ([Web sayfalarına Başlarken](https://go.microsoft.com/fwlink/?LinkId=251578)) kullanacaksınız. Yeniden açmak için **Sitelerim** ' e tıklayın ve **webpagefilmler**' i seçin:
 
-![WebMatrix Başlat Sitelerim vurgulanmış ve açık Site seçenekleri gösteren ekran](intro-to-web-pages-programming/_static/image1.png)
+![WebMatrix başlangıç ekranı açık site seçeneklerini ve Sitelerim vurgulanmış](intro-to-web-pages-programming/_static/image1.png)
 
-Seçin **dosyaları** çalışma.
+**Dosyalar** çalışma alanını seçin.
 
-Şeritte tıklayın **yeni** bir sayfa oluşturun. Seçin **CSHTML** ve yeni sayfa adı *TestRazor.cshtml*.
+Şeritte **Yeni** ' ye tıklayarak bir sayfa oluşturun. **Cshtml** 'yi seçin ve yeni *testrazor. cshtml*sayfasını adlandırın.
 
-**Tamam**'ı tıklatın.
+**Tamam**’a tıklayın.
 
-Aşağıdaki tamamen zaten değiştirmek dosyasına kopyalayın.
+Aşağıdakileri dosyaya kopyalamak için, zaten mevcut olanları tamamen değiştirin.
 
 > [!NOTE]
-> Bir sayfaya örneklerden başladığınız kodun veya kopyaladığınızda, hizalama ve girinti öğretici ile aynı olmayabilir. Girinti ve hizalama kodu, ancak çalışma şeklini etkilemez.
+> Örneklerden bir sayfaya kod veya biçimlendirme kopyaladığınızda, girintileme ve hizalama öğreticiyle aynı olmayabilir. Girintileme ve hizalama kodun nasıl çalıştığını etkilemez, ancak.
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample1.cshtml)]
 
-## <a name="examining-the-example-page"></a>Örnek sayfasında İnceleme
+## <a name="examining-the-example-page"></a>Örnek sayfayı İnceleme
 
-Gördüğünüz çoğunu sıradan HTML olur. Ancak, en üstünde bu kod bloğu vardır:
+Gördiklerinizi çoğu sıradan HTML 'dir. Ancak, en üstte bu kod bloğu vardır:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample2.cshtml)]
 
-Bu kod bloğu hakkında aşağıdaki noktaya dikkat edin:
+Bu kod bloğu hakkında aşağıdaki noktalara dikkat edin:
 
-- @ Karakteri ASP.NET aşağıda olmayan HTML Razor kodu olduğunu söyler. ASP.NET işlemek sonra her şeyin @ karakteri olarak bazı HTML'e yeniden çalışana kadar kodu. (Bu durumda, bu &lt;! DOCTYPE&gt; öğesi.
-- Küme ayraçları ({ve}) birden fazla satırı koduna sahip bir Razor kod bloğu içine alın. Ayraçlar, kod bloğu için burada başlar ve biter ASP.NET söyleyin.
-- / / Mark yorum karakterleri — diğer bir deyişle, bir kod parçası, yürütülen olmaz.
-- Her deyimin noktalı virgül (;) ile sona erdirmek vardır. (, Ancak yorum yok.)
-- Değerleri depolayabilir *değişkenleri*, oluşturduğunuz (*bildirmek*) ile anahtar sözcük var. Bir değişkeni oluşturduğunuzda, buna harf, rakam ve alt çizgi içerebilir bir ad vermeniz (\_). Değişken adları bir sayı ile başlayamaz ve (var gibi) programlama bir anahtar adı kullanamazsınız.
-- (Örneğin, "ASP.NET" ve "Web sayfaları") karakter dizeleri tırnak işaretleri içine alın. (Bunlar, çift tırnak işareti olmalıdır.) Sayı, tırnak işaretleri içine değil.
-- Tırnak işaretleri dışında boşluk önemli değildir. Satır sonları çoğunlukla önemli değildir; özel durum, satırlar arasında bir dize tırnak işaretleri içindeki bölünemez kullanılır. Girinti ve hizalama önemli değildir.
+- @ Karakteri, ASP.NET 'in, nasıl HTML değil Razor kodu olduğunu söyler. ASP.NET, @ karakterinden sonraki her şeyi, bazı HTML yeniden çalıştırana kadar kod olarak değerlendirir. (Bu durumda &lt;! DOCTYPE&gt; öğesi.
+- Kod ayraçları ({ve}), kodun birden fazla satırı varsa Razor kodu bloğunu kapsar. Küme ayraçları, bu bloğun kodunun başladığı ve bittiği ASP.NET bildirir.
+- //Karakterleri bir açıklamayı (yani, yürütümeyecek kodun bir parçasını) işaretler.
+- Her deyimin sonunda noktalı virgül (;) vardır. (Ancak açıklama değil)
+- Değerlerini, var olan (*Declare*) anahtar sözcüğü ile oluşturduğunuz *değişkenlerde*saklayabilirsiniz. Bir değişken oluşturduğunuzda, bu ada harfler, rakamlar ve alt çizgi (\_) içerebilen bir ad verirsiniz. Değişken adları bir sayıyla başlayamaz ve bir programlama anahtar sözcüğünün adını (var gibi) kullanamaz.
+- Karakter dizelerini ("ASP.NET" ve "Web Pages" gibi) tırnak işaretleri içine alın. (Çift tırnak işareti olmalıdır.) Sayılar tırnak işaretleri içinde değil.
+- Tırnak işaretlerinin dışındaki boşluklar önemli değildir. Satır sonları çoğunlukla büyük değildir; özel durum, bir dizeyi satırlarda tırnak işaretleriyle bölemiyorum. Girintileme ve hizalama önemi yoktur.
 
-Bu örnekte belirgin değil tüm kodun büyük küçük harfe duyarlı olduğunu bir şeydir. Bu değişken TheSum theSum veya thesum adlandırılabilir değişkenleri değerinden farklı bir değişken olduğu anlamına gelir. Benzer şekilde, bir anahtar sözcüğü var, ancak Var değildir.
+Bu örnekte belirgin olmayan bir şey, tüm kodun büyük/küçük harfe duyarlıdır. Bu, değişken, değişken ya da Deum adında olabilecek değişkenlerden farklı bir değişken olduğu anlamına gelir. Benzer şekilde, var bir anahtar sözcüktür, ancak var değildir.
 
-### <a name="objects-and-properties-and-methods"></a>Nesneleri ve özellikleri ve yöntemleri
+### <a name="objects-and-properties-and-methods"></a>Nesneler ve Özellikler ve Yöntemler
 
-' % S'ifadesi DateTime.Now kaldırılır. Basit bir deyişle, tarih saat olan bir *nesne*. Bir nesne ile programlayabileceğiniz şeydir — bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı vb. Nesneleri olan bir veya daha fazla *özellikleri* özelliklerini açıklar. Bir metin özelliği (diğerlerinin arasında) bir metin kutusu nesnesine sahip, bir istek nesnesi URL'si özelliği (ve diğerleri) sahip, e-posta iletisine bir From özelliğine ve bir To özelliğini sahiptir ve benzeri. Nesneleri de *yöntemleri* "bunlar gerçekleştirebilir fiilleri" olan. Nesnelerle çok yoğun şekilde kullanacağınız.
+Ardından DateTime. Now ifadesi. Basit koşullarda, DateTime bir *nesnedir*. Bir nesne, bir sayfa, metin kutusu, dosya, görüntü, Web isteği, e-posta iletisi, müşteri kaydı vb. ile programlama yapamayacağınız bir şeydir. Nesneler, özelliklerini tanımlayan bir veya daha fazla *özelliğe* sahiptir. Metin kutusu nesnesi bir metin özelliğine sahiptir (diğerleri arasında), bir istek nesnesinin bir URL özelliği (ve diğerleri), bir e-posta iletisinin Kimden özelliği ve bir to özelliği vardır ve bu şekilde devam eder. Nesneler, gerçekleştirebilecekleri "fiiller" olan *yöntemlere* de sahiptir. Nesnelerle çok büyük bir şekilde çalışıyorsunuz.
 
-Örnekte görebileceğiniz gibi DateTime program tarihler ve saatler olanak sağlayan bir nesnedir. Bu, geçerli tarih ve saati döndürür artık adlı bir özelliğe sahiptir.
+Örnekte görebileceğiniz gibi, TarihSaat tarih ve saat programlamanızı sağlayan bir nesnedir. Şu anda geçerli tarih ve saati döndüren adlı bir özelliği vardır.
 
-### <a name="using-code-to-render-markup-in-the-page"></a>Sayfasında biçimlendirmesi oluşturmak için kod kullanma
+### <a name="using-code-to-render-markup-in-the-page"></a>Sayfadaki biçimlendirmeyi işlemek için kodu kullanma
 
-Sayfanın gövdesi içinde aşağıdakilere dikkat edin:
+Sayfanın gövdesinde, aşağıdakilere dikkat edin:
 
 [!code-html[Main](intro-to-web-pages-programming/samples/sample3.html)]
 
-Yeniden @ karakteri, ne izleyen ASP kodu, HTML değil. İşaretlemede @ bir kod ifadesi tarafından izlenen ekleyebilir ve ASP.NET ifade hakkı değerini bu noktada işlenir. Örnekte, @a adlı değişken değeri ne olursa olsun işlenir @product ne olursa olsun değişken adlandırılmış ürünü ve benzeri işler.
+Yine, @ karakteri, ASP.NET 'in HTML değil kodun ne olduğunu söyler. Biçimlendirme içinde @ arkasından bir kod ifadesi ve ASP.NET bu ifadenin değerini bu noktada işleyecek şekilde işleyebilir. Örnekte, @a değeri bir olan değişkenin ne olduğunu, @product ürün adlı değişkende olduğunu ve bu şekilde devam eder.
 
-Yine de değişkenlere, sınırlı değilsiniz. Burada, bazı durumlarda bir ifade @ karakteri önündeki:
+Ancak değişkenlerle sınırlı değilsiniz. Burada birkaç örnekte @ karakteri bir ifadeden önce gelir:
 
-- @(bir\*b) değişkenlerinde ne olursa olsun, ürün işleyen bir ve b. ( \* İşleci çarpma anlamına gelir.)
-- @(teknoloji + "" + Ürün) arasında bir alan ekleme ve bunları birleştirerek sonra değişkenleri teknoloji ve ürünü değerleri işler. Dizeleri birleştirme için işlecine (+) işleci numaralarını eklemek için aynıdır. ASP.NET sayılar veya dizeler ile çalışıyorsanız ve ile doğru şeyi yapar olmadığını genellikle öğrenebilirsiniz + işleci.
-- @Request.Url İstek URL'si özelliğini işler. İstek nesnesi tarayıcıdan geçerli istek hakkındaki bilgiler, ve Elbette URL'si özelliği, geçerli istek URL'sini içerir.
+- @ (a\*b), a ve b değişkenlerinde her türlü ürünü işler. (\* işleci çarpma anlamına gelir.)
+- @ (teknoloji + "" + ürün), değişken teknolojideki ve üründeki değerleri, bunları birleştirerek ve arasına boşluk ekleyerek işler. Dizeleri bitiştirme işleci (+), sayı eklemek için olan işleçle aynıdır. ASP.NET, genellikle sayılarla veya dizeler ile çalışıp çalışmadığını ve + işleciyle doğru şeyi yapıp yapamadığını söyleyebilir.
+- @Request.Url, Istek nesnesinin URL özelliğini işler. Istek nesnesi, tarayıcıdan gelen geçerli istek hakkında bilgiler içerir ve kuşkusuz URL özelliği o anki isteğin URL 'sini içerir.
 
-Örneğin, oluşturabilir, farklı şekilde çalıştığını göstermek için de tasarlanmıştır. Üst kod bloğundaki hesaplamalar yapmak, sonuçları bir değişken içine yerleştirin ve ardından biçimlendirme değişkeninde işleme. Veya bir ifade sağ biçimlendirmede hesaplamalar gerçekleştirebilirsiniz. Kullandığınız yaklaşım ne yaptığınızı üzerinde ve kendi tercihinize göre bir ölçüde bağlıdır.
+Örnek ayrıca, farklı yollarla iş yapabileceğinizi göstermek için de tasarlanmıştır. Üstteki kod bloğunda hesaplamalar yapabilir, sonuçları bir değişkene yerleştirebilir ve sonra değişkeni biçimlendirme içinde işleyebilirsiniz. Alternatif olarak, İşaretlemede bir ifadede hesaplamalar yapabilirsiniz. Kullandığınız yaklaşım, yaptığınız işe ve bir ölçüde kendi tercihlerinize göre değişir.
 
-### <a name="seeing-the-code-in-action"></a>Uygulamada kod görme
+### <a name="seeing-the-code-in-action"></a>Kodu eylemde görüntüleme
 
-Dosya adına sağ tıklayın ve ardından **tarayıcıda Başlat**. Tüm değerleri ve ifadeleri sayfasında çözümlenen tarayıcıda sayfayı görürsünüz.
+Dosyanın adına sağ tıklayın ve ardından **tarayıcıda Başlat**' ı seçin. Sayfada, sayfada çözümlenen tüm değerler ve ifadeler ile tarayıcıda görüntülenir.
 
-!['TestRazor' sayfasını tarayıcıda çalışıyor](intro-to-web-pages-programming/_static/image2.png)
+![' TestRazor ' sayfası tarayıcıda çalışıyor](intro-to-web-pages-programming/_static/image2.png)
 
-Kaynak tarayıcı bakın.
+Tarayıcıdaki kaynağa bakın.
 
-![İçin tarayıcıda 'Razor Test' sayfa kaynağı](intro-to-web-pages-programming/_static/image3.png)
+![Tarayıcıdaki ' test Razor ' sayfası kaynağı](intro-to-web-pages-programming/_static/image3.png)
 
-Önceki öğreticide, deneyiminden beklediğiniz gibi Razor kodunun sayfasında, Yok'tur. Gerçek görüntüleme değerleri olan tüm görürsünüz. Bir sayfa çalıştırdığınızda, gerçekten Webmatrix'e yerleşik web sunucusu isteği yapılıyor. İstek alındığında, ASP.NET tüm değerleri ve ifadeleri giderir ve bunların değerlerini sayfasına işler. Daha sonra sayfa tarayıcıya gönderir.
+Önceki öğreticide deneyiminizden beklemediğiniz gibi, Razor kodundan hiçbiri sayfada değildir. Tüm gördüğünüz gerçek görüntü değerleridir. Bir sayfa çalıştırdığınızda, aslında WebMatrix 'te yerleşik olarak bulunan Web sunucusuna bir istek oluşturursunuz. İstek alındığında, ASP.NET tüm değerleri ve ifadeleri çözer ve değerlerini sayfada oluşturur. Daha sonra sayfayı tarayıcıya gönderir.
 
 > [!TIP] 
 > 
-> **Razor ve C#**
+> **Razor veC#**
 > 
-> Şimdiye kadar Razor sözdizimi olan çalıştığınız belirttiniz. True olan ancak bütünüyle değil. Kullanmakta olduğunuz gerçek programlama dili olarak adlandırılır *C#*. C# on yıl önce Microsoft tarafından oluşturulduğunda ve Windows uygulamaları oluşturmak için birincil programlama dillerinden biri haline gelmiştir. Bir değişken adını ve tablolar vb. oluşturmak hakkında gördüğünüz tüm kurallar aslında tüm C# dilinin kurallardır.
+> Şimdi Razor söz dizimi çalıştığınızı söyledik. Bu doğru, ancak tamamen hikaye değildir. Kullanmakta olduğunuz gerçek programlama dili çağırılır *C#* . C#, Microsoft tarafından bir yılda bir süre önce oluşturulmuştur ve Windows uygulamaları oluşturmaya yönelik birincil programlama dillerinden biri haline geldi. Bir değişkeni adlandırma ve deyimleri oluşturma hakkında gördüğünüz tüm kurallar gerçekte C# dilin tüm kurallarıdır.
 > 
-> Razor daha açık belirtmek gerekirse bu kod nasıl bir sayfasına eklemek için kuralları küçük kümesini ifade eder. Örneğin, @, kod sayfasında işaretlemek için kullanarak ve kullanarak kuralı @ bir kod bloğu eklemek için {} olan bir sayfa Razor yönüyle. Ayrıca, Yardımcıları Razor parçası olarak kabul edilir. Razor sözdizimi, yalnızca ASP.NET Web Pages'de fazla yerde kullanılır. (Örneğin, bu da ASP.NET MVC görünümleri kullanılır.)
+> Razor, bu kodu sayfaya nasıl katıştırabileceğinizi gösteren küçük bir kural kümesine daha fazla başvurur. Örneğin, sayfadaki kodu işaretlemek için @ kullanma ve bir kod bloğunu eklemek için @ {} kullanma kuralı sayfanın Razor yönüdür. Yardımcılar da Razor 'nin bir parçası olarak kabul edilir. Razor söz dizimi, tıpkı ASP.NET Web sayfalarından daha fazla yerde kullanılır. (Örneğin, ASP.NET MVC görünümlerinde de kullanılır.)
 > 
-> Programlama ASP.NET Web sayfaları hakkında bilgi için bakarsanız, Razor başvuruları çok sayıda bulabilirsiniz çünkü biz bunu bahsedebilirsiniz. Ancak, bu başvuruları birçok uygulanmaz ne, bunun yapılması olduğunuz ve bu nedenle kafa karıştırıcı. Ve hatta, birçok programlama sorularınızı gerçekten C# ile çalışan ya da ASP.NET ile çalışma hakkında olacak. Bu nedenle Razor hakkında bilgi için özel olarak bakarsanız, ihtiyacınız olan yanıtları alarak gelmeyebilir.
+> Bunun yerine, ASP.NET Web sayfalarını programlama hakkında bilgi aradığınız için Razor 'ye çok sayıda başvuru bulacaksınız. Ancak, bu başvuruların çoğu yaptığınız şey için uygulanmaz ve bu nedenle kafa karıştırıcı olabilir. Aslında, programlama sorularınızın birçoğu, ASP.NET ile çalışmaya C# veya bunlarla çalışmaya yönelik olarak olacaktır. Bu nedenle, Razor hakkında daha fazla bilgi için gereken yanıtları bulamadıysanız.
 
-## <a name="adding-some-conditional-logic"></a>Bazı koşullu mantık ekleme
+## <a name="adding-some-conditional-logic"></a>Koşullu mantık ekleme
 
-Kod kullanarak bir sayfa hakkında harika özellikler çeşitli koşullara göre ne göre değiştirebilirsiniz biridir. Öğreticinin bu bölümünde, sayfanın görüntülenme şeklini değiştirmek için bazı yollar ile oynayabilirsiniz.
+Bir sayfada kod kullanmayla ilgili harika özelliklerden biri, çeşitli koşullara göre ne olacağını değiştirebilmesidir. Öğreticinin bu bölümünde, sayfada görüntülendiklerinizi değiştirmek için bazı yollarla gezinirsiniz.
 
-Örneğin, basit ve biraz biz koşullu mantığı üzerinde yoğunlaşabilmeniz contrived olacaktır. Oluşturacağınız sayfasında bunu:
+Örnek, koşullu mantığa odaklanabilmeniz için basit ve biraz contrived olacaktır. Oluşturacağınız sayfa şu şekilde yapılır:
 
-- Farklı metin sayfasında ilk kez olmasına göre bağlı olarak, sayfa görüntülenir veya sayfa göndermek için bir düğmeye tıkladı gösterir. İlk koşul testi olacak.
-- Yalnızca belirli bir değere (http://...?show=true) URL sorgu dizesinde yer iletilmezse iletisini görüntüler. İkinci koşul testi olacak.
+- Sayfada, sayfanın ilk kez görüntülenmediğine veya sayfayı göndermek için bir düğmeye tıklandığınıza bağlı olarak farklı bir metin gösterin. Bu, ilk koşullu test olacaktır.
+- İletiyi yalnızca URL 'nin sorgu dizesinde belirli bir değer geçirildiğinde görüntüleyin (http://...? Show = true). Bu, ikinci koşullu test olacaktır.
 
-WebMatrix, bir sayfa oluşturun ve adlandırın *TestRazorPart2.cshtml*. (Şeritte tıklayın **yeni**, seçin **CSHTML**, dosyayı adlandırın ve ardından **Tamam**.)
+WebMatrix 'te bir sayfa oluşturun ve *TestRazorPart2. cshtml*olarak adlandırın. (Şeritte **Yeni**' ye tıklayın, **cshtml**'yi seçin, dosyayı adlandırın ve ardından **Tamam**' a tıklayın.)
 
-Bu sayfanın içeriğini aşağıdakiyle değiştirin:
+Bu sayfanın içeriğini aşağıdaki kodla değiştirin:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample4.cshtml)]
 
-Üst kod bloğu bazı metin iletisi adlı bir değişken başlatır. Sayfanın gövdesi içinde ileti değişken içeriğini görüntülenen bir &lt;p&gt; öğesi. Biçimlendirme da içeren bir &lt;giriş&gt; öğesi oluşturmak için bir **Gönder** düğmesi.
+Üstteki kod bloğu, ileti adlı bir değişkeni bir metin ile başlatır. Sayfanın gövdesinde, ileti değişkeninin içeriği &lt;p&gt; öğesinin içinde görüntülenir. Biçimlendirme Ayrıca bir **Gönder** düğmesi oluşturmak için bir &lt;Input&gt; öğesi içerir.
 
-Nasıl çalıştığını görmek için sayfayı çalıştırın. ' E tıklarsanız şu an için temel olarak statik bir sayfa olduğu **Gönder** düğmesi.
+Nasıl çalıştığını görmek için sayfayı çalıştırın. Şimdilik, **Gönder** düğmesine tıklasanız bile, bu, temelde statik bir sayfasıdır.
 
-WebMatrix için geri dönün. Kod bloğunun içine aşağıdaki vurgulanmış kodu ekleyin *sonra* satırın ileti başlatır:
+WebMatrix 'e geri dönün. Kod bloğunun içinde, iletiyi Başlatan satırdan *sonra* aşağıdaki vurgulanmış kodu ekleyin:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample5.cshtml?highlight=4-6)]
 
-### <a name="the-if---block"></a>If {} Bloğu
+### <a name="the-if---block"></a>If {} bloğu
 
-Eğer ne yeni eklediğiniz olan koşul. Kodda, koşulu şöyle bir yapısı varsa:
+Yeni eklediğiniz bir If koşulunuz. Kodda, If koşulu şöyle bir yapıya sahiptir:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample6.cs)]
 
-Test etmek için parantez içinde bir durumdur. Bu, bir değer veya true veya false değeri döndüren bir ifade olması gerekir. Koşul true ise, ASP.NET deyim ya da ayraçların içindeki deyimler çalışır. (Bu *ardından* parçası *if-then* mantığı.) Koşul false ise, kod bloğunun atlanır.
+Sınanacak koşul parantez içinde. True veya false döndüren bir değer veya ifade olmalıdır. Koşul doğru ise, ASP.NET, küme ayraçları içinde olan deyimi veya deyimleri çalıştırır. (Bunlar *daha sonra* *if-then* mantığının parçasıdır.) Koşul yanlış ise, kod bloğu atlanır.
 
-İşte birkaç örnek Eğer test koşulları deyimi:
+Aşağıda, bir if ifadesinde test verebilmeniz için birkaç koşul örneği verilmiştir:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Değişkenleri değerlerle veya karşı ifadeleri kullanarak test edebilirsiniz bir *mantıksal işleç* veya *karşılaştırma işleci*: eşittir (==) büyüktür (&gt;), küçüktür (&lt;), büyüktür veya eşittir (&gt;=) küçük veya eşittir (&lt;=). ! = Eşit değil işleci anlamına gelir — Örneğin, varsa (bir! = 0) anlamına gelir *varsa bir 0'a eşit değil*.
+Bir *mantıksal işleç* veya *karşılaştırma işleci*kullanarak değişkenleri değerlere veya ifadelerde test edebilirsiniz: eşittir (= =), büyüktür (&gt;), küçüktür (&lt;), büyüktür veya eşittir (&gt;=) ve küçüktür veya eşittir (&lt;=). ! = İşleci şuna eşit değildir — Örneğin, (bir! = 0), *a 'nın 0 değerine eşit olmaması*anlamına gelir.
 
 > [!NOTE]
-> Karşılaştırma işleci için eşittir (==) için = aynı olmadığını fark emin olun. = İşleci, yalnızca değer atamak için kullanılır (değişken bir = 2). Bu işleçler karışımı varsa, bir hata iletisi alırsınız veya bazı ilginç sonuçlar elde edersiniz.
+> Eşittir (= =) karşılaştırma işlecinin = ile aynı olmadığını fark ettiğinizden emin olun. = İşleci yalnızca değer atamak için kullanılır (var a = 2). Bu işleçleri karıştırırsanız bir hata alırsınız veya bazı garip sonuçlar elde edersiniz.
 
-Bir şey doğru olup olmadığını test etmek için tam söz dizimi şu şekildedir if(IsDone == true). Ancak kısayol if(IsDone) de kullanabilirsiniz. Karşılaştırma işleci yok ise, ASP.NET true test ettiğiniz varsayılır.
+Bir şeyin doğru olup olmadığını test etmek için, tüm sözdizimi (Isdone = = true) olur. Ancak (Isdone) kısayolunu da kullanabilirsiniz. Karşılaştırma operatörü yoksa, ASP.NET doğru test olduğunuzu varsayar.
 
-! tek başına işleci, bir mantıksal değil anlamına gelir. Örneğin, koşul if (! IsPost) anlamına gelir *IsPost true değilse*.
+İçin! tek başına işleci mantıksal DEĞILDIR anlamına gelir. Örneğin, (! Ispost), *ıspost doğru değilse*anlamına gelir.
 
-Mantıksal AND kullanarak koşullar birleştirebilir (&amp; &amp; işleci) veya mantıksal OR (|| işleci). Örneğin, önceki örnek anlamına gelir ise son koşulları *FileProcessingIsDone ayarlı değil, doğru ve displayMessage false olarak ayarlandığında*.
+Bir mantıksal ve (&amp;&amp; işleci) veya mantıksal veya (| | işleç) kullanarak koşulları birleştirebilirsiniz. Örneğin, Yukarıdaki örneklerde en son koşullar, *Fileprocessingısdone değeri true olarak AYARLANMAMıŞSA ve displayMessage false olarak ayarlandığında*anlamına gelir.
 
-### <a name="the-else-block"></a>Başka bloğu
+### <a name="the-else-block"></a>Else bloğu
 
-Eğer hakkında bir son şey blokları: bir blok başka bir blok tarafından izlenebilir durumunda. Başka bir bloğu koşul false olduğunda, farklı kod yürütmek sahip olabilir. Basit bir örnek aşağıda verilmiştir:
+If bloklarıyla ilgili son bir şey: If bloğu, Else bloğu tarafından izlenebilir. Else bloğu, koşul yanlış olduğunda farklı kod yürütmeniz gerekir. İşte basit bir örnek:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample8.cs)]
 
-Sonraki öğreticilerde bu serideki başka bir blok kullanarak yararlı olduğu bazı örnekler göreceksiniz.
+Bu serinin sonraki öğreticilerde, Else bloğunun kullanılması yararlı olan bazı örnekler görürsünüz.
 
-### <a name="testing-whether-the-request-is-a-submit-post"></a>İstek bir gönderme (post) olup olmadığını test etme
+### <a name="testing-whether-the-request-is-a-submit-post"></a>İsteğin bir gönderme (gönderi) olup olmadığını test etme
 
-Daha fazla ancak koşul if(IsPost) {...} olan örneğe geri geçelim. IsPost aslında geçerli sayfa bir özelliğidir. İlk kez sayfa istenen IsPost false döndürür. Ancak, bir düğmeye tıklayın veya aksi halde gönderme sayfası — diğer bir deyişle, gönderi — IsPost true döndürür. Bu nedenle IsPost bir form gönderme ile ilgilenen olup olmadığını belirlemenize olanak tanır. (Bir alma işlemi isteğiyse HTTP fiilleri açısından IsPost false döndürür. İstek gönderme işlemi ise IsPost true değerini döndürür.) Bir sonraki öğreticide burada bu test özellikle yararlı olur girdi biçimleri ile çalışırsınız.
+Daha fazla, ancak (ıspost) {...} koşulunu içeren örneğe geri bakalım. Ispost aslında geçerli sayfanın bir özelliğidir. Sayfa istendiğinde, ıspost yanlış döndürür. Ancak, bir düğmeye tıkladığınızda veya sayfayı gönderirseniz — Yani, gönderirseniz, ıspost doğru döndürür. Bu nedenle, ıspost, form gönderme işlemiyle ilgili olup olmadığınızı belirlemenizi sağlar. (HTTP fiilleri açısından, istek bir GET işlemi ise, ıspost yanlış değerini döndürür. İstek bir POST işlemi ise, ıspost doğru döndürür.) Daha sonraki bir öğreticide, bu testin özellikle yararlı olacağı giriş formlarıyla çalışırsınız.
 
-Sayfayı çalıştırın. Bu ilk kez olduğundan istenen sayfasında "Bu bir sayfayı istenen ilk kez" görürsünüz. Bu dize ileti değişkenine başlatılan değerdir. İf(IsPost) test yoktur, ancak Eğer içinde kod engellemek için şu anda false döndüren çalışmaz.
+Sayfayı çalıştırın. Sayfayı ilk kez istemiş olduğunuzdan, "sayfayı ilk kez istemiş olursunuz" görürsünüz. Bu dize, ileti değişkenini seçtiğiniz değerdir. Bir if (ıspost) testi vardır ancak bu, şu anda false değerini döndürürse, IF bloğunun içindeki kod çalıştırılmaz.
 
-Tıklayın **Gönder** düğmesi. Sayfa yeniden istenir. Daha önce ileti değişkeni "Bu... ilk kez bir için" ayarlanır. Ancak Eğer içinde kod engellemek için çalıştırmaları bu kez, test if(IsPost) true döndürür. Kod biçimlendirme içinde işlenen olan farklı bir değere ileti değişkenin değerini değiştirir.
+**Gönder** düğmesine tıklayın. Sayfa yeniden istendi. Daha önce olduğu gibi, ileti değişkeni "Bu ilk kez..." olarak ayarlanır. Ancak, bu kez (ıspost) testi true değerini döndürürse, IF bloğu içindeki kod çalışır. Kod, ileti değişkeninin değerini, biçimlendirmede işlenen farklı bir değer olarak değiştirir.
 
-Eğer şimdi ekleyin biçimlendirmede koşul. Aşağıda &lt;p&gt; öğesini içeren **Gönder** düğme, aşağıdaki işaretlemeyi ekleyin:
+Şimdi, İşaretlemede bir If koşulu ekleyin. **Gönder** düğmesini içeren &lt;p&gt; öğesinin altında aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample9.cshtml)]
 
-Başlamak alacak şekilde biçimlendirme içinde kod ekliyoruz @. Eğer daha sonra test benzer bir eklediğiniz önceki kod bloğu. Küme ayraçları içinde sıradan bir HTML ekliyorsunuz — için ulaşana kadar en az bu sıradan @DateTime.Now. Bu, başka bir küçük boyutta bir Razor kod olduğundan, bu nedenle yeniden @, önündeki eklemeniz gerekir.
+Biçimlendirme içine kod ekleyecekseniz @başlatmanız gerekir. Daha sonra kod bloğunda daha önce eklendiğine benzer bir if testi vardır. Küme ayraçları içinde, normal HTML ekliyorsanız, en azından, @DateTime.Nowgelene kadar sıradan olur. Bu, başka bir Razor kodu biraz daha olduğundan, bu nedenle yine de önüne @ eklemeniz gerekir.
 
-Burada hem de koşullar, üst ve biçimlendirme içinde kod engellerseniz ekleyebileceğiniz noktasıdır. Eğer kullanırsanız işaretleme veya kod bloğu içinde satırları sayfasının gövdesindeki koşul olabilir. Bu durumda, ve işaretleme ve kod karıştırmak herhangi bir zamanda doğru olduğundan, kod olduğu Temizle ASP.NET ile yapmak için @ kullanın.
+Buradaki nokta, hem kod bloğunda hem de İşaretlemede koşul ekleyebilmeniz için kullanılır. Sayfanın gövdesinde bir If koşulu kullanırsanız, bloktaki satırlar biçimlendirme veya kod olabilir. Bu durumda, her zaman biçimlendirmeyi ve kodu karıştırabilmeniz için @ kullanmanız gerekir ve kodun nerede olduğu ASP.NET açık olması için @ kullanmalısınız.
 
-Sayfayı çalıştırın ve tıklayın **Gönder**. Bu süre değil yalnızca farklı bir ileti ("gönderdiğiniz artık...") gönderdiğiniz ancak tarih ve saat listeleyen yeni bir ileti görürsünüz.
+Sayfayı çalıştırın ve **Gönder**' e tıklayın. Bu kez gönderdiğinizde ("Şimdi gönderdiniz...") farklı bir ileti görmezsiniz, ancak tarih ve saati listeleyen yeni bir ileti görürsünüz.
 
-!['Test Razor 2' sayfası sonra gösteren zaman damgasına sahip tarayıcıda çalışan gönderme](intro-to-web-pages-programming/_static/image4.png)
+![' Test RAZOR 2 ' sayfası, gönderdikten sonra zaman damgasıyla tarayıcıda çalışıyor](intro-to-web-pages-programming/_static/image4.png)
 
-### <a name="testing-the-value-of-a-query-string"></a>Bir sorgu dizesi değerini test etme
+### <a name="testing-the-value-of-a-query-string"></a>Sorgu dizesinin değerini test etme
 
-Bir daha fazla test. Bu kez, eğer ekleyeceksiniz bir değeri test blok adlı sorgu dizesinde geçirilen göster. (Aşağıdaki gibi: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) sayfası, görüntüleme ileti değiştireceğiz ("Bu bir ilk kez...", vb.) show değeri true ise yalnızca görüntülenir.
+Bir test daha. Bu kez, sorgu dizesine geçirilebilen Show adlı bir değeri sınayan bir If bloğu ekleyeceksiniz. (Şu şekilde: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) Sayfayı, görüntülemekte olduğunuz iletinin ("ilk kez...", vb.) yalnızca show değeri true ise görüntülenecek şekilde değiştirirsiniz.
 
-Alt (ancak iç) kod bloğu sayfanın üst kısmındaki aşağıdakileri ekleyin:
+Sayfanın üst kısmındaki kod bloğunu en altta (ancak içinde) aşağıdakileri ekleyin:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample10.cs)]
 
-Aşağıdaki örnekte olduğu gibi tam bir kod bloğu şimdi bakın. (Kod sayfanıza kopyaladığınızda, girinti farklı görünebilir olduğunu unutmayın. Ancak, kod nasıl çalışır etkilemez.)
+Tüm kod bloğu şimdi aşağıdaki örneğe benzer şekilde görünür. (Kodu sayfanıza kopyaladığınızda, girintileme farklı görünebileceğini unutmayın. Ancak bu, kodun nasıl çalıştığını etkilemez.)
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample11.cshtml)]
 
-Yeni kod bloğundaki showMessage false adlı bir değişken başlatır. Eğer sonra mevcut bir sorgu dizesi değeri aramak için test. İlk sayfa istediğinde, bunun gibi bir URL vardır:
+Bloktaki yeni kod, showMessage adlı bir değişkeni false olarak başlatır. Sonra sorgu dizesinde bir değer aramak için bir if testi yapar. Sayfayı ilk kez istediğinizde, şöyle bir URL bulunur:
 
 `http://localhost:43097/TestRazorPart2.cshtml`
 
-Kod, URL, sorgu dizesinde URL bu sürümü gibi show adlı bir değişken içerip içermediğini belirler:
+Kod, URL 'nin bu sürümü gibi sorgu dizesinde göster adlı bir değişken içerip içermediğini belirler:
 
-`http://localhost:43097/TestRazorPart2.cshtml`? Göster = true
+`http://localhost:43097/TestRazorPart2.cshtml`? Show = true
 
-Test isteği nesnenin QueryString özellik arar. Adlı bir öğe bir Göster sorgu dizesini içeriyorsa ve true olarak, eğer bu öğe ayarlarsanız bloğu çalıştırır ve showMessage değişkeni true olarak ayarlanır.
+Test kendisi Istek nesnesinin QueryString özelliğine bakar. Sorgu dizesi Show adlı bir öğe içeriyorsa ve bu öğe true olarak ayarlanırsa, IF bloğu çalışır ve showMessage değişkenini true olarak ayarlar.
 
-Gördüğünüz gibi burada el yoktur. Ad'ın belirttiği gibi sorgu dizesi bir dizedir. Ancak, test ettiğiniz değer bir Boole (true/false) değeri ise yalnızca true ve false sınayabilirsiniz. Show değişkenin değerini sorgu dizesinde test etmeden önce bir Boolean değerine dönüştürmek zorunda. Ne yaptığını AsBool yöntemi olan — giriş olarak bir dize alır ve bir Boolean değerine dönüştürür. Açıkça görülebileceği gibi dize "true" ise, AsBool yöntemi bu değeri true olarak dönüştürür. Dize değeri için başka bir şey ise AsBool false döndürür.
+Burada gördüğünüz gibi bir elde bulabilirsiniz. Şöyle ki, sorgu dizesi bir dizedir. Ancak, test ettiğiniz değer bir Boole (true/false) değeri ise yalnızca true ve false için test edebilirsiniz. Sorgu dizesinde Show değişkeninin değerini test etmeden önce, onu bir Boole değerine dönüştürmeniz gerekir. Bu, AsBool yönteminin yaptığı şeydir; girdi olarak bir dize alır ve bir Boolean değere dönüştürür. Açık olarak, dize "true" ise AsBool yöntemi bu değeri true olarak dönüştürür. Dizenin değeri başka bir şeydir, AsBool yanlış döndürür.
 
 > [!TIP] 
 > 
-> **Veri türleri ve As() yöntemleri**
+> **Veri türleri ve as () yöntemleri**
 > 
-> Biz yalnızca şu ana kadar bir değişken oluşturun, anahtar sözcük var. kullanın belirttiğin Bu Yazının tamamını ancak değil. Değerlerini değiştirmek için — numaralarını ekleyin veya dizeleri birleştirebilir veya tarihleri karşılaştırmak veya doğru/yanlış test — C# sahip bir uygun iç değerin gösterimi ile çalışmak. C# için *genellikle* bu gösterimi olması gerektiğini öğrenmek şekil (diğer bir deyişle, ne *türü* verilerdir) ne değerlerle yaptığınızı üzerinde temel. Artık ve sonra yine de bunu, olamaz. Aksi durumda, nasıl C# verileri temsil etmelidir açıkça belirterek yardımcı olması vardır. AsBool yöntemi yapan — bunu C# bir dize değerini "true" veya "false" Boole bir değer olarak değerlendirilmesi gerektiğini söyler. Dizeleri AsInt (bir tamsayı olarak davranma), AsDateTime (tarih/saat olarak davranma), AsFloat (bir kayan noktalı sayı olarak davranma) ve benzeri gibi diğer türleri olarak da temsil etmek için benzer yöntemler mevcut. C# dize değeri istenen şekilde gösteremez, () yöntemleri olarak kullandığınızda, bir hata görürsünüz.
+> Yalnızca bir değişken oluşturduğunuzda, var olan anahtar sözcüğünü kullanırsınız. Bu, ancak tüm hikayenin değil. Değerleri değiştirmek için — sayı eklemek veya dizeleri birleştirmek ya da tarihleri karşılaştırmak ya da doğru/yanlış C# için test olması için, değerin uygun bir iç gösterimi ile çalışması gerekir. C#*genellikle* bu temsilin ne olması gerektiğini (yani, verilerin ne *tür* olduğunu) değerler ile yaptığınız verilere göre anlayabilir. Artık, ancak bunu yapamazlar. Aksi takdirde, verileri nasıl C# temsil ettiğini açıkça belirten bir yardım almanız gerekir. AsBool metodu, "true" veya " C# false" dize değerinin Boole değeri olarak değerlendirilip değerlendirilmeyeceğini söyler. Benzer yöntemler, dizeleri diğer türler (tamsayı olarak değerlendir), AsDateTime (bir tarih/saat olarak işle), AsFloat (kayan noktalı sayı olarak işle) gibi diğer türler olarak temsil etmek için de mevcuttur. Bu as () yöntemlerini kullandığınızda, dize değerini istenen C# şekilde temsil ediyorsanız bir hata görürsünüz.
 
-Sayfanın biçimlendirmesine kaldırın veya bu öğe Açıklama (burada, derleme dışı bırakılan çıkış gösterilir):
+Sayfanın biçimlendirmesinde, bu öğeyi kaldırın veya açıklamayı kaldırın (burada açıklama gösterilir):
 
 [!code-html[Main](intro-to-web-pages-programming/samples/sample12.html)]
 
-Burada kaldırılan veya metni, Açıklamalı sağ aşağıdakileri ekleyin:
+Bu metni kaldırdığınız veya daha fazla açıklama eklemek için aşağıdakileri ekleyin:
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample13.cshtml)]
 
-Test showMessage değişken true ise işleme diyorsa bir &lt;p&gt; ileti değişkenini değere sahip öğe.
+Eğer test, showMessage değişkeni true ise, ileti değişkeninin değeri ile bir &lt;p&gt; öğesi işleneceğini belirtir.
 
-### <a name="summary-of-your-conditional-logic"></a>Koşullu mantığınızı özeti
+### <a name="summary-of-your-conditional-logic"></a>Koşullu mantığınızın Özeti
 
-Ne yalnızca yaptığınızı tamamen emin olmadığınız durumlarda bir özeti aşağıda verilmiştir.
+Az önce yaptığınız şekilde tamamen emin değilseniz, bir özet aşağıda verilmiştir.
 
-- İleti değişken varsayılan dize olarak başlatılır ("Bu... ilk kez bir").
-- Sonucu bir gönderme (post), sayfa istek ise "gönderdiğiniz artık..." ileti değeri olarak değiştirilir
-- ShowMessage değişken false olarak başlatılır.
-- Sorgu dizesini içeriyorsa? Göster = true showMessage değişkeni ayarlanır true.
-- Biçimlendirme showMessage true ise bir &lt;p&gt; öğesi ileti değerini gösteren işlenir. (ShowMessage false ise, hiçbir şey bu noktada biçimlendirme içinde işlenir.)
-- Bir post isteğiyse biçimlendirmede bir &lt;p&gt; öğesi tarihi ve saati gösteren işlenir.
+- İleti değişkeni varsayılan bir dizeye ("Bu ilk kez...") başlatılır.
+- Sayfa isteği bir gönderme (gönderi) sonucunda, ileti değeri "Şimdi gönderdiniz..." olarak değiştirilir.
+- ShowMessage değişkeni false olarak başlatılır.
+- Sorgu dizesi? Show = true ise showMessage değişkeni true olarak ayarlanır.
+- İşaretlemede, showMessage true ise, iletinin değerini gösteren bir &lt;p&gt; öğesi işlenir. (ShowMessage false ise, İşaretlemede o noktada hiçbir şey işlenmez.)
+- İşaretlemede, istek bir gönderimdiyse, tarihi ve saati gösteren bir &lt;p&gt; öğesi işlenir.
 
-Sayfayı çalıştırın. İşaretlemede if(showMessage) test false döndürecek şekilde showMessage false olduğu için ileti yok, yok.
+Sayfayı çalıştırın. Bir ileti yoktur, çünkü showMessage false olduğundan, biçimlendirme (showMessage) testi false değerini döndürür.
 
-**Gönder**'e tıklayın. Tarih ve saat, ancak yine de hiçbir ileti görürsünüz.
+**Gönder**'e tıklayın. Tarih ve saati görürsünüz ancak yine de ileti görmezsiniz.
 
-Tarayıcınızda URL kutusuna gidin ve aşağıdaki URL'nin sonuna ekleyin:? Göster = true ayarına ve ardından Enter tuşuna basın.
+Tarayıcınızda URL kutusuna gidin ve şu URL 'nin sonuna şunu ekleyin:? show = true, sonra ENTER tuşuna basın.
 
-![Sorgu dizesi gösteren tarayıcı sayfada 'test Razor 2'](intro-to-web-pages-programming/_static/image5.png)
+![Sorgu dizesini gösteren tarayıcıda ' test RAZOR 2 ' sayfası](intro-to-web-pages-programming/_static/image5.png)
 
-Sayfa yeniden görüntülenir. (URL değiştiğinden, yeni bir istek, bir gönderme budur.) Tıklayın **Gönder** yeniden. İleti, tarih ve saat olarak yeniden görüntülenir.
+Sayfa yeniden görüntülenir. (URL 'YI değiştirdiğiniz için, bu yeni bir istek, gönderme değil.) Yeniden **Gönder** ' e tıklayın. İleti, tarih ve saat olduğu gibi yeniden görüntülenir.
 
-!['Test Razor 2' sayfası sonra bir sorgu dizesi olduğunda gönderme](intro-to-web-pages-programming/_static/image6.png)
+![Sorgu dizesi olduğunda gönderdikten sonra ' test RAZOR 2 ' sayfası](intro-to-web-pages-programming/_static/image6.png)
 
-URL'yi değiştirmeniz? Göster true =? Göster = false ve Enter tuşuna basın. Sayfa yeniden gönderin. Sayfa geri nasıl başlangıç için — iletisi yok.
+URL 'de, Değiştir? = true ile? göster = false ve ENTER 'a basın. Sayfayı yeniden gönder. Sayfa, ileti olmadan nasıl başlatıladığına geri gönderilir.
 
-Daha önce belirtildiği gibi bu örnekte mantığını contrived biraz olduğu. Ancak, sayfa, birçoğu görünmesi yayınlanıyorsa ve bir veya daha fazla görülen forms burada sürer.
+Daha önce belirtildiği gibi, bu örneğin mantığı biraz contrived. Ancak, sayfalarınızın birçoğu varsa, burada gördüğünüz formlardan birini veya daha fazlasını alır.
 
-## <a name="installing-a-helper-displaying-a-gravatar-image"></a>(Bir Gravatar görüntüsü görüntüleme) bir yardımcıyı yükleme
+## <a name="installing-a-helper-displaying-a-gravatar-image"></a>Yardımcı yükleme (Gravatar görüntüsünü görüntüleme)
 
-Kişiler genellikle web sayfalarında yapmak istediğiniz bazı görevler bir sürü kod gerektiren veya ek bilgi gerektirir. Örnekler: veriler için bir grafik görüntüleme; bir Facebook "Gibi" düğmesine bir sayfada; koyma gönderen e-posta, Web sitesinden; Kırpma veya görüntüleri yeniden boyutlandırmayı; PayPal, siteniz için kullanma. Bu tür bir şeyler yapmasını kolaylaştırır, ASP.NET Web Pages kullanmanıza olanak sağlar. *Yardımcıları*. Bir site yüklediğiniz ve Razor kodunun yalnızca birkaç satır kod kullanarak genel görevleri gerçekleştirmenize izin veren bileşenleri yardımcılardır.
+Kullanıcıların genellikle Web sayfalarında yapmak istedikleri bazı görevler çok fazla kod gerektirir veya ek bilgi gerektirir. Örnekler: veriler için bir grafik görüntüleme; Facebook "Beğen" düğmesini sayfaya yerleştirme; Web siteinizden e-posta gönderme; görüntüleri kırpma veya yeniden boyutlandırma; siteniz için PayPal 'yi kullanma. Bu tür şeyleri daha kolay hale getirmek için ASP.NET Web sayfaları, *yardımcıları*kullanmanıza olanak sağlar. Yardımcılar, bir site için yüklediğiniz ve yalnızca birkaç Razor kodu satırını kullanarak tipik görevleri gerçekleştirmenize olanak sağlayan bileşenlerdir.
 
-ASP.NET Web Pages birkaç Yardımcıları yerleşik olarak sahiptir. Ancak, birçok Yardımcıları NuGet Paket Yöneticisi'ni kullanarak sağlanan paketleri (add-INS) kullanılabilir. NuGet paketini yüklemek için seçmenize olanak sağlar ve ardından bu yükleme tüm ayrıntılarını üstlenir.
+ASP.NET Web sayfalarının içinde yerleşik olarak bulunan birkaç yardımcıları vardır. Ancak, NuGet Paket Yöneticisi kullanılarak sağlanan paketlerde (eklentiler) birçok yardımcı vardır. NuGet, yüklenecek bir paket seçmenizi sağlar ve yükleme ayrıntılarının tamamını ele alır.
 
-Öğreticinin bu bölümünde Gravatar ("genel olarak tanınan avatar") görüntüyü olanak sağlayan bir yardımcı yükleyeceksiniz. İki şey öğreneceksiniz. Bulma ve yardımcıyı yükleme biridir. Ayrıca, nasıl bir yardımcı kod kendiniz yazmak zorunda kullanarak yapmak için gerekli bir şey kolaylaştırır öğreneceksiniz.
+Öğreticinin bu bölümünde, Gravatar ("küresel olarak tanınan Avatar") görüntüsünü görüntülemenize olanak tanıyan bir yardımcı yüklersiniz. İki şey öğreneceksiniz. Bunlardan biri, bir yardımcıyı bulma ve yüklemeyi sağlar. Ayrıca, kendiniz yazmanız gereken çok sayıda kod kullanarak yapmanız gereken bir şeyin nasıl yapılacağını nasıl kolaylaştırdığını öğreneceksiniz.
 
-Gravatar Web sitesinden kendi Gravatar kaydedebilirsiniz [ http://www.gravatar.com/ ](http://www.gravatar.com/), ancak öğreticinin bu bölümünde gerçekleştirmek için Gravatar hesabı oluşturmak için gerekli değildir.
+Kendi Gravaık Web sitesine [http://www.gravatar.com/](http://www.gravatar.com/)de kaydedebilirsiniz, ancak öğreticinin bu bölümünü gerçekleştirmek Için bir Gravatar hesabı oluşturmak gerekli değildir.
 
-Webmatrix'te, tıklayın **NuGet** düğmesi.
+WebMatrix 'te **NuGet** düğmesine tıklayın.
 
-![WebMatrix, NuGet galerisindeki iletişim kutusu](intro-to-web-pages-programming/_static/image7.png)
+![WebMatrix 'te NuGet Galerisi iletişim kutusu](intro-to-web-pages-programming/_static/image7.png)
 
-Bu, NuGet Paket Yöneticisi'ni başlatır ve kullanılabilir paketler görüntüler. (Tüm paketler yardımcılardır; bazı işlevler eklemek için WebMatrix kendisi, bazı ek şablonlar ve benzeri.) Sürüm uyumsuzluğu ile ilgili bir hata iletisi alabilirsiniz. Tıklayarak, bu hata iletisini yoksayabilirsiniz **Tamam** ve Bu öğretici ile devam etmeden.
+Bu, NuGet paket yöneticisini başlatır ve kullanılabilir paketleri görüntüler. (Paketlerin hepsi yardımcılar değil; bazı WebMatrix işlevleri, bazı ek şablonlar vb.) Sürüm uyumsuzluğu hakkında bir hata iletisi alabilirsiniz. **Tamam** ' a tıklayıp Bu öğreticiye devam ederek bu hata iletisini yoksayabilirsiniz.
 
-![WebMatrix, NuGet galerisindeki iletişim kutusu](intro-to-web-pages-programming/_static/image8.png)
+![WebMatrix 'te NuGet Galerisi iletişim kutusu](intro-to-web-pages-programming/_static/image8.png)
 
-Arama kutusuna "asp.net Yardımcıları" girin. NuGet paketleri arama terimleriyle eşleşen gösterir.
+Arama kutusuna "asp.net yardımcıları" yazın. NuGet, arama terimleriyle eşleşen paketleri gösterir.
 
-![NuGet galerisinde WebMatrix paket gösteriliyor](intro-to-web-pages-programming/_static/image9.png)
+![Paketleri gösteren WebMatrix 'te NuGet Galerisi](intro-to-web-pages-programming/_static/image9.png)
 
-ASP.NET Web Yardımcıları kitaplığı Gravatar görüntülerini kullanımı gibi birçok yaygın görevleri basitleştirir kodunu içerir. Seçin **ASP.NET Web Yardımcıları Kitaplığı** paketini ve ardından **yükleme** yükleyiciyi başlatın. Seçin **Evet** paketi yükleyin ve yüklemeyi tamamlamak için koşulları kabul etmek isteyip istemediğiniz sorulduğunda.
+ASP.NET Web yardımcıları kitaplığı, Gravatar görüntülerinin kullanımı dahil olmak üzere birçok ortak görevi basitleştirecek kodu içerir. **ASP.NET Web yardımcıları kitaplığı** paketini seçin ve ardından yükleyiciyi başlatmak için **yükleme** ' ye tıklayın. Paketi yüklemek isteyip istemediğiniz sorulduğunda **Evet** ' i seçin ve yüklemeyi tamamlamaya yönelik koşulları kabul edin.
 
-İşte bu kadar. NuGet indirir ve gerekli olabilecek ek bileşenleri dahil her şeyi yükler (*bağımlılıkları*).
+İşte bu kadar. NuGet, gerekli olabilecek ek bileşenler de dahil olmak üzere her şeyi indirir ve yükler (*Bağımlılıklar*).
 
-Herhangi bir nedenden dolayı bir yardımcı kaldırmanız gerekirse, çok benzer bir işlemidir. Tıklayın **NuGet** düğmesini tıklatın, **yüklü** sekmesini ve kaldırmak istediğiniz paketi seçin.
+Bir yardımcıyı kaldırmanız gerekirse, işlem çok benzerdir. **NuGet** düğmesine tıklayın, **yüklü** sekmesine tıklayın ve kaldırmak istediğiniz paketi seçin.
 
-## <a name="using-a-helper-in-a-page"></a>Bir sayfada bir Yardımcısını kullanarak
+## <a name="using-a-helper-in-a-page"></a>Sayfada yardımcı kullanma
 
-Artık yalnızca yüklü Yardımcısı kullanacaksınız. Yardımcı bir sayfaya ekleme işlemi için çoğu Yardımcıları benzerdir.
+Şimdi, yeni yüklediğiniz yardımcı ' i kullanacaksınız. Bir sayfaya yardımcı ekleme süreci çoğu Yardımcıda benzerdir.
 
-WebMatrix, bir sayfa oluşturun ve adlandırın *GravatarTest.cshml*. (Yardımcı test etmek için özel bir sayfa oluşturmakta olduğunuz, ancak herhangi bir sayfa sitenizde Yardımcıları kullanabilirsiniz.)
+WebMatrix 'te bir sayfa oluşturun ve *Gravatartest. cshml*olarak adlandırın. (Yardımcı 'yı test etmek için özel bir sayfa oluşturuyorsunuz, ancak sitenizdeki herhangi bir sayfada yardımcıları kullanabilirsiniz.)
 
-İçinde &lt;gövdesi&gt; öğe, Ekle bir &lt;div&gt; öğesi. İçinde &lt;div&gt; öğesi, bunu yazın:
+&lt;Body&gt; öğesinin içinde, bir &lt;div&gt; öğesi ekleyin. &lt;div&gt; öğesinin içinde şunu yazın:
 
 @Gravatar.
 
-@ Karakteri, kullanmakta olduğunuz Razor kod işaretlemek için aynı karakterdir. **Gravatar** çalıştığınız yardımcı nesnesi.
+@ Karakteri, Razor kodunu işaretlemek için kullandığınız karakter ile aynıdır. **Gravatar** , üzerinde çalıştığınız yardımcı nesnedir.
 
-Nokta (.) yazmanızın hemen ardından, WebMatrix listesini görüntüler. *yöntemleri* (Gravatar Yardımcısı kullanımınıza sunduğu işlevleri):
+Noktayı (.) yazdığınızda, WebMatrix, Gravatar Yardımcısı 'nın kullanılabilir hale getiren *yöntemlerin* (işlevlerin) bir listesini görüntüler.
 
-![Gravatar Yardımcısı IntelliSense aşağı açılan listesi](intro-to-web-pages-programming/_static/image10.png)
+![Gravatar Yardımcısı IntelliSense açılan listesi](intro-to-web-pages-programming/_static/image10.png)
 
-Bu özellik olarak da bilinen *IntelliSense*. Bu, size kod bağlamı uygun seçenekleri sağlayarak yardımcı olur. IntelliSense, HTML, CSS, ASP.NET kodu, JavaScript ve diğer Webmatrix'te desteklenen dilleri ile çalışır. Bu, WebMatrix web sayfalarında geliştirmeyi daha kolay hale getirir başka bir özelliktir.
+Bu özellik *IntelliSense*olarak bilinir. Bağlama uygun seçimler sunarak kodmanıza yardımcı olur. IntelliSense, WebMatrix 'te desteklenen HTML, CSS, ASP.NET Code, JavaScript ve diğer diller ile birlikte kullanılabilir. WebMatrix 'te Web sayfaları geliştirmeyi kolaylaştıran başka bir özelliktir.
 
-Klavye ve G tuşuna bakın IntelliSense GetHtml yöntemi bulur. Sekme tuşuna basın. IntelliSense seçilen yöntemi (GetHtml) ekler. Bir açma parantezi ve kapatma parantezinden otomatik olarak eklenir dikkat edin. Tırnak işaretleri arasına iki e-posta adresinizi yazın. Profil resminizi bir Gravatar hesabınız varsa, döndürülür. Varsayılan görüntü Gravatar hesabı yoksa döndürülür. İşiniz bittiğinde, satırı şuna benzer:
+Klavyede G tuşuna basın ve IntelliSense 'in GetHtml metodunu bulduğunu görürsünüz. Sekme tuşuna basın. IntelliSense, sizin için seçilen yöntemi (GetHtml) ekler. Bir açık parantez yazın ve kapatma parantezinin otomatik olarak eklendiğinden emin olun. E-posta adresinizi iki parantez arasına tırnak işareti içine yazın. Bir Gravatar hesabınız varsa, profil resminiz döndürülür. Gravatar hesabınız yoksa, varsayılan bir görüntü döndürülür. İşiniz bittiğinde, satır şöyle görünür:
 
 [!code-css[Main](intro-to-web-pages-programming/samples/sample14.css)]
 
-Artık bir tarayıcıda sayfasını görüntüleyin. Gravatar hesabı olmasına bağlı olarak, resim ya da varsayılan görüntü görüntülenir.
+Şimdi sayfayı bir tarayıcıda görüntüleyin. Gravatar hesabınız olmasına bağlı olarak, resminiz veya varsayılan görüntü görüntülenir.
 
 ![Gravatar](intro-to-web-pages-programming/_static/image11.png) ![Varsayılan görüntü](intro-to-web-pages-programming/_static/image12.png)
 
-Ne hakkında bir fikir edinmek için yardımcı sizin yerinize yapıyor, kaynak sayfanın tarayıcıda görüntüleme. Sayfanızın olan HTML yanı sıra, bir tanımlayıcı içeren bir görüntü öğesi görürsünüz. Bu yardımcı sayfasına sahip olduğu yerde işlenen kodudur @Gravatar.GetHtml. Yardımcısı, sağlanan ve doğru görüntü için sağlanan hesabı geri almak için doğrudan için Gravatar konuşuyor kod oluşturulan bilgilerin sürdü.
+Yardımcı 'nın sizin için yaptığına ilişkin bir fikir edinmek için tarayıcıda sayfanın kaynağını görüntüleyin. Sayfanızda bulunan HTML ile birlikte tanımlayıcı içeren bir görüntü öğesi görürsünüz. Bu, yardımcının @Gravatar.GetHtmlsahip olduğunuz yerde sayfada işlenen koddur. Yardımcı, sağladığınız bilgileri alır ve sağlanan hesap için doğru görüntüyü geri almak üzere doğrudan Gravaık 'ye bağlanan kodu üretti.
 
-GetHtml yöntemi ayrıca diğer parametreler sağlayarak görüntü özelleştirmenize olanak sağlar. Aşağıdaki kod, görüntü genişliği ve yüksekliği 40 piksel olan ve adlı, belirtilen varsayılan bir görüntü kullanır istemek gösterilmektedir **wavatar** belirtilen hesabın mevcut değilse.
+GetHtml yöntemi, diğer parametreleri sağlayarak görüntüyü özelleştirmenize de olanak sağlar. Aşağıdaki kod, bir görüntünün 40 piksellik genişlik ve yüksekliğe sahip olduğunu ve belirtilen hesap yoksa **Wavatar** adlı belirtilen bir varsayılan görüntü kullandığını gösterir.
 
 [!code-javascript[Main](intro-to-web-pages-programming/samples/sample15.js)]
 
-Bu kod aşağıdaki gibi (varsayılan görüntü rastgele değişir) aşağıdaki sonucu verir.
+Bu kod aşağıdaki sonuca benzer bir şey üretir (varsayılan görüntü rastgele farklılık gösterir).
 
 ![](intro-to-web-pages-programming/_static/image13.png)
 
-## <a name="coming-up-next"></a>Sıradaki gelen
+## <a name="coming-up-next"></a>Sonraki adımda
 
-Bu öğretici kısa tutmak için yalnızca birkaç temel öğeler üzerinde odaklanmak vardı. Doğal olarak, var olan bir *çok* Razor ve C# için daha fazla. Daha fazla şekilde bu öğreticileri öğreneceksiniz. Razor programlama yönleri hakkında daha fazla bilgi istiyorsanız ve C# şu anda daha kapsamlı bir giriş burada okuyabilirsiniz: [ASP.NET Web programlama Razor söz dizimini kullanarak giriş](https://go.microsoft.com/fwlink/?LinkID=202890).
+Bu öğreticiyi tutmak için yalnızca birkaç temel bilgilere odaklanıyoruz. Doğal olarak, Razor ve C#için çok daha fazla şey vardır. Bu öğreticilerle giderek daha fazla bilgi edineceksiniz. Razor 'in programlama yönleri ve C# Şu anda daha fazla bilgi edinmek istiyorsanız, daha kapsamlı bir giriş bulabilirsiniz: [Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890).
 
-Sonraki öğretici, bir veritabanı ile çalışmaya tanıtır. Bu öğreticide, en sevdiğiniz film listesinde olanak sağlayan örnek uygulama oluşturmaya başlarsınız.
+Sonraki öğreticide bir veritabanıyla çalışmanız tanıtılmaktadır. Bu öğreticide, en sevdiğiniz filmleri listelemenizi sağlayan örnek uygulamayı oluşturmaya başlayacaksınız.
 
-## <a name="complete-listing-for-testrazor-page"></a>Tam listesi için TestRazor sayfası
+## <a name="complete-listing-for-testrazor-page"></a>TestRazor sayfası listesinin tamamını listeleme
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample16.cshtml)]
 
-## <a name="complete-listing-for-testrazorpart2-page"></a>Tam listesi için TestRazorPart2 sayfası
+## <a name="complete-listing-for-testrazorpart2-page"></a>TestRazorPart2 sayfası için komple liste
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample17.cshtml)]
 
-## <a name="complete-listing-for-gravatartest-page"></a>Tam listesi için GravatarTest sayfası
+## <a name="complete-listing-for-gravatartest-page"></a>GravatarTest sayfası için komple liste
 
 [!code-cshtml[Main](intro-to-web-pages-programming/samples/sample18.cshtml)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET Web programlama Razor söz dizimini kullanarak giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Twitter Yardımcısı](../../ui-layouts-and-themes/twitter-helper.md)
 
 > [!div class="step-by-step"]

@@ -1,301 +1,301 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: Bir listeleme/Ayrıntılar kullanıcı Arabirimi uygulama için denetleyicileri ve görünümleri kullanma | Microsoft Docs
+title: Bir listeleme/Ayrıntılar Kullanıcı arabirimi uygulamak için denetleyicileri ve görünümleri kullanma | Microsoft Docs
 author: microsoft
-description: 4. adım, denetleyici modelimiz, kullanıcıların bir veri listeleme/Ayrıntılar Gezinti deneyimi sunmak için yararlanır uygulamaya ekleme işlemi gösterilmektedir...
+description: 4\. adım, kullanıcılara veri listeleme/Ayrıntılar gezinti deneyimi sağlamak için modelimizin avantajlarından yararlanan uygulamaya nasıl bir denetleyici ekleneceğini gösterir...
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 64116e56-1c9a-4f07-8097-bb36cbb6e57f
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: 74319fe5ea4c79b50140834349e2fdf86420cfbb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128211"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600746"
 ---
 # <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Denetleyicileri ve Görünümleri Kullanarak Listeleme/Ayrıntılar Kullanıcı Arabirimi Uygulama
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 4 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) 4. adımından oluşur.
 > 
-> 4. adım, kullanıcıların bir veri listeleme/Ayrıntılar Gezinti deneyimi azalma NerdDinner sitemizde sağlamak için modelimizi faydalanan uygulama denetleyici ekleme işlemi gösterilmektedir.
+> 4\. adım, kullanıcılara, Nerdakşam yemeği sitemizdeki dinlimler için veri listeleme/Ayrıntılar gezinti deneyimi sağlamak amacıyla, bir uygulamanın, modelimizin avantajlarından yararlanan bir denetleyicinin nasıl ekleneceğini gösterir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-4-controllers-and-views"></a>NerdDinner adım 4: Denetleyicileri ve görünümleri
+## <a name="nerddinner-step-4-controllers-and-views"></a>Nerdakşam yemeği 4. Adım: denetleyiciler ve görünümler
 
-Geleneksel web çerçeveleri ile (klasik ASP, PHP, ASP.NET Web Forms, vb.), genellikle dosyaları diskte gelen URL'ler eşlenir. Örneğin: bir URL isteği ister "/ Products.aspx" veya "/ Products.php" bir "Products.aspx" veya "Products.php" dosyası tarafından işlenir.
+Geleneksel Web çerçeveleri (klasik ASP, PHP, ASP.NET Web Forms vb.) ile gelen URL 'Ler genellikle disk üzerindeki dosyalarla eşleştirilir. Örneğin: "/Products.aspx" veya "/Products.php" gibi bir URL isteği bir "Products. aspx" veya "Products. php" dosyası tarafından işlenebilir.
 
-Web tabanlı MVC çerçeveleri URL'leri için sunucu kodu biraz farklı bir şekilde eşleştirin. Gelen URL'ler için dosya eşleme yerine bunların yerine URL'leri sınıfları yöntemlerde eşleyin. Bu sınıfların "Denetleyicileri" olarak adlandırılır ve kullanıcı girişini işleme gelen HTTP isteklerini işlemekten sorumlu oldukları, alma ve verilerini kaydetme ve gönderilecek yanıt belirleyen yedekleme istemciye (HTML görüntülemek, dosya indirme, farklı bir'yeniden yönlendirme URL, vb.).
+Web tabanlı MVC çerçeveleri, URL 'Leri sunucu koduna biraz farklı bir şekilde eşler. Gelen URL 'Leri dosyalara eşlemek yerine, URL 'Leri sınıfların yöntemlerine eşleyin. Bu sınıflar "denetleyiciler" olarak adlandırılır ve gelen HTTP isteklerini işlemekten, Kullanıcı girişi işleme, verileri alma ve kaydetme ve istemciye geri gönderme yanıtını belirleme (HTML görüntüleme, bir dosyayı indirme, farklı bir şekilde yeniden yönlendirme) URL, vb.).
 
-NerdDinner uygulamamız için temel bir modeli derledik, denetleyici faydalanan kullanıcılar bir veri listeleme/Ayrıntılar Gezinti deneyimi azalma sitemizde sağlamak için uygulama eklemek için sonraki adımımız olacaktır.
+Nerdakşam yemeği uygulamamız için temel bir model oluşturduğumuzdan, bir sonraki adımınız, kullanıcılara sitemizin için bir veri listeleme/Ayrıntılar gezintisi deneyimi sağlamak üzere uygulamanın avantajlarından yararlanan bir denetleyici eklemektir.
 
-### <a name="adding-a-dinnerscontroller-controller"></a>DinnersController denetleyici ekleme
+### <a name="adding-a-dinnerscontroller-controller"></a>DinnersController denetleyicisi ekleme
 
-Biz bizim web projesi içindeki "Denetleyicileri" klasörüne sağ tıklayarak başlayın ve ardından **Add -&gt;denetleyicisi** menü komutu (size de yürütebilir bu komut Ctrl-M, Ctrl-C yazarak):
+Web projemizdeki "denetleyiciler" klasörüne sağ tıklayıp ardından **Add-&gt;Controller** menü komutunu seçin (Ctrl-M, CTRL-C yazarak da bu komutu çalıştırabilirsiniz):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image1.png)
 
-Bu, "Denetleyici Ekle" iletişim kutusu getirir:
+Bu, "denetleyici Ekle" iletişim kutusunu getirir:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image2.png)
 
-Biz "DinnersController" yeni denetleyici adı ve "Ekle" düğmesine tıklayın. Visual Studio, ardından bizim \Controllers dizini altında DinnersController.cs dosya ekleyecektir:
+"DinnersController" adlı yeni denetleyiciyi ve "Ekle" düğmesine tıklayacağız. Visual Studio, \Controllers dizinimizin altına bir DinnersController.cs dosyası ekler:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image3.png)
 
-Ayrıca yukarı yeni DinnersController sınıf Kod Düzenleyicisi içinde açılır.
+Ayrıca, kod Düzenleyicisi içinde yeni DinnersController sınıfını açar.
 
-### <a name="adding-index-and-details-action-methods-to-the-dinnerscontroller-class"></a>İNDİS() ve Details() eylem yöntemleri DinnersController sınıfı ekleme
+### <a name="adding-index-and-details-action-methods-to-the-dinnerscontroller-class"></a>DinnersController sınıfına dizin () ve ayrıntılar () eylem yöntemleri ekleme
 
-Yaklaşan azalma listesini inceleyin ve belirli ayrıntılarını görmek için tüm Akşam Yemeği listesinde tıklayarak izin vermek için uygulamamız kullanan ziyaretçilere sağlamak istiyoruz. Uygulamamızı aşağıdaki URL'lerden yayımlayarak bunu:
+Uygulamamızı kullanarak, yaklaşan içgörülerin listesine gözatmasını ve ilgili belirli ayrıntıları görmek için listedeki herhangi bir akşam 'ye tıklamalarını sağlamak istiyoruz. Bunu uygulamamızda aşağıdaki URL 'Leri yayımlayarak yapacağız:
 
 | **URL** | **Amaç** |
 | --- | --- |
-| */Dinners/* | Yaklaşan azalma bir HTML listesini görüntüleyin |
-| */Dinners/Ayrıntılar / [ID]* | Akşam Yemeği veritabanında, DinnerID eşleşecektir URL içinde– katıştırılmış bir "id" parametresi tarafından belirtilen belirli bir Akşam Yemeği hakkında ayrıntıları görüntüler. Örneğin: /Dinners/Details/2 DinnerID değeri 2 olan Akşam Yemeği ayrıntılarını içeren bir HTML sayfası görüntüleme. |
+| */Dinners/* | Yaklaşan dinlerlerin HTML listesini görüntüleme |
+| */Dinners/Details/[kimlik]* | URL içinde gömülü bir "ID" parametresi tarafından belirtilen belirli bir akşam yemeği hakkındaki ayrıntıları, veritabanındaki akşam yemeği 'nin DinnerID eşleşecek şekilde görüntüler. Örneğin:/Dinners/Details/2, DinnerID değeri 2 olan akşam yemeği hakkındaki ayrıntıları içeren bir HTML sayfası görüntüler. |
 
-Bu URL'ler ilk uygulamaları aşağıdaki gibi bizim DinnersController sınıfı iki genel "eylem yöntemleri" ekleyerek yayımlarız:
+Aşağıdaki gibi DinnersController sınıfımız iki genel "Action yöntemi" ekleyerek bu URL 'lerin ilk uygulamalarını yayımlayacağız:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample1.cs)]
 
-Ardından NerdDinner uygulamayı çalıştırın ve bizim tarayıcı bunları çağırmak için kullanırız. Yazarak *"/ azalma /"* URL neden bizim *İNDİS()* çalıştırma ve yönteme şu yanıtı geri gönderir:
+Daha sonra Nerdakşam yemeği uygulamasını çalıştıracağız ve bunları çağırmak için tarayıcımızı kullanacağız. *"/Dinners/"* URL 'Sini yazmak *Dizin ()* yönteminizin çalışmasına neden olur ve aşağıdaki yanıtı geri gönderir:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image4.png)
 
-Yazarak *"/ azalma/Ayrıntılar/2"* URL neden bizim *Details()* yöntemi çalıştırmak ve şu yanıtı geri göndermek için:
+*"/Dinners/details/2"* URL 'sini yazmak, *Details ()* yönteminin çalışmasına neden olur ve aşağıdaki yanıtı geri gönderir:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image5.png)
 
-Merak ediyor - ASP.NET MVC bizim DinnersController sınıfı oluşturun ve bu yöntemleri çağırmak için nasıl biliyor muydunuz? Şimdi anlamak için nasıl yönlendirmenin çalıştığını hızlı göz atın.
+DinnersController sınıfınızı nasıl oluşturmak ve bu yöntemleri çağırmak için ASP.NET MVC 'nin nasıl çalıştığını merak ediyor olabilirsiniz mi? Bunu anlamak için yönlendirmenin nasıl çalıştığına göz atalım.
 
-### <a name="understanding-aspnet-mvc-routing"></a>Yönlendirmeyi anlama ASP.NET MVC
+### <a name="understanding-aspnet-mvc-routing"></a>ASP.NET MVC yönlendirmesini anlama
 
-ASP.NET MVC denetleyici sınıflarına URL'lerin nasıl eşleştirildiğini denetleme esneklik birçok sağlayan güçlü bir yönlendirme URL'si altyapısını içerir. ASP.NET MVC hangi denetleyici sınıfı oluşturmak için hangi yöntemin yanı sıra üzerinde çağırmak için yapılandırma değişkenleri otomatik olarak URL/sorgu dizesi ayrıştırıldığında ve yönteme parametre olarak geçirilen, farklı yolu nasıl seçer tamamen özelleştirmek bize sağlar bağımsız değişkenler. Bu tamamen bir siteyi (arama motoru iyileştirme) SEO için en iyi duruma getirme yanı sıra bir uygulamadan istiyoruz herhangi bir URL yapısı yayımlama esnekliği sunar.
+ASP.NET MVC, URL 'Lerin denetleyici sınıflarıyla nasıl eşlenildiğini denetlemek için çok sayıda esneklik sağlayan güçlü bir URL yönlendirme altyapısı içerir. ASP.NET MVC 'nin hangi denetleyici sınıfının oluşturulacağını, hangi yöntem üzerinde çağrılacak yöntemi seçmemizi ve değişkenlerin URL/QueryString 'den otomatik olarak ayrıştırılabileceği ve yönteme parametre bağımsız değişkenleri olarak geçirildiği farklı yollar yapılandırabilmesini sağlar. Bir uygulamayı bir SEO (arama motoru iyileştirmesi) için en iyi duruma getirme esnekliği sağlar ve bir uygulamadan istediğiniz URL yapısını yayımlayın.
 
-Varsayılan olarak, yeni ASP.NET MVC projeleri URL yönlendirme kuralları zaten kayıtlı önceden yapılandırılmış bir dizi birlikte gelir. Bu uygulama üzerinde herhangi bir şey yapılandırmak zorunda kalmadan kolayca kullanmaya başlamak sağlıyor. Varsayılan yönlendirme kuralı kayıtları, biz Projemizin kökünde "Global.asax" dosyasına çift tıklayarak açabileceğiniz – projelerimizden biri "Uygulama" sınıfı içinde bulunabilir:
+Varsayılan olarak, yeni ASP.NET MVC projeleri önceden kaydedilmiş bir URL yönlendirme kuralları kümesi ile gelir. Bu, açıkça bir şey yapılandırmak zorunda kalmadan bir uygulamaya kolayca başlayabilmenizi sağlar. Varsayılan yönlendirme kuralı kayıtları, projelerimizin "uygulama" sınıfında bulunabilir. Bu, proje kökündeki "Global. asax" dosyasına çift tıklayarak açabiliyoruz:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image6.png)
 
-Varsayılan ASP.NET MVC yönlendirme kuralları, bu sınıfın "RegisterRoutes" yöntemi kaydedilir:
+Varsayılan ASP.NET MVC yönlendirme kuralları bu sınıfın "RegisterRoutes" metodu içinde kaydedilir:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample2.cs)]
 
-"Yolları. MapRoute() "yöntem çağrısının yukarıdaki gelen URL'ler için URL biçimi kullanılarak denetleyici sınıflarına eşleyen bir varsayılan yönlendirme kuralı kaydeder:" / {denetleyici} / {action} / {id} "– örneklemek için denetleyici sınıfının adı"denetleyici"burada"action"adıdır bir genel yöntem ve "id" çağrılacak yönteme bağımsız değişken olarak geçirilebilir URL içinde gömülü isteğe bağlı bir parametredir. "MapRoute()" yöntem çağrısına geçirilen üçüncü parametresi, URL'de olmadıkları durumunda, denetleyici/eylem/id değerler için kullanılacak varsayılan değerler kümesidir (denetleyici = "Home", Eylem = "Dizin", kimliği = "").
+"Yollar. Yukarıdaki MapRoute () "yöntem çağrısı, gelen URL 'Leri denetleyici sınıflarına eşleyen bir varsayılan yönlendirme kuralını Şu URL biçimi kullanarak kaydeder:"/{Controller}/{id} "–" denetleyici "örneklendirilecek denetleyici sınıfının adıdır," eylem ", üzerinde çağrılacak bir ortak yöntemin adıdır ve" kimlik ", bir bağımsız değişken olarak metoduna geçirilen URL içinde gömülü isteğe bağlı bir parametredir. "MapRoute ()" yöntem çağrısına geçirilen üçüncü parametre, (denetleyici = "giriş", eylem = "Dizin", kimlik = "") olayda denetleyici/eylem/kimlik değerleri için kullanılacak varsayılan değerler kümesidir.
 
-Aşağıda URL'leri çeşitli nasıl erişileceğini gösteren bir tablo varsayılan kullanılarak eşlendi. "<em>/ {denetleyicileri} / {eylem} / {id}"</em>yol kuralı:
+Aşağıda, çeşitli URL 'Lerin varsayılan "<em>/{Controllers}/{Action}/{ID}"</em>yol kuralını kullanarak nasıl eşlendiğini gösteren bir tablo verilmiştir:
 
-| **URL** | **Denetleyici sınıfı** | **Eylem yöntemi** | **Geçirilen parametre** |
+| **URL** | **Denetleyici sınıfı** | **Action yöntemi** | **Geçirilen parametreler** |
 | --- | --- | --- | --- |
-| */ Azalma/Ayrıntılar/2* | DinnersController | Details(id) | ID = 2 |
-| */ Azalma/düzenleme/5* | DinnersController | Edit(id) | ID = 5 |
-| */ Azalma/oluşturma* | DinnersController | Create() | Yok |
-| */ Azalma* | DinnersController | Index() | Yok |
-| */ Giriş* | HomeController | Index() | Yok |
-| */* | HomeController | Index() | Yok |
+| */Dinners/Details/2* | DinnersController | Ayrıntılar (kimlik) | kimlik = 2 |
+| */Dinners/Edit/5* | DinnersController | Düzenle (kimlik) | kimlik = 5 |
+| */Dinners/Create* | DinnersController | Oluştur () | Yok |
+| */Dinanlar* | DinnersController | Dizin () | Yok |
+| */Home* | HomeController | Dizin () | Yok |
+| */* | HomeController | Dizin () | Yok |
 
-Varsayılan değerleri son üç satırları göster (denetleyicisi giriş, eylem = = dizini, kimliği = "") kullanılıyor. Bir belirtilmezse, "Index" yöntemi varsayılan eylem adı olarak kayıtlı olmadığından "/ azalma" ve bunların denetleyicisi sınıflarında çağrılacak "/ Home" URL'leri neden İNDİS() eylem yöntemi. Belirtilmezse, bir "Home" denetleyicisi varsayılan denetleyicisi olarak kayıtlı olduğundan, "/" URL oluşturulacak HomeController ve İNDİS() eylem yönteminin çağrılması için neden olur.
+Son üç satır, kullanılan varsayılan değerleri (denetleyici = Home, Action = Dizin, ID = "") gösterir. "Dizin" yöntemi belirtilmemişse varsayılan eylem adı olarak kaydedildiğinden, "/Dınanlar" ve "/Home" URL 'Leri, denetleyici sınıflarında dizin () eylem yönteminin çağrılmasına neden olur. "Giriş" denetleyicisi belirtilmemişse varsayılan denetleyici olarak kaydedildiğinden, "/" URL 'SI HomeController 'ın oluşturulmasına ve üzerinde dizin () eylem yöntemine neden olur.
 
-Bu varsayılan URL yönlendirme kuralları beğenmediniz, kolayca Değiştir - yukarıdaki RegisterRoutes yöntemi içinde düzenlemek için güzel bir haberimiz var demektir. NerdDinner uygulamamız için yine de, varsayılan URL yönlendirme kurallarını değiştirmek için kullanacağız olmayan: bunun yerine yalnızca olarak kullanacağız-olduğu.
+Bu varsayılan URL yönlendirme kurallarını beğenmezseniz, iyi haber, daha kolay bir şekilde değiştirilebilir. Bunlar, yukarıdaki RegisterRoutes yöntemi içinde düzenlenmelidir. Nerdakşam yemeği uygulamamız için, varsayılan URL yönlendirme kurallarından herhangi birini değiştiremedik, bunun yerine bunları olduğu gibi kullanacağız.
 
-### <a name="using-the-dinnerrepository-from-our-dinnerscontroller"></a>Bizim DinnersController gelen DinnerRepository kullanma
+### <a name="using-the-dinnerrepository-from-our-dinnerscontroller"></a>DinnersController 'umuza DinnerRepository kullanma
 
-Şimdi geçerli kararlılığımızın DinnersController'ın şimdi değiştirmek modelimizi kullanan uygulamaları ile İNDİS() ve Details() eylem yöntemleri.
+Şimdi, DinnersController 'in dizin () ve details () eylem yöntemlerinin geçerli uygulamamızı, modelimizi kullanan uygulamalarla değiştirecek.
 
-Davranışı uygulamak daha önce oluşturulmuş DinnerRepository sınıfı kullanacağız. Biz "NerdDinner.Models" ad alanı başvuran bir "kullanarak" deyimi ekleyerek başlayın ve bizim DinnerRepository örneğini bizim DinnerController sınıfta bir alan olarak bildirmelisiniz.
+Daha önce oluşturduğumuz DinnerRepository sınıfını, davranışı uygulamak için kullanacağız. "Nerdakşam yemeği. modeller" ad alanına başvuruda bulunan bir "Using" ifadesini ekleyerek başlayacağız ve ardından DinnerRepository bir örnek olarak DinnerController sınıfımızda bir alan olarak bildireceğiz.
 
-Bu bölümde daha sonra biz "Bağımlılık ekleme" kavramını tanıtır ve yalnızca bizim DinnerRepository örneğini oluşturacağız artık bizim denetleyicileri daha iyi birim sağlayan bir DinnerRepository bir başvuru almak için başka bir şekilde test – ancak sağa Göster Aşağıdaki satır içi gibi.
+Bu bölümde daha sonra, "bağımlılık ekleme" kavramının tanıtılmasına ve Denetleyicilerimizin daha iyi birim testi sağlayan bir DinnerRepository başvurusu alması için başka bir yol göstermemiz gerekir, ancak şu anda yalnızca DinnerRepository bir örneğini oluşturacağız aşağıdaki gibi satır içi.
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample3.cs)]
 
-Şimdi geri bizim alınan veri modeli nesneleri kullanarak bir HTML yanıtı oluşturmak hazırız.
+Şimdi, alınan veri modeli nesnelerimizi kullanarak bir HTML yanıtı oluşturmaya hazır hale getiriyoruz.
 
-### <a name="using-views-with-our-controller"></a>Denetleyici ile görünümleri kullanma
+### <a name="using-views-with-our-controller"></a>Denetleyicimiz ile görünümleri kullanma
 
-Bizim eylem yöntemleri HTML bir araya getirin ve ardından içinde kod yazmayı mümkün olmakla birlikte *Response.Write()* yaklaşım hızla oldukça zahmetli hale istemciye geri göndermek için yardımcı yöntemi. Yalnızca uygulama ve veri mantığı bizim DinnersController eylem yöntemleri içinde gerçekleştirin ve sonra HTML yanıtı HTML gösterimi çıktısı için sorumlu ayrı "Görünüm" şablonu işlemek için gerekli olan verileri geçirmek için bir daha iyi bir yaklaşımdır içindir Bunu. Bir dakika içinde anlatıldığı gibi "görüntüleme" şablon genellikle HTML İşaretleme ve kod katıştırılmış işleme bir birleşimini içeren bir metin dosyasıdır.
+HTML 'i birleştirmek ve ardından *Response. Write ()* yardımcı yöntemini kullanarak, HTML 'yi birleştirme ve sonra istemciye geri göndermek için eylem yöntemlerimiz dahilinde kod yazmak mümkün olsa da, bu yaklaşım oldukça hızlı hale gelir. Çok daha iyi bir yaklaşım, DinnersController eylem yöntemlerimiz içinde yalnızca uygulama ve veri mantığı gerçekleştirmekten ve sonra HTML yanıtını HTML gösteriminin çıktısını almak için gereken ayrı bir "Görünüm" şablonuna geçirmesi için gereken verileri iletmektir. . Bir süre içinde göreceğiniz gibi, bir "Görünüm" şablonu, genellikle HTML biçimlendirme ve katıştırılmış işleme kodu birleşimini içeren bir metin dosyasıdır.
 
-Bizim görünümü işleme bizim denetleyicisi mantıksal ayırma büyük avantaj getirir. Özellikle, bir "görev ayrımı nettir" uygulama kodu ve UI biçimlendirme işleme kodu arasında uygulanmasına yardımcı olur. Bu yalıtım halinde birim testi uygulama mantığı UI işleme mantığından kolaylaşır. Bu, daha sonra uygulama kodunu değişiklik yapmak zorunda kalmadan UI işleme şablonları değiştirme kolaylaştırır. Ve bu, geliştiricilerin ve tasarımcıların birlikte projeler üzerinde işbirliği yapmak için kolaylaştırabilir.
+Denetleyici mantığımızı görüntüleme işlemızdan ayırarak birçok büyük avantaj elde edin. Özellikle uygulama kodu ve Kullanıcı arabirimi biçimlendirme/işleme kodu arasında açık bir "kaygıları ayrımı" uygulanmasını sağlar. Bu işlem, birim testi uygulama mantığını UI işleme mantığının yalıtımına çok daha kolay hale getirir. Uygulama kodu değişikliği yapmak zorunda kalmadan, daha sonra UI işleme şablonlarının değiştirilmesini kolaylaştırır. Ayrıca, geliştiricilerin ve tasarımcıların projelerde birlikte işbirliği yapmasını kolaylaştırır.
 
-Biz size bizim iki eylem yöntemleri metodun metot imzalarını değiştirerek "void" yerine "ActionResult" dönüş türüne sahip dönüş türüne sahip bir HTML kullanıcı Arabirimi yanıt geri gönderilecek bir görünümü şablon kullanmak istediğinizi belirtmek için sunduğumuz DinnersController sınıfı güncelleştirebilirsiniz. Biz sonra çağırabilirsiniz *View()* yardımcı yöntem geri dönmek için denetleyici taban sınıfta bir "ViewResult" nesne gibi aşağıda:
+DinnersController sınıfınızı, bir HTML UI yanıtı göndermek için bir görünüm şablonu kullanmak istediğimizin, "void" dönüş türü yerine "ActionResult" dönüş türüne sahip olması gerektiğini gösterecek şekilde güncelleyebiliriz. Daha sonra, aşağıdaki gibi bir "ViewResult" nesnesi geri dönmek için denetleyici temel sınıfında *View ()* yardımcı yöntemini çağırabiliriz:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample4.cs)]
 
-İmzası *View()* aşağıdaki gibi yardımcı yöntem yukarıda kullanıyoruz görünür:
+Yukarıda kullandığımız *View ()* yardımcı yönteminin imzası aşağıdaki gibi görünür:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image7.png)
 
-İlk parametre olarak *View()* yardımcı yöntemdir HTML yanıtını işlemek için kullanılacak istediğimiz görünümü şablon dosyasının adı. Şablonu Görüntüle HTML yanıtını işlemek için gereken verileri içeren bir model nesnesi ikinci parametredir.
+*View ()* yardımcı yönteminin ilk PARAMETRESI, HTML yanıtını işlemek için kullanmak istediğimiz görünüm şablonu dosyasının adıdır. İkinci parametre, görünüm şablonunun HTML yanıtını işlemek için ihtiyacı olan verileri içeren bir model nesnesidir.
 
-Bizim İNDİS() eylem yöntemi içinde ki aradığınız *View()* yardımcı yöntem ve belirten bir HTML listeleyen bir "Index" Görünüm şablonu kullanarak bir azalma işlemek istiyoruz. Akşam Yemeği nesneleri listeden oluşturmak için bir dizi görünüm şablonu geçiriyoruz:
+Dizin () eylem yöntemimizde, *View ()* yardımcı yöntemini arıyoruz ve bir "Dizin" görünümü şablonu kullanarak dinetler 'in HTML listesini işlemek istediğimizi gösterir. Listeyi oluşturmak için görünüm şablonuna bir akşam yemeği nesne sırası geçiriyoruz:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample5.cs)]
 
-Bizim Details() eylem yöntemi içinde biz URL içinde sağlanan kimliği kullanan bir Akşam Yemeği nesnesini alma denemesi. Geçerli bir Akşam Yemeği diyoruz bulunursa *View()* istiyoruz "Details" Görünüm şablonu alınan Dinner nesneyi işlemek için kullanılacağını belirten yardımcı yöntemi. Geçersiz bir Akşam Yemeği istenirse, biz Akşam Yemeği "Bulunamadı" görünümü şablon kullanarak yok gösteren bir yararlı hata mesajını oluştur (ve aşırı yüklenmiş bir sürümünü *View()* yalnızca şablon adı sürer yardımcı yöntemi ):
+Ayrıntılarımızda () eylem yönteminde, URL içinde sunulan kimliği kullanarak bir akşam yemeği nesnesini almayı denedik. Geçerli bir akşam yemeği bulunursa, alınan akşam yemeği nesnesini işlemek için "Ayrıntılar" görünüm şablonunu kullanmak istediğimiz olan *View ()* yardımcı yöntemini çağırdık. Geçersiz bir akşam yemeği isteniyorsa, akşam yemeği 'nin "NotFound" görünüm şablonunu (ve yalnızca şablon adını alan *Görünüm ()* yardımcı yönteminin aşırı yüklenmiş bir sürümünü kullanarak var olmadığını belirten faydalı bir hata iletisi oluşturacağız:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample6.cs)]
 
-Şimdi "Bulunamadı", "Details" ve "Index" Görünüm şablonları hemen uygulayın.
+Şimdi "NotFound", "details" ve "Dizin" görünüm şablonlarını uygulayalim.
 
-### <a name="implementing-the-notfound-view-template"></a>Uygulama "Bulunamadı" şablonu görüntüleme
+### <a name="implementing-the-notfound-view-template"></a>"NotFound" görünüm şablonunu uygulama
 
-Biz, istenen Akşam Yemeği bulunamadığını belirten bir kolay hata iletisi görüntüler "Bulunamadı" Görünüm şablonu – uygulayarak başlarsınız.
+İstenen akşam yemeği bulunamadığını belirten kolay bir hata iletisi görüntüleyen "NotFound" görünüm şablonunu uygulayarak başlayacağız.
 
-Size yeni bir görünüm şablonu bizim metin İmleç bir denetleyici eylem yöntemi içinde getirerek oluşturacak ve ardından sağ tıklayın ve (biz de bu komutu Ctrl-M, Ctrl-V yazarak yürütebilir) "Görünüm Ekle" menüsü komutu seçin:
+Metin imlecinizi bir denetleyici eylemi yöntemi içinde konumlandırarak yeni bir görünüm şablonu oluşturacağız ve sağ tıklayıp "Görünüm Ekle" menü komutunu seçtiğinizde (Bu komutu ayrıca Ctrl-u, CTRL-V yazarak de yürütebiliriz):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image8.png)
 
-Bu "Görünüm Ekle" iletişim gibi çıkarır. İletişim kutusu (Bu durumda "Details") başlatıldığında iletişim kutusunu oluşturma görünümünün adı önceden doldurulur varsayılan eylem yöntemi adını eşleştirmek için imleç içindeydi. İlk "Bulunamadı" şablonu uygulamak istediğimizden, biz bu görünüm adı geçersiz ve "Bulunamadı" yerine olacak şekilde ayarlamanız:
+Bu, aşağıdaki gibi bir "Görünüm Ekle" iletişim kutusu getirir. Varsayılan olarak, iletişim kutusu başlatıldığında (Bu durumda "Ayrıntılar") imlecin bulunduğu eylem yönteminin adıyla eşleşecek şekilde, oluşturmak için görünümün adının önceden doldurulması gerekir. Önce "NotFound" şablonunu uygulamak istiyoruz, bu görünüm adını geçersiz kılacağız ve bunun yerine "NotFound" olarak ayarlayacağız:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image9.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni bir "NotFound.aspx" Görünüm şablonu bizim için (dizin zaten mevcut değilse de oluşturur) "\Views\Dinners" dizini içinde oluşturacak:
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dıntik" dizininde bizimle ilgili yeni bir "NotFound. aspx" görünüm şablonu oluşturacak (Dizin zaten yoksa, bu da bu da oluşturulur):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image10.png)
 
-Ayrıca, sunduğumuz yeni "NotFound.aspx" Görünüm şablonu Kod Düzenleyicisi içinde açılır:
+Ayrıca, kod Düzenleyicisi içinde yeni "NotFound. aspx" görünüm şablonunu açar:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image11.png)
 
-Görünüm şablonları varsayılan olarak "Burada içerik ve kodunun ekleyebiliriz iki içerik bölgeler" vardır. İlk "geri gönderilen başlığı" HTML sayfası özelleştirmenizi sağlar. İkinci "geri gönderilen ana içeriğiyle" HTML sayfası özelleştirmenizi sağlar.
+Şablonları varsayılan olarak görüntüle, içerik ve kod ekleyebilmemiz için iki "içerik bölgesi" vardır. Birincisi, geri gönderilen HTML sayfasının "başlığını" özelleştirmenizi sağlar. İkincisi, geri gönderilen HTML sayfasının "ana içeriğini" özelleştirmenizi sağlar.
 
-Bizim "Bulunamadı" Görünüm şablonu uygulamak için bazı temel içerik ekleyeceğiz:
+"NotFound" görünüm şablonunuzu uygulamak için bazı temel içerikleri ekleyeceğiz:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample7.aspx)]
 
-Biz daha sonra bu tarayıcı içinde deneyebilir. Bunu şimdi yapmak için istek *"/ azalma/Ayrıntılar/9999"* URL'si. Bu, şu anda veritabanında mevcut değil ve bizim "Bulunamadı" Görünüm şablonu işlemek sunduğumuz DinnersController.Details() eylem yönteminin neden olacak bir Yemeği başvurur:
+Daha sonra bunu tarayıcıdan deneyebilirsiniz. Bunu yapmak için *"/Dinners/details/9999"* URL 'sini isteelim. Bu, şu anda veritabanında mevcut olmayan bir akşam yemeği 'ye başvuracaktır ve DinnersController. Details () eylem yönteminin "NotFound" görünüm şablonunu işlemesine neden olur:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image12.png)
 
-Bizim temel görünüm şablonu bir sürü ana ekran içeriğini çevreleyen HTML devralmıştır ekran görüntüsündeki fark edeceksiniz çalışabilmenin tek yolu budur. Sitedeki tüm görünümleri arasında tutarlı bir düzen uygulama sağlıyor bir "ana sayfa" şablonu bizim görünüm şablonu kullanıyor olmasıdır. Nasıl iş bu öğreticinin sonraki bölümünde daha fazla ana sayfa açıklayacağız.
+Yukarıdaki ekran görüntüsünde fark ettiğiniz bir şey, temel görünüm şablonumuzın ekrandaki ana içeriği çevreleyen bir veya daha fazla HTML devraldığından emin olun. Bunun nedeni, görünüm şablonumuz sitedeki tüm görünümlerde tutarlı bir düzen uygulamamızı sağlayan bir "Ana sayfa" şablonu kullanıyor. Bu öğreticinin sonraki kısımlarında ana sayfaların daha fazla çalışma şeklini inceleyeceğiz.
 
-### <a name="implementing-the-details-view-template"></a>Uygulama "Details" şablonu görüntüleme
+### <a name="implementing-the-details-view-template"></a>"Ayrıntılar" görünüm şablonunu uygulama
 
-Şimdi HTML için tek bir Akşam Yemeği modeli oluşturacak "Details" Görünüm şablonu – hemen uygulayın.
+Şimdi, tek bir akşam yemeği modeli için HTML oluşturacak "Ayrıntılar" görünüm şablonunu uygulayalim.
 
-Biz bizim metin imleç ayrıntıları eylem yöntemi içinde getirerek bunu ve ardından sağ tıklayın ve "Görünüm Ekle" menüsü komutu seçin (veya Ctrl-M, Ctrl-V'tuşuna basın):
+Bunu, metin imlecinizi Ayrıntılar eylem yöntemi içinde konumlandırarak ve ardından sağ tıklayıp "Görünüm Ekle" menü komutunu seçerek yapacağız (veya CTRL-e, CTRL-V tuşlarına basın):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image13.png)
 
-Bu "Görünüm Ekle" iletişim kutusu getirir. Varsayılan Görünüm adı ("Details") saklayacağız. Biz da iletişim kutusunda "Kesin türü belirtilmiş Görünüm Oluştur" onay kutusunu seçin ve (combobox dropdown kullanarak) denetleyiciden görünüm geçiriyoruz model türünün adını seçin. Bu görünüm için bir Akşam Yemeği nesnesi geçiriyoruz (Bu tür için tam adı: "NerdDinner.Models.Dinner"):
+Bu işlem "Görünüm Ekle" iletişim kutusunu getirir. Varsayılan görünüm adını ("Ayrıntılar") tutacağız. Ayrıca, iletişim kutusunda "kesin türü belirtilmiş bir görünüm oluştur" onay kutusunu seçeceğiz ve denetleyiciden görünüme geçirdiğimiz model türünün adını (ComboBox açılan menüsünü kullanarak) seçin. Bu görünüm için bir akşam yemeği nesnesi geçiriyoruz (Bu tür için tam ad: "Nerdakşam. modeller. akşam"):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image14.png)
 
-Burada "Boş Görünüm" oluşturmak için seçtik, önceki şablonu, bu süre için otomatik olarak seçeceğiz "bir"Ayrıntılı"şablonu kullanarak görünüm iskelesini". Biz, "Görünüm içeriği" açılan iletişim kutusunda yukarıdaki değiştirerek belirtebilirsiniz.
+Önceki şablondan farklı olarak, "boş görünüm" oluşturmayı seçtik, bu kez "Ayrıntılar" şablonunu kullanarak görünümü otomatik olarak "scafkatmayı" tercih ediyoruz. Yukarıdaki iletişim kutusunda "içeriği görüntüle" açılan kutusunu değiştirerek bunu belirtebiliriz.
 
-"İskele kurma özelliği" kendisine geçiriyoruz Dinner nesnesine dayalı bizim Ayrıntıları görünümü şablonunu ilk uygulaması oluşturur. Bu görünüm şablonu kararlılığımızın hızlıca başlamak kolay bir yol sağlar.
+"Scafkatlama", geçirdiğimiz akşam yemeği nesnesine göre ayrıntı görünümü şablonumuzdan bir başlangıç uygulamasını oluşturacaktır. Bu, görünüm şablonu uygulamamıza hızlı bir şekilde başlamamız için kolay bir yol sağlar.
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni "Details.aspx" görünümü şablon dosyası bizim için sunduğumuz "\Views\Dinners" dizininde oluşturacak:
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dıntik" dizininiz dahilinde bize yönelik yeni bir "details. aspx" görünüm şablonu dosyası oluşturacak:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image15.png)
 
-Ayrıca, sunduğumuz yeni "Details.aspx" Görünüm şablonu Kod Düzenleyicisi içinde açılır. Bunu Şimdi Akşam modelini temel alan bir Ayrıntılar görünümü ilk iskele uygulaması içerir. Yapı iskelesi altyapısı kendisine geçirilen sınıf üzerinde kullanıma sunulan ortak özellikleri bakmak için .NET, yansıtma kullanır ve bulduğu her türüne göre uygun içerik ekler:
+Ayrıca, kod Düzenleyicisi içindeki yeni "details. aspx" görünüm şablonunu açar. Bir akşam yemeği modeline dayalı olarak bir ayrıntılar görünümünün ilk yapı iskelesi uygulamasını içerir. Yapı iskelesi altyapısı, geçirilen sınıf üzerinde sunulan ortak özelliklere bakmak için .NET Reflection kullanır ve bulduğu her türe göre uygun içeriği ekler:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample8.aspx)]
 
-Rica ederiz *"/ azalma/Ayrıntılar/1"* bu "ayrıntılı" iskele uygulama tarayıcıda nasıl göründüğünü görmek için URL. Bu URL'yi kullanarak size ilk oluşturduğunuzda bizim veritabanına el ile eklenmiştir azalma birini görüntüler:
+"Ayrıntılar" yapı iskelesi uygulamasının tarayıcıda nasıl göründüğünü görmek için *"/Dinners/details/1"* URL 'sini isteyebiliriz. Bu URL 'YI kullanmak, ilk oluşturduğumuzda veritabanınıza el ile eklediğimiz dinetleri gösterir:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image16.png)
 
-Bu bize hızla çalışmaya alır ve bize bizim Details.aspx görünümüne ilk uygulaması ile sağlar. Biz sonra gidin ve bizim memnuniyet için kullanıcı arabirimini özelleştirmek için ince ayar.
+Bu, hızlı bir şekilde çalışmaya başlamanızı sağlar ve bize ayrıntılar. aspx görünümümüzü ilk uygulamayla birlikte verir. Daha sonra, Kullanıcı arabirimini memnuniyet duyuyoruz olarak özelleştirmek için ince ayar ve bu uygulamayı kullanabilirsiniz.
 
-Details.aspx şablon daha yakından baktığımızda, biz bunu içeren statik HTML yanı sıra, işleme kod gömülü bulabilirsiniz. &lt;%%&gt; kod nuggets görünüm şablonu işler, kod yürütün ve &lt;% = %&gt; kod nuggets içerdiği kod yürütün ve sonra şablon çıkış akışına sonucu işleme.
+Details. aspx şablonuna daha yakından baktığımızda, gömülü işleme kodunun yanı sıra statik HTML de içerdiğini fark ediyoruz. &lt;%%&gt; Code nugbu, görünüm şablonu işlerken kodu yürütür ve &lt;% =%&gt; kodu nugın içinde yer alan kodu yürütür ve sonucu, şablonun çıkış akışına işler.
 
-Biz, kesin türü belirtilmiş bir "Modeli" özelliğini kullanarak denetleyicimizin geçirildi "Akşam Yemeği" model nesnesi erişen bizim görünümü içinde kod yazabilirsiniz. Visual Studio bize tam kod IntelliSense ile "Model" Bu özellik Düzenleyici içindeki erişirken sağlar:
+Görünümümüzden kesin olarak belirlenmiş "model" özelliği kullanılarak geçirilen "akşam yemeği" model nesnesine erişen görünümümüzde kod yazalım. Visual Studio, düzenleyici içindeki bu "model" özelliğine erişirken tam koda sahip bize IntelliSense sağlar:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image17.png)
 
-Aşağıdaki gibi bizim son Ayrıntılar görünümü şablon kaynağı aşağıdaki şekilde gözükmesi bazı tweaks olalım:
+Son Ayrıntılar görünümü şablonumuza ait kaynağın aşağıdaki gibi görünmesini sağlamak için bazı temks oluşturalım:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample9.aspx)]
 
-Biz eriştiğinizde *"/ azalma/Ayrıntılar/1"* URL yeniden olacak işleme ister aşağıda şimdi:
+*"/Dinners/details/1"* URL 'sine yeniden eriştiğinizde, artık aşağıdaki gibi işleme alınır:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image18.png)
 
-### <a name="implementing-the-index-view-template"></a>Uygulama "Index" şablonu görüntüleme
+### <a name="implementing-the-index-view-template"></a>"Dizin" görünüm şablonunu uygulama
 
-Şimdi yaklaşan azalma listesini oluşturur "Index" Görünüm şablonu – hemen uygulayın. Yapılacaklar biz dizin eylem yönteminin içinde bizim metin imleci yerleştirin ve ardından sağ tıklayın ve "Görünüm Ekle" menüsü komutu seçin (veya Ctrl-M, Ctrl-V'tuşuna basın).
+Şimdi "Dizin" görünüm şablonunu uygulayalim. Bu, yaklaşan Dinverlerin bir listesini oluşturur. Bunu yapmak için, metin imlecinizi Dizin eylemi yöntemi içinde konumlandırması ve sonra sağ tıklayıp "Görünüm Ekle" menü komutunu seçmesi (veya CTRL-e, CTRL-V tuşlarına basmanız) gerekir.
 
-"Görünüm Ekle" iletişim kutusunun içinden biz "Index" adlı şablonu görüntüle tutun ve "kesin türü belirtilmiş Görünüm Oluştur" onay kutusunu işaretleyin. Biz seçim otomatik olarak bir "List" Görünüm şablonu oluşturmak ve model türü olarak "NerdDinner.Models.Dinner görünüme iletilen"'ı seçin. Bu süre (hangi biz size "iskele duyuyoruz varsaymak Görünüm Ekle iletişim kutusu neden olacak bir liste" oluşturmakta olduğunuz belirttiyseniz nedeni Akşam Yemeği nesnelerinin bir dizisi bizim denetleyiciden görünüm geçirme):
+"Görünüm Ekle" iletişim kutusunda "Dizin" adlı görünüm şablonunu tutacağız ve "kesin türü belirtilmiş bir görünüm oluştur" onay kutusunu seçmelisiniz. Bu süre otomatik olarak bir "liste" görünümü şablonu oluşturmayı tercih edeceğiz ve görünüme geçilen model türü olarak "Nerdakşam. modeller. akşam" yi seçin (bir "liste" oluşturduğumuz Denetleyicimizde bir akşam yemeği nesneleri dizisini görünüme geçirme):
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image19.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni "Index.aspx" görünümü şablon dosyası bizim için sunduğumuz "\Views\Dinners" dizin içinde oluşturur. Bu "biz görünüme iletmek azalma HTML Tablo listesini sağlayan ilk uygulaması içindeki iskelesini".
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dıntik" dizininiz dahilinde bize yönelik yeni bir "Index. aspx" görünüm şablonu dosyası oluşturacaktır. Bu, görünümü geçirdiğimiz Dinetleri içeren bir HTML tablo listesi sağlayan bir ilk uygulama olan "scafkatmayı" kullanacaktır.
 
-Biz çalıştırıldığında uygulama ve erişim *"/ azalma /"* azalma listemizi oluşturmak URL şu şekilde:
+Uygulamayı çalıştırıp *"/Dinners/"* URL 'sine eriştiğinizde, şunun gibi dinetleri listemizi işleyecek:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image20.png)
 
-Yukarıdaki tabloda çözüm oldukça Dinner listeleme bizim tüketiciye için istediğimiz olmayan Dinner verilerimizi – kılavuz benzeri yerleşimini sağlıyor. Biz şablonu Index.aspx görüntüleme güncelleştirebilir ve veri daha az sütun listesinde ve kullanmak için değiştirmeniz bir &lt;ul&gt; aşağıdaki kodu kullanarak tablo yerine işlenecek öğe:
+Yukarıdaki tablo çözümü bize akşam yemeği verilerimizin kılavuza benzer bir yerleşimini sağlar. Bu, tüketiciye yönelik akşam yemeği listemize yönelik olarak istiyoruz. Index. aspx görünüm şablonunu güncelleştirebiliriz ve daha az veri sütunu listelemek için bunu değiştirebilir ve aşağıdaki kodu kullanarak bir tablo yerine onları işlemek için &lt;ul&gt; öğesi kullanabilirsiniz:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample10.aspx)]
 
-Modelimiz her Akşam Yemeği döngüye gireceğiz olarak yukarıdaki foreach deyimi içindeki "var" anahtar sözcüğü kullanılmıştır. C# 3.0 ile alışkın olanlar kullanarak "var" Akşam Yemeği nesne geç bağlanan anlamına düşünebilirsiniz. Bunun yerine derleyici tür çıkarımı, türü kesin belirlenmiş "Model" özelliği karşı kullandığını gösterir (türünde "IEnumerable&lt;Dinner&gt;") ve yerel "Akşam Yemeği" değişkeni tam aldığımız anlamına gelir Şimdi Akşam türünde – derleme IntelliSense ve kod blokları içinde teslim için derleme zamanı:
+Modelimizde her akşam yemeği için döngü yaptığımız için yukarıdaki foreach ifadesi içinde "var" anahtar sözcüğünü kullanıyoruz. 3,0 ile C# bilmediğiniz bu kişiler, "var" kullanmanın, akşam yemeği nesnesinin geç bağlantılı olduğunu düşünebilir. Bunun yerine, derleyicinin tür çıkarımı kesin belirlenmiş "model" özelliği ("IEnumerable&lt;akşam&gt;" türü) ve yerel "akşam yemeği" değişkenini bir akşam yemeği türü olarak derlerken, bu da kod blokları içinde tam IntelliSense ve derleme zamanı denetimi yaptığımız anlamına gelir:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image21.png)
 
-Biz isabet edildiğinde yenileme */Dinners* bizim güncelleştirilmiş görünüm şimdi göründüğüne aşağıda bizim tarayıcı URL:
+Tarayıcımızda bulunan */dinlerimizin* URL 'si üzerinde yenileme isabet ettiğimiz zaman şu anda şu şekilde görünür:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image22.png)
 
-Bu, daha iyi – görünüyor ancak tamamen henüz mevcut değildir. Son adımımız listesinde ayrı azalma tıklayın ve bunlarla ilgili ayrıntıları görmek son kullanıcılara etkinleştirmektir. Biz, bizim DinnersController ayrıntıları eylem yöntemine bağlama HTML Köprü öğeleri işleyerek uygulayacaksınız.
+Bu, daha iyi bir şekilde gezinerek henüz tamamen orada değildir. Son adımımız, son kullanıcıların listedeki her bir kez tıklamasını ve bunlarla ilgili ayrıntıları görmesini olanaklı hale sunmamız. Bunu uygulamamız için DinnersController adresindeki Ayrıntılar eylem yöntemine bağlanan HTML köprü öğelerini işlenerek uygulayacağız.
 
-Bu köprüler şu iki yoldan biriyle bizim dizini görünümü içinde oluşturur. İlk HTML el ile oluşturmak için olan &lt;bir&gt; gibi öğeler burada biz ekleme aşağıda &lt;%%&gt; içinde engeller &lt;bir&gt; HTML öğesi:
+Bu köprüleri, Dizin görünümümüzde iki şekilde oluşturabilirsiniz. İlk olarak,&gt; bir &lt;HTML öğesi&gt; &lt;%&gt; bloklarını katıştıracağız aşağıda olduğu gibi bir öğelerini el ile oluşturmak &lt;:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image23.png)
 
-Yerleşik "Html.ActionLink()" yardımcı yöntemi içinde program aracılığıyla bir HTML oluşturma destekleyen bir ASP.NET MVC yararlanmak için kullanabileceğiniz alternatif bir yaklaşım olan &lt;bir&gt; üzerinde başka bir eylem yöntemiyle bağlantılı öğe bir Denetleyici:
+Kullanabileceğiniz alternatif bir yaklaşım, ASP.NET MVC içindeki yerleşik "HTML. ActionLink ()" yardımcı yönteminden yararlanarak, bir denetleyicideki başka bir eylem yöntemine bağlanan bir&gt; öğesi olan bir HTML &lt;programlı bir şekilde HTML oluşturmayı destekler:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample11.aspx)]
 
-Görüntülenecek bağlantı metni Html.ActionLink() yardımcı yöntemin ilk parametresi olan (Bu durumda, Şimdi Akşam başlığı), ikinci parametresi istiyoruz (Bu örnekte Ayrıntılar yöntemi için) bağlantısı oluşturmak için denetleyici eylem adı ve üçüncü parametre (özellik adı/değerlerini içeren bir anonim tür olarak uygulanmadı) eylem göndermek için parametre kümesi. Bu durumda biz size bağlamak istediğiniz ve ASP.NET MVC'de URL yönlendirmeyi varsayılan kural çünkü Akşam Yemeği "id" parametresinin belirtiyorsanız "{denetleyici} / {eylem} / {id}" Html.ActionLink() yardımcı yöntemi, aşağıdaki çıktıyı oluşturur:
+HTML için ilk parametre. ActionLink () yardımcı yöntemi görüntülenecek olan bağlantı metinleridir (Bu durumda akşam yemeği 'nın başlığı), ikinci parametre bağlantı oluşturmak istediğimiz denetleyici eylemi adıdır (Bu durumda, Ayrıntılar yöntemi) ve üçüncü parametre eyleme gönderilmek üzere bir parametre kümesidir (özellik adı/değerleri olan anonim bir tür olarak uygulanır). Bu durumda, bağlanmak istediğimiz akşam yemeği 'nin "kimlik" parametresini belirttik ve ASP.NET MVC 'deki varsayılan URL yönlendirme kuralı "{Controller}/{Action}/{ID}", HTML. ActionLink () yardımcı yöntemi aşağıdaki çıktıyı oluşturacak:
 
 [!code-html[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample12.html)]
 
-Bizim Index.aspx görünümü için Html.ActionLink() yardımcı yöntemi yaklaşımı kullanır ve her Akşam Yemeği uygun detayları URL listesi bağlantısı olması:
+Index. aspx görünümümüzde HTML. ActionLink () yardımcı yöntem yaklaşımını kullanacağız ve her bir akşam yemeği için ilgili ayrıntılar URL 'sine sahip olursunuz:
 
 [!code-aspx[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample13.aspx)]
 
-Ve şimdi biz isabet edildiğinde */Dinners* aşağıdaki gibi dinner listemize görünen URL'si:
+Şimdi de akşam yemeği listemizin *URL 'sini* ziyaret ettiğimiz zaman şu şekilde görünür:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image24.png)
 
-Biz herhangi bir azalma listesinde tıkladığınızda ayrıntılarını görmek giderek:
+Listede yer aldığı bazı yemekleri tıkladığımızda, ilgili ayrıntıları görmek için gezineceğiz:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image25.png)
 
 ### <a name="convention-based-naming-and-the-views-directory-structure"></a>Kural tabanlı adlandırma ve \Views dizin yapısı
 
-ASP.NET MVC uygulamaları varsayılan adlandırma yapısını görüntüleme şablonları çözülürken kural tabanlı bir dizin kullanın. Bu, geliştiricilerin tam olarak-konumu yolu bir denetleyici sınıfı içinde görünümleri başvururken nitelemek zorunda kalmamak olanak tanır. Varsayılan olarak ASP.NET MVC görünüm şablon dosyası içinde arar * \Views\[ControllerName]\* uygulama altında dizin.
+ASP.NET MVC uygulamaları varsayılan olarak Görünüm şablonları çözümlenirken kural tabanlı dizin adlandırma yapısını kullanır. Bu, geliştiricilerin bir denetleyici sınıfından görünümleri başvururken bir konum yolunu tamamen nitelemek zorunda kalmalarına olanak sağlar. Varsayılan olarak, ASP.NET MVC, uygulamanın altındaki * \Views\[ControllerName]\* dizininde bulunan görünüm şablonu dosyasını arayacaktır.
 
-Örneğin, biz açıkça üç görünüm şablonları başvuran DinnersController sınıf üzerinde – çalışmalar: "Index", "Details" ve "Bulunamadı". ASP.NET MVC varsayılan olarak arar bu görünümler içinde *\Views\Dinners* bizim uygulaması kök dizini altında dizin:
+Örneğin, DinnersController sınıfı üzerinde çalıştık: "Index", "details" ve "NotFound". ASP.NET MVC, varsayılan olarak, uygulama kök dizinimizin altındaki *\Views\ınk\dizininde* bulunan bu görünümleri arayacaktır:
 
 ![](use-controllers-and-views-to-implement-a-listingdetails-ui/_static/image26.png)
 
-Yukarıda nasıl var. şu anda proje içinde üç denetleyici sınıflarına olduğuna dikkat edin (DinnersController ve HomeController AccountController – son iki biz projeyi oluşturduğunuzda varsayılan olarak eklenen), ve üç alt dizinleri (her biri vardır Denetleyici) \Views dizininden.
+Şu anda proje içinde üç denetleyici sınıfının (DinnersController, HomeController ve AccountController) nasıl kullanıldığına dikkat edin: son iki, proje oluşturduğumuz varsayılan olarak eklenmiştir ve üç alt dizin (her biri için bir tane) vardır. denetleyicisi) \Views dizininde.
 
-Giriş ve hesapları denetleyicilerinden başvurulan görünümlere otomatik olarak kendi görünüm şablonlardan ilgili Çözümle *\Views\Home* ve *\Views\Account* dizinleri. *\Views\Shared* alt dizini uygulama içinde birden çok genelinde yeniden kullanılacağını görünüm şablonları depolamak için bir yol sağlar. ASP.NET MVC görünüm şablonu çözümlemeye çalışırken, ilk içinde denetleyecek *\Views\[denetleyicisi]* belirli dizin ve görünüm şablonu bulamıyorsanız var. Bunun içinde görünür *\Views\ Paylaşılan* dizin.
+Giriş ve hesap denetleyicilerinden başvurulan görünümler, kendi görünüm şablonlarını ilgili *\Views\home* ve *\Views\account* dizinlerinden otomatik olarak çözümler. *\Views\shared* alt dizini, uygulamanın içindeki birden çok denetleyicilerde yeniden kullanılan görünüm şablonlarını depolamanın bir yolunu sağlar. ASP.NET MVC bir görünüm şablonunu çözümlemeye çalıştığında, ilk olarak *\views\[Controller]* özel dizinini iade eder ve *\Views\shared* dizininde görünecektir.
 
-Tek görünüm şablonları adlandırma için söz konusu olduğunda, önerilen yönerge işleme neden eylem yöntemi olarak aynı adı paylaşan görünüm şablonu sağlamaktır. Örneğin, "Dizinimizi", görünüm sonucu oluşturmak için "Index" görünümü eylem yöntemini kullanıyor ve "Details" eylem yönteminin sonuçlarını işlemek için "Ayrıntılar" görünümünü kullanıyor. Bu, hangi şablonun her eylemiyle ilişkili hızlıca görmek kolaylaştırır.
+Tek tek görünüm şablonlarının adlandırılması gerektiğinde, görüntüleme şablonunun işleme neden olan eylem yöntemiyle aynı adı paylaşması önerilir. Örneğin, "Dizin" eylemi yöntemi, görünüm sonucunu işlemek için "Dizin" görünümünü kullanıyor ve "Ayrıntılar" eylem yöntemi sonuçları işlemek için "Ayrıntılar" görünümünü kullanıyor. Bu, hangi şablonun her eylemle ilişkili olduğunu hızlıca görmeyi kolaylaştırır.
 
-Geliştiriciler görünüm şablonu denetleyicisinde çağrılan eylem yönteminin aynı ada sahip olduğunda görünüm şablonu adı açıkça belirtmeniz gerekmez. Biz bunun yerine yalnızca model nesnesi "View()" yardımcı yöntemine (Görünüm adı belirtmeden) geçirebilirsiniz ve ASP.NET MVC otomatik olarak tanım Çıkarsama kullanılacak istiyoruz *\Views\[ControllerName]\[ActionName]* şablonu oluşturmak için disk üzerinde görüntüleme.
+Görünüm şablonu denetleyicide çağrılan eylem yöntemiyle aynı ada sahip olduğunda, geliştiricilerin görünüm şablonu adını açıkça belirtmelerine gerek yoktur. Bunun yerine, model nesnesini "View ()" yardımcı yöntemine (görünüm adını belirtmeden) geçirebiliriz ve ASP.NET MVC onu işlemek için diskte *\Views\[ControllerName]\[ActionName]* görünüm şablonunu kullanmak istediğimizden otomatik olarak çıkarması gerekir.
 
-Bu denetleyici kodumuz biraz temizlemek ve kodumuz adlarında iki kez yeniden oluşturulması önlenebilir olanak tanır:
+Bu, denetleyici kodumuzu biraz temizleyelim ve kodumuzdaki adı iki kez çoğaltmamızı sağlar:
 
 [!code-csharp[Main](use-controllers-and-views-to-implement-a-listingdetails-ui/samples/sample14.cs)]
 
-Güzel bir Akşam Yemeği listeleme/Ayrıntılar uygulamak için gereken tüm site için deneyimi yukarıdaki kodudur.
+Yukarıdaki kod, siteye yönelik iyi bir akşam yemeği listeleme/ayrıntıları deneyimi uygulamak için gereklidir.
 
 #### <a name="next-step"></a>Sonraki adım
 
-Göz atma deneyimini oluşturulan güzel bir Akşam Yemeği Şimdi sahibiz.
+Artık derlenmiş iyi bir akşam yemeği göz atma deneyimi sunuyoruz.
 
-Haydi şimdi CRUD (oluşturma, okuma, güncelleştirme, silme) veri formu düzenleme desteği etkinleştirin.
+Şimdi CRUD (oluşturma, okuma, güncelleştirme, silme) veri formu Düzenle desteğini etkinleştirelim.
 
 > [!div class="step-by-step"]
 > [Önceki](build-a-model-with-business-rule-validations.md)

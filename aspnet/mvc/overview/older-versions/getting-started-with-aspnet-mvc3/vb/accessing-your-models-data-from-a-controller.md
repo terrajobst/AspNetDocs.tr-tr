@@ -9,11 +9,11 @@ ms.assetid: cad00de1-3c68-4ff4-a436-54236d449459
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
 ms.openlocfilehash: 37f45d8f12e3ab5c485718bcf2c59934ad272118
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77458028"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78615257"
 ---
 # <a name="accessing-your-models-data-from-a-controller-vb"></a>Bir Denetleyiciden Modelinizin Verilerine Erişme (VB)
 
@@ -41,7 +41,7 @@ Bu bölümde, yeni bir `MoviesController` sınıfı oluşturacak ve film veriler
 
 [![5addMovieController](accessing-your-models-data-from-a-controller/_static/image2.png)](accessing-your-models-data-from-a-controller/_static/image1.png)
 
-**Ekle**'ye tıklayın. Visual Web Developer aşağıdaki dosyaları ve klasörleri oluşturur:
+**Ekle**'yi tıklatın. Visual Web Developer aşağıdaki dosyaları ve klasörleri oluşturur:
 
 - Projenin *denetleyiciler* klasöründe *bir MoviesController. vb* dosyası.
 - Projenin *Görünümler* klasöründeki *filmler* klasörü.

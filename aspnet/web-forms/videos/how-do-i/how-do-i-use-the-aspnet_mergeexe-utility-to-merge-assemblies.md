@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
-title: '[Bunu nasıl yaparım:] Aspnet_merge.exe yardımcı programını kullanarak bütünleştirilmiş kodları birleştirme kullanın | Microsoft Docs'
+title: '[Nasıl yapılır:] Derlemeleri birleştirmek için aspnet_merge. exe yardımcı programını kullanma | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel aspnet_merge.exe yardımcı programını kullanarak aspnet_compiler.exe utilit kullanarak derlenen derlemelere birleştirmek için nasıl kullanılacağını gösterir...
+description: Bu videoda kemal, aspnet_compiler. exe yardımcı programı kullanılarak derlenen derlemeleri birleştirmek için aspnet_merge. exe yardımcı programının nasıl kullanılacağını gösterir...
 ms.author: riande
 ms.date: 06/26/2008
 ms.assetid: 2bfd5353-2a35-449e-aeff-0fb94cf10030
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
 msc.type: video
 ms.openlocfilehash: 7e768c508441bc08ff53c04e3d9982179fdfc88f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410389"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78602881"
 ---
-# <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[Bunu nasıl yaparım:] Aspnet_merge.exe yardımcı programını kullanarak bütünleştirilmiş kodları birleştirme kullanma
+# <a name="how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies"></a>[Nasıl yapılır:] Derlemeleri birleştirmek için aspnet_merge. exe yardımcı programını kullanma
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda ASP.NET kullanmayı Chris piksel gösterecektir\_aspnet kullanarak derlenen derlemelere birleştirmek için merge.exe yardımcı programını\_compiler.exe yardımcı programı. İlk olarak, hangi derlemelerin oluşturulan öğrenmek için ASP.NET derleme işlem çıktısını görüntüleyin. Ardından, ASP.NET kullanarak mekanizması öğrenin\_merge.exe yardımcı programı, bir web sitesinin derlemeden bütünleştirilmiş kodları birleştirme adları ön eki seçeneğiyle derlenmiş bütünleştirilmiş kodu denetlemek nasıl ilk görme. Ardından, derlenmiş bir web sitesi için tüm derlemeleri tek bir derleme Birleştir konusuna bakın. Son olarak, yalnızca üst düzey derlemeleri uygulama gibi bırakarak, tek bir derleme içeriği (aspx, ascs, vb.) ilgili derlemeleri birleştirmeyi öğrenin\_/App temsil eden code.dll\_kod klasörü. Sırasında her bir seçeneğin avantaj ve dezavantajlarını seçeneği ele alınmıştır.
+Bu videoda Chris, ASPNET\_Compiler. exe yardımcı programı kullanılarak derlenen derlemeleri birleştirmek için ASPNET\_Merge. exe yardımcı programını nasıl kullanacağınızı gösterir. İlk olarak, hangi derlemelerin oluşturulduğunu öğrenmek için ASP.NET derleme sürecinin çıktısını görüntüleyin. Ardından, ASPNET\_Merge. exe yardımcı programını kullanarak bir Web sitesinin derlemelerinden derlemeleri birleştirme, ilk önce derlenmiş derleme adlarını – önek seçeneğiyle nasıl denetleyeceğinizi öğrenin. Daha sonra, derlenmiş bir Web sitesi için tüm derlemeleri tek bir derlemede birleştirme bölümüne bakın. Son olarak, yalnızca içerikle ilgili derlemeleri (aspx, Ass, vb.) tek bir derlemede birleştirmeyi öğrenin ve App\_Code. dll gibi en üst düzey derlemeleri/App\_kod klasörünü temsil eder. Her seçenek sırasında, bu seçeneğin avantajları ve dezavantajları ele alınmıştır.
 
-[&#9654;Videoyu (28 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies)
+[&#9654;Videoyu izleyin (28 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies)

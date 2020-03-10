@@ -9,11 +9,11 @@ ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 5aaf97dc8448dcb7b94ef2e4e23f34fd37ac4426
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115418"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78605044"
 ---
 # <a name="creating-a-data-access-layer-c"></a>Veri Erişim Katmanını Oluşturma (C#)
 
@@ -168,7 +168,7 @@ Bu kod, bir bit veri erişimine özgü kod yazmamızı gerektirmez. Herhangi bir
 
 Bu örnekte kullanılan her nesne Ayrıca kesin olarak belirlenmiş, Visual Studio 'Nun IntelliSense ve derleme zamanı tür denetimi sağlamasına izin verir. TableAdapter tarafından döndürülen tüm DataTable, GridView, DetailsView, DropDownList, CheckBoxList gibi ASP.NET Data Web denetimlerine bağlanabilir. Aşağıdaki örnek, **GetProducts ()** yöntemi tarafından döndürülen DataTable 'ın, **sayfa\_Load** olay işleyicisi içinde yalnızca scant üç satır kodu içindeki GridView 'a bağlamasını gösterir.
 
-AllProducts. aspx
+AllProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample2.aspx)]
 
@@ -422,7 +422,7 @@ Bu veriler aynı zamanda ASP ' de görüntülenebilir. NET 'in veri Web denetiml
 
 Bu tür ana ayrıntı raporlarının gelecekteki öğreticilerde nasıl görüntüleneceğini inceleyeceğiz. Şimdilik, bu örnek **Northwind. SuppliersRow** sınıfına eklenen özel yöntemin kullanımını göstermek için tasarlanmıştır.
 
-SuppliersAndProducts. aspx
+SuppliersAndProducts.aspx
 
 [!code-aspx[Main](creating-a-data-access-layer-cs/samples/sample24.aspx)]
 

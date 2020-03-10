@@ -7,18 +7,18 @@ ms.author: riande
 ms.date: 08/29/2018
 msc.type: authoredcontent
 ms.openlocfilehash: c1a5cf5e59374b4c0dd7150c5dd62fbde42af555
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57073803"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622642"
 ---
 # <a name="optimize-build-performance-for-solution"></a>Çözüm için derleme performansını iyileştirme
 
-Visual Studio 2017 15,8 veya daha sonra bir menü öğesini ekleyin: **Derleme** > **ASP.NET derleme** > **çözüm derleme performansını iyileştirme**.
+Visual Studio 2017 15,8 veya üzeri bir menü öğesi içerir: **çözüm Için derleme performansını iyileştirmek** ** > derleme > ** **ASP.NET derlemesi** .
 
 ![Yeni menü öğesinin ekran görüntüsü](optimize-build-perf/_static/optimize-build-performance-for-solution.png)
 
-ASP.NET, ASP.NET projesi ile bir kopyasını derleyici taşıyan anlamına gelir. çalışma zamanında görünümlerini derler. Visual Studio'nun kopyalama, kopyalama derleyicinin eşleşmediğinde ancak bir geliştirici makinesinde yapı performansını Artımlı derleme başına 1-3 saniye bazında etkilenir. Bu özellik, yalnızca artımlı derlemeleri genellikle hızlandıran projenizin kopyasını Visual Studio'nun eşleştirmek için derleyicinin güncelleştirir.
+ASP.NET, görünümlerini çalışma zamanında derler, yani bir ASP.NET projesi derleyicinin kopyasıyla birlikte taşınır. Ancak, derleyicinin kopyası Visual Studio 'nun kopyasıyla eşleşmediği zaman, derleme performansı Artımlı derleme başına 1-3 saniye sırasıyla etkilenir. Bu özellik, projenin derleyicisinin kopyasını Visual Studio ile eşleşecek şekilde güncelleştirir, genellikle artımlı derlemeleri hızlandırır.
 
-**ASP.NET Framework 4.7.1 uygulanabilir veya daha sonra yalnızca projeleri, ASP.NET Core için geçerli değildir.**
+**Bu yalnızca ASP.NET Framework 4.7.1 veya sonraki projeler için geçerlidir, ASP.NET Core için geçerli değildir.**

@@ -1,71 +1,71 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
-title: Özel rotalar (C#) oluşturma | Microsoft Docs
+title: Özel yollar oluşturma (C#) | Microsoft Docs
 author: microsoft
-description: Özel rotalar için bir ASP.NET MVC uygulaması eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme konusunda bilgi edinin.
+description: Özel yolların bir ASP.NET MVC uygulamasına nasıl ekleneceğini öğrenin. Bu öğreticide, Global. asax dosyasındaki varsayılan yol tablosunu değiştirme hakkında bilgi edineceksiniz.
 ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: 3cd08f02-8763-490a-b625-2ac96a24b73f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 58f72e390f0053d136ef00ddbda0b071ba225d98
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123355"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78601334"
 ---
 # <a name="creating-custom-routes-c"></a>Özel Rotalar Oluşturma (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> Özel rotalar için bir ASP.NET MVC uygulaması eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme konusunda bilgi edinin.
+> Özel yolların bir ASP.NET MVC uygulamasına nasıl ekleneceğini öğrenin. Bu öğreticide, Global. asax dosyasındaki varsayılan yol tablosunu değiştirme hakkında bilgi edineceksiniz.
 
-Bu öğreticide bir ASP.NET MVC uygulaması için özel bir yol ekleme konusunda bilgi edinin. Varsayılan rota tablosu ile özel bir rota Global.asax dosyasında değişiklik öğrenin.
+Bu öğreticide, bir ASP.NET MVC uygulamasına özel bir yol eklemeyi öğreneceksiniz. Global. asax dosyasındaki varsayılan yol tablosunu özel bir yol ile nasıl değiştireceğinizi öğrenirsiniz.
 
-Çok basit ASP.NET MVC uygulamaları için varsayılan rota tablosu düzgün çalışır. Ancak, yönlendirme gereksinimleri özelleştirilmiş keşfedebilirsiniz. Bu durumda, özel bir yol oluşturabilirsiniz.
+Birçok basit ASP.NET MVC uygulaması için, varsayılan yol tablosu yalnızca iyi çalışacaktır. Ancak, özel yönlendirme gereksinimleriniz olduğunu fark edebilirsiniz. Bu durumda, özel bir yol oluşturabilirsiniz.
 
-Örneğin, bir blog uygulaması oluşturmayı düşünün. Şuna gelen istekleri işlemek isteyebilirsiniz:
+Örneğin, bir blog uygulaması oluşturduğunuzu düşünün. Şuna benzeyen gelen istekleri işlemek isteyebilirsiniz:
 
-/ Arşiv/12-25-2009
+/Archive/12-25-2009
 
-Bir kullanıcı bu isteği girdiğinde, karşılık gelen blog girişine tarihe iade etmek istediğiniz 12/25/2009. Bu tür bir isteği işlemek için özel bir yol oluşturmanız gerekir.
+Bir Kullanıcı bu isteği girdiğinde, 12/25/2009 tarihine karşılık gelen blog girişini döndürmek istersiniz. Bu tür bir isteği işlemek için özel bir yol oluşturmanız gerekir.
 
-Blog, /Archive/ gibi ara hangi istekleri işleme adlı yeni bir özel rota Global.asax dosyasında listeleniyor 1 içeren*girdisi tarihi*.
+Liste 1 ' deki Global. asax dosyası,/Archive/*Giriş tarihi*gibi görünen Istekleri işleyen blog adlı yeni bir özel yol içerir.
 
-**1 - Global.asax (özel yönlendirme ile) listeleme**
+**Listeleme 1-Global. asax (özel rota ile)**
 
 [!code-csharp[Main](creating-custom-routes-cs/samples/sample1.cs)]
 
-Yol tablosuna eklediğiniz rotaları sırası önemlidir. Sunduğumuz yeni özel Blog rota önce var olan varsayılan yol eklenir. Sıra ters, varsayılan yolu her zaman özel yol yerine çağrılmadığı.
+Yol tablosuna eklediğiniz yolların sırası önemlidir. Yeni özel Blog Rotamız var olan varsayılan yolun önüne eklenir. Siparişi tersine aldıysanız, varsayılan yol özel yol yerine her zaman çağrılır.
 
-Özel rota Blog/arşiv/ile başlayan herhangi bir istek eşleşir. Bu nedenle, aşağıdaki URL'ler tümünün eşleşecek:
+Özel blog yolu,/Archive/. ile başlayan tüm istekler ile eşleşir Bu nedenle, aşağıdaki URL 'Lerin tümüyle eşleşir:
 
-- / Arşiv/12-25-2009
+- /Archive/12-25-2009
 
-- / Arşiv/10-6-2004
+- /Archive/10-6-2004
 
-- / Arşiv/apple
+- /Archive/apple
 
-Özel rota, gelen istek arşiv adlı bir denetleyiciye eşler ve Entry() eylemi çağırır. Entry() yöntemi çağrıldığında, giriş tarihi entryDate adlı bir parametre olarak geçirilir.
+Özel yol, gelen isteği arşiv adlı bir denetleyiciye eşler ve giriş () eylemini çağırır. Entry () yöntemi çağrıldığında, giriş tarihi entryDate adlı bir parametre olarak geçirilir.
 
-Blog özel rota denetleyicisiyle listeleme 2'de kullanabilirsiniz.
+Blog özel yolunu, döküm 2 ' de denetleyicisiyle birlikte kullanabilirsiniz.
 
-**2 - ArchiveController.cs listeleme**
+**Listeleme 2-ArchiveController.cs**
 
 [!code-csharp[Main](creating-custom-routes-cs/samples/sample2.cs)]
 
-Listeleme 2 Entry() yöntemi DateTime türünde bir parametre kabul ettiğini dikkat edin. MVC çerçevesi bir DateTime değerine URL'den girdisi tarihi otomatik olarak dönüştürülmesi akıllı. URL'den giriş tarihi parametresi bir DateTime türüne dönüştürülemiyor, bir hata ortaya çıkar (bkz. Şekil 1).
+Liste 2 ' deki entry () yönteminin DateTime türünde bir parametreyi kabul ettiğini unutmayın. MVC çerçevesi, giriş tarihini URL 'den otomatik olarak bir tarih saat değerine dönüştürecek kadar akıllıdır. URL 'deki giriş tarihi parametresi bir tarih saat değerine dönüştürülemiyorsa bir hata oluşur (bkz. Şekil 1).
 
-**Şekil 1 - gelen parametre dönüştürme hatası**
+**Şekil 1-parametre dönüştürülürken hata oluştu**
 
-[![Yeni Proje iletişim kutusu](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
+[Yeni proje iletişim kutusunu ![](creating-custom-routes-cs/_static/image1.jpg)](creating-custom-routes-cs/_static/image1.png)
 
-**Şekil 01**: Gelen parametre dönüştürme hatası ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-routes-cs/_static/image2.png))
+**Şekil 01**: parametre dönüştürülürken hata ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-custom-routes-cs/_static/image2.png))
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticinin amacı, bir özel yol nasıl oluşturacağınızı göstermek için oluştu. Blog girişleri temsil eder Global.asax dosyasındaki yol tablosuna bir özel yol eklemek öğrendiniz. Blog girişleri isteklerinde ArchiveController adlı bir denetleyici ve Entry() adlı bir denetleyici eylemi için eşleme ele almıştık.
+Bu öğreticinin amacı, nasıl özel bir rota oluşturacağınızı göstermektir. Web günlüğü girdilerini temsil eden Global. asax dosyasındaki yol tablosuna nasıl özel bir yol ekleneceğini öğrendiniz. Blog girdilerine yönelik isteklerin ArchiveController adlı bir denetleyiciye ve girdi () adlı bir denetleyici eylemine nasıl eşleneceğini tartıştık.
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-mvc-controllers-overview-cs.md)

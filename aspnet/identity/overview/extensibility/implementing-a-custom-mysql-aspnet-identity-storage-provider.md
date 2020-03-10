@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
 ms.openlocfilehash: 2f0b47d45bce82c71d1864536309f9e2ffed2d63
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519134"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616916"
 ---
 # <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Özel MySQL ASP.NET Identity Depolama Sağlayıcısı Uygulama
 
@@ -121,7 +121,7 @@ Gerekirse, [Web için Visual Studio Express 2013](https://go.microsoft.com/fwlin
 5. Identitymysqldemo projesine sağ tıklayın, **Ekle**, **başvuru, çözüm, projeler** ' i seçin, ASPNET. Identity. MySQL projesini seçin ve **Tamam**' a tıklayın.
 6. Identitymysqldemo projesinde, tüm başvuruları Değiştir  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
-   ile  
+   örneklerini şununla değiştirin:  
      `using AspNet.Identity.MySQL;`
 7. IdentityModels.cs ' de, **Applicationdbcontext** ' i **mysqldatabase** 'dan türetebilir ve bağlantı adı ile tek bir parametre alan bir Oluşturucu ekleyin.  
 

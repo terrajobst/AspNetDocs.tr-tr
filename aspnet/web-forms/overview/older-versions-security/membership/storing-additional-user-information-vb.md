@@ -9,11 +9,11 @@ ms.assetid: ee4b924e-8002-4dc3-819f-695fca1ff867
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
 ms.openlocfilehash: cb352de6f7c2d117b41532112a87956c8dde62f8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74639182"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78603224"
 ---
 # <a name="storing-additional-user-information-vb"></a>Ek Kullanıcı Bilgileri Depolama (VB)
 
@@ -167,7 +167,7 @@ Visual Studio 'daki Veritabanı Gezgini gidin ve Tablolar klasörünü genişlet
 
 **Şekil 11**: `aspnet_Users` ve `UserProfiles` tablolarının içerikleri görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](storing-additional-user-information-vb/_static/image33.png))
 
-`HomeTown`, `HomepageUrl`ve `Signature` alanları için değerleri el ile yazarak `UserProfiles` tabloya yeni bir kayıt ekleyin. Yeni `UserProfiles` kaydında geçerli bir `UserId` değeri almanın en kolay yolu `aspnet_Users` tablosundaki belirli bir kullanıcı hesabından `UserId` alanını seçmek ve bunu kopyalayıp `UserId` alanına yapıştırmaktır. Şekil 12 ' de, deneme için yeni bir kayıt eklendikten sonra `UserProfiles` tablosu gösterilmektedir.
+`HomeTown`, `HomepageUrl`ve `Signature` alanları için değerleri el ile yazarak `UserProfiles` tabloya yeni bir kayıt ekleyin. Yeni `UserProfiles` kaydında geçerli bir `UserId` değeri almanın en kolay yolu `aspnet_Users` tablosundaki belirli bir kullanıcı hesabından `UserId` alanını seçmek ve bunu kopyalayıp `UserId` alanına yapıştırmaktır.`UserProfiles` Şekil 12 ' de, deneme için yeni bir kayıt eklendikten sonra `UserProfiles` tablosu gösterilmektedir.
 
 [![deneme için UserProfiles 'a bir kayıt eklendi](storing-additional-user-information-vb/_static/image35.png)](storing-additional-user-information-vb/_static/image34.png)
 

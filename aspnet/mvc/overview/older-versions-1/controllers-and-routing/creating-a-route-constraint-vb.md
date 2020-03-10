@@ -1,75 +1,75 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
-title: Bir rota kısıtlaması oluşturma (VB) | Microsoft Docs
+title: Yol kısıtlaması oluşturma (VB) | Microsoft Docs
 author: StephenWalther
-description: Bu öğreticide, Normal ifadelerle rota kısıtlamalarını oluşturarak tarayıcı eşleşen yolların nasıl istekleri nasıl kontrol edebilir Stephen Walther gösterir.
+description: Bu öğreticide, Stephen Walther, normal ifadelerle yol kısıtlamaları oluşturarak tarayıcı isteklerinin yollarla nasıl eşleştiğini nasıl denetleyebileceğinizi göstermektedir.
 ms.author: riande
 ms.date: 02/16/2009
 ms.assetid: b7cce113-c82c-45bf-b97b-357e5d9f7f56
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 205742dd8f866c8828008c8aac7ab3f98b173ceb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123417"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78601390"
 ---
 # <a name="creating-a-route-constraint-vb"></a>Rota Kısıtlaması Oluşturma (VB)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-> Bu öğreticide, Normal ifadelerle rota kısıtlamalarını oluşturarak tarayıcı eşleşen yolların nasıl istekleri nasıl kontrol edebilir Stephen Walther gösterir.
+> Bu öğreticide, Stephen Walther, normal ifadelerle yol kısıtlamaları oluşturarak tarayıcı isteklerinin yollarla nasıl eşleştiğini nasıl denetleyebileceğinizi göstermektedir.
 
-Rota kısıtlamalarını belirli bir rota ile eşleşmekte tarayıcı istekleri kısıtlamak için kullanın. Rota kısıtlaması belirtmek için normal bir ifade kullanabilirsiniz.
+Belirli bir rota ile eşleşen Tarayıcı isteklerini kısıtlamak için yol kısıtlamalarını kullanırsınız. Bir yol kısıtlaması belirtmek için normal bir ifade kullanabilirsiniz.
 
-Örneğin, rota, Global.asax dosyasında listeleniyor 1'de tanımladığınız düşünün.
+Örneğin, yolu Global. asax dosyanızda liste 1 ' de tanımladığınızı düşünün.
 
-**Listing 1 - Global.asax.vb**
+**Listeleme 1-Global. asax. vb**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample1.vb)]
 
-Kod 1 ürün adlı bir rota içerir. Tarayıcı istek listeleme 2'de yer alan ProductController eşlemek için ürün yol kullanabilirsiniz.
+Listeleme 1, ürün adlı bir rota içerir. Tarayıcı isteklerini, liste 2 ' de bulunan ProductController ile eşlemek için ürün yolunu kullanabilirsiniz.
 
-**Listing 2 - Controllers\ProductController.vb**
+**Listeleme 2-Controllers\productcontroller.exe**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample2.vb)]
 
-Ürün denetleyicisi tarafından kullanıma sunulan Details() eylem ProductID adlı tek bir parametre kabul ettiğini dikkat edin. Bu parametre, bir tamsayı parametresidir.
+Ürün denetleyicisi tarafından açığa çıkarılan ayrıntılar () eyleminin ProductID adlı tek bir parametreyi kabul ettiğini unutmayın. Bu parametre bir tamsayı parametresidir.
 
-Listeleme 1'de tanımlanan yol, aşağıdaki URL'lerden herhangi birini eşleşmesi:
+Liste 1 ' de tanımlanan yol aşağıdaki URL 'Lerden hiçbiriyle eşleşir:
 
-- / Ürün/23
-- Ürün/7
+- /Product/23
+- /Product/7
 
-Ne yazık ki, yol aşağıdaki URL'ler eşleşir:
+Ne yazık ki yol aşağıdaki URL 'Lerle aynı olacaktır:
 
-- / Ürün/filan
-- / Ürün/apple
+- /Product/blah
+- /Product/Apple
 
-Bir tamsayı değeri dışında bir şey içeren bir istekte Details() eylemi bir tam sayı parametresi beklediği hataya neden olur. URL /Product/apple tarayıcınıza yazın örneğin, daha sonra hata sayfası Şekil 1'de alırsınız.
+Ayrıntılar () eylemi bir tamsayı parametresi beklediği için, bir tamsayı değeri dışında bir istek içeren bir isteğin yapılması hataya neden olur. Örneğin, tarayıcınıza/Product/Apple URL 'sini yazarsanız Şekil 1 ' de hata sayfasını alırsınız.
 
-[![Yeni Proje iletişim kutusu](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
+[Yeni proje iletişim kutusunu ![](creating-a-route-constraint-vb/_static/image1.jpg)](creating-a-route-constraint-vb/_static/image1.png)
 
-**Şekil 01**: Explode bir sayfayı görmeden ([tam boyutlu görüntüyü görmek için tıklatın](creating-a-route-constraint-vb/_static/image2.png))
+**Şekil 01**: bir sayfa açılımı görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-a-route-constraint-vb/_static/image2.png))
 
-Ne yapmak istediğinizden, yalnızca uygun tamsayı ProductID içeren URL'ler aynı olur. Rota ile eşleşmekte URL'leri kısıtlamak için bir rota tanımlarken bir kısıtlama kullanabilirsiniz. Yalnızca tamsayılara eşleşen bir normal ifade kısıtlaması listeleme 3'te değiştirilmiş ürün yol içerir.
+Gerçekten ne yapmak istiyorsunuz, yalnızca uygun bir ProductID tamsayı içeren URL 'Leri eşleştirin. Rota ile eşleşen URL 'Leri kısıtlamak için bir yol tanımlarken bir kısıtlama kullanabilirsiniz. Listeleme 3 ' teki değiştirilen ürün yolu, yalnızca tamsayılarla eşleşen bir normal ifade kısıtlaması içerir.
 
-**3 - Global.asax.vb listeleme**
+**Listeleme 3-Global. asax. vb**
 
 [!code-vb[Main](creating-a-route-constraint-vb/samples/sample3.vb)]
 
-Normal ifade \d+ tamsayılar bir veya daha fazla eşleşir. Bu sınırlama aşağıdaki URL'ler ile eşleştirilecek ürün yol neden olur:
+\D + normal ifadesi bir veya daha fazla tamsayılarla eşleşir. Bu kısıtlama, ürün yolunun aşağıdaki URL 'Lerle eşleşmesini sağlar:
 
-- / Ürün/3
-- / Ürün/8999
+- /Product/3
+- /Product/8999
 
-Ancak aşağıdaki URL'leri:
+Şu URL 'Ler değil:
 
-- / Ürün/apple
-- / Ürün
+- /Product/Apple
+- /Ürün
 
-Bu tarayıcı istekleri başka bir yol tarafından işlenecek veya eşleşen yol yok, ise bir *kaynak bulunamadı* hata döndürülür.
+Bu tarayıcı istekleri başka bir yol tarafından işlenecek veya eşleşen yollar yoksa, *kaynak bulunamadı* hatası döndürülür.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-custom-routes-vb.md)

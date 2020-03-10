@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/migrating/intro-to-aspnet-20-user-interface-elements
-title: "[ASP.NET 2. 0'na giriş:] Kullanıcı arabirimi öğeleri | Microsoft Docs"
+title: '[Giriş ASP.NET 2,0:] Kullanıcı arabirimi öğeleri | Microsoft Docs'
 author: microsoft
-description: Bu Web yayınında, ana sayfalar, temalar ve gezinti denetimlerinin dahil olmak üzere kullanıcı arabirimleri, oluşumunu basitleştiren özelliklerinin ASP.NET 2.0 arar.
+description: Bu Web yayını, ana sayfalar, Temalar ve gezinti denetimleri dahil olmak üzere kullanıcı arabirimlerinin oluşturulmasını kolaylaştıran ASP.NET 2,0 özelliklerine bakar.
 ms.author: riande
 ms.date: 07/25/2006
 ms.assetid: eb2e621c-3017-4382-83ee-cbec8148ac04
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-20-user-interface-elements
 msc.type: video
 ms.openlocfilehash: a0a7ca569bc5d1f7bfb38465e0ae5a701e713fcb
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417084"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638798"
 ---
 # <a name="intro-to-aspnet-20-user-interface-elements"></a>[ASP.NET 2.0’a Giriş:] Kullanıcı Arabirimi Öğeleri
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-Bu Web yayınında, ana sayfalar, temalar ve gezinti denetimlerinin dahil olmak üzere kullanıcı arabirimleri, oluşumunu basitleştiren özelliklerinin ASP.NET 2.0 arar.
+Bu Web yayını, ana sayfalar, Temalar ve gezinti denetimleri dahil olmak üzere kullanıcı arabirimlerinin oluşturulmasını kolaylaştıran ASP.NET 2,0 özelliklerine bakar.
 
-[&#9654;Videoyu (63 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-20-user-interface-elements)
+[&#9654;Videoyu izleyin (63 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-20-user-interface-elements)
 
 > [!div class="step-by-step"]
 > [Önceki](intro-to-aspnet-20-aspnet-20-fundamentals.md)

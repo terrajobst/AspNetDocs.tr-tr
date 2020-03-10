@@ -2,157 +2,157 @@
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 title: Dağıtımı destekleyen bir derleme tanımı oluşturma | Microsoft Docs
 author: jrjlee
-description: Team Foundation Server (TFS) 2010 derleme herhangi bir türden gerçekleştirmek istiyorsanız, takım projeniz içindeki bir yapı tanımı oluşturmanız gerekir. Bu konuda des...
+description: Team Foundation Server (TFS) 2010 ' de herhangi bir tür derlemeyi gerçekleştirmek istiyorsanız, takım projeniz içinde bir yapı tanımı oluşturmanız gerekir. Bu konu,...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: fe47a018-f6d0-4979-80e7-5b1fa75a5865
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: e11c91a824446572aaf0b3bc6954b9b8ffb4eaff
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133952"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78604001"
 ---
 # <a name="creating-a-build-definition-that-supports-deployment"></a>Dağıtımı Destekleyen Bir Derleme Tanımı Oluşturma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Team Foundation Server (TFS) 2010 derleme herhangi bir türden gerçekleştirmek istiyorsanız, takım projeniz içindeki bir yapı tanımı oluşturmanız gerekir. Bu konu, TFS'de yeni bir yapı tanımı oluşturma ve web dağıtımı ekip oluşturma işleminde bir parçası olarak denetlemek nasıl açıklar.
+> Team Foundation Server (TFS) 2010 ' de herhangi bir tür derlemeyi gerçekleştirmek istiyorsanız, takım projeniz içinde bir yapı tanımı oluşturmanız gerekir. Bu konu, TFS 'de yeni bir derleme tanımı oluşturmayı ve takım derlemesi içindeki derleme işleminin bir parçası olarak Web dağıtımını denetlemeyi açıklar.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli derleme yönergeleri içeren. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme ve dağıtım sürecinin, her hedef ortam için uygulanan derleme yönergelerini içeren iki proje&#x2014;dosyası tarafından denetlendiği ve ortama özgü derleme ve dağıtım ayarlarını içeren, proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="task-overview"></a>Görev genel bakış
+## <a name="task-overview"></a>Göreve genel bakış
 
-Bir yapı tanımı tfs'deki takım projeleri için derleme nasıl ve ne zaman ortaya denetleyen mekanizmadır. Her yapı tanımı belirtir:
+Yapı tanımı, TFS 'deki takım projeleri için derlemelerin nasıl ve ne zaman gerçekleşeceğini denetleyen mekanizmadır. Her derleme tanımı şunları belirtir:
 
-- Visual Studio çözüm dosyası veya özel Microsoft Build Engine (MSBuild) proje dosyaları gibi oluşturmak istediğiniz şey.
-- Bir derleme gerçekleştirmesi gereken durumlarda belirleyen ölçütleri, elle tetikleyiciler gibi sürekli tümleştirme (CI) yerleştirin veya Geçitli iade.
-- İçin ekip web paketleri ve veritabanı betikleri gibi dağıtım yapıtları dahil olmak üzere, derleme çıktılarını göndermesi gereken konum.
-- Her yapı korunması gereken süre miktarı.
-- Çeşitli diğer parametreler yapı işlemi.
+- Visual Studio çözüm dosyaları veya özel Microsoft Build Engine (MSBuild) proje dosyaları gibi derlemek istediğiniz şeyler.
+- El ile Tetikleyiciler, sürekli tümleştirme (CI) veya geçişli iadeler gibi bir yapı ne zaman gerçekleşmesi gerektiğini belirleme ölçütleri.
+- Ekip derlemesinin, Web paketleri ve veritabanı betikleri gibi dağıtım yapıtları dahil olmak üzere derleme çıktıları göndereceği konum.
+- Her bir yapılandırmanın korunması gereken süre miktarı.
+- Yapı sürecinin diğer çeşitli parametreleri.
 
 > [!NOTE]
-> Derleme tanımları hakkında daha fazla bilgi için bkz. [bilgisayarınızı yapı işlemi tanımla](https://msdn.microsoft.com/library/ms181715.aspx).
+> Derleme tanımları hakkında daha fazla bilgi için bkz. [Yapı Işleminizi tanımlama](https://msdn.microsoft.com/library/ms181715.aspx).
 
-Bu konuda, bir geliştirici yeni içeriği iade ederken bir derleme tetiklenmesi CI, kullanan bir yapı tanımı oluşturma gösterilmektedir. Oluşturma işlemi başarılı olursa, derleme hizmeti bir test ortamına çözümü dağıtmak için özel proje dosyası çalıştırır.
+Bu konuda, bir geliştirici yeni içerikte denetlediğinde bir derlemeyi tetiklenmesi için CI kullanan bir yapı tanımı oluşturma işlemi gösterilir. Oluşturma işlemi başarılı olursa, yapı hizmeti çözümü bir test ortamına dağıtmak için özel bir proje dosyası çalıştırır.
 
-Bir derleme tetiklemeyi, bu eylemleri olması gerekir:
+Bir derlemeyi tetiklemeniz durumunda, bu eylemlerin olması gerekir:
 
-- İlk olarak, ekip çözüm oluşturması gerekir. Bu işlemin bir parçası, ekip Web yayımlama işlem hattı (her biri çözümdeki web uygulama projeleri için web dağıtımı paketleri oluşturmak için WPP) çağırır. Takım derlemesi Çözümle ilişkili herhangi bir birim testleri de çalışır.
-- Çözüm yapı başarısız olursa, ekip başka bir işlem yapması. Birim testi hatalarına bir derleme hatası olarak değerlendirilmelidir.
-- Ekip, çözüm derlemesi başarılı olursa, çözümün dağıtımı denetleyen özel proje dosyasını çalıştırmanız gerekir. Bu işlemin bir parçası olarak ekip (hedef web sunucularına paketlenmiş web uygulamalarını yüklemek için Web dağıtımı) Internet Information Services (IIS) Web dağıtım aracı çağırır ve veritabanı oluşturma çalıştırmak için VSDBCMD.exe yardımcı programını çağırır Hedef veritabanı sunucularında betikler.
+- İlk olarak, takım derlemesinin çözümü oluşturması gerekir. Bu işlemin bir parçası olarak, takım derlemesi, çözümdeki Web uygulaması projelerinin her biri için Web dağıtım paketleri oluşturmak üzere Web yayımlama işlem hattını (WPP) çağırır. Ekip derlemesi, Çözümle ilişkili tüm birim testlerini de çalıştırır.
+- Çözüm derlemesi başarısız olursa, takım derlemesinin başka bir eylem yapması gerekmez. Birim testi hataları derleme hatası olarak değerlendirilmelidir.
+- Çözüm derlemesi başarılı olursa, takım derlemesi çözümün dağıtımını denetleyen özel proje dosyasını çalıştırmalıdır. Bu işlemin bir parçası olarak, takım derlemesi paketlenmiş Web uygulamalarını hedef Web sunucularına yüklemek için Internet Information Services (IIS) Web Dağıtım aracı 'nı (Web Dağıtımı) çağırır ve veritabanı oluşturmayı çalıştırmak için VSDBCMD. exe yardımcı programını çağıracaktır hedef veritabanı sunucularındaki betikler.
 
 Bu işlem gösterilmektedir:
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image1.png)
 
-[Kişi Yöneticisi](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözümü içeren özel bir MSBuild proje dosyası *Publish.proj*, MSBuild veya ekip çalıştırabilirsiniz. Bölümünde anlatıldığı gibi [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md), bu proje dosyası web paketleri ve veritabanları için bir hedef ortam dağıtan mantığı tanımlar. Dosyayı çalıştırmak için yalnızca dağıtım görevlerini bırakarak takım yapı içinde çalışıyorsa oluşturma ve paketleme işlemi atlar mantığı içerir. Bu işlem, çünkü bu şekilde dağıtımı otomatik hale getirmek, genellikle çözüm başarıyla derlenebildiğinden emin olmak isteyebilirsiniz ve dağıtım işlemi işlemi başlamadan önce herhangi bir birim test geçirir.
+[Ilgili kişi Yöneticisi](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözümü, MSBuild veya takım derlemesi 'nden çalıştırabileceğiniz, *Publish. proj*adlı özel bir MSBuild proje dosyası içerir. Bu proje dosyası, [Yapı sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md)bölümünde açıklandığı gibi, Web paketlerinizi ve veritabanlarınızı bir hedef ortama dağıtan mantığı tanımlar. Dosya, ekip derlemesinde çalışıyorsa yalnızca dağıtım görevlerinin çalıştırılmasını terk eden oluşturma ve paketleme sürecini atlalayan mantığı içerir. Bunun nedeni, dağıtımı bu şekilde otomatikleştirdiğiniz için genellikle çözümün başarıyla oluşturulduğundan ve dağıtım işlemi yapılmadan önce herhangi bir birim testini geçirdiğinden emin olmak isteyeceksiniz.
 
-Sonraki bölümde, yeni bir derleme tanımı oluşturarak bu işlemi uygulamak açıklanmaktadır.
+Sonraki bölümde, yeni bir derleme tanımı oluşturarak bu işlemin nasıl uygulanacağı açıklanmaktadır.
 
 > [!NOTE]
-> Bu yordamı&#x2014;, tek bir otomatik olarak işlem yapıları, testleri ve bir çözüm dağıtır&#x2014;test ortamları için dağıtım için en uygun hale gelmesi muhtemeldir. Hazırlama ve üretim ortamları için çok daha önceden doğrulandı ve bir test ortamında doğrulanmış bir önceki yapıdan içeriği dağıtmak istediğiniz olasılığınız vardır. Bu yaklaşım, sonraki konu başlığında açıklanan [belirli bir yapı dağıtma](deploying-a-specific-build.md).
+> Tek bir&#x2014;otomatik işlemin bir çözüm&#x2014;derlemesi, testleri ve dağıttığı bu yordam, test ortamlarına dağıtıma en uygun olasılıktır. Hazırlama ve üretim ortamları için bir test ortamında önceden doğrulamış ve doğruladığınız önceki bir derlemeden içerik dağıtmak istemeniz çok daha olasıdır. Bu yaklaşım, [belirli bir derlemeyi dağıtmaya yönelik bir](deploying-a-specific-build.md)sonraki konu başlığında açıklanmıştır.
 
-### <a name="who-performs-this-procedure"></a>Kim, yordama gerçekleştirir?
+### <a name="who-performs-this-procedure"></a>Bu yordamı kim gerçekleştiriyor?
 
-Genellikle, bir TFS Yöneticisi, bu yordamı gerçekleştirir. Bazı durumlarda, bir geliştirici Ekip Lideri, TFS'de takım projesi koleksiyonu için sorumluluk alabilir. Yeni bir yapı tanımı oluşturmak için bir üyesi olmanız gerekir **Project Collection Build Administrators** çözümünüzü içeren takım projesi koleksiyonu için Grup.
+Genellikle, bir TFS Yöneticisi bu yordamı gerçekleştirir. Bazı durumlarda, bir geliştirici ekibi lideri TFS 'deki takım projesi koleksiyonu için sorumluluk alabilir. Yeni bir derleme tanımı oluşturmak için çözümünüzü içeren takım projesi koleksiyonu için **proje koleksiyonu derleme yöneticileri** grubunun bir üyesi olmanız gerekir.
 
-## <a name="create-a-build-definition-for-ci-and-deployment"></a>CI ve dağıtım için bir yapı tanımı oluşturun
+## <a name="create-a-build-definition-for-ci-and-deployment"></a>CI ve dağıtım için derleme tanımı oluşturma
 
-Sonraki yordamda CI tetikleyen bir yapı tanımı oluşturmayı açıklar. Derleme başarılı olursa, çözümü mantığı kullanarak özel bir MSBuild Projesi dosyası içinde dağıtılır.
+Sonraki yordamda, CI 'nin tetiklediği derleme tanımının nasıl oluşturulacağı açıklanmaktadır. Yapı başarılı olursa çözüm, özel bir MSBuild proje dosyasındaki mantığı kullanılarak dağıtılır.
 
-**CI ve dağıtım için bir yapı tanımı oluşturmak için**
+**CI ve dağıtım için bir derleme tanımı oluşturmak için**
 
-1. Visual Studio 2010 içinde **Takım Gezgini** penceresinde, takım projesi düğümünü genişletin, sağ **yapılar**ve ardından **yeni yapı tanımı**.
+1. Visual Studio 2010 ' de, **Takım Gezgini** penceresinde, takım projesi düğümünüz ' ı genişletin, **yapılar**' a sağ tıklayın ve ardından **Yeni derleme tanımı**' na tıklayın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image2.png)
-2. Üzerinde **genel** sekmesinde, derleme tanımı bir ad verin (örneğin, **DeployToTest**) ve isteğe bağlı bir açıklama.
-3. Üzerinde **tetikleyici** sekmesinde, yeni derleme tetikleme istediğiniz ölçütleri seçin. Örneğin, çözümü oluşturun ve her zaman yeni kod, bir geliştirici denetler sınama ortamında dağıtmak istiyorsanız, seçin **sürekli tümleştirme**.
-4. Üzerinde **Yapı Varsayılanları** sekmesinde **yapı çıkış aşağıdaki bırakma klasörüne Kopyala** bırakma klasörünüz Evrensel Adlandırma Kuralı (UNC) yolunu yazın (örneğin,  **\\TFSBUILD\Drops**).
+2. **Genel** sekmesinde, derleme tanımına bir ad (örneğin, **deploytotest**) ve isteğe bağlı bir açıklama verin.
+3. **Tetikleyici** sekmesinde, yeni bir derlemeyi tetiklemek istediğiniz ölçütü seçin. Örneğin, çözümü derlemek ve bir geliştirici yeni kodu her denetlediğinde test ortamına dağıtmak istiyorsanız **sürekli tümleştirme**' i seçin.
+4. **Derleme Varsayılanları** sekmesinde, **derleme çıkışını aşağıdaki bırakma klasörüne kopyala** kutusuna bırakma klasörünüzün evrensel adlandırma kuralı (UNC) yolunu yazın (örneğin, **tfsbuild\bırakı\\** ).
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image3.png)
 
     > [!NOTE]
-    > Bu bırakma konumu, yapılandırdığınız bekletme ilkesi bağlı olarak çeşitli yapıları depolar. Belirli bir yapıyı bir hazırlık veya üretim ortamına dağıtım yapılardan yayımlamak istediğiniz, bunları burada bulabilirsiniz budur.
-5. Üzerinde **işlem** sekmesinde **yapı işlem dosyası** açılan listesinde, bırakın **DefaultTemplate.xaml** seçili. Bu, tüm yeni takım projelerine eklenin varsayılan derleme işlem şablonlarını biridir.
-6. İçinde **yapı işlemi parametreleri** tablo, tıklayın **yapı öğeleri** satır ve ardından **üç nokta** düğmesi.
+    > Bu bırakma konumu, yapılandırdığınız bekletme ilkesine bağlı olarak çeşitli derlemeler depolar. Belirli bir derlemeden hazırlama veya üretim ortamına dağıtım yapıtları yayınlamak istediğinizde, burada bulabilirsiniz.
+5. **İşlem** sekmesinde, **işlem dosyası oluştur** açılır listesinde **DefaultTemplate. xaml** ' i seçili bırakın. Bu, tüm yeni takım projelerine eklenen varsayılan yapı işlem şablonlarından biridir.
+6. **Yapı işlemi parametreleri** tablosunda, oluşturulacak **öğeler** satırına tıklayın ve ardından **üç nokta** düğmesine tıklayın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image4.png)
-7. İçinde **yapı öğeleri** iletişim kutusu, tıklayın **Ekle**.
-8. Çözüm dosyanızın konumuna göz atın ve ardından **Tamam**.
+7. **Derlenecek Öğeler** Iletişim kutusunda **Ekle**' ye tıklayın.
+8. Çözüm dosyanızın konumuna gidin ve ardından **Tamam**' a tıklayın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image5.png)
-9. İçinde **yapı öğeleri** iletişim kutusu, tıklayın **Ekle**.
-10. İçinde **öğe türü** açılan listesinden **MSBuild proje dosyaları**.
-11. Hangi, dağıtım işlemini denetleyen, dosyayı seçin ve ardından özel Proje dosyasının konumuna göz atın **Tamam**.
+9. **Derlenecek Öğeler** Iletişim kutusunda **Ekle**' ye tıklayın.
+10. **Tür öğeleri** açılan listesinde **MSBuild proje dosyaları**' nı seçin.
+11. Dağıtım işlemini denetlediğiniz özel proje dosyasının konumuna gidin, dosyayı seçin ve ardından **Tamam**' a tıklayın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image6.png)
-12. **Yapı öğeleri** iletişim kutusu iki öğe artık gösterilmesi. **Tamam**'ı tıklatın.
+12. **Oluşturulacak öğeler** iletişim kutusunda artık iki öğe gösterilmelidir. **Tamam**’a tıklayın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image7.png)
-13. Üzerinde **işlem** sekmesinde **yapı işlemi parametreleri** tablo, genişletme **Gelişmiş** bölümü.
-14. İçinde **MSBuild bağımsız değişkenleri** satır, tüm MSBuild komut satırı bağımsız değişkenlerini ekleyin, *ya da* oluşturmak için öğelerin gerektirir. Kişi Yöneticisi çözümü senaryosunda, bu bağımsız değişkenleri gereklidir:
+13. **İşlem** sekmesinde, **Yapı işlemi parametreleri** tablosunda, **Gelişmiş** bölümünü genişletin.
+14. **MSBuild bağımsız değişkenleri** satırında, oluşturulacak öğelerinizin *her biri için gereken MSBuild* komut satırı bağımsız değişkenlerini ekleyin. Contact Manager çözüm senaryosunda, bu bağımsız değişkenler gereklidir:
 
     [!code-console[Main](creating-a-build-definition-that-supports-deployment/samples/sample1.cmd)]
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image8.png)
 15. Bu örnekte:
 
-    1. **DeployOnBuild = true** ve **DeployTarget paket =** Kişi Yöneticisi çözümü oluşturduğunuzda bağımsız değişkenleri gereklidir. Bu web dağıtımı paketleri her web uygulaması projesi oluşturduktan sonra açıklandığı gibi oluşturmak için MSBuild bildirir [oluşturma ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md).
-    2. **TargetEnvPropsFile** bağımsız değişkeni, oluşturma sırasında gereklidir *Publish.proj* dosya. Bu özellik anlatıldığı gibi ortama özgü yapılandırma dosyasının konumunu gösterir [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
-16. Üzerinde **Bekletme İlkesi** sekmesinde, gerektiği gibi korumak istediğiniz her türden kaç yapılar yapılandırın.
+    1. Contact Manager çözümünü oluştururken **Deployonbuild = true** ve **deploytarget = paket** bağımsız değişkenleri gereklidir. Bu, Web [uygulaması projelerini oluşturma ve paketleme](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)bölümünde açıklandığı gibi, her bir Web uygulaması projesini derlemeden sonra Web dağıtım paketleri oluşturmayı MSBuild 'e söyler.
+    2. *Publish. proj* dosyasını oluşturduğunuzda **Targetenvpropsfile** bağımsız değişkeni gereklidir. Bu özellik, [Yapı sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md)bölümünde açıklandığı gibi ortama özgü yapılandırma dosyasının konumunu gösterir.
+16. **Bekletme ilkesi** sekmesinde, her bir türün kaç tane türünü gerektiği şekilde saklamak istediğinizi yapılandırın.
 17. **Kaydet**'e tıklayın.
 
 ## <a name="queue-a-build"></a>Bir Derlemeyi Sıraya Koyma
 
-Bu noktada, en az bir yapı tanımını oluşturdunuz. Tanımladığınız derleme işlemi, artık derleme tanımında belirtilen Tetikleyiciler göre çalıştırılır.
+Bu noktada, en az bir yeni derleme tanımı oluşturdunuz. Tanımladığınız derleme işlemi artık derleme tanımında belirttiğiniz tetikleyicilere göre çalışacaktır.
 
-Yapı tanımınızı CI kullanmak için yapılandırdıysanız, yapı tanımı iki şekilde test edebilirsiniz:
+Derleme tanımınızı CI kullanacak şekilde yapılandırdıysanız, derleme tanımınızı iki şekilde test edebilirsiniz:
 
-- Bazı içerikler otomatik bir derleme tetiklemeyi takım projesine iade edin.
-- Bir derlemeyi el ile sıraya.
+- Bir otomatik derlemeyi tetiklemek için takım projesine bazı içerikleri iade edin.
+- Derlemeyi el ile sıraya koyun.
 
-**Bir derlemeyi el ile sıraya koyma**
+**Bir derlemeyi el ile sıraya alma**
 
-1. İçinde **Takım Gezgini** penceresinde derleme tanımı sağ tıklayın ve ardından **yeni derlemeyi sıraya koy**.
+1. **Takım Gezgini** penceresinde, derleme tanımına sağ tıklayın ve sonra **yeni derlemeyi kuyruğa al**' a tıklayın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image9.png)
-2. İçinde **derleme kuyruğu** iletişim kutusunda, derleme özellikleri gözden geçirin ve ardından **kuyruk**.
+2. **Derlemeyi kuyruğa al** iletişim kutusunda derleme özelliklerini gözden geçirin ve ardından **kuyruk**' ı tıklatın.
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-İlerleme ve bir derleme sonucunu gözden geçirmek için&#x2014;olup olmadığını onu el ile veya otomatik olarak tetiklendi bakılmaksızın&#x2014;derleme tanımında çift **Takım Gezgini** penceresi. Bunu bir **Yapı Gezgini** sekmesi.
+Bir derlemeyi el ile mi tetiklediğini ne olursa olsun&#x2014;, bir derleme sonucunu gözden geçirmek için **Takım Gezgini** penceresinde&#x2014;yapı tanımına otomatik olarak çift tıklayın. Bu, bir **Yapı Gezgini** sekmesi açar.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
-Buradan, başarısız yapılara giderebilirsiniz. Tek bir yapıya çift tıklayın, Özet bilgileri görüntülemek ve ayrıntılı günlük dosyaları için tıklayın.
+Buradan başarısız olan derlemelerin sorunlarını giderebilirsiniz. Tek bir yapıya çift tıklarsanız Özet bilgilerini görüntüleyebilir ve ayrıntılı günlük dosyalarına tıklayabilirsiniz.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image12.png)
 
-Başarısız derlemeler ve başka bir yapı çalışmadan önce tüm sorunları gidermek için bu bilgileri kullanabilirsiniz.
+Bu bilgileri, başka bir derlemeyi denemeden önce başarısız yapıların sorunlarını gidermek ve sorunları gidermek için kullanabilirsiniz.
 
 > [!NOTE]
-> Dağıtım mantıksal yürütülen yapıların büyük olasılıkla hedef ortamda gereken izinler yapı sunucusu izni kadar başarısız olacak. Daha fazla bilgi için [takım derleme dağıtımı izinlerini yapılandırma](configuring-permissions-for-team-build-deployment.md).
+> Dağıtım mantığını çalıştıran derlemeler, yapı sunucusuna hedef ortamda gerekli izinleri verene kadar başarısız olabilir. Daha fazla bilgi için bkz. [Takım derleme dağıtımı Için Izinleri yapılandırma](configuring-permissions-for-team-build-deployment.md).
 
-## <a name="monitor-the-build-process"></a>Yapı işlemini izleyin
+## <a name="monitor-the-build-process"></a>Yapı Işlemini izleme
 
-TFS, geniş bir yapı işlemi izlemenize yardımcı olmak için işlevsellik sağlar. Örneğin, TFS e-posta Gönder veya bir derleme tamamlandığında, görev çubuğu bildirim alanında uyarıları görüntüler. Daha fazla bilgi için [çalıştırma ve izleme yapılar](https://msdn.microsoft.com/library/ms181721.aspx).
+TFS, yapı sürecini izlemenize yardımcı olacak çok çeşitli işlevler sağlar. Örneğin, TFS size bir e-posta gönderebilir veya bir derleme tamamlandığında görev çubuğu bildirim alanında uyarılar görüntüleyebilir. Daha fazla bilgi için bkz. [derlemeleri çalıştırma ve izleme](https://msdn.microsoft.com/library/ms181721.aspx).
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda TFS'de bir yapı tanımı oluşturmak nasıl kaydedileceği açıklanır. Derleme tanımı, bu nedenle her bir geliştirici içeriği takım projesine iade derleme işlemi çalıştırılır CI için yapılandırılır. Derleme tanımı, web paketleri ve veritabanı betikleri için bir hedef sunucu ortamı dağıtmak için özel bir MSBuild proje dosyası yürütür.
+Bu konu, TFS 'de bir derleme tanımının nasıl oluşturulacağını açıklamaktadır. Derleme tanımı CI için yapılandırılmıştır, bu nedenle derleme işlemi bir geliştirici takım projesine içerik iade ettiğinde çalışır. Derleme tanımı, Web paketleri ve veritabanı betikleri için bir hedef sunucu ortamına dağıtmak üzere özel bir MSBuild proje dosyası yürütür.
 
-Bir yapı işleminin bir parçası başarılı olması bir otomatik dağıtım için sırada derleme hizmeti hesabının hedef web sunucuları ve hedef veritabanı sunucusunda uygun izinleri vermeniz gerekir. Bu öğreticide, son konu [takım derleme dağıtımı izinlerini yapılandırma](configuring-permissions-for-team-build-deployment.md), tanımlamak ve bir takım derleme sunucusu otomatik dağıtımı için gerekli izinleri yapılandırma açıklanmaktadır.
+Otomatik dağıtımın bir yapı sürecinin bir parçası olarak başarılı olması için, hedef Web sunucularındaki ve hedef veritabanı sunucusundaki yapı hizmeti hesabına uygun izinleri vermeniz gerekir. Bu öğreticideki son konu, [ekip derleme dağıtımı Için Izinleri yapılandırırken](configuring-permissions-for-team-build-deployment.md), bir Team Build Server 'dan otomatik dağıtım için gerekli izinlerin nasıl belirleneceğini ve yapılandırılacağını açıklar.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Derleme tanımı oluşturma hakkında daha fazla bilgi için bkz. [temel bir yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [bilgisayarınızı yapı işlemi tanımlama](https://msdn.microsoft.com/library/ms181715.aspx). Derlemeler kuyruğa alınırken hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/library/ms181722.aspx).
+Derleme tanımları oluşturma hakkında daha fazla bilgi için bkz. [temel yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [derleme işleminizi tanımlama](https://msdn.microsoft.com/library/ms181715.aspx). Yapıları sıraya alma hakkında daha fazla bilgi için bkz. [bir derlemeyi sıraya](https://msdn.microsoft.com/library/ms181722.aspx)alma.
 
 > [!div class="step-by-step"]
 > [Önceki](configuring-a-tfs-build-server-for-web-deployment.md)

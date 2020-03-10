@@ -2,138 +2,138 @@
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 title: Birden çok ortam için veritabanı dağıtımlarını özelleştirme | Microsoft Docs
 author: jrjlee
-description: 'Bu konu, bir veritabanına belirli bir hedef ortam özelliklerini dağıtım işleminin bir parçası olarak uyarlamak açıklar. Not: Konu th varsayar...'
+description: 'Bu konu, dağıtım sürecinin bir parçası olarak bir veritabanının özelliklerinin belirli hedef ortamlara nasıl yapılandırılacağını açıklamaktadır. Note: konu başlığı...'
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: a172979a-1318-4318-a9c6-4f9560d26267
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
 ms.openlocfilehash: 8ae8cb1a322afb95c5d2e8d5e73c7825c7b2fe5a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108321"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78604029"
 ---
 # <a name="customizing-database-deployments-for-multiple-environments"></a>Birden Çok Ortam için Veritabanı Dağıtımlarını Özelleştirme
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu, bir veritabanına belirli bir hedef ortam özelliklerini dağıtım işleminin bir parçası olarak uyarlamak açıklar.
+> Bu konu, dağıtım sürecinin bir parçası olarak bir veritabanının özelliklerinin belirli hedef ortamlara nasıl yapılandırılacağını açıklamaktadır.
 > 
 > > [!NOTE]
-> > Bu konuda, MSBuild.exe ve VSDBCMD.exe kullanarak bir Visual Studio 2010 veritabanı projesi dağıtıyorsanız varsayılır. Neden bu yaklaşımı tercih edebileceğiniz daha fazla bilgi için bkz: [Kurumsal Web dağıtımı](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md) ve [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
+> > Bu konuda, MSBuild. exe ve VSDBCMD. exe kullanarak bir Visual Studio 2010 veritabanı projesi dağıttığınız varsayılmaktadır. Bu yaklaşımı neden seçebilecek hakkında daha fazla bilgi için bkz. [Enterprise 'Ta Web dağıtımı](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md) ve [veritabanı projelerini dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
 > 
 > 
-> Birden çok hedefe bir veritabanı projesi dağıttığınızda, genellikle her hedef ortam için veritabanı dağıtım özellikleri özelleştirmek isteyebilirsiniz. Hazırlık veya üretim ortamlarında, verilerinizi korumak için artımlı güncelleştirmeler yapmak çok daha büyük olasılıkla olacaktır ancak örneğin, test ortamlarında, genellikle her dağıtım veritabanında yeniden.
+> Birden çok hedefe bir veritabanı projesi dağıttığınızda, genellikle her bir hedef ortam için veritabanı dağıtım özelliklerini özelleştirmek isteyeceksiniz. Örneğin, test ortamlarında veritabanını her dağıtımda genellikle yeniden oluşturmanız gerekir, hazırlık veya üretim ortamlarında verilerinizi korumak için artımlı güncelleştirmeler yapmanız çok daha olasıdır.
 > 
-> Visual Studio 2010 veritabanı projesi, dağıtım ayarları bir dağıtım yapılandırma (.sqldeployment) dosyası içinde yer alır. Bu konuda, ortama özgü dağıtım yapılandırma dosyaları oluşturma ve VSDBCMD parametre olarak kullanmak istediğiniz bir tane belirtmeniz gösterilmektedir.
+> Visual Studio 2010 veritabanı projesinde, dağıtım ayarları bir dağıtım yapılandırma (. sqldeployment) dosyası içinde yer alır. Bu konu, ortama özel dağıtım yapılandırma dosyalarını nasıl oluşturacağınız ve VSDBCMD parametresi olarak kullanmak istediğiniz bir parametreyi nasıl belirtmektir.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme işleminin her hedef ortam için uygulanan derleme yönergelerini içeren ve ortama özel yapı ve dağıtım ayarlarını içeren iki proje&#x2014;dosyası tarafından kontrol edilen proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="task-overview"></a>Görev genel bakış
+## <a name="task-overview"></a>Göreve genel bakış
 
-Bu konu başlığı altında olduğunu varsayar:
+Bu konuda aşağıdakiler varsayılmaktadır:
 
-- Çözüm dağıtımı, bölünmüş proje dosyası yaklaşımı açıklandığı gibi kullandığınız [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md).
-- Veritabanı projenizi dağıtmak için proje dosyasından VSDBCMD açıklandığı çağrı [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+- Proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklandığı gibi, çözüm dağıtımına bölünmüş proje dosyası yaklaşımını kullanabilirsiniz.
+- [Yapı sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md)bölümünde açıklandığı gibi, veritabanı projenizi dağıtmak için, proje dosyasından VSDBCMD ' i çağırın.
 
-Veritabanı dağıtım özelliklerini hedef ortamlar arasında değişen destekleyen bir dağıtım sistemi oluşturmak için ihtiyacınız:
+Hedef ortamlar arasında veritabanı dağıtım özelliklerini farklı şekilde destekleyen bir dağıtım sistemi oluşturmak için şunları yapmanız gerekir:
 
-- Her hedef ortam için dağıtım yapılandırma (.sqldeployment) dosyası oluşturun.
-- Dağıtım yapılandırma dosyası bir komut satırı anahtarı belirten bir VSDBCMD komutu oluşturun.
-- VSDBCMD seçenekleri hedef ortam için uygun olacak şekilde bir Microsoft Build Engine (MSBuild) proje dosyasında VSDBCMD komut parametreleştirin.
+- Her hedef ortam için bir dağıtım yapılandırma (. sqldeployment) dosyası oluşturun.
+- Dağıtım yapılandırma dosyasını bir komut satırı anahtarı olarak belirten bir VSDBCMD komutu oluşturun.
+- Bir Microsoft Build Engine (MSBuild) proje dosyasında VSDBCMD komutunu parametreleştirin, böylece VSDBCMD seçeneklerinin hedef ortama uygun olması gerekir.
 
-Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir.
+Bu konu, bu yordamların her birini nasıl gerçekleştirekullanacağınızı gösterir.
 
-## <a name="creating-environment-specific-deployment-configuration-files"></a>Ortama özgü dağıtım yapılandırma dosyaları oluşturma
+## <a name="creating-environment-specific-deployment-configuration-files"></a>Ortama özel dağıtım yapılandırma dosyaları oluşturma
 
-Varsayılan olarak, bir veritabanı projesi adlı tek bir dağıtım yapılandırma dosyasını içeren *Database.sqldeployment*. Visual Studio 2010'da bu dosyayı açmak için kullanabileceğiniz farklı dağıtım seçenekleri görebilirsiniz:
+Varsayılan olarak, bir veritabanı projesi *Database. sqldeployment*adlı tek bir dağıtım yapılandırma dosyası içerir. Bu dosyayı Visual Studio 2010 ' de açarsanız, kullanabileceğiniz farklı dağıtım seçeneklerini görebilirsiniz:
 
-- **Dağıtım karşılaştırma harmanlama**. Bu veritabanı harmanlaması projenizin kullanılıp kullanılmayacağını seçmenize olanak tanır ( *kaynak* harmanlama) ya da hedef veritabanı harmanlaması ( *hedef* harmanlama). Çoğu durumda, bir geliştirme dağıttığınızda veya test ortamı kaynak harmanlaması kullanmak isteyebilirsiniz. Bir hazırlık veya üretim ortamına dağıtma yaparken, genellikle hedef harmanlamaya birlikte çalışabilirlik sorunları önlemek için değiştirilmemiş şekilde bırakmak istersiniz.
-- **Veritabanı özellikleri dağıtma**. Bu veritabanı özelliklerini uygulanıp uygulanmayacağını tanımlandığı şekilde seçmenizi sağlar *Database.sqlsettings* dosya. Bir veritabanı ilk kez dağıttığınızda, veritabanı özelliklerini dağıtmanız gerekir. Varolan bir veritabanını güncelleştiriyorsanız özellikleri zaten yerinde olmalıdır ve yeniden dağıtmanız gerekmez.
-- **Veritabanı her zaman yeniden oluştur**. Hedef veritabanı dağıtma veya hedef veritabanı getirmek için artımlı şemanızı ile güncel değişiklikler her zaman yeniden oluşturulup oluşturulmayacağını seçin olanak sağlar. Veritabanı yeniden oluşturursanız, tüm veriler var olan veritabanını kaybedersiniz. Bu nedenle, genellikle bu ayar **false** dağıtımları için hazırlık veya üretim ortamları için.
-- **Veri kaybı, artımlı dağıtım Block**. Bu dağıtım veritabanı şeması değişiklik veri kaybına neden olacaksa durdurulup durdurulmayacağını seçmenize olanak sağlar. Genellikle bu ayar **true** müdahale ve tüm önemli verileri korumaya fırsatı sunmak için bir üretim ortamında dağıtılacak. Ayarladıysanız **her zaman yeniden oluştur veritabanı** için **false**, bu ayarın hiçbir etkisi olmaz.
-- **Tek kullanıcı modunda dağıtım yürütün**. Bu genellikle geliştirme ve test ortamları bir sorun değildir. Ancak, genellikle bu ayar **true** dağıtımları için hazırlık veya üretim ortamları için. Bu, kullanıcıların dağıtım devam ederken veritabanına değişiklikler yapmasını engeller.
-- **Dağıtımdan önce veritabanını yedekleme**. Genellikle bu ayar **true** veri kaybına karşı önlem olarak, bir üretim ortamına dağıtırken. Ayarlayın isteyebilirsiniz **true** dağıtırken bir hazırlama ortamına hazırlama veritabanınız çok fazla veri içeriyorsa.
-- **Hedef veritabanında olan ancak bir veritabanı projesinde olmayan nesneler için bırak deyimleri oluşturmasını**. Çoğu durumda, bir veritabanına artımlı değişiklikler yapma integral ve önemli bir bölümü budur. Ayarladıysanız **her zaman yeniden oluştur veritabanı** için **false**, bu ayarın hiçbir etkisi olmaz.
-- **CLR türlerini güncelleştirmek için ALTER ASSEMBLY deyimleri kullanmayın**. Bu ayar, SQL Server ortak dil çalışma zamanı (CLR) türleri için yeni derleme sürümlerini nasıl güncelleştirmelisiniz belirler. Bu ayarlanmalıdır **false** Çoğu senaryoda.
+- **Dağıtım karşılaştırma harmanlaması**. Bu, projenizin veritabanı harmanlamasını ( *kaynak* harmanlama) veya hedef sunucunuzun veritabanı harmanlamasını ( *hedef* harmanlama) kullanmayı seçmenizi sağlar. Çoğu durumda, bir geliştirme veya test ortamına dağıtırken kaynak harmanlamayı kullanmak isteyeceksiniz. Bir hazırlık veya üretim ortamına dağıtırken, birlikte çalışabilirlik sorunlarından kaçınmak için genellikle hedef harmanlamanın değişmeden kalmasını istersiniz.
+- **Veritabanı özelliklerini dağıtın**. Bu, Database *. sqlsettings* dosyasında tanımlandığı şekilde veritabanı özelliklerinin uygulanıp uygulanmayacağını seçmenize olanak sağlar. Bir veritabanını ilk kez dağıttığınızda, veritabanı özelliklerini dağıtmanız gerekir. Var olan bir veritabanını güncelleştiriyorsanız özellikler zaten yerinde olmalıdır ve bunları yeniden dağıtmanız gerekmez.
+- **Veritabanını her zaman yeniden oluşturun**. Bu, hedef veritabanını her dağıttığınız zaman yeniden oluşturmayı seçmenizi veya hedef veritabanını şemanıza göre güncel hale getirmek için artımlı değişiklikler yapmanızı sağlar. Veritabanını yeniden oluşturursanız, var olan veritabanındaki tüm verileri kaybedersiniz. Bu nedenle, hazırlık veya üretim ortamları için dağıtımları genellikle **false** olarak ayarlamanız gerekir.
+- **Veri kaybı oluşmayabilir, artımlı dağıtımı engelleyin**. Bu, veritabanı şemasında yapılan bir değişiklik veri kaybına neden olursa dağıtımın durdurulup durdurulmayacağını seçmenizi sağlar. Genellikle bunu bir üretim ortamına dağıtım için **doğru** olarak ayarlarsanız, önemli verileri müdahale etmek ve korumak için bir fırsat sağlar. **Veritabanını her zaman false olarak yeniden oluşturursanız** , bu ayarınhiçbir etkisi olmayacaktır.
+- **Dağıtımı tek kullanıcı modunda yürütün**. Bu genellikle geliştirme veya test ortamlarındaki bir sorun değildir. Ancak, hazırlık veya üretim ortamları için dağıtım için genellikle bunu **true** olarak ayarlamanız gerekir. Bu, dağıtım devam ederken kullanıcıların veritabanında değişiklik yapmalarını önler.
+- **Dağıtımdan önce veritabanını yedekleyin**. Bunu, veri kaybına karşı bir önlem olarak bir üretim ortamına dağıtırken, genellikle **doğru** olarak ayarlarsınız. Hazırlama veritabanınız çok miktarda veri içeriyorsa, hazırlama ortamına dağıtırken bunu **true** olarak ayarlamak da isteyebilirsiniz.
+- **Hedef veritabanındaki, ancak veritabanı projesinde olmayan nesneler IÇIN drop deyimleri üretin**. Çoğu durumda bu, bir veritabanında artımlı değişiklikler yapmanın tam ve önemli bir parçasıdır. **Veritabanını her zaman false olarak yeniden oluşturursanız** , bu ayarınhiçbir etkisi olmayacaktır.
+- **CLR türlerini güncelleştirmek IÇIN alter assembly deyimlerini kullanmayın**. Bu ayar, SQL Server ortak dil çalışma zamanı (CLR) türlerini daha yeni derleme sürümlerine güncelleştirme şeklini belirler. Çoğu senaryoda bu, **false** olarak ayarlanmalıdır.
 
-Bu tabloda, farklı bir hedef ortamları için tipik dağıtım ayarları gösterilmektedir. Ancak, ayarlarınızı tam gereksinimlerinize bağlı olarak farklı olabilir.
+Bu tabloda, farklı hedef ortamları için tipik dağıtım ayarları gösterilmektedir. Ancak, ayarlarınız tam gereksinimlerinize bağlı olarak farklı olabilir.
 
-|  | Geliştirici/Test | Hazırlama/tümleştirme | Üretim |
+|  | Geliştirici/test | Hazırlama/tümleştirme | Üretim |
 | --- | --- | --- | --- |
-| **Dağıtım karşılaştırma harmanlama** | Source | Hedef | Hedef |
-| **Veritabanı özellikleri dağıtma** | Doğru | Yalnızca ilk kez | Yalnızca ilk kez |
-| **Veritabanı her zaman yeniden oluştur** | Doğru | False | False |
-| **Veri kaybı, artımlı dağıtım engelle** | False | Belki de | Doğru |
-| **Tek kullanıcı modunda dağıtım betiği yürütün** | False | Doğru | Doğru |
-| **Dağıtımdan önce veritabanını yedekleyin** | False | Belki de | Doğru |
-| **Hedef veritabanında olan ancak bir veritabanı projesinde olmayan nesneler için bırak deyimleri oluştur** | False | Doğru | Doğru |
-| **CLR türlerini güncelleştirmek için ALTER ASSEMBLY deyimleri kullanmayın** | False | False | False |
+| **Dağıtım karşılaştırma harmanlama** | Kaynak | Hedef | Hedef |
+| **Veritabanı özelliklerini dağıtma** | Doğru | Yalnızca ilk kez | Yalnızca ilk kez |
+| **Veritabanını her zaman yeniden oluştur** | Doğru | False | False |
+| **Veri kaybı oluşmayabilir, artımlı Dağıtımı engelle** | False | Belki de | Doğru |
+| **Dağıtım betiğini tek kullanıcılı modda yürütme** | False | Doğru | Doğru |
+| **Dağıtımdan önce veritabanını yedekleme** | False | Belki de | Doğru |
+| **Hedef veritabanındaki, ancak veritabanı projesinde olmayan nesneler için DROP deyimleri oluşturma** | False | Doğru | Doğru |
+| **ALTER ASSEMBLY deyimlerini kullanarak CLR türlerini güncelleştirme** | False | False | False |
 
 > [!NOTE]
-> Veritabanı dağıtım özellikleri ve ortam konuları hakkında daha fazla bilgi için bkz. [bir genel bakış, veritabanı projenizin ayarlarının](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [nasıl yapılır: Özellikleri yapılandırmak için dağıtım ayrıntıları](https://msdn.microsoft.com/library/dd172125.aspx), [oluşturmak ve veritabanı için bir yalıtılmış bir geliştirme ortamı dağıtmak](https://msdn.microsoft.com/library/dd193409.aspx), ve [oluşturun ve bir hazırlık veya üretim ortamınaveritabanlarıdağıtma](https://msdn.microsoft.com/library/dd193413.aspx).
+> Veritabanı dağıtım özellikleri ve ortam konuları hakkında daha fazla bilgi için, bkz. [veritabanı proje ayarlarına genel bakış](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [nasıl yapılır: dağıtım ayrıntıları için özellikleri yapılandırma](https://msdn.microsoft.com/library/dd172125.aspx), [yalıtılmış bir geliştirme ortamında veritabanı oluşturma ve dağıtma](https://msdn.microsoft.com/library/dd193409.aspx)ve [veritabanlarını bir hazırlama veya üretim ortamında yapılandırma ve dağıtma](https://msdn.microsoft.com/library/dd193413.aspx).
 
-Veritabanı projesi birden fazla hedefe dağıtımını desteklemek için her hedef ortam için dağıtım yapılandırma dosyası oluşturmanız gerekir.
+Bir veritabanı projesinin birden çok hedefe dağıtımını desteklemek için, her hedef ortam için bir dağıtım yapılandırma dosyası oluşturmanız gerekir.
 
-**Bir ortama özgü yapılandırma dosyası oluşturmak için**
+**Ortama özgü bir yapılandırma dosyası oluşturmak için**
 
-1. Visual Studio 2010 içinde **Çözüm Gezgini** penceresinde veritabanı projenize sağ tıklayın ve ardından **özellikleri**.
-2. Veritabanı Proje özellikleri sayfasında, üzerinde **Dağıt** sekmesinde **dağıtım yapılandırma dosyası** satır, tıklayın **yeni**.
+1. Visual Studio 2010 ' de, **Çözüm Gezgini** penceresinde, veritabanı projenize sağ tıklayın ve ardından **Özellikler**' e tıklayın.
+2. Veritabanı projesi özellikleri sayfasında, **Dağıt** sekmesinde, **dağıtım yapılandırma dosyası** satırında **Yeni**' ye tıklayın.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
-3. İçinde **yeni bir dağıtım yapılandırma dosyası** iletişim kutusunda, dosyayı anlamlı bir ad verin (örneğin, **TestEnvironment.sqldeployment**) ve ardından **Kaydet**.
-4. Üzerinde *[Filename]* **.sqldeployment** sayfasında, hedef ortamınızın gereksinimlerini karşılamak için dağıtım özellikleri ayarlayın ve ardından dosyayı kaydedin.
+3. **Yeni dağıtım yapılandırma dosyası** iletişim kutusunda dosyaya anlamlı bir ad verin (örneğin, **TestEnvironment. sqldeployment**) ve ardından **Kaydet**' e tıklayın.
+4. *[Filename] * * *. sqldeployment** sayfasında, dağıtım özelliklerini hedef ortamınızın gereksinimleriyle eşleşecek şekilde ayarlayın ve dosyayı kaydedin.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
-5. Veritabanı projenizde özellikleri klasörüne yeni dosya eklenir dikkat edin.
+5. Yeni dosya, veritabanı projenizdeki Özellikler klasörüne eklendiğine dikkat edin.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image3.png)
 
-## <a name="specifying-the-deployment-configuration-file-in-vsdbcmd"></a>Dağıtım yapılandırma dosyası içinde VSDBCMD belirtme
+## <a name="specifying-the-deployment-configuration-file-in-vsdbcmd"></a>VSDBCMD 'de dağıtım yapılandırma dosyasını belirtme
 
-Visual Studio 2010 içinden çözüm yapılandırmaları (örneğin, hata ayıklama ve yayın) kullandığınızda, dağıtım yapılandırma dosyası her bir yapılandırma ile ilişkilendirebilirsiniz. Belirli bir yapılandırma derlerken, derleme işlemi yapılandırmaya özgü dağıtım yapılandırma dosyasına işaret eden özel yapılandırma dağıtım bildirimi dosyası oluşturur. Ancak, bu öğreticilerde açıklanan dağıtım yaklaşımı ana amaçları kişiler Visual Studio 2010 ve çözüm yapılandırmaları kullanmadan dağıtım işlemi denetleme olanağı vermek için biridir. Bu yaklaşımda, çözüm yapılandırması hedef dağıtım ortamı bağımsız olarak aynıdır. Belirli bir hedef ortam için veritabanı dağıtımınızı uyarlamak için dağıtım yapılandırma dosyası belirtmek için VSDBCMD komut satırı seçeneklerini kullanabilirsiniz.
+Visual Studio 2010 içinde çözüm yapılandırmalarını (hata ayıklama ve yayın gibi) kullandığınızda, bir dağıtım yapılandırma dosyasını her yapılandırmayla ilişkilendirebilirsiniz. Belirli bir yapılandırma oluşturduğunuzda, yapı işlemi yapılandırmaya özgü dağıtım yapılandırma dosyasını işaret eden yapılandırmaya özgü bir dağıtım bildirim dosyası oluşturur. Bununla birlikte, bu öğreticilerde açıklanan, dağıtıma yönelik yaklaşımlardan biri, kişilere Visual Studio 2010 ve çözüm yapılandırmalarına gerek kalmadan dağıtım sürecini denetleme olanağı vermektir. Bu yaklaşımda, çözüm yapılandırması, hedef dağıtım ortamından bağımsız olarak aynıdır. Veritabanı dağıtımınızı belirli bir hedef ortama uyarlamak için, dağıtım yapılandırma dosyanızı belirtmek üzere VSDBCMD komut satırı seçeneklerini kullanabilirsiniz.
 
-İçinde VSDBCMD bir dağıtım yapılandırma dosyası belirtmek için kullanın **p:/DeploymentConfigurationFile** geçin ve dosyanızı tam yolunu belirtin. Bu, dağıtım bildirimini tanımlayan dağıtım yapılandırma dosyası geçersiz kılar. Örneğin, dağıtmak için bu VSDBCMD komut kullanabilirsiniz **ContactManager** veritabanı bir test ortamı için:
+VSDBCMD dosyanızda bir dağıtım yapılandırma dosyası belirtmek için **p:/DeploymentConfigurationFile** anahtarını kullanın ve dosyanızın tam yolunu sağlayın. Bu, dağıtım bildiriminin tanımladığı dağıtım yapılandırma dosyasını geçersiz kılar. Örneğin, **ContactManager** veritabanını bir test ortamına dağıtmak IÇIN bu VSDBCMD komutunu kullanabilirsiniz:
 
 [!code-console[Main](customizing-database-deployments-for-multiple-environments/samples/sample1.cmd)]
 
 > [!NOTE]
-> Dosyayı çıkış dizinine kopyalarken yapı işlemi .sqldeployment dosyanızı yeniden unutmayın.
+> Yapı işleminin dosyayı çıkış dizinine kopyaladığında. sqldeployment dosyanızı yeniden adlandırabileceğini unutmayın.
 
-Dağıtım öncesi veya dağıtım sonrası SQL betiğinizde SQL komutu değişkenleri kullanırsanız dağıtımınıza bir ortama özgü .sqlcmdvars dosyasını ilişkilendirmek için benzer bir yaklaşım kullanabilirsiniz. Bu durumda, kullandığınız **p:/SqlCommandVariablesFile** .sqlcmdvars dosyanızı tanımlamak için anahtar.
+Dağıtım öncesi veya dağıtım sonrası SQL betiklerinizde SQL komut değişkenlerini kullanırsanız, ortama özgü bir. sqlcmdvars dosyasını dağıtımınızla ilişkilendirmek için benzer bir yaklaşım kullanabilirsiniz. Bu durumda,. sqlcmdvars dosyanızı tanımlamak için **p:/SqlCommandVariablesFile** anahtarını kullanın.
 
-## <a name="running-the-vsdbcmd-command-from-an-msbuild-project-file"></a>Bir MSBuild proje dosyasından VSDBCMD komutu çalıştırılıyor
+## <a name="running-the-vsdbcmd-command-from-an-msbuild-project-file"></a>Bir MSBuild proje dosyasından VSDBCMD komutunu çalıştırma
 
-Kullanarak bir MSBuild proje dosyası VSDBCMD komuttan çağırabilirsiniz bir **Exec** görev içinde bir MSBuild hedefi. En basit şekliyle, onu şöyle görünebilir:
+MSBuild hedefi içindeki bir **Exec** görevi kullanarak MSBuild proje dosyasından VSDBCMD komutunu çağırabilirsiniz. En basit biçiminde şöyle görünür:
 
 [!code-xml[Main](customizing-database-deployments-for-multiple-environments/samples/sample2.xml)]
 
-- Uygulamada, proje dosyalarınızı okuma ve yeniden kullanmak, daha kolay hale getirmek için çeşitli komut satırı parametreleri depolamak için özellikler oluşturmak istersiniz. Bu, kullanıcılar bir ortama özgü proje dosyasında özellik değerlerini belirtin veya MSBuild komut satırından varsayılan değerlerini geçersiz kılması için kolaylaştırır. Açıklanan bölünmüş proje dosyası yaklaşımı kullanırsanız [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), derleme yönergeleri ve iki dosya arasında özellikleri uygun şekilde bölme:
-- Dağıtım yapılandırma dosya adı, veritabanı bağlantı dizesi ve hedef veritabanı adı gibi ortama özgü ayarları ortama özgü proje dosyasında gitmeniz gerekir.
-- Evrensel bir proje dosyasında VSDBCMD komutu, Evrensel özeliklerini VSDBCMD yürütülebilir dosya konumunu gibi birlikte çalışan MSBuild hedefi gitmeniz gerekir.
+- Uygulamada, proje dosyalarınızın okunmasını ve yeniden kullanılmasını kolaylaştırmak için çeşitli komut satırı parametrelerini depolamak üzere özellikler oluşturmak isteyeceksiniz. Bu, kullanıcıların ortama özgü bir proje dosyasında özellik değerleri sağlamasını veya varsayılan değerleri MSBuild komut satırından geçersiz kılmasını kolaylaştırır. [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını kullanırsanız, derleme yönergelerinizi ve özelliklerini iki Dosya arasında uygun şekilde bölmeniz gerekir:
+- Dağıtım yapılandırma dosya adı, veritabanı bağlantı dizesi ve hedef veritabanı adı gibi ortama özgü ayarların ortama özgü proje dosyasında olması gerekir.
+- VSDBCMD komutunu çalıştıran MSBuild hedefi, VSDBCMD yürütülebilir dosyasının konumu gibi evrensel özelliklerle birlikte, evrensel proje dosyasına gitmelidir.
 
-Ayrıca, böylece oluşturulmuş ve kullanılmaya hazır .deploymanifest dosyasıdır VSDBCMD çağırma önce veritabanı projesini derleme emin olmalısınız. Bu yaklaşımın konusunda tam bir örnek gördüğünüz [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md), yol gösterir proje dosyalarında aracılığıyla [Kişi Yöneticisi örnek çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md).
+Ayrıca,. DeployManifest dosyasının oluşturulup kullanıma hazırlanabilmesi için VSDBCMD ' i çağırmadan önce veritabanı projesini oluşturduğunuzdan emin olmanız gerekir. Bu yaklaşımın tam bir örneğini, [Contact Manager örnek çözümünde](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)proje dosyaları boyunca size yol gösteren [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md)konusunda görebilirsiniz.
 
 ## <a name="conclusion"></a>Sonuç
 
-MSBuild ve VSDBCMD kullanarak veritabanı projeleri dağıtırken farklı hedef ortamlarında veritabanı özelliklerini nasıl uyarlayabileceğiniz bu konuda açıklanan. Bu yaklaşım, daha büyük, kurumsal sınıf çözümler bir parçası olarak veritabanı projeleri dağıtmak istediğinizde yararlıdır. Bu çözümler genellikle korumalı geliştirme ve test ortamları, hazırlama veya tümleştirme platformları ve üretim veya canlı ortamları gibi birden fazla hedefe dağıtılır. Bu hedef ortamların her birinde, genellikle bir dizi benzersiz veritabanı dağıtım özellikleri gerektirir.
+Bu konu, MSBuild ve VSDBCMD kullanarak veritabanı projelerini dağıtırken veritabanı özelliklerini farklı hedef ortamlara nasıl özelleştirebileceğiniz açıklanmıştır. Bu yaklaşım, daha büyük, kurumsal ölçekli çözümlerin parçası olarak veritabanı projelerini dağıtmanız gerektiğinde faydalıdır. Bu çözümler genellikle korumalı geliştirme veya test ortamları, hazırlama veya tümleştirme platformları, üretim veya canlı ortamlar gibi birden çok hedefe dağıtılır. Bu hedef ortamların her biri genellikle benzersiz bir veritabanı dağıtım özellikleri kümesi gerektirir.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Veritabanı projeleri VSDBCMD.exe kullanarak dağıtma hakkında daha fazla bilgi için bkz. [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md). Dağıtım işlemini denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
+VSDBCMD. exe ' yi kullanarak veritabanı projelerini dağıtma hakkında daha fazla bilgi için bkz. [veritabanı projelerini dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md). Dağıtım işlemini denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 
-Bu makaleler MSDN'de veritabanı dağıtımı hakkında daha fazla genel rehberlik sağlar:
+MSDN 'deki Bu makaleler veritabanı dağıtımı hakkında daha genel rehberlik sağlar:
 
-- [Veritabanı Proje ayarlarına genel bakış](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
-- [Nasıl yapılır: Özellikleri yapılandırmak için dağıtım ayrıntıları](https://msdn.microsoft.com/library/dd172125.aspx)
-- [Derleme ve veritabanlarını bir yalıtılmış geliştirme ortamına dağıtma](https://msdn.microsoft.com/library/dd193409.aspx)
-- [Derleme ve veritabanları için bir hazırlık veya üretim ortamına dağıtma](https://msdn.microsoft.com/library/dd193413.aspx)
+- [Veritabanı proje ayarlarına genel bakış](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Nasıl yapılır: dağıtım ayrıntıları için özellikleri yapılandırma](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Yalıtılmış bir geliştirme ortamına veritabanları oluşturun ve dağıtın](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Hazırlama veya üretim ortamına veritabanları oluşturun ve dağıtın](https://msdn.microsoft.com/library/dd193413.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](performing-a-what-if-deployment.md)

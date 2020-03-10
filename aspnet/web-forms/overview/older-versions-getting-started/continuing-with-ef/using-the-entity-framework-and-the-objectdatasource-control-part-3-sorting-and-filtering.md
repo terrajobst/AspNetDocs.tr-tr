@@ -1,154 +1,154 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
-title: 'Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve filtreleme | Microsoft Docs'
+title: 'Entity Framework 4,0 ve ObjectDataSource denetimini kullanma, 3. Bölüm: sıralama ve filtreleme | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde, kullanmaya başlama Entity Framework 4.0 öğretici serisinin tarafından oluşturulan Contoso University web uygulaması oluşturur. BEN...
+description: Bu öğretici serisi, Entity Framework 4,0 öğretici serisi ile çalışmaya başlama tarafından oluşturulan Contoso University Web uygulamasında oluşturulur. I...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 2990bd10-590d-43d5-9529-6b503ce5455d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
 msc.type: authoredcontent
 ms.openlocfilehash: 603120864528b9a5ff81214270eb9a7f1b68b347
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130672"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631672"
 ---
-# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve Filtreleme
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>Entity Framework 4,0 ve ObjectDataSource denetimini kullanma, 3. Bölüm: sıralama ve filtreleme
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-> Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
+> Bu öğretici serisi, [Entity Framework 4,0 öğretici serisi Ile çalışmaya](https://asp.net/entity-framework/tutorials#Getting%20Started) başlama tarafından oluşturulan Contoso University Web uygulamasında oluşturulur. Önceki öğreticileri tamamlamadıysanız, bu öğretici için bir başlangıç noktası olarak, oluşturduğunuz [uygulamayı indirebilirsiniz](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) . Ayrıca, tüm öğretici serileri tarafından oluşturulan [uygulamayı da indirebilirsiniz](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) . Öğreticiler hakkında sorularınız varsa, bunları [ASP.NET Entity Framework forumuna](https://forums.asp.net/1227.aspx)gönderebilirsiniz.
 
-Önceki öğreticide Entity Framework kullanan bir n katmanlı web uygulamasında depo deseni uygulanan ve `ObjectDataSource` denetimi. Bu öğreticide, sıralama ve filtreleme yapmak ve ana öğe-ayrıntı senaryoları işlemek gösterilir. Aşağıdaki gibi iyileştirmeyi ekleyeceksiniz *Departments.aspx* sayfası:
+Önceki öğreticide, Entity Framework ve `ObjectDataSource` denetimini kullanan n katmanlı bir Web uygulamasına depo modelini uyguladık. Bu öğreticide, sıralama ve filtreleme ve ana ayrıntı senaryolarını işleme işlemlerinin nasıl yapılacağı gösterilmektedir. Aşağıdaki geliştirmeleri *Departmanlar. aspx* sayfasına ekleyeceksiniz:
 
-- Departmanlar adına göre seçmek kullanıcılara izin vermek için metin kutusu.
-- Kılavuzda gösterilen her departman kursları listesi.
-- Sütun başlıklarını tıklatarak sıralama olanağı.
+- Kullanıcıların departmanları ada göre seçmesine izin veren bir metin kutusu.
+- Kılavuzda gösterilen her departman için kurslar listesi.
+- Sütun başlıklarına tıklayarak sıralama özelliği.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image1.png)
 
-## <a name="adding-the-ability-to-sort-gridview-columns"></a>GridView Sütun sıralama özelliği ekleme
+## <a name="adding-the-ability-to-sort-gridview-columns"></a>GridView sütunlarını sıralama özelliği ekleme
 
-Açık *Departments.aspx* sayfa ve ekleme bir `SortParameterName="sortExpression"` özniteliğini `ObjectDataSource` adlı Denetim `DepartmentsObjectDataSource`. (Daha sonra oluşturacağınız bir `GetDepartments` adlı bir parametresi alan yöntemi `sortExpression`.) Açılış etiketinde denetimi için biçimlendirme artık aşağıdaki örneğe benzer.
+*Departmanlar. aspx* sayfasını açın ve `DepartmentsObjectDataSource`adlı `ObjectDataSource` denetimine bir `SortParameterName="sortExpression"` özniteliği ekleyin. (Daha sonra, `sortExpression`adlı bir parametre alan `GetDepartments` yöntemi oluşturacaksınız.) Denetimin açılış etiketiyle ilgili biçimlendirme şimdi aşağıdaki örneğe benzer.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample1.aspx)]
 
-Ekleme `AllowSorting="true"` özniteliği öğesinin açılış etiketinde `GridView` denetimi. Açılış etiketinde denetimi için biçimlendirme artık aşağıdaki örneğe benzer.
+`GridView` denetiminin açılış etiketine `AllowSorting="true"` özniteliğini ekleyin. Denetimin açılış etiketiyle ilgili biçimlendirme şimdi aşağıdaki örneğe benzer.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample2.aspx)]
 
-İçinde *Departments.aspx.cs*, çağırarak varsayılan sıralama düzenini ayarlayın `GridView` denetimin `Sort` yönteminden `Page_Load` yöntemi:
+*Departments.aspx.cs*' de, `Page_Load` yönteminden `GridView` denetiminin `Sort` yöntemini çağırarak varsayılan sıralama düzenini ayarlayın:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample3.cs)]
 
-İş mantığı sınıfı veya depo sınıfını sıralar veya filtreleri kod ekleyebilirsiniz. İş mantığı sınıfı, bunu yaparsanız, veritabanından verilerin alındıktan sonra ile iş mantığı sınıfı çalıştığından sıralama veya filtreleme iş yapılır bir `IEnumerable` deposu tarafından döndürülen nesne. Sıralama ve filtreleme depo sınıfını kodda ekleyin ve bir LINQ ifadesini önce bunu ya da nesne sorgusu için dönüştürülmüş bir `IEnumerable` komutlarınızı geçirilir aracılığıyla veritabanı, genellikle daha verimli bir işlem için nesne. Bu öğreticide, sıralama ve filtreleme işlemi veritabanı tarafından yapılacak neden olan bir yolla uygulayacaksınız — diğer bir deyişle, depodaki.
+İş mantığı sınıfında veya depo sınıfında sıralama ya da filtre uygulayan bir kod ekleyebilirsiniz. İş mantığı sınıfında bunu yaparsanız sıralama veya filtreleme işi, veri veritabanından alındıktan sonra yapılır, çünkü iş mantığı sınıfı depo tarafından döndürülen bir `IEnumerable` nesnesiyle çalışır. Depo sınıfına sıralama ve filtreleme kodu ekler ve bunu bir LINQ ifadesi veya nesne sorgusu `IEnumerable` nesnesine dönüştürüldükten sonra yaparsanız, komutlarınız işlenmek üzere veritabanına geçirilir, bu da genellikle daha etkilidir. Bu öğreticide, sıralama ve filtrelemeyi, işleme veritabanı tarafından (yani depodaki) yapılmasına neden olacak şekilde uygulayacaksınız.
 
-Sıralama özelliği eklemek için depo arabirimi ve depo sınıfları da iş mantığı sınıfı için yeni bir yöntem eklemeniz gerekir. İçinde *ISchoolRepository.cs* dosya, yeni bir `GetDepartments` gereken yöntemini bir `sortExpression` döndürülen bölümleri sıralamak için kullanılacak parametre:
+Sıralama yeteneği eklemek için depo arabirimine ve depo sınıflarına ek olarak, iş mantığı sınıfına yeni bir yöntem eklemeniz gerekir. *ISchoolRepository.cs* dosyasında, döndürülen departmanlar listesini sıralamak için kullanılacak bir `sortExpression` parametresi alan yeni bir `GetDepartments` yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample4.cs)]
 
-`sortExpression` Sıralanacak sütunu ve sıralama yönünü parametre belirtin.
+`sortExpression` parametresi, sıralanacak sütunu ve sıralama yönünü belirler.
 
-Yeni bir yönteme için kod ekleme *SchoolRepository.cs* dosyası:
+Yeni yöntemin kodunu *SchoolRepository.cs* dosyasına ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample5.cs)]
 
-Parametresiz varolan değiştirme `GetDepartments` yeni yöntemini çağırmak için yöntem:
+Yeni yöntemi çağırmak için mevcut parametresiz `GetDepartments` yöntemini değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample6.cs)]
 
-Test projesinde aşağıdaki yeni yöntemi ekleyin *MockSchoolRepository.cs*:
+Test projesinde, *MockSchoolRepository.cs*öğesine aşağıdaki yeni yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample7.cs)]
 
-Bu metot üzerinde sıralanmış listesini döndüren bir işleve bağımlı herhangi bir birim test oluşturacağınız döndürmeden önce listeyi sıralamak gerekir. Yöntemi yalnızca bölümlerin Sıralanmamış liste dönebilmeniz testleri gibi Bu öğreticide, oluşturduğunuz gerekmez.
+Bu yönteme bağımlı olan herhangi bir birim testini, sıralanmış bir liste döndüleyecekseniz, listeyi döndürmeden önce sıralamalısınız. Bu öğreticide olduğu gibi test oluşturmayacağız, bu nedenle yöntem yalnızca sıralanmamış departmanlar listesini döndürebilir.
 
-İçinde *SchoolBL.cs* iş mantığı sınıfına aşağıdaki yeni yöntemi ekleyin:
+*SchoolBL.cs* dosyasında, iş mantığı sınıfına aşağıdaki yeni yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample8.cs)]
 
-Bu kod sıralama parametresi depo yönteme geçirir.
+Bu kod, sıralama parametresini depo yöntemine geçirir.
 
-Çalıştırma *Departments.aspx* sayfası.
+*Departmanlar. aspx* sayfasını çalıştırın.
 
 [![Image02](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image3.png)
 
-Artık, herhangi bir sütuna göre sıralamak için sütunun başlığına da tıklayabilirsiniz. Sütun zaten sıraladıysanız başlığına tıklayarak sıralama yönünü tersine çevirir.
+Artık herhangi bir sütun başlığına tıklayarak bu sütuna göre sıralama yapabilirsiniz. Sütun zaten sırlanmışsa, başlığa tıklamak sıralama yönünü tersine çevirir.
 
-## <a name="adding-a-search-box"></a>Bir arama kutusu ekleme
+## <a name="adding-a-search-box"></a>Arama kutusu ekleme
 
-Bu bölümde, arama metin kutusu ekleme, gerekir bağlantısına `ObjectDataSource` denetim parametresini kullanarak denetlemek ve Filtrelemeyi desteklemek üzere iş mantığı sınıfına bir yöntem ekleyin.
+Bu bölümde, bir arama metin kutusu ekleyecek, bir denetim parametresi kullanarak `ObjectDataSource` denetimine bağlayacaksınız ve Filtrelemeyi desteklemek için iş mantığı sınıfına bir yöntem ekleyeceğiz.
 
-Açık *Departments.aspx* sayfasında ve başlık ve ilk arasında aşağıdaki işaretlemeyi ekleyin `ObjectDataSource` denetimi:
+*Departmanlar. aspx* sayfasını açın ve başlık ve ilk `ObjectDataSource` denetimi arasına aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample9.aspx)]
 
-İçinde `ObjectDataSource` adlı Denetim `DepartmentsObjectDataSource`, aşağıdakileri yapın:
+`DepartmentsObjectDataSource`adlı `ObjectDataSource` denetiminde şunları yapın:
 
-- Ekleme bir `SelectParameters` adlı bir parametre için öğe `nameSearchString` girilen değerin alır `SearchTextBox` denetimi.
-- Değişiklik `SelectMethod` öznitelik değerine `GetDepartmentsByName`. (Daha sonra bu yöntem oluşturacaksınız.)
+- `SearchTextBox` denetiminde girilen değeri alan `nameSearchString` adlı bir parametre için `SelectParameters` öğesi ekleyin.
+- `SelectMethod` öznitelik değerini `GetDepartmentsByName`olarak değiştirin. (Bu yöntemi daha sonra oluşturacaksınız.)
 
-İşaretleme için `ObjectDataSource` denetimi artık aşağıdaki örnekte benzer:
+`ObjectDataSource` denetimine yönelik biçimlendirme artık aşağıdaki örneğe benzer:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample10.aspx)]
 
-İçinde *ISchoolRepository.cs*, ekleme bir `GetDepartmentsByName` yönteminin hem de alan `sortExpression` ve `nameSearchString` parametreleri:
+*ISchoolRepository.cs*' de, hem `sortExpression` hem de `nameSearchString` parametrelerini alan bir `GetDepartmentsByName` yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample11.cs)]
 
-İçinde *SchoolRepository.cs*, aşağıdaki yeni yöntemi ekleyin:
+*SchoolRepository.cs*' de aşağıdaki yeni yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample12.cs)]
 
-Bu kod bir `Where` arama dizesini içeren öğelerini seçmek için yöntemi. Arama dizesi boş ise, tüm kayıtları seçilir. Yöntem çağrıları birlikte böyle bir ifade belirttiğinizde unutmayın (`Include`, ardından `OrderBy`, ardından `Where`), `Where` yöntemi her zaman son olmalıdır.
+Bu kod, arama dizesini içeren öğeleri seçmek için bir `Where` yöntemi kullanır. Arama dizesi boşsa, tüm kayıtlar seçilir. Yöntem çağrılarını bunun gibi bir bildirimde belirttiğinizde (`Include`, sonra `OrderBy`, sonra da `Where`), `Where` yönteminin her zaman en son olması gerektiğini unutmayın.
 
-Varolan değiştirme `GetDepartments` gereken yöntemini bir `sortExpression` parametresini kullanarak yeni yöntemi çağırın:
+Yeni yöntemi çağırmak için bir `sortExpression` parametresi alan mevcut `GetDepartments` yöntemini değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample13.cs)]
 
-İçinde *MockSchoolRepository.cs* test projesinde aşağıdaki yeni yöntemi ekleyin:
+Test projesindeki *MockSchoolRepository.cs* içinde aşağıdaki yeni yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample14.cs)]
 
-İçinde *SchoolBL.cs*, aşağıdaki yeni yöntemi ekleyin:
+*SchoolBL.cs*' de aşağıdaki yeni yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample15.cs)]
 
-Çalıştırma *Departments.aspx* sayfasında ve seçim mantığını çalıştığından emin olmak için bir arama dizesini girin. Metin kutusunu boş bırakın ve tüm kayıtlar döndürülür emin olmak için bir arama deneyin.
+*Departmanlar. aspx* sayfasını çalıştırın ve seçim mantığının çalıştığından emin olmak için bir arama dizesi girin. Metin kutusunu boş bırakın ve tüm kayıtların döndürüldüğünden emin olmak için bir arama deneyin.
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image5.png)
 
-## <a name="adding-a-details-column-for-each-grid-row"></a>Ayrıntılar sütunu için her bir ızgara satır ekleme
+## <a name="adding-a-details-column-for-each-grid-row"></a>Her kılavuz satırı için ayrıntı sütunu ekleme
 
-Ardından, tüm kursları kılavuzunun sağ hücrede görüntülenen her departman için görmek istiyorsunuz. Bunu yapmak için iç içe bir kullanacağınız `GridView` denetim ve veri bağlama için verileri `Courses` gezinti özelliği `Department` varlık.
+Ardından, kılavuzun sağ hücresinde görünen her bir departmanın tüm kurslarını görmek istersiniz. Bunu yapmak için, iç içe geçmiş bir `GridView` denetimini kullanacaksınız ve `Department` varlığının `Courses` gezinti özelliğinden verileri veri yoluyla vereceksiniz.
 
-Açık *Departments.aspx* ve için biçimlendirme `GridView` denetimi bir işleyici belirtmek için `RowDataBound` olay. Açılış etiketinde denetimi için biçimlendirme artık aşağıdaki örneğe benzer.
+*Departmanlar. aspx* ' i açın ve `GridView` denetimi için biçimlendirme içinde `RowDataBound` olayı için bir işleyici belirtin. Denetimin açılış etiketiyle ilgili biçimlendirme şimdi aşağıdaki örneğe benzer.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample16.aspx)]
 
-Yeni bir `TemplateField` öğeden sonra `Administrator` şablonu:
+`Administrator` şablonu alanından sonra yeni bir `TemplateField` öğesi ekleyin:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample17.aspx)]
 
-Bu işaretleme iç içe bir oluşturur `GridView` kurs sayısını ve başlığını kursları listesini gösteren denetimdir. Databind gerekir çünkü bir veri kaynağı belirtmiyor kod içinde `RowDataBound` işleyici.
+Bu biçimlendirme bir kurs listesinin kurs numarasını ve başlığını gösteren bir iç içe `GridView` denetimi oluşturur. `RowDataBound` işleyicisinde kodda bir veri kaynağı oluşturacağından bir veri kaynağı belirtmez.
 
-Açık *Departments.aspx.cs* ve eklemek için aşağıdaki işleyicisi `RowDataBound` olay:
+*Departments.aspx.cs* ' i açın ve `RowDataBound` olayı için aşağıdaki işleyiciyi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample18.cs)]
 
-Bu kod alır `Department` olay bağımsız değişkenleri varlıktan dönüştürür `Courses` gezinme özelliği için bir `List` koleksiyona ve iç içe databinds `GridView` koleksiyonuna.
+Bu kod, olay bağımsız değişkenlerinden `Department` varlığını alır, `Courses` gezinti özelliğini bir `List` koleksiyonuna dönüştürür ve iç içe `GridView` koleksiyona databinds.
 
-Açık *SchoolRepository.cs* istekli yükleme için belirtin ve dosya `Courses` çağırarak gezinti özelliği `Include` oluşturduğunuz nesne sorgusu yönteminde `GetDepartmentsByName` yöntemi. `return` Deyiminde `GetDepartmentsByName` yöntemi artık aşağıdaki örnekte benzer.
+*SchoolRepository.cs* dosyasını açın ve `GetDepartmentsByName` yönteminde oluşturduğunuz nesne sorgusunda `Include` yöntemini çağırarak `Courses` gezinti özelliği için Eager yükleme belirtin. `GetDepartmentsByName` yöntemindeki `return` deyimleri artık aşağıdaki örneğe benzer.
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/samples/sample19.cs)]
 
-Sayfayı çalıştırın. Sıralama ve filtreleme, daha önce eklediğiniz özelliği yanı sıra GridView denetiminde artık her departman için iç içe geçmiş kurs ayrıntıları gösterir.
+Sayfayı çalıştırın. Daha önce eklediğiniz sıralama ve filtreleme özelliğine ek olarak, GridView denetimi artık her departman için iç içe geçmiş kurs ayrıntılarını gösterir.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image8.png)](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering/_static/image7.png)
 
-Bu sıralama, filtreleme ve ana öğe-ayrıntı senaryoları giriş tamamlar. Sonraki öğreticide eşzamanlılık nasıl ele alınacağını görürsünüz.
+Bu, sıralamaya, filtrelemeye ve ana ayrıntı senaryolarına giriş işlemini tamamlar. Sonraki öğreticide eşzamanlılık işleme yöntemini göreceksiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

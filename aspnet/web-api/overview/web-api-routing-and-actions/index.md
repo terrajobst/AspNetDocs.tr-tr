@@ -1,23 +1,23 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/index
-title: Web API'de yönlendirme | Microsoft Docs
+title: Web API yönlendirme | Microsoft Docs
 author: rick-anderson
-description: Nasıl ASP.NET Web API HTTP istekleri, denetleyicilere ve eylemlere için yönlendirir.
+description: ASP.NET Web API 'SI HTTP isteklerini denetleyicilere ve eylemlere yönlendirir.
 ms.author: riande
 ms.date: 01/26/2012
 ms.assetid: 8447679a-2556-4411-b758-bbe55cfa4805
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions
 msc.type: chapter
 ms.openlocfilehash: 965fb110e1c42d8e6ebe198da4a904e1601bcf29
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133676"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78614620"
 ---
-# <a name="web-api-routing"></a>Web API'de yönlendirme
+# <a name="web-api-routing"></a>Web API yönlendirmesi
 
-> Nasıl ASP.NET Web API HTTP istekleri, denetleyicilere ve eylemlere için yönlendirir.
+> ASP.NET Web API 'SI HTTP isteklerini denetleyicilere ve eylemlere yönlendirir.
 
 - [Web API'de Yönlendirme](routing-in-aspnet-web-api.md)
 - [Web API’de Yönlendirme ve Eylem Seçimi](routing-and-action-selection.md)

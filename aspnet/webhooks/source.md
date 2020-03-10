@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
 ms.openlocfilehash: 8d07848754d9efda9c893b8ba54ac6d0c0214a53
-ms.sourcegitcommit: b95316530fa51087d6c400ff91814fe37e73f7e8
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70000708"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633065"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>ASP.NET Web kancaları kaynak kodu ve NuGet paketleri
 
@@ -25,6 +25,6 @@ Artık okuduğunuz bu çevrimiçi belgeler ayrıca [GitHub 'Da açık kaynak](ht
 
 * [Ortak](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common): Gönderenler ve alıcılar arasında paylaşılan ortak bir paket.
 
-* [Gönderen](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom): Kendi web Kancalarınızı başkalarına göndermeyi destekleyen bir paket kümesi. Web kancaları gönderme işlevselliği, [Web kancaları gönderme](sending/senders.md)konusunda daha ayrıntılı olarak açıklanmıştır.
+* [Gönderici](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Custom): başkalarına kendi web kancaları göndermeyi destekleyen bir paket kümesi. Web kancaları gönderme işlevselliği, [Web kancaları gönderme](sending/senders.md)konusunda daha ayrıntılı olarak açıklanmıştır.
 
-* [Alıcılar](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers): Başkalarından Web kancaları almayı destekleyen bir paket kümesi. Web kancalarını alma işlevselliği, [Web kancalarını alma](receiving/index.md)konusunda daha ayrıntılı olarak açıklanmıştır.
+* [Alıcılar](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Receivers): başkalarından Web kancalarını almayı destekleyen bir paket kümesi. Web kancalarını alma işlevselliği, [Web kancalarını alma](receiving/index.md)konusunda daha ayrıntılı olarak açıklanmıştır.

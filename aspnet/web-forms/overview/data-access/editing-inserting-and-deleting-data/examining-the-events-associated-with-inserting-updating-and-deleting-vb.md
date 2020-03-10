@@ -9,11 +9,11 @@ ms.assetid: c9bd10a7-eff8-4d8c-bec9-963c2aef2d6e
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 35edb3cefc6fe23bb56e667c02d10dc7798f730d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633132"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78608628"
 ---
 # <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>Ekleme, Güncelleştirme ve Silme ile İlişkili Olayları İnceleme (VB)
 
@@ -53,7 +53,7 @@ Son kullanıcının alanların bir alt kümesini yalnızca güncelleştirmesine 
 
 Özgün `UpdateProduct` yöntemi gibi, bu aşırı yükleme, veritabanında belirtilen `ProductID`bir ürün olup olmadığını denetleyerek başlatılır. Aksi takdirde, ürün bilgilerini güncelleştirme isteğinin başarısız olduğunu belirten `False`döndürür. Aksi takdirde, mevcut ürün kaydının `ProductName` ve `UnitPrice` alanlarını uygun şekilde güncelleştirir ve `ProductsRow` örneğini geçirerek TableAdapter `Update()` yöntemini çağırarak güncelleştirmeyi kaydeder.
 
-`ProductsBLL` sınıfımızın bu eklenmesiyle, Basitleştirilmiş GridView arabirimini oluşturmaya hazırız. `EditInsertDelete` klasöründeki `DataModificationEvents.aspx` açın ve sayfaya bir GridView ekleyin. Yeni bir ObjectDataSource oluşturun ve bu `ProductsBLL` sınıfını `GetProducts` `Select()` yöntemi eşleme ile, `UpdateProduct` ve `productName`giriş parametrelerini alan `unitPrice`aşırı yüküne eşleyerek `Update()` yöntemi ile kullanacak şekilde yapılandırın. Şekil 2 ' de, ObjectDataSource 'un `Update()` yöntemini `ProductsBLL` sınıfının yeni `UpdateProduct` yöntem aşırı yüklemesiyle eşlerken veri kaynağı oluşturma Sihirbazı gösterilmektedir.
+`ProductsBLL` sınıfımızın bu eklenmesiyle, Basitleştirilmiş GridView arabirimini oluşturmaya hazırız. `EditInsertDelete` klasöründeki `DataModificationEvents.aspx` açın ve sayfaya bir GridView ekleyin. Yeni bir ObjectDataSource oluşturun ve bu `ProductsBLL` sınıfını `GetProducts` `Select()` yöntemi eşleme ile, `UpdateProduct` ve `productName`giriş parametrelerini alan `unitPrice`aşırı yüküne eşleyerek `Update()` yöntemi ile kullanacak şekilde yapılandırın.`productID` Şekil 2 ' de, ObjectDataSource 'un `Update()` yöntemini `ProductsBLL` sınıfının yeni `UpdateProduct` yöntem aşırı yüklemesiyle eşlerken veri kaynağı oluşturma Sihirbazı gösterilmektedir.
 
 [![ObjectDataSource 'un Update () yöntemini yeni UpdateProduct Overload ile eşleyin](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image5.png)](examining-the-events-associated-with-inserting-updating-and-deleting-vb/_static/image4.png)
 

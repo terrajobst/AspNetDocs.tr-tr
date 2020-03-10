@@ -1,27 +1,27 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax
-title: ASP.NET Web programlama Razor söz dizimini kullanarak giriş | Microsoft Docs
+title: Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş | Microsoft Docs
 author: JoeStagner
-description: Video isteyenler için giriş kullanımına ASP.NET Web programlama Razor söz dizimi Öğreticisi
+description: Razor sözdizimi öğreticisini kullanarak ASP.NET Web programlamaya giriş destekleyici video
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 22947987-9b02-4595-9e83-3d54ae013796
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax
 msc.type: video
 ms.openlocfilehash: 70ca3370623117d7b3415ff8cd24572cba60c3bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59410233"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633387"
 ---
-# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a>ASP.NET Web programlama Razor söz dizimini kullanarak giriş
+# <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a>Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Video isteyenler için giriş kullanımına ASP.NET Web programlama Razor söz dizimi Öğreticisi
+Razor sözdizimi öğreticisini kullanarak ASP.NET Web programlamaya giriş destekleyici video
 
-[&#9654;Videoyu (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-web-programming-using-the-razor-syntax)
+[&#9654;Videoyu izleyin (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-web-programming-using-the-razor-syntax)
 
 > [!div class="step-by-step"]
 > [Önceki](getting-started-with-webmatrix-and-aspnet-web-pages.md)

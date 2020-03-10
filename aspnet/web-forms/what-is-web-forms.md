@@ -1,6 +1,6 @@
 ---
 uid: web-forms/what-is-web-forms
-title: Web Forms nedir | Microsoft Docs
+title: Web Forms nedir? | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,95 +9,95 @@ ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
 ms.openlocfilehash: 19be419c499759713971a6c77674c924867d1bbc
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133222"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78636579"
 ---
-# <a name="what-is-web-forms"></a>Web Forms nedir
+# <a name="what-is-web-forms"></a>Web Forms nedir?
 
-ASP.NET Web Forms, ASP.NET web uygulama çerçevesi bir parçasıdır ve içerdiği [Visual Studio](https://www.asp.net/downloads). ASP.NET web uygulamaları oluşturmak için kullanabileceğiniz dört programlama modelinden biridir, diğerleri ASP.NET MVC, ASP.NET Web sayfaları ve ASP.NET tek sayfalık uygulamalar.
+ASP.NET Web Forms, ASP.NET Web uygulaması çerçevesinin bir parçasıdır ve [Visual Studio 'ya](https://www.asp.net/downloads)dahildir. ASP.NET Web uygulamaları oluşturmak için kullanabileceğiniz dört programlama modelinden biridir, diğerleri ASP.NET MVC, ASP.NET Web sayfaları ve ASP.NET tek sayfalı uygulamalardır.
 
-Web Forms, kullanıcılarınızın tarayıcıları kullanarak istek sayfalarıdır. Bu sayfalar, HTML, bir birleşimi kullanılarak yazılabilir istemci-komut dosyası, sunucu denetimleri ve sunucu kodu. Kullanıcılar bir sayfa istediğinde, derlenmiş ve framework tarafından sunucu üzerinde yürütülen ve ardından tarayıcı işleyebilen HTML biçimlendirmesi framework oluşturur. Bir ASP.NET Web Forms sayfası, herhangi bir tarayıcıyı veya istemci cihaz kullanıcıya bilgi sunar.
+Web Forms kullanıcılarınızın tarayıcılarını kullanmasını talep eden sayfalardır. Bu sayfalar, HTML, istemci betiği, sunucu denetimleri ve sunucu kodu birleşimi kullanılarak yazılabilir. Kullanıcılar bir sayfa talep verdiğinde, bu, altyapı tarafından sunucu üzerinde derlenir ve yürütülür ve ardından Framework, tarayıcının oluşturabileceği HTML işaretlemesini oluşturur. Bir ASP.NET Web Forms sayfası, kullanıcıya herhangi bir tarayıcı veya istemci cihazında bilgi sunar.
 
-Visual Studio kullanarak ASP.NET Web formları oluşturabilirsiniz. Visual Studio tümleşik geliştirme ortamı (IDE), Web Forms sayfanızı düzenlemek için sunucu denetimleri sürükleyip olanak tanır. Daha sonra kolayca özellikleri, yöntemleri ve olayları veya sayfa için sayfadaki denetimleri ayarlayabilirsiniz. Bu özellikleri, yöntemleri ve olayları, web sayfanızın davranışı, Görünüm ve benzeri tanımlamak için kullanılır. Sayfa için mantığı işlemek için sunucu kodu yazmak için bir .NET dil Visual Basic veya C# gibi kullanabilirsiniz.
+Visual Studio 'yu kullanarak ASP.NET Web Forms oluşturabilirsiniz. Visual Studio tümleşik geliştirme ortamı (IDE), Web Forms sayfanızı düzenlemek için sunucu denetimlerini sürükleyip bırakmanızı sağlar. Daha sonra sayfadaki veya sayfanın kendisi için özellikleri, yöntemleri ve olayları kolayca ayarlayabilirsiniz. Bu özellikler, Yöntemler ve olaylar Web sayfasının davranışını, görünümünü ve hisyi tanımlamak için kullanılır. Sayfanın mantığını işlemek üzere sunucu kodu yazmak için Visual Basic veya C#gibi bir .net dili kullanabilirsiniz.
 
 > [!NOTE] 
 > 
-> ASP.NET ve Visual Studio belgeleri çeşitli sürümlerinden yayılır. Önceki sürümlerden özellikleri vurgulayan konuları geçerli görevler ve en son sürümleri kullanan senaryolar için yararlı olabilir.
+> ASP.NET ve Visual Studio belgeleri birçok sürümü kapsar. Önceki sürümlerden özellikleri vurgulayan konular, en son sürümleri kullanarak geçerli görevleriniz ve senaryolarınız için yararlı olabilir.
 
-**ASP.NET Web Forms şunlardır:** 
+**ASP.NET Web Forms:** 
 
-- Sunucu üzerinde dinamik olarak çalışan kodu tarayıcı veya istemci cihaza Web sayfası çıkış oluşturduğu Microsoft ASP.NET teknolojisini temel alır.
-- Herhangi bir tarayıcı veya mobil cihaz uyumludur. Bir ASP.NET Web sayfası doğru tarayıcı uyumlu HTML stillerini, Düzen ve benzeri gibi özellikleri için otomatik olarak işler.
-- .NET ortak dil çalışma zamanı, Microsoft Visual Basic ve Microsoft Visual C# gibi tarafından desteklenen herhangi bir dil ile uyumludur.
-- Microsoft .NET Framework üzerine inşa edilmiş. Bu, bir yönetilen ortamı, tür güvenliği ve devralma gibi framework, tüm avantajlarını sağlar.
-- Kullanıcı tarafından oluşturulmuş ekleyebilir ve bunları için üçüncü taraf denetimleri için esnek.
+- Sunucu üzerinde çalışan kodun tarayıcı veya istemci cihazına dinamik olarak Web sayfası çıktısı oluşturduğu Microsoft ASP.NET teknolojisine göre.
+- Herhangi bir tarayıcı veya mobil cihazla uyumludur. Bir ASP.NET Web sayfası, stiller, düzen ve benzeri özellikler için doğru tarayıcıyla uyumlu HTML 'yi otomatik olarak işler.
+- Microsoft Visual Basic ve Microsoft Visual C#gibi .NET ortak dil çalışma zamanı tarafından desteklenen herhangi bir dille uyumludur.
+- Microsoft .NET Framework üzerine kurulmuştur. Bu, yönetilen ortam, tür güvenliği ve devralma dahil olmak üzere Framework 'ün tüm avantajlarını sağlar.
+- Kullanıcı tarafından oluşturulan ve üçüncü taraf denetimleri bunlara ekleyebileceğiniz için esnek.
 
-**ASP.NET Web Forms sunar:** 
+**ASP.NET Web Forms teklifi:** 
 
-- Uygulama mantığı gelen HTML ve diğer UI kodunu ayrılması.
-- Zengin bir veri erişim dahil olmak üzere, ortak görevler için sunucu denetimleri paketi.
-- Güçlü veri bağlama, harika bir araç desteği.
-- Tarayıcıda yürüten istemci tarafı betik oluşturma desteği.
-- Çeşitli yönlendirme, güvenlik, performans, uluslararası duruma getirme, test etme, hata ayıklama, hata işleme ve durum yönetimi gibi diğer özellikleri için destek.
+- Uygulama mantığındaki HTML ve diğer kullanıcı arabirimi kodu ayrımı.
+- Veri erişimi de dahil olmak üzere ortak görevler için zengin bir sunucu denetimi paketi.
+- Harika araç desteğiyle güçlü veri bağlama.
+- Tarayıcıda yürütülen istemci tarafı komut dosyası desteği.
+- Yönlendirme, güvenlik, performans, uluslararası hale getirme, test, hata ayıklama, hata işleme ve durum yönetimi dahil olmak üzere çeşitli diğer yetenekler için destek.
 
-## <a name="aspnet-web-forms-helps-you-overcome-challenges"></a>ASP.NET Web Forms zorlukların yardımcı olur
+## <a name="aspnet-web-forms-helps-you-overcome-challenges"></a>ASP.NET Web Forms sorunları aşmanıza yardımcı olur
 
-Web uygulaması programlama genellikle geleneksel istemci tabanlı uygulamaları programlama ortaya çıkan değil zorluklar teşkil etmektedir. Arasında sorunlardır:
+Web uygulaması programlama, genellikle geleneksel istemci tabanlı uygulamaları programlarken ortaya çıkan güçlükleri sunar. Aralarındaki sorunlar şunlardır:
 
-- **Bir zengin Web kullanıcı arabirimini uygulayan** - zor olabilir ve tasarlayıp uygulamasına yorucu bir kullanıcı arabirimi temel HTML özellikleri, özellikle karmaşık bir düzen, dinamik içeriğin büyük bir miktarını sayfa varsa, kullanma ve tam özellikli Etkileşimli kullanıcı nesneleri.
-- **İstemci ve sunucu ayrımı** -içinde bir Web uygulaması, istemci (tarayıcı) ve sunucu programlardır çalıştırılmasında çoğunlukla farklı bilgisayarlarda (ve hatta farklı işletim sistemlerinde) farklı. Sonuç olarak, uygulamanın iki yarısı çok az bilgi paylaşımı; Bunlar iletişim ancak genellikle yalnızca küçük öbekler halinde basit bilgi alışverişi.
-- **Durum bilgisi olmayan yürütme** - bir Web sunucusu bir sayfa için bir istek aldığında, sayfanın bulur, işler, tarayıcıya gönderir ve sonra tüm sayfa bilgileri atar. Kullanıcı aynı sayfayı yeniden isterse, sunucunun sayfanın sıfırdan yeniden işlemeyerek dizinin tamamıyla tekrarlar. Başka bir deyişle, bir sunucu işlenmemiş olan sayfaların belleğe sahip değil; sayfa durum bilgisi olmayan. Bu nedenle, bir uygulama bir sayfa hakkında bilgileri tutması gerekiyorsa, durum bilgisi olmayan doğası bir sorun olabilir.
-- **Bilinmeyen istemci yeteneklerini** -çoğu durumda, Web uygulamaları birçok kullanıcılara farklı tarayıcılar kullanarak erişilebilir. Tarayıcılar çalıştırılacak bir uygulama oluşturmak zorlaştıran farklı özelliklere sahip tüm bunların yanı sıra eşit.
-- **Veri erişimi ile zorluklar** -okuma ve yazma veri kaynağı geleneksel Web uygulamaları için karmaşık ve kaynak kullanımı yoğun olabilir.
-- **Ölçeklenebilirlik ile zorluklar** - Web uygulamaları mevcut yöntemleriyle tasarlanmış başarısız çeşitli uygulama bileşenleri arasındaki uyumluluk olmaması nedeniyle ölçeklenebilirlik amaçlarını karşılamak için çoğu durumda. Ağır büyüme döngüsü altında uygulamaları için ortak bir hata noktası genellikle budur.
+- **Zengin bir Web Kullanıcı arabirimi uygulama** -özellikle sayfanın karmaşık bir yerleşimi, büyük miktarda dinamik içerik ve tam özellikli kullanıcı etkileşimli nesneleri varsa temel HTML olanaklarını kullanarak bir kullanıcı arabirimi tasarlamak ve uygulamak zor olabilir.
+- **İstemci ve sunucu ayrımı** -bir Web uygulamasında, istemci (tarayıcı) ve sunucu, genellikle farklı bilgisayarlarda (ve hatta farklı işletim sistemlerinde) çalışan farklı programlardır. Sonuç olarak, uygulama paylaşımının iki yarısı çok az bilgi; Kullanıcılar iletişim kurabilir, ancak genellikle basit bilgilerin yalnızca küçük öbeklerini değiş tokuş edebilir.
+- **Durum bilgisiz yürütme** -bir Web sunucusu bir sayfa için istek aldığında, sayfayı bulur, işler, tarayıcıya gönderir ve sonra tüm sayfa bilgilerini atar. Kullanıcı aynı sayfayı yeniden isterse, sunucu tüm diziyi yineler, sayfanın sıfırdan yeniden işlenmesini ister. Başka bir yöntem de, bir sunucuda işlendiği sayfaların belleği yoktur — sayfa durumsuz olur. Bu nedenle, bir uygulamanın bir sayfa hakkında bilgi tutması gerekiyorsa, durum bilgisiz doğası bir sorun haline gelebilir.
+- **Bilinmeyen istemci özellikleri** -birçok durumda Web uygulamalarına farklı tarayıcılar kullanan birçok kullanıcı erişebilir. Tarayıcılar farklı yeteneklere sahiptir ve bunların tümünde eşit olarak çalışacak bir uygulama oluşturmayı zorlaştırır.
+- **Veri erişimiyle Ilgili zorluklar** -geleneksel Web uygulamalarında veri kaynağına okuma ve yazma karmaşık ve kaynak kullanımı yoğun olabilir.
+- **Ölçeklenebilirlik Ile karmaşıklıklar** -birçok durumda, mevcut yöntemlerle tasarlanan Web uygulamaları, uygulamanın çeşitli bileşenleri arasında uyumluluk olmaması nedeniyle ölçeklenebilirlik hedeflerini karşılamaz. Bu genellikle ağır büyüme döngüsünün altındaki uygulamalar için yaygın bir hata noktasıdır.
 
-Web uygulamaları için bu zorlukların aşılması, önemli miktarda zaman ve çaba gerektirebilir. Bu zorluklar, ASP.NET Web Forms ve ASP.NET framework aşağıdaki yollarla ele:
+Web uygulamaları için bu zorlukların karşılanmasıyla ilgili önemli ölçüde zaman ve çaba gerekebilir. ASP.NET Web Forms ve ASP.NET Framework bu zorlukları aşağıdaki yollarla ele alır:
 
-- **Sezgisel, tutarlı bir nesne modeli** -ASP.NET sayfası framework formlarınızı ayrı istemci ve sunucu parçaları olarak değil bir birim olarak düşünün olanak sağlayan bir nesne modeli sunar. Bu modelde, geleneksel Web uygulamaları, sayfa öğeleri için özellikleri ayarlamak ve olaylarına yanıt verme olanağı dahil olmak üzere daha sezgisel bir şekilde sayfa programlayabilirsiniz. Ayrıca, ASP.NET sunucu denetimleri fiziksel bir HTML sayfası içeriğini ve tarayıcı ve sunucu arasında doğrudan etkileşim bir Özet ' dir. Genel olarak, bir istemci uygulaması denetimlerinde çalışmak ve sunmak ve denetimleri ve bunların içeriğini işlemek için HTML oluşturmak nasıl depolayacağınız üzerine düşünmeniz gerekmez şekilde sunucu denetimleri kullanabilirsiniz.
-- **Olay kaynaklı programlama modeli** -ASP.NET Web Forms Web uygulamaları için istemci veya sunucu üzerinde meydana gelen olayları için olay işleyicileri yazma bilinen modelini getirin. ASP.NET sayfası framework bu modeli temel mekanizması istemcide bir olay yakalama, sunucuya aktarmadan ve uygun yöntemi çağırma tüm otomatik ve sizin için görünmez olduğunu şekilde soyutlar. Olay temelli geliştirme destekleyen bir temiz, kolay yazılmış kod yapısı sonucudur.
-- **Sezgisel durum yönetimi** - ASP.NET sayfası framework sayfanız ve denetimlerinin durumunu bakım görevini otomatik olarak işler ve uygulamaya özgü bilgilerin durumunu korumak üzere açık yol sağlar. Bu, sunucu kaynaklarını aşırı kullanmadan gerçekleştirilir ve ile veya tarayıcı tanımlama bilgileri göndermeden uygulanabilir.
-- **Tarayıcı bağımsız uygulamalar** -ASP.NET sayfası framework tarayıcılar farklılıkları açıkça kod gereğini ortadan kaldırır sunucusunda, tüm uygulama mantığı oluşturmanıza olanak sağlar. Ancak, yine de Gelişmiş performans ve daha zengin bir istemci deneyimini sağlamak için istemci tarafı kod yazarak tarayıcı özgü özelliklerinden yararlanmanıza olanak tanır.
-- **.NET framework ortak dil çalışma zamanı desteği** -tüm framework herhangi bir ASP.NET uygulamasında kullanılabilir olması, ASP.NET sayfası framework .NET Framework üzerinde oluşturulur. Uygulamalarınızı, çalışma zamanı ile uyumlu herhangi bir dilde yazılabilir. Ayrıca, veri erişimi ADO.NET dahil olan .NET Framework tarafından sağlanan veri erişim altyapısını kullanarak basitleştirilmiştir.
-- **.NET framework ölçeklenebilir sunucu performansını** -ASP.NET sayfası framework temiz ve uygulamanın karmaşık değişiklik yapmadan Web uygulamanızı çoklu bilgisayar Web grubu için tek bir işlemciye sahip bir bilgisayar ölçeklendirmenize olanak sağlar mantığı.
+- **Sezgisel, tutarlı nesne modeli** -ASP.net Page Framework, formlarınızı ayrı istemci ve sunucu parçaları olarak değil, birim olarak düşünmenizi sağlayan bir nesne modeli sunar. Bu modelde, sayfa öğelerinin özelliklerini ayarlama ve olaylara yanıt verme özelliği de dahil olmak üzere, sayfayı geleneksel Web uygulamalarından daha sezgisel bir şekilde programlayabilirsiniz. Ayrıca, ASP.NET Server denetimleri, HTML sayfasının fiziksel içeriğinden ve tarayıcı ile sunucu arasındaki doğrudan etkileşiminden bir soyutlama niteliğindedir. Genel olarak, sunucu denetimlerini, bir istemci uygulamasındaki denetimlerle çalışma gibi kullanabilirsiniz ve denetimleri ve bunların içeriklerini sunmak ve işlemek için HTML oluşturmayı düşünmek zorunda değildir.
+- **Olay odaklı programlama modeli** -ASP.NET Web Forms Web uygulamalarına, istemci ya da sunucuda gerçekleşen olaylar için olay işleyicilerini yazma hakkında tanıdık bir model getirir. ASP.NET Page Framework, bu modeli, istemci üzerinde bir olayı yakalamak, onu sunucusuna iletmek ve uygun yöntemi çağırmak için otomatik ve sizin görecağından, temel alınan bir olayın bulunduğu bir şekilde soyutlar. Sonuç, olay odaklı geliştirmeyi destekleyen açık ve kolayca yazılmış bir kod yapısıdır.
+- **Sezgisel durum yönetimi** -ASP.net Page Framework, sayfanızın ve denetimlerin durumunu koruma görevini otomatik olarak işler ve uygulamaya özgü bilgilerin durumunu korumak için size açık yollar sunar. Bu, sunucu kaynaklarının yoğun kullanımı olmadan gerçekleştirilir ve tarayıcıya tanımlama bilgisi göndermeksizin veya ile uygulanabilir.
+- **Tarayıcıdan bağımsız uygulamalar** -ASP.net Page Framework, sunucuda tüm uygulama mantığını oluşturmanıza olanak tanıdığından, tarayıcılarda farklılıklar için açıkça kod oluşturma gereğini ortadan kaldırır. Ancak, daha iyi performans ve daha zengin bir istemci deneyimi sağlamak için istemci tarafı kodu yazarak tarayıcıya özgü özelliklerden yararlanmanızı sağlar.
+- **.NET Framework ortak dil çalışma zamanı desteği** -ASP.net page Framework .NET Framework oluşturulmuştur, bu nedenle tüm Framework tüm ASP.NET uygulamaları tarafından kullanılabilir. Uygulamalarınız, çalışma zamanı ile uyumlu olan herhangi bir dilde yazılabilir. Ayrıca, veri erişimi, ADO.NET dahil olmak üzere .NET Framework tarafından belirtilen veri erişim altyapısı kullanılarak basitleştirilmiştir.
+- **Ölçeklenebilir sunucu performansını .NET Framework** -ASP.net Page Framework, Web uygulamanızı tek işlemcili bir bilgisayardan çoklu bilgisayarlı bir Web grubuna ve uygulamanın mantığındaki karmaşık değişiklikler yapmadan ölçeklendirmenize olanak sağlar.
 
-## <a name="features-of-aspnet-web-forms"></a>ASP.NET Web Forms özellikleri
+## <a name="features-of-aspnet-web-forms"></a>ASP.NET Web Forms Özellikleri
 
-- **Sunucu denetimleri**-ASP.NET Web sunucusu denetimleri olan sayfa istendiğinde çalıştırılan ASP.NET Web sayfaları ve bu işleme biçimlendirme tarayıcıya nesneler. Birçok Web sunucusu denetimleri için düğme ve metin kutuları gibi tanıdık HTML öğeleri benzerdir. Karmaşık bir davranış, bir takvim gibi diğer denetimleri kapsar denetimleri ve veri kaynaklarına bağlanmak ve verileri görüntülemek için kullanabileceğiniz.
-- **Ana sayfalar**-ASP.NET ana sayfaları, uygulamanızda sayfalar için tutarlı bir düzen oluşturmak izin verin. Tek bir ana sayfa uygulamanızda görünüme ve tüm sayfaları (veya sayfaları bir grup) için istediğiniz standart davranışını tanımlar. Ardından görüntülemek istediğiniz içeriği içeren tek içerik sayfaları oluşturabilirsiniz. Kullanıcıların içerik sayfalarını istediğinde, içerik içerik sayfasından ana sayfa düzenini birleştirir çıktı oluşturmak için ana sayfa ile birleştirin.
-- **Verilerle çalışma**-ASP.NET verileri görüntüleme depolamak ve almak için birçok seçenek sunar. Bir ASP.NET Web Forms uygulaması'nda, sunum ya da giriş veri tabloları ve metin kutusu ve aşağı açılan listeler gibi web sayfası kullanıcı Arabirimi öğelerinde otomatik hale getirmek için verilere bağlı denetimleri kullanın.
-- **Üyelik**-ASP.NET Identity kullanıcılarınızın kimlik bilgileri uygulama tarafından oluşturulan bir veritabanında depolar. Kullanıcılarınız oturum açtığında, uygulama veritabanını okuyarak, kimlik bilgilerini doğrular. Projenizin *hesabı* klasörü üyelik çeşitli bölümlerini uygulama dosyalarını içerir: kaydetme, oturum açma, parola değiştirme ve erişimi yetkilendirme. Ayrıca, ASP.NET Web Forms, OAuth ve Openıd destekler. Bu kimlik doğrulama geliştirmeler, sitenizi Facebook, Twitter, Windows Live ve Google gibi hesaplarından var olan kimlik bilgilerini kullanarak oturum açmasına imkan tanıyın. Varsayılan olarak, şablon, varsayılan veritabanı adı bir SQL Server Express LocalDB, Visual Studio Express 2013 Web ile birlikte gelen geliştirme veritabanı sunucusunu örneğini kullanarak bir üyelik veritabanı oluşturur.
-- **İstemci betiğini ve istemci çerçevelerini**-ASP.NET Web formu sayfalarında istemci betiği işlevleri dahil olmak üzere ASP.NET sunucu tabanlı özellikleri geliştirebilirsiniz. Daha zengin ve daha duyarlı kullanıcı arabirimi kullanıcılara sunmak için istemci komut dosyası kullanabilirsiniz. İstemci betiği, bir sayfa tarayıcıya çalışırken, Web sunucusu zaman uyumsuz çağrı yapmak için de kullanabilirsiniz.
-- **Yönlendirme**-URL yönlendirme kabul etmek için bir uygulama yapılandırmanıza olanak tanır fiziksel dosyaları eşlemeyin URL'leri isteyin. Yalnızca web sitenizde bir sayfayı bulmak için kendi tarayıcıya kullanıcının girdiği URL bir istek URL'sidir. Anlamsal olarak kullanıcılar için anlamlı olan ve arama motoru iyileştirmesi (SEO) yardımcı olan URL'ler tanımlamak için yönlendirme kullanır.
-- **Durum Yönetimi**-ASP.NET Web Forms içeren birkaç yardımcı olan seçeneklerdir hem sayfa başına hem de birçok farklı uygulama temeli veri koruma.
-- **Güvenlik**-tehditleri anlamak için daha güvenli bir uygulama geliştirmenin önemli bir bölümünü oluşturur. Microsoft, tehditleri sınıflandırmak için bir yol geliştirmiştir: Kimlik sahtekarlığı, kurcalama, ret, bilgi açıklama, hizmet, ayrıcalıkların yükseltilmesine (STRIDE) engelleme. ASP.NET Web formları içindeki genişletilebilirlik noktaları ve ASP.NET Web Forms çeşitli güvenlik davranışları özelleştirmenize olanak sağlayan yapılandırma seçenekleri ekleyebilirsiniz.
-- **Performans**-bir Web sitesi başarılı ya da proje performans önemli bir etken olabilir. ASP.NET Web Forms sayfası ve sunucu denetim işleme, durum yönetimi, veri erişimi, uygulama yapılandırma ve yükleme için ilgili ve verimli kodlama uygulamaları performans değiştirmenize olanak sağlar.
-- **Uluslararası duruma getirme**- ASP.NET Web Forms web sayfalarını edinebilirsiniz içerik oluşturmanıza olanak sağlar ve diğer verileri tarayıcı için tercih edilen dil ayarına göre veya kullanıcının açık dilinin seçimine bağlı. İçerik ve diğer veri kaynakları olarak adlandırılır ve bu tür veriler kaynak dosyaları veya diğer kaynakları depolanabilir. Bir ASP.NET Web formları sayfasında kaynaklardan özellik değerlerini almak için denetimleri yapılandırın. Çalışma zamanında, kaynak ifadeleri uygun yerelleştirilmiş kaynak dosyasından kaynaklar tarafından değiştirilir.
-- **Hata ayıklama ve hata işleme**-ASP.NET Web Forms uygulaması'nda doğabilecek sorunları tanılamanıza yardımcı olacak özellikler içerir. Uygulamalarınızı derleyin ve etkili bir şekilde çalıştırın böylece hata ayıklama ve hata işleme de ASP.NET Web formları içinde desteklenir.
-- **Dağıtım ve barındırma**-Visual Studio, ASP.NET, Azure ve IIS Web Forms uygulamanızı barındırma ve dağıtma işlemi ile yardımcı olan araçlar sağlar.
+- **Sunucu denetimleri**-ASP.NET Web sunucusu denetimleri, sayfa istendiğinde çalışan ASP.NET Web sayfalarındaki nesnelerdir ve tarayıcıya biçimlendirme işlemi yapılır. Birçok Web sunucusu denetimi, düğmeler ve metin kutuları gibi tanıdık HTML öğelerine benzerdir. Diğer denetimler, Takvim denetimleri gibi karmaşık davranışları ve veri kaynaklarına bağlanmak ve verileri göstermek için kullanabileceğiniz denetimleri kapsayabilir.
+- **Ana sayfalar**-ASP.NET ana sayfaları, uygulamanızdaki sayfalar için tutarlı bir düzen oluşturmanızı sağlar. Tek bir ana sayfa, uygulamanızdaki tüm sayfalar (veya bir sayfa grubu) için istediğiniz görünüm ve standart davranışı tanımlar. Daha sonra, göstermek istediğiniz içeriği içeren bireysel içerik sayfaları oluşturabilirsiniz. Kullanıcılar içerik sayfalarını istediklerinde, ana sayfanın yerleşimini içerik sayfasındaki içerikle birleştiren çıktıyı oluşturmak için ana sayfayla birleşir.
+- **Data-ASP.net Ile çalışmak**, verileri depolamak, almak ve görüntülemek için birçok seçenek sunar. ASP.NET Web Forms uygulamasında, tablo ve metin kutuları ve açılan listeler gibi Web sayfası kullanıcı arabirimi öğelerindeki sunumu veya veri girişini otomatikleştirmek için veri bağlantılı denetimleri kullanırsınız.
+- **Üyelik**-ASP.NET Identity kullanıcılarınızın kimlik bilgilerini uygulama tarafından oluşturulan bir veritabanında depolar. Kullanıcılarınız oturum açarken, uygulamayı veritabanını okuyarak kimlik bilgilerini doğrular. Projenizin *Hesap* klasörü, üyelik: kaydolma, oturum açma, parolayı değiştirme ve erişimi yetkilendirme gibi çeşitli bölümleri uygulayan dosyaları içerir. Ayrıca, ASP.NET Web Forms OAuth ve OpenID 'yi destekler. Bu kimlik doğrulama geliştirmeleri, kullanıcıların, Facebook, Twitter, Windows Live ve Google gibi hesapların mevcut kimlik bilgilerini kullanarak sitenizde oturum açmasına olanak tanır. Varsayılan olarak, şablon, Web için Visual Studio Express 2013 ile birlikte sunulan geliştirme veritabanı sunucusu olan SQL Server Express LocalDB örneğinde varsayılan veritabanı adı kullanarak bir üyelik veritabanı oluşturur.
+- **Istemci betiği ve Istemci çerçeveleri**-ASP.NET Web form sayfalarına istemci komut dosyası işlevselliği ekleyerek ASP.net 'in sunucu tabanlı özelliklerini geliştirebilirsiniz. Kullanıcılara daha zengin ve daha hızlı yanıt veren bir kullanıcı arabirimi sağlamak için istemci komut dosyası kullanabilirsiniz. Ayrıca, bir sayfa tarayıcıda çalışırken Web sunucusuna zaman uyumsuz çağrılar yapmak için istemci betiği de kullanabilirsiniz.
+- **Yönlendirme**-URL yönlendirmesi, bir uygulamayı fiziksel dosyalarla eşlenmez Istek URL 'lerini kabul edecek şekilde yapılandırmanıza olanak tanır. İstek URL 'si, bir kullanıcının Web sitenizde bir sayfa bulmak için tarayıcılarına girdiği URL 'dir. Kullanıcılara anlam açısından anlamlı olan ve arama motoru iyileştirmesi (SEO) konusunda yardımcı olabilecek URL 'Leri tanımlamak için yönlendirmeyi kullanırsınız.
+- **Durum yönetimi**-ASP.NET Web Forms, hem sayfa temelinde hem de uygulama genelinde verileri korumanıza yardımcı olan çeşitli seçenekler içerir.
+- **Güvenlik**-daha güvenli bir uygulama geliştirmesinin önemli bir bölümü, BT 'nin tehditleri öğrenmektir. Microsoft tehditleri kategorilere ayırmak için bir yol geliştirmiştir: sahtekarlık, Izinsiz değişiklik, geri çevirme, bilgilerin açıklanması, hizmet reddi, ayrıcalık yükselmesi (Ilerleme). ASP.NET Web Forms ' de, ASP.NET Web Forms çeşitli güvenlik davranışlarını özelleştirmenizi sağlayan genişletilebilirlik noktaları ve yapılandırma seçenekleri ekleyebilirsiniz.
+- **Performans**performansı, başarılı bir Web sitesinde veya projede önemli bir faktör olabilir. ASP.NET Web Forms, sayfa ve sunucu denetim işleme, durum yönetimi, veri erişimi, uygulama yapılandırması ve yükleme ve verimli kodlama uygulamalarıyla ilgili performansı değiştirmenize olanak sağlar.
+- **Uluslararası duruma getirme**-ASP.NET Web Forms, tarayıcı için tercih edilen dil ayarına göre veya kullanıcının açık dil seçimine bağlı olarak içerik ve diğer verileri elde eden Web sayfaları oluşturmanızı sağlar. İçerik ve diğer veriler kaynak olarak adlandırılır ve bu veriler kaynak dosyalarında veya diğer kaynaklarda depolanabilir. Bir ASP.NET Web Forms sayfasında, denetim değerlerini kaynaklardan almak için denetimleri yapılandırırsınız. Çalışma zamanında, kaynak ifadeleri uygun yerelleştirilmiş kaynak dosyasındaki kaynaklarla değiştirilmiştir.
+- **Hata ayıklama ve hata işleme**-ASP.NET, Web Forms uygulamanızda oluşabilecek sorunları tanılamanıza yardımcı olacak özellikler içerir. Uygulamalarınızın etkili bir şekilde derlenmesi ve çalışması için ASP.NET Web Forms içinde hata ayıklama ve hata işleme iyi desteklenir.
+- **Dağıtım ve barındırma**; Visual Studio, ASP.net, Azure ve ııs, Web Forms uygulamanızı dağıtma ve barındırma sürecinde size yardımcı olacak araçlar sağlar.
 
-## <a name="deciding-when-to-create-a-web-forms-application"></a>Bir Web Forms uygulaması oluşturmak ne zaman karar verme
+## <a name="deciding-when-to-create-a-web-forms-application"></a>Web Forms uygulamasının ne zaman oluşturulacağı karar verme
 
-Bir Web uygulaması ya da kullanarak ASP.NET Web uygulamanız için model veya ASP.NET MVC çerçevesi gibi başka bir model Forms olup olmadığını dikkatlice dikkate almanız gerekir. MVC çerçevesi, Web Forms modelini değiştirmez; Web uygulamaları için ikisinden birini kullanabilirsiniz. Web Forms modeli veya MVC çerçevesi için belirli bir Web sitesini kullanmaya karar vermeden önce her iki yaklaşımın avantajlarını masaya yatırın.
+ASP.NET Web Forms modelini veya ASP.NET MVC çerçevesi gibi başka bir modeli kullanarak bir Web uygulaması uygulayıp uygulamamalısınız. MVC çerçevesi, Web Forms modelini değiştirmez; Web uygulamaları için ikisinden birini kullanabilirsiniz. Belirli bir Web sitesi için Web Forms modeli veya MVC çerçevesini kullanmaya karar vermeden önce her yaklaşımın avantajlarına ağırlık koyun.
 
-### <a name="advantages-of-a-web-forms-based-web-application"></a>Web Forms tabanlı Web uygulamasının avantajları
+### <a name="advantages-of-a-web-forms-based-web-application"></a>Web Forms Tabanlı Web Uygulamasının Avantajları
 
-Web Forms tabanlı çerçeve aşağıdaki avantajları sunar:
+Web Forms tabanlı çerçeve aşağıdaki avantajları sağlamaktadır:
 
-- Bu satır iş kolu Web uygulaması geliştirmeleri için faydalı HTTP üzerinden durumu koruyan olay modelini destekler. Web Forms tabanlı uygulama onlarca, yüzlerce sunucu denetiminde içinde desteklenen olayları sağlar.
-- Belirli sayfalara işlevsellik ekleyen Page Controller örüntüsünü kullanır. Daha fazla bilgi için [Page Controller](https://go.microsoft.com/fwlink/?LinkId=106359 "Page Controller") MSDN Web sitesinde.
-- Görünüm durumu veya durum bilgilerinin kolaylaştırabilir sunucu tabanlı formlarda kullanır.
-- Web geliştiricileri ve tasarımcıları bileşenleri hızlı uygulama geliştirme için kullanılabilir çok sayıda yararlanmak isteyen küçük takımlar için iyi çalışır.
-- Genel olarak, uygulama geliştirme için daha az karmaşık olduğundan bileşenleri ( **sayfa** sınıfı, denetimleri vb.) sıkı olarak tümleştirildiği ve MVC modeline göre daha az kod genellikle gerektirir.
+- İş dalına özel Web uygulaması geliştirmeleri için faydalı olan, HTTP üzerindeki durumu koruyan olay modelini destekler. Web Forms tabanlı uygulama, yüzlerce sunucu denetiminde desteklenen düzinelerce olayı sağlar.
+- Belirli sayfalara işlevsellik ekleyen Page Controller örüntüsünü kullanır. Daha fazla bilgi için MSDN Web sitesindeki [sayfa denetleyicisi](https://go.microsoft.com/fwlink/?LinkId=106359 "Sayfa denetleyicisi") ' ne bakın.
+- Durum bilgilerini yönetmeyi kolaylaştırmak için görünüm durumunu veya sunucu tabanlı formları kullanır.
+- Hızlı uygulama geliştirme için çok sayıdaki mevcut bileşenden faydalanmak isteyen küçük Web geliştiricileri ve tasarımcıları ekipleri için uygundur.
+- Genel olarak, uygulama geliştirme için daha az karmaşıktır çünkü bileşenler ( **sayfa** sınıfı, denetimler, vb.) sıkı bir şekilde tümleşiktir ve genellikle MVC modelinden daha az kod gerektirir.
 
-### <a name="advantages-of-an-mvc-based-web-application"></a>Bir MVC tabanlı Web uygulamasının avantajları
+### <a name="advantages-of-an-mvc-based-web-application"></a>MVC Tabanlı Web Uygulamasının Avantajları
 
-ASP.NET MVC çerçevesi aşağıdaki avantajları sunar:
+ASP.NET MVC çerçevesi aşağıdaki avantajları sağlamaktadır:
 
-- Bu karmaşıklığı, model, Görünüm ve denetleyici içinde uygulama bölerek Karışıklığın yönetilmesini kolaylaştırır.
-- Görünüm durumu veya sunucu tabanlı formlar kullanmaz. Bu MVC çerçevesi bir uygulamanın davranışı üzerinde tam denetim isteyen geliştiriciler için ideal hale getirir.
-- Tek bir denetleyici üzerinden Web uygulama isteklerini işleyen bir Front Controller örüntüsü kullanır. Bu, zengin yönlendirme altyapısını destekleyen bir uygulama tasarlamanızı sağlar. Daha fazla bilgi için [Front Controller](https://go.microsoft.com/fwlink/?LinkId=106357 "Front Controller") MSDN Web sitesinde.
-- Teste dayalı geliştirme (TDD) için daha iyi destek sağlar.
-- Geliştiriciler ve uygulama davranışı üzerinde denetim yüksek derecede ihtiyaç duyan Web tasarımcıları büyük takımlar tarafından desteklenen Web uygulamaları için çalışır.
+- Uygulamayı modele, görünüme ve denetleyiciye bölerek karışıklığın yönetilmesini kolaylaştırır.
+- Görünüm durumu veya sunucu tabanlı formlar kullanmaz. Bu, uygulamanın davranışı üzerinde tam denetim sağlamak isteyen geliştiriciler için MVC çerçevesini ideal kılar.
+- Tek bir denetleyici üzerinden Web uygulama isteklerini işleyen bir Front Controller örüntüsü kullanır. Zengin yönlendirme altyapısını destekleyen bir uygulama tasarlamanızı sağlar. Daha fazla bilgi için bkz. MSDN Web sitesindeki [ön denetleyici](https://go.microsoft.com/fwlink/?LinkId=106357 "Ön denetleyici") .
+- Teste dayalı geliştirme (TDD) için daha iyi destek sunar.
+- Büyük geliştiriciler ve uygulama davranışı üzerinde yüksek düzeyde denetim gerektiren web tasarımcıları tarafından desteklenen Web uygulamaları için iyi sonuç verir.

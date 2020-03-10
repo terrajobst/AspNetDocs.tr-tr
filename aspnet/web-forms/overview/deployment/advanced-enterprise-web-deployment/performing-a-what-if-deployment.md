@@ -1,125 +1,125 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: Durum, gerçekleştirme dağıtım | Microsoft Docs
+title: What If dağıtımı gerçekleştirme | Microsoft Docs
 author: jrjlee
-description: Bu konu ',' yerine getirilmesi anlatılmaktadır (veya sanal) Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) ile V dağıtımlarını...
+description: Bu konu, Internet Information Services (IIS) Web Dağıtım Aracı (Web Dağıtımı) ve V... kullanarak ' ne tür ' (veya benzetimli) dağıtımların nasıl gerçekleştirileceğini açıklamaktadır.
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: c711b453-01ac-4e65-a48c-93d99bf22e58
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 73a0e038cc0d4ebae0ffc8ed3fd2de4c9dad673c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127077"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628893"
 ---
 # <a name="performing-a-what-if-deployment"></a>Sınama Dağıtımı Gerçekleştirme
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu başlığı altında "what IF" yerine getirilmesi anlatılmaktadır (veya sanal) VSDBCMD ve Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) kullanarak dağıtımları. Bu gerçekten Uygulamanızı dağıtmadan önce dağıtım mantığınızı etkilerini belirli hedef ortamda belirlemenize olanak sağlar.
+> Bu konu, Internet Information Services (IIS) Web Dağıtım Aracı (Web Dağıtımı) ve VSDBCMD kullanarak "ne tür" (veya benzetimli) dağıtımların nasıl gerçekleştirileceğini açıklamaktadır. Bu, uygulamanızı dağıtmadan önce belirli bir hedef ortamda dağıtım mantığınızın etkilerini belirlemenizi sağlar.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli derleme yönergeleri içeren. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme ve dağıtım sürecinin, her hedef ortam için uygulanan derleme yönergelerini içeren iki proje&#x2014;dosyası tarafından denetlendiği ve ortama özgü derleme ve dağıtım ayarlarını içeren, proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="performing-a-what-if-deployment-for-web-packages"></a>Web paketleri için bir "What If" dağıtımı gerçekleştirme
+## <a name="performing-a-what-if-deployment-for-web-packages"></a>Web paketleri için "What If" dağıtımını gerçekleştirme
 
-Web dağıtımı içeren dağıtımlarda "what IF" gerçekleştirmenize olanak tanıyan işlevsellik (veya deneme) modu. Yapıtları "what IF" modunda dağıttığınızda, Web dağıtımı bir günlük dosyası dağıtımın gerçekleştiği, ancak gerçekte herhangi bir hedef sunucuda bir değişiklik yapmaz olarak oluşturur. Günlük dosyasını gözden geçirme dağıtımınızı hedef sunucuda, özellikle olacaktır hangi etkilerini anlamanıza yardımcı olabilir:
+Web Dağıtımı, "durum" (veya deneme) modunda dağıtım gerçekleştirmenize olanak tanıyan işlevselliği içerir. Yapıtları "ne tür" modda dağıtırken, Web Dağıtımı dağıtımı gerçekleştirdiyseniz bir günlük dosyası oluşturur, ancak aslında hedef sunucuda herhangi bir şeyi değiştirmez. Günlük dosyasını gözden geçirmek, dağıtımınızın hedef sunucuda sahip olacağı etkiyi özellikle anlamanıza yardımcı olabilir:
 
 - Ne eklenir.
-- Ne güncelleştirilecektir.
-- Ne silinecek.
+- Nelerin güncelleştirileceği.
+- Ne silinecek?
 
-Bir dağıtım başarılı olur, "what IF" dağıtımı gerçekte ne zaman yapamazsınız, hedef sunucuda bir şeyi değiştirmez olduğundan tahmin edin.
+"Durum" dağıtımı aslında hedef sunucudaki herhangi bir şeyi değiştirmezse, her zaman ne yapamayacağı, dağıtımın başarılı olup olmayacağını tahmin etmez.
 
-Bölümünde anlatıldığı gibi [Web paketleri dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md), iki yolla Web Dağıtımı'nı kullanarak web paketleri dağıtabilirsiniz&#x2014;doğrudan veya çalıştırarak MSDeploy.exe komut satırı yardımcı programını kullanarak *. deploy.cmd* dosyası Yapı işlemi oluşturur.
+[Web paketlerini dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md)bölümünde açıklandığı gibi, doğrudan MSDeploy. exe komut satırı yardımcı programını kullanarak veya&#x2014;yapı işleminin oluşturduğu *. deploy. cmd* dosyasını çalıştırarak, Web dağıtımı kullanarak Web Paketleri dağıtabilirsiniz.
 
-MSDeploy.exe doğrudan kullanıyorsanız, ekleyerek "what IF" dağıtımın çalıştırılabileceği **– whatIf** komutunuz için bayrak. Örneğin, bir hazırlama ortamına ContactManager.Mvc.zip paket dağıttıysanız ne olacağını değerlendirmek için MSDeploy komut şuna benzemelidir:
+MSDeploy. exe dosyasını doğrudan kullanıyorsanız, Komutunuz için **– whatIf** bayrağını ekleyerek bir "ne tür" dağıtımı çalıştırabilirsiniz. Örneğin, ContactManager. Mvc. zip paketini bir hazırlama ortamına dağıttıysanız ne olacağını değerlendirmek için MSDeploy komutu şuna benzemelidir:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample1.cmd)]
 
-"What IF" dağıtımınızın Sonuçlardan memnun olduğunuzda, kaldırabilirsiniz **– whatIf** Canlı dağıtım çalıştırmak için bayrak.
+"Ne tür" dağıtımının sonuçlarını karşıladığınızda, bir canlı dağıtımı çalıştırmak için **– whatIf** bayrağını kaldırabilirsiniz.
 
 > [!NOTE]
-> MSDeploy.exe komut satırı seçenekleri hakkında daha fazla bilgi için bkz. [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
+> MSDeploy. exe için komut satırı seçenekleri hakkında daha fazla bilgi için, [Web dağıtımı Işlem ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx)' na bakın.
 
-Kullanıyorsanız *. deploy.cmd* dosyası dahil ederek bir "what IF" dağıtım çalıştırabilirsiniz **/t** (deneme modu) bayrağını yerine bayrak **/y** bayrağı ("Evet" veya güncelleştirme modu) komutunuz. Örneğin, çalıştırarak ContactManager.Mvc.zip paket dağıttıysanız ne olacağını değerlendirmek için *. deploy.cmd* dosyası, komut şuna benzemelidir:
+*. Deploy. cmd* dosyasını kullanıyorsanız, komutinizdeki **/y** bayrağı ("Evet," veya güncelleştirme modu) yerine **/t** bayrağını (deneme modu) ekleyerek bir "ne tür" dağıtımı çalıştırabilirsiniz. Örneğin, *. deploy. cmd* dosyasını çalıştırarak ContactManager. Mvc. zip paketini dağıttıysanız ne olacağını değerlendirmek için, komutunuz şuna benzemelidir:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample2.cmd)]
 
-"Deneme modu" dağıtımınızın Sonuçlardan memnun olduğunuzda, değiştirebileceğiniz **/t** ile bayrak bir **/y** bayrağı Canlı dağıtım çalıştırmak için:
+"Deneme modu" dağıtımınızın sonuçlarını karşıladığınızda, bir Live Deployment çalıştırmak için **/t** bayrağını bir **/y** bayrağıyla değiştirebilirsiniz:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample3.cmd)]
 
 > [!NOTE]
-> İçin komut satırı seçenekleri hakkında daha fazla bilgi için *. deploy.cmd* dosyaları görmek [nasıl yapılır: Deploy.cmd dosyasını kullanarak bir dağıtım paketi yükleme](https://msdn.microsoft.com/library/ff356104.aspx). Çalıştırırsanız *. deploy.cmd* dosya herhangi bir bayrağı belirtmeden komut istemini kullanılabilir bayrakların listesi görüntülenir.
+> *. Deploy. cmd* dosyaları için komut satırı seçenekleri hakkında daha fazla bilgi için bkz. [nasıl yapılır: dağıtım paketini Deploy. cmd dosyasını kullanarak oluşturma](https://msdn.microsoft.com/library/ff356104.aspx). Herhangi bir bayrak belirtmeden *. deploy. cmd* dosyasını çalıştırırsanız, komut istemi kullanılabilir bayrakların bir listesini görüntüler.
 
-## <a name="performing-a-what-if-deployment-for-databases"></a>Veritabanları için bir "What If" dağıtımı gerçekleştirme
+## <a name="performing-a-what-if-deployment-for-databases"></a>Veritabanları için "What If" dağıtımını gerçekleştirme
 
-Bu bölümde, VSDBCMD yardımcı programı artımlı, şema tabanlı veritabanı dağıtımı gerçekleştirmek için kullandığınız varsayılır. Bu yaklaşım, daha ayrıntılı olarak açıklanan [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md). Burada açıklanan kavramlar uygulamadan önce bu konu ile planladığınızdan öneririz.
+Bu bölümde, artımlı, şema tabanlı veritabanı dağıtımı gerçekleştirmek için VSDBCMD yardımcı programını kullandığınız varsayılır. Bu yaklaşım, [veritabanı projelerini dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md)konusunda daha ayrıntılı olarak açıklanmıştır. Burada açıklanan kavramları uygulamadan önce bu konuyu öğrenmeniz önerilir.
 
-İçinde VSDBCMD kullandığınızda **Dağıt** modunu kullanabilir **/dd** (veya **/DeployToDatabase**) VSDBCMD aslında veritabanı dağıtır ya da yalnızca oluşturur denetimine bayrak bir Dağıtım betiği. .Dbschema dosya dağıtıyorsanız, bu durum geçerlidir:
+**Dağıtım** modunda VSDBCMD kullandığınızda, VSDBCMD 'nin gerçekten veritabanını dağıtıp dağıtmadığını denetlemek için **/dd** (veya **/DeployToDatabase**) bayrağını kullanabilirsiniz veya yalnızca bir dağıtım betiği oluşturur. Bir. dbschema dosyası dağıtıyorsanız, bu davranış şu şekilde yapılır:
 
-- Belirtirseniz **/dd+** veya **/dd**, VSDBCMD bir dağıtım betiği oluşturun ve veritabanı dağıtma.
-- Belirtirseniz **/dd-** veya anahtarını atlarsanız, VSDBCMD yalnızca bir dağıtım komut dosyası üretir.
+- **/Dd +** veya **/dd**belirtirseniz, VSDBCMD bir dağıtım betiği oluşturacak ve veritabanını dağıtacaktır.
+- **/DDI** belirtirseniz veya anahtarı atlarsanız, VSDBCMD yalnızca bir dağıtım betiği oluşturacaktır.
 
 > [!NOTE]
-> Davranışını bir .dbschema dosyası yerine .deploymanifest dosya dağıtıyorsanız **/dd** anahtarıdır çok daha karmaşıktır. Aslında, VSDBCMD değerini yoksayar **/dd** .deploymanifest dosya içeriyorsa, geçiş bir **DeployToDatabase** öğe değerini **True**. [Veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md) tam bu davranışını tanımlar.
+> . Dbschema dosyası yerine. DeployManifest dosyası dağıtıyorsanız, **/dd** anahtarının davranışı çok daha karmaşıktır. Temelde,. DeployManifest dosyası **true**değerine sahip bir **DeployToDatabase** öğesi içeriyorsa, VSDBCMD, **/dd** anahtarının değerini yoksayar. [Veritabanı projelerini dağıtmak](../web-deployment-in-the-enterprise/deploying-database-projects.md) bu davranışı tam olarak açıklar.
 
-Örneğin, bir dağıtım betiğini oluşturmak için **ContactManager** veritabanı veritabanı VSDBCMD komutunuz gerçekten dağıtmak zorunda kalmadan bu benzemesi gerekir:
+Örneğin, veritabanının gerçekten dağıtımı yapılmadan **ContactManager** veritabanı için bir dağıtım betiği oluşturmak üzere VSDBCMD komutunuz şuna benzemelidir:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample4.cmd)]
 
-VSDBCMD Türevsel bir veritabanı dağıtım araçtır ve bu nedenle dağıtım betiği dinamik olarak, belirtilen şemaya varsa, geçerli veritabanında güncelleştirmek için gereken tüm SQL komutları içerecek şekilde oluşturulur. Dağıtım betiği gözden geçirme ne dağıtımınıza etkisi belirlemek için kullanışlı bir yol geçerli veritabanı ve içerdiği verilere sahip olur. Örneğin, belirlemek isteyebilirsiniz:
+VSDBCMD, bir fark veritabanı dağıtım aracıdır ve bu nedenle dağıtım betiği, mevcut veritabanını (varsa) belirtilen şemaya güncelleştirmek için gereken tüm SQL komutlarını içerecek şekilde dinamik olarak oluşturulur. Dağıtım betiğini gözden geçirmek, dağıtımınızın geçerli veritabanında ve içerdiği verilerde hangi etkiyi kullanacağını belirlemek için kullanışlı bir yoldur. Örneğin, şunları öğrenmek isteyebilirsiniz:
 
-- Mevcut tabloların olup kaldırılacak ve bu veri kaybına yol açar.
-- Olup bölme ya da tabloları birleştirme gibi işlemlerin sırası veri kaybı riskini taşır.
+- Mevcut tabloların kaldırılıp kaldırılmayacağı ve bunun veri kaybına neden olup olmadığı.
+- Örneğin, tabloları böyor veya birleştiriyorsanız, işlem sırasının veri kaybı riski olup olmadığı.
 
-Dağıtım betiği içeren memnun kaldıysanız, ile VSDBCMD yineleyebilirsiniz bir **/dd+** değişiklik yapmak için bayrak. Alternatif olarak, gereksinimlerinizi karşılayacak ve veritabanı sunucusunda el ile çalıştırmak için dağıtım betiğini düzenleyebilirsiniz.
+Dağıtım betiğiyle memnunsanız, değişiklikleri yapmak için VSDBCMD 'yi bir **/dd +** bayrağıyla yineleyebilirsiniz. Alternatif olarak, gereksinimlerinizi karşılayacak şekilde dağıtım betiğini düzenleyebilir ve ardından veritabanı sunucusunda el ile yürütebilirsiniz.
 
-## <a name="integrating-what-if-functionality-into-custom-project-files"></a>Özel proje dosyalarına "What If" işlevselliği tümleştirme
+## <a name="integrating-what-if-functionality-into-custom-project-files"></a>"What If" Işlevselliğini özel proje dosyalarıyla tümleştirme
 
-Daha karmaşık dağıtım senaryolarında açıklandığı gibi derleme ve dağıtım mantığınızı yalıtılacak özel Microsoft Build Engine (MSBuild) proje dosyası kullanmak istiyorsanız [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Örneğin, [Kişi Yöneticisi](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözüm, *Publish.proj* dosyası:
+Daha karmaşık dağıtım senaryolarında, derleme ve dağıtım mantığınızı kapsüllemek için, [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklandığı gibi özel bir Microsoft Build Engine (MSBuild) proje dosyası kullanmak isteyeceksiniz. Örneğin, [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) örnek çözümünde *Publish. proj* dosyası:
 
-- Çözüm oluşturur.
-- Web dağıtımı ContactManager.Mvc uygulaması paketleme ve dağıtma için kullanır.
-- Web dağıtımı ContactManager.Service uygulaması paketleme ve dağıtma için kullanır.
-- Dağıtır **ContactManager** veritabanı.
+- Çözümü oluşturur.
+- ContactManager. Mvc uygulamasını paketlemek ve dağıtmak için Web Dağıtımı kullanır.
+- ContactManager. Service uygulamasını paketlemek ve dağıtmak için Web Dağıtımı kullanır.
+- **ContactManager** veritabanını dağıtır.
 
-Bu şekilde tek adımlı bir işlemin içinde birden çok web paketleri ve/veya veritabanları dağıtımını tümleştirdiğinizde, bir "what IF" modunda tüm dağıtımı gerçekleştirme seçeneği de isteyebilirsiniz.
+Birden çok Web paketi ve/veya veritabanının dağıtımını bu şekilde tek adımlı bir işlemle tümleştirdiğinizde, tüm dağıtımı bir "işlem" modunda gerçekleştirme seçeneğini de isteyebilirsiniz.
 
-*Publish.proj* dosyası, bunu yapmak nasıl gösterir. İlk olarak, "what IF" değerini depolamak için bir özellik oluşturmak gerekir:
+*Publish. proj* dosyası bunu nasıl yapabileceğinizi gösterir. İlk olarak, "durum" değerini depolamak için bir özellik oluşturmanız gerekir:
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample5.xml)]
 
-Bu durumda, adlı bir özellik oluşturduğunuz **WhatIf** varsayılan değerini **false**. Kullanıcılar bu değeri özelliğini ayarlayarak kılabilir **true** komut satırı parametresi göreceksiniz kısa bir süre.
+Bu durumda, varsayılan değeri **false**olan **whatIf** adlı bir özellik oluşturdunuz. Bu değeri, kısa süre içinde göreceğiniz gibi, bir komut satırı parametresinde özelliği **true** olarak ayarlayarak geçersiz kılabilir.
 
-Web dağıtımı parametre haline getirmek için sonraki aşamasıdır ve VSDBCMD komutları bayrakları yansıtmasını **WhatIf** özellik değeri. Örneğin, sonraki hedefe (alınan *Publish.proj* dosya ve Basitleştirilmiş) çalıştıran *. deploy.cmd* web paketini dağıtmak için dosya. Varsayılan olarak, komut içeren bir **/Y** anahtarı ("Evet" veya güncelleştirme modu). Varsa **WhatIf** ayarlanır **true**, bu değiştirilir bir **/T** anahtarı (deneme veya "what IF" modu).
+Sonraki aşama, bayrakların **whatIf** özellik değerini yansıtması için Web dağıtımı ve VSDBCMD komutlarının parametreleştiriyor. Örneğin, bir sonraki hedef ( *Publish. proj* dosyasından alınan ve Basitleştirilmiş), bir Web paketini dağıtmak için *. deploy. cmd* dosyasını çalıştırır. Varsayılan olarak, komut bir **/y** anahtarı ("Yes" veya Update Mode) içerir. **WhatIf** değeri **true**olarak ayarlanırsa, bu, bir **/t** anahtarıyla (deneme veya "ne tür" mod) ile değiştirilmiştir.
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
-Benzer şekilde, sonraki hedefi, bir veritabanı dağıtmak için VSDBCMD yardımcı programını kullanır. Varsayılan olarak, bir **/dd** anahtar dahil değildir. Yani VSDBCMD dağıtım betiği oluşturur ancak veritabanı dağıtmaz&#x2014;başka bir deyişle, "what IF" senaryo. Varsa **WhatIf** özelliği ayarlanmamış **true**, **/dd** anahtar eklenir ve VSDBCMD, veritabanı dağıtacağınız.
+Benzer şekilde, bir sonraki hedef, bir veritabanını dağıtmak için VSDBCMD yardımcı programını kullanır. Varsayılan olarak, bir **/dd** anahtarı dahil edilmez. Bu, VSDBCMD 'nin bir dağıtım betiği üretebileceği ancak veritabanını&#x2014;başka bir deyişle "bir if" senaryosunda dağıtmayacak anlamına gelir. **WhatIf** özelliği **true**olarak ayarlanmamışsa, bir **/dd** anahtarı eklenir ve VSDBCMD veritabanını dağıtır.
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
 
-Aynı yaklaşımı, ilgili tüm komutlar, proje dosyasında parametre haline getirmek için kullanabilirsiniz. Bir "what IF" dağıtım çalıştırmak istediğiniz zaman, ardından basitçe sağlayabilirsiniz bir **WhatIf** komut satırından özellik değeri:
+Proje dosyanızdaki ilgili tüm komutları parametreleştirmek için aynı yaklaşımı kullanabilirsiniz. "Ne tür" dağıtımı çalıştırmak istediğinizde, komut satırından yalnızca bir **whatIf** Özellik değeri sağlayabilirsiniz:
 
 [!code-console[Main](performing-a-what-if-deployment/samples/sample8.cmd)]
 
-Bu şekilde, "what IF" dağıtımı için tüm proje bileşenleri tek bir adımda çalıştırabilirsiniz.
+Bu şekilde, tüm proje bileşenleriniz için bir "ne tür" dağıtımını tek bir adımda çalıştırabilirsiniz.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda, Web dağıtımı, VSDBCMD ve MSBuild kullanarak "what IF" dağıtımları açıklanmıştır. "What IF" dağıtımı için hedef ortam gerçekte herhangi bir değişiklik yapmadan önce önerilen dağıtım etkisini değerlendirmenize olanak tanır.
+Bu konu, Web Dağıtımı, VSDBCMD ve MSBuild kullanılarak "ne tür" dağıtımlar çalıştırmayı açıklamaktadır. "Ne yapılır" dağıtımı, hedef ortamda herhangi bir değişiklik yapmadan önce önerilen bir dağıtımın etkisini değerlendirmenize imkan tanır.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Web dağıtımı komut satırı sözdizimi hakkında daha fazla bilgi için bkz. [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Kullandığınız komut satırı seçenekleri hakkında rehberlik için *. deploy.cmd* bkz [nasıl yapılır: Deploy.cmd dosyasını kullanarak bir dağıtım paketi yükleme](https://msdn.microsoft.com/library/ff356104.aspx). VSDBCMD komut satırı söz dizimi hakkında yönergeler için bkz. [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema içeri aktarma)](https://msdn.microsoft.com/library/dd193283.aspx).
+Web Dağıtımı komut satırı sözdizimi hakkında daha fazla bilgi için bkz. [Web dağıtımı Işlem ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx). *. Deploy. cmd* dosyasını kullanırken komut satırı seçeneklerine ilişkin yönergeler için bkz. [nasıl yapılır: dağıtım paketini Deploy. cmd dosyasını kullanarak kullanma](https://msdn.microsoft.com/library/ff356104.aspx). VSDBCMD komut satırı söz dizimi hakkında yönergeler için bkz [. VSDBCMD Için komut satırı başvurusu. EXE (dağıtım ve şema Içeri aktarma)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](advanced-enterprise-web-deployment.md)

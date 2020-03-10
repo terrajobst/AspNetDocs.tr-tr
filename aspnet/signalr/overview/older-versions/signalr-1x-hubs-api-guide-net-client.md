@@ -1,347 +1,347 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
-title: ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (SignalR 1.x) | Microsoft Docs
+title: ASP.NET SignalR hub 'Ları API Kılavuzu-.NET Istemcisi (SignalR 1. x) | Microsoft Docs
 author: bradygaster
-description: Bu belge, SignalR sürüm 2 (WinRT) Windows Store, WPF, Silverlight ve simgeler gibi .NET istemcileri için hub'ları API kullanarak bir giriş sağlar...
+description: Bu belge, .NET istemcilerindeki SignalR sürüm 2 için Windows Mağazası (WinRT), WPF, Silverlight ve dezavantajlar gibi hub API 'leri kullanma hakkında bir giriş sağlar.
 ms.author: bradyg
 ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
 ms.openlocfilehash: 2b22b53c405a865f91b04e677f60b82dd46dbf9b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120117"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78623804"
 ---
-# <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (SignalR 1.x)
+# <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR hub 'Ları API Kılavuzu-.NET Istemcisi (SignalR 1. x)
 
-tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+by [Patrick Fletu](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu belge, SignalR sürüm 2 (WinRT) Windows Store, WPF, Silverlight ve konsol uygulamaları gibi .NET istemcileri için hub'ları API kullanmaya giriş bilgileri sağlar.
+> Bu belge, .NET istemcilerindeki SignalR sürüm 2 için Windows Mağazası (WinRT), WPF, Silverlight ve konsol uygulamaları gibi hub API 'leri kullanma hakkında bir giriş sağlar.
 > 
-> SignalR hub'ları API, bir sunucuya bağlanan istemcilerin ve istemcilerin sunucuya uzaktan yordam çağrısı (RPC) oluşturmanıza olanak sağlar. Sunucu kodu, istemciler tarafından çağrılabilen yöntemleri tanımlamak ve bir istemcide çalışmasına yöntemler çağırır. İstemci kodu sunucudan çağıran yöntemleri tanımlamak ve sunucu üzerinde çalışan yöntemleri çağırın. SignalR tüm istemci-sunucu tesisat sizin için üstlenir.
+> SignalR hub 'Ları API 'SI, uzak yordam çağrılarını (RPC) bir sunucudan, istemcilerden ve istemcilerden sunucuya bağlı hale getirmenizi sağlar. Sunucu kodu ' nda, istemciler tarafından çağrılabilen Yöntemler tanımlar ve istemcide çalışan yöntemleri çağırabilirsiniz. İstemci kodunda, sunucudan çağrılabilen yöntemleri tanımlayabilir ve sunucuda çalışan yöntemleri çağırabilirsiniz. SignalR, sizin için istemciden sunucuya sıhhi kını ele alır.
 > 
-> SignalR kalıcı bağlantı adlı bir alt düzey API'si de sunar. SignalR hub'ları ve kalıcı bağlantılar için giriş veya tam bir SignalR uygulamanın nasıl oluşturulacağını gösteren bir öğretici için bkz: [SignalR çalışmaya başlama -](../getting-started/index.md).
+> SignalR Ayrıca kalıcı bağlantılar adlı alt düzey bir API sunar. SignalR, hub 'Lar ve sürekli bağlantılara giriş veya tam bir SignalR uygulamasının nasıl oluşturulduğunu gösteren bir öğretici için bkz. [SignalR-Başlarken](../getting-started/index.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bu belgede aşağıdaki bölümler yer alır:
 
-- [İstemci Kurulumu](#clientsetup)
-- [Nasıl bir bağlantı kurmak için](#establishconnection)
+- [İstemci kurulumu](#clientsetup)
+- [Bağlantı kurma](#establishconnection)
 
-    - [Silverlight istemcileri etki alanları arası bağlantılar](#slcrossdomain)
-- [Bağlantı yapılandırma](#configureconnection)
+    - [Silverlight istemcilerinden etki alanları arası bağlantılar](#slcrossdomain)
+- [Bağlantıyı yapılandırma](#configureconnection)
 
-    - [WPF istemcileri en fazla eş zamanlı bağlantı sayısını ayarlama](#maxconnections)
+    - [WPF istemcilerinde en fazla eşzamanlı bağlantı sayısını ayarlama](#maxconnections)
     - [Sorgu dizesi parametrelerini belirtme](#querystring)
-    - [Taşıma yöntemini belirleme](#transport)
+    - [Taşıma yöntemini belirtme](#transport)
     - [HTTP üst bilgilerini belirtme](#httpheaders)
-    - [İstemci sertifikalarını belirtmek nasıl](#clientcertificate)
-- [Hub proxy oluşturma](#proxy)
-- [Sunucu çağıran istemciye yöntemleri tanımlama](#callclient)
+    - [İstemci sertifikalarını belirtme](#clientcertificate)
+- [Merkez proxy oluşturma](#proxy)
+- [İstemcide sunucunun çağırabir yöntemi tanımlama](#callclient)
 
-    - [Parametresiz yöntemleri](#clientmethodswithoutparms)
-    - [Parametre türleri belirtme parametrelere sahip yöntemleri](#clientmethodswithparmtypes)
-    - [Parametreler için dinamik nesneleri belirterek parametrelere sahip yöntemleri](#clientmethodswithdynamparms)
-    - [Bir işleyici kaldırma](#removehandler)
-- [İstemciden sunucu yöntemleri çağırma](#callserver)
-- [Bağlantı ömrü olaylarını işlemek nasıl](#connectionlifetime)
-- [Hatalarını işleme](#handleerrors)
+    - [Parametreleri olmayan Yöntemler](#clientmethodswithoutparms)
+    - [Parametre türlerini belirterek parametreleri olan Yöntemler](#clientmethodswithparmtypes)
+    - [Parametreleri için dinamik nesneler belirten parametrelere sahip Yöntemler](#clientmethodswithdynamparms)
+    - [Bir işleyiciyi kaldırma](#removehandler)
+- [İstemciden sunucu yöntemlerini çağırma](#callserver)
+- [Bağlantı ömrü olaylarını işleme](#connectionlifetime)
+- [Hataları işleme](#handleerrors)
 - [İstemci tarafı günlük kaydını etkinleştirme](#logging)
-- [WPF, Silverlight ve konsol uygulaması sunucu çağırabilirsiniz istemci yöntemleri için örnek kod](#wpfsl)
+- [Sunucunun çağıra, istemci yöntemleri için WPF, Silverlight ve konsol uygulama kodu örnekleri](#wpfsl)
 
-Örnek .NET istemci projeleri için aşağıdaki kaynaklara bakın:
+Örnek bir .NET istemci projeleri için aşağıdaki kaynaklara bakın:
 
-- [Gustavo armenta / SignalR-Samples](https://github.com/gustavo-armenta/SignalR-Samples) GitHub.com (WinRT, Silverlight, konsol uygulaması örnekleri) üzerinde.
-- [DamianEdwards / SignalR MoveShapeDemo / MoveShape.Desktop](https://github.com/DamianEdwards/SignalR-MoveShapeDemo/tree/master/MoveShape/MoveShape.Desktop) üzerinde GitHub.com (WPF örnek).
-- [SignalR / Microsoft.AspNet.SignalR.Client.Samples](https://github.com/SignalR/SignalR/tree/master/samples/Microsoft.AspNet.SignalR.Client.Samples) üzerinde GitHub.com (konsol uygulaması örnek).
+- [Gustavo-Ermenistan ta/SignalR-](https://github.com/gustavo-armenta/SignalR-Samples) GitHub.com (WinRT, Silverlight, konsol uygulama örnekleri) üzerinde örnekler.
+- [Inmıanedödüller/SignalR-Moveshail Mo/moveshape. Desktop](https://github.com/DamianEdwards/SignalR-MoveShapeDemo/tree/master/MoveShape/MoveShape.Desktop) on GITHUB.com (WPF örneği).
+- [SignalR/Microsoft. Aspnet. SignalR. Client. Samples](https://github.com/SignalR/SignalR/tree/master/samples/Microsoft.AspNet.SignalR.Client.Samples) on GitHub.com (konsol uygulaması örneği).
 
-Sunucu veya JavaScript istemcilerinin program hakkında daha fazla belge için aşağıdaki kaynaklara bakın:
+Sunucu veya JavaScript istemcilerini programmaya yönelik belgeler için aşağıdaki kaynaklara bakın:
 
-- [SignalR hub API Kılavuzu - sunucu](../guide-to-the-api/hubs-api-guide-server.md)
-- [SignalR hub API Kılavuzu - JavaScript istemcisi](../guide-to-the-api/hubs-api-guide-javascript-client.md)
+- [SignalR hub 'Ları API Kılavuzu-sunucu](../guide-to-the-api/hubs-api-guide-server.md)
+- [SignalR hub 'Ları API Kılavuzu-JavaScript Istemcisi](../guide-to-the-api/hubs-api-guide-javascript-client.md)
 
-API başvuru konularına bağlar API .NET 4.5 sürümü var. .NET 4 kullanıyorsanız, bkz. [API konuları .NET 4 sürümünü](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
+API başvuru konularına bağlantılar, API 'nin .NET 4,5 sürümüdür. .NET 4 kullanıyorsanız, [API konularının .NET 4 sürümüne](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx)bakın.
 
 <a id="clientsetup"></a>
 
-## <a name="client-setup"></a>İstemci Kurulumu
+## <a name="client-setup"></a>İstemci kurulumu
 
-Yükleme [Microsoft.AspNet.SignalR.Client](http://nuget.org/packages/Microsoft.AspNet.SignalR.Client) NuGet paketini (değil [Microsoft.AspNet.SignalR](http://nuget.org/packages/microsoft.aspnet.signalr) paketi). Bu paket, .NET 4 ve .NET 4.5 için WinRT, Silverlight, WPF, konsol uygulaması ve Windows Phone istemcileri destekler.
+[Microsoft. Aspnet. SignalR. Client](http://nuget.org/packages/Microsoft.AspNet.SignalR.Client) NuGet paketini ( [Microsoft. Aspnet. SignalR](http://nuget.org/packages/microsoft.aspnet.signalr) paketini değil) yükler. Bu paket, .NET 4 ve .NET 4,5 için WinRT, Silverlight, WPF, konsol uygulaması ve Windows Phone istemcilerini destekler.
 
-İstemcide sahip SignalR sürümü sunucuda yüklü sürümden farklı ise, SignalR genellikle farkı uyum sağlamak kullanabilirsiniz. Örneğin, SignalR sürüm 2.0 yayımlanır ve bu sunucuda yüklediğinizde sunucu 1.1.x 2.0 yüklü istemcileri yanı sıra yüklü olan istemcileri destekler. SignalR sunucusundaki sürümü ve istemci sürümü arasındaki fark, çok büyük ise, oluşturur bir `InvalidOperationException` istemci bağlantısı kurmaya çalıştığında bir özel durum. Hata iletisi "`You are using a version of the client that isn't compatible with the server. Client version X.X, server version X.X`".
+İstemci üzerindeki SignalR sürümü, sunucuda sahip olduğunuz sürümden farklıysa, SignalR genellikle farka uyum sağlayabilir. Örneğin, SignalR sürüm 2,0 yayımlanmışsa ve sunucuya yüklüyorsanız, sunucu 1.1. x yüklü olan istemcileri ve 2,0 yüklü istemcileri destekleyecektir. Sunucu üzerindeki sürüm ve istemcideki sürüm arasındaki fark çok harika ise, istemci bir bağlantı kurmaya çalıştığında SignalR bir `InvalidOperationException` özel durumu oluşturur. Hata iletisi "`You are using a version of the client that isn't compatible with the server. Client version X.X, server version X.X`".
 
 <a id="establishconnection"></a>
 
-## <a name="how-to-establish-a-connection"></a>Nasıl bir bağlantı kurmak için
+## <a name="how-to-establish-a-connection"></a>Bağlantı kurma
 
-Bir bağlantı kurabilmesi için önce oluşturmak sahip bir `HubConnection` nesnesi ve bir ara sunucu oluşturun. Bağlantı kurmak için çağrı `Start` metodunda `HubConnection` nesne.
+Bir bağlantı kurmadan önce, bir `HubConnection` nesnesi oluşturmanız ve proxy oluşturmanız gerekir. Bağlantıyı kurmak için `HubConnection` nesnesinde `Start` yöntemini çağırın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample1.cs?highlight=1,4)]
 
 > [!NOTE]
-> JavaScript istemciler için çağırmadan önce en az bir olay işleyicisi kaydetmek zorunda `Start` bağlantı kurmak için yöntemi. Bu, .NET istemcileri için gerekli değildir. JavaScript istemciler için oluşturulan proxy kodu otomatik olarak mevcut tüm hub'ları proxy'lerini sunucuda oluşturur ve bir işleyici kaydetmektir hangi hub'ları nasıl belirttiğiniz istemcinizi kullanmayı düşünüyor. Ancak SignalR kabul eder, proxy için oluşturduğunuz hub'ı kullanacak şekilde için .NET istemci Hub proxy el ile oluşturduğunuz.
+> JavaScript istemcileri için, bağlantıyı kurmak üzere `Start` yöntemini çağırmadan önce en az bir olay işleyicisini kaydetmeniz gerekir. .NET istemcileri için bu gerekli değildir. JavaScript istemcileri için, oluşturulan proxy kodu, sunucuda var olan tüm Hub 'Lar için otomatik olarak proxy oluşturur ve bir işleyiciyi kaydetmek, istemcinizin hangi hub 'Ları kullandığını belirtebilmeniz anlamına gelir. Ancak, bir .NET istemcisi için hub proxy 'leri el ile oluşturursunuz. SignalR, için proxy oluşturduğunuz herhangi bir hub kullandığınızı varsayar.
 
-Varsayılan örnek kodu kullanır "/ signalr" SignalR hizmetinize bağlanmak için URL. Farklı bir temel URL'si belirtme hakkında daha fazla bilgi için bkz: [ASP.NET SignalR Hubs API Kılavuzu - sunucu - /signalr URL](../guide-to-the-api/hubs-api-guide-server.md#signalrurl).
+Örnek kod, SignalR hizmetinize bağlanmak için varsayılan "/SignalR" URL 'sini kullanır. Farklı bir temel URL belirtme hakkında daha fazla bilgi için bkz. [ASP.NET SignalR hub 'LARı API Kılavuzu-sunucu-/SignalR URL 'si](../guide-to-the-api/hubs-api-guide-server.md#signalrurl).
 
-`Start` Yöntemi zaman uyumsuz olarak yürütür. Bağlantı kurulduktan sonra sonraki kod satırlarını kadar yürütmek yoksa emin olmak için `await` ASP.NET 4.5 zaman uyumsuz yönteminde veya `.Wait()` zaman uyumlu bir yöntem içinde. Kullanmayın `.Wait()` bir WinRT istemcisinde.
+`Start` yöntemi zaman uyumsuz olarak yürütülür. Sonraki kod satırlarının bağlantı kurulana kadar yürütülmediği konusunda emin olmak için, bir ASP.NET 4,5 zaman uyumsuz yönteminde `await` kullanın veya zaman uyumlu bir yöntemde `.Wait()`. WinRT istemcisinde `.Wait()` kullanmayın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample2.cs?highlight=1)]
 
 [!code-css[Main](signalr-1x-hubs-api-guide-net-client/samples/sample3.css?highlight=1)]
 
-`HubConnection` İş parçacığı açısından güvenli bir sınıftır.
+`HubConnection` sınıfı iş parçacığı güvenlidir.
 
 <a id="slcrossdomain"></a>
 
-### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight istemcileri etki alanları arası bağlantılar
+### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight istemcilerinden etki alanları arası bağlantılar
 
-Silverlight istemcilerden etki alanları arası bağlantıları etkinleştirme hakkında daha fazla bilgi için bkz: [bir hizmet üzerinden etki alanı sınırlarında kullanılabilir hale getirme](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
+Silverlight istemcilerinden etki alanları arası bağlantıları etkinleştirme hakkında daha fazla bilgi için bkz. [bir hizmeti etki alanı sınırları genelinde kullanılabilir hale getirme](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 <a id="configureconnection"></a>
 
-## <a name="how-to-configure-the-connection"></a>Bağlantı yapılandırma
+## <a name="how-to-configure-the-connection"></a>Bağlantıyı yapılandırma
 
-Bir bağlantı kurmadan önce aşağıdaki seçeneklerden birini belirtebilirsiniz:
+Bir bağlantı kurmadan önce, aşağıdaki seçeneklerden herhangi birini belirtebilirsiniz:
 
-- Eş zamanlı bağlantı sayısı sınırı.
-- Dize parametreleri sorgulayın.
+- Eşzamanlı bağlantı sınırı.
+- Sorgu dizesi parametreleri.
 - Taşıma yöntemi.
 - HTTP üstbilgileri.
 - İstemci sertifikaları.
 
 <a id="maxconnections"></a>
 
-### <a name="how-to-set-the-maximum-number-of-concurrent-connections-in-wpf-clients"></a>WPF istemcileri en fazla eş zamanlı bağlantı sayısını ayarlama
+### <a name="how-to-set-the-maximum-number-of-concurrent-connections-in-wpf-clients"></a>WPF istemcilerinde en fazla eşzamanlı bağlantı sayısını ayarlama
 
-WPF istemcileri 2 varsayılan değerini eşzamanlı bağlantıların maksimum sayısını artırmanız gerekebilir. Önerilen değer 10'dur.
+WPF istemcilerinde, en fazla eş zamanlı bağlantı sayısını varsayılan 2 değerinden artırmanız gerekebilir. Önerilen değer 10 ' dur.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample4.cs?highlight=4)]
 
-Daha fazla bilgi için [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
+Daha fazla bilgi için bkz. [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
 
 <a id="querystring"></a>
 
 ### <a name="how-to-specify-query-string-parameters"></a>Sorgu dizesi parametrelerini belirtme
 
-İstemci bağlandığında sunucuya veri göndermek istiyorsanız, bağlantı nesnesi için sorgu dizesi parametreleri ekleyebilirsiniz. Aşağıdaki örnek bir sorgu dizesi parametresi istemci kodu ayarlama işlemini gösterir.
+İstemci bağlandığı zaman sunucuya veri göndermek istiyorsanız, bağlantı nesnesine sorgu dizesi parametreleri ekleyebilirsiniz. Aşağıdaki örnekte, istemci kodunda bir sorgu dizesi parametresinin nasıl ayarlanacağı gösterilmektedir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample5.cs)]
 
-Aşağıdaki örnekte, sunucu kodu bir sorgu dizesi parametresi okunacak gösterilmektedir.
+Aşağıdaki örnek, sunucu kodundaki bir sorgu dizesi parametresinin nasıl okunacağını gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample6.cs?highlight=5)]
 
 <a id="transport"></a>
 
-### <a name="how-to-specify-the-transport-method"></a>Taşıma yöntemini belirleme
+### <a name="how-to-specify-the-transport-method"></a>Taşıma yöntemini belirtme
 
-Bağlama işleminin bir parçası, SignalR istemci ile sunucu hem sunucu hem de istemci tarafından desteklenen en iyi aktarım belirlemek için normalde görüşür. Kullanmak istediğiniz hangi aktarım zaten biliyorsanız, bu anlaşma işlemi devre dışı bırakabilir. Aktarım yöntemi belirtmek için başlangıç yöntemine bir transport nesnesi içinde geçirin. Aşağıdaki örnek, aktarım yöntemi istemci kodu belirtmek gösterilmektedir.
+Bağlantı sürecinin bir parçası olarak, bir SignalR istemcisi normalde sunucu ve istemci tarafından desteklenen en iyi aktarımı tespit etmek üzere sunucuyla görüşür. Kullanmak istediğiniz taşımayı zaten biliyorsanız, bu anlaşma işlemini atlayabilirsiniz. Taşıma yöntemini belirtmek için, başlangıç yöntemine bir taşıma nesnesi geçirin. Aşağıdaki örnek, istemci kodunda taşıma yönteminin nasıl kullanılacağını gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample7.cs?highlight=4)]
 
-[Microsoft.AspNet.SignalR.Client.Transports](https://msdn.microsoft.com/library/jj918090(v=vs.111).aspx) ad alanı taşıma belirtmek için kullanabileceğiniz aşağıdaki sınıfları içerir.
+[Microsoft. Aspnet. SignalR. Client. taşımalar](https://msdn.microsoft.com/library/jj918090(v=vs.111).aspx) ad alanı, taşımayı belirtmek için kullanabileceğiniz aşağıdaki sınıfları içerir.
 
 - [LongPollingTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.longpollingtransport(v=vs.111).aspx)
 - [ServerSentEventsTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.serversenteventstransport(v=vs.111).aspx)
-- [WebSocketTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (kullanılabilir. yalnızca, .NET 4.5 hem sunucu hem de istemci kullandığınızda)
-- [AutoTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (istemci ve sunucu tarafından desteklenen en iyi aktarım otomatik olarak seçer. Varsayılan aktarım budur. Bu konuda geçirme `Start` yöntemi her şeyi geçmiyor aynı etkiye sahiptir.)
+- [Websockettransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (yalnızca hem sunucu hem de istemci .NET 4,5 ' i kullanırken kullanılabilir.)
+- Otomatik [Aktarım](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (hem istemci hem de sunucu tarafından desteklenen en iyi aktarımı otomatik olarak seçer. Bu, varsayılan aktarımdır. Bunu `Start` yöntemine geçirmek, hiçbir şeyi geçirmeyen aynı etkiye sahiptir.)
 
-Yalnızca tarayıcı tarafından kullanıldığından ForeverFrame taşıma bu listede dahil edilmez.
+Yalnızca tarayıcılar tarafından kullanıldığından, ForeverFrame taşıması bu listeye dahil edilmez.
 
-Sunucu kodu aktarım yöntemi denetleme hakkında daha fazla bilgi için bkz: [ASP.NET SignalR Hubs API Kılavuzu - sunucu - bağlam özelliği istemci hakkında bilgi almak nasıl](../guide-to-the-api/hubs-api-guide-server.md#contextproperty). Aktarım ve geri dönüşler hakkında daha fazla bilgi için bkz: [SignalR - aktarım ve geri dönüşler giriş](../getting-started/introduction-to-signalr.md#transports).
+Sunucu kodundaki aktarım yöntemini denetleme hakkında daha fazla bilgi için bkz. [ASP.NET SignalR hub 'LARı API Kılavuzu-sunucu-bağlam özelliğinden istemci hakkında bilgi alma](../guide-to-the-api/hubs-api-guide-server.md#contextproperty). Aktarımlar ve geri göndermeler hakkında daha fazla bilgi için bkz. [SignalR 'ye giriş-aktarımlar ve geri göndermeler](../getting-started/introduction-to-signalr.md#transports).
 
 <a id="httpheaders"></a>
 
 ### <a name="how-to-specify-http-headers"></a>HTTP üst bilgilerini belirtme
 
-HTTP üst bilgilerini ayarlayacak şekilde kullanmak `Headers` bağlantı nesnesindeki özelliği. Aşağıdaki örnek, bir HTTP üstbilgisi Ekle gösterilmektedir.
+HTTP üst bilgilerini ayarlamak için bağlantı nesnesindeki `Headers` özelliğini kullanın. Aşağıdaki örnek, bir HTTP üst bilgisinin nasıl ekleneceğini gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample8.cs?highlight=2)]
 
 <a id="clientcertificate"></a>
 
-### <a name="how-to-specify-client-certificates"></a>İstemci sertifikalarını belirtmek nasıl
+### <a name="how-to-specify-client-certificates"></a>İstemci sertifikalarını belirtme
 
-İstemci sertifikaları eklemek için `AddClientCertificate` bağlantı nesnesi üzerinde yöntemi.
+İstemci sertifikaları eklemek için bağlantı nesnesindeki `AddClientCertificate` yöntemini kullanın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample9.cs?highlight=2)]
 
 <a id="proxy"></a>
 
-## <a name="how-to-create-the-hub-proxy"></a>Hub proxy oluşturma
+## <a name="how-to-create-the-hub-proxy"></a>Merkez proxy oluşturma
 
-Sunucudan bir Hub çağıran istemci üzerinde yöntemleri tanımlamak için ve sunucudaki Hub yöntemlerini çağırma, Hub için bir proxy çağırarak oluşturma `CreateHubProxy` bağlantı nesnesindeki. Dize, için geçirdiğiniz `CreateHubProxy` Hub sınıfınıza adını veya tarafından belirtilen adı `HubName` sunucuda kullanılan bir özniteliği. Ad eşleştirme büyük küçük harfe duyarlıdır.
+İstemcideki bir hub 'ın sunucudan çağırabildiği ve sunucudaki bir hub 'da Yöntemler çağırabileceği yöntemleri tanımlamak için bağlantı nesnesi üzerinde `CreateHubProxy` çağırarak Hub için bir ara sunucu oluşturun. `CreateHubProxy` ' a geçirdiğiniz dize, hub sınıfınızın adı veya sunucu üzerinde bir tane kullanılmışsa `HubName` özniteliğiyle belirtilen addır. Ad eşleştirme büyük küçük harfe duyarlıdır.
 
 **Sunucudaki hub sınıfı**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample10.cs?highlight=1)]
 
-**Hub sınıfı için istemci proxy oluşturma**
+**Hub sınıfı için istemci ara sunucusu oluşturma**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample11.cs?highlight=2)]
 
-Hub sınıfınıza tasarlamanız, bir `HubName` özniteliği, bu adı kullanın.
+Hub sınıfınızı bir `HubName` özniteliğiyle süslemek istiyorsanız, bu adı kullanın.
 
 **Sunucudaki hub sınıfı**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample12.cs)]
 
-**Hub sınıfı için istemci proxy oluşturma**
+**Hub sınıfı için istemci ara sunucusu oluşturma**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample13.cs?highlight=2)]
 
-Proxy nesnesi, iş parçacığı açısından güvenlidir. Aslında, çağırırsanız `HubConnection.CreateHubProxy` birden çok kez ile aynı `hubName`, aynı önbelleğe alma `IHubProxy` nesne.
+Proxy nesnesi iş parçacığı güvenlidir. Aslında `HubConnection.CreateHubProxy` aynı `hubName`birden çok kez çağırırsanız, önbelleğe alınmış `IHubProxy` nesnesini alırsınız.
 
 <a id="callclient"></a>
 
-## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>Sunucu çağıran istemciye yöntemleri tanımlama
+## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>İstemcide sunucunun çağırabir yöntemi tanımlama
 
-Proxy sunucu çağırabilen bir yöntemi tanımlamak için kullanmak `On` bir olay işleyicisi kaydetmek için yöntemi.
+Sunucunun çağırakullanabileceği bir yöntemi tanımlamak için, bir olay işleyicisini kaydetmek üzere proxy 'nin `On` yöntemini kullanın.
 
-Yöntem adı ile eşleşen büyük küçük harfe duyarlıdır. Örneğin, `Clients.All.UpdateStockPrice` sunucuda yürütülür `updateStockPrice`, `updatestockprice`, veya `UpdateStockPrice` istemci üzerinde.
+Yöntem adı eşleştirme, büyük/küçük harfe duyarlıdır. Örneğin, sunucusundaki `Clients.All.UpdateStockPrice`, istemcide `updateStockPrice`, `updatestockprice`veya `UpdateStockPrice` yürütülür.
 
-Farklı istemci platformları UI'yi güncellemeye yöntemine kodu yazarsınız nasıl farklı gereksinimlere sahip. Gösterilen WinRT (Windows Store .NET) istemciler için verilebilir. İçinde WPF, Silverlight ve konsol uygulaması örnekleri verilmiştir [ayrı bir bölümde bu konunun ilerleyen bölümlerinde](#wpfsl).
+Farklı istemci platformları, Kullanıcı arabirimini güncelleştirmek için yöntem kodu yazma konusunda farklı gereksinimlere sahiptir. Gösterilen örnekler, WinRT (Windows Mağazası .NET) istemcileri içindir. WPF, Silverlight ve konsol uygulaması örnekleri, [Bu konunun ilerleyen kısımlarında ayrı bir bölümde](#wpfsl)sunulmaktadır.
 
 <a id="clientmethodswithoutparms"></a>
 
-### <a name="methods-without-parameters"></a>Parametresiz yöntemleri
+### <a name="methods-without-parameters"></a>Parametreleri olmayan Yöntemler
 
-İşleme yöntemi parametrelerine sahip değildir, genel olmayan aşırı yüklemesini kullanın. `On` yöntemi:
+İşlemekte olduğunuz yöntemin parametreleri yoksa, `On` yönteminin genel olmayan aşırı yüklemesini kullanın:
 
-**Sunucu kodu parametresiz istemci yöntemi çağırma**
+**Parametre olmadan istemci yöntemini çağıran sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample14.cs?highlight=5)]
 
-**WinRT istemci kodu yöntemi için çağrılır parametresiz sunucusundan ([WPF ve Silverlight Örnekleri bu konunun ilerleyen bölümlerinde bkz](#wpfsl))**
+**Parametresiz sunucudan çağrılan yöntem için WinRT Istemci kodu ([Bu konunun ilerleyen kısımlarında bulunan WPF ve Silverlight örneklerine bakın](#wpfsl))**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample15.cs)]
 
 <a id="clientmethodswithparmtypes"></a>
 
-### <a name="methods-with-parameters-specifying-the-parameter-types"></a>Parametre türleri belirtme parametrelere sahip yöntemleri
+### <a name="methods-with-parameters-specifying-the-parameter-types"></a>Parametre türlerini belirterek parametreleri olan Yöntemler
 
-İşleme yöntemi parametrelere sahipse, parametre türleri genel türlerini belirtmek `On` yöntemi. Genel aşırı yükleme `On` yöntemi en fazla 8 parametreleri (Windows Phone 7 4) belirtmenize olanak verir. Aşağıdaki örnekte, bir parametre için gönderilen `UpdateStockPrice` yöntemi.
+İşlemekte olduğunuz yöntemin parametreleri varsa, `On` yönteminin genel türleri olarak parametre türlerini belirtin. 8 ' e kadar parametre belirtmenizi sağlayan `On` yönteminin genel aşırı yüklemeleri vardır (Windows Phone 7 üzerinde 4). Aşağıdaki örnekte, `UpdateStockPrice` yöntemine bir parametre gönderilir.
 
-**Sunucu kodu istemci yöntemi parametresi ile çağırılıyor**
+**İstemci yöntemini bir parametre ile çağıran sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample16.cs?highlight=3)]
 
-**Parametresi için kullanılan stok sınıfı**
+**Parametresi için kullanılan hisse senedi sınıfı**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample17.cs)]
 
-**WinRT istemci kodu için bir yöntem olarak adlandırılan bir parametresi olan bir sunucudan ([WPF ve Silverlight Örnekleri bu konunun ilerleyen bölümlerinde bkz](#wpfsl))**
+**Parametresi ile sunucudan çağrılan bir yöntem için WinRT Istemci kodu ([Bu konunun ilerleyen kısımlarında yer alarak WPF ve Silverlight örneklerine bakın](#wpfsl))**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample18.cs?highlight=1,5)]
 
 <a id="clientmethodswithdynamparms"></a>
 
-### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>Parametreler için dinamik nesneleri belirterek parametrelere sahip yöntemleri
+### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>Parametreleri için dinamik nesneler belirten parametrelere sahip Yöntemler
 
-Alternatif genel tür parametrelerini belirtme olarak `On` yöntemi parametrelerini dinamik nesneler olarak belirtebilirsiniz:
+Parametreleri `On` yönteminin genel türleri olarak belirtmeye alternatif olarak, parametreleri dinamik nesneler olarak belirtebilirsiniz:
 
-**Sunucu kodu istemci yöntemi parametresi ile çağırılıyor**
+**İstemci yöntemini bir parametre ile çağıran sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample19.cs?highlight=3)]
 
-**Parametresi için kullanılan stok sınıfı**
+**Parametresi için kullanılan hisse senedi sınıfı**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample20.cs)]
 
-**Bir yöntem için WinRT istemci kodu adlı bir parametresiyle dinamik Nesne parametresi için kullanarak sunucudan ([WPF ve Silverlight Örnekleri bu konunun ilerleyen bölümlerinde bkz](#wpfsl))**
+**Parametresi için dinamik bir nesne kullanan ve parametresi için bir parametre içeren sunucudan çağrılan bir yöntem için WinRT Istemci kodu ([Bu konunun ilerleyen kısımlarında yer almaktadır WPF ve Silverlight örnekleri](#wpfsl))**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample21.cs?highlight=1,5)]
 
 <a id="removehandler"></a>
 
-### <a name="how-to-remove-a-handler"></a>Bir işleyici kaldırma
+### <a name="how-to-remove-a-handler"></a>Bir işleyiciyi kaldırma
 
-Bir işleyici kaldırmak için arama, `Dispose` yöntemi.
+Bir işleyiciyi kaldırmak için `Dispose` yöntemini çağırın.
 
-**Sunucudan adlı bir yöntem için istemci kodu**
+**Sunucudan çağrılan bir yöntem için istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample22.cs?highlight=1)]
 
-**İstemci kodu, işleyici kaldırmak için**
+**İşleyiciyi kaldırmak için istemci kodu**
 
 [!code-css[Main](signalr-1x-hubs-api-guide-net-client/samples/sample23.css?highlight=1)]
 
 <a id="callserver"></a>
 
-## <a name="how-to-call-server-methods-from-the-client"></a>İstemciden sunucu yöntemleri çağırma
+## <a name="how-to-call-server-methods-from-the-client"></a>İstemciden sunucu yöntemlerini çağırma
 
-Sunucu üzerinde bir yöntemi çağırmak için `Invoke` Hub proxy yöntemi.
+Sunucuda bir yöntemi çağırmak için hub proxy üzerinde `Invoke` yöntemi kullanın.
 
-Sunucu yönteminin dönüş değeri varsa, genel olmayan aşırı yüklemesini kullanın `Invoke` yöntemi.
+Sunucu yönteminin dönüş değeri yoksa, `Invoke` yönteminin genel olmayan aşırı yüklemesini kullanın.
 
-**Dönüş değeri içeren bir yöntem için sunucu kodu**
+**Dönüş değeri olmayan bir yöntem için sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample24.cs?highlight=3)]
 
-**İstemci kodu, dönüş değeri olmayan bir yöntem çağırma**
+**Dönüş değeri olmayan bir yöntemi çağıran istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample25.cs?highlight=1)]
 
-Sunucu yönteminin dönüş değeri varsa, dönüş türü genel türü olarak belirtin. `Invoke` yöntemi.
+Sunucu yönteminin bir dönüş değeri varsa, dönüş türünü `Invoke` yönteminin genel türü olarak belirtin.
 
-**Bir değer döndürmez ve karmaşık tür parametre alan bir yöntem için sunucu kodu**
+**Dönüş değerine sahip ve karmaşık bir tür parametresi alan bir yöntem için sunucu kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample26.cs?highlight=1)]
 
-**Stok sınıfı parametresi için kullanılan ve dönüş değeri**
+**Parametre ve dönüş değeri için kullanılan hisse senedi sınıfı**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample27.cs)]
 
-**İstemci kodu bir değer döndürmez ve bir ASP.NET 4.5 zaman uyumsuz yöntemde bir karmaşık tür parametre alan bir yöntem çağırma**
+**Bir ASP.NET 4,5 zaman uyumsuz yönteminde dönüş değeri olan ve karmaşık tür parametresi alan bir yöntemi çağıran istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample28.cs?highlight=1-2)]
 
-**İstemci kodu bir değer döndürmez ve zaman uyumlu bir yöntemde bir karmaşık tür parametre alan bir yöntem çağırma**
+**Bir dönüş değeri olan ve bir karmaşık tür parametresi alan ve bir zaman uyumlu yöntemde olan bir yöntemi çağıran istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample29.cs?highlight=1-2)]
 
-`Invoke` Yöntemi zaman uyumsuz olarak yürütür ve döndürür bir `Task` nesne. Belirtmezseniz `await` veya `.Wait()`, sonraki kod satırına, çağırma yöntemi yürütmeyi bitirmeden önce yürütülür.
+`Invoke` yöntemi zaman uyumsuz olarak yürütülür ve bir `Task` nesnesi döndürüyor. `await` veya `.Wait()`belirtmezseniz, bir sonraki kod satırı, çağırabileceğiniz yöntemin yürütmeyi bitirinceye kadar yürütülür.
 
 <a id="connectionlifetime"></a>
 
-## <a name="how-to-handle-connection-lifetime-events"></a>Bağlantı ömrü olaylarını işlemek nasıl
+## <a name="how-to-handle-connection-lifetime-events"></a>Bağlantı ömrü olaylarını işleme
 
-SignalR işleyebilirsiniz ömür olayları aşağıdaki bağlantı sağlar:
+SignalR, işleyebilmeniz için aşağıdaki bağlantı ömrü olaylarını sağlar:
 
-- `Received`: Herhangi bir veri bağlantısı alındığında oluşturulur. Alınan veriler sağlar.
-- `ConnectionSlow`: İstemci yavaş veya sık bırakma bağlantı tespit ettiğinde oluşturulur.
-- `Reconnecting`: Temel alınan aktarımda yeniden bağlanmayı başladığında oluşturulur.
-- `Reconnected`: Temel alınan aktarımda bağlandığınızda oluşturulur.
-- `StateChanged`: Bağlantı durumu değiştiğinde oluşturulur. Eski durum ve yeni durum sağlar. Durum değerleri bağlantısı hakkında bilgi için bkz [ConnectionState numaralandırma](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx).
-- `Closed`: Bağlantı kesildiğinde oluşturulur.
+- `Received`: bağlantıda herhangi bir veri alındığında tetiklenir. Alınan verileri sağlar.
+- `ConnectionSlow`: istemci yavaş veya sık bir bırakma bağlantısı algıladığında tetiklenir.
+- `Reconnecting`: temeldeki aktarım yeniden bağlanmaya başladığında tetiklenir.
+- `Reconnected`: temeldeki aktarım yeniden bağlandığında tetiklenir.
+- `StateChanged`: bağlantı durumu değiştiğinde tetiklenir. Eski durumu ve yeni durumu sağlar. Bağlantı durumu değerleri hakkında daha fazla bilgi için bkz. [ConnectionState numaralandırması](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx).
+- `Closed`: bağlantının bağlantısı kesildiğinde tetiklenir.
 
-Örneğin, önemli değildir ancak aralıklı bağlantı sorunlarına neden bir hata için uyarı iletileri görüntülemek istiyorsanız, gibi yavaşlık ya da sık sık bağlantısı, bırakarak işlemek `ConnectionSlow` olay.
+Örneğin, önemli olmayan hatalar için uyarı iletileri göstermek istiyorsanız, ancak bağlantının yavaşlılığını veya sık olarak düşürülmesi gibi aralıklı bağlantı sorunlarına neden olursa `ConnectionSlow` olayını işleyin.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample30.cs)]
 
-Daha fazla bilgi için [anlama ve signalr'da bağlantı ömrü olaylarını işleme](../guide-to-the-api/handling-connection-lifetime-events.md).
+Daha fazla bilgi için bkz. [SignalR 'de bağlantı ömrü olaylarını anlama ve işleme](../guide-to-the-api/handling-connection-lifetime-events.md).
 
 <a id="handleerrors"></a>
 
-## <a name="how-to-handle-errors"></a>Hatalarını işleme
+## <a name="how-to-handle-errors"></a>Hataları işleme
 
-Ayrıntılı hata iletileri sunucuda açıkça etkinleştirmezseniz, bir hatanın ardından SignalR döndüren özel durum nesnesi hata ile ilgili en düşük miktarda bilgiyi içerir. Örneğin, bir çağrı `newContosoChatMessage` başarısız, hata iletisi hata nesnesi içeren "`There was an error invoking Hub method 'contosoChatHub.newContosoChatMessage'.`" güvenlik nedeniyle, ayrıntılı hata iletileri için etkinleştirmek istiyorsanız ancak üretimde istemciler için ayrıntılı hata iletileri önerilmez gönderme sorun giderme amacıyla sunucu üzerinde aşağıdaki kodu kullanın.
+Sunucuda ayrıntılı hata iletilerini açıkça etkinleştirmezseniz, bir hatadan sonra SignalR 'nin döndürdüğü özel durum nesnesi hata hakkında en az bilgi içerir. Örneğin, `newContosoChatMessage` çağrısı başarısız olursa, hata nesnesindeki hata iletisi, güvenlik nedenleriyle, üretim aşamasındaki istemcilere ayrıntılı hata iletileri gönderilmesi "`There was an error invoking Hub method 'contosoChatHub.newContosoChatMessage'.`" içerir, ancak sorun giderme amacıyla ayrıntılı hata iletileri etkinleştirmek istiyorsanız, sunucuda aşağıdaki kodu kullanın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample31.cs?highlight=2)]
 
 <a id="handleerrors"></a>
 
-SignalR oluşturan hataları işlemek için bir işleyici ekleyebilirsiniz `Error` bağlantı nesnesindeki olay.
+SignalR 'nin yükselten hataları işlemek için bağlantı nesnesi üzerinde `Error` olayı için bir işleyici ekleyebilirsiniz.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample32.cs)]
 
-Yöntem çağrıları hatalarını işlemek için bir try-catch bloğu içinde kod alın.
+Yöntem etkinleştirmeleri içindeki hataları işlemek için, kodu bir try-catch bloğunda sarın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample33.cs)]
 
@@ -349,54 +349,54 @@ Yöntem çağrıları hatalarını işlemek için bir try-catch bloğu içinde k
 
 ## <a name="how-to-enable-client-side-logging"></a>İstemci tarafı günlük kaydını etkinleştirme
 
-İstemci tarafı günlük kaydını etkinleştirmek için ayarlanmış `TraceLevel` ve `TraceWriter` bağlantı nesnesindeki özellikleri.
+İstemci tarafı günlük kaydını etkinleştirmek için, bağlantı nesnesindeki `TraceLevel` ve `TraceWriter` özelliklerini ayarlayın.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample34.cs?highlight=2-3)]
 
 <a id="wpfsl"></a>
 
-## <a name="wpf-silverlight-and-console-application-code-samples-for-client-methods-that-the-server-can-call"></a>WPF, Silverlight ve konsol uygulaması sunucu çağırabilirsiniz istemci yöntemleri için örnek kod
+## <a name="wpf-silverlight-and-console-application-code-samples-for-client-methods-that-the-server-can-call"></a>Sunucunun çağıra, istemci yöntemleri için WPF, Silverlight ve konsol uygulama kodu örnekleri
 
-Sunucu çağırabilirsiniz istemci yöntemleri tanımlamak için daha önce gösterilen kod örnekleri, WinRT istemcileri için geçerlidir. Aşağıdaki örnekler, WPF, Silverlight ve konsol uygulaması istemciler için eşdeğer kod gösterir.
+Daha önce sunucunun, WinRT istemcilerine uygulama çağırabilecek istemci yöntemleri tanımlamak için gösterilen kod örnekleri. Aşağıdaki örnekler WPF, Silverlight ve konsol uygulama istemcileri için eşdeğer kodu gösterir.
 
-### <a name="methods-without-parameters"></a>Parametresiz yöntemleri
+### <a name="methods-without-parameters"></a>Parametreleri olmayan Yöntemler
 
-**Parametre olmadan sunucu WPF istemci kodu yöntemi için çağrılır**
+**Parametre olmadan sunucudan çağrılan yöntem için WPF istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample35.cs?highlight=1)]
 
-**Parametresiz sunucusundan Silverlight istemci kodu yöntemi için çağrılır**
+**Parametresiz sunucudan çağrılan yöntem için Silverlight istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample36.cs?highlight=1)]
 
-**Parametre olmadan sunucu konsol uygulaması istemci kodu yöntemi için çağrılır**
+**Parametre olmadan sunucudan çağrılan yöntem için konsol uygulaması istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample37.cs?highlight=1)]
 
-### <a name="methods-with-parameters-specifying-the-parameter-types"></a>Parametre türleri belirtme parametrelere sahip yöntemleri
+### <a name="methods-with-parameters-specifying-the-parameter-types"></a>Parametre türlerini belirterek parametreleri olan Yöntemler
 
-**WPF istemci kodu bir yöntem için parametre sunucusuyla çağrılır**
+**Bir parametre ile sunucudan çağrılan bir yöntem için WPF istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample38.cs?highlight=1,4)]
 
-**Sunucu parametresi olan bir yöntem için Silverlight istemci kodu çağrılır**
+**Bir parametre ile sunucudan çağrılan bir yöntem için Silverlight istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample39.cs?highlight=1,5)]
 
-**Konsol uygulaması istemci kodu bir yöntem için parametre sunucusuyla çağrılır**
+**Bir parametre ile sunucudan çağrılan bir yöntem için konsol uygulaması istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample40.cs?highlight=1-2)]
 
-### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>Parametreler için dinamik nesneleri belirterek parametrelere sahip yöntemleri
+### <a name="methods-with-parameters-specifying-dynamic-objects-for-the-parameters"></a>Parametreleri için dinamik nesneler belirten parametrelere sahip Yöntemler
 
-**WPF sunucusundan dinamik Nesne parametresi için kullanarak, bir parametre olarak adlandırılan bir yöntem için istemci kodu**
+**Parametresi için dinamik bir nesne kullanarak, bir parametresiyle sunucudan çağrılan bir yöntem için WPF istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample41.cs?highlight=1,4)]
 
-**Dinamik Nesne parametresi için kullanarak, bir parametre ile sunucusundan adlı bir yöntem için Silverlight istemci kodu**
+**Parametresi için dinamik bir nesne kullanarak, bir parametresiyle sunucudan çağrılan bir yöntem için Silverlight istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample42.cs?highlight=1,5)]
 
-**Konsol uygulaması istemci kodu için bir yöntem parametresi için bir dinamik Nesne kullanarak, bir parametre sunucusuyla çağrılır**
+**Parametresi için dinamik bir nesne kullanarak, bir parametresiyle sunucudan çağrılan bir yöntemin konsol uygulama istemci kodu**
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample43.cs?highlight=1-2)]

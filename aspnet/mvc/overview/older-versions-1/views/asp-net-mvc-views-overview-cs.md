@@ -1,149 +1,149 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
-title: ASP.NET MVC görünümlerine genel bakış (C#) | Microsoft Docs
+title: ASP.NET MVC görünümlerine genel bakışC#() | Microsoft Docs
 author: StephenWalther
-description: Bir ASP.NET MVC görünümü ve bir HTML sayfasından farkı nedir? Bu öğreticide, Stephen Walther görünümlerine tanıtır ve gösterir t getirmeyi...
+description: ASP.NET MVC görünümü nedir ve bir HTML sayfasından farklılık gösterir? Bu öğreticide, Stephen Walther size görünümleri ve nasıl yapılacağını gösterir...
 ms.author: riande
 ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
 ms.openlocfilehash: b3f44aa9654a2a718381eaf9c856ca3e15ed1e27
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117311"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600319"
 ---
 # <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC Görünümlerine Genel Bakış (C#)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-> Bir ASP.NET MVC görünümü ve bir HTML sayfasından farkı nedir? Bu öğreticide, Stephen Walther görünümleri sunar ve görünüm verilerini ve HTML yardımcılarını görünümündeki avantajlarından nasıl yapabileceğiniz gösterir.
+> ASP.NET MVC görünümü nedir ve bir HTML sayfasından farklılık gösterir? Bu öğreticide, Stephen Walther bir görünüm içinde verileri ve HTML yardımcılarını görüntülemeyi nasıl kullanabileceğinizi gösterir.
 
-Bu öğreticide, ASP.NET MVC görünümleri, görünüm verilerini ve HTML yardımcılarını kısa bir giriş sağlamaktır. Bu öğreticinin sonunda, yeni görünümler oluşturmak, bir denetleyiciden bir görünüme veri iletmek ve içerik Görünümü'nde oluşturulacak HTML yardımcılarını kullanma hakkında anlamanız gerekir.
+Bu öğreticinin amacı, ASP.NET MVC görünümleri, verileri görüntülemek ve HTML Yardımcıları hakkında kısa bir giriş sunmaktır. Bu öğreticinin sonunda, yeni görünümler oluşturmayı, bir denetleyiciden bir görünüme veri geçişi ve bir görünümde içerik oluşturmak için HTML Yardımcıları kullanmayı anlamalısınız.
 
-## <a name="understanding-views"></a>Anlama görünümleri
+## <a name="understanding-views"></a>Görünümleri anlama
 
-ASP.NET MVC, ASP.NET veya Active Server Pages için doğrudan bir sayfasına karşılık gelen herhangi bir şey içermez. Bir ASP.NET MVC uygulamasındaki değil bir sayfa tarayıcınızın adres çubuğuna yazın URL yoluna karşılık gelen disk üzerinde. Bir ASP.NET MVC uygulamasındaki bir sayfaya en yakın şey şeydir adlı bir *görünümü*.
+ASP.NET veya Active Server sayfalarında, ASP.NET MVC, doğrudan bir sayfaya karşılık gelen herhangi bir şeyi içermez. Bir ASP.NET MVC uygulamasında, bir diskte, tarayıcınızın adres çubuğuna yazdığınız URL 'deki yola karşılık gelen bir sayfa yoktur. ASP.NET MVC uygulamasındaki bir sayfaya en yakın şey, *Görünüm*olarak adlandırılan bir şeydir.
 
-Bir ASP.NET MVC uygulamasındaki gelen tarayıcı istekler denetleyici eylemlerine eşlenir. Bir denetleyici eylemi bir görünüm döndürebilir. Ancak, bir denetleyici eylemi, başka türden başka bir denetleyici eylemi için yönlendirme gibi eylem gerçekleştirebilir.
+ASP.NET MVC uygulamasında, gelen tarayıcı istekleri denetleyici eylemlerine eşlenir. Bir denetleyici eylemi bir görünüm döndürebilir. Ancak, bir denetleyici eylemi sizi başka bir denetleyici eylemine yönlendirme gibi başka bir eylem türü gerçekleştirebilir.
 
-1 listeleme HomeController adlı basit bir denetleyici içerir. HomeController İNDİS() ve Details() adlı iki denetleyici eylemleri gösterir.
+Listeleme 1, HomeController adlı basit bir denetleyici içerir. HomeController, Index () ve details () adlı iki denetleyici eylemini kullanıma sunar.
 
-**1 - HomeController.cs listeleme**
+**Listeleme 1-HomeController.cs**
 
 [!code-csharp[Main](asp-net-mvc-views-overview-cs/samples/sample1.cs)]
 
-Tarayıcı adres çubuğuna aşağıdaki URL'yi yazarak İNDİS() eylem ilk eylemin çağırabilirsiniz:
+Tarayıcı adres çubuğuna aşağıdaki URL 'YI yazarak dizin () eylemini ilk eylemi çağırabilirsiniz:
 
-/ Home/Index
+/Home/Index
 
-Bu adres tarayıcınıza yazarak Details() eylem ikinci bir eylem çağırabilirsiniz:
+Bu adresi tarayıcınıza yazarak, ayrıntılar () eylemini ikinci eylemi çağırabilirsiniz:
 
-/ Home/ayrıntıları
+/Home/Details
 
-İNDİS() eylemi bir görünüm verir. Oluşturduğunuz çoğu eylemleri görünümleri döndürür. Ancak, bir eylem, eylem sonuçlarını diğer türleri döndürebilir. Örneğin, gelen istek İNDİS() eyleme yeniden yönlendirir. bir RedirectToActionResult Details() eylem döndürür.
+Index () eylemi bir görünüm döndürür. Oluşturduğunuz çoğu eylem, görünümleri döndürür. Ancak, bir eylem diğer eylem sonuçları türlerini döndürebilir. Örneğin, Details () eylemi, gelen isteği dizin () eylemine yönlendiren bir RedirectToActionResult döndürür.
 
-İNDİS() eylemi aşağıdaki tek satır kod içerir:
+Index () eylemi aşağıdaki tek kod satırını içerir:
 
-View();
+Görüntüleme ();
 
-Bu kod satırı kullanarak web sunucunuz üzerinde aşağıdaki yolda bulunan bir görünüm verir:
+Bu kod satırı, Web sunucunuzdaki aşağıdaki yolda bulunması gereken bir görünüm döndürür:
 
 \Views\Home\Index.aspx
 
-Görünüme giden yol, denetleyici adı ve denetleyici eylem adını algılanır.
+Görünümün yolu, denetleyicinin adından ve denetleyici eyleminin adıyla algılanır.
 
-Tercih ederseniz, görünümü hakkında açık olabilir. Aşağıdaki kod satırını Gamze adlı bir görünümü döndürür:
+İsterseniz, görünüm hakkında açık olabilirsiniz. Aşağıdaki kod satırı, Fred adlı bir görünüm döndürür:
 
-Görünümü (Fred);
+Görünüm (Fred);
 
-Bu kod satırı yürütüldüğünde, bir görünüm aşağıdaki yoldan döndürülür:
+Bu kod satırı yürütüldüğünde, aşağıdaki yoldan bir görünüm döndürülür:
 
 \Views\Home\Fred.aspx
 
 > [!NOTE] 
 > 
-> Ardından, ASP.NET MVC uygulaması için birim testleri oluşturmayı planlıyorsanız görünüm adları hakkında açık olmaya iyi bir fikir olduğunu. Böylece, beklenen görünümü bir denetleyici eylemi tarafından döndürülen olduğunu doğrulamak için birim testi oluşturabilirsiniz.
+> ASP.NET MVC uygulamanız için birim testleri oluşturmayı planlıyorsanız, görünüm adları hakkında açık olması iyi bir fikirdir. Bu şekilde, beklenen görünümün bir denetleyici eylemi tarafından döndürüldüğünü doğrulamak için bir birim testi oluşturabilirsiniz.
 
-## <a name="adding-content-to-a-view"></a>İçerik görünümü ekleme
+## <a name="adding-content-to-a-view"></a>Görünüme Içerik ekleme
 
-Standart (X) komut dosyalarını içeren bir HTML belgesi bir görünümüdür. Dinamik içerik görünümüne eklemek için komut dosyalarını kullanın.
+Görünüm, komut dosyaları içerebilen standart (X) HTML belgesidir. Bir görünüme dinamik içerik eklemek için betikleri kullanın.
 
-Örneğin, geçerli tarih ve saat 2 liste görünümünde görüntüler.
+Örneğin, liste 2 ' deki görünüm geçerli tarih ve saati gösterir.
 
-**Listing 2 - \Views\Home\Index.aspx**
+**Listeleme 2-\Views\home\ındex.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample2.aspx)]
 
-Listeleme 2'de HTML sayfasının gövdesi aşağıdaki betiği içerdiğine dikkat edin:
+Liste 2 ' deki HTML sayfasının gövdesi aşağıdaki betiği içerir:
 
-&lt;% Response.Write(DateTime.Now); %&gt;
+&lt;% Response. Write (DateTime. Now);%&gt;
 
-Betik sınırlayıcılar kullandığınız &lt;% ve %&gt; başlangıcını ve bitişini bir betiğin işaretlenecek. Bu betik C# dilinde yazılır. Geçerli tarih ve saat tarayıcıya içeriğini işlemek için Response.Write() yöntemi çağırarak gösterir. Betik sınırlayıcılar &lt;% ve %&gt; bir veya daha fazla deyimleri yürütmek için kullanılabilir.
+Bir betiğin başlangıcını ve sonunu işaretlemek için% &lt;% ve%&gt; komut dosyası sınırlayıcılarını kullanın. Bu betik ' de C#yazılmıştır. İçeriği tarayıcıya işlemek için Response. Write () yöntemini çağırarak geçerli tarih ve saati görüntüler. &lt;% ve%&gt; betik sınırlayıcıları bir veya daha fazla deyimi yürütmek için kullanılabilir.
 
-Response.Write() çoğunlukla çağrısından Microsoft, bir kısayol Response.Write() yöntemini çağırmak için sağlar. 3 liste görünümünde sınırlayıcıları kullanır &lt;% = %&gt; Response.Write() çağırmak için bir kısayol olarak.
+Genellikle Response. Write () çağrısı yaptığından, Microsoft size Response. Write () metodunu çağırma için bir kısayol sağlar. Listeleme 3 ' teki görünüm, yanıt. Write () çağrısı için bir kısayol olarak &lt;% = ve%&gt; sınırlayıcılarını kullanır.
 
-**3 - Views\Home\Index2.aspx listeleme**
+**Listeleme 3-Views\home\ındex2,aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample3.aspx)]
 
-Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kullanabilirsiniz. Normalde, ya da Visual BASİC.NET kullanacağınız veya C# görünümleri ve denetleyicileri yazılacak.
+Bir görünümde dinamik içerik oluşturmak için herhangi bir .NET dili kullanabilirsiniz. Normalde, Visual Basic .NET veya C# denetleyicilerinizi ve görünümlerinizi yazmak için kullanın.
 
-## <a name="using-html-helpers-to-generate-view-content"></a>İçerik görünümü oluşturmak için HTML yardımcılarını kullanma
+## <a name="using-html-helpers-to-generate-view-content"></a>Görünüm Içeriği oluşturmak için HTML Yardımcıları kullanma
 
-İçerik görünümüne eklemek daha kolay hale getirmek için bir şey adlı avantajlarından yararlanabilirsiniz. bir *HTML Yardımcısı*. Bir HTML Yardımcısı, genellikle, bir dize oluşturan bir yöntemdir. HTML Yardımcıları, metin kutuları, bağlantılar, açılan listeler ve liste kutuları gibi standart HTML öğeleri oluşturmak için kullanabilirsiniz.
+Bir görünüme içerik eklemenizi kolaylaştırmak için, *HTML Yardımcısı*adlı bir şeyin avantajlarından yararlanabilirsiniz. Genellikle bir HTML Yardımcısı, bir dize üreten bir yöntemdir. HTML Yardımcıları, metin kutuları, bağlantılar, açılan listeler ve liste kutuları gibi standart HTML öğeleri oluşturmak için kullanabilirsiniz.
 
-Örneğin, 4 listeleme yararlanır-üç HTML Yardımcıları--görünümünde bir oturum açma bilgisi oluşturmak için BeginForm() TextBox() ve Password() Yardımcıları--(bkz. Şekil 1) oluşturur.
+Örneğin, kod 4 ' teki görünüm üç HTML yardımcıdan faydalanır: BeginForm (), TextBox () ve Password () yardımcıları--oturum açma formu oluşturmak için (bkz. Şekil 1).
 
-**Listing 4 -- \Views\Home\Login.aspx**
+**Listeleme 4--\Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample4.aspx)]
 
-[![Yeni Proje iletişim kutusu](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
+[Yeni proje iletişim kutusunu ![](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
-**Şekil 01**: Standart bir oturum açma formu ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-views-overview-cs/_static/image2.png))
+**Şekil 01**: standart bir oturum açma formu ([tam boyutlu görüntüyü görüntülemek için tıklayın](asp-net-mvc-views-overview-cs/_static/image2.png))
 
-HTML Yardımcıları yöntemlerin tümü, görünümün Html özelliği çağrılır. Örneğin, TextBox Html.TextBox() yöntemi çağırarak işler.
+HTML yardımcılarının tümü, görünümün HTML özelliğinde çağrılır. Örneğin, HTML. TextBox () yöntemini çağırarak bir metin kutusunu işleyebilirsiniz.
 
-Betik sınırlayıcılar kullandığına dikkat edin &lt;% = %&gt; Html.TextBox() hem Html.Password() Yardımcıları çağırırken. Bu Yardımcıları, yalnızca bir dize döndürür. Tarayıcı dizeye işlemek için Response.Write() çağırmanız gerekir.
+Hem HTML. TextBox () hem de HTML. Password () yardımcıları çağrılırken% = ve%&gt; &lt;komut dosyası sınırlayıcılarının kullanıldığına dikkat edin. Bu yardımcılar yalnızca bir dize döndürür. Dizeyi tarayıcıya işlemek için Response. Write () çağrısı yapmanız gerekir.
 
-HTML yardımcı yöntemler kullanarak isteğe bağlıdır. Bunlar, HTML ve yazmanız gereken kod miktarını azaltarak kolaylaştıracak. 5 listeleyen görünüme 4 listeleyen görünüme tam aynı biçime HTML Yardımcıları kullanmadan işler.
+HTML Yardımcısı yöntemlerini kullanmak isteğe bağlıdır. Yazmanız gereken HTML ve betiğin miktarını azaltarak yaşamınızı daha kolay hale getirir. Listeleme 5 ' teki görünüm, HTML Yardımcıları kullanmadan liste 4 ' teki görünümle tam olarak aynı formu işler.
 
-**Listing 5 -- \Views\Home\Login.aspx**
+**Listeleme 5--\Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample5.aspx)]
 
-Ayrıca, kendi HTML Yardımcıları oluşturma seçeneğiniz de vardır. Örneğin, bir veritabanı kayıt kümesi ile HTML tablosu halinde otomatik olarak görüntüleyen bir GridView() yardımcı yöntemi oluşturabilirsiniz. Öğreticinin bu bölümüne inceleyeceğiz **özel HTML Yardımcıları oluşturma**.
+Kendi HTML Yardımcıları oluşturma seçeneğiniz de vardır. Örneğin, bir HTML tablosunda otomatik olarak bir veritabanı kaydı kümesi görüntüleyen bir GridView () yardımcı yöntemi oluşturabilirsiniz. Bu konu, **özel HTML Yardımcıları oluşturma**öğreticisinde araştırıyoruz.
 
-## <a name="using-view-data-to-pass-data-to-a-view"></a>Bir görünüme veri iletmek için görünüm verilerini kullanarak
+## <a name="using-view-data-to-pass-data-to-a-view"></a>Verileri görünüme geçirmek için Görünüm verilerini kullanma
 
-Bir denetleyiciden bir görünüme veri iletmek için Görünüm verileri kullanın. Görünüm verilerini posta ile gönderdiğiniz bir paket gibi düşünün. Bir denetleyiciden görünümüne aktarılan tüm veriler bu paket kullanılarak gönderilmesi gerekir. Örneğin, denetleyici listeleme 6'daki verileri görüntülemek için bir ileti ekler.
+Bir denetleyiciden bir görünüme veri geçirmek için verileri görüntüle 'yi kullanırsınız. Verileri posta aracılığıyla göndereceğiniz bir paket gibi görüntülemeyi düşünün. Bir denetleyiciden bir görünüme geçirilen tüm verilerin bu paket kullanılarak gönderilmesi gerekir. Örneğin, liste 6 ' daki denetleyici verileri görüntülemek için bir ileti ekler.
 
-**6 - ProductController.cs listeleme**
+**Listeleme 6-ProductController.cs**
 
 [!code-csharp[Main](asp-net-mvc-views-overview-cs/samples/sample6.cs)]
 
-Denetleyici ViewData özelliği, ad ve değer çifti koleksiyonunu temsil eder. Listeleme 6'da İNDİS() yöntemi ileti değeri Hello World adlı görünüm veri koleksiyonu için bir öğe ekler!. Görünüm İNDİS() yöntemi tarafından döndürülen, görünüm verileri otomatik olarak görünüme iletilir.
+Controller ViewData özelliği bir ad ve değer çiftleri koleksiyonunu temsil eder. Liste 6 ' da, Index () yöntemi, Merhaba Dünya! değerine sahip ileti adlı görünüm verileri koleksiyonuna bir öğe ekler. Görünüm, Index () yöntemiyle döndürüldüğünde görünüm verileri otomatik olarak görünüme geçirilir.
 
-Listeleme 7 görünüm, görünüm verileri iletiyi alır ve tarayıcıya ileti işler.
+Liste 7 ' deki görünüm, verileri görünüm verilerinden alır ve iletiyi tarayıcıya işler.
 
-**Listing 7 -- \Views\Product\Index.aspx**
+**Listeleme 7--\Views\product\ındex.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample7.aspx)]
 
-Görünüm iletisi işlenirken Html.Encode() HTML yardımcı yöntemi avantajlarından sağladığına dikkat edin. Html.Encode() HTML Yardımcısı gibi özel karakterleri kodlar &lt; ve &gt; içine bir web sayfasında görüntülenecek güvenli karakterler. Bir Web sitesine bir kullanıcının gönderdiğini içerik işleme her JavaScript ekleme saldırılarını önlemek için içerik kodlama.
+Görünümün, iletiyi işlerken HTML. Encode () HTML yardımcı yönteminden yararlandığına dikkat edin. HTML. Encode () HTML Yardımcısı, &lt; gibi özel karakterleri ve bir Web sayfasında görüntülenmek üzere güvenli karakterler halinde &gt; kodlar. Bir kullanıcının bir Web sitesine gönderdiği içeriği her oluşturduğunuzda, JavaScript ekleme saldırılarını engellemek için içeriği kodlamanız gerekir.
 
-(İleti kendimize ProductController oluşturduğumuz çünkü gerçekten iletisini kodlamak gerekmez. Ancak, bu içeriği görüntüleyen bir görünüm içindeki görünümü verileri alınırken her zaman Html.Encode() yöntemini çağırmak için iyi bir alışkanlıktır.)
+(Kendimize iletisini ProductController 'da oluşturduğumuz için gerçekten iletiyi kodlayamıyoruz. Ancak, görünümün içindeki verilerden alınan içeriği görüntülerken, her zaman HTML. Encode () yöntemini çağırmak iyi bir alışkanlıktır.)
 
-Listeleme 7'de basit dize iletisi denetleyiciden bir görünüme iletmek için Görünüm verileri avantajlarından attık. Görünüm verilerini, diğer türde bir koleksiyon veritabanı kayıtlarını, görünüm denetleyiciye gibi verileri geçirmek için de kullanabilirsiniz. Örneğin, veritabanı koleksiyonu geçip geçmeyeceğini sonra ürünleri veritabanı tablosunun bir görünümü'nde görüntülemek istiyorsanız, görünüm verileri kaydeder.
+Liste 7 ' de, bir denetleyiciden bir görünüme basit bir dize iletisi geçirmek için verileri görüntüle ' den faydalanır. Ayrıca, veritabanı kayıtlarının bir koleksiyonu gibi diğer veri türlerini bir denetleyiciden bir görünüme geçirmek için verileri görüntüle ' yi de kullanabilirsiniz. Örneğin, Products veritabanı tablosunun içeriğini bir görünümde görüntülemek istiyorsanız, veritabanı kayıtlarının koleksiyonunu görünüm verilerinde geçitirsiniz.
 
-Ayrıca, kesin türü belirtilmiş görünüm veri görünümü bir denetleyiciden geçirme seçeneğiniz de vardır. Öğreticinin bu bölümüne inceleyeceğiz **anlama kesin türü belirtilmiş görünüm veri ve görünümleri**.
+Bir denetleyiciden bir görünüme kesin olarak belirlenmiş görünüm verisi geçirme seçeneğiniz de vardır. Bu konuyu, **kesin türü belirtilmiş Görünüm verilerini ve görünümlerini anlama**öğreticisinde araştırıyoruz.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, ASP.NET MVC görünümleri, görünüm verilerini ve HTML yardımcılarını kısa bir giriş sağlanır. Bu bölümde, yeni görünümler projenize ekleme öğrendiniz. Öğrendiğiniz, görünümü sağ klasöre belirli bir denetleyiciden çağırmak için eklemeniz gerekir. Ardından, HTML Yardımcıları konuyu ele almıştık. HTML Yardımcıları, standart HTML içeriği kolayca oluşturmak nasıl olanak öğrendiniz. Son olarak, bir denetleyiciden bir görünüme veri iletmek için Görünüm verileri yararlanmak hakkında bilgi edindiniz.
+Bu öğreticide, ASP.NET MVC görünümleri, verileri görüntüleme ve HTML Yardımcıları hakkında kısa bir giriş sunulmaktadır. İlk bölümde, projenize yeni görünümler eklemeyi öğrendiniz. Belirli bir denetleyiciden çağırmak için doğru klasöre bir görünüm eklemeniz gerektiğini öğrendiniz. Daha sonra, HTML yardımcılarını ele aldık. HTML yardımcıların standart HTML içeriğini kolayca oluşturmanıza nasıl imkan sağladığını öğrendiniz. Son olarak, bir denetleyiciden bir görünüme veri geçirmek için verileri görüntüleme özelliğinden nasıl yararlanırsınız hakkında öğrenirsiniz.
 
 > [!div class="step-by-step"]
 > [Next](creating-custom-html-helpers-cs.md)

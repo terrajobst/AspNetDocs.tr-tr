@@ -8,18 +8,18 @@ ms.date: 11/24/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 960960d26863cc3f725eee8a6c98844c5d3ce721
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.openlocfilehash: ab3ba71839123e848dffaa59871f9dac8c1a88d0
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519186"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622621"
 ---
 # <a name="call-a-web-api-from-a-net-client-c"></a>.NET Istemcisinden bir Web API 'SI çağırma (C#)
 
 , [Mike, son](https://github.com/MikeWasson) ve [Rick Anderson](https://twitter.com/RickAndMSFT) tarafından
 
-[Tamamlanmış projeyi indirin](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). 
+[Tamamlanmış projeyi indirin](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Yönergeleri indirin](/aspnet/core/tutorials/#how-to-download-a-sample). 
 
 Bu öğreticide, [System .net. http. HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) kullanılarak .NET uygulamasından BIR Web API 'sinin nasıl çağrılacağını gösterir.
 
@@ -55,7 +55,7 @@ Yukarıdaki kod, tüm istemci uygulamasıdır.
 
 Web API Istemci kitaplıkları paketini yüklemek için NuGet Paket Yöneticisi 'Ni kullanın.
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolunda (PMC), aşağıdaki komutu yazın:
+**Araçlar** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsolunda (PMC), aşağıdaki komutu yazın:
 
 `Install-Package Microsoft.AspNet.WebApi.Client`
 
@@ -165,7 +165,7 @@ GET gibi, bir DELETE isteğinin bir istek gövdesi yoktur. DELETE ile JSON veya 
 
 İstemci uygulamasını test etmek için:
 
-1. Sunucu uygulamasını [indirip](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) çalıştırın. [Yükleme yönergeleri](/aspnet/core/#how-to-download-a-sample). Sunucu uygulamasının çalıştığını doğrulayın. Örneğin, `http://localhost:64195/api/products` ürünlerin bir listesini döndürmelidir.
+1. Sunucu uygulamasını [indirip](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) çalıştırın. [Yönergeleri indirin](/aspnet/core/#how-to-download-a-sample). Sunucu uygulamasının çalıştığını doğrulayın. Örneğin, `http://localhost:64195/api/products` ürünlerin bir listesini döndürmelidir.
 2. HTTP istekleri için temel URI 'yi ayarlayın. Bağlantı noktası numarasını sunucu uygulamasında kullanılan bağlantı noktasıyla değiştirin.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

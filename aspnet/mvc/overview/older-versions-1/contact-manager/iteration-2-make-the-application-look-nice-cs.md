@@ -1,148 +1,148 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
-title: 'Yineleme #2 – uygulamanın güzel (C#) görünmesini olun | Microsoft Docs'
+title: 'Yineleme #2 – uygulamanın güzel görünmesini sağlama (C#) | Microsoft Docs'
 author: microsoft
-description: Bu yineleme, varsayılan ASP.NET MVC görünüm ana sayfası değiştirme ve geçişli stil sayfası biz uygulamanın görünümünü geliştirin.
+description: Bu yinelemede, varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfasını değiştirerek uygulamanın görünüşünü geliştiririz.
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: f1173feb-11ee-4017-8f3f-86599ea6ae13
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 246cb4b4668339cc4b7e4e03ea005102c6a2a5c3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126816"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78602020"
 ---
-# <a name="iteration-2--make-the-application-look-nice-c"></a>Yineleme #2 – uygulamanın güzel (C#) görünmesini olun
+# <a name="iteration-2--make-the-application-look-nice-c"></a>Yineleme #2: uygulamanın iyi görünmesini sağlama (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
 [Kodu indir](iteration-2-make-the-application-look-nice-cs/_static/contactmanager_2_cs1.zip)
 
-> Bu yineleme, varsayılan ASP.NET MVC görünüm ana sayfası değiştirme ve geçişli stil sayfası biz uygulamanın görünümünü geliştirin.
+> Bu yinelemede, varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfasını değiştirerek uygulamanın görünüşünü geliştiririz.
 
-## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Bir kişi yönetimi ASP.NET MVC uygulama (C#)
+## <a name="building-a-contact-management-aspnet-mvc-application-c"></a>Kişi yönetimi ASP.NET MVC uygulaması (C#) oluşturma
 
-Bu öğretici serisinde, tamamlanması bir tüm kişi yönetimi uygulaması ekleriz. Kişi Yöneticisi uygulama kişilerin bir listesi için kişi bilgilerini - adları, telefon numarası ve e-posta adresleri - depolamanızı sağlar.
+Bu öğretici dizisinde, başlangıçtan sonuna kadar bir Iletişim yönetimi uygulaması oluşturacaksınız. Ilgili kişi Yöneticisi uygulaması, kişi listesi için kişi bilgilerini, telefon numaralarını ve e-posta adreslerini depolamanıza olanak sağlar.
 
-Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli olarak uygulama geliştirin. Bu birden çok yineleme yaklaşımı amacı, her değişikliğin nedenini anlamak etkinleştirmektir.
+Uygulamayı birden çok yineleme üzerinde oluşturacağız. Her yinelemede, uygulamayı kademeli olarak geliştirdik. Bu birden çok yineleme yaklaşımının hedefi, her bir değişikliğin nedenini anlamanıza olanak sağlamaktır.
 
-- Yineleme #1 - uygulama oluşturun. İlk yinelemede Kişi Yöneticisi basit şekilde olası oluştururuz. Temel veritabanı işlemleri için destek ekliyoruz: Oluşturma, okuma, güncelleştirme ve silme (CRUD).
+- Yineleme #1-uygulamayı oluşturun. İlk yinelemede, mümkün olan en kolay şekilde Contact Manager oluşturacağız. Temel veritabanı işlemleri için destek ekledik: oluşturma, okuma, güncelleştirme ve silme (CRUD).
 
-- Yineleme #2 - uygulamanın güzel görünmesini olun. Bu yineleme, varsayılan ASP.NET MVC görünüm ana sayfası değiştirme ve geçişli stil sayfası biz uygulamanın görünümünü geliştirin.
+- Yineleme #2-uygulamanın iyi görünmesini sağlayın. Bu yinelemede, varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfasını değiştirerek uygulamanın görünüşünü geliştiririz.
 
-- Yineleme #3 - form doğrulaması ekleme. Üçüncü yinelemede temel form doğrulaması ekleriz. Biz, kişi formu gerekli form alanlarını tamamlamadan göndermesinin önlenmesine. Biz de e-posta adresi ve telefon numaralarını doğrulayın.
+- Yineleme #3-form doğrulaması ekleme. Üçüncü yinelemede, temel form doğrulaması ekleyeceğiz. Kullanıcıların gerekli form alanlarını tamamlamadan form göndermesini önliyoruz. Ayrıca e-posta adreslerini ve telefon numaralarını da doğruladık.
 
-- Yineleme #4 - birbirine sıkı şekilde bağlı uygulama olun. Bu dördüncü yinelemede biz Bakım ve değişiklik kişi yöneticisi uygulamayı kolaylaştırmak için çeşitli yazılım tasarım desenleri yararlanın. Örneğin, biz uygulamamız depo deseni ve bağımlılık ekleme modelini kullanmak için yeniden düzenleyin.
+- Yineleme #4-uygulamayı gevşek olarak bağlanmış hale getirin. Bu dördüncü yinelemede, Contact Manager uygulamasının bakımını ve değiştirmesini kolaylaştırmak için çeşitli yazılım tasarımı desenlerinden faydalanır. Örneğin, uygulamamız depo deseninin ve bağımlılık ekleme düzeninin kullanılması için yeniden düzenliyoruz.
 
-- Yineleme #5 - birim testleri oluşturun. Beşinci yinelemede uygulamamız Bakım ve değişiklik birim testleri ekleyerek daha kolay vermiyoruz. Biz, bizim veri modeli sınıfları Sahne ve yapı denetleyicilerini ve Doğrulama mantığı birim testleri.
+- Yineleme #5-birim testleri oluşturun. Beşinci yinelemede, uygulamanızın birim testlerini ekleyerek bakımını ve değiştirmeyi daha kolay hale sunuyoruz. Denetleyicilerimizin ve doğrulama mantığımız için veri modeli Sınıflarımızı ve derleme birimi testlerini modelliyoruz.
 
-- Yineleme #6 - test odaklı geliştirme kullanma. Bu altıncı yinelemede yeni işlevsellik uygulamamız için ilk birim testleri yazma ve birim testlerini karşı kod yazma ekleriz. Bu yineleme, kişi grupları ekleriz.
+- Yineleme #6-test odaklı geliştirme kullanın. Bu altıncı yinelemede, önce birim testlerini yazarak ve birim testlerine göre kod yazarak uygulamamıza yeni işlevsellik ekleyeceğiz. Bu yinelemede kişi grupları ekleyeceğiz.
 
-- Yineleme #7 - Ajax işlevselliği ekleme. Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
+- Yineleme #7-Ajax işlevselliği ekleme. Yedinci yinelemede, Ajax desteği ekleyerek uygulamamızın yanıt hızını ve performansını geliştirdik.
 
 ## <a name="this-iteration"></a>Bu yineleme
 
-Kişi Yöneticisi uygulama görünümünü amacı, bu yineleme artırmaktır. Kişi Yöneticisi, şu anda varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfası (bkz. Şekil 1) kullanır. Bu rsquo hatalı bakın, ancak yalnızca her diğer ASP.NET MVC Web sitesi gibi aramak için Kişi Yöneticisi t istediğiniz görmüyorum. Bu dosyalar özel dosyaları ile değiştirmek istiyorsunuz.
+Bu yinelemenin hedefi, Contact Manager uygulamasının görünüşünü geliştirmektir. Şu anda, kişi Yöneticisi varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfasını kullanır (bkz. Şekil 1). Bu, hatalı görünmeme, ancak Contact Manager 'ın diğer tüm ASP.NET MVC web sitesi gibi görünmesini istemiyorum. Bu dosyaları özel dosyalarla değiştirmek istiyorum.
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image1.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image1.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image1.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image1.png)
 
-**Şekil 01**: Bir ASP.NET MVC uygulamasını varsayılan görünümünü ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image2.png))
+**Şekil 01**: BIR ASP.NET MVC uygulamasının varsayılan görünümü ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image2.png))
 
-Bu yineleme, ı uygulamamız görsel tasarımını geliştirmek için iki yaklaşım ele alınmıştır. İlk olarak, ı, boş bir ASP.NET MVC tasarım şablonu indirmek için ASP.NET MVC tasarım galeri yararlanmak gösterilmektedir. ASP.NET MVC Tasarım Galerisi, herhangi bir iş yapmadan profesyonel web uygulaması oluşturmanıza olanak sağlar.
+Bu yinelemede, uygulamamızın görsel tasarımını iyileştirmek için iki yaklaşım anladım. İlk olarak, ücretsiz bir ASP.NET MVC tasarım şablonunu indirmek için ASP.NET MVC tasarım galerisinden nasıl yararlanabilirim? ASP.NET MVC Tasarım Galerisi, herhangi bir iş yapmadan profesyonel bir Web uygulaması oluşturmanıza olanak sağlar.
 
-Kişi Yöneticisi uygulama için bir şablon ASP.NET MVC tasarım galerideki kullanmayacak şekilde verdi. Bunun yerine, bir profesyonel tasarım şirketi tarafından oluşturulan özel bir tasarım var. Bu öğreticinin ikinci bölümünde son ASP.NET MVC tasarım oluşturmak için profesyonel tasarım şirketinin ile nasıl çalıştım açıklanmaktadır.
+Contact Manager uygulaması için ASP.NET MVC tasarım galerisinden bir şablon kullanmamaya karar verdim. Bunun yerine, profesyonel tasarım firması tarafından oluşturulan özel bir tasarımım vardı. Bu öğreticinin ikinci bölümünde, son ASP.NET MVC tasarımını oluşturmak için profesyonel bir tasarım şirketiyle nasıl çalıştık açıkladım.
 
 ## <a name="the-aspnet-mvc-design-gallery"></a>ASP.NET MVC Tasarım Galerisi
 
-ASP.NET MVC Tasarım Galerisi, Microsoft tarafından sağlanan ücretsiz bir kaynaktır. ASP.NET MVC galeri şu adresten bulunur:
+ASP.NET MVC Tasarım Galerisi, Microsoft tarafından sunulan ücretsiz bir kaynaktır. ASP.NET MVC Galerisi şu adreste bulunur:
 
 [https://www.asp.net/mvc/gallery](https://www.asp.net/mvc/gallery)
 
-ASP.NET MVC tasarım galeri için bir ASP.NET MVC projesinde özellikle kullanılarak oluşturulan ücretsiz Web sitesi tasarımları koleksiyonunu barındırır. Tasarım, topluluk üyeleri tarafından yüklenir. Galeri yayımlanacağını ve Ziyaretçiler, sık kullanılan tasarımları için oy verin (bkz: Şekil 2).
+ASP.NET MVC Tasarım Galerisi, bir ASP.NET MVC projesinde kullanımı için özel olarak oluşturulan ücretsiz web sitesi tasarımlarının bir koleksiyonunu barındırır. Tasarımlar, topluluk üyeleri tarafından karşıya yüklenir. Galerinin ziyaretçileri, en sevdiğiniz tasarımlar için oy verebilir (bkz. Şekil 2).
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image2.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image3.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image2.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image3.png)
 
-**Şekil 02**: ASP.NET MVC Tasarım Galerisi ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image4.png))
+**Şekil 02**: ASP.NET MVC Tasarım Galerisi ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image4.png))
 
-Bu öğreticide yazdığım gibi galerisinde en popüler tasarım Ekim David Hauser tarafından adlandırılan bir tasarım olur. Bu tasarım, aşağıdaki adımları izleyerek bir ASP.NET MVC projesi için kullanabilirsiniz:
+Bu öğreticiyi yazdığımda, galerideki en popüler tasarım Ekim, David Hauser adlı bir tasarımdır. Aşağıdaki adımları tamamlayarak, bu tasarımı bir ASP.NET MVC projesi için kullanabilirsiniz:
 
-1. Tıklayın **indirme** October.zip dosyayı bilgisayarınıza indirmek için düğme.
-2. İndirilen October.zip dosyasını sağ tıklatıp **Engellemeyi Kaldır** (bkz: Şekil 3) düğmesi.
-3. Ekim adlı bir klasöre dosyanın sıkıştırmasını açın.
-4. Ekim klasördeki DesignTemplate klasöründen tüm dosyaları seçin, dosyaları sağ tıklayın ve menü seçeneğini **kopyalama**.
-5. Visual Studio Çözüm Gezgini penceresinde ContactManager proje düğümüne sağ tıklayın ve menü seçeneğini **Yapıştır** (bkz: Şekil 4).
-6. Visual Studio menü seçeneğini **düzenlemek, Bul ve Değiştir hızlı Değiştir** değiştirin *[MyProjectName]* ile *ContactManager* (bkz: Şekil 5).
+1. Ekim. zip dosyasını bilgisayarınıza indirmek için **İndir** düğmesine tıklayın.
+2. İndirilen Ekim. zip dosyasına sağ tıklayın ve **Engellemeyi kaldır** düğmesine tıklayın (bkz. Şekil 3).
+3. Dosyayı Ekim adlı bir klasöre ayıklayın.
+4. Ekim klasöründe bulunan DesignTemplate klasöründen tüm dosyaları seçin, dosyalara sağ tıklayın ve sonra **Kopyala**' yı seçin.
+5. Visual Studio Çözüm Gezgini penceresinde ContactManager proje düğümüne sağ tıklayın ve menü seçeneğini **Yapıştır** ' ı seçin (bkz. Şekil 4).
+6. Visual Studio menü seçeneğini belirleyin **, bulun ve değiştirin, Hızlı Değiştir** ve < *MyProjectName]* öğesini *ContactManager* ile değiştirin (bkz. Şekil 5).
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image3.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image5.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image3.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image5.png)
 
-**Şekil 03**: Web'den indirilen bir dosyayı kaldırma ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image6.png))
+**Şekil 03**: Web 'den indirilen bir dosyanın engellemesini kaldırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image6.png))
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image4.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image7.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image4.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image7.png)
 
-**Şekil 04**: Çözüm Gezgini'nde dosyalarının üzerine yazarak ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image8.png))
+**Şekil 04**: Çözüm Gezgini dosyaların üzerine yazma ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image8.png))
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image5.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image9.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image5.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image9.png)
 
-**Şekil 05**: [ProjeAdı] ile ContactManager değiştirme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image10.png))
+**Şekil 05**: [ProjectName] öğesini ContactManager ile değiştirme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image10.png))
 
-Bu adımları tamamladıktan sonra web uygulamanızın yeni tasarım kullanır. Şekil 6 sayfasında Kişi Yöneticisi uygulama ile Ekim Tasarım görünümünü gösterir.
+Bu adımları tamamladıktan sonra, Web uygulamanız yeni tasarımı kullanacaktır. Şekil 6 ' daki sayfa, Ekim tasarımıyla birlikte Contact Manager uygulamasının görünümünü gösterir.
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image6.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image11.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image6.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image11.png)
 
-**Şekil 06**: Ekim şablonuyla ContactManager ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image12.png))
+**Şekil 06**: Ekim şablonuna sahip ContactManager ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image12.png))
 
-## <a name="creating-a-custom-aspnet-mvc-design"></a>Özel ASP.NET MVC tasarımı oluşturma
+## <a name="creating-a-custom-aspnet-mvc-design"></a>Özel bir ASP.NET MVC tasarımı oluşturma
 
-ASP.NET MVC tasarım galeri iyi bir seçim farklı tasarım stili vardır. Galeri özelleştirme, ASP.NET MVC uygulamaları için sorunsuz bir yol sağlar. Ve tabii, Galeri tamamen ücretsiz olmalarının büyük avantajı vardır.
+ASP.NET MVC Tasarım Galerisi, farklı tasarım stilleri için iyi bir seçimdir. Galeri, ASP.NET MVC uygulamalarınızın görünümünü özelleştirmek için biraz daha az bir yol sağlar. Tabii ki, Galeri büyük ölçüde tamamen ücretsiz olarak avantajlıdır.
 
-Ancak, Web siteniz için tamamen benzersiz bir tasarım oluşturmak gerekebilir. Bu durumda, bir Web sitesi tasarım şirketinin ile çalışmak için mantıklıdır. Kişi Yöneticisi uygulama tasarımı için bu yaklaşımı benimsemeye karar.
+Ancak, Web siteniz için tamamen benzersiz bir tasarım oluşturmanız gerekebilir. Bu durumda, bir Web sitesi tasarımı şirketiyle çalışmak mantıklı olur. Bu yaklaşımı, Contact Manager uygulamasının tasarımı için yapmaya karar verdim.
 
-Oluşturan kişi yöneticisi yineleme # 1 daraltılmış ve proje için tasarım şirket gönderilen bildirimi. Visual Studio (bunlar üzerinde shame!) sahip değil, ancak bir sorun var olmadı. Bunlar Microsoft Visual Web Developer'ndan ücretsiz karşıdan sunmayı başarabilseydiniz nasıl olurdu [ https://www.asp.net ](https://www.asp.net) Web sitesine gidin ve Visual Web Developer kişi yöneticisi uygulamayı açın. Birkaç gün içinde Şekil 7'de tasarım üretilen.
+Contact Manager 'ı yineleme #1 sıkıştırdım ve projeyi tasarım şirketine gönderdiniz. Bunlar Visual Studio 'Yu (bunlar üzerinde biçimlendirdim!) değil, bir sorun sunmadı. Microsoft Visual Web Developer 'ı [https://www.asp.net](https://www.asp.net) Web sitesinden ücretsiz olarak indirebildikleri ve Visual Web Developer 'Da Contact Manager uygulamasını açamıyor. Birkaç gün içinde, Şekil 7 ' de tasarımı üretti.
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image7.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image13.png)
 
-**Şekil 07**: ASP.NET MVC Kişi Yöneticisi tasarım ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image14.png))
+**Şekil 07**: ASP.NET MVC Contact Manager tasarımı ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image14.png))
 
-Yeni Tasarım iki ana dosyaları toplamda: yeni bir geçişli stil sayfası dosyası ve yeni bir görünüm ana sayfa dosyası. Görünüm ana sayfa düzeni ve paylaşılan içerik için bir ASP.NET MVC uygulamasındaki görünümleri içerir. Örneğin, ana görünüm sayfası üst bilgi, gezinme sekmeleri ve görünen alt Şekil 7'de içerir. Ben mevcut Site.Master görünüm ana sayfası görünümler/paylaşılan klasörde yeni tasarım şirketinin Site.Master dosyasından ile üzerine yazdı,
+Yeni tasarım iki ana dosyadan oluşur: yeni bir geçişli stil sayfası dosyası ve yeni bir görünüm ana sayfa dosyası. Bir görünüm ana sayfası, bir ASP.NET MVC uygulamasındaki görünümlere yönelik düzen ve paylaşılan içeriği içerir. Örneğin, görünüm ana sayfası, Şekil 7 ' de görünen üstbilgiyi, gezinti sekmelerini ve altbilgiyi içerir. Tasarım şirketindeki yeni site. master dosyası ile Views\Shared klasöründe var olan site. Master görünüm ana sayfasını aşırı yazdım,
 
-Bir tasarım şirketinin bir geçişli stil sayfası yeni ve görüntü kümesi de oluşturulur. Bu yeni dosyaları içerik klasörüne yerleştirilir ve mevcut Site.css dosyanın üzerine yazdı bildirimi. Tüm statik içeriği, içerik klasörüne yerleştirmeniz gerekir.
+Tasarım şirketi yeni bir geçişli stil sayfası ve görüntü kümesi de oluşturmuştur. Bu yeni dosyaları Içerik klasörüne yerleştirdim ve var olan site. css dosyasının üzerine yazdı. Tüm statik içeriği Içerik klasörüne yerleştirmeniz gerekir.
 
-Kişi Yöneticisi için yeni tasarım yönelik düzenleme ve kişileri silme görüntülerinin içerdiğine dikkat edin. Düzenleme ve silme görüntü kişilerin HTML tablodaki her bir kişinin yanında görünür.
+Kişi Yöneticisi için yeni tasarımın, kişileri düzenlemenin ve silmenin görüntülerini içerdiğine dikkat edin. HTML kişileri tablosundaki her kişinin yanında bulunan bir düzenleme ve silme resmi görüntülenir.
 
-İlk olarak, HTML ile işlenmiş olan bu bağlantıları. Bu gibi ActionLink() yardımcı:
+Başlangıçta, bu bağlantılar HTML ile işlenir. Aşağıdaki gibi ActionLink () Yardımcısı:
 
 [!code-aspx[Main](iteration-2-make-the-application-look-nice-cs/samples/sample1.aspx)]
 
-Html.ActionLink() yöntemi (güvenlik nedeniyle bağlantı metni HTML yöntemi kodlar) görüntülerini desteklemiyor. Bu nedenle, ı şöyle Url.Action() çağrılarıyla Html.ActionLink() çağrıları değiştirildi:
+HTML. ActionLink () yöntemi görüntüleri desteklemez (HTML yöntemi, bağlantı metnini güvenlik nedenleriyle kodluyor). Bu nedenle, HTML. ActionLink () çağrılarını URL. Action () çağrılarına şunun gibi değiştirdim:
 
 [!code-aspx[Main](iteration-2-make-the-application-look-nice-cs/samples/sample2.aspx)]
 
-Tüm bir HTML Köprü Html.ActionLink() yöntemi oluşturur. Url.Action() yöntem, diğer taraftan, yalnızca olmadan URL işler &lt;bir&gt; etiketi.
+HTML. ActionLink () yöntemi bir HTML köprünün tamamını işler. Diğer taraftan, URL. Action () yöntemi, &lt;bir&gt; etiketi olmadan yalnızca URL 'YI oluşturur.
 
-Ayrıca, yeni tasarım hem seçili hem de seçilmemiş sekmeleri içerdiğine dikkat edin. Örneğin, Şekil 8 ' deki **yeni kişi oluşturun** sekmesi seçiliyken ve **Kişilerim** sekmesi seçili değil.
+Ayrıca, yeni tasarımın hem seçili hem de seçilmemiş sekmeleri içerdiğine dikkat edin. Örneğin, Şekil 8 ' de **Yeni kişi oluştur** sekmesi seçilidir ve **Kişilerim** sekmesi seçili değildir.
 
-[![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-cs/_static/image8.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image15.png)
+[Yeni proje iletişim kutusunu ![](iteration-2-make-the-application-look-nice-cs/_static/image8.jpg)](iteration-2-make-the-application-look-nice-cs/_static/image15.png)
 
-**Şekil 08**: Seçili ve seçili sekmeler ([tam boyutlu görüntüyü görmek için tıklatın](iteration-2-make-the-application-look-nice-cs/_static/image16.png))
+**Şekil 08**: seçili ve seçilmemiş sekmeler ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-2-make-the-application-look-nice-cs/_static/image16.png))
 
-Hem seçili hem de seçilmemiş sekmeleri işleme desteklemek için MenuItemHelper adlı özel bir HTML Yardımcısı oluşturdum. Bu yardımcı yöntem ya da işleyen bir &lt;li&gt; etiketi veya bir &lt;li sınıfı "Seçili" =&gt; olup geçerli denetleyici ve eylem karşılık gelen yardımcıya geçirilen denetleyici ve Eylem adına göre etiket. MenuItemHelper kodunu listeleme 1'de yer alır.
+Hem seçili hem de seçili olmayan sekmelerin işlenmesini desteklemek için Menuıtemhelper adlı özel bir HTML Yardımcısı oluşturdum. Bu yardımcı yöntem, geçerli denetleyicinin ve eylemin, yardım 'a geçirilen denetleyiciye ve eylem adına karşılık gelen &lt;li&gt; etiketi veya &lt;li Class = "Selected"&gt; etiketini işler. Menuıtemhelper kodu, liste 1 ' de bulunur.
 
-**1 - Helpers\MenuItemHelper.cs listeleme**
+**Listeleme 1-Helpers\menuıtemhelper.cs**
 
 [!code-csharp[Main](iteration-2-make-the-application-look-nice-cs/samples/sample3.cs)]
 
-MenuItemHelper TagBuilder sınıfı dahili olarak oluşturmak için kullandığı &lt;li&gt; HTML etiketi. Yeni bir HTML etiket oluşturmak ihtiyaç duyduğunuzda kullanabileceğiniz çok kullanışlı yardımcı program sınıfı TagBuilder sınıftır. Öznitelikleri ekleme, CSS sınıfları ekleme, kimlikleri oluşturma ve değiştirme s etiketi için yöntemleri içeren iç HTML.
+Menuıtemhelper, &lt;li&gt; HTML etiketi oluşturmak için dahili olarak TagBuilder sınıfını kullanır. TagBuilder sınıfı, yeni bir HTML etiketi oluşturmanız gerektiğinde kullanabileceğiniz çok faydalı bir yardımcı sınıftır. Öznitelik ekleme, CSS sınıfları ekleme, kimlik oluşturma ve iç HTML etiketlerini değiştirme yöntemlerini içerir.
 
 ## <a name="summary"></a>Özet
 
-Bu yineleme, ASP.NET MVC uygulamamıza görsel tasarımını geliştirdik. İlk olarak, ASP.NET MVC Tasarım Galerisi'ne eklenmiştir. ASP.NET MVC Tasarım Galerisi'nden, ASP.NET MVC uygulamalarınızda kullanabileceğiniz ücretsiz bir tasarım şablonları indirmek öğrendiniz.
+Bu yinelemede, ASP.NET MVC uygulamamız görsel tasarımını geliştirdik. İlk olarak, ASP.NET MVC tasarım galerisine sunulmuştur. ASP.NET MVC uygulamalarınızda kullanabileceğiniz ASP.NET MVC tasarım galerisinden ücretsiz tasarım şablonlarının nasıl indirileceğini öğrendiniz.
 
-Ardından, varsayılan geçişli stil sayfası dosyası ve ana görünüm sayfası dosyası'nı değiştirerek bir özel tasarım nasıl oluşturabileceğinize dair ele almıştık. Yeni Tasarım desteklemek için Kişi Yöneticisi uygulamamız için bazı küçük değişiklikler yapmak vardı. Örneğin, seçilen ve seçili sekmeleri görüntüler MenuItemHelper adlı yeni bir HTML Yardımcısı ekledik.
+Daha sonra, varsayılan geçişli stil sayfası dosyası ve ana görünüm sayfası dosyasını değiştirerek nasıl özel bir tasarım oluşturabileceğiniz ele alınmıştır. Yeni tasarımı desteklemek için, Contact Manager uygulamamız üzerinde bazı küçük değişiklikler yapmak zorunda kaldık. Örneğin, seçili ve seçilmemiş sekmeleri görüntüleyen Menuıtemhelper adlı yeni bir HTML Yardımcısı ekledik.
 
-Bir sonraki yinelemede biz doğrulama çok önemli konusunu ele alalım. Bir kullanıcı bir kişi s gibi gerekli değerleri sağlamadan önce yeni kişi oluşturun ve Soyadı uygulamamıza bir doğrulama kodu ekleriz.
+Bir sonraki yinelemede, doğrulamanın çok önemli konusunu geliştirdik. Bir kullanıcının, bir kişi adı ve soyadı gibi gerekli değerleri sağlamadan yeni bir kişi oluşturabilmesi için, uygulamamıza doğrulama kodu ekleyeceğiz.
 
 > [!div class="step-by-step"]
 > [Önceki](iteration-1-create-the-application-cs.md)

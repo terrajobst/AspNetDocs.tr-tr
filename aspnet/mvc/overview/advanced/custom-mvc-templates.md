@@ -2,134 +2,134 @@
 uid: mvc/overview/advanced/custom-mvc-templates
 title: Özel MVC şablonu | Microsoft Docs
 author: joeloff
-description: Bir şablon bir VSIX uzantısı oluşturun.
+description: VSıX uzantısı olarak bir şablon oluşturun.
 ms.author: riande
 ms.date: 12/10/2012
 ms.assetid: b0a214c7-2f38-4dbc-b47f-bd7bd9df97bd
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
 ms.openlocfilehash: 0603bc24e070e223551813f66a75889a2e46fd35
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59379553"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616356"
 ---
 # <a name="custom-mvc-template"></a>Özel MVC Şablonu
 
-tarafından [Jacques Eloff](https://github.com/joeloff)
+[Jtanışes Eloff](https://github.com/joeloff) tarafından
 
-MVC 3 araçları güncelleştirme sürümü Visual Studio 2010 için ayrı bir sihirbaz MVC projeleri için kullanıma sunuldu. Değişiklik iki faktörlerden temelli. İlk olarak, MVC 3 ve Razor gibi ek görünüm altyapıları için destek yeni şablonlar sunulmasıyla neden Visual Studio'da yeni proje iletişim kutusu overcrowding için. İkinci olarak, müşteriler için genişletilebilirlik noktaları isteyen ve yeni MVC projesi Sihirbazı bu isteklere yanıt fırsatı bize göze.
+Visual Studio 2010 için MVC 3 araç güncelleştirmesi sürümü, MVC projeleri için ayrı bir proje Sihirbazı sunmuştur. Değişiklik iki faktöre göre yönlendiriliyor. İlk olarak, MVC 3 ' teki yeni şablonların tanıtımı ve Razor gibi ek görünüm motorları için Visual Studio 'da yeni proje iletişim kutusunu ortaya çıkmasına yönelik destek. İkinci olarak, müşterilerin genişletilebilirlik noktaları istemesi gerekiyordu ve yeni MVC proje Sihirbazı bu isteklere yanıt vermek için bir fırsat sunuyor.
 
-Özel şablonlar ekleme yeni şablonlar MVC projesi Sihirbazı görünür yapmak için kayıt defterini kullanarak yararlandı işlemini merkezileştirir bir süreç oldu. Yükleme sırasında gerekli kayıt defteri girdileri oluşturulacak emin olmak için bir MSI içinde sarmalamak yeni bir şablon yazarı vardı. Kullanılabilir şablonu içeren bir ZIP dosyası yapmak ve gerekli kayıt defteri girdilerini el ile oluşturmak son olması için alternatif oluştu.
+Özel şablon eklemek, yeni şablonları MVC proje Sihirbazı 'nda görünür hale getirmek için kayıt defterini kullanmayı kolaylaştıran bir dizi işlemdir. Yeni bir şablonun yazarı, gerekli kayıt girdilerinin yük zamanında oluşturulmasını sağlamak için onu bir MSI içinde sarmalıdır. Alternatif, şablonu içeren bir ZIP dosyası oluşturmak ve son kullanıcının gerekli kayıt defteri girişlerini el ile oluşturması gerekiyordu.
 
-Tarafından sağlanan mevcut altyapınızı bazıları yararlanmak verdik için yukarıda sözü edilen yaklaşımlardan hiçbiri idealdir [VSIX](https://msdn.microsoft.com/library/ff363239.aspx) Yazar kolaylaştırmak için uzantıları dağıtın ve MVC 4 ile başlayarak, özel MVC şablonları yükleyin Visual Studio 2012 için. Bu yaklaşım tarafından sağlanan avantajlarından bazıları şunlardır:
+Yukarıda bahsedilen yaklaşımlardan hiçbiri ideal olmadığından, Visual Studio 2012 için MVC 4 ile başlayan özel MVC şablonlarını yazmayı, dağıtmayı ve yüklemeyi daha kolay hale getirmek için [VSIX](https://msdn.microsoft.com/library/ff363239.aspx) uzantıları tarafından sunulan mevcut altyapıdan faydalanabilir. Bu yaklaşım tarafından sunulan avantajlardan bazıları şunlardır:
 
-- Bir VSIX uzantısı, farklı diller (C# ve Visual Basic) destekleyen birden çok şablonları ve birden çok görünüm altyapısı (ASPX ve Razor) içerebilir.
-- Bir VSIX uzantısı, birden çok SKU'ları Visual Express SKU'ları da dahil olmak üzere Studio'nun hedefleyebilirsiniz.
-- [Visual Studio Galerisi](https://visualstudiogallery.msdn.microsoft.com/) uzantısı geniş bir kitleye dağıtmak kolaylaştırır.
-- VSIX uzantılarını düzeltmeler ve güncelleştirmeler için Özel şablonlarınızı Yazar kolaylaştıran yükseltilebilir.
+- VSıX uzantısı, farklı dilleri (C# ve Visual Basic) ve birden çok görünüm ALTYAPıSıNı (aspx ve Razor) destekleyen birden çok şablon içerebilir.
+- Bir VSıX uzantısı, Visual Studio 'nun Express SKU 'Ları dahil birden çok SKU 'su hedefleyebilir.
+- [Visual Studio Galerisi](https://visualstudiogallery.msdn.microsoft.com/) , uzantının geniş bir hedef kitleye dağıtılmasını kolaylaştırır.
+- VSıX uzantıları, özel şablonlarınıza düzeltmeler ve güncelleştirmeler yazmak daha kolay hale getirilmesi için yükseltilebilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Kullanıcıların proje şablonları gerekli biçimlendirme vstemplate dosyaları, vb. dahil olmak üzere, yazma ile ilgili bilgi sahibi olmanız gerekir.
-- Kullanıcılar, Visual Studio Professional ayarlamış olmanız gerekir veya üzeri yüklü. VSIX proje oluşturma Express SKU'ları desteklemez.
-- [Visual Studio 2012 SDK](https://www.microsoft.com/download/details.aspx?id=30668) yüklü.
+- Kullanıcıların, Vstemplate dosyaları için gerekli biçimlendirme dahil olmak üzere proje şablonları yazma konusunda bilgi sahibi olmaları gerekir.
+- Kullanıcıların Visual Studio Professional ve daha yüksek bir sürümü yüklü olması gerekir. Express SKU 'Ları VSıX projeleri oluşturmayı desteklemez.
+- [Visual Studio 2012 SDK](https://www.microsoft.com/download/details.aspx?id=30668) yüklendi.
 
 ## <a name="example"></a>Örnek
 
-İlk adım, C# veya Visual Basic kullanarak yeni bir VSIX projesi oluşturmaktır. Seçin **Dosya > Yeni proje**, ardından **genişletilebilirlik** seçip sol bölmedeki **VSIX projesi**.
+İlk adım, ya da C# Visual Basic kullanarak yenı bir VSIX projesi oluşturmaktır. **Yeni proje > dosya**' yı seçin, ardından sol bölmedeki **genişletilebilirlik** ' e tıklayın ve **VSIX projesini**seçin.
 
 ![Yeni Proje](custom-mvc-templates/_static/image1.jpg)
 
-Proje oluşturulduktan sonra VSIX Tasarımcısı açılır.
+Proje oluşturulduktan sonra VSıX Tasarımcısı açılır.
 
 ![Proje Tasarımcısı meta verileri](custom-mvc-templates/_static/image2.jpg)
 
-Tasarımcı bazı uzantıyı yükleyin veya Visual Studio'da yüklü uzantılara Gözat yükleyen kullanıcılara gösterilen uzantısının genel özelliklerini düzenlemek için kullanılabilir (**Araçlar > Uzantılar ve güncelleştirmeler**). Genel bilgiler tamamladıktan sonra tıklayın **yükleme hedefler sekmesi**.
+Tasarımcı, uzantıyı yüklediklerinde kullanıcılara gösterilecek genel özelliklerden bazılarını düzenlemek veya Visual Studio 'daki yüklü uzantılara (**araçlar > Uzantılar ve güncelleştirmeler**) taramak için kullanılabilir. Genel bilgileri tamamladıktan sonra, **hedefleri yüklensin sekmesine**tıklayın.
 
-![Proje Tasarımcısı yükleme hedefleri](custom-mvc-templates/_static/image3.jpg)
+![Proje Tasarımcısı yüklemesi hedefleri](custom-mvc-templates/_static/image3.jpg)
 
-Bu sekme, SKU'ları ve uzantınız tarafından desteklenen Visual Studio sürümlerini belirtmek için kullanılır. Onay kutusunu seçip **bu VSIX, tüm kullanıcılar için yüklenir** VSIX makine başına yüklemelerini etkinleştirmek için. Tıklayarak **yeni** Web Developer Express (VWD) gibi ek SKU'ları eklemek için sağ taraftaki düğmeyi.
+Bu sekme, uzantınızın desteklediği SKU 'Ları ve Visual Studio sürümlerini belirtmek için kullanılır. Tüm kullanıcıların VSıX 'in makine başına yüklemelerini etkinleştirmesi için **Bu VSIX 'in yüklü** onay kutusunu seçin. Web geliştirici Express (VWD) gibi ek SKU 'Lar eklemek için sağdaki **Yeni** düğmesine tıklayın.
 
-![Yeni yükleme hedefi ekleyin](custom-mvc-templates/_static/image4.jpg)
+![Yeni yükleme hedefi Ekle](custom-mvc-templates/_static/image4.jpg)
 
-Tüm profesyonel ve daha yüksek SKU'ları (Professional, Premium ve Ultimate) desteklemek istiyorsanız, yalnızca en az bir SKU ailesi, seçmeniz gerekir **Microsoft.VisualStudio.Pro**. Hedefleri yükle tamamladıktan sonra yaptığınız tüm değişiklikleri kaydetmeyi unutmayın.
+Tüm profesyonel ve daha yüksek SKU 'Ları (profesyonel, Premium ve Ultimate) desteklemek istiyorsanız, yalnızca **Microsoft.VisualStudio.Pro**, ailesinden en düşük SKU 'yı seçmeniz gerekir. Install hedeflerini tamamladıktan sonra tüm değişikliklerinizi kaydetmeyi unutmayın.
 
-![Proje Tasarımcısı yükleme hedefleri](custom-mvc-templates/_static/image5.jpg)
+![Proje Tasarımcısı yüklemesi hedefleri](custom-mvc-templates/_static/image5.jpg)
 
-**Varlıklar** sekmesi VSIX'e tüm içerik dosyalarını eklemek için kullanılır. MVC özel meta verileri gerektirdiğinden VSIX bildirim dosyası kullanmak yerine, ham XML düzenleyeceksiniz **varlıklar** içerik eklemek için sekmesinde. VSIX projesi için şablon içeriği ekleyerek başlayın. Klasör ve içeriği yapısını proje düzenini yansıtma önemlidir. Aşağıdaki örnek, temel MVC proje şablonundan türetilen dört proje şablonları içerir. İçin proje şablonu (her şeyi ProjectTemplates klasörü altında) oluşturan tüm dosyaların eklendiğinden emin olun **içerik** vsıx'te ItemGroup proje dosyası ve her öğenin içerdiğini  **CopyToOutputDirectory** ve **IncludeInVsix** meta veriler, aşağıdaki örnekte gösterildiği gibi ayarlayın.
+**Varlıklar** sekmesi, tüm IÇERIK dosyalarınızı VSIX 'e eklemek için kullanılır. MVC özel meta veriler gerektirdiğinden, içerik eklemek için **varlıklar** sekmesini kullanmak yerine VSIX bildirim dosyasının ham xml 'sini de düzenleyebilirsiniz. Şablon içeriğini VSıX projesine ekleyerek başlayın. Klasör ve içerik yapısının projenin yerleşimini yansıtması önemlidir. Aşağıdaki örnek, temel MVC proje şablonundan türetilmiş dört proje şablonu içerir. Proje şablonunuzu (ProjectTemplates klasörü altındaki her şey) oluşturan tüm dosyaların VSıX proje dosyasındaki **içerik** ItemGroup 'a eklendiğinden ve aşağıdaki örnekte gösterildiği gibi her bir öğenin **CopyToOutputDirectory** ve **ıncludeınsix** meta veri kümesini içerdiğinden emin olun.
 
-&lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
+&lt;Içerik ekleme =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;her zaman&lt;/CopyToOutputDirectory&gt;
+CopyToOutputDirectory&gt;her zaman&lt;/CopyToOutputDirectory &lt;&gt;
 
-&lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
+&lt;ınclude6&gt;true&lt;/ıncludefaturalanmış altı&gt;
 
-&lt;/ İçerik&gt;
+&lt;/Content&gt;
 
-Aksi halde şablonunun içeriğini VSIX derleme ve büyük olasılıkla bir hata göreceğiniz derlemek IDE çalışacaktır. Şablonları kod dosyaları genellikle içeren özel [şablon parametreleri](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) proje şablonu örneği ve IDE'de derlenemez Visual Studio tarafından kullanılır.
+Aksi takdirde, derleme VSıX oluştururken şablonun içeriğini derlemeye çalışır ve muhtemelen bir hata görürsünüz. Şablonlarda kod dosyaları genellikle proje şablonu örneği oluşturulurken Visual Studio tarafından kullanılan özel [şablon parametrelerini](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) içerir ve bu nedenle IDE 'de derlenemez.
 
 ![Çözüm Gezgini](custom-mvc-templates/_static/image6.jpg)
 
-VSIX Tasarımcısı'nı kapatın ve ardından sağ tıklayın **source.extension.manifest** dosyası **Çözüm Gezgini** seçip **birlikte Aç** ve **XML () Metin) Düzenleyicisi** seçeneği.
+VSıX tasarımcısını kapatın, **Çözüm Gezgini** ' de **kaynak. Extension. manifest** dosyasına sağ tıklayın ve **birlikte Aç** ' ı seçin ve **XML (metin) düzenleyici** seçeneğini belirleyin.
 
-![Aç iletişim kutusu](custom-mvc-templates/_static/image7.jpg)
+![Iletişim kutusuyla aç](custom-mvc-templates/_static/image7.jpg)
 
-Oluşturma bir **&lt;varlıklar&gt;** öğesi ve bir **&lt;varlık&gt;** öğesi içinde VSIX içine dahil her dosya için. **Türü** her öznitelik **&lt;varlık&gt;** öğesi ayarlanmalıdır **Microsoft.VisualStudio.Mvc.Template**. Bu, yalnızca MVC projesi Sihirbazı anlayan bir özel ad alanıdır. Bildirim dosyasının düzenini ve yapısı hakkında daha fazla bilgi için VSIX 2.0 şema belgelerine bakın.
+&lt;bir varlık **&gt;** öğesi oluşturun ve VSIX 'e dahil olması gereken her bir dosya için bir **&lt;varlık&gt;** öğesi ekleyin. Her bir **&lt;varlık&gt;** öğesinin **tür** özniteliği **Microsoft. VisualStudio. Mvc. Template**olarak ayarlanmalıdır. Bu, yalnızca MVC proje sihirbazının anladığı özel bir ad alanıdır. Bildirim dosyasının yapısı ve düzeni hakkında daha fazla bilgi için VSıX 2,0 şema belgelerine bakın.
 
-Yalnızca VSIX için dosyaları ekleme, şablonlar MVC Sihirbazı ile kaydetmek yeterli değildir. MVC sihirbazın şablon adı, açıklama, desteklenen bir görünüm altyapısı ve programlama dili gibi bilgiler sağlamanız gerekir. Bu bilgiler ile ilişkili özel öznitelikler taşınan **&lt;varlık&gt;** her öğe **vstemplate** dosya.
+Yalnızca VSıX 'e dosya eklemek, şablonları MVC Sihirbazı ile kaydetmek için yeterli değildir. MVC sihirbazına şablon adı, açıklama, desteklenen görünüm motorları ve programlama dili gibi bilgiler sağlamanız gerekir. Bu bilgiler, her **vstemplate** dosyası Için **&lt;varlık&gt;** öğesiyle ilişkili özel özniteliklerde taşınır.
 
-&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;varlık D:valtalt yol =&quot;Projecttemplates\mymvcwebapplicationprojecttemplate.exe&quot;
 
-Tür =&quot;Microsoft.VisualStudio.Mvc.Template&quot;
+Tür =&quot;Microsoft. VisualStudio. Mvc. Template&quot;
 
-d:Source =&quot;dosyası&quot;
+d:Source =&quot;dosya&quot;
 
-Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
+Yol =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
-ProjectType=&quot;MVC&quot;
+ProjectType =&quot;MVC&quot;
 
 Dil =&quot;C#&quot;
 
-ViewEngine=&quot;Aspx&quot;
+ViewEngine =&quot;aspx&quot;
 
-Templateıd =&quot;MyMvcApplication&quot;
+TemplateId =&quot;MyMvcApplication&quot;
 
-Başlık =&quot;özel temel Web uygulaması&quot;
+Title =&quot;özel temel Web uygulaması&quot;
 
-Açıklama =&quot;özel bir şablon türetilmiş bir temel MVC web uygulaması (Razor)&quot;
+Description = temel MVC web uygulamasından (Razor) türetilmiş özel bir şablon&quot;&quot;
 
-Version=&quot;4.0&quot;/&gt;
+Sürüm =&quot;4,0&quot;/&gt;
 
-Aşağıda bulunması gereken özel özniteliklerin bir açıklaması verilmiştir:
+Aşağıda, mevcut olması gereken özel özniteliklerin bir açıklaması verilmiştir:
 
-- **ProjectType** MVC için ayarlamanız gerekir.
-- **Dil** şablon tarafından desteklenen bir geliştirme dilini belirtir. C# veya vb geçerli değerler:
-- **ViewEngine** gibi Aspx veya Razor şablonu tarafından desteklenen görünüm altyapısını belirler. Bu alan için özel bir değer belirtebilirsiniz.
-- **Templateıd** şablonları gruplandırmak için kullanılır. Bu, var olan bir şablon kimliği değerle eşleşiyorsa MVC Sihirbazı'nı kullanarak daha önce kaydetmiş şablonları geçersiz kılar.
-- **Başlık** MVC Sihirbazı her proje şablonunun altında görüntülenen kısa bir açıklama belirler.
-- **Açıklama** şablon daha ayrıntılı bir açıklamasını belirtir.
+- **ProjectType** , MVC olarak ayarlanmalıdır.
+- **Dil** , şablon tarafından desteklenen geliştirme dilini belirtir. Geçerli değerler ya da C# vb.
+- **ViewEngine** , şablon tarafından desteklenen aspx veya Razor gibi görünüm altyapısını belirler. Bu alan için özel bir değer belirtebilirsiniz.
+- **TemplateId** , şablonları gruplandırmak için kullanılır. Değer var olan bir şablon KIMLIĞIYLE eşleşiyorsa, daha önce MVC sihirbazıyla kaydedilen şablonlar geçersiz kılınır.
+- **Başlık** her proje ŞABLONUNUN altındaki MVC sihirbazında görünen kısa açıklamayı belirler.
+- **Açıklama** , şablonun daha ayrıntılı bir açıklamasını belirtir.
 
-Bildirime tüm dosyaları ekledikten sonra kaydettiyseniz, göreceksiniz **varlıklar** tüm dosyaları tasarımcısında bir sekmeyi görüntüler, ancak eklediğiniz özel öznitelikleri **&lt;varlık&gt;** için öğeleri **vstemplate** dosyaları.
+Tüm dosyaları bildirime ekledikten ve kaydettikten sonra, tasarımcı 'daki **varlıklar** sekmesinin, **vstemplate** dosyaları için **&lt;varlık&gt;** öğelerine eklediğiniz özel öznitelikleri gösterdiğine dikkat edin.
 
-![Proje Tasarımcısı varlıklar](custom-mvc-templates/_static/image8.jpg)
+![Proje Tasarımcısı varlıkları](custom-mvc-templates/_static/image8.jpg)
 
-Kalan artık tek şey VSIX projesini derleme ve yükleyin.
+Şimdi, VSıX projesini derlemek ve yüklemek artık devam etmektedir.
 
-VSIX uzantıyı test etmek istediğiniz yere Visual Studio'nun tüm örneklerini makinede kapalı olduğundan emin olun. Bir VSIX yüklenirken IDE açıksa Visual Studio'yu yeniden başlatmanız gerekecektir visual Studio için yeni uzantıları başlatma sırasında tarar. Gezgini'nde başlatmak için VSIX dosyasını çift tıklatın **VSIX yükleyicisi**, tıklayın **yükleme** ve ardından Visual Studio'yu başlatın.
+Visual Studio 'nun tüm örneklerinin VSıX uzantısını test etmek istediğiniz makinede kapatıldığından emin olun. Visual Studio başlangıç sırasında yeni uzantıları tarar, bu nedenle bir VSıX yüklenirken IDE açıksa, Visual Studio 'Yu yeniden başlatmanız gerekir. Visual **Studio 'yu başlatmak**Için, Explorer 'da VSIX dosyasını çift tıklatın, **yükleme** ' ye tıklayın ve ardından Visual Studio 'yu başlatın.
 
-![VSIX yükleyicisi](custom-mvc-templates/_static/image9.jpg)
+![VSıX yükleyicisi](custom-mvc-templates/_static/image9.jpg)
 
-Menüden **Araçlar > Uzantılar ve güncelleştirmeler** uzantınızı yüklendiğini doğrulamak için. VSIX yükleyici, uzantının yüklenmesi sırasında hata bildirilirse, daha fazla bilgi için VSIX yükleyicisi bu günlüğü görüntüleyebilirsiniz. Günlük genellikle oluşturulan **% temp %** uzantısı, örneğin yüklü kullanıcı klasörüne **C:\Users\Bob\AppData\Local\Temp**.
+Genişletmenin yüklendiğini onaylamak için menüden **araçlar > Uzantılar ve güncelleştirmeler** ' i seçin. VSıX yükleyicisi, uzantının yüklenmesi sırasında herhangi bir hata bildirmezse, daha fazla bilgi için VSıX yükleyicisi günlüğünü görüntüleyebilirsiniz. Günlük genellikle uzantıyı yükleyen kullanıcının **% Temp%** klasöründe oluşturulur (örneğin, **C:\users\bob\appdata\local\temp**).
 
 ![Uzantılar ve güncelleştirmeler](custom-mvc-templates/_static/image10.jpg)
 
-Pencereyi kapattıktan sonra yeni şablonlarınızı MVC Sihirbazı'nda gösterilen olup olmadığını görmek için bir MVC 4 proje oluşturabilirsiniz.
+Pencereyi kapattıktan sonra, yeni şablonlarınızın MVC sihirbazında gösterilip gösterilmediğini görmek için MVC 4 projesi oluşturabilirsiniz.
 
 ![Yeni ASP.NET MVC 4 Proje](custom-mvc-templates/_static/image11.jpg)
 
 ## <a name="limitations"></a>Sınırlamalar
 
-1. MVC Sihirbazı'nı yerelleştirilmiş özel şablonları desteklemez.
-2. Özel şablonlar bulmak başarısız olursa, sihirbazın herhangi bir hata bildirmez. Şablon, yalnızca gerekli özel öznitelikleri yoksa, Sihirbazı'ndan dışarıda.
+1. MVC Sihirbazı yerelleştirilmiş özel şablonları desteklemez.
+2. Sihirbaz özel şablonları bulamıyorsa hata bildirmeyecektir. Gerekli özel özniteliklerin herhangi biri yoksa, şablon yalnızca sihirbazdan hariç tutulur.

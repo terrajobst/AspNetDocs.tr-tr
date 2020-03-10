@@ -9,11 +9,11 @@ ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
 ms.openlocfilehash: 504202068f5db4f8614bba02e8066ffecfd15b48
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74619235"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78618050"
 ---
 # <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 
@@ -21,7 +21,7 @@ ms.locfileid: "74619235"
 - [Yükleme notları](#installation-notes)
 - [Yazılım gereksinimleri](#software-requirements)
 - [Belgeler](#documentation)
-- [Support](#support)
+- [Destek](#support)
 - [ASP.NET MVC 2 projesini ASP.NET MVC 3 araç güncelleştirmesine yükseltme](#upgrading)
 - [ASP.NET MVC 3 Araçlar Güncelleştirmesi (12 Nisan 2011)](#tu-changes)
 
@@ -160,7 +160,7 @@ Mevcut bir ASP.NET MVC 2 uygulamasını sürüm 3 ' e el ile yükseltmek için a
 2. Aşağıdaki dosyaları ASP.NET MVC 3 projesinden ASP.NET MVC 2 projenizin karşılık gelen konumuna kopyalayın. Yeni dosya adını (jQuery-1.5.1. js) hesaba eklemek için jQuery kitaplığı başvurularını güncelleştirmeniz gerekir: 
 
     - /Views/Web.config
-    - /packagesnconfig
+    - /packages.config
     - /Scripts/\*. js
     - /Content/themes/\*.\*
 3. Boş ASP.NET MVC 3 proje çözümünün kökündeki *Packages* klasörünü, çözümünüzün. sln dosyasının bulunduğu dizinde olan çözümünüzün köküne kopyalayın.
@@ -733,15 +733,15 @@ Yeni sürüm aşağıdaki hizmetler için bağımlılık çözümü desteğini i
 
 ASP.NET MVC, aşağıdakiler gibi Ajax Yardımcısı yöntemlerini içerir:
 
-- AJAX. ActionLink
-- AJAX. RouteLink
-- AJAX. BeginForm
-- AJAX. BeginRouteForm
+- Ajax.ActionLink
+- Ajax.RouteLink
+- Ajax.BeginForm
+- Ajax.BeginRouteForm
 
 Bu yöntemler, tam geri gönderme kullanmak yerine sunucuda bir eylem yöntemi çağırmak için JavaScript kullanır. Bu işlevsellik, hiçbir zaman jQuery 'ten kaçınılması açısından güncelleştirilmiştir. Satır içi istemci betikleri dahil etmek yerine, bu yardımcı yöntemler, *Data-Ajax* ÖNEKINI kullanarak HTML5 özniteliklerini yayarak, davranışı işaretlemeden ayırır. Daha sonra davranış, uygun JavaScript dosyalarına başvurarak biçimlendirmeye uygulanır. Aşağıdaki JavaScript dosyalarına başvurulduğundan emin olun:
 
-- jQuery-1.4.1. js
-- jQuery. unobtrusive. Ajax. js
+- jquery-1.4.1.js
+- jquery.unobtrusive.ajax.js
 
 Bu özellik varsayılan olarak ASP.NET MVC 3 yeni proje şablonlarındaki Web. config dosyasında etkindir, ancak mevcut projeler için varsayılan olarak devre dışıdır. Daha fazla bilgi için, bu belgenin ilerleyen kısımlarında [istemci doğrulaması için uygulama genelinde bayraklar ve unobtrusive JavaScript ekleme](#0.1_AddedApplicationWideFlagsForClientValida) bölümüne bakın.
 
@@ -757,9 +757,9 @@ Bu, aşağıdaki çağrıyı yaparak yapabileceğiniz ViewContext. UnobtrusiveJa
 
 Ayrıca, aşağıdaki JavaScript dosyalarına başvurulduğundan emin olun.
 
-- jQuery-1.4.1. js
-- jQuery. Validate. js
-- jQuery. Validate. unobtrusive. js
+- jquery-1.4.1.js
+- jquery.validate.js
+- jquery.validate.unobtrusive.js
 
 Bu özellik varsayılan olarak, ASP.NET MVC 3 yeni proje şablonlarındaki Web. config dosyasında etkindir, ancak mevcut projeler için varsayılan olarak devre dışıdır. Daha fazla bilgi için, bu belgenin ilerleyen kısımlarında [istemci doğrulaması Için yeni uygulama genelinde bayraklar ve unsctrusive JavaScript](#0.1_AddedApplicationWideFlagsForClientValida) bölümüne bakın.
 
@@ -839,7 +839,7 @@ JsonValueProviderFactory artık varsayılan olarak kaydedilir.
 
 Özel durum filtreleri için yürütme sırası, aynı sıra değerine sahip özel durum filtreleri için değişti. ASP.NET MVC 2 ve önceki sürümlerde, denetleyicideki bir eylem yöntemiyle aynı sırada olan özel durum filtreleri, eylem yöntemindeki özel durum filtrelerinden önce yürütüldü. Bu, genellikle özel durum filtrelerinin belirtilen bir sipariş değeri olmadan uygulanması durumunda olur. ASP.NET MVC 3 ' te, bu sıra, en belirli özel durum işleyicisinin ilk kez çalışması için tersine çevrildi. Önceki sürümlerde olduğu gibi, Order özelliği açıkça belirtilmişse, filtreler belirtilen sırada çalıştırılır.
 
-## <a id="0.1__Toc274034230"></a>Bilinen sorunlar
+## <a id="0.1__Toc274034230"></a> Bilinen Sorunlar
 
 Yükleme sırasında, EULA kabulü iletişim kutusu, lisans koşullarını amaçlanan bir pencerede görüntüler.
 

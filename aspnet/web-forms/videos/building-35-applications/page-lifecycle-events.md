@@ -2,23 +2,23 @@
 uid: web-forms/videos/building-35-applications/page-lifecycle-events
 title: Sayfa yaşam döngüsü olayları | Microsoft Docs
 author: JoeStagner
-description: ASP.NET bir çok zengin olay mekanizmasına kancaları ile tüm önemli kronolojik durumlarda ASP.NET sayfa yaşam döngüsü sağlar. Bu videoda, sabit listesi olur...
+description: ASP.NET, ASP.NET sayfa yaşam döngüsünün tüm önemli kronolojik örneklerine kancalarla çok zengin bir olay mekanizması sağlar. Bu video, Enum...
 ms.author: riande
 ms.date: 04/09/2009
 ms.assetid: 11237821-220e-4357-9fa6-38245084e093
 msc.legacyurl: /web-forms/videos/building-35-applications/page-lifecycle-events
 msc.type: video
 ms.openlocfilehash: 28fc01819aeb1a0bc74ff80fadb44a9f69de3a88
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59390252"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640107"
 ---
 # <a name="page-lifecycle-events"></a>Sayfa Yaşam Döngüsü Olayları
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-ASP.NET bir çok zengin olay mekanizmasına kancaları ile tüm önemli kronolojik durumlarda ASP.NET sayfa yaşam döngüsü sağlar. Bu videoda, birçok ortak bir yaşam döngüsü olayları, tetikleyicisinin tetikleme sırasını ve her olay için kullanıyor olabileceğiniz nesnelerin türlerini sıralar.
+ASP.NET, ASP.NET sayfa yaşam döngüsünün tüm önemli kronolojik örneklerine kancalarla çok zengin bir olay mekanizması sağlar. Bu videoda yaygın yaşam döngüsü olaylarının birçoğu, bunların Tetikleme sırası ve her olay için kullanabileceğiniz nesnelerin türleri numaralandıralınacaktır.
 
-[&#9654;(12 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/page-lifecycle-events)
+[&#9654;Videoyu izleyin (12 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/page-lifecycle-events)

@@ -1,259 +1,259 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: Formları kullanarak veritabanı verileri girme - ASP.NET Web sayfaları ile tanışın | Microsoft Docs
+title: ASP.NET Web sayfalarına giriş-formları kullanarak veritabanı verileri girme | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici, bir giriş formunu oluşturma ve ardından ASP.NET Web sayfaları (...) kullandığınızda bir veritabanı tablosuna formdan alma verileri girin gösterir
+description: Bu öğreticide bir giriş formu oluşturma ve ASP.NET Web sayfalarını (...) kullandığınızda formdan aldığınız verileri bir veritabanı tablosuna nasıl girebileceğiniz gösterilmektedir.
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
 ms.openlocfilehash: b9354a7b97a7df9020a681f709e16a92650cfcf0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624539"
 ---
-# <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web sayfaları ile tanışın - formları kullanarak veritabanı verileri girme
+# <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web sayfalarına giriş-formları kullanarak veritabanı verileri girme
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğreticide bir giriş formunu oluşturmak ve ardından ASP.NET Web sayfaları (Razor) kullandığınızda, bir veritabanı tablosuna formdan alma verileri girin gösterilmektedir. Bu seriyi aracılığıyla bitirdiğinizi [HTML formu, temel ASP.NET Web Pages'de](https://go.microsoft.com/fwlink/?LinkId=251581).
+> Bu öğreticide, bir giriş formu oluşturma ve ASP.NET Web Pages (Razor) kullandığınızda formdan bir veritabanı tablosuna alacağınız verileri girme işlemlerinin nasıl yapılacağı gösterilmektedir. [ASP.NET Web SAYFALARıNDAKI HTML formlarının temelleri](https://go.microsoft.com/fwlink/?LinkId=251581)aracılığıyla seriyi tamamlamış olduğunu varsayar.
 > 
 > Öğrenecekleriniz:
 > 
-> - Girişi formları işlem hakkında daha fazla.
-> - Verileri (Ekle) bir veritabanında ekleme.
-> - Nasıl kullanıcılar gerekli bir değer biçiminde (kullanıcı girişini doğrulama nasıl) girdiğinizden emin olun.
-> - Doğrulama hataları görüntülemek nasıl.
-> - Geçerli sayfadaki başka bir sayfaya gitmek nasıl.
+> - Giriş formlarını işleme hakkında daha fazla bilgi.
+> - Veritabanına veri ekleme (ekleme).
+> - Kullanıcıların bir formda gerekli bir değeri girdiğinden emin olma (Kullanıcı girişini doğrulama).
+> - Doğrulama hatalarını görüntüleme.
+> - Geçerli sayfadan başka bir sayfaya nasıl geçeirsiniz.
 >   
 > 
-> Ele alınan özelliklerin/teknolojiler:
+> Ele alınan özellikler/teknolojiler:
 > 
-> - `Database.Execute` Yöntemi.
-> - SQL `Insert Into` deyimi
+> - `Database.Execute` yöntemi.
+> - SQL `Insert Into` ekstresi
 > - `Validation` Yardımcısı.
-> - `Response.Redirect` Yöntemi.
+> - `Response.Redirect` yöntemi.
 
-## <a name="what-youll-build"></a>Ne oluşturacaksınız
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Bir veritabanını nasıl oluşturulacağını gösterir, öğreticide daha önce veritabanı verileri doğrudan çalışma WebMatrix veritabanında düzenleyerek girdiğiniz **veritabanı** çalışma. Çoğu uygulamada, verileri veritabanına, ancak yerleştirme için pratik bir yol değil. Bu nedenle bu öğreticide, siz veya biri veri girin ve veritabanına kaydetme sağlayan web tabanlı bir arabirimi oluşturacaksınız.
+Daha önce bir veritabanı oluşturmayı belirten öğreticide, **veritabanı çalışma alanında çalışarak veritabanını doğrudan** WebMatrix 'te düzenleyerek veritabanı verileri girdiniz. Çoğu uygulamada, verileri veritabanına koymanın pratik bir yolu değildir, ancak. Bu öğreticide, sizin veya herkesin veri girmesine ve veritabanına kaydetmesine imkan tanıyan bir Web tabanlı arabirim oluşturacaksınız.
 
-Yeni filmler girebileceğiniz bir sayfa oluşturacaksınız. Sayfanın bir filmi, türe ve yıl girebileceğiniz alanları (metin kutuları) olan bir giriş formunu içerir. Sayfa, bu sayfayı gibi görünür:
+Yeni filmler girebileceğiniz bir sayfa oluşturacaksınız. Sayfada, bir film başlığı, tarzı ve yılı girebileceğiniz alanlar (metin kutuları) bulunan bir giriş formu bulunur. Bu sayfa şöyle görünür:
 
-!['Add film' sayfasını tarayıcıda](entering-data/_static/image1.png)
+![' Film Ekle ' sayfası tarayıcıda](entering-data/_static/image1.png)
 
-HTML metin kutuları olur `<input>` gibi bu işaretleme görüneceğini öğeler:
+Metin kutuları, bu biçimlendirme gibi görünecek HTML `<input>` öğeleri olacaktır:
 
 `<input type="text" name="genre" value="" />`
 
 ## <a name="creating-the-basic-entry-form"></a>Temel giriş formu oluşturma
 
-Adlı bir sayfa oluşturun *AddMovie.cshtml*.
+*Addmovie. cshtml*adlı bir sayfa oluşturun.
 
-Dosyasına aşağıdaki işaretlemeyle nedir değiştirin. Her şeyi üzerine; kısa bir süre içinde en üstünde bir kod bloğu ekleyeceksiniz.
+Dosyada bulunan ve aşağıdaki işaretlerle değiştirin. Her şeyin üzerine yaz; kısa bir süre içinde bir kod bloğu ekleyeceksiniz.
 
 [!code-cshtml[Main](entering-data/samples/sample1.cshtml)]
 
-Bu örnek, tipik bir HTML form oluştururken gösterir. Kullandığı `<input>` öğe metin kutuları ve Gönder düğmesi. Standart kullanarak metin kutuları için resim yazıları oluşturulur `<label>` öğeleri. `<fieldset>` Ve `<legend>` öğeleri yerleştirme form çevresinde güzel bir kutu.
+Bu örnekte form oluşturmak için tipik HTML gösterilmektedir. Metin kutuları ve Gönder düğmesi için `<input>` öğelerini kullanır. Metin kutularının açıklamalı alt yazıları standart `<label>` öğeleri kullanılarak oluşturulur. `<fieldset>` ve `<legend>` öğeleri formun etrafına iyi bir kutu koyar.
 
-Bu sayfada, dikkat `<form>` öğesini kullanan `post` değeri olarak `method` özniteliği. Önceki öğreticide oluşturduğunuz kullanılan form `get` yöntemi. Form değerleri sunucuya gönderilen olsa da, herhangi bir değişiklik isteği yapmayan olduğundan, doğru. Tüm kişiselleştirmeden farklı yollarla verileri getirme oluştu. Ancak, bu konuda, sayfa *olacak* değişiklik — yeni veritabanı kayıtları eklemek için oluşturacağız. Bu nedenle, bu formu kullanmalısınız `post` yöntemi. (Arasındaki fark hakkında daha fazla bilgi için `GET` ve `POST` işlemleri görmek[GET, POST ve HTTP fiili güvenliği](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) kenar önceki öğreticide.)
+Bu sayfada, `<form>` öğesinin `method` özniteliği için değer olarak `post` kullandığını unutmayın. Önceki öğreticide `get` yöntemini kullanan bir form oluşturdunuz. Bu, formun değerleri sunucuya gönderdiği halde istek hiçbir değişiklik yapmadığından doğrudur. Tüm BT verileri farklı yollarla getiremedi. Bununla birlikte, bu sayfada değişiklikler *yaparsınız —* yeni veritabanı kayıtları ekleyeceksiniz. Bu nedenle, bu form `post` yöntemini kullanmalıdır. (`GET` ve `POST` işlemleri arasındaki fark hakkında daha fazla bilgi için önceki öğreticideki[Get, post ve http fiil güvenliği](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) kenar çubuğu bölümüne bakın.)
 
-Her metin kutusuna sahip Not bir `name` öğesi (`title`, `genre`, `year`). Önceki öğreticide gördüğünüz gibi daha sonra kullanıcının girişi sınıflandırıp adları olması gerektiğinden bu adlar önemlidir. Herhangi bir adı kullanabilirsiniz. İçin yararlıdır yardımcı anlamlı adlar kullanın hangi verilerin ile çalıştığınızı unutmayın.
+Her metin kutusunun `name` öğesi olduğunu unutmayın (`title`, `genre`, `year`). Önceki öğreticide gördüğünüz gibi, bu adlara sahip olmanız gerektiğinden, kullanıcının girişini daha sonra alabilmeniz için bu adlar önemlidir. Herhangi bir ad kullanabilirsiniz. Hangi verileri kullandığınızı anımsamanıza yardımcı olacak anlamlı adlar kullanmak yararlı olacaktır.
 
-`value` Her öznitelik `<input>` öğesi içeren bir boyutta bir Razor kod (örneğin, `Request.Form["title"]`). Form gönderildikten sonra bu yöntem bir sürümünü (varsa) metin kutusuna girilen değer korumak için önceki öğreticide öğrendiniz.
+Her bir `<input>` öğesinin `value` özniteliği Razor kodu bir bit kodu içerir (örneğin, `Request.Form["title"]`). Form gönderildikten sonra (varsa) metin kutusuna girilen değeri korumak için önceki öğreticide bu elin bir sürümünü öğrendiniz.
 
 ## <a name="getting-the-form-values"></a>Form değerlerini alma
 
-Ardından, bu formu işleyen kodu ekleyin. Anahat içinde aşağıdakileri yapmanız:
+Daha sonra, formunu işleyen kodu eklersiniz. Ana hat ' de şunları yapabilirsiniz:
 
-1. Sayfa gönderilen olup olmadığını denetleyin (gönderildi). Kodunuzu ilk değil sayfa çalıştığında yalnızca kullanıcıların düğmeye tıklandığında çalıştırmak istediğiniz.
-2. Metin kutularına kullanıcı girilen değerleri alır. Bu durumda, formu kullandığından `POST` fiil, form değerleri alma `Request.Form` koleksiyonu.
-3. Yeni bir kayıt olarak değer eklemek *filmler* veritabanı tablosu.
+1. Sayfanın nakledilip nakledilmediğini (gönderildi) denetleyin. Kodunuzda yalnızca kullanıcılar düğme tıkladıklarında, sayfa ilk çalıştırıldığında değil, çalıştırmak istediğiniz zaman.
+2. Kullanıcının metin kutularına girdiği değerleri alın. Bu durumda, form `POST` fiilini kullandığından, `Request.Form` koleksiyonundan form değerlerini alırsınız.
+3. Değerleri, *filmler* veritabanı tablosuna yeni bir kayıt olarak ekleyin.
 
-Dosyasının en üstüne aşağıdaki kodu ekleyin:
+Dosyanın en üstüne aşağıdaki kodu ekleyin:
 
 [!code-cshtml[Main](entering-data/samples/sample2.cshtml)]
 
-İlk birkaç satırı değişkenlerinin (`title`, `genre`, ve `year`) metin kutularında değerleri tutmak için. Satır `if(IsPost)` değişkenleri ayarlandığından emin olur *yalnızca* kullanıcılar'ı tıklattığınızda **ekleme film** düğmesi — diğer bir deyişle, ne zaman formun forumumuza gönderildi.
+İlk birkaç satır, metin kutularından değerleri tutmak için değişkenler (`title`, `genre`ve `year`) oluşturur. Satır `if(IsPost)`, değişkenlerin *yalnızca* Kullanıcı **Film Ekle** düğmesine tıklaması durumunda ayarlanmış olduğundan emin olur. diğer bir deyişle, form ne zaman gönderilir.
 
-Önceki bir öğreticide gördüğünüz gibi değeri metin kutusu gibi bir ifade kullanarak almak `Request.Form["name"]`burada *adı* adıdır `<input>` öğesi.
+Önceki bir öğreticide gördüğünüz gibi, `Request.Form["name"]`gibi bir ifade kullanarak bir metin kutusunun değerini alır, burada *name* `<input>` öğesinin adıdır.
 
-Değişkenlerin adlarını (`title`, `genre`, ve `year`) rasgele. Atadığınız adlar gibi `<input>` öğeleri, bunları istediğiniz herhangi bir şey çağırabilirsiniz. (Değişkenlerin adlarını ad özniteliklerini eşleşmesi gerekmez `<input>` formu üzerindeki öğelerin.) Ancak olduğu gibi `<input>` öğeleri, içerdikleri veriler yansıtan değişken adları kullanmak iyi bir fikir olduğunu. Kod yazdığınızda, tutarlı adlar sizin çalıştığınız hangi verilerin kolaylaştırır.
+Değişkenlerin adları (`title`, `genre`ve `year`) rastgele. `<input>` öğelerine atadığınız adlar gibi bunları dilediğiniz şekilde çağırabilirsiniz. (Değişkenlerin adları, formdaki `<input>` öğelerinin ad öznitelikleriyle eşleşmek zorunda değildir.) `<input>` öğelerinde olduğu gibi, içerdikleri verileri yansıtan değişken adlarını kullanmak iyi bir fikirdir. Kod yazdığınızda, tutarlı adlar hangi verileri kullandığınızı hatırlamanıza daha kolay hale getirir.
 
 ## <a name="adding-data-to-the-database"></a>Veritabanına veri ekleme
 
-Kodda, yeni eklenen, yalnızca engelleme *içinde* kapanış ayracı ( `}` ), `if` engelleyin (yalnızca kod bloğu içinde), aşağıdaki kodu ekleyin:
+Az önce eklediğiniz kod bloğunda, `if` bloğunun (yalnızca kod bloğunun içinde değil) kapanış ayracı *içinde* (`}`), aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](entering-data/samples/sample3.cs)]
 
-Bu örnek, önceki bir öğreticide veri getirme ve görüntüleme için kullanılan kod benzerdir. İle başlayan satırı `db =` açılır önce gibi veritabanı ve sonraki satırı tanımlayan bir SQL deyimi yeniden olarak daha önce gördüğünüz. Ancak, bu kez tanımladığı bir SQL `Insert Into` deyimi. Aşağıdaki örnek genel söz dizimi görülmektedir `Insert Into` deyimi:
+Bu örnek, verileri getirmek ve göstermek için önceki bir öğreticide kullandığınız koda benzer. `db =` ile başlayan çizgi, daha önce olduğu gibi veritabanını açar ve sonraki satır bir SQL ifadesini daha önce gördüğünüz şekilde tanımlar. Ancak, bu kez bir SQL `Insert Into` bildirisini tanımlar. Aşağıdaki örnek `Insert Into` deyimin genel sözdizimini göstermektedir:
 
 `INSERT INTO table (column1, column2, column3, ...) VALUES (value1, value2, value3, ...)`
 
-Diğer bir deyişle, tablonun takın, ardından içine eklenecek sütun listesinde ve ardından liste değerleri eklemek için belirtin. (Bazı kişiler komutu okunmasını kolaylaştırmak için anahtar sözcükler büyük harf ancak önce belirtildiği gibi SQL büyük/küçük harfe duyarlı değildir.)
+Diğer bir deyişle, eklenecek tabloyu belirtin, sonra eklenecek sütunları listeleyin ve ardından eklenecek değerleri listeleyin. (Daha önce belirtildiği gibi, SQL büyük küçük harfe duyarlı değildir ancak bazı kullanıcılar, komutu okumayı kolaylaştırmak için anahtar sözcüklerini büyük harfle okur.)
 
-İçine ekleme sütunları zaten komut içinde listelenen — `(Title, Genre, Year)`. Metin kutularına gelen değerlerin nereden ilgi çekici bir parçası olan `VALUES` komutunun bir parçası. Gerçek değerleri yerine gördüğünüz `@0`, `@1`, ve `@2`, olan doğal yer tutucu. Komutu çalıştırdığınızda (üzerinde `db.Execute` satır), metin kutularında aldığınız değerlerini geçirirsiniz.
+İçine eklediğiniz sütunlar zaten komutta listelenmiştir — `(Title, Genre, Year)`. İlgi çekici olan bölüm, metin kutularından gelen değerleri komutun `VALUES` bölümüne alma. Gerçek değerler yerine, kurs yer tutucuları olan `@0`, `@1`ve `@2`görürsünüz. Komutunu çalıştırdığınızda (`db.Execute` satırında), metin kutularından aldığınız değerleri geçirirsiniz.
 
-**Önemli!** Burada gördüğünüz gibi hiç olmadığı kadar içermelidir çevrimiçi bir SQL deyimi bir kullanıcı tarafından girilen veriler tek yolu yer tutucuları, kullanılacak olduğunu unutmayın (`VALUES(@0, @1, @2)`). Bir SQL deyimi kullanıcı girişlerini birleştirmek, kendiniz SQL ekleme saldırısına açıklandığı şekilde açmak [formuyla ilgili temel kavramlar ASP.NET Web Pages'de](https://go.microsoft.com/fwlink/?LinkId=251581) (önceki öğreticide).
+**Önemli!** Bir SQL deyimindeki bir kullanıcı tarafından çevrimiçi olarak girilen verileri her zaman içeren tek bir şekilde, burada gördüğünüz gibi (`VALUES(@0, @1, @2)`) yer tutucuları kullanacağınızı unutmayın. Kullanıcı girişini bir SQL ifadesine eklerseniz, [ASP.NET Web sayfalarında](https://go.microsoft.com/fwlink/?LinkId=251581) (önceki öğreticide) form temelleri bölümünde açıklandığı gibi, kendınızı bir SQL ekleme saldırısında açarsınız.
 
-İçinde hala `if` engelleme, sonra aşağıdaki satırı ekleyin `db.Execute` satırı:
+Hala `if` bloğunun içinde, `db.Execute` satırından sonra aşağıdaki satırı ekleyin:
 
 [!code-css[Main](entering-data/samples/sample4.css)]
 
-Yeni film veritabanına eklendikten sonra bu satır, (yeniden yönlendirmeleri) atlar *filmler* girdiğiniz film görebilmeniz için sayfa. `~` İşleci anlamına gelir "Web sitesinin kök." ( `~` İşleci yalnızca içinde çalıştığı ASP.NET sayfaları, HTML değil, genellikle.)
+Yeni film veritabanına eklendikten sonra, bu çizgi sizi (yeniden yönlendirmeleri) *filmler* sayfasına atlar, böylece yeni girdiğiniz filmi görebilirsiniz. `~` işleci "Web sitesinin kökü" anlamına gelir. (`~` işleci yalnızca HTML biçiminde değil, yalnızca ASP.NET sayfalarında kullanılabilir.)
 
-Tam kod bloğunu şu örnekteki gibi görünür:
+Kod bloğu tamamı şu örneğe benzer şekilde görünür:
 
 [!code-cshtml[Main](entering-data/samples/sample5.cshtml)]
 
-## <a name="testing-the-insert-command-so-far"></a>INSERT komutu (şimdiye) test etme
+## <a name="testing-the-insert-command-so-far"></a>INSERT komutunu test etme (Şu ana kadar)
 
-Henüz tamamlanmadı ancak şimdi test etmek için iyi bir zamandır.
+Henüz bitmedi, ancak şimdi test etmek iyi bir zaman.
 
-WebMatrix dosyalarında ağaç görünümünde, sağ *AddMovie.cshtml* sayfasında ve ardından **tarayıcıda Başlat**.
+WebMatrix 'teki dosyaların ağaç görünümünde, *Addmovie. cshtml* sayfasına sağ tıklayın ve ardından **tarayıcıda Başlat**' a tıklayın.
 
-!['Add film' sayfasını tarayıcıda](entering-data/_static/image2.png)
+![' Film Ekle ' sayfası tarayıcıda](entering-data/_static/image2.png)
 
-(Başka bir sayfaya tarayıcıda elde edersiniz, URL olduğundan emin olun `http://localhost:nnnnn/AddMovie`), burada *nnnnn* kullandığınız bağlantı noktası numarasıdır.)
+(Tarayıcıda farklı bir sayfa ile karşılaşırsanız, URL 'nin `http://localhost:nnnnn/AddMovie`) olduğundan emin olun *, burada,* bu, kullandığınız bağlantı noktası numarasıdır.)
 
-Bir hata sayfası mı aldınız? Bu durumda, dikkatle okuyun ve ne daha önce listelenen kodu tam olarak göründüğünden emin olun.
+Bir hata sayfası mı alıyorsunuz? Bu durumda, dikkatlice okuyun ve kodun tam olarak daha önce listelenmiş şekilde göründüğünden emin olun.
 
-Bir filmi girin &mdash; Örneğin, "Gamze Vatandaşlık", "DRAM" ve "1941" kullanın. (Veya.) Ardından **ekleme film**.
+Forma bir film girin &mdash; Örneğin, "vatandaşlık Kane", "drama" ve "1941" kullanın. (Veya herhangi bir.) Ardından **Film Ekle**' ye tıklayın.
 
-Tüm yapıldığında için yönlendirilirsiniz *filmler* sayfası. Yeni, film listelendiğinden emin olun.
+Hepsi iyi gitiyorsa, *filmler* sayfasına yönlendirilirsiniz. Yeni filminizin listelendiğinden emin olun.
 
-![Film gösteren yeni filmler sayfası eklendi](entering-data/_static/image3.png)
+![Yeni eklenen filmi gösteren filmler sayfası](entering-data/_static/image3.png)
 
 ## <a name="validating-user-input"></a>Kullanıcı girişini doğrulama
 
-Geri Git *AddMovie* sayfasında veya yeniden çalıştırın. Başka bir film, ancak bu kez girin, yalnızca bir başlık girin &mdash; "Açev'nda Yağmur" girin. Ardından **ekleme film**.
+*Addmovie* sayfasına dönün veya yeniden çalıştırın. Başka bir film girin, ancak bu kez yalnızca başlık &mdash; girin, örneğin "Singın' yazın". Ardından **Film Ekle**' ye tıklayın.
 
-İçin yönlendirilirsiniz *filmler* yeniden sayfa. Yeni film bulabilirsiniz, ancak eksik.
+*Filmler* sayfasına yeniden yönlendirilirsiniz. Yeni filmi bulabilirsiniz, ancak bu, tamamlanmamış olabilir.
 
-![Bazı değerler eksik gösteren yeni film filmler sayfası](entering-data/_static/image4.png)
+![Bazı değerler eksik olan yeni filmi gösteren filmler sayfası](entering-data/_static/image4.png)
 
-Oluştururken *filmler* tablo açıkça söylediğiniz alanların null olabileceğini. Burada bir giriş formunu yeni filmler için sahip ve alanları boş bırakılması. Bu bir hatadır.
+*Filmler* tablosunu oluşturduğunuz zaman, alanlardan hiçbirinin null olduğunu açıkça belirttik. Burada yeni filmler için bir giriş formunuz vardır ve alanları boş bırakın. Bu bir hatadır.
 
-Bu durumda, veritabanını gerçekten yükseltmek istemediğiniz (veya *throw*) bir hata oluştu. Bir türe veya yıl, bu nedenle belirtmediyseniz kodda *AddMovie* sayfası bu değerleri olarak anılan kabul *boş dizelere*. SQL `Insert Into` komutun çalıştığını, türe ve yıl alanları yararlı verileri bunları yoktu, ancak bunlar null olmayan.
+Bu durumda veritabanı aslında bir hata yükseltmedi (veya *oluşturmaz*). Bir tarz veya yıl belirtmediniz, bu nedenle *Addmovie* sayfasındaki kod bu değerleri, *boş dizeler*olarak kabul ediyor. SQL `Insert Into` komutu çalıştırıldığında, tarz ve yıl alanlarında bu alanlarda faydalı veriler yoktu, ancak bunlar null değil.
 
-Belli ki, yarı boş film bilgileri veritabanına girmek kullanıcılara bildirmek istemiyorum. Kullanıcı girişini onaylamak için çözümüdür. Başlangıçta, doğrulama yalnızca kullanıcı bir değer tüm alanlar için girdiğini emin olmanızı sağlar (diğer bir deyişle, bunların hiçbiri boş bir dize içeriyor).
+Kuşkusuz, kullanıcıların veritabanına yarı boş film bilgileri girmesini sağlamak istemezsiniz. Çözüm, kullanıcının girişini doğrulamaktır. İlk olarak, doğrulama yalnızca kullanıcının tüm alanlar için bir değer girdiğinden emin olur (yani, hiçbirinin boş bir dize içermediği).
 
 > [!TIP]
 > 
-> **NULL ve boş dizeler**
+> **Null ve boş dizeler**
 > 
-> Programlamada, "değer yok" farklı kavramları arasında bir ayrım yoktur Genel olarak, bir değerdir *null* ise, hiçbir zaman ayarlayın veya bırakıldığı herhangi bir şekilde başlatıldı. Karakter verileri (dize) bekliyor bir değişkeni buna karşılık, ayarlanabilir bir *boş dize*. Bu durumda, değer null değil; Bunu yalnızca açıkça uzunluğu olan sıfır karakter dizesi için ayarlanmış. Bu iki deyimden farkı gösterir:
+> Programlamada, "değer yok" gibi farklı düşünceler arasında bir ayrım vardır. Genel olarak, hiçbir şekilde hiçbir şekilde ayarlanmadıysa veya başlatılamıyorsa bir değer *null* olur. Buna karşılık, karakter verisi (dizeler) bekleyen bir değişken *boş bir dizeye*ayarlanabilir. Bu durumda, değer null değildir; yalnızca uzunluğu sıfır olan bir karakter dizesi olarak ayarlanmıştır. Bu iki deyim farkı göstermektedir:
 > 
 > [!code-csharp[Main](entering-data/samples/sample6.cs)]
 > 
-> Bunu biraz daha karmaşık, ancak en önemli nokta olan `null` belirlenmemiş bir durum kavramını temsil eder.
+> Bu çok daha karmaşıktır, ancak önemli nokta, `null` belirlenmeyen bir durum sıralamasını temsil etmektedir.
 > 
-> Artık ve sonra tam olarak ne zaman bir değer null ve boş bir dize olduğunda anlamak önemlidir. Kodunda *AddMovie* sayfası, metin kutuları değerlerini kullanarak elde `Request.Form["title"]` ve benzeri. (Düğmesine tıklamadan önce) sayfa ilk çalıştığında, değerini `Request.Form["title"]` null. Ancak, formun gönderdiğinizde `Request.Form["title"]` değerini alır `title` metin kutusu. Belirgin değildir, ancak boş bir metin kutusu boş değil; Bunu yalnızca boş bir dize var. Bu nedenle kod yanıt düğme olarak çalıştığında tıklayın, `Request.Form["title"]` boş bir dize içinde yok.
+> Şimdi bir değer null olduğunda ve yalnızca boş bir dize olduğunda tam olarak anlaşılması önemlidir. *Addfilm* sayfasında, `Request.Form["title"]` kullanarak metin kutularının değerlerini alır ve bu şekilde devam eder. Sayfa ilk çalıştırıldığında (düğmeye tıklamadan önce) `Request.Form["title"]` değeri null olur. Ancak formu gönderdiğinizde, `Request.Form["title"]` `title` metin kutusunun değerini alır. Açık değil, ancak boş bir metin kutusu null değil; yalnızca içinde boş bir dize vardır. Bu nedenle, kod düğme tıklamasından yanıt olarak çalıştığında `Request.Form["title"]` öğesinde boş bir dize vardır.
 > 
-> Bu ayrım neden önemlidir? Oluştururken *filmler* tablo açıkça söylediğiniz alanların null olabileceğini. Ancak burada bir giriş formunu yeni filmler için sahip ve alanları boş bırakılması. Türe veya yıl değerlerini gerekmedi yeni filmler kaydetmeye çalıştığında şikayet veritabanına makul beklenir. Ancak, noktasıdır &mdash; olsa bile bu metin kutularını boş bırakın, değerler null dahil değildir; boş dizeler oldukları. Sonuç olarak, yeni bir film veritabanı boş bu sütunlar ile kaydedebilir &mdash; ancak boş değil! &mdash; değerler. Bu nedenle, kullanıcıların kullanıcı girişini doğrulama tarafından yapabileceğiniz boş bir dize paylaşmayın emin olmalısınız.
+> Bu ayrım neden önemlidir? *Filmler* tablosunu oluşturduğunuz zaman, alanlardan hiçbirinin null olduğunu açıkça belirttik. Ancak burada yeni filmler için bir giriş formunuz vardır ve alanları boş bırakın. Tarz veya yıl için değer olmayan yeni filmleri kaydetmeye çalıştığınızda, veritabanının şikayetini makul bir şekilde beklemeniz gerekir. Ancak, bu metin kutularını boş bıraksanız bile bu nokta &mdash;, değerler null değildir; Bunlar boş dizelerdir. Sonuç olarak, bu sütunlar boş &mdash; ancak null olamaz. bu sütunlara yeni filmleri veritabanına kaydedebilirsiniz! &mdash; değerleri. Bu nedenle, kullanıcıların girişini doğrulayarak yapabileceğiniz, kullanıcıların boş bir dize göndermezler olduğundan emin olmanız gerekir.
 
 ### <a name="the-validation-helper"></a>Doğrulama Yardımcısı
 
-ASP.NET Web sayfaları içeren bir yardımcı &mdash; `Validation` Yardımcısı &mdash; kullanıcılar gereksinimlerinizi karşılayan verileri girin emin olmak için kullanabilirsiniz. `Validation` Yardımcısı NuGet, önceki bir öğreticide Gravatar Yardımcısı yüklü biçimini kullanarak bir paket olarak yüklemeniz gerekmez, ASP.NET Web sayfaları için yerleşik olarak Yardımcıları biridir.
+ASP.NET Web sayfaları, kullanıcıların gereksinimlerinizi karşılayan verileri girdiğinden emin olmak için kullanabileceğiniz `Validation` Yardımcısı &mdash; &mdash; yardımcı içerir. `Validation` Yardımcısı, ASP.NET Web sayfalarına yerleşik olarak bulunan Yardımcılarınızdan biridir. bu nedenle, önceki bir öğreticide Gravatar Yardımcısı 'nı yüklediğiniz şekilde NuGet kullanarak bir paket olarak yüklemek zorunda kalmazsınız.
 
-Kullanıcı girişini doğrulamak için aşağıdakileri:
+Kullanıcının girişini doğrulamak için aşağıdakileri yapmanız gerekir:
 
-- Kod sayfasında metin kutularında değerleri gerektirir istediğinizi belirtmek için kullanın.
-- Bir test, böylece yalnızca her şeyin düzgün bir şekilde doğrulanırsa film bilgileri veritabanına eklenen kodun içine yerleştirin.
-- Kod hata iletilerini görüntülemek için işaretleme ekleyin.
+- Sayfadaki metin kutularında değer gerektirmek istediğinizi belirtmek için kodu kullanın.
+- Filmi yalnızca her şey düzgün şekilde doğrulanırsa, film bilgilerinin veritabanına eklenmesi için koda bir test koyun.
+- Hata iletilerini göstermek için biçimlendirmeye kod ekleyin.
 
-Kod bloğu içinde *AddMovie* sayfasında, sağa yukarı üst değişken bildirimlerini önce aşağıdaki kodu ekleyin:
+*Addmovie* sayfasındaki kod bloğunda, değişken bildirimlerinin önüne sağ üstteki olarak, aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](entering-data/samples/sample7.cs)]
 
-Çağırmanızı `Validation.RequireField` her alan için bir kez (`<input>` öğesi) bir giriş gerektiren istediğiniz. Burada gördüğünüz gibi her çağrı bir özel hata iletisi de ekleyebilirsiniz. (Biz, istediğiniz herhangi bir şey buraya koyabilirsiniz olduğunu göstermek için iletilerini değiştirilen.)
+Giriş gerektirmek istediğiniz her alan (`<input>` öğesi) için `Validation.RequireField` bir kez çağrı yapabilirsiniz. Ayrıca, burada gördüğünüz gibi her bir çağrı için özel bir hata iletisi ekleyebilirsiniz. (İletileri, istediğiniz herhangi bir şeyi koyabileceğiniz göstermek için de farklılıyoruz.)
 
-Bir sorun varsa, veritabanına eklenen yeni film bilgilerinin önlemek isteyebilirsiniz. İçinde `if(IsPost)` engelleme, kullanın `&&` (testleri başka bir koşul eklemek için mantıksal ve) `Validation.IsValid()`. Bitirdiğinizde, bütün `if(IsPost)` blok şu kod gibi görünür:
+Bir sorun varsa, yeni film bilgilerinin veritabanına eklenmesini engellemek isteyebilirsiniz. `if(IsPost)` bloğunda, `Validation.IsValid()`test eden başka bir koşul eklemek için `&&` (mantıksal ve) kullanın. İşiniz bittiğinde `if(IsPost)` bloğunun tamamı şu kod gibi görünür:
 
 [!code-csharp[Main](entering-data/samples/sample8.cs)]
 
-Kullanarak kaydettiğiniz alanlarının herhangi bir doğrulama hatası varsa `Validation` yardımcıyı `Validation.IsValid` yöntem false döndürür. Ve geçersiz film giriş yok veritabanına eklenecek şekilde bu durumda, söz konusu bloğu içindeki kod hiçbiri çalıştırılır. Ve Elbette yönlendirilirsiniz değil *filmler* sayfası.
+`Validation` Yardımcısını kullanarak kaydettiğiniz alanlarla ilgili bir doğrulama hatası varsa, `Validation.IsValid` yöntemi false döndürür. Bu durumda, bu bloktaki kodların hiçbiri çalıştırılamayacak, bu nedenle veritabanına geçersiz bir film girişi eklenemeyecektir. *Filmler* sayfasına yönlendirilmezseniz, tabii olursunuz.
 
-Doğrulama kodu içeren tam bir kod bloğu, artık şu örnekteki gibi görünür:
+Doğrulama kodu da dahil olmak üzere tüm kod blokları Şu örneğe benzer şekilde görünür:
 
 [!code-cshtml[Main](entering-data/samples/sample9.cshtml?highlight=10)]
 
-## <a name="displaying-validation-errors"></a>Doğrulama hataları görüntüleme
+## <a name="displaying-validation-errors"></a>Doğrulama hatalarını görüntüleme
 
-Son adım, herhangi bir hata iletisi görüntülemektir. Bir Özet veya her ikisi de görüntüleyebilir veya tek tek her doğrulama hatası iletilerini görüntüleyebilirsiniz. Nasıl çalıştığını görebilmeniz için Bu öğretici için her ikisi de yaparsınız.
+Son adım hata iletilerini görüntülemektir. Her doğrulama hatası için tek tek iletileri görüntüleyebilir veya bir özet veya her ikisini de görüntüleyebilirsiniz. Bu öğreticide, her ikisini de nasıl çalıştığını görebileceğiniz şekilde yapacaksınız.
 
-Her yanındaki `<input>` doğrulamakta öğe, çağrı `Html.ValidationMessage` yöntemi ve adını geçirin `<input>` öğesi doğrulanıyor. Eklediğiniz `Html.ValidationMessage` yöntemi sağ istediğiniz görüntülenecek hata iletisi. Sayfa çalıştığında, `Html.ValidationMessage` yöntemi oluşturur bir `<span>` doğrulama hatası nereye öğesi. (Herhangi bir hata varsa `<span>` öğesi işlenir, yoktur ancak metin içinde.)
+Doğrulamadığınızı her bir `<input>` öğesinin yanında, `Html.ValidationMessage` yöntemini çağırın ve bu dosyayı doğrulamadığınızdan `<input>` öğenin adına geçirin. `Html.ValidationMessage` yöntemini, hata iletisinin görünmesini istediğiniz yere yerleştirebilirsiniz. Sayfa çalıştırıldığında `Html.ValidationMessage` yöntemi, doğrulama hatasının gideceği bir `<span>` öğesi işler. (Hata yoksa `<span>` öğesi işlenir, ancak içinde hiç metin yoktur.)
 
-Sayfa biçimlendirmeyi değiştirin, böylece içerdiği bir `Html.ValidationMessage` her üç yöntemi `<input>` gibi öğeler sayfasında, bu örnekte:
+Sayfadaki biçimlendirmeyi, sayfadaki üç `<input>` öğenin her biri için bir `Html.ValidationMessage` Yöntemi içerecek şekilde değiştirin, örneğin:
 
 [!code-cshtml[Main](entering-data/samples/sample10.cshtml?highlight=3,8,13)]
 
-Özet nasıl çalıştığını görmek için ayrıca aşağıdaki işaretlemeyi ekleyin ve hemen sonra kod `<h1>Add a Movie</h1>` öğeyi sayfada:
+Özetin nasıl çalıştığını görmek için, sayfadaki `<h1>Add a Movie</h1>` öğeden hemen sonra aşağıdaki biçimlendirmeyi ve kodu ekleyin:
 
 [!code-cshtml[Main](entering-data/samples/sample11.cshtml)]
 
-Varsayılan olarak, `Html.ValidationSummary` yöntemi, tüm doğrulama iletilerinin bir listede görüntüler (bir `<ul>` içinde öğesi bir `<div>` öğesi). Olduğu gibi `Html.ValidationMessage` yöntemi, biçimlendirme doğrulama özeti için her zaman işlenir; herhangi bir hata varsa, liste öğesi oluşturulur.
+`Html.ValidationSummary` yöntemi, varsayılan olarak tüm doğrulama mesajlarını bir liste içinde (bir `<div>` öğesi içindeki bir `<ul>` öğesi) görüntüler. `Html.ValidationMessage` yönteminde olduğu gibi, doğrulama özeti için biçimlendirme her zaman işlenir; hata yoksa, hiçbir liste öğesi işlenmez.
 
-Özet kullanarak yerine doğrulama iletileri görüntülemek için alternatif bir yolu olabilir `Html.ValidationMessage` her alana özgü hata görüntülemek için yöntemi. Veya, hem Özet hem de ayrıntılarını kullanabilirsiniz. Ya da `Html.ValidationSummary` genel bir hata görüntüler ve ardından tek yöntemi `Html.ValidationMessage` ayrıntılarını görüntülemek için çağrıları.
+Özet, alana özgü her hatayı göstermek için `Html.ValidationMessage` yöntemi kullanılarak yerine doğrulama iletilerini görüntülemenin alternatif bir yolu olabilir. Ya da hem Özet hem de Ayrıntılar kullanabilirsiniz. Ya da genel bir hata göstermek için `Html.ValidationSummary` yöntemini kullanabilir ve sonra, ayrıntıları göstermek için tek `Html.ValidationMessage` çağrılarını kullanabilirsiniz.
 
-Tam sayfa artık şu örnekteki gibi görünür:
+Tüm sayfa şu örneğe benzer şekilde görünür:
 
 [!code-cshtml[Main](entering-data/samples/sample12.cshtml)]
 
-İşte bu kadar. Bir filmi ekleme ancak bir veya daha fazla alan bırakarak artık sayfayı test edebilirsiniz. Bunu yaptığınızda, görüntüler aşağıdaki hatayı görürsünüz:
+İşte bu kadar. Artık bir filmi ekleyerek ve bir veya daha fazla alandan bırakarak sayfayı test edebilirsiniz. Bunu yaptığınızda, aşağıdaki hata ekranını görürsünüz:
 
-![Doğrulama hatası iletilerini gösteren film Sayfası Ekle](entering-data/_static/image5.png)
+![Doğrulama hata iletilerini gösteren film sayfası ekle](entering-data/_static/image5.png)
 
-## <a name="styling-the-validation-error-messages"></a>Doğrulama hatası iletilerini stil oluşturma
+## <a name="styling-the-validation-error-messages"></a>Doğrulama hata Iletilerini Stillendirme
 
-Hata iletileri vardır, ancak bunlar gerçekten çok iyi göze yoksa görebilirsiniz. Hata iletileri, ancak stilini belirlemek için kolay bir yolu yoktur.
+Hata iletileri olduğunu, ancak gerçekten çok iyi bir şekilde görmemenizi görebilirsiniz. Yine de hata iletilerini stillemenin kolay bir yolu vardır.
 
-Tarafından görüntülenen tek hata iletilerini biçimlendirmek için `Html.ValidationMessage`, adlandırılmış bir CSS stil sınıfı oluşturma `field-validation-error`. Doğrulama Özeti Görünümü tanımlamak için adlandırılmış bir CSS stil sınıfı oluşturma `validation-summary-errors`.
+`Html.ValidationMessage`tarafından görüntülenen ayrı hata iletilerine stil eklemek için `field-validation-error`adlı bir CSS stil sınıfı oluşturun. Doğrulama özetinin görünümünü tanımlamak için `validation-summary-errors`adlı bir CSS stil sınıfı oluşturun.
 
-Bu teknik nasıl çalıştığını görmek için ekleme bir `<style>` öğe içinde `<head>` sayfasının bölümünde. Ardından adlı stil sınıflarını tanımlayın `field-validation-error` ve `validation-summary-errors` aşağıdaki kurallar içerir:
+Bu tekniğin nasıl çalıştığını görmek için, sayfanın `<head>` bölümünün içine bir `<style>` öğesi ekleyin. Ardından aşağıdaki kuralları içeren `field-validation-error` ve `validation-summary-errors` adlı stil sınıflarını tanımlayın:
 
 [!code-cshtml[Main](entering-data/samples/sample13.cshtml?highlight=4-17)]
 
-Ayrı bir stil bilgileri büyük olasılıkla normalde koyabilirsiniz *.css* dosya, ancak kolaylık olması için bunları sayfasında şimdilik koyabilirsiniz. (Daha sonra Bu öğretici kümesinde, ayrı bir CSS kurallarını taşırsınız *.css* dosyası.)
+Genellikle stil bilgilerini ayrı bir *. css* dosyasına koyabilirsiniz, ancak kolaylık sağlaması için bunları sayfaya şimdi ekleyebilirsiniz. (Bu öğretici kümesinde daha sonra CSS kurallarını ayrı bir *. css* dosyasına taşıyacaksınız.)
 
-Bir doğrulama hatası varsa `Html.ValidationMessage` yöntemi oluşturur bir `<span>` içeren öğe `class="field-validation-error"`. O sınıf için bir stil tanımını ekleyerek, ileti benzer yapılandırabilirsiniz. Hatalar, varsa `ValidationSummary` yöntemi öznitelik benzer şekilde dinamik olarak işler `class="validation-summary-errors"`.
+Bir doğrulama hatası varsa `Html.ValidationMessage` yöntemi `class="field-validation-error"`içeren bir `<span>` öğesi işler. Bu sınıfa bir stil tanımı ekleyerek iletinin nasıl göründüğünü yapılandırabilirsiniz. Hatalar varsa `ValidationSummary` yöntemi aynı şekilde özniteliği `class="validation-summary-errors"`dinamik olarak işler.
 
-Sayfayı yeniden çalıştırın ve alanları birkaç kasıtlı olarak bırakın. Hatalar daha belirgin görüntüleniyor. (Aslında, overdone ancak yalnızca neler yapabileceğinizi gösterecek şekilde olmasıdır.)
+Sayfayı yeniden çalıştırın ve bir dizi alanın bir kısmını bırakın. Hatalar artık daha belirgin. (Aslında bunlar fazla yapılır, ancak yapabileceklerinizi göstermek yeterlidir.)
 
-![Stil uygulanmış doğrulama hatalarını gösteren film Sayfası Ekle](entering-data/_static/image6.png)
+![Stil eklenmiş doğrulama hatalarını gösteren film sayfası ekle](entering-data/_static/image6.png)
 
 ## <a name="adding-a-link-to-the-movies-page"></a>Filmler sayfasına bağlantı ekleme
 
-Bir son adımdır almak uygun hale getirmek için *AddMovie* özgün film listenin sayfasından.
+Son bir adım, ilk film listesinden *addmovie* sayfasına ulaşmak için uygun hale getirme.
 
-Açık *filmler* yeniden sayfa. Kapatma sonrasında `</div>` izleyen etiketi `WebGrid` Yardımcısı, aşağıdaki işaretlemeyi ekleyin:
+*Filmler* sayfasını yeniden açın. `WebGrid` yardımcısını izleyen kapatma `</div>` etiketinden sonra, aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-cshtml[Main](entering-data/samples/sample14.cshtml)]
 
-Daha önce gördüğünüz gibi ASP.NET yorumlar `~` Web sitesinin kök olarak işleci. Kullanmak zorunda değilsiniz `~` işleci; biçimlendirme kullanabileceğinizi `<a href="./AddMovie">Add a movie</a>` veya HTML anlayan yolunu tanımlamak için başka bir şekilde. Ancak `~` işleci, iyi bir genel yaklaşım Razor sayfaları için bağlantılar oluşturduğunuzda, sitenin daha esnek hale getirdiği için — geçerli sayfa bir alt klasöre taşırsanız, bağlantıyı yine de gidin *AddMovie* sayfası. (Unutmayın `~` işleci yalnızca çalışır *.cshtml* sayfaları. ASP.NET anlar, ancak standart HTML değildir.)
+Daha önce gördüğünüz gibi, ASP.NET `~` işlecini Web sitesinin kökü olarak yorumlar. `~` işlecini kullanmanız gerekmez; biçimlendirme `<a href="./AddMovie">Add a movie</a>` veya HTML 'nin anladığı yolu tanımlamak için başka bir yol kullanabilirsiniz. Ancak `~` işleci, Razor sayfaları için bağlantılar oluşturduğunuzda, siteyi daha esnek hale getiren iyi bir genel yaklaşımdır. geçerli sayfayı bir alt klasöre taşırsanız bağlantı yine de *Addmovie* sayfasına gider. (`~` işlecinin yalnızca *. cshtml* sayfalarında çalışıp çalışmadığını unutmayın. ASP.NET anlamıştır, ancak standart HTML değildir.)
 
-İşiniz bittiğinde çalıştırma *filmler* sayfası. Bunun gibi bu sayfası görünür:
+İşiniz bittiğinde, *filmler* sayfasını çalıştırın. Bu sayfa şöyle görünür:
 
-!['Filmler Ekle' sayfasına filmler sayfası](entering-data/_static/image7.png)
+![' Film Ekle ' sayfasına bağlantısı olan filmler sayfası](entering-data/_static/image7.png)
 
-Tıklayın **film ekleme** için giden emin olmak için bağlantı *AddMovie* sayfası.
+*Addmovie* sayfasına gittiğinden emin olmak Için **Film Ekle** bağlantısına tıklayın.
 
-## <a name="coming-up-next"></a>Sıradaki gelen
+## <a name="coming-up-next"></a>Sonraki adımda
 
-Sonraki öğreticide zaten veritabanında olan verileri düzenleme kullanıcıların öğreneceksiniz.
+Sonraki öğreticide, kullanıcıların veritabanında zaten bulunan verileri düzenlemesine nasıl izin vereceğinizi öğreneceksiniz.
 
-## <a name="complete-listing-for-addmovie-page"></a>Tam listesi için AddMovie sayfası
+## <a name="complete-listing-for-addmovie-page"></a>AddMovie sayfası için listeyi tamamlar
 
 [!code-cshtml[Main](entering-data/samples/sample15.cshtml)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET Web programlama Razor söz dizimini kullanarak giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
-- [SQL INSERT INTO deyimi](http://www.w3schools.com/sql/sql_insert.asp) W3Schools sitesinde
-- [ASP.NET Web uygulamasında kullanıcı girdisi doğrulama sayfaları sitelerini](https://go.microsoft.com/fwlink/?LinkId=253002). İle çalışma hakkında daha fazla bilgi `Validation` Yardımcısı.
+- [Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
+- W3Schools sitesinde [SQL INSERT INTO bildirisi](http://www.w3schools.com/sql/sql_insert.asp)
+- [ASP.NET Web sayfaları sitelerinde Kullanıcı girişi doğrulanıyor](https://go.microsoft.com/fwlink/?LinkId=253002). `Validation` Yardımcısı ile çalışma hakkında daha fazla bilgi.
 
 > [!div class="step-by-step"]
 > [Önceki](form-basics.md)

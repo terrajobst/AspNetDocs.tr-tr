@@ -9,11 +9,11 @@ ms.assetid: e454c67d-a86e-4119-a858-eb04bbec2dff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 264ff9850bad397826b45649d52fbfefafc53a01
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594503"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78600242"
 ---
 # <a name="creating-custom-html-helpers-c"></a>Özel HTML Yardımcıları Oluşturma (C#)
 
@@ -35,15 +35,15 @@ ASP.NET MVC çerçevesi, aşağıdaki standart HTML Yardımcıları kümesini i�
 
 - HTML. ActionLink ()
 - HTML. BeginForm ()
-- HTML. CheckBox ()
+- Html.CheckBox()
 - HTML. DropDownList ()
-- HTML. EndForm ()
+- Html.EndForm()
 - HTML. Hidden ()
-- HTML. ListBox ()
+- Html.ListBox()
 - HTML. Password ()
-- HTML. RadioButton ()
+- Html.RadioButton()
 - HTML. TextArea ()
-- HTML. TextBox ()
+- Html.TextBox()
 
 Örneğin, liste 1 ' de formu göz önünde bulundurun. Bu form standart HTML yardımcılarını (bkz. Şekil 1) içeren yardım ile birlikte işlenir. Bu form basit bir HTML formu işlemek için `Html.BeginForm()` ve `Html.TextBox()` yardımcı yöntemlerini kullanır.
 

@@ -9,11 +9,11 @@ ms.assetid: 9410a23c-9697-4f07-bd71-e62b0ceac655
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 49b09cbf0f12f7c7233c3bb2a8b3b2c073bf117e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74573159"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78611274"
 ---
 # <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>DataList 'te verileri düzenlemeyle ve silmeye genel bakış (VB)
 
@@ -286,20 +286,20 @@ Sil düğmesine tıklamak geri göndermeye neden olur ve DataList `DeleteCommand
 
 DataList, nokta içermiyorsa ve Düzenle ' ye tıklayın ve GridView tarafından desteklenen destek ve silme ' ye tıklayıp, kısa bir kod ile bu özellikleri kapsayacak şekilde geliştirilebilir. Bu öğreticide, silinebilecek ve adı ve fiyatı düzenlenebilen ürünlerin iki sütunlu bir listesini nasıl oluşturacağınız gördük. Düzen ve silme desteği eklemek, `ItemTemplate` ve `EditItemTemplate`uygun Web denetimlerinin yanı sıra ilgili olay işleyicilerini oluşturmak, Kullanıcı tarafından girilen ve birincil anahtar değerlerini okumak ve Iş mantığı katmanı ile arabirim oluşturulması.
 
-DataList 'e temel düzen ve silme özellikleri ekledik, ancak gelişmiş özelliklerden daha fazla yer yoktur. For example, there is no input field validation - if a user enters a price of Too expensive, an exception will be thrown by `Decimal.Parse` when attempting to convert Too expensive into a `Decimal`. Similarly, if there is a problem in updating the data at the Business Logic or Data Access Layers the user will be presented with the standard error screen. Without any sort of confirmation on the Delete button, accidentally deleting a product is all too likely.
+DataList 'e temel düzen ve silme özellikleri ekledik, ancak gelişmiş özelliklerden daha fazla yer yoktur. Örneğin, bir giriş alanı doğrulaması yok-bir Kullanıcı çok pahalı bir fiyat girerse, bir `Decimal`çok pahalı hale dönüştürmeye çalışırken `Decimal.Parse` bir özel durum oluşturulur. Benzer şekilde, Iş mantığındaki veya veri erişim katmanlarındaki verileri güncelleştirmede bir sorun varsa, kullanıcıya standart hata ekranı sunulacaktır. Silme düğmesinde hiçbir onay sıralaması olmadan, yanlışlıkla bir ürünü silmek çok olasıdır.
 
-In future tutorials we'll see how to improve the editing user experience.
+Gelecek öğreticilerde, Kullanıcı deneyimini düzenlemekle nasıl geliştireceğiniz hakkında bilgi edineceksiniz.
 
-Happy Programming!
+Programlamanın kutlu olsun!
 
-## <a name="about-the-author"></a>About the Author
+## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), author of seven ASP/ASP.NET books and founder of [4GuysFromRolla.com](http://www.4guysfromrolla.com), has been working with Microsoft Web technologies since 1998. Scott works as an independent consultant, trainer, and writer. His latest book is [*Sams Teach Yourself ASP.NET 2.0 in 24 Hours*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He can be reached at [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) or via his blog, which can be found at [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+4GuysFromRolla.com 'in, [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yedi ASP/ASP. net books ve [](http://www.4guysfromrolla.com)'in yazarı, 1998 sürümünden bu yana Microsoft Web teknolojileriyle çalışmaktadır. Scott bağımsız danışman, Trainer ve yazıcı olarak çalışıyor. En son kitabı, [*24 saat içinde ASP.NET 2,0 kendi kendinize eğitim*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)ister. mitchell@4GuysFromRolla.comadresinden erişilebilir [.](mailto:mitchell@4GuysFromRolla.com) ya da blog aracılığıyla [http://ScottOnWriting.NET](http://ScottOnWriting.NET)bulabilirsiniz.
 
-## <a name="special-thanks-to"></a>Special Thanks To
+## <a name="special-thanks-to"></a>Özel olarak teşekkürler
 
-This tutorial series was reviewed by many helpful reviewers. Lead reviewers for this tutorial were Zack Jones, Ken Pespisa, and Randy Schmidt. Interested in reviewing my upcoming MSDN articles? If so, drop me a line at [mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisi birçok yararlı gözden geçirenler tarafından incelendi. Bu öğreticiye ilişkin müşteri adayı gözden geçirenler Zack Jones, Ken peşin PISA ve Randy SCHMIDT olarak değiştirildi. Yaklaşan MSDN makalelerimi gözden geçiriyor musunuz? Öyleyse, benimitchell@4GuysFromRolla.combir satır bırakın [.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
-> [Previous](customizing-the-datalist-s-editing-interface-cs.md)
-> [Next](performing-batch-updates-vb.md)
+> [Önceki](customizing-the-datalist-s-editing-interface-cs.md)
+> [İleri](performing-batch-updates-vb.md)

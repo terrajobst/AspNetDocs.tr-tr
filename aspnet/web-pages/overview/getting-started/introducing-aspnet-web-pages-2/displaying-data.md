@@ -1,335 +1,335 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: Verileri görüntüleme - ASP.NET Web sayfaları ile tanışın | Microsoft Docs
+title: ASP.NET Web sayfalarına giriş-verileri görüntüleme | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici Webmatrix'te bir veritabanı oluşturulacağını ve ASP.NET Web sayfaları (Razor) kullanırken veritabanı verilerinin bir sayfada nasıl görüntüleneceğini gösterir. Bu, y varsayar...
+description: Bu öğreticide, ASP.NET Web Pages (Razor) kullandığınızda WebMatrix 'te veritabanı oluşturma ve veritabanı verilerinin bir sayfada nasıl görüntüleneceği gösterilmektedir. Y... olarak kabul edilir.
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
 ms.openlocfilehash: 9e665ca8dd064c23a8b8bd3593014969d0c3da48
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128503"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525223"
 ---
-# <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş - verileri görüntüleme
+# <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş-verileri görüntüleme
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici Webmatrix'te bir veritabanı oluşturulacağını ve ASP.NET Web sayfaları (Razor) kullanırken veritabanı verilerinin bir sayfada nasıl görüntüleneceğini gösterir. Bu seriyi aracılığıyla bitirdiğinizi [ASP.NET Web sayfaları programlama giriş](../introducing-razor-syntax-c.md).
+> Bu öğreticide, ASP.NET Web Pages (Razor) kullandığınızda WebMatrix 'te veritabanı oluşturma ve veritabanı verilerinin bir sayfada nasıl görüntüleneceği gösterilmektedir. [ASP.NET Web sayfaları programlamasına giriş](../introducing-razor-syntax-c.md)aracılığıyla seriyi tamamlamış olduğunu varsayar.
 > 
 > Öğrenecekleriniz:
 > 
-> - Bir veritabanını ve veritabanı tabloları oluşturmak için WebMatrix araçları kullanma
-> - Verileri bir veritabanına eklemek için WebMatrix araçları kullanma
-> - Nasıl bir sayfada veritabanından veri görüntüleme.
-> - ASP.NET Web sayfaları'nda SQL komutları çalıştırmayı öğrenin.
-> - Nasıl özelleştireceğinizi `WebGrid` Yardımcısı sayfalama ve sıralama eklenecek ve veri görünümünü değiştirmek için.
+> - Bir veritabanı ve veritabanı tabloları oluşturmak için WebMatrix araçlarını kullanma.
+> - Bir veritabanına veri eklemek için WebMatrix araçlarını kullanma.
+> - Sayfadaki verileri veritabanından görüntüleme.
+> - ASP.NET Web sayfalarında SQL komutlarını çalıştırma.
+> - `WebGrid` yardımcısını özelleştirerek veri görüntüsünü değiştirme ve sayfalama ve sıralama ekleme.
 >   
 > 
-> Ele alınan özelliklerin/teknolojiler:
+> Ele alınan özellikler/teknolojiler:
 > 
 > - WebMatrix veritabanı araçları.
 > - `WebGrid` Yardımcısı.
 
-## <a name="what-youll-build"></a>Ne oluşturacaksınız
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Önceki öğreticide, ASP.NET Web sayfaları için sunulan (*.cshtml* dosyaları), Razor sözdizimi ile ilgili temel bilgileri ve Yardımcıları. Bu öğreticide, serinin geri kalanı için kullanacağınız gerçek bir web uygulaması oluşturma başlarsınız. Uygulamayı görüntüleme, ekleme, değiştirme ve filmlerle ilgili bilgiler silme olanak sağlayan bir basit film uygulamasıdır.
+Önceki öğreticide, ASP.NET Web sayfalarına ( *. cshtml* dosyaları), Razor söz dizimi temel bilgileri ve yardımcıları temel almaktadır. Bu öğreticide, serinin geri kalanı için kullanacağınız gerçek Web uygulamasını oluşturmaya başlayacaksınız. Uygulama, filmlerle ilgili bilgileri görüntülemenize, eklemenize, değiştirmenize ve silmenize olanak tanıyan basit bir film uygulamasıdır.
 
-Bu öğretici ile işiniz bittiğinde bu sayfanız gibi film listesini görüntülemek mümkün olacaktır:
+Bu öğreticiyi tamamladığınızda, şu sayfada görünen bir film listesini görüntüleyebileceksiniz:
 
-![CSS sınıf adları için parametreleri içeren WebGrid görüntü ayarlama](displaying-data/_static/image1.png)
+![CSS sınıf adlarına ayarlanan parametreleri içeren WebGrid görüntüsü](displaying-data/_static/image1.png)
 
-Ancak, başlamak için bir veritabanı oluşturmanız gerekir.
+Ancak başlamak için bir veritabanı oluşturmanız gerekir.
 
-## <a name="a-very-brief-introduction-to-databases"></a>Veritabanları için çok kısa bir giriş
+## <a name="a-very-brief-introduction-to-databases"></a>Veritabanlarına çok kısa bir giriş
 
-Bu öğreticide yalnızca veritabanlarını briefest giriş sağlar. Veritabanı deneyimi varsa, kısa bu bölümü atlayabilirsiniz.
+Bu öğretici, veritabanlarına yalnızca Briest giriş bilgilerini sağlar. Veritabanı deneyiminiz varsa, bu kısa bölümü atlayabilirsiniz.
 
-Bir veritabanı bilgilerini içeren bir veya daha fazla tablo içeren &mdash; Örneğin, müşteri, sipariş ve satıcılar veya Öğrenciler ve Öğretmenler, sınıfları ve notlarınızı tablolar. Yapısal olarak, bir veritabanı gibi bir elektronik tablodur. Bir normal adres defteri düşünün. Kullanıcının adres defterinde her giriş için (diğer bir deyişle, her kişi için) birkaç bölümü ele alınmakta ad, Soyadı, adresini, e-posta adresi ve telefon numarası gibi bilgileri vardır.
+Bir veritabanı, örneğin, müşteriler, siparişler ve satıcılar için tablolar ya da öğrenciler, öğretmenler, sınıflar ve notlar için &mdash; bilgiler içeren bir veya daha fazla tablo içerir. Yapısal olarak, bir veritabanı tablosu elektronik tablo gibidir. Tipik bir adres kitabı düşünün. Adres defterindeki her giriş için (yani, her bir kişi için) adı, soyadı, adresi, e-posta adresi ve telefon numarası gibi çeşitli bilgi parçaları vardır.
 
-![Basit bir kılavuz olarak örnek veritabanı tablosu](displaying-data/_static/image2.png)
+![Basit kılavuz olarak örnek veritabanı tablosu](displaying-data/_static/image2.png)
 
-(Satır bazen denir *kayıtları*, ve sütunları bazen denir *alanları*.)
+(Satırlar bazen *kayıt*olarak adlandırılır ve sütunlar bazen *alan*olarak adlandırılır.)
 
-Çoğu veritabanı tabloları için tablo müşteri numarası, hesap numarası ve benzeri gibi benzersiz bir değer içeren bir sütun olması gerekir. Bu değer, tablo bilinen *birincil anahtar*, ve tablodaki her satır tanımlamak için kullanın. Örnekte, önceki örnekte gösterilen adres defteri için birincil anahtarı kimliği sütundur.
+Çoğu veritabanı tablolarında, tabloda, bir müşteri numarası, hesap numarası vb. gibi benzersiz bir değer içeren bir sütun olması gerekir. Bu değer tablonun *birincil anahtarı*olarak bilinir ve tablodaki her satırı tanımlamak için kullanırsınız. Örnekte, KIMLIK sütunu, önceki örnekte gösterilen adres defterinin birincil anahtarıdır.
 
-Web uygulamalarında yaptığınız işin çoğunu veritabanından bilgileri okumak ve bir sayfa görüntüleme oluşur. Ayrıca sıklıkla kullanıcılardan bilgi toplamak ve bir veritabanına ekleme veya veritabanında zaten var olan kayıtların değiştirilmesi. (Bu öğretici kümesi sırasında bu işlemlerin tümü ele.)
+Web uygulamalarında yaptığınız çalışmanın çoğu, veritabanından veri okuma ve bir sayfada görüntüleme uygulamalarından oluşur. Ayrıca genellikle kullanıcılardan bilgi toplayıp bir veritabanına ekleyebilirsiniz ya da veritabanında zaten bulunan kayıtları değiştirirsiniz. (Bu öğreticinin her türlü bu işlem, bu öğretici kümesi konusunda ele alınacaktır.)
 
-Veritabanı iş artık çok karmaşık olabilir ve özel bilgi gerekli kılabilirsiniz. Bu öğretici kümesi için yine de, kullandıkça, tüm açıklanacaktır yalnızca temel kavramları anlamanız gerekir.
+Veritabanı çalışması, büyük bir karmaşık olabilir ve özel bilgi gerektirebilir. Bu öğretici için, ancak yalnızca temel kavramları anlamanız gerekir. Bu, her şey sizin gittiğiniz şekilde açıklanmaktadır.
 
 ## <a name="creating-a-database"></a>Veritabanı Oluşturma
 
-WebMatrix, bir veritabanı oluşturmak ve veritabanında tablolar oluşturmak için kolaylaştıran araçlar içerir. (Bir veritabanının yapısını veritabanı adlandırılır *şema*.) Bu öğretici kümesi için yalnızca bir tablo içerdiğinden bir veritabanı oluşturacaksınız &mdash; filmler.
+WebMatrix, veritabanı oluşturmayı ve veritabanında tablo oluşturmayı kolaylaştıran araçlar içerir. (Bir veritabanının yapısı, veritabanının *şeması*olarak adlandırılır.) Bu öğretici kümesi için, &mdash; filmlerde yalnızca bir tablo içeren bir veritabanı oluşturacaksınız.
 
-Zaten yapmadıysanız, WebMatrix açın ve önceki öğreticide oluşturduğunuz WebPagesMovies sitesini açın.
+Daha önce yapmadıysanız WebMatrix 'i açın ve önceki öğreticide oluşturduğunuz Webpagesfilmlerini sitesini açın.
 
-Sol bölmede **veritabanı** çalışma.
+Sol bölmede **veritabanı** çalışma alanına tıklayın.
 
 ![WebMatrix veritabanı çalışma alanı sekmesi](displaying-data/_static/image3.png)
 
-Veritabanı ile ilgili görevleri göstermek için Şerit değişir. Şeritte tıklayın **yeni veritabanı**.
+Şerit, veritabanıyla ilgili görevleri gösterecek şekilde değişir. Şeritte **Yeni veritabanı**' na tıklayın.
 
-![WebMatrix Şeritte 'Yeni Veritabanı' düğmesi](displaying-data/_static/image4.png)
+![WebMatrix şeridinde ' yeni veritabanı ' düğmesi](displaying-data/_static/image4.png)
 
-WebMatrix, SQL Server CE veritabanı oluşturur (bir *.sdf* dosya) siteniz olarak aynı ada sahip &mdash; *WebPagesMovies.sdf*. (Bu burada olmaz, ancak sahip olduğu sürece istediğiniz dosyası istediğiniz bir şey adlandırabilirsiniz bir *.sdf* uzantısı.)
+WebMatrix, *Webpagesfilmlerini. sdf*&mdash; siteniz ile aynı ada sahip BIR SQL Server CE veritabanı ( *. sdf* dosyası) oluşturur. (Bu işlemi burada gerçekleştirmezsiniz, ancak *. sdf* uzantısına sahip olduğu sürece dosyayı istediğiniz herhangi bir şekilde yeniden adlandırabilirsiniz.)
 
 ## <a name="creating-a-table"></a>Tablo oluşturma
 
-Şeritte tıklayın **yeni tablo**. Tablo Tasarımcısı, WebMatrix yeni bir sekmede açılır. (Yeni tablo seçenek kullanılabilir değilse, yeni veritabanı soldaki ağaç görünümünde seçili olduğundan emin olun.)
+Şeritte **Yeni tablo**' ya tıklayın. WebMatrix, tablo tasarımcısını yeni bir sekmede açar. (yeni tablo seçeneği kullanılamıyorsa, sol taraftaki ağaç görünümünde yeni veritabanının seçildiğinden emin olun.)
 
-![WebMatrix Şeritte 'Yeni tablo' düğmesi](displaying-data/_static/image5.png)
+![WebMatrix şeridinde ' yeni tablo ' düğmesi](displaying-data/_static/image5.png)
 
-"Film" (burada Filigran "Tablo adı girin" ifadesini içeren) üst metin kutusuna girin.
+Üstteki metin kutusunda ("tablo adını girin" ifadesinin bulunduğu yer), "Filmler" yazın.
 
-![WebMatrix Veritabanı Tasarımcısı'nda bir tablo adı girerek](displaying-data/_static/image6.png)
+![WebMatrix veritabanı tasarımcısına tablo adı girme](displaying-data/_static/image6.png)
 
-Tablo adı altında tek tek sütunlara tanımladığınız bölmesidir. İçin *filmler* tablo Bu öğreticide, yalnızca birkaç sütunu oluşturacaksınız: *Kimliği*, *başlık*, *Tarz*, ve *yıl*.
+Tablo adının altındaki bölme, sütunları ayrı ayrı tanımladığınız yerdir. Bu öğreticide *film* tablosu için yalnızca birkaç sütun oluşturacaksınız: *kimlik*, *başlık*, *tarz*ve *yıl*.
 
-İçinde **adı** kutusunda, "ID" girin. Burada bir değer girerek yeni bir sütun için tüm denetimleri etkinleştirir.
+**Ad** kutusuna "kimlik" yazın. Buraya bir değer girilmesi, yeni sütun için tüm denetimleri etkinleştirir.
 
-İçin sekmesinde **veri türü** listesindeki **int**. Bu değer, kimlik sütunu tamsayı (sayı) verileri içerdiğini belirtir.
-
-> [!NOTE]
-> Tüm burada daha fazla (çok) adlandırılır olmaz, ancak bu kılavuzda gitmek için standart Windows klavye hareketlerini kullanın. Örneğin, alanlar arasında sekme, yalnızca, listedeki bir öğe seçmek için yazmaya başlayın ve benzeri.
-
-Geçmiş sekmesinde **varsayılan değer** kutusunu (yani, boş bırakın). İçin sekmesinde **olan birincil anahtar** onay kutusunu işaretleyin ve bu seçeneği belirleyin. Bu seçenek, veritabanını söyler *kimliği* sütun ayrı satırlara tanımlayan veriler içerir. (Diğer bir deyişle, her satırda benzersiz bir değer satır bulmak için kullanabileceğiniz Kimlik sütununda gerekir.)
-
-Seçin **olan kimlik** seçeneği. Bu seçenek, veritabanı, otomatik olarak her yeni satırda sonraki sıralı sayıyı oluşturmasını söyler. ( **Olan kimlik** çalışır, ayrıca yalnızca seçtiğiniz durumunda seçeneği **olan birincil anahtar** seçeneği.)
-
-Sonraki kılavuz satırda tıklayın veya iki kez geçerli satır tamamlamak için SEKME tuşuna basın. Ya da hareket geçerli satırı kaydeder ve bir sonraki başlatır. Dikkat **varsayılan değer** artık sütun yazan **Null**. (Varsayılan değer için varsayılan değer speak kadar çok NULL'dur.)
-
-Bittiğinde yeni tanımlama **kimliği** sütun, Tasarımcı Bu çizim gibi görünür:
-
-![WebMatrix Veritabanı Tasarımcısı sonra filmler tablosunun kimlik sütunu tanımlama](displaying-data/_static/image7.png)
-
-Bir sonraki sütun oluşturmak için kutuya tıklayın **adı** sütun. Sütun için "Title" girin ve ardından **nvarchar** için **veri türü** değeri. "Var" bölümünü **nvarchar** veritabanı bu sütun için verilerin boyutu kayıt kaydı gösterebilir bir dize olmasını söyler. (Alan bir harf veya yazı sistemi için karakter verileri tutabilir gösteren "n" ön eki "ulusal" temsil eder; diğer bir deyişle, alanın Unicode verileri tutar.)
-
-Seçeneğini belirlediğinizde **nvarchar**, alan için en fazla uzunluk girebileceğiniz başka bir kutusu görüntülenir. Bu öğreticide ile çalışacaksınız hiçbir film adı 50 karakterden daha uzun olacağını varsayımıyla, 50 girin.
-
-Skip **varsayılan değer** temizleyin **null değerlere izin ver** seçeneği. Bir başlık olmayan veritabanına girilir tüm filmlere izin veritabanına istemezsiniz.
-
-İşiniz bittiğinde ve sonraki satıra taşıma, Tasarımcı Bu çizim gibi görünür:
-
-![WebMatrix Veritabanı Tasarımcısı sonra filmler tablonun başlık sütunu tanımlama](displaying-data/_static/image8.png)
-
-Yalnızca 30 ayarlayın uzunluğu dışında "Tarzı" adlı bir sütun oluşturmak için aşağıdaki adımları yineleyin.
-
-"Year" adlı başka bir sütun oluşturun. Veri türü için seçin **nchar** (değil **nvarchar**) ve uzunluğu 4'e ayarlayın. Değişken boyutlu bir sütun gerektirmeyen bu nedenle bir yıl için 4 basamaklı bir sayı "1995" veya "2010" gibi kullanın dağıtacağız.
-
-Tamamlanmış tasarım benzer aşağıda verilmiştir:
-
-![Tüm alanlar için filmler tablo tanımlandıktan sonra WebMatrix Veritabanı Tasarımcısı](displaying-data/_static/image9.png)
-
-CTRL + S tuşuna basın veya tıklayın **Kaydet** hızlı erişim araç çubuğu düğmesi. Veritabanı Tasarımcısı sekmeyi kapatarak kapatın.
-
-## <a name="adding-some-example-data"></a>Bazı örnek verileri ekleme
-
-Bu öğretici serisinde daha sonra bir biçimde yeni filmler girebileceğiniz bir sayfa oluşturacaksınız. Şimdilik, ancak bir sayfada daha sonra görüntüleyebileceğiniz bazı örnek veriler ekleyebilirsiniz.
-
-İçinde **veritabanı** çalışma webmatrix'te gösteren bir ağaç var olduğuna dikkat edin *.sdf* daha önce oluşturduğunuz dosya. Düğüm, yeni açmak *.sdf* dosyasını ve ardından açın **tabloları** düğümü.
-
-![WebMatrix veritabanı çalışma alanı ile ağaç filmler tabloya Aç](displaying-data/_static/image10.png)
-
-Sağ **filmler** düğümünü seçip **veri**. WebMatrix için veri girebildiğiniz kılavuz açılır *filmler* tablosu:
-
-![Veritabanı girişi kılavuzunda WebMatrix (boş)](displaying-data/_static/image11.png)
-
-Tıklayın **başlık** sütun ve "Olduğunda Harry karşılanıyor Sally" girin. Taşı **Tarz** sütun (Tab tuşunu kullanabilirsiniz) ve "Romantik Komedi" girin. Taşı **yıl** sütun ve "1989" girin:
-
-![Bir kayıt webmatrix'te veritabanı girişi kılavuz](displaying-data/_static/image12.png)
-
-Enter tuşuna basın ve WebMatrix yeni filmden kaydeder. Dikkat **kimliği** sütunu doldurulur.
-
-![Webmatrix'te veritabanı girişi kılavuz bir kayıt ve otomatik olarak oluşturulan kimliği](displaying-data/_static/image13.png)
-
-Başka bir film (örneğin, "gitti ile Rüzgar", "DRAM", "1939") girin. Kimlik sütunu yeniden doldurulur:
-
-![Webmatrix'te iki kaydı ve otomatik olarak oluşturulan kimlikleri içeren veritabanı girişi kılavuz](displaying-data/_static/image14.png)
-
-Üçüncü bir filmi (örneğin, "Ghostbusters", "Komedi") girin. Bir deney bırakın **yıl** sütun boş bırakın ve ardından Enter tuşuna basın. Seçili olduğundan **null değerlere izin ver** seçeneği, veritabanı bir hatayı gösterir:
-
-![Gerekli sütun değeri boş bırakılması durumunda 'Geçersiz veri' bir hata görüntülenmiyor.](displaying-data/_static/image15.png)
-
-Tıklayın **Tamam** dönün ("Ghostbusters" yılı 1984 içindir) girişi düzeltin ve Enter tuşuna basın.
-
-Birkaç filmleri 8 bulunana kadar veya şekilde doldurun. (8 girdikten sonra disk belleği ile çalışmak kolaylaştırır. Ancak, çok fazla ise, yalnızca birkaç şimdilik girin.) Gerçek veriler önemli değildir.
-
-![Webmatrix'te ya da kayıtları içeren veritabanı girişi kılavuz](displaying-data/_static/image16.png)
-
-Tüm filmlere hatasız girdiğiniz kimliği değerleri sıralı olarak kullanılır. Tamamlanmamış film kaydı kaydetmeye çalıştığında kimlik numaraları sıralı olmayabilir. Bu durumda, bu sorun değildir. Sayıları herhangi belirli anlamlara sahip değilseniz ve önemli olan tek şey içinde benzersiz olan *filmler* tablo.
-
-Veritabanı Tasarımcısı içeren sekmeyi kapatın.
-
-Artık bir web sayfasında bu verileri görüntülemeye kapatabilirsiniz.
-
-## <a name="displaying-data-in-a-page-by-using-the-webgrid-helper"></a>WebGrid Yardımcısını kullanarak verileri bir sayfa görüntüleme
-
-Verileri bir sayfada görüntülemek için kullanılacak gideceğinizi `WebGrid` Yardımcısı. Bu yardımcı kılavuz ya da tablo (satırları ve sütunları) bir görüntü oluşturur. Gördüğünüz gibi mümkün İyileştir kılavuz biçimlendirme ve diğer özelliklere sahip olacaksınız.
-
-Kılavuz çalıştırmak için birkaç satır kod yazmak zorunda kalırsınız. Bu birkaç satır düzeni neredeyse tüm Bu öğreticide bunu veri erişimi için bir tür olarak hizmet verecektir.
+Sekmesine tıklayın ve ardından **int**' i seçin. Bu değer, ID sütununun Integer (sayı) verisi içerdiğini belirtir.
 
 > [!NOTE]
-> Aslında, verileri bir sayfada görüntülemek için birçok seçeneğiniz de vardır; `WebGrid` Yardımcısı yalnızca biridir. Bu öğreticide, verileri görüntülemek için en kolay yolu olduğundan ve makul ölçüde esnek olduğundan seçtik. Sonraki öğretici kümesinde verileri görüntülemek nasıl daha doğrudan denetime size sayfanın verilerle çalışmak için daha fazla bir "elle" gibi kullanabileceğiniz öğreneceksiniz.
+> Burada daha fazla çağırmayacağız (çok), ancak bu kılavuzda gezinmek için standart Windows klavye hareketlerini kullanabilirsiniz. Örneğin, alanlar arasında sekme oluşturabilirsiniz, yalnızca bir listedeki öğeyi seçmek için yazmaya başlayabilirsiniz, vb.
 
-Webmatrix'te sol bölmesinde **dosyaları** çalışma.
+Sekme **varsayılan değer** kutusunu geçti (yani boş bırakın). Sekmesine tıklayın ve bu **anahtarı** seçin. Bu seçenek veritabanına *ID* sütununun tek tek satırları tanımlayan verileri içerdiğini söyler. (Diğer bir deyişle, her bir satır, bu satırı bulmak için kullanabileceğiniz ID sütununda benzersiz bir değere sahip olacaktır.)
 
-Oluşturduğunuz yeni veritabanı *uygulama\_veri* klasör. Klasör zaten yoksa, WebMatrix yeni veritabanınız için oluşturuldu. (Yardımcıları daha önce yüklediyseniz klasör var.)
+**Kimlik kimliği** seçeneğini belirleyin. Bu seçenek, veritabanına her yeni satır için otomatik olarak bir sonraki ardışık numarayı oluşturmasını söyler. ( **Identity** seçeneği yalnızca **birincil anahtar** seçeneğini de seçtiyseniz kullanılabilir.)
 
-Ağaç görünümünde, Web sitesinin kök seçin. Web sitesinin kök seçmeniz gerekir; Aksi takdirde, uygulamaya yeni bir dosya eklenebilir\_veri klasörü.
+Sonraki kılavuz satırına tıklayın veya geçerli satırı son vermek için Tab tuşuna iki kez basın. Her iki hareket de geçerli satırı kaydeder ve sonraki birini başlatır. **Varsayılan değer** sütununun artık **null**olduğunu bildiren bir uyarı görürsünüz. (Null, varsayılan değer için varsayılan değerdir, yani konuşmak için.)
 
-Şeritte tıklayın **yeni**. İçinde **bir dosya türünü seçin** kutusunda **CSHTML**.
+Yeni **kimlik** sütununu tanımlamayı bitirdiğinizde tasarımcı aşağıdaki şekilde görünür:
 
-İçinde **adı** kutusunda, yeni sayfayı "Movies.cshtml" olarak adlandırın:
+![Filmler tablosu için ID sütununu tanımladıktan sonra WebMatrix Veritabanı Tasarımcısı](displaying-data/_static/image7.png)
 
-!['Filmler' sayfasını gösteren 'Bir dosya türünü seçin' iletişim kutusu](displaying-data/_static/image17.png)
+Sonraki sütunu oluşturmak için **ad** sütunundaki kutuya tıklayın. Sütun için "title" yazın ve ardından **veri türü** değeri için **nvarchar** 'yi seçin. **Nvarchar** 'nin "var" bölümü, veritabanına bu sütundaki verilerin boyutu, kaydın kaydına göre değişebilen bir dize olacağını söyler. ("N" öneki, alanın herhangi bir alfabe veya yazma sistemi için karakter verilerini tutabileceğini gösteren "Ulusal" ı temsil eder; diğer bir deyişle, alan Unicode verilerini barındırır.)
 
-Tıklayın **Tamam** düğmesi. WebMatrix, çatı bazı öğelere sahip yeni bir dosya açar. Öncelikle, veritabanından veri almak için kod yazmanız. Ardından, gerçekten verileri görüntülemek için sayfanın biçimlendirme ekleyeceksiniz.
+**Nvarchar**seçtiğinizde, alan için maksimum uzunluğu girebileceğiniz başka bir kutu belirir. Bu öğreticide birlikte çalışacağımız hiçbir film başlığının 50 karakterden uzun olacağını varsayarak 50 yazın.
 
-### <a name="writing-the-data-query-code"></a>Verileri sorgu kod yazma
+**Varsayılan değeri** atlayın ve **null değerlere izin ver** seçeneğini temizleyin. Veritabanının, bir başlığa sahip olmayan veritabanına herhangi bir filmin girilmesini izin vermemenizi istemezsiniz.
 
-Sayfanın üst kısmındaki arasında `@{` ve `}` karakter aşağıdaki kodu girin. (Açılış ve kapanış küme ayraçları arasına Bu kod girdiğinizden emin olun.)
+İşiniz bittiğinde ve sonraki satıra geçtiğinizde, tasarımcı aşağıdaki şekilde görünür:
+
+![Filmler tablosu için başlık sütununu tanımladıktan sonra WebMatrix Veritabanı Tasarımcısı](displaying-data/_static/image8.png)
+
+"Tarz" adlı bir sütun oluşturmak için bu adımları tekrarlayın, uzunluk dışında, bunu yalnızca 30 olarak ayarlayın.
+
+"Year" adlı başka bir sütun oluşturun. Veri türü için, **nchar** ( **nvarchar**değil) öğesini seçin ve uzunluğu 4 olarak ayarlayın. Yıl için, "1995" veya "2010" gibi 4 basamaklı bir sayı kullanacaksınız, bu nedenle değişken boyutlu bir sütun gerekmez.
+
+Tamamlanmış tasarımın şöyle olduğu aşağıda verilmiştir:
+
+![Tüm alanlar filmler tablosu için tanımlandıktan sonra WebMatrix Veritabanı Tasarımcısı](displaying-data/_static/image9.png)
+
+CTRL + S tuşlarına basın veya hızlı erişim araç çubuğunda **Kaydet** düğmesine tıklayın. Sekmeyi kapatarak veritabanı tasarımcısını kapatın.
+
+## <a name="adding-some-example-data"></a>Örnek veri ekleme
+
+Bu öğretici serisinde daha sonra, yeni filmleri bir forma girebileceğiniz bir sayfa oluşturacaksınız. Ancak şimdilik, daha sonra bir sayfada görüntülenebilecek örnek veriler ekleyebilirsiniz.
+
+WebMatrix 'teki **veritabanı** çalışma alanında, daha önce oluşturduğunuz *. sdf* dosyasını gösteren bir ağaç olduğuna dikkat edin. Yeni *. sdf* dosyanız için düğümünü açın ve ardından **Tablolar** düğümünü açın.
+
+![Filmler tablosuna açık ağaç içeren WebMatrix veritabanı çalışma alanı](displaying-data/_static/image10.png)
+
+**Filmler** düğümüne sağ tıklayın ve ardından **veri**' yi seçin. WebMatrix, *filmler* tablosu için veri girebileceğiniz bir kılavuz açar:
+
+![WebMatrix 'te veritabanı giriş Kılavuzu (boş)](displaying-data/_static/image11.png)
+
+**Başlık** sütununa tıklayın ve "Harry karşılandığında Sally" yazın. **Tarzı** sütununa (Tab tuşunu kullanarak) geçin ve "romantik komedi" yazabilirsiniz. **Year** sütununa gidin ve "1989" yazın:
+
+![Tek bir kayıt ile WebMatrix 'te veritabanı giriş Kılavuzu](displaying-data/_static/image12.png)
+
+ENTER tuşuna basın ve WebMatrix yeni filmi kaydeder. **Kimlik** sütununun doldurulduğuna dikkat edin.
+
+![Tek bir kayıt ve otomatik olarak oluşturulan KIMLIK ile WebMatrix 'te veritabanı girişi Kılavuzu](displaying-data/_static/image13.png)
+
+Başka bir film girin (örneğin, "Rüzgar ile gitti", "drama", "1939"). KIMLIK sütunu yeniden doldurulmuştur:
+
+![İki kayıt ve otomatik üretilen kimlik ile WebMatrix 'te veritabanı girişi Kılavuzu](displaying-data/_static/image14.png)
+
+Üçüncü bir filmi girin (örneğin, "Ghostbusters", "komedi"). Bir deneme olarak, **yıl** sütununu boş bırakın ve ENTER tuşuna basın. **Null değerlere Izin ver** seçeneğinin seçili olmadığından, veritabanında bir hata gösterilir:
+
+![Gerekli bir sütun değeri boş bırakılırsa ' geçersiz veri ' hatası görüntülenir](displaying-data/_static/image15.png)
+
+Geri dönüp girişi ("Ghostbusters ve" yılı 1984) onarmak için **Tamam** ' ı tıklatın ve ardından ENTER tuşuna basın.
+
+8 veya daha fazla olana kadar birçok film girin. (8 ' i girmek daha sonra sayfalama ile çalışmayı kolaylaştırır. Ancak bu çok fazla ise şimdilik yalnızca birkaç tane girin.) Gerçek veriler bu şekilde değildir.
+
+![Her iki kayıtla birlikte WebMatrix 'teki veritabanı giriş Kılavuzu](displaying-data/_static/image16.png)
+
+Tüm filmleri hata olmadan girdiyseniz, KIMLIK değerleri sıralıdır. Tamamlanmamış bir film kaydını kaydetmeye çalıştıysanız, KIMLIK numaraları sıralı olmayabilir. Öyleyse, bu sorunsuz bir şekilde yapılır. Sayıların hiçbir anlamı yoktur ve önemli olan tek şey, *filmler* tablosunda benzersiz olmalarıdır.
+
+Veritabanı tasarımcısını içeren sekmeyi kapatın.
+
+Artık bu verileri bir Web sayfasında görüntülemeyi etkinleştirebilirsiniz.
+
+## <a name="displaying-data-in-a-page-by-using-the-webgrid-helper"></a>WebGrid Yardımcısı 'nı kullanarak sayfadaki verileri görüntüleme
+
+Verileri bir sayfada göstermek için `WebGrid` Yardımcısı 'nı kullanacaksınız. Bu yardımcı, bir kılavuz veya tabloda (satırlar ve sütunlar) bir görüntü oluşturur. Gördüğünüz gibi, biçimlendirme ve diğer özelliklerle ızgarayı iyileştirebilirsiniz.
+
+Kılavuzu çalıştırmak için birkaç satır kod yazmanız gerekir. Bu çok sayıda satır, bu öğreticide yaptığınız tüm veri erişiminin neredeyse hepsi için bir tür model olarak görev yapar.
+
+> [!NOTE]
+> Aslında sayfada verileri görüntülemek için çok sayıda seçeneğiniz vardır; `WebGrid` Yardımcısı yalnızca bir. Bu öğreticide, verileri görüntülemenin en kolay yolu ve makul bir şekilde esnek olduğu için seçtik. Sonraki öğreticide, sayfadaki verilerle çalışmak için daha "el ile" bir yol kullanmayı öğreneceksiniz. Bu, verileri görüntüleme konusunda daha doğrudan denetim sağlar.
+
+WebMatrix 'teki sol bölmede **dosyalar** çalışma alanına tıklayın.
+
+Oluşturduğunuz yeni veritabanı, *App\_veri* klasöründedir. Klasör zaten yoksa, WebMatrix bunu yeni veritabanınız için oluşturmuştur. (Daha önce yardımcıları yüklediyseniz klasör var olabilir.)
+
+Ağaç görünümünde Web sitesinin kökünü seçin. Web sitesinin kökünü seçmelisiniz; Aksi takdirde, yeni dosya App\_Data klasörüne eklenebilir.
+
+Şeritte **Yeni**' ye tıklayın. **Dosya türü seçin** kutusunda, **cshtml**'yi seçin.
+
+**Ad** kutusuna "filmler. cshtml" adlı yeni sayfayı adlandırın:
+
+![' "Filmler" sayfasını gösteren ' bir dosya türü seçin ' iletişim kutusu](displaying-data/_static/image17.png)
+
+**Tamam** düğmesine tıklayın. WebMatrix, içindeki bazı iskelet öğeleriyle yeni bir dosya açar. İlk olarak, veritabanından verileri almak için bazı kodlar yazacaksınız. Böylece, verileri gerçekten göstermek için sayfaya biçimlendirme ekleyeceksiniz.
+
+### <a name="writing-the-data-query-code"></a>Veri sorgu kodunu yazma
+
+Sayfanın üst kısmında, `@{` ve `}` karakterleri arasında aşağıdaki kodu girin. (Bu kodu açılış ve kapanış ayraçları arasında girdiğinizden emin olun.)
 
 [!code-csharp[Main](displaying-data/samples/sample1.cs)]
 
-İlk satır, daha önce oluşturduğunuz veritabanı, veritabanı ile bir şey yapmadan önce her zaman ilk adım olan açılır. Size `Database.Open` açmak için veritabanının yöntemi adı. Eklemezseniz bildirimi *.sdf* adı. `Open` Yöntemi aranırken olduğunu varsayar bir *.sdf* dosyası (diğer bir deyişle, *WebPagesMovies.sdf*) ve *.sdf* dosyası *Uygulama\_ Veri* klasör. (Biz, daha önce Not *uygulama\_veri* klasör ayrılmıştır; bu senaryo burada ASP.NET yapar adı hakkındaki varsayımların yerlerden biri.)
+İlk satır, daha önce oluşturduğunuz veritabanını açar, bu, veritabanında bir şey yapmadan önce her zaman ilk adımdır. Açılacak veritabanının `Database.Open` yöntemi adına söylemiş olursunuz. Adında *. sdf* dahil olmadığınızdan emin olun. `Open` yöntemi, bir *. sdf* dosyası (yani *webpagesfilmlerini. sdf*) olduğunu ve *. sdf* dosyasının *App\_Data* klasöründe olduğunu varsayar. (Önceki adıyla, *uygulama\_veri* klasörü ayrıldık; bu senaryo, ASP.NET bu adla ilgili varsayımlar yaptığı yerlerden biridir.)
 
-Veritabanı açıldığında, ona bir başvuru adlı değişken yerleştirilir `db`. (Olan her şeyi adlandırılabilir.) `db` Değişkendir veritabanıyla etkileşim kurma nasıl elde edersiniz.
+Veritabanı açıldığında, bir başvurusu `db`adlı değişkene konur. (Bir şey olarak adlandırılabilir.) `db` değişkeni, veritabanıyla etkileşime nasıl başlayacaksınız.
 
-Veritabanı verilerini gerçekten getirir kullanarak ikinci satır `Query` yöntemi. Bu kodu nasıl çalıştığını dikkat edin: `db` değişken açılan veritabanına bir başvuru içeriyor ve çağırmayı `Query` yöntemi kullanarak `db` değişkeni (`db.Query`).
+İkinci satır aslında `Query` yöntemini kullanarak veritabanı verilerini getirir. Bu kodun nasıl çalıştığına dikkat edin: `db` değişkeni, açılan veritabanına yönelik bir başvuruya sahiptir ve `db` değişkenini (`db.Query`) kullanarak `Query` yöntemini çağırabilirsiniz.
 
-Bir SQL sorgusu olduğundan `Select` deyimi. (Açıklama daha sonra SQL hakkında biraz arka plan için bakın.) Deyiminde `Movies` sorgu tabloya tanımlar. `*` Karakter tablodan tüm sütunları sorgu döndürmesi gerektiğini belirtir. (Size de sütunları tek tek virgülle ayırarak listeleyebilirsiniz.)
+Sorgunun kendisi bir SQL `Select` deyimidir. (SQL hakkında biraz arka plan için daha sonra açıklamaya bakın.) İfadesinde, sorgulanacak tabloyu `Movies` tanımlar. `*` karakteri sorgunun tablodaki tüm sütunları döndürmesi gerektiğini belirtir. (Sütunları virgülle ayırarak ayrı ayrı de listeleyebilirsiniz.)
 
-Sorgunun sonuçlarını varsa, döndürülen ve içinde kullanılabilir hale `selectedData` değişkeni. Yeniden değişkeni hiçbir şey adlandırılmış.
+Sorgu sonuçları, varsa, `selectedData` değişkeninde döndürülür ve kullanılabilir hale getirilir. Yine, değişken bir şey olarak adlandırılabilir.
 
-Son olarak, üçüncü satır, kullanmak istediğiniz ASP `WebGrid` Yardımcısı. Oluşturduğunuz (*örneği*) kullanarak yardımcı nesnesi `new` anahtar sözcüğü ve sorgu sonuçları aracılığıyla geçirin `selectedData` değişkeni. Yeni `WebGrid` nesne, veritabanı sorgusunun sonuçları ile birlikte kullanılabilir yapılan `grid` değişkeni. Sonucu, gerçekten verileri sayfasında görüntülemek için bir dakika içinde gerekir.
+Son olarak, üçüncü satır ASP.NET `WebGrid` Yardımcısı örneğini kullanmak istediğinizi söyler. `new` anahtar sözcüğünü kullanarak yardımcı nesnesini oluşturur (*örnekleyebilirsiniz*) ve sorgu sonuçlarını `selectedData` değişkeni aracılığıyla geçirin. Yeni `WebGrid` nesnesi, veritabanı sorgusunun sonuçlarıyla birlikte `grid` değişkeninde kullanılabilir hale getirilir. Verilerin sayfada gerçekten görüntülenmesini sağlamak için bu işlemin bir süre içinde olması gerekir.
 
-Bu aşamada, veritabanı açılır, verileri yönettiniz istediğiniz ve hazırladığınız `WebGrid` verilerle Yardımcısı. Sonraki işaretleme sayfasında oluşturmaktır.
+Bu aşamada, veritabanı açıldı, istediğiniz verileri aldınız ve `WebGrid` Yardımcısı 'nı bu verilerle hazırladınız. Sonra, sayfada işaretlemeyi oluşturmak.
 
 > [!TIP] 
 > 
-> **Yapılandırılmış sorgu dili (SQL)**
+> **Yapılandırılmış Sorgu Dili (SQL)**
 > 
-> SQL veritabanındaki verileri yönetmek için kullanılan çoğu ilişkisel veritabanı içinde bir dildir. Bu verileri almak ve güncelleştirmek izin veren ve oluşturmak, değiştirmek ve veritabanı tablolarındaki verileri yönetmek, sağlayan komutları içerir. SQL, bir programlama dili (gibi C# ' ta) farklıdır. SQL veritabanı istediklerinizi söyleyin ve nasıl veri elde etmek veya görevi gerçekleştirmek için veritabanının iş olduğu. Bazı SQL komutlarını örnekleri ve ne yaptıklarını şunlardır:
+> SQL, bir veritabanındaki verileri yönetmek için en ilişkisel veritabanlarında kullanılan bir dildir. Verileri almanızı ve güncelleştirmenizi sağlayan ve veritabanı tablolarında veri oluşturmanıza, değiştirmenize ve yönetmenize olanak tanıyan komutları içerir. SQL bir programlama dilinden (gibi C#) farklıdır. SQL ile veritabanına istediğiniz şeyi söylersiniz ve verilerin nasıl alınacağını veya görevi nasıl gerçekleştirebileceğinizi anlamak için veritabanının işi. Aşağıda bazı SQL komutlarının örnekleri ve ne yapacaklarıdır:
 > 
 > `Select * From Movies`
 > 
 > `SELECT ID, Name, Price FROM Product WHERE Price > 10.00 ORDER BY Name`
 > 
-> İlk `Select` deyimi tüm sütunları alır (tarafından belirtilen `*`) öğesinden *filmler* tablo.
+> İlk `Select` ifade, *filmler* tablosundan tüm sütunları alır (`*`tarafından belirtilir).
 > 
-> İkinci `Select` deyimi kayıtlarındaki kimliği, ad ve fiyat sütunları getirir *ürün* fiyat sütun değeri 10'dan fazla olan tablo. Komut, Ad sütununda değerlerine göre alfabetik sırada sonuçları döndürür. Fiyat ölçütüyle eşleşen kayıt yok, komut boş döndürür.
+> İkinci `Select` ifade, *ürün* tablosundaki, Fiyat sütunu değeri 10 ' dan fazla olan kayıtlardan kimliği, adı ve fiyat sütunlarını getirir. Komut, sonuçları Ad sütununun değerlerine göre alfabetik sırada döndürür. Fiyat ölçütleriyle eşleşen bir kayıt yoksa, komut boş bir küme döndürür.
 > 
 > `INSERT INTO Product (Name, Description, Price) VALUES ('Croissant', 'A flaky delight', 1.99)`
 > 
-> Bu komut yeni bir kayıt ekler *ürün* tablosu, Ad sütununda "Croissant", "A güvenilir olmayan beğeni" için açıklama sütununun ve fiyat için 1.99 ayarlama.
+> Bu komut, *ürün* tablosuna yeni bir kayıt ekler, ad sütununu "Croissant", açıklama sütununu "flaşa doğru" olarak, açıklama sütununu ise 1,99 olarak ayarlar.
 > 
-> Sayısal olmayan değer belirlediniz, değeri tek tırnak işareti (çift tırnak işaretleri değil, C# gibi) içine dikkat edin. Bu metin veya tarih değerleri etrafında ancak değil numaralarını etrafında tırnak işareti kullanın.
+> Sayısal olmayan bir değer belirttiğinizde, değerin tek tırnak işaretleri içine alındığına (içinde C#olduğu gibi çift tırnak işaretleri değil) dikkat edin. Bu tırnak işaretlerini metin veya tarih değerlerinin etrafında kullanın, ancak sayıların etrafında kullanmayın.
 > 
 > `DELETE FROM Product WHERE ExpirationDate < '01/01/2008'`
 > 
-> Bu komut, kayıtları siler *ürün* sona erme tarihi sütununu 1 Ocak 2008'den önceki bir tablo. (Komut *ürün* tablolu böyle bir sütunu tabii.) Tarih GG/AA/YYYY biçiminde buraya girilir ancak bölgeniz için kullanılan biçiminde girilmelidir.
+> Bu komut, son kullanma tarihi sütunu 1 Ocak 2008 ' den daha eski olan *ürün* tablosundaki kayıtları siler. (Komut, *ürün* tablosunda bu tür bir sütun olduğunu varsayar.) Tarih, AA/GG/YYYY biçiminde girilir, ancak yerel ayarınız için kullanılan biçimde girilmelidir.
 > 
-> `Insert` Ve `Delete` komutları yoksa sonuç kümesi döndürür. Bunun yerine, bunlar komutu tarafından kaç tane kaydın etkilendiğini belirten bir sayı döndürür.
+> `Insert` ve `Delete` komutları sonuç kümeleri döndürmez. Bunun yerine, komuttan kaç kaydın etkilendiğini belirten bir sayı döndürür.
 > 
-> Veritabanında uygun izinlere sahip bazıları bu işlemleri (örneğin, ekleme ve kayıt silme) için işlem isteme işlemi gerekir. İşte bu nedenle üretim veritabanları genellikle veritabanına bağlanırken bir kullanıcı adı ve parola sağlamanız gerekir.
+> Bu işlemlerden bazıları (kayıtları ekleme ve silme gibi) için, işlemi isteyen işlemin veritabanında uygun izinlere sahip olması gerekir. Bu nedenle, veritabanına bağlanırken genellikle bir Kullanıcı adı ve parola sağlamanız gerekir.
 > 
-> SQL komutları onlarca vardır, ancak hepsi Burada gördüğünüz komutları gibi deseni izler. Veritabanı tabloları oluşturmak, bir tablodaki kayıtların sayısını, fiyatları hesaplayın ve birçok diğer işlemleri gerçekleştirmek için SQL komutlarını kullanabilirsiniz.
+> Onlarca SQL komutu vardır, ancak bunlar burada gördüğünüz komutlarla benzer bir şekilde gerçekleştirilir. SQL komutlarını kullanarak veritabanı tabloları oluşturabilir, tablodaki kayıt sayısını sayabilir, fiyatları hesaplayabilir ve birçok daha fazla işlem gerçekleştirebilirsiniz.
 
-### <a name="adding-markup-to-display-the-data"></a>Verileri görüntülemek için biçimlendirme ekleme
+### <a name="adding-markup-to-display-the-data"></a>Verileri göstermek için biçimlendirme ekleme
 
-İçinde `<head>` öğesi kümesi içeriğini `<title>` "Filmler" öğesine:
+`<head>` öğesinin içinde, `<title>` öğesinin içeriğini "Filmler" olarak ayarlayın:
 
 [!code-html[Main](displaying-data/samples/sample2.html?highlight=3)]
 
-İçinde `<body>` sayfasının öğesi ekleyin:
+Sayfanın `<body>` öğesi içinde aşağıdakileri ekleyin:
 
 [!code-html[Main](displaying-data/samples/sample3.html)]
 
-İşte bu kadar. `grid` Oluşturduğunuz zaman, oluşturduğunuz değeri değişkendir `WebGrid` kod daha önce nesneye.
+İşte bu kadar. `grid` değişkeni, önceki kodda `WebGrid` nesnesini oluştururken oluşturduğunuz değerdir.
 
-WebMatrix ağaç görünümünde, sayfanın sağ tıklayıp **tarayıcıda Başlat**. Bu sayfa şöyle görürsünüz:
+WebMatrix ağacı görünümünde, sayfaya sağ tıklayın ve **tarayıcıda Başlat**' ı seçin. Şu sayfaya benzer bir şey göreceksiniz:
 
-![Varsayılan WebGrid Yardımcısı filmler tablo çıktısı](displaying-data/_static/image18.png)
+![Filmler tablosundan varsayılan WebGrid Yardımcısı çıkışı](displaying-data/_static/image18.png)
 
-Sütuna göre sıralamak için sütun başlığını bağlantısına tıklayın. Bir başlığa tıklayarak sıralayın işaretleyebilmesine yerleşik olan bir özelliktir **WebGrid** Yardımcısı.
+Sütuna göre sıralamak için bir sütun başlığı bağlantısına tıklayın. Bir başlığa tıklayarak sıralama yapabilmesi, **WebGrid** Yardımcısı içinde yerleşik bir özelliktir.
 
-`GetHtml` Yöntem adından da anlaşılacağı gibi verileri görüntüleyen biçimlendirme oluşturur. Varsayılan olarak, `GetHtml` yöntemi oluşturur bir HTML `<table>` öğesi. (İsterseniz, işleme sayfasını tarayıcıda kaynağını bakarak doğrulayabilirsiniz.)
+`GetHtml` yöntemi, adından da anlaşılacağı gibi, verileri görüntüleyen bir biçimlendirme oluşturur. Varsayılan olarak `GetHtml` yöntemi bir HTML `<table>` öğesi oluşturur. (İsterseniz, tarayıcıdaki sayfanın kaynağına bakarak işlemeyi doğrulayabilirsiniz.)
 
-## <a name="modifying-the-look-of-the-grid"></a>Kılavuz görünümünü değiştirme
+## <a name="modifying-the-look-of-the-grid"></a>Kılavuzun görünümünü değiştirme
 
-Kullanarak `WebGrid` yalnızca yaptığınız gibi yardımcı kolaydır, ancak sonuçta elde edilen görüntü düz. `WebGrid` Yardımcı olan seçenekleri her türlü verinin nasıl görüntüleneceğini denetlemenize olanak sağlayan. Bu öğreticide keşfetmek için çok kullanabileceğiniz birçok, ancak bu bölümde bu seçenekler bir kısmının fikir verecektir. Bu serideki sonraki öğreticilerde, bazı ek seçenekler ele alınacaktır.
+`WebGrid` Yardımcısı kullanımı oldukça kolaydır, ancak elde edilen ekran düz bir işlemdir. `WebGrid` Yardımcısı, verilerin nasıl görüntülendiğini denetlemenize izin veren tüm seçeneklere sahiptir. Bu öğreticide araştırılacak kadar çok fazla var, ancak bu bölüm bu seçeneklerin bir fikrini size sunacaktır. Bu serideki sonraki öğreticilerde bazı ek seçenekler ele alınacaktır.
 
-### <a name="specifying-individual-columns-to-display"></a>Görüntülenecek bireysel sütunları belirtme
+### <a name="specifying-individual-columns-to-display"></a>Görüntülenecek sütunları tek tek belirtme
 
-Başlamak için yalnızca belirli sütunları görüntülemek istediğinizi belirtebilirsiniz. Gördüğünüz gibi varsayılan olarak, kılavuz dört sütun gösterir. *filmler* tablo.
+Başlamak için yalnızca belirli sütunları görüntülenmesini istediğinizi belirtebilirsiniz. Varsayılan olarak, gördüğünüz gibi, bu kılavuzda, *filmler* tablosundan tüm dört sütun gösterilmektedir.
 
-İçinde *Movies.cshtml* dosyası, değiştirin `@grid.GetHtml()` aşağıdakilerle eklediğiniz biçimlendirme:
+*Filmler. cshtml* dosyasında, yeni eklediğiniz `@grid.GetHtml()` işaretlemesini aşağıdaki şekilde değiştirin:
 
 [!code-css[Main](displaying-data/samples/sample4.css)]
 
-Hangi sütunların görüntüleneceğini yardımcı bildirmek için dahil bir `columns` parametresi için `GetHtml` yöntemi ve sütunlar koleksiyonu geçirin. Koleksiyondaki her bir sütun eklemek için belirtin. Dahil ederek görüntülemek için bir bireysel sütunda belirttiğiniz bir `grid.Column` nesne ve istediğiniz veri sütununun adını geçirin. (Bu sütunların SQL sorgu sonuçlarını eklenmelidir — `WebGrid` Yardımcısı, sorgu tarafından döndürülen olmayan sütunları görüntüleyemiyor.)
+Görüntülenecek sütunları göstermek için, `GetHtml` yöntemi için bir `columns` parametresi ekleyin ve bir sütun koleksiyonunu geçirin. Koleksiyonda, içerilecek her bir sütunu belirtirsiniz. Bir `grid.Column` nesnesini ekleyerek ve istediğiniz veri sütununun adını geçirerek görüntülenecek tek bir sütun belirlersiniz. (Bu sütunlar SQL sorgu sonuçlarına dahil olmalıdır — `WebGrid` Yardımcısı sorgu tarafından döndürülmedi sütunları görüntüleyemez.)
 
-Başlatma *Movies.cshtml* sayfasını tarayıcıda yeniden ve aşağıdakine benzer bir ekran bu alışınızda (kimlik sütunu yok görüntülendiğini dikkat edin):
+Tarayıcıda *film. cshtml* sayfasını yeniden başlatın ve bu sefer aşağıdakine benzer bir ekran alırsınız (hiçbir kimlik sütununun gösterilmediğine dikkat edin):
 
-![Yalnızca seçili sütunların gösteren WebGrid görüntüleme](displaying-data/_static/image19.png)
+![Yalnızca seçili sütunları gösteren WebGrid görüntüsü](displaying-data/_static/image19.png)
 
-### <a name="changing-the-look-of-the-grid"></a>Kılavuz görünümünü değiştirme
+### <a name="changing-the-look-of-the-grid"></a>Kılavuzun görünümünü değiştirme
 
-Bazıları, sonraki öğreticilerde bu kümeye incelenecek sütunları görüntülemek için çok sayıda videonuz daha fazla seçenek vardır. Şimdilik, bu bölümde, bir bütün olarak kılavuz stili yollarını başlatacaktır.
+Sütunları görüntülemek için biraz daha fazla seçenek mevcuttur, bazıları bu küme içindeki sonraki öğreticilerde araştırılacak. Şimdilik, bu bölüm kılavuza bir bütün olarak stil eklemek için size yol gösterebilir.
 
-İçinde `<head>` kapatmadan önce yalnızca sayfanın bölümüne `</head>` etiketi, aşağıdaki `<style>` öğesi:
+Sayfanın `<head>` bölümü içinde, kapanış `</head>` etiketinden hemen önce, aşağıdaki `<style>` öğesini ekleyin:
 
 [!code-css[Main](displaying-data/samples/sample5.css)]
 
-Sınıflar adlandırılan bu CSS biçimlendirmesi tanımlar `grid`, `head`ve benzeri. Bu stil tanımları ayrı bir yerleştirebilirsiniz *.css* dosya ve bu sayfaya bağlantı. (Aslında, bu daha sonra Bu öğretici kümesinde gerçekleştirirsiniz.) Ancak bu öğretici için şeyler kolaylaştırmak için aynı sayfanın içinde verileri görüntüler.
+Bu CSS işaretlemesi `grid`, `head`vb. adlı sınıfları tanımlar. Ayrıca, bu stil tanımlarını ayrı bir *. css* dosyasına yerleştirebilir ve sayfaya bağlayabilirsiniz. (Aslında Bu öğreticinin daha sonra bu öğreticide ayarlanabileceksiniz.) Ancak, bu öğreticide işlemleri kolaylaştırmak için verileri görüntüleyen aynı sayfada yer alırlar.
 
-Alabileceğiniz artık `WebGrid` Yardımcısı bu stil sınıflarını kullanın. Yardımcı bir dizi özelliği vardır (örneğin, `tableStyle`) bu amaç için — bir CSS stil sınıf adı atamanız ve bu sınıf adı Yardımcısı tarafından işlenen biçimlendirme bir parçası olarak işlenir.
+Artık bu stil sınıflarını kullanmak için `WebGrid` yardımcısını edinebilirsiniz. Yardımcı, yalnızca bu amaçla birçok özelliğe sahiptir (örneğin, `tableStyle`), bunlara bir CSS stil sınıfı adı atarsınız ve bu sınıf adı yardımcı tarafından işlenen biçimlendirmenin bir parçası olarak işlenir.
 
-Değişiklik `grid.GetHtml` biçimlendirme BT'nin artık şu kod gibi görünür:
+`grid.GetHtml` işaretlemesini şu kod gibi görünecek şekilde değiştirin:
 
 [!code-css[Main](displaying-data/samples/sample6.css)]
 
-Eklediğiniz yenilikler aşağıda olan `tableStyle`, `headerStyle`, ve `alternatingRowStyle` parametreleri `GetHtml` yöntemi. Bu parametreleri için bir dakika önce eklemiş olduğunuz CSS stilleri adlarını ayarlandı.
+Buradaki yenilikler, `GetHtml` yöntemine `tableStyle`, `headerStyle`ve `alternatingRowStyle` parametreleri ekledik. Bu parametreler, bir süre önce eklediğiniz CSS stillerinin adlarına ayarlanmıştır.
 
-Sayfayı çalıştırın ve bu süre önce daha çok daha az düz görünür bir kılavuz görebilirsiniz:
+Sayfayı çalıştırın ve bu sefer şundan çok daha az düz bir ızgara görürsünüz:
 
-![CSS sınıf adları için parametreleri içeren WebGrid görüntü ayarlama](displaying-data/_static/image20.png)
+![CSS sınıf adlarına ayarlanan parametreleri içeren WebGrid görüntüsü](displaying-data/_static/image20.png)
 
-Ne kadar `GetHtml` oluşturulan yöntemi göz önünde bulundurmanız sayfasını tarayıcıda kaynağındaki. Biz burada ayrıntıya gitmiyor, ancak en önemli nokta bu gibi parametreleri belirterek `tableStyle`, aşağıdaki gibi HTML etiketleri oluşturulacak kılavuz neden:
+`GetHtml` yönteminin ne oluşturulduğunu görmek için tarayıcıda sayfanın kaynağına bakabilirsiniz. Burada ayrıntıya başvurmayacağız, ancak önemli nokta `tableStyle`gibi parametreleri belirterek, kılavuzun aşağıdaki gibi HTML etiketleri oluşturmasına neden oldu:
 
 `<table class="grid">`
 
-`<table>` Etiketi vardı bir `class` eklendiğinde özniteliği, daha önce eklediğiniz CSS kurallardan biri başvuruyor. Bu kod temel düzeni gösterir &mdash; için farklı parametreler `GetHtml` yöntemi izin verin, başvuru CSS sınıfları yöntem ardından birlikte biçimlendirme oluşturur. CSS sınıfları ile neler size bağlıdır.
+`<table>` etiketinde, daha önce eklediğiniz CSS kurallarından birine başvuran bir `class` özniteliği eklenmiş. Bu kod, `GetHtml` yöntemi için farklı parametreler &mdash; temel bir örüntüyi gösterir. CSS sınıflarıyla ne yapabilirsiniz?
 
 ## <a name="adding-paging"></a>Sayfalama ekleme
 
-Bu öğretici için son görev, disk belleği kılavuza ekleyeceksiniz. Tek seferde tüm filmlere görüntülenecek sorun hemen. Ancak, filmler yüzlerce eklediyseniz, sayfa görüntüleme uzun elde edersiniz.
+Bu öğreticide son görev olarak kılavuza sayfalama ekleyeceksiniz. Şimdi tüm filmlerinizi tek seferde görüntüleme sorunu değildir. Ancak yüzlerce film eklediyseniz sayfa görüntüleme uzun zaman alır.
 
-Sayfa kodunda oluşturan satırı değiştirin `WebGrid` aşağıdaki koda nesnesi:
+Sayfa kodunda, `WebGrid` nesnesini oluşturan çizgiyi aşağıdaki koda değiştirin:
 
 [!code-csharp[Main](displaying-data/samples/sample7.cs)]
 
-Öğesinden önce tek fark, eklediğiniz bir `rowsPerPage` 3'e ayarlanan parametre.
+Öncesinde tek fark, 3 ' e ayarlanmış bir `rowsPerPage` parametresi ekledik.
 
-Sayfayı çalıştırın. Kılavuz saati artı veritabanınızdaki filmler sayfadan olanak tanıyan bir gezinti bağlantıları 3 satır görüntüler:
+Sayfayı çalıştırın. Kılavuz, bir seferde 3 satır, ek olarak, veritabanınızdaki filmlerde sayfa oluşturmanıza olanak sağlayan gezinti bağlantıları da görüntüler:
 
-![Disk belleği ile WebGrid görüntüleme](displaying-data/_static/image21.png)
+![Sayfalama ile WebGrid görüntüsü](displaying-data/_static/image21.png)
 
-## <a name="coming-up-next"></a>Sıradaki gelen
+## <a name="coming-up-next"></a>Sonraki adımda
 
-Sonraki öğreticide, bir forma kullanıcı girişi almak için Razor ve C# kodu kullanmayı öğreneceksiniz. Başlık veya türe göre filmler bulabilmesi filmler sayfasına bir arama kutusu ekleyeceksiniz.
+Bir sonraki öğreticide, bir formda Kullanıcı girişi almak için Razor ve C# kod kullanmayı öğreneceksiniz. Filmleri başlığa veya tarzya göre bulabilmeniz için filmler sayfasına bir arama kutusu ekleyeceksiniz.
 
-## <a name="complete-listing-for-movies-page"></a>Tam listesi için filmler sayfası
+## <a name="complete-listing-for-movies-page"></a>Filmler sayfasının tamamını listeleme
 
 [!code-cshtml[Main](displaying-data/samples/sample8.cshtml)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET Web programlama Razor söz dizimini kullanarak giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
 
 > [!div class="step-by-step"]
 > [Önceki](intro-to-web-pages-programming.md)

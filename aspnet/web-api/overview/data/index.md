@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/index
-title: ASP.NET Web API - ASP.NET verilerle çalışmaya 4.x
+title: ASP.NET Web API-ASP.NET 4. x içinde verilerle çalışma
 author: rick-anderson
-description: Nasıl programa CRUD (oluşturma, okuma, güncelleştirme ve silme) için ASP.NET Web API işlemleri 4.x.
+description: ASP.NET 4. x için Web API 'sinde CRUD (oluşturma, okuma, güncelleştirme, silme) işlemlerini programlama.
 ms.author: riande
 ms.date: 10/23/2014
 ms.custom: seoapril2019
@@ -10,15 +10,15 @@ ms.assetid: 995cbe38-7dbd-4c36-a5d0-a761944c7636
 msc.legacyurl: /web-api/overview/data
 msc.type: chapter
 ms.openlocfilehash: 210d6c1b207bbba0e9b809c9bba3a3d567015013
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126215"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622516"
 ---
-# <a name="working-with-data-in-aspnet-web-api"></a>ASP.NET Web API'si verileri ile çalışma
+# <a name="working-with-data-in-aspnet-web-api"></a>ASP.NET Web API 'sinde verilerle çalışma
 
-> Nasıl programa CRUD (oluşturma, okuma, güncelleştirme ve silme) Web API işlemleri.
+> Web API 'sinde CRUD (oluşturma, okuma, güncelleştirme, silme) işlemlerini programlama.
 
 - [Web API 2’yi Entity Framework 6 ile Kullanma](using-web-api-with-entity-framework/index.md)
 

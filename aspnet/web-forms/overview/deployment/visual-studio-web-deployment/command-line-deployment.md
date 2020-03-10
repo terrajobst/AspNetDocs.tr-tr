@@ -9,11 +9,11 @@ ms.assetid: 82b8dea0-f062-4ee4-8784-3ffa30fbb1ca
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 13cfe4492398b59f2c80394689cc113ccb218c60
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74634200"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630923"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio kullanarak Web dağıtımı ASP.NET: komut satırı dağıtımı
 
@@ -57,7 +57,7 @@ Komut istemine aşağıdaki komutu girin ve çözüm dosyası yolunu çözüm do
 
 MSBuild çözümü oluşturur ve test ortamına dağıtır.
 
-![Komut satırı çıkışı](command-line-deployment/_static/image3.png)
+![Komut satırı çıktısı](command-line-deployment/_static/image3.png)
 
 Bir tarayıcı açın ve `http://localhost/ContosoUniversity`gidin ve sonra dağıtımın başarılı olduğunu doğrulamak için **hakkında** sayfasına tıklayın.
 
@@ -102,7 +102,7 @@ Komut satırı yayımlama için üç yayımlama yöntemi desteklenir:
 
 Derleme yapılandırması ve platformun Visual Studio 'da veya komut satırında ayarlanması gerekir. Yayımlama profilleri `LastUsedBuildConfiguration` ve `LastUsedPlatform`adlı özellikleri içerir, ancak projenin nasıl oluşturulduğunu belirleyebilmek için bu özellikleri ayarlayamazsınız. Daha fazla bilgi için bkz. MSBuild: saymış Hashbir Web bloguna [yapılandırma özelliğini ayarlama](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) .
 
-## <a name="deploy-to-staging"></a>Hazırlama için dağıt
+## <a name="deploy-to-staging"></a>Hazırlık ortamına dağıtma
 
 Azure 'a dağıtmak için, parolayı komut satırına eklemeniz gerekir. Parolayı Visual Studio 'daki Yayımla profilinde kaydettiyseniz, *. pubxml. User* dosyanızda şifreli biçimde depolanmıştı. Bir komut satırı dağıtımı yaptığınızda bu dosyaya MSBuild tarafından erişilmez, bu nedenle parolayı bir komut satırı parametresinde geçirmeniz gerekir.
 

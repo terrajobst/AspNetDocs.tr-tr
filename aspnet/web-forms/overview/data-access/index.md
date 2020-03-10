@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/index
-title: Eski sürümler - veri erişimi | Microsoft Docs
+title: Eski sürümler-veri erişimi | Microsoft Docs
 author: rick-anderson
-description: Çeşitli ASP.NET Web Forms veri denetimleri kullanarak verilerle ilgili görevleri gerçekleştirme.
+description: ASP.NET Web Forms veri denetimlerini kullanarak verilerle ilgili çeşitli görevleri gerçekleştirme.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: cf54a6fb-a362-4481-b967-c158b98092f7
 msc.legacyurl: /web-forms/overview/data-access
 msc.type: chapter
 ms.openlocfilehash: 9bdc5cdb3ef3a2289e2f76ae498544d0584f36f5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109029"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78605632"
 ---
 # <a name="older-versions---data-access"></a>Eski Sürümler - Veri Erişimi
 
-> Çeşitli ASP.NET Web Forms veri denetimleri kullanarak verilerle ilgili görevleri gerçekleştirme.
+> ASP.NET Web Forms veri denetimlerini kullanarak verilerle ilgili çeşitli görevleri gerçekleştirme.
 
 - [Giriş](introduction/index.md)
 

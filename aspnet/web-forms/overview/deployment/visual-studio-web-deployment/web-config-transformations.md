@@ -9,11 +9,11 @@ ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
 ms.openlocfilehash: a9d39547c94a63003442ba6fe1257693dde24b05
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74621785"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632834"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio kullanarak Web dağıtımı ASP.NET: Web. config dosyası dönüşümleri
 
@@ -142,7 +142,7 @@ Yayımlama profillerini oluşturmadan önce *Web. config* dönüşümlerine sahi
 
 Aşağıdaki öğreticide, proje özelliklerinin ayarlanmasını gerektiren dağıtım kurulum görevlerinin ele alınır.
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha Fazla Bilgi
 
 Bu öğreticinin kapsadığı konular hakkında daha fazla bilgi için bkz. Web. config dönüşümlerini kullanarak Visual Studio ve ASP.NET için Web dağıtımı Içerik haritasında [dağıtım sırasında hedef Web. config dosyasında veya App. config dosyasında ayarları değiştirme](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) .
 

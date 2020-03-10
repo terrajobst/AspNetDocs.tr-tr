@@ -1,97 +1,97 @@
 ---
 uid: web-api/overview/security/working-with-ssl-in-web-api
-title: Web API'de SSL ile çalışma | Microsoft Docs
+title: Web API 'de SSL ile çalışma | Microsoft Docs
 author: MikeWasson
-description: SSL SSL istemci sertifikaları kullanma dahil olmak üzere ASP.NET Web API ile kullanma işlemi gösterilmektedir.
+description: SSL istemci sertifikaları kullanma da dahil olmak üzere ASP.NET Web API 'SI ile SSL 'nin nasıl kullanılacağını gösterir.
 ms.author: riande
 ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 31589b3713b1f1a9b98d12906bfef81f8bf5e3f9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59386164"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598639"
 ---
 # <a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Birçok yaygın kimlik doğrulama düzenleri düz HTTP üzerinden güvenli değildir. Özellikle temel kimlik doğrulaması ve form kimlik doğrulaması şifrelenmemiş kimlik bilgileri gönderin. Güvenli olması için bu kimlik doğrulama düzenleri *gerekir* SSL kullanın. Ayrıca, SSL istemci sertifikaları, istemcilerin kimliğini doğrulamak için kullanılabilir.
+Birkaç ortak kimlik doğrulama şeması, düz HTTP üzerinden güvenli değildir. Özellikle, temel kimlik doğrulaması ve Forms kimlik doğrulaması şifrelenmemiş kimlik bilgileri gönderir. Güvenli olması için, bu kimlik doğrulama düzenlerinin SSL kullanması *gerekir* . Buna ek olarak, SSL istemci sertifikaları istemcilerin kimliğini doğrulamak için de kullanılabilir.
 
-## <a name="enabling-ssl-on-the-server"></a>Sunucuda SSL etkinleştirme
+## <a name="enabling-ssl-on-the-server"></a>Sunucuda SSL Etkinleştiriliyor
 
-SSL kurma IIS 7 veya üzeri için:
+IIS 7 veya sonraki sürümlerde SSL ayarlamak için:
 
-- Oluşturun veya bir sertifika alın. Test için otomatik olarak imzalanan bir sertifika oluşturabilirsiniz.
+- Bir sertifika oluşturun veya alın. Test için otomatik olarak imzalanan bir sertifika oluşturabilirsiniz.
 - Bir HTTPS bağlaması ekleyin.
 
-Ayrıntılar için bkz [SSL ayarlama IIS 7 üzerinde nasıl](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Ayrıntılar için bkz. [IIS 7 ' de SSL ayarlama](https://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-Yerel test etmek için Visual Studio'dan IIS Express SSL etkinleştirebilirsiniz. Özellikler penceresinde ayarlayın **SSL etkin** için **True**. Değerini not edin **SSL URL**; HTTPS bağlantıları test etmek için bu URL'yi kullanın.
+Yerel test için, Visual Studio 'dan IIS Express SSL 'yi etkinleştirebilirsiniz. Özellikler penceresi **SSL etkin** ' i **true**olarak ayarlayın. **SSL URL 'si**değerini aklınızda edin; HTTPS bağlantılarını test etmek için bu URL 'YI kullanın.
 
 ![](working-with-ssl-in-web-api/_static/image1.png)
 
-### <a name="enforcing-ssl-in-a-web-api-controller"></a>Bir Web API denetleyicisi, SSL'yi zorunlu tutma
+### <a name="enforcing-ssl-in-a-web-api-controller"></a>Web API denetleyicisinde SSL zorlama
 
-Bir HTTPS hem bir HTTP bağlaması varsa, istemciler siteye erişmek için HTTP yine de kullanabilirsiniz. Bazı kaynaklar diğer kaynaklara SSL gerektirirken HTTP kullanılabilir olmasını sağlayabilir. Bu durumda, bir eyleme eylem filtresi korumalı kaynaklar için SSL gerektirmek için kullanın. Aşağıdaki kod, SSL için denetleyen bir Web API kimlik doğrulaması filtre gösterir:
+Hem HTTPS hem de HTTP bağlamaya sahipseniz, istemciler siteye erişmek için yine de HTTP kullanmaya devam edebilir. Bazı kaynakların HTTP üzerinden kullanılabilir olmasını, diğer kaynaklar da SSL gerektirmesini sağlayabilirsiniz. Bu durumda, korunan kaynaklar için SSL istemek üzere bir eylem filtresi kullanın. Aşağıdaki kod, SSL 'yi denetleyen bir Web API kimlik doğrulama filtresi gösterir:
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample1.cs)]
 
-Bu filtre, SSL iste herhangi bir Web API eylemlerini ekleyin:
+Bu filtreyi SSL gerektiren herhangi bir Web API eylemlerine ekleyin:
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample2.cs)]
 
-## <a name="ssl-client-certificates"></a>SSL istemci sertifikaları
+## <a name="ssl-client-certificates"></a>SSL Istemci sertifikaları
 
-SSL, ortak anahtar altyapısı sertifikalarını kullanarak kimlik doğrulaması sağlar. Sunucu, sunucuda istemci kimliğini doğrulayan bir sertifika sağlamanız gerekir. Sunucu için bir sertifika sağlamak için istemcinin daha az yaygın bir durumdur, ancak istemcilerin kimliğini doğrulamak için bir seçenek budur. İstemci sertifikaları, SSL ile kullanmak için kullanıcılarınız için otomatik imzalı sertifikaları dağıtmak için bir yol gerekir. Birçok uygulama türü, bu iyi bir kullanıcı deneyimi olmayacak, ancak bazı ortamlarda (örneğin, Kurumsal) uygun olabilir.
+SSL, ortak anahtar altyapısı sertifikalarını kullanarak kimlik doğrulaması sağlar. Sunucu, istemci için sunucunun kimliğini doğrulayan bir sertifika sağlamalıdır. İstemcinin sunucuya sertifika sağlaması daha yaygındır, ancak bu, istemcilerin kimliğini doğrulamak için bir seçenektir. İstemci sertifikalarını SSL ile kullanmak için, imzalı sertifikaları kullanıcılarınıza dağıtmak için bir yol gerekir. Birçok uygulama türü için bu, iyi bir kullanıcı deneyimi olmayacaktır, ancak bazı ortamlarda (örneğin, kuruluş) uygulanabilir olabilir.
 
 | Yararları | Dezavantajlar |
 | --- | --- |
-| -Kullanıcı adı/parola daha güçlü sertifika kimlik bilgileridir. -Kimlik doğrulama, ileti bütünlüğü ve ileti şifreleme tam güvenli kanalı SSL sağlar. | -Edinmeli ve PKI sertifikalarını yönetin. -İstemci Platformu SSL istemci sertifikaları desteklemesi gerekir. |
+| -Sertifika kimlik bilgileri, Kullanıcı adı/paroladan daha güçlüdür. -SSL, kimlik doğrulama, ileti bütünlüğü ve ileti şifreleme ile tam bir güvenli kanal sağlar. | -PKI sertifikalarını edinmeniz ve yönetmeniz gerekir. -İstemci platformun SSL istemci sertifikalarını desteklemesi gerekir. |
 
-İstemci sertifikalarını kabul etmek üzere IIS'yi yapılandırmak için IIS Yöneticisi'ni açın ve aşağıdaki adımları gerçekleştirin:
+IIS 'yi istemci sertifikalarını kabul edecek şekilde yapılandırmak için, IIS Yöneticisi 'Ni açın ve aşağıdaki adımları gerçekleştirin:
 
-1. Ağaç görünümünde site düğümünü tıklatın.
-2. Çift **SSL ayarları** Orta bölmede özelliği.
-3. Altında **istemci sertifikaları**, aşağıdaki seçeneklerden birini seçin: 
+1. Ağaç görünümündeki site düğümüne tıklayın.
+2. Orta bölmedeki **SSL ayarları** özelliğine çift tıklayın.
+3. **Istemci sertifikaları**' nın altında şu seçeneklerden birini seçin: 
 
-    - **Kabul**: IIS istemci sertifika kabul eder, ancak bir gerektirmez.
-    - **Gerekli**: Bir istemci sertifikası gerektirir. (Bu seçeneği etkinleştirmek için de "SSL iste" seçmeniz gerekir)
+    - **Kabul et**: IIS istemciden bir sertifikayı kabul eder, ancak bir sertifika gerektirmez.
+    - **Gerektir**: istemci sertifikası gerektir. (Bu seçeneği etkinleştirmek için "SSL gerektir" seçeneğini de seçmeniz gerekir.
 
-Bu gibi durumlarda, bu seçenekler ayrıca ApplicationHost.config dosyasında ayarlayabilirsiniz:
+ApplicationHost. config dosyasında da bu seçenekleri ayarlayabilirsiniz:
 
 [!code-xml[Main](working-with-ssl-in-web-api/samples/sample3.xml)]
 
-**SslNegotiateCert** bayrağı anlamına gelir IIS istemci sertifika kabul eder, ancak biri ("Kabul et" seçeneğini IIS Yöneticisi'nde eşdeğer) gerektirmez. Bir sertifika gerektirecek şekilde **SslRequireCert** bayrağı. Test etmek için de bu seçenekler IIS Express'te URL'i yerel applicationhost içinde ayarlayabilirsiniz. "Documents\IISExpress\config" içinde bulunan yapılandırma dosyası.
+**SslNegotiateCert** bayrağı, IIS 'nin istemciden bir sertifikayı kabul etmesi, ancak bir tane (IIS Yöneticisi 'Nde "kabul etme" seçeneğine denktir) gerekir. Bir sertifika istemek için **SslRequireCert** bayrağını ayarlayın. Test için, bu seçenekleri yerel ApplicationHost içinde IIS Express de ayarlayabilirsiniz. Yapılandırma dosyası, "Documents\IISExpress\config" konumunda bulunur.
 
-### <a name="creating-a-client-certificate-for-testing"></a>Test etmek için bir istemci sertifikası oluşturma
+### <a name="creating-a-client-certificate-for-testing"></a>Test için Istemci sertifikası oluşturma
 
-Test amacıyla kullanabilirsiniz [MakeCert.exe](/windows/desktop/SecCrypto/makecert) bir istemci sertifikası oluşturmak için. İlk olarak, bir test kök yetkilisi oluşturun:
+Sınama amacıyla, bir istemci sertifikası oluşturmak için [MakeCert. exe](/windows/desktop/SecCrypto/makecert) ' yi kullanabilirsiniz. İlk olarak, bir test kök yetkilisi oluşturun:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 
-MakeCert özel anahtarı için bir parola girmenizi ister.
+MakeCert, özel anahtar için bir parola girmenizi ister.
 
-Ardından, sertifika sunucunun "güvenilen kök sertifika yetkilileri" mağazasından, aşağıdaki şekilde test ekleyin:
+Ardından, sertifikayı test sunucusunun "güvenilen kök sertifika yetkilileri" deposuna aşağıdaki gibi ekleyin:
 
-1. MMC'yi açın.
-2. Altında **dosya**seçin **Ekle/Kaldır ek bileşenini**.
-3. Seçin **bilgisayar hesabı**.
-4. Seçin **yerel bilgisayar** ve Sihirbazı tamamlayın.
-5. Altındaki gezinme bölmesinde, "Güvenilen kök sertifika yetkilileri" düğümünü genişletin.
-6. Üzerinde **eylem** menüsünde **tüm görevler**ve ardından **alma** Sertifika Alma Sihirbazı'nı başlatın.
-7. TempCA.cer sertifika dosyasına göz atın.
-8. Tıklayın **açık**, ardından **sonraki** ve Sihirbazı tamamlayın. (, Parolayı yeniden girmeniz istenir.)
+1. MMC 'YI açın.
+2. **Dosya**altında **ek bileşen Ekle/Kaldır**' ı seçin.
+3. **Bilgisayar hesabı**' nı seçin.
+4. **Yerel bilgisayar** ' ı seçin ve Sihirbazı doldurun.
+5. Gezinti bölmesi altında "güvenilen kök sertifika yetkilileri" düğümünü genişletin.
+6. **Eylem** menüsünde, **Tüm görevler**' in üzerine gelin ve ardından **Içeri aktar** ' a tıklayarak Sertifika Alma Sihirbazı ' nı başlatın.
+7. TempCA. cer sertifika dosyasına gidin.
+8. **Aç**' a tıklayın, ardından **İleri** ' ye tıklayın ve Sihirbazı doldurun. (Parolayı yeniden girmeniz istenir.)
 
 Şimdi ilk sertifika tarafından imzalanmış bir istemci sertifikası oluşturun:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample5.cmd)]
 
-### <a name="using-client-certificates-in-web-api"></a>İstemci sertifikaları Web API'si kullanma
+### <a name="using-client-certificates-in-web-api"></a>Web API 'de Istemci sertifikalarını kullanma
 
-Sunucu tarafında çağırarak istemci sertifikası edinebilirsiniz [GetClientCertificate](https://msdn.microsoft.com/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx) istek iletisinde. Yöntemi, istemci sertifikası yok ise null döndürür. Aksi halde bir **X509Certificate2** örneği. Sertifikadan konu ve veren gibi bilgileri almak için bu nesneyi kullanırsınız. Ardından bu bilgileri kimlik doğrulaması ve/veya yetkilendirme için kullanabilirsiniz.
+Sunucu tarafında, istek iletisinde [GetClientCertificate](https://msdn.microsoft.com/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx) çağırarak istemci sertifikasını alabilirsiniz. Yöntemi, istemci sertifikası yoksa null değerini döndürür. Aksi halde, bir **X509Certificate2** örneği döndürür. Sertifikadan veren ve konu gibi bilgileri almak için bu nesneyi kullanın. Daha sonra bu bilgileri kimlik doğrulaması ve/veya yetkilendirme için kullanabilirsiniz.
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample6.cs)]

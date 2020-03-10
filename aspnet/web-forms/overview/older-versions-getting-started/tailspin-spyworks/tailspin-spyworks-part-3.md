@@ -1,77 +1,77 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: 'Bölüm 3: Düzen ve kategori menüsü | Microsoft Docs'
+title: '3\. kısım: düzen ve kategori menüsü | Microsoft Docs'
 author: JoeStagner
-description: Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 3. Bölüm ekleyerek düzen ve kategori menüsü kapsar.
+description: Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 3\. bölüm, düzen ve kategori menüsü eklemeyi içerir.
 ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: a223b97fd362ecf73ecde431e141021c1dcc6a6d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131026"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639120"
 ---
-# <a name="part-3-layout-and-category-menu"></a>Bölüm 3: Düzen ve Kategori Menüsü
+# <a name="part-3-layout-and-category-menu"></a>3\. Bölüm: Düzen ve Kategori Menüsü
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
+> Tailspin Spyworks, .NET platformu için güçlü ve ölçeklenebilir uygulamalar oluşturmanın ne kadar kolay olduğunu gösterir. Alışveriş, kullanıma alma ve yönetim dahil olmak üzere çevrimiçi mağaza oluşturmak için ASP.NET 4 ' te harika yeni özelliklerin nasıl kullanılacağını gösterir.
 > 
-> Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 3. Bölüm ekleyerek düzen ve kategori menüsü kapsar.
+> Bu öğretici serisi, Tailspin Spyworks örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 3\. bölüm, düzen ve kategori menüsü eklemeyi içerir.
 
-## <a id="_Toc260221669"></a>  Bazı düzen ve kategori menüsü ekleme
+## <a id="_Toc260221669"></a>Bazı düzen ve kategori menüsü ekleme
 
-Bizim ürün kategori menüsü içerecek sol tarafındaki sütunun bir div bizim site ana sayfa ekleyeceğiz.
+Site ana sayfamızda, sol taraftaki sütun için, ürün kategorisi menüsünü içerecek bir div ekleyeceğiz.
 
 [!code-aspx[Main](tailspin-spyworks-part-3/samples/sample1.aspx)]
 
-Bizim Style.css dosyasına ekledik CSS sınıfı tarafından istenen hizalama ve diğer biçimlendirme sağlanacağını unutmayın.
+İstenen hizalama ve diğer biçimlendirmeler Style. css dosyanıza eklediğimiz CSS sınıfı tarafından sağlanacaktır.
 
 [!code-css[Main](tailspin-spyworks-part-3/samples/sample2.css)]
 
-Ürün kategorisi menüsünden mevcut ürün kategorilerini ve menü öğeleri oluşturma ve karşılık gelen bağlantıları için ticaret veritabanını sorgulayarak çalışma zamanında dinamik olarak oluşturulur.
+Ürün kategorisi menüsü, mevcut ürün kategorileri için ticaret veritabanını sorgulayarak ve menü öğeleri ve karşılık gelen bağlantılar oluşturarak çalışma zamanında dinamik olarak oluşturulur.
 
-Bunu gerçekleştirmek için'de iki ASP kullanacağız. NET güçlü veri denetimleri. "Varlık veri kaynağı" ve "ListView" denetimi.
+Bunu gerçekleştirmek için, iki ASP. NET ' in güçlü veri denetimleri. "Varlık veri kaynağı" denetimi ve "ListView" denetimi.
 
 ![](tailspin-spyworks-part-3/_static/image1.jpg)
 
-Şimdi "Tasarım görünümüne" ve Yardımcıları bizim denetimlerini yapılandırmak için kullanın.
+"Tasarım görünümüne" geçelim ve denetimlerinizi yapılandırmak için yardımcıları kullanabilirsiniz.
 
 ![](tailspin-spyworks-part-3/_static/image2.jpg)
 
-EntityDataSource ID özelliği için EDS ayarlayalım\_kategori\_menüsüne ve ardından "Veri kaynağı yapılandırma".
+EntityDataSource ID özelliğini EDS\_category\_Menu olarak ayarlayalim ve "veri kaynağını Yapılandır" seçeneğine tıklaalım.
 
 ![](tailspin-spyworks-part-3/_static/image3.jpg)
 
-Ticaret veritabanımızdaki varlık veri kaynağı modeli oluşturduk, bizim için oluşturulmuş CommerceEntities bağlantıyı seçin ve "İleri" ye tıklayın.
+Ticaret veritabanımız için varlık veri kaynağı modelini oluşturduğumuzda ve "Ileri" ye tıkladığımızda bizim için oluşturulan CommerceEntities bağlantısını seçin.
 
 ![](tailspin-spyworks-part-3/_static/image4.jpg)
 
-"Kategoriler" varlık kümesinin adını seçin ve diğer seçenekleri varsayılan olarak bırakın. "Son" düğmesini tıklatın.
+"Kategoriler" varlık kümesi adını seçin ve diğer seçenekleri varsayılan olarak bırakın. "Son" düğmesine tıklayın.
 
-Şimdi biz sayfamıza ListView yerleştirilen ListView denetimi örneği ID özelliği ayarlayalım\_ProductsMenu ve kendi Yardımcısı'nı etkinleştirin.
+Şimdi sayfamıza yerleştirdiğimiz ListView denetim örneğinin ID özelliğini bir ListView\_ProductsMenu olarak ayarlayalım ve yardımcı ' i etkinleştirmektir.
 
 ![](tailspin-spyworks-part-3/_static/image5.jpg)
 
-Ancak Denetim seçenekleri veri öğesi görünen biçimlendirmek için kullanabiliriz ve biz Kaynak Görünümü'nde kod gireceksiniz biçimlendirme, bizim menü oluşturma yalnızca basit biçimlendirme gerektirir.
+Veri öğesi görüntüleme ve biçimlendirmesini biçimlendirmek için denetim seçeneklerini kullanabiliriz; ancak, bu kodu kaynak görünümüne girebilmemiz için menü oluşturma yalnızca basit biçimlendirme gerektireceğiz.
 
 [!code-aspx[Main](tailspin-spyworks-part-3/samples/sample3.aspx)]
 
-"Eval satırını" deyimi lütfen unutmayın: &lt;% # Eval("CategoryName") %&gt;
+Lütfen "eval" ekstresini unutmayın: &lt;% # eval ("CategoryName")%&gt;
 
-ASP.NET sözdizimini &lt;% # %&gt; ne içerdiği ve sonuçları "satır" çıkış yürütmek için çalışma zamanı yönlendiren bir toplu kuralıdır.
+ASP.NET sözdizimi &lt;% #%&gt;, çalışma zamanının içinde yer aldığı her şeyi yürütmesini ve sonuçları "satır" olarak çıktısını veren bir toplu kuraldır.
 
-Bildirir Eval("CategoryName") deyim veri öğelerinin ilişkili koleksiyon geçerli girişi için "CategoryName" varlık modeli öğe adları değerini getirir. Bu çok güçlü bir özellik kısa sözdizimi aşağıdaki gibidir.
+İfade eval ("CategoryName"), veri öğelerinin bağlantılı koleksiyonundaki geçerli giriş için "CategoryName" varlık modeli öğe adlarının değerini getiren bildirir. Bu, çok güçlü bir özellik için kısa bir sözdizimidir.
 
-Şimdi uygulamayı çalıştıralım.
+Uygulamayı şimdi çalıştırmaya izin verir.
 
 ![](tailspin-spyworks-part-3/_static/image6.jpg)
 
-Bizim ürün kategori menüsü artık görüntülenir ve ProductsList.aspx adlı zaman biz biz menü öğesi bağlantı noktalarına henüz uygulamak için sahip olduğumuz bir sayfa görebilirsiniz kategori menü öğelerinden birinin üzerine gelin ve dinamik sorgu dizesi bağımsız değişkeni, derledik olduğunu içerdiğini unutmayın  Kategori Kimliği.
+Ürün kategorisi menümüzün görüntülendiğini ve kategori menü öğelerinden birinin üzerine geldiğinizde, menü öğesi bağlantı noktalarını yalnızca adlandırılmış ProductsList. aspx ' i uygulamamız ve bir dinamik sorgu dizesi bağımsız değişkeni (  kategori kimliği.
 
 > [!div class="step-by-step"]
 > [Önceki](tailspin-spyworks-part-2.md)

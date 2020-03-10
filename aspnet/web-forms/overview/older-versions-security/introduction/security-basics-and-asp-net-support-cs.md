@@ -9,11 +9,11 @@ ms.assetid: 07e15538-2f29-40c6-b2e7-e6115075ac83
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1ccaac101a83d0e28b07b220b8b7b61a9039227e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74642434"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640254"
 ---
 # <a name="security-basics-and-aspnet-support-c"></a>Temel Güvenlik Kavramları ve ASP.NET Desteği (C#)
 
@@ -67,7 +67,7 @@ Tarayıcılar, varsayılan olarak herhangi bir tanımlama bilgisi sıralaması o
 
 Windows kimlik doğrulama iş akışı aşağıdaki kimlik doğrulama tekniklerinden birini kullanır:
 
-- Temel kimlik doğrulaması
+- Temel kimlik doğrulama
 - Özet kimlik doğrulaması
 - Windows Tümleşik Kimlik Doğrulaması
 

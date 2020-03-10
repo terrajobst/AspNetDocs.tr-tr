@@ -9,11 +9,11 @@ ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
 ms.openlocfilehash: cab9acb1ffd75cca87f6c575a6abdd000235828e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74635689"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640534"
 ---
 # <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX Kimlik Doğrulaması ve Profil Uygulaması Hizmetlerini Anlama
 
@@ -39,7 +39,7 @@ Kimlik doğrulama hizmeti, kullanıcıların bir kimlik doğrulama tanımlama bi
 
 Profil hizmeti, kimlik doğrulama hizmeti tarafından sağlandığı şekilde üyelik tabanlı kullanıcı verilerinin otomatik olarak tümleştirilmesini ve depolanmasını sağlar. Depolanan veriler Web. config dosyası tarafından belirtilir ve çeşitli profil oluşturma hizmeti sağlayıcıları veri yönetimini işler. Kimlik doğrulama hizmetinde olduğu gibi, AJAX profili hizmeti standart ASP.NET Profil hizmetiyle uyumludur. böylece, şu anda ASP.NET profil hizmeti özelliklerini içeren sayfaların, AJAX desteği dahil ederek kesilmemelidir.
 
-ASP.NET kimlik doğrulaması ve profil oluşturma hizmetlerini bir uygulamaya eklemek, bu teknik açıklamanın kapsamı dışındadır. Konu hakkında daha fazla bilgi için, [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)üyelik kullanarak kullanıcıları yönetme başlıklı MSDN Kitaplığı başvuru makalesine bakın. ASP.NET ayrıca, ASP.NET üyeliği için varsayılan kimlik doğrulama hizmeti sağlayıcısı olan SQL Server üyeliği otomatik olarak ayarlamaya yönelik bir yardımcı program içerir. Daha fazla bilgi için [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)adresindeki ASP.NET SQL Server kayıt aracı (ASPNET\_ regsql. exe) makalesine bakın.
+ASP.NET kimlik doğrulaması ve profil oluşturma hizmetlerini bir uygulamaya eklemek, bu teknik açıklamanın kapsamı dışındadır. Konu hakkında daha fazla bilgi için, [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx)üyelik kullanarak kullanıcıları yönetme başlıklı MSDN Kitaplığı başvuru makalesine bakın. ASP.NET ayrıca, ASP.NET üyeliği için varsayılan kimlik doğrulama hizmeti sağlayıcısı olan SQL Server üyeliği otomatik olarak ayarlamaya yönelik bir yardımcı program içerir. Daha fazla bilgi için [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)adresindeki ASP.NET SQL Server kayıt aracı (ASPNET\_regsql. exe) makalesine bakın.
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX kimlik doğrulama hizmeti 'ni kullanma*
 
@@ -59,10 +59,10 @@ Login () yöntemi kullanıcının kimlik bilgilerini doğrulamak için bir istek
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
-| Nitelen | Gerekli. Kimlik doğrulaması yapılacak Kullanıcı adı. |
-| parola | İsteğe bağlı (varsayılan olarak null değerini alır). Kullanıcının parolası. |
+| userName adı | Gerekli. Kimlik doğrulaması yapılacak Kullanıcı adı. |
+| password | İsteğe bağlı (varsayılan olarak null değerini alır). Kullanıcının parolası. |
 | IsPersistent | İsteğe bağlı (varsayılan olarak false olur). Kullanıcının kimlik doğrulama tanımlama bilgisinin oturumlarda kalıcı olması gerekip gerekmediğini belirtir. Yanlış ise, tarayıcı kapandığında veya oturum sona erdiğinde Kullanıcı oturumu kapatılır. |
 | redirectUrl | İsteğe bağlı (varsayılan olarak null değerini alır). Başarılı kimlik doğrulamasından sonra tarayıcının yönlendirileceği URL. Bu parametre null veya boş bir dize ise, yeniden yönlendirme gerçekleşmez. |
 | Custoınfo | İsteğe bağlı (varsayılan olarak null değerini alır). Bu parametre Şu anda kullanılmıyor ve gelecekte kullanılmak üzere ayrılmıştır. |
@@ -84,7 +84,7 @@ Logout () yöntemi, kimlik bilgilerini kaldırır ve geçerli kullanıcıyı Web
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | redirectUrl | İsteğe bağlı (varsayılan olarak null değerini alır). Başarılı kimlik doğrulamasından sonra tarayıcının yönlendirileceği URL. Bu parametre null veya boş bir dize ise, yeniden yönlendirme gerçekleşmez. |
 | logoutCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Oturumu kapatma başarıyla tamamlandığında çağrılacak işlev. Belirtilmişse, bu parametre defaultLogoutCompleted özelliğini geçersiz kılar. |
@@ -109,7 +109,7 @@ Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip o
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | error | Hata bilgilerini belirtir. |
 | userContext | Login veya Logout işlevi çağrıldığında belirtilen kullanıcı bağlamı bilgilerini belirtir. |
@@ -125,7 +125,7 @@ Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip o
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | validCredentials | Kullanıcının geçerli kimlik bilgileri sağlamadığını belirtir. Kullanıcı başarıyla oturum açtıysa `true`; Aksi takdirde `false`. |
 | userContext | Oturum açma işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
@@ -141,9 +141,9 @@ Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip o
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
-| kaynaklanan | Bu parametre her zaman `null`olacaktır; gelecekte kullanılmak üzere ayrılmıştır. |
+| Sonuç | Bu parametre her zaman `null`olacaktır; gelecekte kullanılmak üzere ayrılmıştır. |
 | userContext | Oturum açma işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
 | MethodName | Çağıran yöntemin adı. |
 
@@ -205,7 +205,7 @@ Sunucudan seçilen bir listeyi veya tüm özellikleri yükler.
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | propertyNames | İsteğe bağlı (varsayılan olarak null değerini alır). Sunucudan yüklenecek Özellikler. |
 | loadCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Yükleme tamamlandığında çağrılacak işlev. |
@@ -222,7 +222,7 @@ Save () yöntemi, belirtilen özellik listesini (veya tüm özellikleri) kullan�
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | propertyNames | İsteğe bağlı (varsayılan olarak null değerini alır). Sunucuya kaydedilecek Özellikler. |
 | saveCompletedCallback | İsteğe bağlı (varsayılan olarak null değerini alır). Kaydetme tamamlandığında çağrılacak işlev. |
@@ -243,7 +243,7 @@ Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip o
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | Hata | Hata bilgilerini belirtir. |
 | userContext | Load veya Save işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
@@ -259,7 +259,7 @@ Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip o
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | numPropsSaved | Kaydedilen özelliklerin sayısını belirtir. |
 | userContext | Load veya Save işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |
@@ -275,7 +275,7 @@ Bu özellik tarafından belirtilen işlev başvurusu aşağıdaki imzaya sahip o
 
 *Parametrelere*
 
-| **Parametre adı** | **Anlamına** |
+| **Parametre adı** | **Anlamı** |
 | --- | --- |
 | numPropsLoaded | Yüklenen özelliklerin sayısını belirtir. |
 | userContext | Load veya Save işlevi çağrıldığında verilen kullanıcı bağlamı bilgilerini belirtir. |

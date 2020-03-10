@@ -1,139 +1,139 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
-title: Verimli veri sayfalama uygulama | Microsoft Docs
+title: Verimli veri sayfalamayı uygulama | Microsoft Docs
 author: microsoft
-description: 8. adım, böylece aynı anda azalma 1000 yerine yalnızca 10 yaklaşan azalma, görüntüleyeceğiz bizim /Dinners URL'sine sayfalama desteği ekleme işlemi açıklanır...
+description: 8\. adım, her seferinde 1000 ' in bir kez görüntülenmesini sağlamak yerine,/Dınyalar URL 'imize sayfalama desteğinin nasıl ekleneceğini gösterir.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: adea836d-dbc2-4005-94ea-53aef09e9e34
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
 ms.openlocfilehash: 2d9a0dba381b71755ac626f76d52bc5bcb434447
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125649"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78601054"
 ---
 # <a name="implement-efficient-data-paging"></a>Verimli Veri Sayfalama Uygulama
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 8 bir ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) adım 8 ' idir.
 > 
-> 8. adım, disk belleği desteği, bizim /Dinners URL'sine ekleyebilirsiniz, böylece aynı anda azalma 1000 görüntülemek yerine, biz yalnızca teker teker - 10 yaklaşan azalma görüntülemek ve geri sayfasında ve listenin tamamını SEO kolay bir şekilde iletmek son kullanıcılara izin ver işlemi gösterilmektedir.
+> Adım 8 ' de, her seferinde 1000 ' in çıkarılabilmesini sağlamak yerine, bir kerede yalnızca 10 ' dan fazla dinlemei görüntülemek ve son kullanıcıların bir SEO kolay bir şekilde, tüm listenin geri ve ileri doğru bir şekilde görüntülenmesini sağlamak için/Dınyalar URL 'imize disk belleği desteğinin nasıl ekleneceği gösterilmektedir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-8-paging-support"></a>NerdDinner adım 8: Disk belleği desteği
+## <a name="nerddinner-step-8-paging-support"></a>Nerdakşam yemeği adım 8: sayfalama desteği
 
-Sitemizi başarılı olursa, yaklaşan azalma binlerce olacaktır. Kullanıcı Arabirimimizi tüm bu azalma ölçeklendirir ve bunları göz atmak kullanıcılara emin olmanız gerekir. Bunu etkinleştirmek için sayfalama desteği ekleyeceğiz bizim */Dinners* azalma 1000'lik bir kez biz görüntüleme URL'si, bunun yerine yalnızca teker teker - 10 yaklaşan azalma görüntüle ve geri sayfasında ve listenin tamamını üzerinden iletmek son kullanıcılara izin ver bir SEO kolay yolu.
+Sitemiz başarılı olursa, binlerce yaklaşan yemek olacaktır. Kullanıcı arabirimimizin tüm bu duyanlar için ölçeklendirirken emin olmak ve kullanıcıların onlara gözatmalarına izin vermek istiyoruz. Bunu etkinleştirmek için, */dınyalar* URL 'imize disk belleği desteği ekleyeceğiz. bu sayede, bir kerede yalnızca 10 adet yaklaşan dinlemeler görüntülenir ve son KULLANıCıLARıN bir SEO kolay bir şekilde tüm liste üzerinde geri ve ileri doğru bir şekilde gezinmesini sağlar.
 
-### <a name="index-action-method-recap"></a>İNDİS() eylem yöntemi özeti
+### <a name="index-action-method-recap"></a>Index () eylem yöntemi yeniden üst sınırı
 
-Bizim DinnersController sınıf içindeki İNDİS() eylem yönteminin şu anda aşağıdaki gibi görünür:
+DinnersController sınıfımızda bulunan Index () eylem yöntemi şu anda aşağıdaki gibi görünüyor:
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample1.cs)]
 
-Ne zaman bir isteği yapılır */Dinners* URL, tüm gelecek azalma listesini alır ve ardından bunları tümünün listesini oluşturur:
+*/Dınanlar* URL 'sine bir istek yapıldığında, tüm yaklaşan geri alanlar listesini alır ve bunların tümünün bir listesini oluşturur:
 
 ![](implement-efficient-data-paging/_static/image1.png)
 
-### <a name="understanding-iqueryablelttgt"></a>Anlama Iqueryable&lt;T&gt;
+### <a name="understanding-iqueryablelttgt"></a>IQueryable&lt;T&gt; anlama
 
-*Iqueryable&lt;T&gt;*  LINQ ile .NET 3.5 bir parçası olarak sunulan bir arabirimdir. Ancak biz sayfalama desteğini uygulamak için yararlanabilirsiniz güçlü "ertelenmiş yürütme" senaryolarını etkinleştirir.
+*IQueryable&lt;t&gt;* , .NET 3,5 'nin bir PARÇASı olarak LINQ ile tanıtılan bir arabirimdir. Disk belleği desteğini uygulamak için avantajlarından yararlanabildiğimiz güçlü "ertelenmiş yürütme" senaryolarına olanak sağlar.
 
-Bizim DinnerRepository biz Iqueryable iade ettiğiniz&lt;Dinner&gt; dizisinden bizim FindUpcomingDinners() yöntemi:
+DinnerRepository ' de, Findupcomingdıntik () yönteminden bir IQueryable&lt;akşam&gt; sırası döndürüyoruz:
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample2.cs)]
 
-Iqueryable&lt;Dinner&gt; bizim FindUpcomingDinners() yöntemi tarafından döndürülen nesne bizim veritabanından LINQ to SQL kullanarak Dinner nesneleri almak için bir sorgu kapsüller. Önemlisi, veritabanında erişim / sorgudaki verileri gezinilen denediğimiz kadar veya ToList() yöntemi üzerinde diyoruz kadar sorguyu olmaz. Bizim FindUpcomingDinners() yöntemini çağırarak kod ek "zincirleme" işlemler/filtreler Iqueryable'a eklemek için isteğe bağlı olarak seçebileceğiniz&lt;Dinner&gt; sorguyu çalıştırmadan önce nesne. LINQ to SQL ardından veri istendiğinde veritabanında birleşik sorguyu yürütmek akıllı bir hale gelir.
+Findupcomingdınlayıcılar () yöntemi tarafından döndürülen IQueryable&lt;akşam&gt; nesnesi, LINQ to SQL kullanarak veritabanımızdan akşam yemeği nesnelerini almak için bir sorgu saklar. Önemli bir deyişle, sorgudaki verilere erişmeye/yineleme yapmaya ya da ToList () yöntemini çağırana kadar, sorguyu veritabanına karşı yürütmez. Findupcomingdinlerimizin () yöntemini çağıran kod, isteğe bağlı olarak, sorguyu yürütmeden önce IQueryable&lt;akşam&gt; nesnesine ek "zincirleme" işlemleri/filtreler eklemeyi tercih edebilir. LINQ to SQL, veriler istendiğinde birleştirilmiş sorguyu veritabanına karşı yürütmek için yeterince akıllı olur.
 
-Döndürülen Iqueryable'a ek "Atla" ve "Take" işleçleri geçerli olacak şekilde sayfalama mantığını uygulamak için biz bizim DinnersController'ın İNDİS() eylem yöntemini güncelleştirme yetkisi&lt;Dinner&gt; ToList() çağrısından önce dizisi:
+Disk belleği mantığını uygulamak için, DinnersController 'in dizin () eylem yöntemini, döndürülen IQueryable&lt;akşam&gt; sırasıyla ToList () çağrılmadan önce ek "Skip" ve "Take" işleçlerini uygulayacak şekilde güncelleştirebiliriz:
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample3.cs)]
 
-Yukarıdaki kod, veritabanındaki ilk 10 yaklaşan azalma üzerinden atlar ve 20 azalma geri döndürür. LINQ to SQL, bu mantıksal SQL veritabanı – ve değil web-server'ı atlama gerçekleştirir en iyi duruma getirilmiş bir SQL sorgusu oluşturmak akıllıca olur. Başka bir deyişle, biz yaklaşan azalma milyonlarca veritabanında olsa bile, yalnızca istediğimiz 10 (Bu etkili ve ölçeklenebilir hale) bu isteğin bir parçası alınır.
+Yukarıdaki kod, veritabanında ilk 10 yaklaşan geri dönüşlerin üzerine atlar ve ardından 20 dinsini döndürür. LINQ to SQL, SQL veritabanında bu atlama mantığını gerçekleştiren ve Web sunucusunda değil, iyileştirilmiş bir SQL sorgusu oluşturmaya yetecek kadar akıllı bir değer. Bu, veritabanında milyonlarca dinleyici olsa bile, bu isteğin bir parçası olarak yalnızca istediğimiz 10 ' un alınması (verimli ve ölçeklenebilir hale getirilmesi) anlamına gelir.
 
-### <a name="adding-a-page-value-to-the-url"></a>URL "page" değer ekleme
+### <a name="adding-a-page-value-to-the-url"></a>URL 'ye bir "Page" değeri ekleniyor
 
-Belirli sayfa aralığı kodlamak yerine, Url'lerimizi, kullanıcının isteme hangi Yemeği aralığı gösteren "page" parametre eklemek isteyeceksiniz.
+Belirli bir sayfa aralığını sabit kodlamak yerine, URL 'lerimizi bir kullanıcının istediği akşam yemeği aralığını belirten bir "Page" parametresi içermesini istiyoruz.
 
-#### <a name="using-a-querystring-value"></a>Bir sorgu dizesi değerini kullanarak
+#### <a name="using-a-querystring-value"></a>QueryString değeri kullanma
 
-Aşağıdaki kod, biz bir sorgu dizesi parametresi desteği ve URL'leri gibi etkinleştirmek için sunduğumuz İNDİS() eylem yöntemine nasıl güncelleştirebilirsiniz gösterir */Dinners? sayfa = 2*:
+Aşağıdaki kod, bir QueryString parametresini desteklemek ve */Dıntik? Page = 2*gibi URL 'leri etkinleştirmek için dizin () eylem yönteminizi nasıl güncelleştirebileceğinizi göstermektedir.
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample4.cs)]
 
-Yukarıdaki İNDİS() eylem yöntemi, "page" adlı bir parametreye sahiptir. Parametresi boş değer atanabilir bir tamsayı olarak bildirildi (ne Int olan? gösterir). Diğer bir deyişle */Dinners? sayfa = 2* URL parametre değeri olarak geçirilecek "2" değerini neden olur. */Dinners* URL (olmadan bir sorgu dizesi değeri) bir null değer geçirilmesine neden olur.
+Yukarıdaki Index () eylem yönteminde "Page" adlı bir parametre bulunur. Parametre null yapılabilir bir tamsayı (yani, int) olarak belirtilir. Bu, */Dınsin? Page = 2* URL 'sinin "2" değerinin parametre değeri olarak geçirilmesine neden olacağı anlamına gelir. */Dınanlar* URL 'si (QueryString değeri olmadan) null değer geçirilmesine neden olur.
 
-Biz sayfası değeri sayfa boyutunu (Bu durumda 10. satır) üzerinden atlamak için kaç azalma belirlemek için çarparak. Kullanıyoruz ["C# null birleştirme" işleci (?) ](https://weblogs.asp.net/scottgu/archive/2007/09/20/the-new-c-null-coalescing-operator-and-using-it-with-linq.aspx) boş değer atanabilir türler ile ilgilenirken kullanışlı olduğu. Sayfa parametre null ise Yukarıdaki kod sayfası 0 değeri atar.
+Sayfa boyutunu sayfa boyutu (Bu durumda 10 satır) ile çarpıyoruz. Null yapılabilir türlerle ilgilenirken faydalı olan ["birleştirme" işleci (??) kullanılıyor. C# ](https://weblogs.asp.net/scottgu/archive/2007/09/20/the-new-c-null-coalescing-operator-and-using-it-with-linq.aspx) Yukarıdaki kod, sayfa parametresi null ise 0 değerini atar.
 
-#### <a name="using-embedded-url-values"></a>Katıştırılmış URL değerlerini kullanma
+#### <a name="using-embedded-url-values"></a>Gömülü URL değerlerini kullanma
 
-Gerçek URL içinde sayfa parametre eklemek için bir sorgu dizesi değerini kullanarak bir alternatif olacaktır. Örneğin: */Dinners/Page/2* veya */azalma/2*. ASP.NET MVC böyle senaryoları desteklemek kolaylaştıran güçlü bir yönlendirme URL'si altyapısını içerir.
+Bir QueryString değeri kullanmanın alternatifi, sayfa parametresini gerçek URL 'nin içine eklemek olacaktır. Örneğin: */Dinners/Page/2* veya */Dinners/2*. ASP.NET MVC, bu gibi senaryoları desteklemeyi kolaylaştıran güçlü bir URL yönlendirme altyapısı içerir.
 
-Size özel yönlendirme kuralları gelen URL veya URL format istediğimiz bir denetleyici sınıfı veya eylem yöntemi için eşlenen kaydedebilir. Yapılacaklar ihtiyacımız olan Projemizin içinde Global.asax dosyası açmak için:
+İstediğiniz herhangi bir denetleyici sınıfına veya eylem yöntemine herhangi bir gelen URL veya URL biçimi eşleyen özel yönlendirme kuralları kaydedebiliriz. Tüm yapmanız gereken, Global. asax dosyasını projemiz:
 
 ![](implement-efficient-data-paging/_static/image2.png)
 
-Ve ardından rotaları ilk çağrıda gibi MapRoute() yardımcı yöntemi kullanarak yeni eşleme kuralı kaydedin. Aşağıdaki MapRoute():
+Ve ardından yollar için ilk çağrı gibi MapRoute () yardımcı yöntemini kullanarak yeni bir eşleme kuralı kaydedin. MapRoute ():
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample5.cs)]
 
-Yukarıdaki biz "UpcomingDinners" adlı yeni bir yönlendirme kuralı kaydettirmekte olduğunuz. URL biçimi olan biz gösteren "azalma/sayfa / {sayfasında}" – {sayfası} URL'si içinde katıştırılmış bir parametre değeri olduğu. Üçüncü parametre MapRoute() yönteme DinnersController sınıfındaki İNDİS() eylem yöntemi için bu biçim ile eşleşmesi URL'leri eşlemelisiniz gösterir.
+Yukarıdaki "Upcomingdıntik" adlı yeni bir yönlendirme kuralı kaydettiriyoruz. "Dinetleri/sayfa/{Page}" URL biçiminde olduğunu ve {Page} URL içinde gömülü bir parametre değeri olduğunu belirledik. MapRoute () yönteminin üçüncü parametresi, bu biçimle eşleşen URL 'Leri DinnersController sınıfındaki Index () eylem yöntemiyle eşlemenizi gerektiğini gösterir.
 
-URL ve sorgu dizesi değil, "page" parametresi artık gelir dışında önce Querystring senaryomuz – vardı tam aynı İNDİS() kod kullanabiliriz:
+QueryString senaryoumuzdan önce sahip olduğumuz aynı dizin () kodunu ("Page" parametresi, QueryString değil URL 'den gelecek şekilde) kullanabiliriz:
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample6.cs)]
 
-Ve artık size uygulamayı çalıştırın ve yazın */Dinners* ilk 10 yaklaşan azalma görüyoruz:
+Şimdi de uygulamayı çalıştırdığımızda ve */ınıza* yazdığınızda, ilk 10 yaklaşan dinetleri görüyoruz:
 
 ![](implement-efficient-data-paging/_static/image3.png)
 
-Ve biz yazdığınızda */Dinners/Page/1* azalma sonraki sayfasına görüyoruz:
+*/Dinners/Page/1* ' ye yazarken, dinetleri 'nin sonraki sayfasını görürsünüz:
 
 ![](implement-efficient-data-paging/_static/image4.png)
 
-### <a name="adding-page-navigation-ui"></a>Sayfa gezintisi kullanıcı Arabirimi ekleme
+### <a name="adding-page-navigation-ui"></a>Sayfa gezintisi kullanıcı arabirimi ekleme
 
-"İleri" ve "önceki" kullanıcı Arabirimi içinde gezinme Şimdi Akşam verilerinde kolayca atlamak kullanıcıları etkinleştirmek için sunduğumuz görünüm şablonu uygulamak için disk belleği senaryomuz tamamlamak için son adım olacaktır.
+Sayfalama senaryoumuzu tamamlamaya yönelik son adım, kullanıcıların akşam yemeği verilerini kolayca atlamasına olanak tanımak için görünüm şablonumuzdaki "ileri" ve "önceki" Gezinti Kullanıcı arabirimini uygulamak olacaktır.
 
-Aşağıdaki ifadeyi veri birçok sayfaları için nasıl bunu doğru uygulamaya, biz azalma toplam sayısı veritabanındaki bilmeniz de gerekecektir. Ardından şu anda istenen "page" değerinin veri başında veya sonunda olup olmadığını hesaplamak ve göstermek veya "önceki" ve "İleri" UI'ı uygun şekilde gizlemek gerekir. Biz bu mantığı bizim İNDİS() eylem yöntemi içinde uygulayabilirsiniz. Alternatif olarak biz Projemizin daha yeniden kullanılabilir bir yolla bu mantığı kapsülleyen bir yardımcı sınıfı ekleyebilirsiniz.
+Bunu doğru şekilde uygulamak için, veritabanındaki tüm Dinetleri ve ne kadar veri sayfası olduğunu bilmemiz gerekir. Daha sonra, şu anda istenen "sayfa" değerinin verilerin başlangıcında veya sonunda olup olmadığını hesaplamakta ve "önceki" ve "sonraki" Kullanıcı arabirimini uygun şekilde gösterip gizleyebilmemiz gerekir. Dizin () eylemi yöntemi içinde bu mantığı uygulayabiliriz. Alternatif olarak, projenize bu mantığı daha yeniden kullanılabilir bir şekilde kapsülleyen bir yardımcı sınıf ekleyebiliriz.
 
-Aşağıdaki listeden türetilen bir basit "PaginatedList" yardımcı sınıf olan&lt;T&gt; koleksiyon sınıfı'nda yerleşik olarak bulunan .NET Framework. Iqueryable veri herhangi bir dizi gösterilecek şekilde sayfalara bölmek için kullanılan bir yeniden kullanılabilir koleksiyon sınıfı uygular. NerdDinner uygulamamız biz Iqueryable üzerinde çalışması gerekir&lt;Dinner&gt; sonuçlar, ancak yalnızca kolayca kullanılabilen Iqueryable karşı&lt;ürün&gt; veya Iqueryable&lt;müşteri&gt;diğer uygulama senaryolarında sonuçlanır:
+Aşağıda .NET Framework yerleşik&lt;T&gt; koleksiyon sınıfından türetilen basit bir "Sayfalılı liste" yardımcı sınıfı verilmiştir. IQueryable verilerinin herhangi bir dizisini sayfalamak için kullanılabilecek yeniden kullanılabilir bir koleksiyon sınıfı uygular. Nerdakşam yemeği uygulamamız, IQueryable&lt;akşam yemeği&gt; sonuçları üzerinden çalışacağız, ancak IQueryable&lt;ürün&gt; veya IQueryable&lt;müşteri&gt; diğer uygulama senaryolarında bu sonuçlara karşı kolayca kullanılabilir.
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample7.cs)]
 
-Nasıl hesaplar yukarıda dikkat edin ve ardından "PageIndex", "PageSize", "TotalCount" ve "TotalPages" kullanıma sunan özellikler ister. Sonra koleksiyonundaki verileri sayfasının orijinal sıranın başında veya sonunda olup olmadığını gösteren iki yardımcı özellikleri "HasPreviousPage" ve "HasNextPage" kullanıma sunar. Yukarıdaki kod çalıştırılması - Dinner nesne toplam sayısını sayısını almak için ilk iki SQL sorguları neden olur (Bu nesneleri döndürmüyor – bir tamsayı döndüren bir "Sayısı seçin" ifadesi gerçekleştirdiği yerine), yalnızca satırlarını almak için ve ikincisi Bizim veritabanından veri geçerli sayfa için ihtiyacımız olan veriler.
+"PageIndex", "PageSize", "TotalCount" ve "TotalPages" gibi özellikleri nasıl hesaplayacağını ve daha sonra ortaya çıkaran hakkında dikkat edin. Ayrıca, koleksiyondaki veri sayfasının orijinal sıranın başlangıcında veya sonunda olup olmadığını gösteren "HasPreviousPage" ve "HasNextPage" iki yardımcı özelliğini kullanıma sunar. Yukarıdaki kod iki SQL sorgusunun çalışmasına neden olur. Bu, ilk olarak akşam yemeği nesnelerinin sayısını alır (yani, bir tamsayı döndüren "SELECT COUNT" ifadesini yerine getirmek için) ve ikincisi yalnızca şu satırları alır: geçerli veri sayfası için veritabanımız gereken veriler.
 
-Size sunduğumuz DinnersController.Index() yardımcı yöntemini bir PaginatedList sonra güncelleştirebilirsiniz&lt;Dinner&gt; bizim DinnerRepository.FindUpcomingDinners() gelen neden ve bizim görünümü şablona geçirebilirsiniz:
+Daha sonra DinnersController. Index () yardımcı yönteminizi, DinnerRepository. Findupcomingdıntik () sonucundan akşam yemeği&gt;&lt;.
 
 [!code-csharp[Main](implement-efficient-data-paging/samples/sample8.cs)]
 
-Biz ViewPage devralacak şekilde şablonu \Views\Dinners\Index.aspx görüntüleme sonra güncelleştirebilirsiniz&lt;NerdDinner.Helpers.PaginatedList&lt;Dinner&gt; &gt; ViewPage yerine&lt;IEnumerable&lt;Dinner&gt;&gt;ve ardından önceki ve sonraki gezinme Arabiriminin gizlemek veya göstermek için sunduğumuz görünüm şablonu altına aşağıdaki kodu ekleyin:
+Daha sonra, \Views\Dinners\Index.aspx View şablonunu ViewPage&lt;Nerdakşam yemeği. yardımcılar. disk belleği&lt;Dinner&gt;&gt; ve daha sonra&lt;bir sonraki ve önceki Gezinti Kullanıcı arabirimini göstermek veya gizlemek için görünümümüzün en altına aşağıdaki kodu ekleyerek güncelleştirebilirsiniz:&lt;&gt;&gt;
 
 [!code-aspx[Main](implement-efficient-data-paging/samples/sample9.aspx)]
 
-Nasıl Html.RouteLink() yardımcı yöntem bizim köprü oluşturmak için kullanıyoruz dikkat edin. Bu yöntem, daha önce kullandığımız Html.ActionLink() yardımcı yöntemine benzerdir. "UpcomingDinners" biz bizim Global.asax dosyası Kurulum kural yönlendirme kullanarak URL ürettiğini farktır. Bu başlığında URL biçimi bizim İNDİS() eylem yöntemine oluşturacağız sağlar: */Dinners/sayfa / {sayfası}* – sağlıyoruz yukarıda geçerli PageIndex alarak bir değişken {sayfası} değerdir.
+Köprülerimizi oluşturmak için HTML. RouteLink () yardımcı yöntemini nasıl kullandığınızı öğrenin. Bu yöntem, daha önce kullandığımız HTML. ActionLink () yardımcı yöntemine benzer. Bu fark, "Upcomingdintik" yönlendirme kuralını kullanarak, Global. asax dosyanız içinde kurduğumuz URL 'YI oluşturmamız. Bu, Şu biçimdeki dizin () eylem yöntemine URL 'Ler oluşturacağız: */Dinners/Page/{Page}* – burada {Page} değeri, geçerli pageIndex temel alınarak yukarıdaki sağlamamız gereken bir değişkendir.
 
-Ve biz uygulamamız çalıştırdığınızda, artık yeniden aynı anda 10 azalma Tarayıcımıza görüyoruz:
+Şimdi uygulamamızı yeniden çalıştırdığımızda tarayıcımızda her seferinde 10 dinde görüyoruz:
 
 ![](implement-efficient-data-paging/_static/image5.png)
 
-Biz de &lt; &lt; &lt; ve &gt; &gt; &gt; gezinme Arabiriminin ileten atlayın ve bizim verileri kullanarak üzerinden erişilebilen URL'leri altyapısı geriye doğru ara olanak sağlayan sayfanın alt kısmındaki:
+Ayrıca, arama motoru erişilebilir URL 'Leri kullanarak verilerimize iletme ve geri doğru atlama olanağı sunan sayfanın alt kısmında &lt;&lt;&lt; ve &gt;&gt;Gezinti Kullanıcı arabirimine sahip olduğumuz:&gt;
 
 ![](implement-efficient-data-paging/_static/image6.png)
 
-| **Yan konu: Iqueryable etkilerini anlama&lt;T&gt;** |
+| **Kenar konusu: IQueryable&lt;T&gt; etkilerini anlama** |
 | --- |
-| Iqueryable&lt;T&gt; , ertelenmiş yürütme senaryoları çeşitli sağlayan çok güçlü bir özelliktir (disk belleği ve birleştirme gibi sorguları kıyasla). Olarak tüm güçlü özellikler, nasıl kullandığınıza ile dikkat etmek istediğiniz ve değil kötüye emin olun. Döndüren bir Iqueryable bilmek önemlidir&lt;T&gt; zincirleme işleci yöntemleri üzerinde eklemek ve bu nedenle ultimate sorgu yürütme katılmak çağıran kod deponuzdan sonucu sağlar. Çağıran kod bu yeteneği sağlamak istemediğiniz sonra döndürmesi gerekir IList geri&lt;T&gt; ya da IEnumerable&lt;T&gt; sonuçları - zaten yürütüldü bir sorgunun sonuçlarını içerir. Sayfalandırma senaryoları için bu depoyu yönteme çağrılan gerçek veri sayfalandırma mantığı göndermenize izin gerekir. Bu senaryoda, biz bizim FindUpcomingDinners() Bulucu metodunu ya da bir PaginatedList döndürülen bir imzaya sahip güncelleştirebilir: PaginatedList&lt; Dinner&gt; FindUpcomingDinners (PageIndex int, int pageSize) {} veya return bir IList&lt;Dinner&gt;ve param çıkış "totalCount" azalma toplam sayısını döndürmek için kullanın: IList&lt;Dinner&gt; FindUpcomingDinners (PageIndex int, int totalCount kullanıma int pageSize) {} |
+| IQueryable&lt;T&gt;, çeşitli ilginç yürütme senaryolarına (sayfalama ve bileşim tabanlı sorgular gibi) olanak tanıyan çok güçlü bir özelliktir. Tüm güçlü özelliklerde olduğu gibi, bunu nasıl kullandığınız ile ilgili dikkatli olmak istersiniz. Deponuzdan bir IQueryable&lt;T&gt; sonucu döndürmesinin, kodun zincirleme operatör yöntemlerine çağrı yapmasına ve bu nedenle nihai sorgu yürütmeye katılmasını sağlayan bir sonuç olduğunu bilmek önemlidir. Bu özellik için çağrı kodu sağlamak istemiyorsanız, daha önce yürütülmüş bir sorgunun sonuçlarını içeren&lt;T&gt; veya IEnumerable&lt;T&gt; sonuçları geri döndürmelisiniz. Sayfalandırma senaryolarında, bu durum gerçek veri sayfalandırma mantığını çağrılan depo yöntemine itmeniz gerekir. Bu senaryoda, bir Sayfaıo listesi döndüren bir imzaya sahip olmak için Findupcomingdıntik () Bulucu yönteminizi güncelleştirebiliriz: Sayfaınan liste&lt; akşam yemeği&gt; Findupcomingdınanlar (int pageIndex, INT pageSize) {} veya bir IList&lt;akşam yemeği&gt;geri döndürür ve bir "totalCount" out parametresi kullanarak toplam dinde: IList&lt;akşam yemeği&gt; Findupcomingdınanlar (int pageIndex, INT pageSize, Out int totalCount) {} |
 
 ### <a name="next-step"></a>Sonraki adım
 
-Şimdi nasıl kimlik doğrulaması ve yetkilendirme uygulamamız için destek ekleyebiliriz konumunda göz atalım.
+Şimdi uygulamamıza kimlik doğrulaması ve yetkilendirme desteği ekleyebilmemiz için bakalım.
 
 > [!div class="step-by-step"]
 > [Önceki](re-use-ui-using-master-pages-and-partials.md)

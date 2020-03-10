@@ -9,21 +9,21 @@ ms.assetid: 07978d9d-341c-4524-bcba-62976f390f77
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
 ms.openlocfilehash: 419fe51aaf65bddcc2c50380f099f842a8d9439c
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445700"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78626233"
 ---
 # <a name="understanding-the-project-file"></a>Proje dosyasını anlama
 
 [Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > Microsoft Build Engine (MSBuild) proje dosyaları, derleme ve dağıtım sürecinin kalbi tarafında yer almalıdır. Bu konu, MSBuild ve proje dosyasına kavramsal bir genel bakış ile başlar. Bu, proje dosyalarıyla çalışırken sunabileki temel bileşenleri açıklar ve gerçek dünya uygulamalarını dağıtmak için proje dosyalarını nasıl kullanabileceğinizi gösteren bir örnek üzerinden çalışır.
 > 
-> Şunları öğreneceksiniz:
+> Öğrenecekleriniz:
 > 
 > - MSBuild, projeleri oluşturmak için MSBuild proje dosyalarını nasıl kullanır.
 > - MSBuild, Internet Information Services (IIS) Web Dağıtım Aracı (Web Dağıtımı) gibi dağıtım teknolojileriyle tümleştirilir.

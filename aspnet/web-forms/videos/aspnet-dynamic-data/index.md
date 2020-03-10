@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/index
-title: ASP.NET dinamik veri | Microsoft Docs
+title: ASP.NET dinamik verileri | Microsoft Docs
 author: rick-anderson
-description: ASP.NET dinamik veri otomatik olarak veri erişimi gerçekleştirdiği ne yapılacağını bildiğiniz iskele kurulmuş uygulamalar oluşturmak için nasıl kullanılacağını.
+description: Veri erişiminin nasıl gerçekleştirileceğini otomatik olarak bilen scafkatlanmış uygulamalar oluşturmak için ASP.NET dinamik verilerini kullanma.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
 ms.openlocfilehash: 622f4c5243d094d1ab6b58a909795bc5230c62ce
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116406"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633786"
 ---
 # <a name="aspnet-dynamic-data"></a>ASP.NET Dinamik Veri
 
-> ASP.NET dinamik veri otomatik olarak veri erişimi gerçekleştirdiği ne yapılacağını bildiğiniz iskele kurulmuş uygulamalar oluşturmak için nasıl kullanılacağını.
+> Veri erişiminin nasıl gerçekleştirileceğini otomatik olarak bilen scafkatlanmış uygulamalar oluşturmak için ASP.NET dinamik verilerini kullanma.
 
 - [İlk İskeleniz ve Dinamik Verilerin Tanımı](your-first-scaffold-and-what-is-dynamic-data.md)
 - [Satır İçi GridView Düzenlemeyi Etkinleştirme](how-do-i-enable-inline-gridview-editing.md)

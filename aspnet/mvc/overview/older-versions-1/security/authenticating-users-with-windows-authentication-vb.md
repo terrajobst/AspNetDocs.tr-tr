@@ -1,82 +1,82 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
-title: Windows kimlik doğrulama (VB) ile kullanıcıların kimliğini doğrulama | Microsoft Docs
+title: Windows kimlik doğrulaması ile kullanıcıların kimliğini doğrulama (VB) | Microsoft Docs
 author: microsoft
-description: Bir MVC uygulaması bağlamında Windows kimlik doğrulaması kullanmayı öğrenin. Uygulamanızın web ortak içinde Windows kimlik doğrulamasını etkinleştirmek öğrenin...
+description: Windows kimlik doğrulamasını bir MVC uygulaması bağlamında nasıl kullanacağınızı öğrenin. Uygulamanızın Web Co 'inizdeki Windows kimlik doğrulamasını etkinleştirmeyi öğrenirsiniz...
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 532fa051-7d5c-4d6d-87f6-339ce4b84c44
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
 ms.openlocfilehash: aa64b1f9ef6461a81611ca066310dca2d545baa3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126826"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624119"
 ---
 # <a name="authenticating-users-with-windows-authentication-vb"></a>Windows Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (VB)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> Bir MVC uygulaması bağlamında Windows kimlik doğrulaması kullanmayı öğrenin. Uygulamanızın web yapılandırma dosyası içinde Windows kimlik doğrulamasının nasıl etkinleştirileceği ve IIS ile kimlik doğrulaması yapılandırma konusunda bilgi edinin. Son olarak, belirli Windows kullanıcıları veya grupları için denetleyici eylemleri için erişimi kısıtlamak için [Authorize] özniteliği kullanmayı öğrenin.
+> Windows kimlik doğrulamasını bir MVC uygulaması bağlamında nasıl kullanacağınızı öğrenin. Uygulamanızın Web yapılandırma dosyasında Windows kimlik doğrulamasını etkinleştirmeyi ve IIS ile kimlik doğrulamanın nasıl yapılandırılacağını öğrenirsiniz. Son olarak, denetleyici eylemlerine erişimi belirli Windows kullanıcılarına veya gruplarına kısıtlamak için [Yetkilendir] özniteliğini nasıl kullanacağınızı öğrenirsiniz.
 
-Nasıl yararlanabileceğinizi açıklayan Bu öğreticinin amacı olan MVC uygulamalarınızı görünümlerde parola için Internet Information Services içinde yerleşik özellikler güvenliğinin korunmasına. Denetleyici eylemleri yalnızca belirli Windows kullanıcıları veya belirli Windows gruplarının üyeleri olan kullanıcılar tarafından çağrılmasına izin öğrenin.
+Bu öğreticinin amacı, MVC uygulamalarınızda görünümleri korumak için Internet Information Services yerleşik olarak bulunan güvenlik özelliklerinden nasıl yararlanabilmenizi açıklamaktır. Denetleyici eylemlerinin yalnızca belirli Windows kullanıcıları veya belirli Windows gruplarının üyesi olan kullanıcılar tarafından nasıl çağrılacağını öğrenirsiniz.
 
-Windows kimlik doğrulaması kullanarak bir şirket içi Web sitesinde (bir intranet siteye) oluşturuyorsanız ve standart Windows kullanıcı adlarını ve parolaları Web sitesi erişirken kullanılacak, kullanıcıların istediğinizde mantıklıdır. Web sitesi (bir Internet Web sitesi)'e yönelik bir outwards oluşturuyorsanız form kimlik doğrulaması kullanmayı düşünün.
+Windows kimlik doğrulamasının kullanılması, dahili bir şirket web sitesi (intranet sitesi) oluştururken ve kullanıcılarınızın Web sitesine erişirken standart Windows Kullanıcı adlarını ve parolalarını kullanmasını istediğinizde anlamlı hale gelir. Bir dış Web sitesi (Internet Web sitesi) oluşturuyorsanız bunun yerine Forms kimlik doğrulaması kullanmayı düşünün.
 
 #### <a name="enabling-windows-authentication"></a>Windows kimlik doğrulamasını etkinleştirme
 
-Yeni bir ASP.NET MVC uygulaması oluşturduğunuzda, Windows kimlik doğrulaması varsayılan olarak etkin değil. Form kimlik doğrulaması etkin MVC uygulamaları için varsayılan kimlik doğrulaması türüdür. MVC uygulamanızda web yapılandırma (web.config) dosyasını değiştirerek, Windows kimlik doğrulamasını etkinleştirmeniz gerekir. Bulma &lt;kimlik doğrulaması&gt; bölümünde ve bunun gibi form kimlik doğrulaması yerine Windows kullanacak şekilde değiştirin:
+Yeni bir ASP.NET MVC uygulaması oluşturduğunuzda, Windows kimlik doğrulaması varsayılan olarak etkinleştirilmemiştir. Forms kimlik doğrulaması, MVC uygulamaları için etkinleştirilen varsayılan kimlik doğrulama türüdür. MVC uygulamanızın Web yapılandırma (Web. config) dosyasını değiştirerek Windows kimlik doğrulamasını etkinleştirmeniz gerekir. &lt;kimlik doğrulaması&gt; bölümünü bulun ve bunun gibi Forms kimlik doğrulaması yerine Windows kullanacak şekilde değiştirin:
 
 [!code-xml[Main](authenticating-users-with-windows-authentication-vb/samples/sample1.xml)]
 
-Windows kimlik doğrulamasını etkinleştirdiğinizde, web sunucunuza kullanıcıların kimliklerinin doğrulanması için sorumlu olur. Genellikle, iki farklı türde oluşturma ve bir ASP.NET MVC uygulamasını dağıtırken kullandığınız web sunucuları vardır.
+Windows kimlik doğrulamasını etkinleştirdiğinizde, Web sunucunuz kullanıcıların kimliğini doğrulamak için sorumlu olur. Genellikle, bir ASP.NET MVC uygulaması oluştururken ve dağıttığınızda kullandığınız iki farklı Web sunucusu türü vardır.
 
-İlk olarak, bir MVC Uygulama geliştirirken, Visual Studio'ya dahil edildi ASP.NET Geliştirme Web sunucusunu kullanın. Varsayılan olarak, ASP.NET Geliştirme Web sunucusu (Windows oturum açmak için kullandığınız hangi hesabı) geçerli Windows hesabı bağlamında tüm sayfaları yürütür.
+İlk olarak, bir MVC uygulaması geliştirirken, Visual Studio ile birlikte gelen ASP.NET Development Web sunucusunu kullanırsınız. Varsayılan olarak, ASP.NET Development Web sunucusu tüm sayfaları geçerli Windows hesabı bağlamında yürütür (Windows 'da oturum açmak için kullandığınız hesap).
 
-ASP.NET Geliştirme Web sunucusu, NTLM kimlik doğrulamasını da destekler. Çözüm Gezgini penceresinde projenizin adını sağ tıklatıp Özellikler'i seçerek, NTLM kimlik doğrulamasını etkinleştirebilirsiniz. Ardından, Web sekmesini seçin ve NTLM onay (bkz. Şekil 1).
+ASP.NET Development Web sunucusu, NTLM kimlik doğrulamasını da destekler. Çözüm Gezgini penceresinde projenizin adına sağ tıklayıp Özellikler ' i seçerek NTLM kimlik doğrulamasını etkinleştirebilirsiniz. Sonra, Web sekmesini seçin ve NTLM onay kutusunu işaretleyin (bkz. Şekil 1).
 
-**Şekil 1: etkinleştirme ASP.NET Geliştirme Web sunucusu için NTLM kimlik doğrulaması**
+**Şekil 1: ASP.NET Development Web sunucusu için NTLM kimlik doğrulamasını etkinleştirme**
 
 ![clip_image002](authenticating-users-with-windows-authentication-vb/_static/image1.jpg)
 
-Diğer yandan, bir üretim web uygulaması için size, web sunucusu olarak IIS kullanın. IIS kimlik doğrulaması dahil olmak üzere çeşitli türlerini destekler:
+Bir üretim Web uygulaması için, el ile IIS 'yi Web sunucunuz olarak kullanırsınız. IIS aşağıdakiler dahil çeşitli kimlik doğrulama türlerini destekler:
 
-- Temel kimlik doğrulaması – HTTP 1.0 protokolünün bir parçası tanımlanır. Kullanıcı adları ve parolalar düz metin (şifreli Base64) Internet üzerinden gönderir. -Özet kimlik doğrulaması – Internet üzerinden parola kendisi yerine bir parola karmasını gönderir. -Tümleşik Windows (NTLM) kimlik doğrulaması – kimlik doğrulaması, windows kullanarak intranet ortamlarında kullanmak için en iyi türü. -Sertifika kimlik doğrulaması – bir istemci-tarafı sertifikasını kullanarak kimlik doğrulamayı etkinleştirir. Sertifika, bir Windows kullanıcı hesabına eşlenir.
+- Temel kimlik doğrulaması – HTTP 1,0 protokolünün bir parçası olarak tanımlanır. Kullanıcı adlarını ve parolaları Internet üzerinden şifresiz metin (Base64 kodlamalı) olarak gönderir. -Özet kimlik doğrulaması – internet üzerinden parolanın kendisi yerine bir parolanın karmasını gönderir. -Tümleşik Windows (NTLM) kimlik doğrulaması: Windows kullanarak intranet ortamlarında kullanılacak en iyi kimlik doğrulama türüdür. -Sertifika kimlik doğrulaması: istemci tarafı bir sertifika kullanarak kimlik doğrulaması etkinleştirilir. Sertifika bir Windows kullanıcı hesabıyla eşlenir.
 
 > [!NOTE] 
 > 
-> Bu farklı kimlik doğrulama türleri daha ayrıntılı bir genel bakış için bkz [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
+> Bu farklı kimlik doğrulama türleri hakkında daha ayrıntılı bir genel bakış için bkz. [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
-Belirli bir kimlik doğrulama türü etkinleştirmek için Internet Information Services Manager'ı kullanabilirsiniz. Tüm kimlik doğrulama türlerinin her işletim sistemi söz konusu olduğunda mevcut olmadığına dikkat edin. Ayrıca, IIS 7.0, Windows Vista ile kullanıyorsanız, Internet Information Services Manager'da göründükleri önce Windows kimlik doğrulaması farklı türde etkinleştirmeniz gerekir. Açık **Denetim Masası, programlar, programlar ve özellikler, kapatma Windows özelliklerini aç veya Kapat**, Internet Information Services düğümünü genişletin (bkz: Şekil 2).
+Belirli bir kimlik doğrulama türünü etkinleştirmek için Internet Information Services Manager 'ı kullanabilirsiniz. Her işletim sisteminde her bir kimlik doğrulama türünün mevcut olmadığından emin olun. Ayrıca, Windows Vista ile IIS 7,0 kullanıyorsanız, Internet Information Services Manager 'da görüntülenmeden önce farklı türlerdeki Windows kimlik doğrulamasını etkinleştirmeniz gerekir. **Denetim Masası, programlar, programlar ve Özellikler ' i açın, Windows özelliklerini açın veya kapatın**ve Internet Information Services düğümünü genişletin (bkz. Şekil 2).
 
-**Şekil 2 – etkinleştirme Windows IIS özellikleri**
+**Şekil 2 – Windows IIS özelliklerini etkinleştirme**
 
 ![clip_image004](authenticating-users-with-windows-authentication-vb/_static/image2.jpg)
 
-Internet Information Services'ı kullanarak, etkinleştirebilir veya farklı türde kimlik doğrulaması devre dışı bırakın. Örneğin, Şekil 3 IIS 7.0 kullanırken devre dışı bırakma anonim kimlik doğrulaması ve etkinleştirme tümleşik Windows (NTLM) kimlik doğrulaması göstermektedir.
+Internet Information Services kullanarak farklı kimlik doğrulama türlerini etkinleştirebilir veya devre dışı bırakabilirsiniz. Örneğin, Şekil 3 ' te anonim kimlik doğrulamasını devre dışı bırakma ve IIS 7,0 kullanırken tümleşik Windows (NTLM) kimlik doğrulamasını etkinleştirme gösterilmektedir.
 
-**Şekil 3: tümleşik Windows kimlik doğrulamasını etkinleştirme**
+**Şekil 3 – tümleşik Windows kimlik doğrulamasını etkinleştirme**
 
 ![clip_image006](authenticating-users-with-windows-authentication-vb/_static/image3.jpg)
 
-#### <a name="authorizing-windows-users-and-groups"></a>Windows yetkilendirme kullanıcılar ve gruplar
+#### <a name="authorizing-windows-users-and-groups"></a>Windows kullanıcılarını ve gruplarını yetkilendirme
 
-Windows kimlik doğrulaması etkinleştirdikten sonra kullanabileceğiniz &lt;Authorize&gt; denetleyicileri veya denetleyici eylemleri erişimi denetlemek için özniteliği. Bu öznitelik tüm MVC denetleyicisi veya belirli bir denetleyici eylemi için uygulanabilir.
+Windows kimlik doğrulamasını etkinleştirdikten sonra, denetleyicilere veya denetleyici eylemlerine erişimi denetlemek için &lt;Yetkilendir&gt; özniteliğini kullanabilirsiniz. Bu öznitelik, MVC denetleyicisinin tamamına veya belirli bir denetleyici eylemine uygulanabilir.
 
-Örneğin, 1 listeleme giriş denetleyicisine İNDİS() CompanySecrets() ve StephenSecrets() adlı üç eylem kullanıma sunar. Herkes İNDİS() eylemini çağırabilirsiniz. Ancak, yalnızca Windows yerel Yöneticiler grubunun üyeleri CompanySecrets() eylemini çağırabilirsiniz. Son olarak, yalnızca Windows etki alanı kullanıcı (etki alanı Redmond), Stephen adlı StephenSecrets() eylemini çağırabilirsiniz.
+Örneğin, liste 1 ' deki giriş denetleyicisi dizin (), Companygizlilikler () ve StephenSecrets () adlı üç eylemi ortaya koyar. Herkes dizin () eylemini çağırabilir. Ancak, yalnızca Windows yerel Yöneticiler grubunun üyeleri Companygizlilikler () eylemini çağırabilir. Son olarak, yalnızca Stephen (Redmond etki alanında) adlı Windows etki alanı kullanıcısı StephenSecrets () eylemini çağırabilir.
 
-**1 – Controllers\HomeController.vb listeleme**
+**Listeleme 1 – Controllers\homecontroller.exe**
 
 [!code-vb[Main](authenticating-users-with-windows-authentication-vb/samples/sample2.vb)]
 
 > [!NOTE]
-> Windows kullanıcı hesabı denetimi (Windows Vista veya Windows Server 2008 ile çalışırken UAC nedeniyle), yerel Yöneticiler grubu diğer gruplara farklı davranır. &lt;Authorize&gt; özniteliği olmaz doğru bir şekilde tanımak yerel Yöneticiler grubunun bir üyesi, bilgisayarınızın UAC ayarları değiştirmediğiniz sürece.
+> Windows Kullanıcı hesabı denetimi (UAC) nedeniyle, Windows Vista veya Windows Server 2008 ile çalışırken, yerel Yöneticiler grubu diğer gruplardan farklı davranır. &lt;yetkilendirme&gt; özniteliği, bilgisayarınızın UAC ayarlarını değiştirmediğiniz takdirde yerel Yöneticiler grubunun bir üyesini doğru şekilde tanımaz.
 
-Tam olarak ne olur, doğru izinler olmaksızın bir denetleyici eylemi çağırmak istediğinizde, etkin kimlik doğrulama türüne bağlıdır. Varsayılan ASP.NET Geliştirme Sunucusu kullanırken, sadece boş bir sayfa alın. Sayfa ile sunulan bir **401 yetkilendirilmedi** HTTP yanıt durumu.
+Doğru izinler olmadan bir denetleyici eylemini çağırmaya çalıştığınızda, kimlik doğrulamanın etkin olması için gereken kimlik doğrulama türüne bağlı olarak ne olur? Varsayılan olarak, ASP.NET geliştirme sunucusunu kullandığınızda yalnızca boş bir sayfa alırsınız. Sayfa, **401 yetkili olmayan** bir http yanıt durumuyla birlikte sunulur.
 
-Öte yandan, anonim kimlik doğrulamasını devre dışı ve temel kimlik doğrulaması etkin ile IIS kullanarak ve ardından korumalı sayfanın istek her zaman bir oturum açma iletişim kutusu metni almaya devam etmek, (bkz: Şekil 4).
+Diğer taraftan, anonim kimlik doğrulaması devre dışı ve temel kimlik doğrulaması etkin IIS kullanıyorsanız, korumalı sayfayı her istediğinizde bir oturum açma iletişim kutusu istemi almaya devam edersiniz (bkz. Şekil 4).
 
 **Şekil 4 – temel kimlik doğrulaması oturum açma iletişim kutusu**
 
@@ -84,7 +84,7 @@ Tam olarak ne olur, doğru izinler olmaksızın bir denetleyici eylemi çağırm
 
 #### <a name="summary"></a>Özet
 
-Bu öğretici, Windows kimlik doğrulaması bir ASP.NET MVC uygulaması bağlamında nasıl kullanabileceğinizi açıklanmıştır. Uygulamanızın web yapılandırma dosyası içinde Windows kimlik doğrulamasının nasıl etkinleştirileceği ve IIS ile kimlik doğrulamasını yapılandırma öğrendiniz. Son olarak, size nasıl kullanacağınızı öğrendiniz &lt;Authorize&gt; belirli Windows kullanıcıları veya grupları için denetleyici eylemleri için erişimi kısıtlamak için özniteliği.
+Bu öğreticide, Windows kimlik doğrulamasını bir ASP.NET MVC uygulaması bağlamında nasıl kullanabileceğiniz açıklanmaktadır. Uygulamanızın Web yapılandırma dosyasında Windows kimlik doğrulamasının nasıl etkinleştirileceğini ve IIS ile kimlik doğrulamanın nasıl yapılandırılacağını öğrendiniz. Son olarak, denetleyici eylemlerine erişimi belirli Windows kullanıcılarına veya gruplarına kısıtlamak için &lt;Yetkilendir&gt; özniteliğini nasıl kullanacağınızı öğrendiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](authenticating-users-with-forms-authentication-vb.md)

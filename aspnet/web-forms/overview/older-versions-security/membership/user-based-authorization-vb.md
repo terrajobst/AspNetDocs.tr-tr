@@ -9,11 +9,11 @@ ms.assetid: bc937e9d-5c14-4fc4-aec7-440da924dd18
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
 ms.openlocfilehash: dfac0c6fa955e59c6ea996533f2447e89ec8d468
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587848"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78635942"
 ---
 # <a name="user-based-authorization-vb"></a>Kullanıcı Tabanlı Yetkilendirme (VB)
 
@@ -279,7 +279,7 @@ Anonim kullanıcılar için Görünüm düğmesini gizlemenin bir yolu, GridView
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample18.aspx)]
 
- Kime: 
+ Hedef: 
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample19.aspx)]
 

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
-title: JavaScript istemcisini oluşturma | Microsoft Docs
+title: JavaScript Istemcisini oluşturma | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,64 +9,64 @@ ms.assetid: 20360326-b123-4b1e-abae-1d350edf4ce4
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
 ms.openlocfilehash: 74f2cc4e5e401d690042b05b028dfc0c46ae282a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413899"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622348"
 ---
 # <a name="create-the-javascript-client"></a>JavaScript İstemcisini Oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-[Projeyi yükle](https://github.com/MikeWasson/BookService)
+[Tamamlanmış projeyi indir](https://github.com/MikeWasson/BookService)
 
-Bu bölümde, HTML, JavaScript kullanarak istemci uygulaması oluşturacak ve [Knockout.js](http://knockoutjs.com/) kitaplığı. Aşamalar halinde istemci uygulaması oluşturacağız:
+Bu bölümde, HTML, JavaScript ve [altını gizleme. js](http://knockoutjs.com/) kitaplığı kullanarak uygulama için istemcisini oluşturacaksınız. İstemci uygulamasını aşamalar halinde oluşturacağız:
 
 - Kitap listesi gösteriliyor.
-- Bir kitap ayrıntı gösteriliyor.
-- Yeni bir kitap ekleniyor.
+- Bir kitap ayrıntısı gösteriliyor.
+- Yeni kitap ekleniyor.
 
-Knockout kitaplığı, Model-View-ViewModel (MVVM) desenini kullanır:
+Altını gizleme kitaplığı Model-View-ViewModel (MVVM) modelini kullanır:
 
-- **Modeli** iş etki alanında (bizim çalışması, kitaplar ve yazarlar) verileri sunucu tarafı gösterimidir.
-- **Görünümü** sunu katmanı (HTML).
-- **Görünüm modeli** modelleri tutan bir JavaScript nesnesi. Görünüm modeli, kullanıcı arabiriminin bir kod soyutlamadır. HTML gösteriminin bilgisi var. Bunun yerine, görünümün soyut özellikler gibi temsil ettiği &quot;kitap listesi&quot;.
+- **Model** , iş etki alanındaki verilerin sunucu tarafı gösterimidir (bizim örneğimizde, kitaplarımızda ve yazarlarımız).
+- **Görünüm** sunum katmanıdır (HTML).
+- **Görünüm modeli** , modelleri tutan bir JavaScript nesnesidir. Görünüm modeli, Kullanıcı arabiriminin kod soyutlamasıdır. HTML temsili bilgisine sahip değildir. Bunun yerine, görünümün Özet özelliklerini temsil eder, örneğin kitap&quot;listesini &quot;.
 
-Görünüm veri görünüm modeline bağlı. Görünüm modeli güncelleştirmeler Görünümü'nde otomatik olarak yansıtılır. Düğmesine tıklar gibi görünüm modeli olayları da görünümden alır.
+Görünüm, görünüm modeline veri ile bağlanır. Görünüm modeli güncelleştirmeleri otomatik olarak görünüme yansıtılır. Görünüm modeli, düğme tıklamaları gibi görünümden de olayları alır.
 
 ![](part-6/_static/image1.png)
 
-Herhangi bir kodu yeniden yazma olmadan bağlamaları değiştirebilirsiniz çünkü bu yaklaşım, uygulamanızın kullanıcı Arabirimi ve düzeni değiştirmek kolaylaştırır. Örneğin, bir liste öğesi gösterebilir bir `<ul>`, daha sonra tabloya değiştirebilirsiniz.
+Bu yaklaşım, herhangi bir kodu yeniden yazmadan bağlamaları değiştirebildiğinden uygulamanızın düzen ve Kullanıcı arabirimini değiştirmeyi kolaylaştırır. Örneğin, öğelerin bir listesini `<ul>`olarak gösterip daha sonra bir tablo olarak değiştirebilirsiniz.
 
-## <a name="add-the-knockout-library"></a>Knockout kitaplığı Ekle
+## <a name="add-the-knockout-library"></a>Altını gizleme kitaplığını ekleme
 
-Visual Studio'da gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**. Ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Visual Studio 'da, **Araçlar** menüsünden **NuGet Paket Yöneticisi**' ni seçin. Ardından **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](part-6/samples/sample1.cmd)]
 
-Bu komut, Knockout dosyaları Scripts klasörü olarak ekler.
+Bu komut, altını gizleme dosyalarını betikler klasörüne ekler.
 
-## <a name="create-the-view-model"></a>Görünüm modeli oluşturun
+## <a name="create-the-view-model"></a>Görünüm modeli oluşturma
 
-Betikler klasörüne App.js adlı bir JavaScript dosyası ekleyin. (Çözüm Gezgini'nde betikler klasörüne sağ tıklayın, **Ekle**, ardından **JavaScript dosyası**.) Aşağıdaki kodu yapıştırın:
+Scripts klasörüne App. js adlı bir JavaScript dosyası ekleyin. (Çözüm Gezgini, betikler klasörüne sağ tıklayın, **Ekle**' yi ve ardından **JavaScript dosyası**' nı seçin.) Aşağıdaki kodu yapıştırın:
 
 [!code-javascript[Main](part-6/samples/sample2.js)]
 
-Knockout içinde `observable` sınıfı, veri bağlama sağlar. Observable içeriğini değiştirdiğinizde, kendisini güncelleştirmek için gözlemlenebilir tüm verilere bağlı denetimleri bildirir. ( `observableArray` Sınıfı, dizisi sürümü *observable*.) İle başlamak görünümü modelimizi, iki gözlemlenenler sahiptir:
+Altını gizleme bölümünde, `observable` sınıfı veri bağlamayı mümkün bir şekilde sunar. Bir observable 'ın içeriği değiştiğinde, observable her türlü veri bağlantılı denetimi kendileri tarafından güncelleştirebilecekleri şekilde bilgilendirir. (`observableArray` sınıfı, *observable*'ın dizi sürümüdür.) İle başlamak için, görünüm modelimizin iki gözlemlenenler vardır:
 
-- `books` kitap listesi içerir.
-- `error` AJAX çağrısı başarısız olursa bir hata iletisi içerir.
+- `books`, kitap listesini tutar.
+- `error` bir AJAX çağrısı başarısız olursa bir hata iletisi içerir.
 
-`getAllBooks` Yöntemi books listesini almak için bir AJAX çağrısı yapar. Sonucu üzerine gönderim sonra `books` dizisi.
+`getAllBooks` yöntemi, kitap listesini almak için bir AJAX çağrısı yapar. Sonra, sonucu `books` dizisine iter.
 
-`ko.applyBindings` Yöntemi Knockout Kitaplığı'nın bir parçasıdır. Bu görünüm modeli parametre olarak alır ve veri bağlamasını ayarlamak ayarlar.
+`ko.applyBindings` yöntemi, altını gizleme kitaplığının bir parçasıdır. Görünüm modelini bir parametre olarak alır ve veri bağlamayı ayarlar.
 
 ## <a name="add-a-script-bundle"></a>Betik paketi ekleme
 
-Paketleme, birleştirme veya birden çok dosyayı tek bir dosyada paket kolaylaştırır ASP.NET 4.5 özelliğidir. Paketleme sayfa yükleme süresi iyileştirebilen sunucuya istek sayısını azaltır.
+Paketleme, ASP.NET 4,5 ' de birden çok dosyayı tek bir dosyada birleştirmeyi veya paketlemeyi kolaylaştıran bir özelliktir. Paketleme, sunucuya yapılan istek sayısını azaltır ve bu da sayfa yükleme süresini iyileştirebilirler.
 
-Uygulama dosyasını açın\_Start/BundleConfig.cs. RegisterBundles yöntemine aşağıdaki kodu ekleyin.
+Start/paketleme Liconfig. cs\_dosya uygulamasını açın. Aşağıdaki kodu Registerdemeti yöntemine ekleyin.
 
 [!code-csharp[Main](part-6/samples/sample3.cs)]
 

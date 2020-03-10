@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-persistent-communications-pattern-using-web-services
-title: '[Bunu nasıl yaparım:] Web hizmetlerini kullanarak kalıcı iletişim desenini uygulansın mı? | Microsoft Docs'
+title: '[Nasıl yapılır:] Web hizmetlerini kullanarak kalıcı Iletişim deseninin uygulanması mı istiyorsunuz? | Microsoft Docs'
 author: JoeStagner
-description: Geleneksel bir Web sitesinde tarayıcı ve sunucu bir devam eden iletişimleri korumak değil, ancak yalnızca bir eylemi gerçekleştiren kullanıcı yanıtta iletişim...
+description: Geleneksel bir Web sitesinde tarayıcı ve sunucu devam eden bir iletişim kurmaz, ancak yalnızca bir işlem gerçekleştiren kullanıcıya yanıt olarak iletişim kurar...
 ms.author: riande
 ms.date: 08/22/2007
 ms.assetid: 424c06cd-6d61-43cd-a1f2-d1a6b62e47b1
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-persistent-communications-pattern-using-web-services
 msc.type: video
 ms.openlocfilehash: de2eb281cd4bab46635af480ac2e8f07f60f1591
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408114"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628753"
 ---
-# <a name="how-do-i-implement-the-persistent-communications-pattern-using-web-services"></a>[Bunu nasıl yaparım:] Web hizmetlerini kullanarak kalıcı iletişim desenini uygulansın mı?
+# <a name="how-do-i-implement-the-persistent-communications-pattern-using-web-services"></a>[Nasıl yapılır:] Web hizmetlerini kullanarak kalıcı Iletişim deseninin uygulanması mı istiyorsunuz?
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Geleneksel bir Web sitesinde tarayıcı ve sunucu bir devam eden iletişimleri korumak değil, ancak yalnızca bir eylem gerçekleştiren kullanıcı yanıtta iletişim. Modern Web burada da bir uygulama kapsayıcısı sayfa olur sitesinde, tarayıcı ve Sayfa güncelleştirmelerini eylemi gerçekleştiren kullanıcı gerçekleştirilmesi bir devam eden iletişimleri korumak üzere sunucusu için yararlı olabilir. Bu AJAX için kalıcı iletişim desenini olarak bilinir. ASP.NET AJAX Web geliştiricilerin kalıcı iletişim desenini uygulama başlıca iki yolu sağlar. Önceki bir videoda ASP.NET AJAX UpdatePanel uygulama temeli olarak kullanmak nasıl gördük. Bu videoda ASP.NET AJAX UpdatePanel gereksinimini ortadan kaldırır bir Web hizmeti JavaScrpt çağrısı kullanarak aynı düzeni nasıl uygulayacağınıza karar biz öğrenin.
+Geleneksel bir Web sitesinde tarayıcı ve sunucu devam eden bir iletişim bulundurmaz, ancak yalnızca kullanıcıya bir eylem gerçekleştirerek yanıt olarak iletişim kurar. Sayfanın uygulama kapsayıcısı haline geldiği modern bir Web sitesinde, tarayıcı ve sunucu için, bir eylem yapmadan, sayfa güncelleştirmelerinin gerçekleşebileceği bir iletişim sağlamak için avantaj sağlayabilir. Bu, AJAX için kalıcı Iletişim kalıbı olarak bilinir. ASP.NET AJAX, Web geliştiricilerinin kalıcı Iletişim modelini uygulaması için iki ana yol sağlar. Önceki bir videoda, uygulamanın temeli olarak ASP.NET AJAX UpdatePanel 'ın nasıl kullanılacağını gördük. Bu videoda, bir ASP.NET AJAX UpdatePanel gereksinimini ortadan kaldıran bir Web hizmetine JavaScrpt çağrısını kullanarak aynı deseninin nasıl uygulanacağını öğreniyoruz.
 
-[&#9654;Videoyu (16 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-persistent-communications-pattern-using-web-services)
+[&#9654;Videoyu izleyin (16 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-persistent-communications-pattern-using-web-services)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-localize-an-aspnet-ajax-application.md)

@@ -9,11 +9,11 @@ ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 09d3faf811f21a66bb5c234f71d77b2552ae6516
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74623479"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78611862"
 ---
 # <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList ve Repeater Denetimleri ile Verileri Görüntüleme (C#)
 
@@ -111,7 +111,7 @@ GridView gibi, DataList, `Font`, `ForeColor`, `BackColor`, `CssClass`, `ItemStyl
 
 [ObjectDataSource Ile verileri görüntüleme](../basic-reporting/displaying-data-with-the-objectdatasource-cs.md) öğreticisinde açıklandığı gibi, bir dış görünüm dosyası bir Web denetimi için varsayılan görünümle ilgili özellikleri belirtir; bir tema, bir Web sitesi için belirli bir görünümü tanımlayan bir kaplama, CSS, resim ve JavaScript dosyaları koleksiyonudur. *ObjectDataSource Ile verileri görüntüleme* öğreticisinde, şu anda, Iki dış görünüm dosyası olan `GridView.skin` ve `DetailsView.skin`olan bir `DataWebControls` teması (`App_Themes` klasörü içinde bir klasör olarak uygulanır) oluşturduk. DataList için önceden tanımlanmış stil ayarlarını belirtmek üzere bir üçüncü Skin dosyası ekleyelim.
 
-Bir dış görünüm dosyası eklemek için `App_Themes/DataWebControls` klasörüne sağ tıklayın, yeni öğe Ekle ' yi seçin ve listeden dış görünüm dosyası seçeneğini belirleyin. Dosyayı `DataList.skin`olarak adlandırın.
+Bir dış görünüm dosyası eklemek için `App_Themes/DataWebControls` klasörüne sağ tıklayın, yeni öğe Ekle ' yi seçin ve listeden dış görünüm dosyası seçeneğini belirleyin. Dosyayı `DataList.skin` olarak adlandırın.
 
 [![DataList. Skin adlı yeni bir kaplama dosyası oluşturma](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image22.png)](displaying-data-with-the-datalist-and-repeater-controls-cs/_static/image21.png)
 

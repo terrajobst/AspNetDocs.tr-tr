@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/error-handling/exception-handling
-title: Özel durum işleme ASP.NET Web API'si - ASP.NET 4.x
+title: ASP.NET Web API-ASP.NET 4. x içinde özel durum Işleme
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -10,106 +10,106 @@ ms.assetid: cbebeb37-2594-41f2-b71a-f4f26520d512
 msc.legacyurl: /web-api/overview/error-handling/exception-handling
 msc.type: authoredcontent
 ms.openlocfilehash: dbdbab6aefec840e2fec9e9cd33f3d124093750e
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125313"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622320"
 ---
-# <a name="exception-handling-in-aspnet-web-api"></a>Özel durum işleme ASP.NET Web API
+# <a name="exception-handling-in-aspnet-web-api"></a>ASP.NET Web API 'sinde özel durum Işleme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Bu makalede, hata ve özel durum işleme ASP.NET Web API'de açıklanır.
+Bu makalede ASP.NET Web API 'sindeki hata ve özel durum işleme açıklanır.
 
 - [HttpResponseException](#httpresponserexception)
 - [Özel durum filtreleri](#exception_filters)
-- [Özel durum filtreleri kaydediliyor](#registering_exception_filters)
-- [HTTP hatası](#httperror)
+- [Özel durum filtrelerini kaydetme](#registering_exception_filters)
+- [Http hatası](#httperror)
 
 <a id="httpresponserexception"></a>
 ## <a name="httpresponseexception"></a>HttpResponseException
 
-Bir Web API denetleyicisi yakalanmayan bir özel durum oluşturursa ne olur? Varsayılan olarak, çoğu özel durumların bir HTTP yanıtının durum kodu, 500 İç sunucu hatası ile çevrilir.
+Web API denetleyicisi yakalanamayan bir özel durum oluşturursa ne olur? Varsayılan olarak, çoğu özel durum 500 durum kodu, Iç sunucu hatası ile HTTP yanıtına çevrilir.
 
-**HttpResponseException** bir özel durum türüdür. Bu durum, özel durum oluşturucuda belirttiğiniz herhangi bir HTTP durum kodu döndürür. Örneğin, aşağıdaki yöntem, 404, bulunamadı, döndürür *kimliği* parametresi geçerli değil.
+**Httpresponseexception** türü özel bir durumdur. Bu özel durum, özel durum oluşturucuda belirttiğiniz herhangi bir HTTP durum kodunu döndürür. Örneğin, aşağıdaki yöntem, *ID* parametresi geçerli değilse, bulunamadı, 404 döndürür.
 
 [!code-csharp[Main](exception-handling/samples/sample1.cs)]
 
-Yanıt üzerinde daha fazla denetim için ayrıca tüm yanıt iletisi oluşturmak ve bunu ile dahil **HttpResponseException:** 
+Yanıt üzerinde daha fazla denetim için, tüm yanıt iletisini de oluşturabilir ve **Httpresponseexception** ile dahil edebilirsiniz: 
 
 [!code-csharp[Main](exception-handling/samples/sample2.cs)]
 
 <a id="exception_filters"></a>
 ## <a name="exception-filters"></a>Özel durum filtreleri
 
-Web API yazarak özel durumları nasıl işlediğini özelleştirebileceğiniz bir *özel durum filtresi*. Bir denetleyici yöntemi olan bir işlenmeyen özel durum oluşturduğunda, özel durum filtresi yürütülür *değil* bir **HttpResponseException** özel durum. **HttpResponseException** özellikle bir HTTP yanıtı döndüren için tasarlandığından türü olan bir özel durum.
+Web API 'nin özel durumları *özel durum filtresi*yazarak nasıl işleyeceğini özelleştirebilirsiniz. Bir denetleyici yöntemi bir **Httpresponseexception** özel durumu *olmayan* işlenmemiş özel durum oluşturduğunda bir özel durum filtresi yürütülür. **Httpresponseexception** türü özel bir durumdur, çünkü özellıkle bir http yanıtı döndürmek için tasarlanmıştır.
 
-Özel durum filtreleri uygulamak **System.Web.Http.Filters.IExceptionFilter** arabirimi. Türetilmesi için bir özel durum filtresi yazma en kolay yolu olan **System.Web.Http.Filters.ExceptionFilterAttribute** sınıf ve geçersiz kılma **OnException** yöntemi.
+Özel durum filtreleri **System. Web. http. Filters. IExceptionFilter** arabirimini uygular. Bir özel durum filtresi yazmanın en basit yolu, **System. Web. http. Filters. ExceptionFilterAttribute** sınıfından türetmektir ve **OnException** metodunu geçersiz kılar.
 
 > [!NOTE]
-> ASP.NET Web API'de özel durum filtreleri ASP.NET mvc'de benzerdir. Ancak, bunlar ayrı ad alanı ve işlevi ayrı olarak bildirilir. Özellikle, **HandleErrorAttribute** MVC'de kullanılan sınıf Web APİ'si denetleyicilerinin tarafından oluşturulan özel durumları işlemez.
+> ASP.NET Web API 'sindeki özel durum filtreleri ASP.NET MVC 'de olanlarla benzerdir. Ancak, ayrı bir ad alanında ve ayrı olarak bir işlev olarak bildirilmiştir. Özellikle, MVC 'de kullanılan **HandleErrorAttribute** sınıfı, Web API denetleyicileri tarafından oluşturulan özel durumları işlemez.
 
-İşte dönüştüren bir filtre **NotImplementedException** 501, uygulanmadı özel durumları HTTP durum kodu:
+**Notimplementedexception** özel durumlarını http durum koduna 501 olarak dönüştüren bir filtre aşağıda uygulanmadı:
 
 [!code-csharp[Main](exception-handling/samples/sample3.cs)]
 
-**Yanıt** özelliği **HttpActionExecutedContext** nesne istemciye gönderilecek HTTP yanıt iletisi içerir.
+**HttpActionExecutedContext** nesnesinin **Response** özelliği istemciye gönderilecek http yanıt iletisini içerir.
 
 <a id="registering_exception_filters"></a>
-## <a name="registering-exception-filters"></a>Özel durum filtreleri kaydediliyor
+## <a name="registering-exception-filters"></a>Özel durum filtrelerini kaydetme
 
-Bir Web API özel durum filtre kaydetmek için birkaç yol vardır:
+Web API özel durum filtresini kaydetmek için çeşitli yollar vardır:
 
-- Eylem tarafından
-- Denetleyici tarafından
-- Genel olarak
+- Eyleme göre
+- Denetleyiciye göre
+- Görünüm
 
-Belirli bir eylem için filtre uygulamak için filtre eylemi için bir özniteliği olarak ekleyin:
+Filtreyi belirli bir eyleme uygulamak için, filtreyi eyleme bir öznitelik olarak ekleyin:
 
 [!code-csharp[Main](exception-handling/samples/sample4.cs)]
 
-Tüm bir denetleyici eylemleri için filtre uygulamak için bir özniteliği olarak filtre denetleyici sınıfına ekleyin:
+Filtreyi bir denetleyicideki tüm eylemlere uygulamak için, filtreyi denetleyici sınıfına bir öznitelik olarak ekleyin:
 
 [!code-csharp[Main](exception-handling/samples/sample5.cs)]
 
-Filtre için tüm Web APİ'si denetleyicilerinin genel olarak uygulamak için filtre bir örneğini ekleme **GlobalConfiguration.Configuration.Filters** koleksiyonu. Özel durum filtreleri bu koleksiyondaki herhangi bir Web API denetleyici eylemi için geçerlidir.
+Filtreyi tüm Web API denetleyicilerine Global olarak uygulamak için, **Globalconfiguration. Configuration. Filters** koleksiyonuna bir filtrenin örneği ekleyin. Bu koleksiyondaki özel durum filtreleri Web API denetleyicisi işlemleri için geçerlidir.
 
 [!code-csharp[Main](exception-handling/samples/sample6.cs)]
 
-Projenizi oluşturmak için "ASP.NET MVC 4 Web uygulaması" proje şablonunu kullanıyorsanız, Web API configuration kodunuzda gezebilirsiniz put `WebApiConfig` uygulamada bulunan sınıf\_başlangıç klasörü:
+Projenizi oluşturmak için "ASP.NET MVC 4 Web uygulaması" proje şablonunu kullanırsanız, Web API yapılandırma kodunuzu uygulama\_başlangıç klasörü içinde bulunan `WebApiConfig` sınıfına koyun:
 
 [!code-csharp[Main](exception-handling/samples/sample7.cs?highlight=5)]
 
 <a id="httperror"></a>
-## <a name="httperror"></a>HTTP hatası
+## <a name="httperror"></a>Http hatası
 
-**HTTP hatası** nesnesi, yanıt gövdesi içinde hata bilgilerini döndürmek için tutarlı bir yol sağlar. Aşağıdaki örnek, ile nasıl HTTP durum kodu 404 (bulunamadı) döndürüleceğini gösterir. bir **HTTP hatası** yanıt gövdesi içinde.
+**HttpError** nesnesi, yanıt gövdesinde hata bilgilerini döndürmek için tutarlı bir yol sağlar. Aşağıdaki örnek, yanıt gövdesinde bir **HttpError** ile 404 (bulunamadı) http durum kodunu nasıl döndürün gösterir.
 
 [!code-csharp[Main](exception-handling/samples/sample8.cs)]
 
-**CreateErrorResponse** içinde bir uzantı yönteminin tanımlandığı **System.Net.Http.HttpRequestMessageExtensions** sınıfı. Dahili olarak **CreateErrorResponse** oluşturur bir **HTTP hatası** örnek ve ardından oluşturan bir **HttpResponseMessage** içeren **HTTPhatası**.
+**Createerrorresponse** , **System .net. http. HttpRequestMessageExtensions** sınıfında tanımlanmış bir genişletme yöntemidir. Dahili olarak, **Createerrorresponse** bir **HttpError** örneği oluşturur ve ardından **HttpError**'ı içeren bir **HttpResponseMessage** oluşturur.
 
-Bu örnekte, yöntem başarılı olursa üründe bir HTTP yanıtı döndürür. Ancak istenen ürüne bulunamazsa, HTTP yanıtı içeren bir **HTTP hatası** istek gövdesindeki. Yanıt aşağıdaki gibi görünebilir:
+Bu örnekte, Yöntem başarılı olursa, HTTP yanıtında ürünü döndürür. Ancak istenen ürün bulunamazsa HTTP yanıtı, istek gövdesinde bir **HttpError** içerir. Yanıt aşağıdaki gibi görünebilir:
 
 [!code-console[Main](exception-handling/samples/sample9.cmd)]
 
-Dikkat **HTTP hatası** Bu örnekte, JSON için seri duruma. Kullanmanın bir avantajı **HTTP hatası** aynı gittiği yerdir [içerik anlaşması](../formats-and-model-binding/content-negotiation.md) ve seri hale getirme işlem diğer kesin olarak belirlenmiş model.
+Bu örnekte, **HttpError** 'ın JSON olarak serileştirildiğine dikkat edin. **HttpError** kullanmanın avantajlarından biri, kesin olarak belirlenmiş diğer tüm modellerde aynı [içerik anlaşması](../formats-and-model-binding/content-negotiation.md) ve serileştirme işleminden geçmesidir.
 
-### <a name="httperror-and-model-validation"></a>HTTP hatası ve Model doğrulama
+### <a name="httperror-and-model-validation"></a>HttpError ve model doğrulaması
 
-Model doğrulama için model durumuna geçirebilirsiniz **CreateErrorResponse**, yanıtta doğrulama hataları dahil etmek için:
+Model doğrulaması için, yanıtta doğrulama hatalarını dahil etmek için model durumunu **Createerrorresponse**'a geçirebilirsiniz:
 
 [!code-csharp[Main](exception-handling/samples/sample10.cs)]
 
-Bu örnekte şu yanıtı döndürebilir:
+Bu örnek aşağıdaki yanıtı döndürebilir:
 
 [!code-console[Main](exception-handling/samples/sample11.cmd)]
 
-Model doğrulama hakkında daha fazla bilgi için bkz: [ASP.NET Web API'de Model doğrulama](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
+Model doğrulama hakkında daha fazla bilgi için bkz. [ASP.NET Web API 'de model doğrulaması](../formats-and-model-binding/model-validation-in-aspnet-web-api.md).
 
-### <a name="using-httperror-with-httpresponseexception"></a>HTTP hatası HttpResponseException ile kullanma
+### <a name="using-httperror-with-httpresponseexception"></a>HttpResponseException ile HttpError kullanma
 
-Önceki örneklerde dönüş bir **HttpResponseMessage** denetleyici eylemi, ancak ileti de kullanabilir **HttpResponseException** döndürülecek bir **HTTP hatası**. Bu, kesin türü belirtilmiş bir model hala döndürürken normal başarı durumunda iade sağlar **HTTP hatası** bir hata varsa:
+Önceki örneklerde, denetleyici eyleminden bir **HttpResponseMessage** iletisi döndürülür, ancak bir **HttpError**döndürmek için **httpresponseexception** da kullanabilirsiniz. Bu, normal başarı durumunda kesin türü belirtilmiş bir model döndürmenizi sağlarken bir hata varsa, yine de **HttpError** döndürüyor:
 
 [!code-csharp[Main](exception-handling/samples/sample12.cs)]

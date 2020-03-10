@@ -9,11 +9,11 @@ ms.assetid: b45fede3-c53a-4ea1-824b-20200808dbae
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs
 msc.type: authoredcontent
 ms.openlocfilehash: da69e466a5b506b869dc8fc0624f3e6a479199a8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74624645"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78604337"
 ---
 # <a name="wrapping-database-modifications-within-a-transaction-c"></a>Veritabanı Değişikliklerini Bir İşlemin İçinde Sarmalama (C#)
 
@@ -201,7 +201,7 @@ Bu davranışı göstermek için bu sayfayı bir tarayıcı aracılığıyla ziy
 
 ## <a name="summary"></a>Özet
 
-Varsayılan olarak, TableAdapter s yöntemleri yürütülen veritabanı deyimlerini bir işlemin kapsamı içinde sarmaz, ancak küçük bir çalışmalarla bir işlem oluşturacak, kaydedilecek ve geri alacak Yöntemler ekleyebiliriz. Bu öğreticide `ProductsTableAdapter` sınıfında üç tür yöntem oluşturduk: `BeginTransaction`, `CommitTransaction`ve `RollbackTransaction`. Bu yöntemlerin bir dizi veri değiştirme deyimini atomik hale getirmek için bir `try...catch` bloğuyla birlikte nasıl kullanılacağını gördük. Özellikle, sağlanan bir `ProductsDataTable`satırlarda gerekli değişiklikleri gerçekleştirmek için Batch güncelleştirme modelini kullanan `ProductsTableAdapter``UpdateWithTransaction` yöntemi oluşturduk. Ayrıca, `DeleteProductsWithTransaction` yöntemini, giriş olarak `ProductID` değerleri `List` kabul eden ve her `Delete` için DB-Direct model yöntemini çağıran BLL içindeki `ProductsBLL` sınıfına ekledik. Her iki yöntem de bir işlem oluşturarak ve sonra veri değiştirme deyimlerini bir `try...catch` bloğu içinde yürütülerek başlar. Bir özel durum oluşursa, işlem geri alınır, aksi takdirde işlenir.
+Varsayılan olarak, TableAdapter s yöntemleri yürütülen veritabanı deyimlerini bir işlemin kapsamı içinde sarmaz, ancak küçük bir çalışmalarla bir işlem oluşturacak, kaydedilecek ve geri alacak Yöntemler ekleyebiliriz. Bu öğreticide `ProductsTableAdapter` sınıfında üç tür yöntem oluşturduk: `BeginTransaction`, `CommitTransaction`ve `RollbackTransaction`. Bu yöntemlerin bir dizi veri değiştirme deyimini atomik hale getirmek için bir `try...catch` bloğuyla birlikte nasıl kullanılacağını gördük. Özellikle, sağlanan bir `ProductsDataTable`satırlarda gerekli değişiklikleri gerçekleştirmek için Batch güncelleştirme modelini kullanan `ProductsTableAdapter``UpdateWithTransaction` yöntemi oluşturduk. Ayrıca, `DeleteProductsWithTransaction` yöntemini, giriş olarak `ProductID` değerleri `List` kabul eden ve her `Delete` için DB-Direct model yöntemini çağıran BLL içindeki `ProductsBLL` sınıfına ekledik.`ProductID` Her iki yöntem de bir işlem oluşturarak ve sonra veri değiştirme deyimlerini bir `try...catch` bloğu içinde yürütülerek başlar. Bir özel durum oluşursa, işlem geri alınır, aksi takdirde işlenir.
 
 5\. adım, işlem toplu iş güncelleştirmelerinin bir işlem kullanmak için ihmal edilen toplu güncelleştirmeler ile ilgili etkisini Sonraki üç öğreticide, bu öğreticide bulunan temel üzerine oluşturacağız ve toplu güncelleştirme, silme ve ekleme işlemlerini gerçekleştirmek için Kullanıcı arabirimleri oluşturacağız.
 

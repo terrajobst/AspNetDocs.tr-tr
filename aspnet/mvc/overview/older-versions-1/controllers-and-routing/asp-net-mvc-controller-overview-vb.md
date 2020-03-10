@@ -2,122 +2,122 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 title: ASP.NET MVC denetleyicisine genel bakış (VB) | Microsoft Docs
 author: StephenWalther
-description: Bu öğreticide, Stephen Walther için ASP.NET MVC denetleyicileri sunar. Yeni denetleyicileri oluşturun ve eylem res farklı türde döndürmek öğrenin...
+description: Bu öğreticide, Stephen Walther sizi ASP.NET MVC denetleyicilerini tanıtır. Yeni denetleyiciler oluşturmayı ve farklı eylem türlerini geri döndürmeyi öğrenirsiniz...
 ms.author: riande
 ms.date: 02/16/2008
 ms.assetid: 94c3e5d9-a904-445e-a34e-d92fd1ca108a
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: f19e7dd7fc025de2e0c387db898d36623e790e6a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123681"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78601565"
 ---
 # <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC Denetleyicisine Genel Bakış (VB)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-> Bu öğreticide, Stephen Walther için ASP.NET MVC denetleyicileri sunar. Yeni denetleyicileri oluşturun ve farklı türde eylem sonuçlarını döndürmek öğrenin.
+> Bu öğreticide, Stephen Walther sizi ASP.NET MVC denetleyicilerini tanıtır. Yeni denetleyiciler oluşturmayı ve farklı türlerde eylem sonuçları döndürmeyi öğrenirsiniz.
 
-Bu öğretici, ASP.NET MVC denetleyicileri, denetleyici eylemlerini ve eylem sonuçlarını konu açıklar. Bu öğreticiyi tamamladıktan sonra denetleyicileri ziyaretçi bir ASP.NET MVC Web sitesi ile etkileşim şeklini denetlemek için nasıl kullanılacağını anlayacaksınız.
+Bu öğretici, ASP.NET MVC denetleyicileri, denetleyici eylemleri ve eylem sonuçlarının konusunu araştırır. Bu Öğreticiyi tamamladıktan sonra, bir ziyaretçinin bir ASP.NET MVC web sitesiyle etkileşim kurma şeklini denetlemek için denetleyicilerin nasıl kullanıldığını anlamış olursunuz.
 
 ## <a name="understanding-controllers"></a>Denetleyicileri anlama
 
-MVC denetleyicileri karşı bir ASP.NET MVC Web sitesine yapılan isteklerini yanıtlamadan sorumludur. Her bir tarayıcı isteğini belirli bir denetleyiciye eşlenir. Örneğin, tarayıcınızın adres çubuğuna aşağıdaki URL'yi girin düşünün:
+MVC denetleyicileri bir ASP.NET MVC web sitesinde yapılan isteklere yanıt vermekten sorumludur. Her tarayıcı isteği belirli bir denetleyiciye eşlenir. Örneğin, tarayıcınızın adres çubuğuna aşağıdaki URL 'YI girdiğinizi varsayın:
 
 `http://localhost/Product/Index/3`
 
-Bu durumda, ProductController adlı bir denetleyici çağrılır. ProductController tarayıcı isteğin yanıtını oluşturmaktan sorumlu. Örneğin, denetleyici, belirli bir görünüm tarayıcıya geri döndürebilir veya denetleyici kullanıcı başka bir denetleyiciye yönlendirebilir.
+Bu durumda, ProductController adlı bir denetleyici çağrılır. ProductController, tarayıcı isteğine yanıt oluşturmaktan sorumludur. Örneğin, denetleyici tarayıcıya geri döndürülen belirli bir görünümü döndürebilir veya denetleyici kullanıcıyı başka bir denetleyiciye yönlendirebilir.
 
-1 listeleme ProductController adlı basit bir denetleyici içerir.
+Listeleme 1, ProductController adlı basit bir denetleyici içerir.
 
-**Listing1 - Controllers\ProductController.vb**
+**Listing1-Controllers\productcontroller.exe**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample1.vb)]
 
-Listeleme 1'den görebileceğiniz gibi yalnızca bir sınıf (Visual Basic .NET veya C# sınıfı) bir denetleyicisi değil. Temel System.Web.Mvc.Controller sınıfından türetilen bir sınıf denetleyicisidir. Bir denetleyici bu temel sınıftan devraldığı için bir denetleyici birçok kullanışlı yöntem ücretsiz devralır (Bu yöntemleri birazdan ele alır).
+Liste 1 ' den görebileceğiniz gibi, bir denetleyici yalnızca bir sınıf (Visual Basic .NET veya C# sınıf) olur. Denetleyici, temel System. Web. Mvc. Controller sınıfından türetilen bir sınıftır. Bir denetleyici bu temel sınıftan devraldığı için, denetleyici birkaç yararlı yöntemi ücretsiz olarak devralır (Bu yöntemleri bir süre içinde tartıştık).
 
 ## <a name="understanding-controller-actions"></a>Denetleyici eylemlerini anlama
 
-Bir denetleyici denetleyici eylemleri gösterir. Bir eylem, belirli bir URL'sini tarayıcınızın adres çubuğuna girdiğinizde çağrılan denetleyicisinde bir yöntemdir. Örneğin, aşağıdaki URL için bir istekte bulunmak düşünün:
+Denetleyici, denetleyici eylemlerini kullanıma sunar. Eylem, tarayıcı adres çubuğuna belirli bir URL girerken çağrılan bir denetleyicide bir yöntemdir. Örneğin, aşağıdaki URL için bir istek oluşturduğunuzu düşünün:
 
 `http://localhost/Product/Index/3`
 
-Bu durumda, İNDİS() yöntem ProductController sınıf üzerinde çağrılır. İNDİS() yöntemi, denetleyici eylem örneğidir.
+Bu durumda, Index () yöntemi ProductController sınıfında çağrılır. Index () yöntemi, bir denetleyici eyleminin bir örneğidir.
 
-Bir denetleyici eylemi bir denetleyici sınıfının genel bir yöntemi olması gerekir. Varsayılan olarak, Visual Basic.NET yöntemler, genel yöntemlerdir. Bir denetleyici sınıfına ekleyin herhangi bir genel yöntemini bir denetleyici eylem olarak otomatik olarak kullanıma sunulduğunu unutmayın (bir denetleyici eylemi evreni içinde hiç kimse tarafından yalnızca bir tarayıcı adres çubuğuna sağ URL yazarak çağrılabilir olduğundan bu hakkında dikkatli olmanız gerekir).
+Denetleyici eyleminin bir denetleyici sınıfının ortak bir yöntemi olması gerekir. Visual Basic.NET yöntemleri, varsayılan olarak ortak yöntemlerdir. Bir denetleyici sınıfına eklediğiniz herhangi bir genel yöntemin otomatik olarak bir denetleyici eylemi olarak sunulduğunu unutmayın (bir denetleyici eylemi, bir tarayıcı adres çubuğuna doğru URL 'yi yazarak, Universe ' deki herkes tarafından çağrılabilir.
 
-Bir denetleyici eylemi tarafından karşılanması gereken bazı ek gereksinimleri vardır. Bir denetleyici eylemi kullanılan bir yöntem aşırı yüklenemez. Ayrıca, bir denetleyici eylemi bir statik yöntem olamaz. Bir denetleyici eylemi neredeyse tüm yöntemi kullanabilirsiniz.
+Bir denetleyici eylemi tarafından karşılanması gereken bazı ek gereksinimler vardır. Denetleyici eylemi olarak kullanılan bir yöntem aşırı yüklenemez. Ayrıca, bir denetleyici eylemi statik bir yöntem olamaz. Bundan farklı olarak, yalnızca bir denetleyici eylemi olarak istediğiniz yöntemi kullanabilirsiniz.
 
 ## <a name="understanding-action-results"></a>Eylem sonuçlarını anlama
 
-Bir denetleyici eylemi olarak adlandırılan bir şey döndürür bir *eylem sonucu*. Eylem sonucu bir denetleyici eylemi bir tarayıcı isteğine yanıt olarak döndürür ' dir.
+Bir denetleyici eylemi, *eylem sonucu*olarak adlandırılan bir şeyi döndürür. Bir eylem sonucu, bir tarayıcı isteğine yanıt olarak bir denetleyici eyleminin döndürdüğü şeydir.
 
-ASP.NET MVC çerçevesi, eylem sonuçlarını da dahil olmak üzere çeşitli türlerini destekler:
+ASP.NET MVC çerçevesi aşağıdakiler dahil olmak üzere birkaç tür eylem sonucunu destekler:
 
-1. ViewResult - temsil HTML ve biçimlendirme.
-2. EmptyResult - hiçbir sonucu temsil eder.
-3. RedirectResult - yeni bir URL yeniden yönlendirme temsil eder.
-4. JsonResult - AJAX uygulamada kullanılabilecek bir JavaScript nesne gösterimi sonucu temsil eder.
-5. JavaScriptResult - JavaScript komut dosyasını temsil eder.
-6. ContentResult - metin sonucu temsil eder.
-7. FileContentResult - (ikili içerikle) indirilebilir bir dosyayı temsil eder.
-8. FilePathResult - (yoluyla) indirilebilir bir dosyayı temsil eder.
-9. FileStreamResult - (ile bir dosya akışı) indirilebilir bir dosyayı temsil eder.
+1. ViewResult-HTML ve biçimlendirmeyi temsil eder.
+2. EmptyResult-sonuç olmadığını gösterir.
+3. RedirectResult-yeni bir URL 'ye yeniden yönlendirmeyi temsil eder.
+4. JsonResult-bir AJAX uygulamasında kullanılabilecek JavaScript Nesne Gösterimi sonucunu temsil eder.
+5. JavaScriptResult-bir JavaScript betiğini temsil eder.
+6. ContentResult-bir metin sonucunu temsil eder.
+7. FileContentResult-indirilebilir bir dosyayı temsil eder (ikili içerikle birlikte).
+8. FilePathResult-indirilebilir bir dosyayı (bir yol ile) temsil eder.
+9. FileStreamResult-indirilebilir bir dosyayı (dosya akışı ile) temsil eder.
 
-Tüm bu eylem sonuçlarını temel ActionResult sınıfından devralır.
+Bu eylem sonuçlarının hepsi temel ActionResult sınıfından devralınır.
 
-Çoğu durumda, bir denetleyici eylemi bir ViewResult döndürür. Örneğin, 2 listeleme dizin denetleyici eylemi bir ViewResult döndürür.
+Çoğu durumda, bir denetleyici eylemi bir ViewResult döndürür. Örneğin, liste 2 ' deki Dizin denetleyicisi eyleminde bir ViewResult döndürülür.
 
-**Listing 2 - Controllers\BookController.vb**
+**Listeleme 2-Controllers\bookcontroller.exe**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample2.vb)]
 
-Bir eylem bir ViewResult geri döndüğünde, tarayıcıya HTML döndürülür. Listeleme 2 İNDİS() yöntemi tarayıcıya dizin adlı bir görünüm verir.
+Bir eylem bir ViewResult döndürdüğünde, HTML tarayıcıya döndürülür. Liste 2 ' deki Index () yöntemi, tarayıcıya dizin adlı bir görünüm döndürür.
 
-Listeleme 2 İNDİS() eylemi bir ViewResult() döndürmeyen dikkat edin. Bunun yerine, denetleyici temel sınıfın View() yöntemi çağrılır. Normalde, bir eylem sonucu doğrudan gitmez. Bunun yerine, denetleyici temel sınıf aşağıdaki yöntemlerden birini arayın:
+Liste 2 ' deki Index () eyleminin ViewResult () döndürmediğine dikkat edin. Bunun yerine, denetleyici temel sınıfının View () yöntemi çağrılır. Normalde, bir eylem sonucunu doğrudan döndürmeyin. Bunun yerine, Controller temel sınıfının aşağıdaki yöntemlerinden birini çağırın:
 
-1. Görüntüleme - ViewResult eylem sonucunu döndürür.
-2. Yeniden yönlendirme - RedirectResult eylem sonucunu döndürür.
-3. RedirectToAction - RedirectToRouteResult eylem sonucunu döndürür.
-4. RedirectToRoute - RedirectToRouteResult eylem sonucunu döndürür.
-5. JSON - JsonResult eylem sonucunu döndürür.
-6. JavaScriptResult - bir JavaScriptResult döndürür.
-7. İçerik - ContentResult eylem sonucunu döndürür.
-8. Dosya - yönteme bir FileContentResult, FilePathResult veya FileStreamResult parametreleri bağlı olarak döndürür.
+1. Görüntüle-ViewResult eylem sonucunu döndürür.
+2. Yeniden yönlendir-bir RedirectResult eylem sonucunu döndürür.
+3. RedirectToAction-RedirectToRouteResult eylem sonucunu döndürür.
+4. RedirectToRoute-RedirectToRouteResult eylem sonucunu döndürür.
+5. JSON-bir JsonResult eylem sonucunu döndürür.
+6. JavaScriptResult-bir JavaScriptResult döndürür.
+7. İçerik-bir ContentResult eylem sonucunu döndürür.
+8. Dosya-metoda geçirilen parametrelere bağlı olarak bir FileContentResult, FilePathResult veya FileStreamResult döndürür.
 
-Bu nedenle, tarayıcıya bir görünüme dönmek istiyorsanız, View() yöntemi çağırın. Bir denetleyici eylem kullanıcıya yönlendirmek istiyorsanız, RedirectToAction() yöntemi çağırın. Örneğin, Details() eylem listeleme 3'te bir görünüm görüntüler veya kullanıcı ID parametresine bir değer olup olmadığına bağlı olarak İNDİS() eyleme yeniden yönlendirir.
+Bu nedenle, tarayıcıya bir görünüm döndürmek istiyorsanız, View () yöntemini çağırın. Kullanıcıyı bir denetleyici eyleminden diğerine yönlendirmek istiyorsanız RedirectToAction () yöntemini çağırın. Örneğin, liste 3 ' teki ayrıntılar () eylemi, kimlik parametresinin bir değere sahip olup olmadığına bağlı olarak bir görünüm görüntüler veya kullanıcıyı dizin () eylemine yeniden yönlendirir.
 
-**3 - CustomerController.vb listeleme**
+**Listeleme 3-CustomerController. vb**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample3.vb)]
 
-ContentResult eylem sonucu özeldir. Eylem sonucu düz metin olarak döndürülecek ContentResult eylem sonucunu kullanabilirsiniz. Örneğin, 4 listeleme İNDİS() yöntemi HTML değil de, düz metin olarak bir ileti döndürür.
+ContentResult eylem sonucu özeldir. Bir eylem sonucunu düz metin olarak döndürmek için ContentResult eylem sonucunu kullanabilirsiniz. Örneğin, liste 4 ' teki Index () yöntemi bir iletiyi düz metin olarak HTML olarak değil bir ileti döndürür.
 
-**4 - Controllers\StatusController.vb listeleme**
+**Listeleme 4-Controllers\statuscontroller.exe**
 
 > StatusController
 > 
 > 
-> System.Web.Mvc.Controller
+> System. Web. Mvc. Controller
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample4.vb)]
 
-StatusController.Index() eylem çağrıldığında, görünümü döndürülmez. Bunun yerine, ham metni "Hello World!" tarayıcıya döndürülür.
+StatusController. Index () eylemi çağrıldığında bir görünüm döndürülmez. Bunun yerine, "Merhaba Dünya!" RAW metni tarayıcıya döndürülür.
 
-Ardından bir denetleyici eylemi eylem sonucunu değil - Örneğin, bir sonuç bir tarih veya bir tamsayı - döndürürse, sonuç bir ContentResult içinde otomatik olarak paketlenir. Örneğin, 5 listeleme WorkController İNDİS() eylemi çağrıldığında tarih bir ContentResult otomatik olarak döndürülür.
+Bir denetleyici eylemi bir eylem sonucu olmayan bir sonuç döndürürse (örneğin, bir tarih veya tamsayı), sonuç otomatik olarak bir ContentResult öğesine kaydırılır. Örneğin, Listeleme 5 ' teki WorkController dizini () eylemi çağrıldığında, tarih otomatik olarak bir ContentResult olarak döndürülür.
 
-**5 - WorkController.vb listeleme**
+**Listeleme 5-WorkController. vb**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample5.vb)]
 
-Listeleme 5 İNDİS() eylemi, bir DateTime nesnesini döndürür. ASP.NET MVC çerçevesi, DateTime nesnesi bir dizeye dönüştürür ve tarih saat değeri bir ContentResult otomatik olarak sarmalar. Tarayıcı, tarih ve saat düz metin olarak alır.
+Listeleme 5 ' teki Index () eylemi bir DateTime nesnesi döndürür. ASP.NET MVC Framework, DateTime nesnesini bir dizeye dönüştürür ve bir ContentResult içindeki DateTime değerini otomatik olarak kaydırır. Tarayıcı Tarih ve saati düz metin olarak alır.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, ASP.NET MVC denetleyicileri, denetleyici eylemlerini ve denetleyici eylem sonuçlarını kavramlara tanıtmak için oluştu. Bu bölümde, ASP.NET MVC projesinde yeni denetleyicileri ekleme öğrendiniz. Ardından, etki alanı denetleyicisinin nasıl genel yöntemleri öğrendiğiniz evrenimize Hoş denetleyici eylemleri sunulur. Son olarak, farklı türde bir denetleyici eylemi döndürülen eylem sonuçlarını ele almıştık. Özellikle, bir ViewResult RedirectToActionResult ve ContentResult bir denetleyici eylemi dönüş nasıl ele almıştık.
+Bu öğreticinin amacı, sizi ASP.NET MVC denetleyicileri, denetleyici eylemleri ve denetleyici eylem sonuçlarının kavramlarını tanıtmaktadır. İlk bölümde, bir ASP.NET MVC projesine yeni denetleyiciler eklemeyi öğrendiniz. Daha sonra, bir denetleyicinin genel yöntemlerinin Universe as Controller eylemlerine nasıl sunuleceğini öğrendiniz. Son olarak, bir denetleyici eyleminden döndürülebilecek farklı eylem sonuçları türlerini tartıştık. Özellikle, bir denetleyici eyleminden bir ViewResult, RedirectToActionResult ve ContentResult döndürme hakkında anlatıldık.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-custom-route-constraint-cs.md)

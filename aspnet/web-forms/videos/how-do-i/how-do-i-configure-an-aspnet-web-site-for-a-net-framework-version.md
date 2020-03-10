@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version
-title: '[Bunu nasıl yaparım:] Bir .NET Framework sürümü için bir ASP.NET Web sitesi yapılandırma | Microsoft Docs'
+title: '[Nasıl yapılır:] .NET Framework sürümü için bir ASP.NET Web sitesi yapılandırma | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris piksel ASP.NET/.NET Framework'ün belirli bir sürümünü kullanmak için bir ASP.NET web sitesinin nasıl yapılandırılacağı gösterilir. Öncelikle hangi v belirleme gör...
+description: Bu videoda Chris Pze, bir ASP.NET Web sitesinin belirli bir ASP.NET/.NET Framework sürümünü kullanmak üzere nasıl yapılandırılacağını gösterir. İlk olarak bkz. v...
 ms.author: riande
 ms.date: 05/20/2008
 ms.assetid: 7b814965-aae2-4436-941c-710804557b67
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version
 msc.type: video
 ms.openlocfilehash: 37f7f75dbe1d88190032538b0b1b3dec74cab4c0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59386261"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624798"
 ---
-# <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a>[Bunu nasıl yaparım:] Bir .NET Framework sürümü için bir ASP.NET Web sitesi yapılandırma
+# <a name="how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version"></a>[Nasıl yapılır:] .NET Framework sürümü için bir ASP.NET Web sitesi yapılandırma
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu video Chris piksel ASP.NET/.NET Framework'ün belirli bir sürümünü kullanmak için bir ASP.NET web sitesinin nasıl yapılandırılacağı gösterilir. Önce bir web sitesi Internet Information Server (IIS) betik eşlemesi görüntüleyerek ilişkili olduğu .NET Framework'ün hangi sürümünün belirleme bakın. Betik eşlemesi nasıl IIS'de kök ve sonra özel web siteleri ile ilişkili olduğunu görün. ASP.NET IIS Kayıt Aracı hakkında daha bilgi edinin (aspnet\_regiis.exe) IIS veya ASP.NET web sitesi .NET Framework'ün belirli bir sürümünü kullanacak şekilde yapılandırmak için kullanılır. IIS için varsayılan olandan farklı bir .NET Framework sürümünü kullanmak için tek bir web sitesinin nasıl yapılandırılacağı bu bilgi için bkz. kullanma. Son olarak, bir .NET Framework 2.0 ve diğer altında 1.1 altında çalıştığı aynı IIS altında iki farklı web sitelerine bakın.
+Bu videoda Chris Pze, bir ASP.NET Web sitesinin belirli bir ASP.NET/.NET Framework sürümünü kullanmak üzere nasıl yapılandırılacağını gösterir. İlk olarak, Internet Information Server 'daki (IIS) betik haritasını görüntüleyerek bir Web sitesinin .NET Framework hangi sürümünün ilişkilendirildiğini nasıl tanımlayabileceğinize bakın. Bir komut dosyası eşlemesinin IIS 'deki kökle ve sonra ayrı Web siteleriyle nasıl ilişkilendirildiğini öğrenin. Daha sonra, IIS 'yi veya bir ASP.NET Web sitesini .NET Framework belirli bir sürümünü kullanacak şekilde yapılandırmak için kullanılan ASP.NET IIS Kayıt Aracı (ASPNET\_regııs. exe) hakkında bilgi edinin. Bu bilgileri kullanarak, tek bir Web sitesinin .NET Framework farklı bir sürümünü kullanacak şekilde nasıl yapılandırıldığı hakkında bilgi için bkz. IIS için varsayılan değer. Son olarak, aynı IIS altında, .NET Framework 2,0 altında ve diğeri 1,1 altında çalışan iki farklı Web sitesine bakın.
 
-[&#9654;(12 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version)
+[&#9654;Videoyu izleyin (12 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-an-aspnet-web-site-for-a-net-framework-version)

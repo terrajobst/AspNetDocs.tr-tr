@@ -9,11 +9,11 @@ ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
 ms.openlocfilehash: b88573b3702b755b155e8da35f5f8a67931bafc6
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457121"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78617595"
 ---
 # <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek dünyada bulut uygulamaları oluşturma
 
@@ -102,7 +102,7 @@ Bu e-kitap, bulut geliştirmesi için on dört önerilen deseni açıklamaktadı
 - [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
 
     - Bilinen Sorunlar
-    - En İyi Uygulamalar
+    - En İyi Yöntemler
     - İndirme, oluşturma, çalıştırma ve dağıtma.
 
 Bu desenler tüm bulut ortamları için geçerlidir, ancak Visual Studio, Team Foundation Service, ASP.NET ve Azure gibi Microsoft teknolojileri ve hizmetlerini temel alan örnekleri kullanarak bunları göstereceğiz.

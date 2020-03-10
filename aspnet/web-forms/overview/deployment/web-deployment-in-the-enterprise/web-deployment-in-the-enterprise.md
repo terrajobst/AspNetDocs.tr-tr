@@ -1,104 +1,104 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
-title: Web dağıtımı kuruluştaki | Microsoft Docs
+title: Kuruluşta Web dağıtımı | Microsoft Docs
 author: jrjlee
-description: Bu öğreticide devel Kurumsal ölçekte web uygulamaları dağıtımını yönetirken karşılaşabileceğiniz sorunları çok sayıda karşılamak açıklar...
+description: Bu öğreticide, kurumsal ölçekte Web uygulamalarının dağıtımını dengeleyerek yönettiğinizde karşılaştığınız birçok zorluğu nasıl karşılamakta olduğunuz açıklanmaktadır...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: b8283698-7b82-42a8-8d83-3aeb18ca7fcc
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: bc7bb676a71af4ec3451aa3adf3c03ce3b5200d5
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114763"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628172"
 ---
 # <a name="web-deployment-in-the-enterprise"></a>Kurumda Web Dağıtımı
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu öğreticide, Kurumsal ölçekte web uygulamaları geliştirme, test, hazırlama ve üretim ortamlarında dağıtımını yönetirken karşılaşabileceğiniz sorunları çok sayıda karşılayacak şekilde açıklar. Öğretici, bir başvuru çözüm çeşitli ortak görevleri ve yordamları size kılavuzluk kavramsal ve görev odaklı içeriğinin bir karışımını birlikte içerir.
+> Bu öğreticide, kurumsal ölçekte Web uygulamalarının dağıtımını geliştirme, test, hazırlama ve üretim ortamlarında yönettiğinizde karşılaşabileceğiniz birçok zorluğu ele alma açıklanmaktadır. Öğreticide, çeşitli genel görevler ve yordamlarda size rehberlik etmek için kavramsal ve görev odaklı içerik karışımından oluşan bir başvuru çözümü bulunur.
 > 
-> Bu öğreticiler için bir İtalyan çevirisi, ziyaret [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
+> Bu öğreticilerin Italyanca çevirisi için [http://www.lucamorelli.it](http://www.lucamorelli.it)ziyaret edin.
 
 ## <a name="enterprise-deployment-challenges"></a>Kurumsal Dağıtım zorlukları
 
-Karmaşık kurumsal ölçekli çözüm dağıtımını yönetmek için baktığınızda kuruluşlar genellikle bu zorluklar karşılaşırsınız:
+Kuruluşlar, karmaşık, kurumsal ölçekte çözümlerin dağıtımını yönetmek üzere görüntiklerinde genellikle bu güçlükleri öğreniyor:
 
-- Geliştirici gibi birden çok ortama projeleri dağıtmak veya test ortamları, platformları ve üretim sunucuları hazırlama gerekir. Çözüm, her ortam için farklı yapılandırma ayarları ile dağıtılması gerekiyor.
-- Tek adımlı ya da otomatikleştirilmiş bir derleme ve dağıtım sürecinin bir parçası olarak aynı anda birden çok bağımlı proje dağıtmanız gerekebilir.
-- Otomatik bir işlemden sürücü dağıtımına olması gerekir. Örneğin, yeni kodu iade edildiğinde bir test ortamı için web uygulamaları dağıtmak için bir sürekli tümleştirme (CI) işlem kullanmak istiyorsunuz.
-- Geliştiricilerin doğru yapılandırma ayarları veya her bir hedef ortam için gerekli kimlik bilgilerine sahip olasılığının düşük olduğu gibi dağıtım işlemini denetleyen ve dış Visual Studio'dan dağıtım değişkenlerini ayarlamak mümkün olması gerekir.
-- Şema tabanlı veritabanı projeleri dağıtma ve sonraki dağıtımlarda mevcut verilerinizi korumak gerekir.
-- Kullanıcı hesabı verileri dağıtıma gerek kalmadan geçici olarak üyelik veritabanları dağıtma gerekir. Ayrıca, varolan kullanıcı verilerini kaybetmeden dağıtılan üyelik veritabanı şeması güncelleştirmeniz gerekebilir.
-- Çeşitli hedef ortamlara içerik dağıttığınızda, belirli dosyaları veya klasörleri dışlama gerekir.
+- Geliştirici veya test ortamları, hazırlama platformları ve üretim sunucuları gibi birden çok ortama proje dağıtabilmeniz gerekir. Çözümün her ortam için farklı yapılandırma ayarlarıyla dağıtılması gerekir.
+- Tek adımlı veya otomatik derleme ve dağıtım sürecinin bir parçası olarak birden fazla bağımlı projeyi aynı anda dağıtmanız gerekir.
+- Otomatik bir işlemden dağıtım sürücünüzü sağlayabilmeniz gerekir. Örneğin, yeni kod iade edildiğinde bir test ortamına Web uygulamaları dağıtmak için bir sürekli tümleştirme (CI) işlemi kullanmak istiyorsunuz.
+- Geliştiricilerin, doğru yapılandırma ayarlarına veya her hedef ortam için gerekli kimlik bilgilerine sahip olması olası olduğundan, dağıtım işlemini denetleyebilmeniz ve dağıtım değişkenlerini Visual Studio 'Nun dışında ayarlamanız gerekir.
+- Şema tabanlı veritabanı projelerini dağıtmanız ve sonraki dağıtımlarda mevcut verileri korumanız gerekir.
+- Kullanıcı hesabı verilerini dağıtmadan, üyelik veritabanlarını bir geçici temele göre dağıtmanız gerekir. Ayrıca, mevcut kullanıcı hesabı verilerini kaybetmeden dağıtılan üyelik veritabanlarının şemasını güncelleştirmeniz gerekebilir.
+- Çeşitli hedef ortamlara içerik dağıtırken belirli dosya veya klasörleri hariç bırakmanız gerekir.
 
-## <a name="overview-of-approach"></a>Yaklaşım genel bakış
+## <a name="overview-of-approach"></a>Yaklaşıma genel bakış
 
-Bu serideki diğer öğreticileri ile birlikte Bu öğreticide, yukarıda açıklanan zorluklarını karşılayacak şekilde bu üst düzey bir yaklaşım kullanılır.
+Bu öğreticide, bu serideki diğer öğreticiler ile birlikte, yukarıda açıklanan güçlükleri karşılamak için bu üst düzey yaklaşımı kullanır.
 
-- **Genel derleme ve dağıtım işlemini denetlemek için özel Microsoft Build Engine (MSBuild) proje dosyalarını kullanın.**
-- Bu, derleme ve çözümde her proje tek ve kodlanabilir bir işlemle bir parçası olarak dağıtmanıza olanak sağlar.
-- Basit bir ortama özgü proje dosyalarını kullanarak ortama özgü ayarları yapılandırılır. Çözüm yapılandırmaları kullanarak Visual Studio – merkezli bir yaklaşım aksine ve farklı ortamlar için dağıtımları yapılandırmak için yayımlama profillerini, bu yaklaşım, yapılandırma ve dağıtım sürecinin dışında Visual Studio'dan yönetmeyi olanak sağlar. Başka bir deyişle, geliştiriciler bağlantı dizeleri, hizmet uç noktaları, sunucu kimlik bilgileri ve diğer dağıtım değişkenlerini hedef ortamlar için bilginizi geliştirin yoktur.
-- Özel proje dosyaları, Team Foundation Server (TFS) iş akışının parçası olarak ekip tarafından çağrılabilir. Bu, CI senaryoları için otomatik dağıtım yapılandırmanıza olanak sağlar.
+- **Genel derleme ve dağıtım sürecini denetlemek için özel Microsoft Build Engine (MSBuild) proje dosyaları kullanın.**
+- Bu, çözümdeki her projeyi tek, komut dosyalı bir işlemin parçası olarak derleyip dağıtmanıza imkan tanır.
+- Ortama özel ayarlar, ortama özgü basit proje dosyaları kullanılarak yapılandırılır. Farklı ortamlara yönelik dağıtımları yapılandırmak için çözüm yapılandırmalarının ve yayımlama profillerinin kullanıldığı Visual Studio merkezli yaklaşımının aksine, bu yaklaşım dağıtım işlemini Visual Studio 'Nun dışından yapılandırmanıza ve yönetmenize olanak sağlar. Bu, geliştiricilerin bağlantı dizeleri, hizmet uç noktaları, sunucu kimlik bilgileri ve hedef ortamlar için diğer dağıtım değişkenleriyle ilgili bilgi sahibi olmayacağı anlamına gelir.
+- Özel proje dosyaları, takım derlemesi tarafından Team Foundation Server (TFS) iş akışının bir parçası olarak çağrılabilir. Bu, CI senaryoları için otomatik dağıtımı yapılandırmanızı sağlar.
 
-**Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) paketi ve web uygulama projeleri dağıtmak için kullanın.**
+**Web uygulaması projelerini paketlemek ve dağıtmak için Internet Information Services (IIS) Web Dağıtım aracı 'nı (Web Dağıtımı) kullanın.**
 
-- Web dağıtımı paketi ve bağımlılıkları, yapılandırma ayarlarını, güvenlik ayarlarını ve diğer gereksinimler ile birlikte bir hedef IIS web sunucusu için web uygulaması içeriğinizi dağıtmanıza olanak sağlayan bir çerçeve sunar.
-- Özel MSBuild proje dosyaları içinde tüm paketleme ve dağıtım işlem kontrol edebilirsiniz. Bağlantı dizeleri, hizmet uç noktaları ve IIS hedef ayrıntıları gibi web dağıtım paketi ile birlikte gelen yapılandırma ayarlarını da değiştirebilirsiniz.
-- Web yayımlama ardışık birlikte Web dağıtımı, dağıtımlarınızı özelleştirmenize olanak tanıyan genişletilebilirlik noktaları çok sayıda sunar. Örneğin, web dağıtımı paketleri istenmeyen dosyaları ve klasörleri dışlamak kolaydır.
+- Web Dağıtımı, Web uygulaması içeriğinizi, bağımlılıklar, yapılandırma ayarları, güvenlik ayarları ve diğer gereksinimlerle birlikte bir hedef IIS Web sunucusuna paketlemenizi ve dağıtmanızı sağlayan bir çerçeve sağlar.
+- Tüm paketleme ve dağıtım sürecinin özel MSBuild proje dosyalarınızda içinden denetimini yapabilirsiniz. Ayrıca, bağlantı dizeleri, hizmet uç noktaları ve IIS hedef ayrıntıları gibi Web Dağıtım paketinize eşlik eden yapılandırma ayarlarını da düzenleyebilirsiniz.
+- Web yayımlama işlem hattı ile birlikte Web Dağıtımı, dağıtımlarınızı özelleştirmenize olanak sağlayan çok sayıda genişletilebilirlik noktası sunar. Örneğin, istenmeyen dosya ve klasörleri Web Dağıtım paketlerinizden dışlamak kolaydır.
 
-**Dağıtma ve veritabanı şemalarını güncelleştirmek için VSDBCMD.exe yardımcı programını kullanın.**
+**Veritabanı şemalarını dağıtmak ve güncelleştirmek için VSDBCMD. exe yardımcı programını kullanın.**
 
-- VSDBCMD Visual Studio veritabanı projesi oluşturduğunuzda, oluşturulan bir veritabanı şema dosyası (.dbschema), veritabanlarını dağıtmanıza olanak tanır. Buna karşılık, Web dağıtımı içinde bulunan veritabanı dağıtım işlevleri var olan veritabanlarını bir yerel SQL Server örneğinin dağıtımı için daha uygundur.
-- Veritabanı projeleri dağıtma için Visual Studio'nun işlevselliğini VSDBCMD var olan bir hedef veritabanı için değişiklik güncelleştirmelerini dağıtmanıza olanak tanır. Bu, veritabanı şemasını yükseltirken mevcut verileri korumak sağlar.
-- Özel MSBuild proje dosyaları içinde VSDBCMD komutları yürütebilir.
+- VSDBCMD, bir Visual Studio veritabanı projesi oluşturduğunuzda oluşturulan bir veritabanı şema dosyasından (. dbschema) veritabanları dağıtmanıza olanak tanır. Buna karşılık, Web Dağıtımı dahil edilen veritabanı dağıtım işlevleri, mevcut veritabanlarını yerel bir SQL Server örneğinden dağıtmaya daha uygundur.
+- Visual Studio 'nun veritabanı projelerini dağıtmaya yönelik işlevselliğinin aksine, VSDBCMD varolan bir hedef veritabanına fark güncelleştirmeleri dağıtmanızı sağlar. Bu, veritabanı şemasını yükseltirken mevcut tüm verileri korumanıza olanak sağlar.
+- VSDBCMD komutlarını özel MSBuild proje dosyalarınız içinden çalıştırabilirsiniz.
 
 ## <a name="content-map"></a>İçerik haritası
 
-Bu öğreticide, dört ana bölüme ayrılır konularını içerir.
+Bu öğretici dört ana alana giren konuları içerir.
 
-Bu konular, başvuru çözüm tanıtmaktadır&#x2014;Kişi Yöneticisi çözümünü&#x2014;ve indirmek ve yerel makinenizde yapılandırma açıklanmaktadır:
+Bu konu başlığı altında, başvuru&#x2014;çözümü Contact Manager çözümü&#x2014;ele alınır ve bunun nasıl indirileceği ve yerel makinenizde nasıl yapılandırılacağı açıklanır:
 
 - [Kişi Yöneticisi Çözümü](the-contact-manager-solution.md)
 - [Kişi Yöneticisi Çözümünü Ayarlama](setting-up-the-contact-manager-solution.md)
 
-Bu konular, MSBuild proje dosyalarındaki tanıtmak, nasıl oluşturabilir ve özel proje dosyalarını kullanın ve Kişi Yöneticisi çözümü dağıtım sürecinde size yol açıklar:
+Bu konularda MSBuild proje dosyaları tanıtılmaktadır, özel proje dosyalarını nasıl oluşturup kullanabileceğinizi ve Ilgili kişi Yöneticisi çözümü için dağıtım sürecini nasıl yürütebilmeniz açıklanmaktadır:
 
 - [Proje Dosyasını Anlama](understanding-the-project-file.md)
 - [Derleme İşlemini Anlama](understanding-the-build-process.md)
 
-Bu konularda, derleme ve paketleme işleminin nasıl çalıştığı, yapı işlemi Web yayımlama işlem hattı ile nasıl tümleştirildiğini, dağıtım parametrelerini değiştirme ve hedefe web paketleri dağıtma dahil olmak üzere web uygulaması dağıtımı açıklanmaktadır. ortamlar:
+Bu konularda, derleme ve paketleme işleminin nasıl çalıştığı, derleme işleminin Web yayımlama işlem hattı ile nasıl tümleştirileceği, dağıtım parametrelerinin nasıl değiştirileceği ve hedefe Web paketlerinin nasıl dağıtılacağı dahil olmak üzere Web uygulaması dağıtımı anlatılmaktadır lý
 
 - [Web Uygulaması Projelerini Derleme ve Paketleme](building-and-packaging-web-application-projects.md)
 - [Web Paketi Dağıtımı için Parametreleri Yapılandırma](configuring-parameters-for-web-package-deployment.md)
 - [Web Paketleri Dağıtma](deploying-web-packages.md)
 
-- [Veritabanı projeleri dağıtma](deploying-database-projects.md) olumlu ve olumsuz her yaklaşımın ile birlikte Visual Studio veritabanı projelerini dağıtmak için kullanabileceğiniz farklı teknikleri açıklar. [Oluşturma ve dağıtım komut dosyası çalıştırma](creating-and-running-a-deployment-command-file.md) dağıtım mantığınızı kapsüller ve karmaşık çözümleri tek adımlı işlem olarak dağıtmanıza imkan tanır bir basit bir komut dosyası oluşturmayı açıklar.
-- Son olarak, [Web paketlerini el ile yükleme](manually-installing-web-packages.md) IIS içinde web paketleri içeri aktarmak için göstererek öğreticiyi sonlandırır.
+- [Veritabanı projelerini dağıtmak](deploying-database-projects.md) , her yaklaşımın avantajları ve dezavantajları Ile birlikte Visual Studio veritabanı projelerini dağıtmak için kullanabileceğiniz farklı teknikleri açıklar. [Dağıtım komut dosyası oluşturma ve çalıştırma](creating-and-running-a-deployment-command-file.md) , dağıtım mantığınızı kapsülleyen ve karmaşık çözümleri tek adımlı bir işlem olarak dağıtmanıza imkan tanıyan basit bir komut dosyasının nasıl oluşturulacağını açıklar.
+- Son olarak, [Web paketlerinin el Ile yüklenmesi](manually-installing-web-packages.md) , Web paketlerini IIS 'e aktarmanıza yönelik olarak öğreticiyi gösterir.
 
 ## <a name="key-technologies"></a>Anahtar teknolojileri
 
-Bu öğreticide öncelikle bu teknolojiler derleme ve dağıtım yönetmek için konulara bakın:
+Bu öğreticideki konular öncelikle derleme ve dağıtımı yönetmek için bu teknolojileri kullanır:
 
 - Visual Studio 2010
 - MSBuild
-- IIS 7.5
+- IıS 7,5
 - Web Deploy 2.0
-- VSDBCMD.exe veritabanı dağıtım yardımcı programı
+- VSDBCMD. exe veritabanı dağıtım yardımcı programı
 
-## <a name="other-tutorials-in-this-series"></a>Bu serideki diğer öğreticileri
+## <a name="other-tutorials-in-this-series"></a>Bu serideki diğer öğreticiler
 
-Bu bir öğretici serisinde, beş parçası üzerinde Kurumsal ölçekte web dağıtımı oluşturur. Diğer öğreticiler serisinde şunlardır:
+Bu, kurumsal ölçekte Web dağıtımında bir dizi beş öğreticilerin bir parçasını oluşturur. Serideki diğer öğreticiler şunlardır:
 
-- [Kurumsal senaryolarda Web uygulamaları dağıtma](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Bu Tanıtım içerik bağlamsal arka plan için öğretici serisinin sağlar. Öğretici senaryo açıklar ve daha geniş bir uygulama yaşam döngüsü yönetimi (ALM) işleme görevleri ve izlenecek yollar seri boyunca açıklanan nasıl getireceğinizi göstermektedir.
-- [Sunucu ortamlarını Web dağıtımı için yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Bu öğreticide, Web dağıtım aracı hizmetini (Uzak Aracı) veya Web dağıtımı işleyicisi ve Uzak veritabanı dağıtımı kullanarak uzak web paketi dağıtımı dahil olmak üzere çeşitli dağıtım senaryoları desteklemek için Windows sunucularının nasıl yapılandırılacağı açıklanır. Kendi ortamınız için uygun dağıtım yöntemi seçme hakkında rehberlik sağlar ve Web Farm Framework (WFF) bir sunucu grubundaki tüm web sunucuları arasında dağıtılmış web uygulamalarında çoğaltmak için nasıl kullanılacağını açıklar.
-- [Web dağıtımı için Team Foundation Server yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğreticide derlemelerini dağıtımları el ile tetiklenen ve otomatik dağıtım bir CI işlemine bir parçası olarak dahil olmak üzere çeşitli dağıtım senaryoları desteklemek üzere TFS'ye yapılandırma açıklanır.
-- [Gelişmiş Kurumsal Web dağıtımı](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğreticide dağıtım işlemi sırasında web uygulamalarını çevrimdışı alma birden çok ortam için veritabanı dağıtımlarını özelleştirme ve dosya ve klasörleri dağıtımdan dışlama gibi çeşitli daha gelişmiş dağıtım görevlerini, nasıl yapılacağını anlatmaktadır. .
+- [Kurumsal senaryolarda Web uygulamaları dağıtma](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). Bu giriş içeriği, öğretici serisi için bağlamsal arka plan sağlar. Öğretici senaryosunu açıklar ve diziler genelinde açıklanan görevlerin ve talimatların daha geniş bir uygulama yaşam döngüsü yönetimi (ALM) sürecine sığması gösterilmektedir.
+- [Web dağıtımı Için sunucu ortamlarını yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Bu öğreticide, Windows sunucularının Web Deployment Agent hizmeti (uzak Aracı) veya Web Dağıtımı Işleyicisi ile uzak veritabanı dağıtımı kullanılarak uzak Web paketi dağıtımı gibi çeşitli dağıtım senaryolarını destekleyecek şekilde nasıl yapılandırılacağı açıklanmaktadır. Kendi ortamınız için uygun dağıtım yöntemini seçme konusunda rehberlik sağlar ve Web grubu çerçevesinin (WFF) bir sunucu grubundaki tüm Web sunucuları arasında dağıtılan Web uygulamalarını çoğaltmak için nasıl kullanılacağını açıklar.
+- [Web dağıtımı için Team Foundation Server yapılandırılıyor](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğreticide, bir CI işleminin parçası olarak otomatik dağıtım ve belirli derlemelerin el ile tetiklenen çeşitli dağıtım senaryolarını desteklemek üzere TFS 'nin nasıl yapılandırılacağı açıklanmaktadır.
+- [Gelişmiş kurumsal Web dağıtımı](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğreticide, birden çok ortam için veritabanı dağıtımlarını özelleştirme, dağıtımdan dosya ve klasörleri dışarıda bırakma ve dağıtım işlemi sırasında Web uygulamalarını çevrimdışına alma gibi çeşitli gelişmiş dağıtım görevlerinin nasıl yapılacağı açıklanmaktadır. .
 
 > [!div class="step-by-step"]
 > [Next](the-contact-manager-solution.md)

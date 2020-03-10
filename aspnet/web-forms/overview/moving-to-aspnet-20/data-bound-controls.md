@@ -1,714 +1,714 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
-title: Veri bağlama denetimleri | Microsoft Docs
+title: Veri bağlantılı denetimler | Microsoft Docs
 author: microsoft
-description: Çoğu ASP.NET uygulama bir arka uç veri kaynağından veri sunumu bir ölçüde kullanır. Verilere bağlı denetimler etkileşim kuran w pivotal bir parçası olan...
+description: Çoğu ASP.NET uygulaması, bir arka uç veri kaynağından bir ölçüde veri sunumuna güvenir. Veri bağlantılı denetimler, etkileşime geçen w 'ın bir parçası...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
 ms.openlocfilehash: 1154b38e0fa3d9d56cb407ae659c3b0d69871fda
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131090"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78603840"
 ---
 # <a name="data-bound-controls"></a>Veri Sınırı Denetimleri
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> Çoğu ASP.NET uygulama bir arka uç veri kaynağından veri sunumu bir ölçüde kullanır. Verilere bağlı denetimler, dinamik Web uygulamalarında verilerle etkileşim pivotal bir parçası olmuştur. ASP.NET 2.0 verilere bağlı denetimler, yeni BaseDataBoundControl sınıfı ve bildirim temelli söz dizimi de dahil olmak üzere bazı önemli geliştirmeler sunuyor.
+> Çoğu ASP.NET uygulaması, bir arka uç veri kaynağından bir ölçüde veri sunumuna güvenir. Veri bağlantılı denetimler, dinamik Web uygulamalarında verilerle etkileşim kurmanın bir parçasıdır. ASP.NET 2,0, yeni bir BaseDataBoundControl sınıfı ve bildirim temelli sözdizimi dahil olmak üzere veri bağlantılı denetimlerde bazı önemli geliştirmeler sunar.
 
-Çoğu ASP.NET uygulama bir arka uç veri kaynağından veri sunumu bir ölçüde kullanır. Verilere bağlı denetimler, dinamik Web uygulamalarında verilerle etkileşim pivotal bir parçası olmuştur. ASP.NET 2.0 verilere bağlı denetimler, yeni BaseDataBoundControl sınıfı ve bildirim temelli söz dizimi de dahil olmak üzere bazı önemli geliştirmeler sunuyor.
+Çoğu ASP.NET uygulaması, bir arka uç veri kaynağından bir ölçüde veri sunumuna güvenir. Veri bağlantılı denetimler, dinamik Web uygulamalarında verilerle etkileşim kurmanın bir parçasıdır. ASP.NET 2,0, yeni bir BaseDataBoundControl sınıfı ve bildirim temelli sözdizimi dahil olmak üzere veri bağlantılı denetimlerde bazı önemli geliştirmeler sunar.
 
-BaseDataBoundControl DataBoundControl sınıfı ve HierarchicalDataBoundControl sınıfı için temel sınıf olarak görev yapar. DataBoundControl türetilen aşağıdaki sınıflar Bu modülde ele alınacaktır:
+BaseDataBoundControl, DataBoundControl sınıfı ve HierarchicalDataBoundControl sınıfı için temel sınıf olarak davranır. Bu modülde, DataBoundControl öğesinden türetilen aşağıdaki sınıfları tartışacağız:
 
 - AdRotator
 - Liste denetimleri
 - GridView
 - FormView
-- DetailsView
+- Işlenmemiş
 
-Ayrıca HierarchicalDataBoundControl sınıfından türetilen aşağıdaki sınıflar ele alınacaktır:
+Ayrıca, HierarchicalDataBoundControl sınıfından türetilen aşağıdaki sınıflar da tartışılıyoruz:
 
 - TreeView
 - Menü
 - SiteMapPath
 
-## <a name="databoundcontrol-class"></a>DataBoundControl Class
+## <a name="databoundcontrol-class"></a>DataBoundControl sınıfı
 
-Tablo ile etkileşim kurmak için kullanılan (vb'de MustInherit işaretlenmiştir) soyut bir sınıf DataBoundControl sınıfı olan veya liste stilini veri. Aşağıdaki denetimler DataBoundControl türetilen denetimler bazılarıdır.
+DataBoundControl sınıfı, tablo veya liste stili verilerle etkileşim kurmak için kullanılan soyut bir sınıftır (VB 'de MustInherit olarak işaretlenir). Aşağıdaki denetimler DataBoundControl öğesinden türeyen bazı denetimlerdir.
 
 ## <a name="adrotator"></a>AdRotator
 
-AdRotator denetimi, belirli bir URL'ye yapılır bağlı bir Web sayfasındaki bir grafik başlığı görüntülemenizi sağlar. Görüntülenen grafiğin özelliklerini kullanarak denetim için döndürülür. Belirli ad görüntülemenin bir sayfada sıklığını kullanılarak yapılandırılabilir **izlenimler** özelliği ve reklam anahtar sözcük filtresi kullanarak filtrelenebilir.
+AdRotator denetimi, bir grafik başlığını belirli bir URL 'ye bağlı bir Web sayfasında görüntülemenize olanak sağlar. Görüntülenen grafik, denetimin özellikleri kullanılarak döndürülür. Bir sayfada belirli bir ad görüntüleme sıklığı, **Impressions** özelliği kullanılarak yapılandırılabilir ve reklamlar anahtar sözcük filtrelemesi kullanılarak filtrelenebilir.
 
-AdRotator denetimleri bir XML dosyası veya tablo için verileri bir veritabanında kullanın. Aşağıdaki öznitelikler XML dosyalarında AdRotator denetimini yapılandırmak için kullanılır.
+AdRotator denetimleri, veri için bir XML dosyası ya da bir veritabanında tablo kullanır. Aşağıdaki öznitelikler, XML dosyalarında, AdRotator denetimini yapılandırmak için kullanılır.
 
 ### <a name="imageurl"></a>ImageUrl
-Ad için görüntülenecek bir görüntü URL'si.
+Ad için görüntülenecek görüntünün URL 'SI.
 
 ### <a name="navigateurl"></a>NavigateUrl
-Ad tıklandığında kullanıcı için yapılması gereken URL. Bu URL olarak kodlanmış olmalıdır.
+Ad tıklandığında kullanıcının alınması gereken URL. Bu URL kodlamalı olmalıdır.
 
 ### <a name="alternatetext"></a>AlternateText
-Bir araç ipucunda görüntülenen ve ekran okuyucular tarafından okunan alternatif metin. ImageUrl tarafından belirtilen görüntünün bulunmadığında da görüntüler.
+Araç ipucunda görüntülenen ve ekran okuyucular tarafından okunan alternatif metin. Ayrıca, ImageUrl tarafından belirtilen görüntü kullanılabilir olmadığında da görüntülenir.
 
 ### <a name="keyword"></a>Anahtar sözcüğü
-Anahtar sözcük filtreleme kullanırken kullanılabilecek bir anahtar sözcük tanımlar. Bu seçenek belirtilmişse, yalnızca bu reklam anahtar sözcük Filtresi ile eşleşen bir anahtar sözcüğü ile görüntülenir.
+Anahtar sözcük filtrelemesi kullanılırken kullanılabilecek bir anahtar sözcük tanımlar. Belirtilmişse, yalnızca anahtar sözcük filtresiyle eşleşen bir anahtar sözcüğü olan reklamlar görüntülenir.
 
 ### <a name="impressions"></a>İzlenimler
-Belirli bir ad ne sıklıkta görünür olasılığı belirleyen ağırlığı sayı. Aynı dosyada diğer reklam izlenimi göredir. En yüksek değeri bir XML dosyasındaki tüm reklamlar için toplu izlenimler 2,048,000,000 1 ' dir.
+Belirli bir reklamı ne sıklıkta belirebilir belirleyen bir ağırlık numarası. Aynı dosyadaki diğer reklamların izlenimine göre belirlenir. Bir XML dosyasındaki tüm reklamlar için en büyük toplu değer sayısı 2.048.000.000 1 ' dir.
 
 ### <a name="height"></a>Yükseklik
-Ad piksel cinsinden yüksekliği.
+Ad 'nin piksel cinsinden yüksekliği.
 
 ### <a name="width"></a>Genişlik
-Ad piksel cinsinden genişliği.
+Ad 'nin piksel cinsinden genişliği.
 
 > [!NOTE]
-> Yükseklik ve genişlik öznitelikleri yüksekliğini ve genişliğini AdRotator denetimi için geçersiz kılın.
+> Height ve Width öznitelikleri, AdRotator denetiminin kendisinin yüksekliğini ve genişliğini geçersiz kılar.
 
-Tipik bir XML dosyası aşağıdakine benzeyebilir:
+Tipik bir XML dosyası aşağıdaki gibi görünebilir:
 
 [!code-xml[Main](data-bound-controls/samples/sample1.xml)]
 
-Yukarıdaki örnekte, Contoso için ad iki kez izlenimler özniteliğinin değeri nedeniyle, ASP.NET Web sitesi için bir ad olarak görünür olarak olasıdır.
+Yukarıdaki örnekte, Contoso için ad, Impressions özniteliğinin değeri nedeniyle ASP.NET Web sitesi için ad olarak görünmeme olasılığı yüksektir.
 
-Yukarıdaki XML dosyasından reklam görüntülemek için sayfaya AdRotator denetim ekleme ve ayarlama **AdvertisementFile** aşağıda gösterildiği gibi XML dosyasına işaret edecek şekilde özelliği:
+Yukarıdaki XML dosyasındaki reklamları göstermek için, bir sayfaya bir AdRotator denetimi ekleyin ve **AdvertisementFile** özelliğini aşağıda GÖSTERILDIĞI gibi XML dosyasına işaret etmek üzere ayarlayın:
 
 [!code-aspx[Main](data-bound-controls/samples/sample2.aspx)]
 
-AdRotator denetiminiz için bir veritabanı tablosu veri kaynağı olarak kullanmayı seçerseniz, aşağıdaki şemayı kullanarak bir veritabanı ayarlamak öncelikle gerekir:
+Bir veritabanı tablosunu AdRotator denetiminizin veri kaynağı olarak kullanmayı seçerseniz, önce aşağıdaki şemayı kullanarak bir veritabanı ayarlamanız gerekir:
 
 | **Sütun adı** | **Veri türü** | **Açıklama** |
 | --- | --- | --- |
-| Kimlik | int | Birincil anahtar. Bu sütun, herhangi bir ad olabilir. |
-| ImageUrl | nvarchar (*uzunluğu*) | Ad için görüntülemek için göreli veya mutlak URL'si görüntüsü. |
-| NavigateUrl | nvarchar (*uzunluğu*) | Ad hedef URL'si. Bir değer belirtmezseniz, ad köprü değil. |
-| AlternateText | nvarchar (*uzunluğu*) | Görüntü bulunamazsa görüntülenen metin. Bazı tarayıcılarda metin araç ipucu olarak görüntülenir. Grafik göremez kullanıcılar yüksek sesle okumak açıklamasını duyabileceğiniz alternatif metin erişilebilirlik için de kullanılır. |
-| Anahtar sözcüğü | nvarchar (*uzunluğu*) | Bir kategori ad sayfasında filtre uygulayabilirsiniz. |
-| İzlenimler | int(4) | Ad ne sıklıkta görüntülenen olasılığını gösteren bir sayı. Büyük sayı, daha sık ad görüntülenir. XML dosyasındaki tüm izlenimler değerlerin toplamını 2,048,000,000 1 aşamaz. |
-| Genişlik | int(4) | Resmin piksel cinsinden genişliği. |
-| Yükseklik | int(4) | Piksel cinsinden görüntü yüksekliği. |
+| Kimlik | int | Birincil anahtar. Bu sütun herhangi bir ada sahip olabilir. |
+| ImageUrl | nvarchar (*uzunluk*) | Ad için görüntülenecek görüntünün göreli veya mutlak URL 'SI. |
+| NavigateUrl | nvarchar (*uzunluk*) | Ad için hedef URL. Bir değer sağlamazsanız, ad bir köprü değildir. |
+| AlternateText | nvarchar (*uzunluk*) | Görüntü bulunamazsa görüntülenecek metin. Bazı tarayıcılarda metin bir araç Ipucu olarak görüntülenir. Alternatif metin Ayrıca, grafiği görmemesi gereken kullanıcıların açıklamasını sesli okuyabilmesini sağlamak için erişilebilirlik için de kullanılır. |
+| Anahtar sözcüğü | nvarchar (*uzunluk*) | Sayfanın filtreleyebileceği ad için bir kategori. |
+| İzlenimler | int (4) | Ad 'nin ne sıklıkta görüntülendiğini gösteren bir sayı. Sayı ne kadar büyükse ad görüntülenir. XML dosyasındaki tüm Impressions değerlerinin toplamı 2.048.000.000-1 ' i aşamaz. |
+| Genişlik | int (4) | Resmin piksel cinsinden genişliği. |
+| Yükseklik | int (4) | Resmin piksel cinsinden yüksekliği. |
 
-Zaten sahip olduğunuz farklı bir şeması olan bir veritabanı durumlarda kullanabilirsiniz **AlternateTextField**, **ImageUrlField**, ve **NavigateUrlField** eşlemek için özellikleri Mevcut veritabanını AdRotator öznitelikleri. AdRotator denetimindeki veritabanından veri görüntüleme için sayfaya veri kaynak denetimi ekleyin, veritabanınıza işaret edecek şekilde veri kaynak denetimi için bağlantı dizesini yapılandırmak ve AdRotator denetimin ayarlayın **DataSourceID** özelliği veri kaynağı denetiminin kimliği. Bir ihtiyaç AdRotator sahip olduğu durumlarda reklam AdCreated olay programlı olarak kullanın. AdCreated olay iki parametre alır; bir nesne, diğeri AdCreatedEventArgs örneği. AdCreatedEventArgs oluşturulan ad bir başvurudur.
+Zaten farklı bir şemaya sahip bir veritabanınız varsa, bu,, AdRotator özniteliklerini mevcut veritabanınıza eşlemek için **AlternateTextField**, **ImageUrlField**ve **NavigateUrlField** özelliklerini kullanabilirsiniz. AdRotator denetimindeki verileri veritabanından göstermek için, sayfaya bir veri kaynağı denetimi ekleyin, veri kaynağı denetimi için bağlantı dizesini veritabanınıza işaret edin ve AdRotator denetiminin **DataSourceID** özelliğini veri kaynağı denetiminin kimliğine ayarlayın. AdRotator reklamları programlı bir şekilde yapılandırmanız gereken durumlarda, AdCreated olayını kullanın. AdCreated olayı iki parametre alır; bir nesne ve diğer AdCreatedEventArgs örneği. AdCreatedEventArgs, oluşturulmakta olan ad için bir başvurudur.
 
-Aşağıdaki kod parçacığı için bir ad program aracılığıyla ImageUrl NavigateUrl ve AlternateText ayarlar:
+Aşağıdaki kod parçacığı, bir ad için program aracılığıyla ImageUrl, NavigateUrl ve AlternateText değerlerini ayarlar:
 
 [!code-csharp[Main](data-bound-controls/samples/sample3.cs)]
 
 ## <a name="list-controls"></a>Liste denetimleri
 
-Liste denetimleri ListBox, DropDownList, CheckBoxList, RadioButtonList ve Bulletedlıst içerir. Bu denetimlerin her birinden veri bir veri kaynağına bağlı olabilir. Bunlar, bir alan veri kaynağında görünen metni olarak kullanın ve isteğe bağlı olarak, ikinci bir alan bir öğenin değerini kullanabilirsiniz. Öğeleri tasarım zamanında de bir statik olarak eklenebilir ve statik öğeleri ve dinamik öğeleri veri kaynağından eklenen karıştırabilirsiniz.
+Liste denetimleri ListBox, DropDownList, CheckBoxList, RadioButtonList ve BulletedList ' i içerir. Bu denetimlerin her biri, veri kaynağına veri bağlanabilir. Veri kaynağında görüntülenen metin olarak bir alan kullanırlar ve isteğe bağlı olarak bir öğenin değeri olarak ikinci bir alanı kullanabilir. Öğeler tasarım zamanında statik olarak da eklenebilir ve bir veri kaynağından eklenen statik öğeleri ve dinamik öğeleri karıştırabilirsiniz.
 
-Verileri bir liste denetimini bağlama, bir veri kaynağı denetimi sayfasına ekleyin. Veri kaynak denetimi için bir SELECT komutu belirtin ve ardından DataSourceID özelliği liste denetimi veri kaynağı denetimini Kimliğine ayarlayın. Kullanım **DataTextField** ve **DataValueField** görüntülenecek metni ve denetimi için değer tanımlamak için özellikleri. Ayrıca, kullanabileceğiniz **DataTextFormatString** özelliği şu şekilde görünen metin görünümünü kontrol etmek için:
+Bir liste denetimini veri bağlamak için sayfaya bir veri kaynağı denetimi ekleyin. Veri kaynağı denetimi için bir seçme komutu belirtin ve sonra liste denetiminin DataSourceID özelliğini veri kaynağı denetiminin KIMLIĞINE ayarlayın. Görüntüleme metnini ve denetimin değerini tanımlamak için **DataTextField** ve **DataValueField** özelliklerini kullanın. Ayrıca, aşağıdaki gibi, görüntüleme metninin görünümünü denetlemek için **DataTextFormatString** özelliğini de kullanabilirsiniz:
 
-| **İfade** | **Açıklama** |
+| **İfadesini** | **Açıklama** |
 | --- | --- |
-| Fiyat: {0:C} | Sayısal/ondalık verileri. Değişmez değer görüntüler "Fiyat:" sayılar para biçiminde ardından. Culture özniteliği içinde belirtilen kültür ayarı para birimi biçimi bağlıdır **sayfa** yönerge veya Web.config dosyasında. |
-| {0:D4} | Tamsayı verileri. Ondalık sayı ile kullanılamaz. Tamsayıların dört karakter geniş sıfır doldurulan bir alanda görüntülenir. |
-| {0:N2}% | Sayısal verileri. İle 2 ondalık basamak sayısını görüntüler duyarlık "%" değişmez değer tarafından izlenen. |
-| {0:000.0} | Sayısal/ondalık verileri. Sayı bir ondalık basamağa yuvarlanır. Üç basamak, sıfır edilirken daha az numaralandırır. |
-| {0:D} | Tarih/Saat verileri. Uzun tarih biçimi ("Perşembe 06 Ağustos 1996") görüntüler. Tarih biçimi sayfa veya Web.config dosyasında kültür ayarına bağlıdır. |
-| {0:d} | Tarih/Saat verileri. Görüntüler kısa tarih ("12/31/99") biçim. |
-| {0:yy-MM-dd} | Tarih/Saat verileri. Sayısal yıl ay gün biçiminde (96-08-06) tarihi görüntüler |
+| Fiyat: {0:C} | Sayısal/ondalık veriler için. "Price:" sabit değerini ve ardından sayıları para birimi biçiminde görüntüler. Para birimi biçimi, **sayfa** yönergesinde veya Web. config dosyasında kültür özniteliğinde belirtilen kültür ayarına bağlıdır. |
+| {0:D4} | Tamsayı verileri için. Ondalık sayılarla kullanılamaz. Tamsayılar dört karakter genişliğinde sıfır doldurulmuş bir alanda görüntülenir. |
+| {0:N2}% | Sayısal veriler için. Sayıyı, 2 ondalık basamak duyarlıklı ve ardından "%" değişmez değeri ile görüntüler. |
+| {0:000.0} | Sayısal/ondalık veriler için. Sayılar bir ondalık basamağa yuvarlanır. Üç sayıdan küçük sayılar sıfır dolduruldu. |
+| {0:D} | Tarih/saat verileri için. Uzun tarih biçimini ("Perşembe, Ağustos 06, 1996") görüntüler. Tarih biçimi sayfanın veya Web. config dosyasının kültür ayarına bağlıdır. |
+| {0:d} | Tarih/saat verileri için. Kısa tarih biçimini ("12/31/99") görüntüler. |
+| {0: yy-aa-gg} | Tarih/saat verileri için. Tarihi sayısal yıl-gün biçiminde görüntüler (96-08-06) |
 
 ## <a name="gridview"></a>GridView
 
-GridView denetiminde tablo verilerini görüntüleme ve bildirim temelli bir yaklaşım kullanarak düzenleme olanak sağlar ve DataGrid denetimi geçmiştir. GridView denetiminde aşağıdaki özellikler kullanılabilir.
+GridView denetimi, tablo verilerinde bir bildirime dayalı yaklaşım kullanarak görüntüleme ve düzenlemenin yanı sıra DataGrid denetiminin ardıdır. Aşağıdaki özellikler GridView denetiminde mevcuttur.
 
-- SqlDataSource gibi kaynak denetimlerini verilere bağlama.
+- SqlDataSource gibi veri kaynağı denetimlerine bağlama.
 - Yerleşik sıralama özellikleri.
 - Yerleşik güncelleştirme ve silme özellikleri.
-- Yerleşik disk belleği özellikleri.
-- Yerleşik satır seçimi özellikleri.
-- GridView nesne modeli, özellikler, dinamik olarak ayarlamak için programlı erişim olaylarını işlemek ve benzeri.
-- Birden çok anahtar alanları.
-- Köprü sütunlar için birden fazla veri alanları.
-- Özelleştirilebilir görünümü temalar ve stilleri.
+- Yerleşik sayfalama özellikleri.
+- Yerleşik satır seçme özellikleri.
+- Özellikleri dinamik olarak ayarlamak, olayları işlemek vb. için GridView nesne modeline programlı erişim.
+- Birden çok anahtar alanı.
+- Köprü sütunları için birden çok veri alanı.
+- Temalar ve stiller aracılığıyla özelleştirilebilir görünüm.
 
 **Sütun alanları**
 
-GridView denetiminde her sütun bir DataControlField nesnesi tarafından temsil edilir. Varsayılan olarak, GenerateColumns ayarlandığı **true**, veri kaynağındaki her alan için bir AutoGeneratedField nesnesi oluşturur. Her alanı daha sonra veri kaynağındaki her bir alanın görüntülenen sırayla GridView denetimindeki bir sütun olarak işlenir. Alanları görünür sütunu el ile de denetleyebilirsiniz **GridView** ayarlayarak denetim **GenerateColumns** özelliğini **false** ve ardından, kendi tanımlama sütun alanı koleksiyonu. Farklı sütun alanı türleri denetiminde sütunları davranışını belirleyin.
+GridView denetimindeki her sütun bir DataControlField nesnesi tarafından temsil edilir. Varsayılan olarak, AutoGenerateColumns özelliği **true**olarak ayarlanır ve bu, veri kaynağındaki her alan Için bir AutoGeneratedField nesnesi oluşturur. Her alan daha sonra GridView denetimindeki bir sütun olarak işlenir ve her alanın veri kaynağında göründüğü sırayla oluşturulur. Ayrıca, **AutoGenerateColumns** özelliğini **false** olarak ayarlayıp kendi sütun alanı koleksiyonunuzu tanımlayarak **GridView** denetiminde hangi sütun alanlarının göründüğünü el ile denetleyebilirsiniz. Farklı sütun alanı türleri denetimdeki sütunların davranışını belirlenir.
 
-Aşağıdaki tablo kullanılabilecek farklı sütun alan türlerini listeler.
+Aşağıdaki tablo, kullanılabilecek farklı sütun alanı türlerini listeler.
 
-| **Sütun alanı türü** | **Açıklama** |
+| **Sütun alan türü** | **Açıklama** |
 | --- | --- |
-| BoundField | Bir veri kaynağında bir alanın değerini görüntüler. GridView denetiminde varsayılan sütun türü budur. |
-| ButtonField | Her öğe için bir komut düğmesi GridView denetiminde görüntüler. Bu, bir sütun Ekle veya Kaldır düğmesi gibi özel düğme denetimleri oluşturmak sağlar. |
-| CheckBoxField | GridView denetiminde her öğe için bir onay kutusu görüntüler. Bu sütun bir alan türü, bir Boole değeri ile alanlarını görüntülemek için yaygın olarak kullanılır. |
-| CommandField | Görüntüler, seçme, düzenleme veya silme işlemleri gerçekleştirmek için komut düğmeleri önceden tanımlanmış. |
-| HyperLinkField | Bir alanın değerini bir veri kaynağında bir köprü olarak görüntüler. Bu sütun bir alan türü, ikinci bir alanı köprünün URL'sini bağlamanıza olanak sağlar. |
-| ImageField | Her öğe için bir görüntü GridView denetiminde görüntüler. |
-| TemplateField | Görüntüler kullanıcı tanımlı içerik belirtilen bir şablona göre GridView denetimindeki her bir öğe için. Bu sütun bir alan türü, özel sütun alanı oluşturmanızı sağlar. |
+| BoundField | Bir veri kaynağındaki bir alanın değerini görüntüler. Bu, GridView denetiminin varsayılan sütun türüdür. |
+| ButtonField | GridView denetimindeki her öğe için bir komut düğmesi görüntüler. Bu, Ekle veya Kaldır düğmesi gibi özel düğme denetimlerinin bir sütununu oluşturmanızı sağlar. |
+| CheckBoxField | GridView denetimindeki her öğe için bir onay kutusu görüntüler. Bu sütun alanı türü genellikle Boole değeri olan alanları göstermek için kullanılır. |
+| CommandField | Seçme, düzenlemenin veya silme işlemlerini gerçekleştirmek için önceden tanımlanmış komut düğmelerini görüntüler. |
+| Hyperlinkalanı | Bir veri kaynağındaki bir alanın değerini köprü olarak görüntüler. Bu sütun alan türü, köprünün URL 'sine ikinci bir alan bağlamanıza olanak tanır. |
+| ImageField | GridView denetimindeki her öğe için bir resim görüntüler. |
+| TemplateField | GridView denetimindeki her öğe için, belirtilen şablona göre Kullanıcı tanımlı içeriği görüntüler. Bu sütun alanı türü, özel bir sütun alanı oluşturmanıza olanak sağlar. |
 
-Bir sütun alanı koleksiyonu bildirimli olarak tanımlamak için önce açılış ve kapanış ekleyin **&lt;sütunları&gt;** etiketleri arasında açılış ve kapanış etiketlerinin GridView denetimi. Ardından, açılış ve kapanış arasında dahil etmek istediğiniz sütunu alanlar listesinde **&lt;sütunları&gt;** etiketler. Belirtilen sütun, sütunlar koleksiyonuna listelendikleri sırada eklenir. **Sütunları** koleksiyon depolar tüm sütun alanları denetimi ve GridView denetimindeki sütun alanlarının programlı bir şekilde yönetmenizi sağlar.
+Bir sütun alanı koleksiyonunu bildirimli olarak tanımlamak için, önce GridView denetiminin açılış ve kapanış etiketleri arasında etiketleri **&gt;&lt;sütunları** açma ve kapatma ekleyin. Sonra, açma ve kapatma **&lt;sütunları** arasına dahil etmek istediğiniz sütun alanlarını listeleyin&gt;etiketleri. Belirtilen sütunlar, sütunlar koleksiyonuna listelenen sırayla eklenir. **Columns** koleksiyonu denetimdeki tüm sütun alanlarını depolar ve GridView denetimindeki Column alanlarını programlı bir şekilde yönetmenizi sağlar.
 
-Açıkça bildirilirse sütun alanları otomatik olarak oluşturulan sütun alanları ile birlikte görüntülenebilir. Her ikisi de kullanıldığında, açıkça bildirilirse sütun alanları otomatik olarak oluşturulan sütun alanlara göre ve ardından ilk olarak işlenir.
+Açıkça tanımlanmış sütun alanları, otomatik olarak oluşturulan sütun alanlarıyla birlikte görüntülenebilir. Her ikisi de kullanıldığında, önce açıkça tanımlanmış sütun alanları işlenir ve ardından otomatik olarak oluşturulan sütun alanları izlenir.
 
 ## <a name="binding-to-data"></a>Verilere Bağlama
 
-GridView denetiminde veri kaynak denetimine bağlı olabilir (gibi **SqlDataSource**, **ObjectDataSource**, vb.), yanı sıra System.Collections.IEnumerable uygulayan herhangi bir veri kaynağı Arabirim (örneğin, System.Data.DataView, System.Collections.ArrayList veya System.Collections.Hashtable). GridView denetimi için uygun bir veri kaynağı türü bağlamak için aşağıdaki yöntemlerden birini kullanın:
+GridView denetimi bir veri kaynağı denetimine ( **SqlDataSource**, **ObjectDataSource**, vb. gibi) ve System. Collections. IEnumerable arabirimini (System. Data. DataView, System. Collections. ArrayList veya System. Collections. Hashtable gibi) uygulayan herhangi bir veri kaynağına bağlı olabilir. GridView denetimini uygun veri kaynağı türüne bağlamak için aşağıdaki yöntemlerden birini kullanın:
 
-- Bir veri kaynak denetimine bağlamak için DataSourceID özelliği GridView denetimi veri kaynağı denetimini kimliği değerini ayarlayın. GridView denetiminde otomatik olarak belirtilen veri kaynak denetimine bağlar ve veri kaynağının sıralama, güncelleştirme, silme ve disk belleği işlevleri gerçekleştirmek için denetimin özelliklerinden yararlanabilirsiniz. Bu verilere bağlamak için tercih edilen yöntemdir.
-- System.Collections.IEnumerable arabirimi uygulayan bir veri kaynağına bağlamak için program aracılığıyla GridView denetiminde veri kaynağı özelliğini veri kaynağına ayarlayın ve ardından DataBind yöntemi çağırın. GridView denetiminde bu yöntemi kullanırken, yerleşik sıralama, güncelleştirme, silme ve işlevsellik sayfalama sağlamaz. Bu işlev kendiniz sağlamanız gerekir.
+- Bir veri kaynağı denetimine bağlamak için, GridView denetiminin DataSourceID özelliğini veri kaynağı denetiminin ID değeri olarak ayarlayın. GridView denetimi otomatik olarak belirtilen veri kaynağı denetimine bağlanır ve sıralama, güncelleştirme, silme ve sayfalama işlevlerini gerçekleştirmek için veri kaynağı denetiminin olanaklarından yararlanabilir. Bu, verilere bağlanmak için tercih edilen yöntemdir.
+- System. Collections. IEnumerable arabirimini uygulayan bir veri kaynağına bağlanmak için, programlama yoluyla GridView denetiminin DataSource özelliğini veri kaynağına ayarlayın ve ardından DataBind metodunu çağırın. Bu yöntemi kullanırken, GridView denetimi yerleşik sıralama, güncelleştirme, silme ve sayfalama işlevleri sağlamaz. Bu işlevselliği kendiniz sağlamanız gerekir.
 
 ## <a name="data-operations"></a>Veri İşlemleri
 
-GridView denetiminde, kullanıcının sıralama, güncelleştirme, silme, seçin ve denetimindeki öğeler arasında sayfasında olanak tanıyan birçok yerleşik özellikleri sağlar. GridView denetiminde veri kaynak denetimine bağlı olduğunda GridView denetiminde denetimin özellikleri veri kaynağı yararlanabilir ve Otomatik sıralama, güncelleştirme ve silme işlevleri sağlar.
+GridView denetimi, kullanıcının denetimdeki öğeleri sıralama, güncelleştirme, silme, seçme ve sayfa eklemesine izin veren birçok yerleşik özellik sağlar. GridView denetimi bir veri kaynağı denetimine bağlandığında, GridView denetimi veri kaynağı denetiminin olanaklarından yararlanabilir ve otomatik sıralama, güncelleme ve silme işlevlerini sağlayabilir.
 
 > [!NOTE]
-> GridView denetiminde, sıralama, güncelleştirme ve diğer türde veri kaynaklarını silmek için destek sağlayabilirsiniz; Ancak, bu işlemler için uygulama ile ilgili olay işleyicisi sağlamak gerekir.
+> GridView denetimi, diğer veri kaynağı türleriyle sıralama, güncelleştirme ve silme desteği sağlar; Ancak, bu işlemler için uygulamayla birlikte uygun bir olay işleyicisi sağlamanız gerekir.
 
-Sıralama sütunun başlığına tıklayarak belirli bir sütuna göre GridView denetimindeki öğeleri sıralama izin verir. Sıralamayı etkinleştirmek için AllowSorting özelliğini ayarlamak **true**.
+Sıralama, kullanıcının GridView denetimindeki öğeleri sütunun başlığına tıklayarak belirli bir sütuna göre sıralamasını sağlar. Sıralamayı etkinleştirmek için, AllowSorting özelliğini **true**olarak ayarlayın.
 
-Otomatik güncelleştirme, silme ve seçim işlevlerini düğme etkin bir **ButtonField** veya **TemplateField** "Düzenle", "Delete" ve "Seçin" komut adı ile sütun alanı Sırasıyla tıklandığında. GridView denetiminde otomatik olarak ekleyebilirsiniz bir **CommandField** sütun alanı bir düzenleme, silme veya içinAutoGenerateEditButton,AutoGenerateDeleteButtonveyaAutoGenerateSelectButtonözelliğiayarlanmışsaseçmedüğmesiile**true**sırasıyla.
+Otomatik güncelleştirme, silme ve seçim işlevleri, bir **ButtonField** veya **TemplateField** sütun alanındaki bir düğme, sırasıyla "Düzenle", "Sil" ve "Seç" komut adı ile tıklandığında etkinleştirilir. AutoGenerateEditButton, AutoGenerateDeleteButton veya AutoGenerateSelectButton özelliği sırasıyla **true**olarak ayarlandıysa, GridView denetimi Edit, DELETE veya Select düğmesini kullanarak otomatik olarak bir **CommandField** sütun alanı ekleyebilir.
 
 > [!NOTE]
-> Veri kaynağına kayıt ekleme, GridView denetimi tarafından doğrudan desteklenmiyor. Ancak, GridView denetimi DetailsView birlikte veya FormView denetimi kullanarak kayıtları eklemek mümkündür.
+> Veri kaynağına kayıt eklemek GridView denetimi tarafından doğrudan desteklenmez. Ancak, DetailsView veya FormView denetimiyle birlikte GridView denetimini kullanarak kayıt eklemek mümkündür.
 
-Aynı anda veri kaynağındaki tüm kayıtları görüntülemek yerine GridView denetiminde otomatik olarak kayıtları sayfalara bölmek. Disk belleğini etkinleştirmek için AllowPagingözelliðini ayarlamak **true**.
+Veri kaynağındaki tüm kayıtları aynı anda görüntülemek yerine, GridView denetimi kayıtları sayfalara kadar otomatik olarak bölebilir. Disk belleğini etkinleştirmek için AllowPaging özelliğini **true**olarak ayarlayın.
 
 ## <a name="customizing-the-user-interface"></a>Kullanıcı Arabirimini Özelleştirme
 
-Denetimin farklı bölümlerine stil özelliklerini ayarlayarak GridView denetiminin görünümünü özelleştirebilirsiniz. Aşağıdaki tabloda, farklı bir stil özellikleri listeler.
+Denetimin farklı bölümlerinin stil özelliklerini ayarlayarak GridView denetiminin görünümünü özelleştirebilirsiniz. Aşağıdaki tabloda farklı stil özellikleri listelenmektedir.
 
-| **Stil özelliği** | **Açıklama** |
+| **Style özelliği** | **Açıklama** |
 | --- | --- |
-| AlternatingRowStyle | GridView denetiminde değişen veri satırları için stilini ayarlar. Bu özelliği ayarlandığında, veri satırları RowStyle ayarları arasında değişen görüntülenir ve **AlternatingRowStyle** ayarları. |
-| EditRowStyle | GridView denetiminde düzenlenmekte olan satır için stilini ayarlar. |
-| EmptyDataRowStyle | GridView denetiminde veri kaynağı herhangi bir kayıt olmadığında görüntülenen boş veri satırı için stilini ayarlar. |
-| FooterStyle | GridView denetiminde alt bilgi satırının stilini ayarlar. |
-| HeaderStyle | GridView denetiminde üst bilgi satırının stilini ayarlar. |
-| PagerStyle | GridView denetiminde çağrı satırının stilini ayarlar. |
-| RowStyle | GridView denetiminde veri satırları için stilini ayarlar. Zaman **AlternatingRowStyle** özelliği ayarlanmışsa, veri satırları arasında değişen görüntülenen **RowStyle** ayarları ve **AlternatingRowStyle** ayarları. |
-| SelectedRowStyle | GridView denetiminde seçili satır için stilini ayarlar. |
+| AlternatingRowStyle | GridView denetimindeki alternatif veri satırları için stil ayarları. Bu özellik ayarlandığında, veri satırları RowStyle ayarları ve **AlternatingRowStyle** ayarları arasında dönüşümlü olarak görüntülenir. |
+| Edıtrowstyle | GridView denetiminde düzenlenmekte olan satırın stil ayarları. |
+| EmptyDataRowStyle | Veri kaynağı herhangi bir kayıt içermiyorsa GridView denetiminde görünen boş veri satırı için stil ayarları. |
+| FooterStyle | GridView denetiminin altbilgi satırı için stil ayarları. |
+| HeaderStyle | GridView denetiminin başlık satırı için stil ayarları. |
+| PagerStyle | GridView denetiminin sayfalayıcı satırı için stil ayarları. |
+| RowStyle | GridView denetimindeki veri satırları için stil ayarları. **AlternatingRowStyle** özelliği de ayarlandığında, veri satırları **RowStyle** ayarları ve **AlternatingRowStyle** ayarları arasında dönüşümlü olarak görüntülenir. |
+| SelectedRowStyle | GridView denetimindeki seçili satır için stil ayarları. |
 
-Ayrıca, göstermek veya denetim farklı kısımlarını gizleyebilirsiniz. Aşağıdaki tablo, hangi parçalarının gösterilen veya gizli denetleyen özellikleri listeler.
+Ayrıca, denetimin farklı parçalarını gösterebilir veya gizleyebilirsiniz. Aşağıdaki tabloda, hangi parçaların gösterildiğini veya gizlendiğini denetleyen özellikler listelenmiştir.
 
-| **Özelliği** | **Açıklama** |
+| **Özellik** | **Açıklama** |
 | --- | --- |
-| ShowFooter | GridView denetiminde alt kısmında gizler veya gösterir. |
-| ShowHeader | GridView denetiminde üst bilgi bölümünü gizler veya gösterir. |
+| ShowFooter | GridView denetiminin altbilgi bölümünü gösterir veya gizler. |
+| ShowHeader | GridView denetiminin üstbilgi bölümünü gösterir veya gizler. |
 
 ### <a name="events"></a>Olaylar
 
-GridView denetiminde programlayabileceğiniz çeşitli olayları sağlar. Bu, her bir olay gerçekleştiğinde, özel bir yordamı çalıştırmak sağlar. GridView denetimi tarafından desteklenen olaylar aşağıdaki tabloda listelenmektedir.
+GridView denetimi, programlama için kullanabileceğiniz çeşitli olaylar sağlar. Bu, bir olay meydana geldiğinde özel bir yordam çalıştırmanızı sağlar. Aşağıdaki tabloda, GridView denetimi tarafından desteklenen olaylar listelenmektedir.
 
 | **Event** | **Açıklama** |
 | --- | --- |
-| PageIndexChanged | Çağrı düğmelerden birine tıklandığında, ancak disk belleği işlemi GridView denetiminde işleme sonra gerçekleşir. Bu olay, bir kullanıcı denetiminde farklı bir sayfasına gider sonra bir görev gerçekleştirmeniz gerektiğinde, yaygın olarak kullanılır. |
-| PageIndexChanging | Çağrı düğmelerden birine tıklandığında, ancak önce GridView denetimi disk belleği işlemi işleme gerçekleşir. Bu olay, genellikle disk belleği işlemi iptal etmek için kullanılır. |
-| RowCancelingEdit | Bir sıranın iptal düğmesine tıklandığında, ancak önce GridView denetiminde yinelenir düzenleme modunda olduğunda oluşur. Bu olay, genellikle iptal etme işlemi durdurmak için kullanılır. |
-| RowCommand | GridView denetiminde bir düğme tıklandığında gerçekleşir. Bu olay, genellikle bir düğme denetimi tıklandığında bir görevi gerçekleştirmek için kullanılır. |
-| RowCreated | GridView denetiminde yeni bir satır oluşturulduğunda gerçekleşir. Bu olay, genellikle satır oluşturulduğunda bir satırın içeriğini değiştirmek için kullanılır. |
-| RowDataBound | GridView denetiminde verileri bir veri satırı bağlandığında gerçekleşir. Bu olay, genellikle satır verilere bağlı olup bir satırın içeriğini değiştirmek için kullanılır. |
-| RowDeleted | Bir sıranın Sil düğmesine tıklandığında, ancak GridView denetiminde kayıt veri kaynağından sildikten sonra gerçekleşir. Bu olay, genellikle sonuçlarını silme işlemini denetlemek için kullanılır. |
-| RowDeleting | Bir sıranın Sil düğmesine tıklandığında, ancak önce GridView denetimi kaydı veri kaynağından siler gerçekleşir. Bu olay, genellikle silme işlemi iptal etmek için kullanılır. |
-| RowEditing | Bir sıranın Düzenle düğmesine tıklandığında, ancak önce GridView denetimi düzenleme moduna girer gerçekleşir. Bu olay, genellikle düzenleme işlemi iptal etmek için kullanılır. |
-| RowUpdated | Bir sıranın güncelleştir düğmesine tıklandığında, ancak satır GridView denetiminde güncelleştirildikten sonra gerçekleşir. Bu olay sık sık güncelleştirme işlemi sonuçlarını denetlemek için kullanılır. |
-| RowUpdating | Bir sıranın güncelleştir düğmesine tıklandığında, ancak önce GridView satır denetimi güncelleştirmeler olduğunda gerçekleşir. Bu olay sık sık güncelleştirme işlemini iptal etmek için kullanılır. |
-| SelectedIndexChanged | Bir sıranın Seç düğmesine tıklandığında, ancak select işlemi GridView denetiminde işleme sonra gerçekleşir. Bu olay, genellikle bir satır denetimi seçtikten sonra bir görevi gerçekleştirmek için kullanılır. |
-| SelectedIndexChanging | Bir sıranın Seç düğmesine tıklandığında, ancak önce GridView denetimi select işlemi işleme gerçekleşir. Bu olay, genellikle seçme işlemini iptal etmek için kullanılır. |
-| Sıralı | Bir sütunu sırala köprü tıklandığında, ancak sıralama işlemi GridView denetiminde işleme sonra gerçekleşir. Bu olay, genellikle kullanıcı bir sütunu sıralamak için bir köprü tıklattıktan sonra bir görevi gerçekleştirmek için kullanılır. |
-| Sıralama | Bir sütunu sırala köprü tıklandığında, ancak önce GridView denetimi sıralama işlemi işleme gerçekleşir. Bu olay, genellikle sıralama işlemi iptal veya özel bir sıralama yordamı gerçekleştirmek için kullanılır. |
+| PageIndexChanged | Sayfalayıcı düğmelerinden birine tıklandığında gerçekleşir, ancak GridView denetimi disk belleği işlemini işler. Bu olay genellikle Kullanıcı denetimdeki farklı bir sayfaya gittiğinde bir görev gerçekleştirmeniz gerektiğinde kullanılır. |
+| PageIndexChanging | Sayfalayıcı düğmelerinden birine tıklandığında, ancak GridView denetimi disk belleği işlemini gerçekleştirmeden önce gerçekleşir. Bu olay genellikle sayfalama işlemini iptal etmek için kullanılır. |
+| Rowcancelıngedit | Bir satırın Iptal düğmesine tıklandığında, ancak GridView denetimi düzenleme modundan çıktıktan sonra gerçekleşir. Bu olay genellikle iptal işlemini durdurmak için kullanılır. |
+| RowCommand | GridView denetimindeki bir düğmeye tıklandığında gerçekleşir. Bu olay genellikle denetimde bir düğme tıklandığında bir görevi gerçekleştirmek için kullanılır. |
+| RowCreated | GridView denetiminde yeni bir satır oluşturulduğunda gerçekleşir. Bu olay genellikle satır oluşturulduğu sırada bir satırın içeriğini değiştirmek için kullanılır. |
+| Rowveriye bağlı | Veri satırı GridView denetimindeki veriye bağlandığında oluşur. Bu olay, genellikle satır veriye bağlandığında bir satırın içeriğini değiştirmek için kullanılır. |
+| RowDeleted | Bir satırın Delete düğmesine tıklandığında, ancak GridView denetimi bu kaydı veri kaynağından sildiğinde gerçekleşir. Bu olay genellikle silme işleminin sonuçlarını denetlemek için kullanılır. |
+| Rowsiliyor | Bir satırın Delete düğmesine tıklandığında, ancak GridView denetimi kaydı veri kaynağından sildiğinde gerçekleşir. Bu olay genellikle silme işlemini iptal etmek için kullanılır. |
+| RowEditing | Bir satırın Edit düğmesine tıklandığında, ancak GridView denetimi düzenleme moduna girmeden önce gerçekleşir. Bu olay genellikle, düzen işlemini iptal etmek için kullanılır. |
+| RowUpdated | Bir satırın Update düğmesine tıklandığında, ancak GridView denetimi satırı güncelleştirdikten sonra gerçekleşir. Bu olay genellikle güncelleştirme işleminin sonuçlarını denetlemek için kullanılır. |
+| RowUpdating | Bir satırın Update düğmesine tıklandığında, ancak GridView denetimi satırı güncelleyen zaman gerçekleşir. Bu olay genellikle güncelleştirme işlemini iptal etmek için kullanılır. |
+| SelectedIndexChanged olayını | Bir satırın Select düğmesine tıklandığında, ancak GridView denetimi Select işlemini işlediğinde gerçekleşir. Bu olay genellikle denetimde bir satır seçildikten sonra bir görevi gerçekleştirmek için kullanılır. |
+| SelectedIndexChanging | Bir satırın Select düğmesine tıklandığında, ancak GridView denetimi Select işlemini işleymesinden önce oluşur. Bu olay genellikle seçim işlemini iptal etmek için kullanılır. |
+| Sütununa | Bir sütunu sıralamak için köprünün tıklandığı, ancak GridView denetimi sıralama işlemini gerçekleştirdikten sonra gerçekleşir. Bu olay genellikle Kullanıcı bir sütunu sıralamak için bir köprüye tıkladıktan sonra bir görevi gerçekleştirmek için kullanılır. |
+| Sıralama | Bir sütunu sıralamak için köprünün tıklandığı, ancak GridView denetimi sıralama işlemini gerçekleştirmeden önce gerçekleşir. Bu olay genellikle sıralama işlemini iptal etmek veya özel bir sıralama yordamı gerçekleştirmek için kullanılır. |
 
 ## <a name="formview"></a>FormView
 
-FormView denetimi, bir veri kaynağından tek bir kayıt görüntülemek için kullanılır. Satır alanları yerine kullanıcı tanımlı şablonları görüntüler dışında DetailsView denetimi için benzerdir. Kendi şablonlarınızı oluşturmak, verilerin nasıl görüntüleneceğini denetleme daha fazla esneklik sağlar. FormView denetimi aşağıdaki özellikleri destekler:
+FormView denetimi bir veri kaynağından tek bir kaydı göstermek için kullanılır. Bu, DetailsView denetimine benzer, ancak satır alanları yerine Kullanıcı tanımlı şablonları görüntüler. Kendi şablonlarınızın oluşturulması, verilerin nasıl görüntülendiğini denetleme konusunda daha fazla esneklik sağlar. FormView denetimi aşağıdaki özellikleri destekler:
 
-- SqlDataSource ve ObjectDataSource gibi kaynak denetimlerini verilere bağlama.
+- SqlDataSource ve ObjectDataSource gibi veri kaynağı denetimlerine bağlama.
 - Yerleşik ekleme özellikleri.
 - Yerleşik güncelleştirme ve silme özellikleri.
-- Yerleşik disk belleği özellikleri.
-- FormView nesne modeli, özellikler, dinamik olarak ayarlamak için programlı erişim olaylarını işlemek ve benzeri.
-- Özelleştirilebilir görünümü kullanıcı tanımlı şablonları, temalar ve stilleri.
+- Yerleşik sayfalama özellikleri.
+- Özellikleri dinamik olarak ayarlamak, olayları işlemek vb. için FormView nesne modeline programlı erişim.
+- Kullanıcı tanımlı şablonlar, Temalar ve stiller aracılığıyla özelleştirilebilir görünüm.
 
 ## <a name="templates"></a>Şablonlar
 
-FormView denetim içeriği görüntülemek farklı bölümlerini denetim şablonları oluşturmanız gerekir. Çoğu şablonları isteğe bağlıdır; Ancak, Denetim yapılandırıldığı modu için bir şablon oluşturmanız gerekir. Örneğin, ekleme kayıtları destekleyen bir FormView'da denetimi tanımlanan INSERT öğe şablonu olmalıdır. Aşağıdaki tabloda, oluşturabileceğiniz farklı şablonları listeler.
+FormView denetiminin içeriği görüntülemesi için, denetimin farklı parçaları için şablon oluşturmanız gerekir. Çoğu şablon isteğe bağlıdır; Ancak, denetimin yapılandırıldığı mod için bir şablon oluşturmanız gerekir. Örneğin, kayıt eklemeyi destekleyen bir FormView denetiminin tanımlanmış bir ekleme öğesi şablonu olması gerekir. Aşağıdaki tabloda, oluşturabileceğiniz farklı şablonlar listelenmektedir.
 
 | **Şablon türü** | **Açıklama** |
 | --- | --- |
-| EditItemTemplate | FormView denetimini düzenleme modundayken veri satırı için içeriği tanımlar. Bu şablon, genellikle giriş denetimleri ve kullanıcı ile varolan bir kaydı düzenleyebilir komut düğmeleri içerir. |
-| EmptyDataTemplate'i | FormView denetimini herhangi bir kayıt içermeyen bir veri kaynağına bağlı olduğunda görüntülenen boş veri satırı için içeriği tanımlar. Bu şablon, genellikle veri kaynağı herhangi bir kayıt içermez kullanıcıyı uyarmak için içerik içerir. |
-| FooterTemplate | Alt satır için içeriği tanımlar. Bu şablon, genellikle altbilgi satırında görüntülemek istediğiniz tüm ek içeriklere de içerir. Alternatif olarak, yalnızca FooterText özelliğini ayarlayarak altbilgi satırında görüntülenecek metin belirtebilirsiniz. |
-| HeaderTemplate | Üst bilgi satırı içeriğini tanımlar. Bu şablon, genellikle başlık satırındaki görüntülemek istediğiniz tüm ek içeriklere de içerir. Alternatif olarak, yalnızca başlık satırındaki HeaderText özelliğini ayarlayarak görüntülenecek metin belirtebilirsiniz. |
-| ItemTemplate | FormView denetimini salt okunur modda olduğunda, veri satırı için içeriği tanımlar. Bu şablon, genellikle varolan bir kaydı değerlerini görüntülemek için içerik içerir. |
-| InsertItemTemplate | FormView denetim ekleme modunda olduğunda veri satırı için içeriği tanımlar. Bu şablon, genellikle giriş denetimleri ve kullanıcının yeni bir kayıt eklemek komut düğmeleri içerir. |
-| PagerTemplate | Disk belleği özelliği etkinleştirilmişse görüntülenen çağrı satır içeriğini tanımlar (AllowPagingözelliðini ayarlandığında **true**). Bu şablon, genellikle kullanıcı başka bir kayıtla gidebilirsiniz denetimleri içerir. |
+| EditItemTemplate | FormView denetimi düzenleme modundayken veri satırı içeriğini tanımlar. Bu şablon genellikle kullanıcının var olan bir kaydı düzenleyebileceği giriş denetimlerini ve komut düğmelerini içerir. |
+| EmptyDataTemplate 'i | FormView denetimi herhangi bir kayıt içermeyen bir veri kaynağına bağlandığında görüntülenen boş veri satırı içeriğini tanımlar. Bu şablon genellikle kullanıcıya veri kaynağının hiçbir kayıt içermediğini bildiren içerikleri içerir. |
+| FooterTemplate | Alt bilgi satırının içeriğini tanımlar. Bu şablon genellikle altbilgi satırında görüntülenmesini istediğiniz ek içerikleri içerir. Alternatif olarak, FooterText özelliğini ayarlayarak altbilgi satırında görüntülenecek metni de belirtebilirsiniz. |
+| HeaderTemplate | Üst bilgi satırı için içeriği tanımlar. Bu şablon genellikle başlık satırında görüntülenmesini istediğiniz ek içerikleri içerir. Alternatif olarak, HeaderText özelliğini ayarlayarak başlık satırında görüntülenecek metni de belirtebilirsiniz. |
+| Template | FormView denetimi salt okuma modundayken veri satırı içeriğini tanımlar. Bu şablon genellikle varolan bir kaydın değerlerini görüntüleyen içerikleri içerir. |
+| InsertItemTemplate | FormView denetimi ekleme modundayken veri satırı içeriğini tanımlar. Bu şablon genellikle kullanıcının yeni bir kayıt ekleyebileceği giriş denetimlerini ve komut düğmelerini içerir. |
+| PagerTemplate | Sayfalama özelliği etkinleştirildiğinde (AllowPaging özelliği **true**olarak ayarlandığında) sayfalayıcı satırı içeriğini tanımlar. Bu şablon genellikle kullanıcının başka bir kayda gidebileceği denetimleri içerir. |
 
-Giriş denetimlerinde öğe şablonu Ekle ve öğe şablonu düzen bir veri kaynağı alanları bir iki yönlü bir bağlama ifadesi kullanarak bağlı olabilir. Bu, otomatik olarak bir güncelleştirme için bir giriş denetiminin değerlerini ayıklamak veya işlem eklemek FormView denetim sağlar. İki yönlü bir bağlama ifadeleri otomatik olarak özgün alan değerlerini görüntülemek için bir düzen öğe şablonunda giriş denetimleri de izin verin.
+Öğe düzenleme şablonu ve ekleme öğesi şablonu içindeki giriş denetimleri, iki yönlü bağlama ifadesi kullanılarak bir veri kaynağının alanlarına bağlanabilir. Bu, FormView denetiminin, bir güncelleştirme veya ekleme işlemi için giriş denetiminin değerlerini otomatik olarak ayıklamasına olanak tanır. İki yönlü bağlama ifadeleri, özgün alan değerlerini otomatik olarak göstermek için bir düzenleme öğesi şablonundaki giriş denetimlerine de izin verir.
 
 ### <a name="binding-to-data"></a>Verilere Bağlama
 
-FormView denetim bir veri kaynak denetimine bağlı olabilir (gibi **SqlDataSource**, AccessDataSource, **ObjectDataSource** vb.), veya uygulayan herhangi bir veri kaynağı System.Collections.IEnumerable arabirimi (örneğin, System.Data.DataView System.Collections.ArrayList ve System.Collections.Hashtable). FormView denetimi uygun bir veri kaynağı türüne bağlamak için aşağıdaki yöntemlerden birini kullanın:
+FormView denetimi bir veri kaynağı denetimine ( **SqlDataSource**, AccessDataSource, **ObjectDataSource** vb. gibi) veya System. Collections. IEnumerable arabirimini (System. Data. DataView, System. Collections. ArrayList ve System. Collections. Hashtable gibi) uygulayan herhangi bir veri kaynağına bağlı olabilir. FormView denetimini uygun veri kaynağı türüne bağlamak için aşağıdaki yöntemlerden birini kullanın:
 
-- Bir veri kaynak denetimine bağlamak için veri kaynağı denetimini kimliği değerini FormView denetimin DataSourceID özelliği ayarlayın. FormView denetimi otomatik olarak belirtilen veri kaynak denetimine bağlar ve veri kaynağı ekleme, güncelleştirme, silme ve disk belleği işlevleri gerçekleştirmek için denetimin özelliklerinden yararlanabilirsiniz. Bu verilere bağlamak için tercih edilen yöntemdir.
-- Uygulayan bir veri kaynağına bağlamak için **System.Collections.IEnumerable** arabirim program aracılığıyla veri kaynağına FormView Denetimin DataSource özelliği ayarlayabilir ve sonra veri bağlama yöntemini çağırın. Bu yöntemi kullanırken FormView denetimini yerleşik ekleme, güncelleştirme, silme ve disk belleği işlevselliğini sağlamaz. Uygun olay'ı kullanarak bu işlevselliği sağlayacak şekilde gerekir.
+- Bir veri kaynağı denetimine bağlamak için, FormView denetiminin DataSourceID özelliğini veri kaynağı denetiminin ID değeri olarak ayarlayın. FormView denetimi otomatik olarak belirtilen veri kaynağı denetimine bağlanır ve ekleme, güncelleştirme, silme ve sayfalama işlevlerini gerçekleştirmek için veri kaynağı denetiminin olanaklarından yararlanabilir. Bu, verilere bağlanmak için tercih edilen yöntemdir.
+- **System. Collections. IEnumerable** arabirimini uygulayan bir veri kaynağına bağlamak için, program aracılığıyla FormView denetiminin DataSource özelliğini veri kaynağına ayarlayın ve ardından DataBind metodunu çağırın. Bu yöntemi kullanırken, FormView denetimi yerleşik ekleme, güncelleştirme, silme ve sayfalama işlevleri sağlamaz. İlgili olayı kullanarak bu işlevi sağlamanız gerekir.
 
 ## <a name="data-operations"></a>Veri İşlemleri
 
-FormView denetim, güncelleştirme, silme, ekleme ve denetimindeki öğeler arasında sayfasında kullanıcı çok sayıda yerleşik özellikleri sağlar. FormView denetim bir veri kaynak denetimine bağlı olduğunda FormView denetimini denetimin özellikleri veri kaynağı yararlanabilir ve otomatik güncelleştirme, silme, ekleme ve işlevsellik sayfalama sağlayın. FormView denetim, güncelleştirme, silme, ekleme ve sayfalandırma işlemleri ile diğer veri kaynağı türleri için destek sağlayabilirsiniz; Ancak, bu işlemler için uygulama ile ilgili olay işleyicisi sağlamanız gerekir.
+FormView denetimi, kullanıcının denetimdeki öğeleri güncelleştirme, silme, ekleme ve sayfada yer değiştirmesine izin veren birçok yerleşik özellik sağlar. FormView denetimi bir veri kaynağı denetimine bağlandığında, FormView denetimi veri kaynağı denetiminin olanaklarından yararlanabilir ve otomatik güncelleştirme, silme, ekleme ve sayfalama işlevlerini sağlayabilir. FormView denetimi, diğer veri kaynakları türleriyle güncelleştirme, silme, ekleme ve sayfalama işlemleri için destek sağlar; Ancak, bu işlemler için uygulamayla birlikte uygun bir olay işleyicisi sağlamanız gerekir.
 
-FormView denetim şablonları kullandığından, güncelleştirme, silme veya ekleme işlemleri gerçekleştirmek için komut düğmeleri otomatik olarak oluşturabileceği bir yol sağlamaz. Bu komut düğmeleri uygun şablon el ile eklemeniz gerekir. FormView denetim olan belirli düğmeler kendi **CommandName** özellikleri belirli değerlere ayarlayın. FormView denetimini tanır komut düğmeleri aşağıdaki tabloda listelenmektedir.
+FormView denetimi şablonlar kullandığından, işlemleri güncelleştirme, silme veya ekleme işlemlerini gerçekleştirmek üzere otomatik olarak komut düğmeleri oluşturmak için bir yol sağlamaz. Bu komut düğmelerini uygun şablona el ile eklemeniz gerekir. FormView denetimi, **CommandName** özelliklerinin belirli değerler olarak ayarlandığı belirli düğmeleri tanır. Aşağıdaki tabloda, FormView denetiminin tanıdığı komut düğmeleri listelenmektedir.
 
 | **Düğme** | **CommandName değeri** | **Açıklama** |
 | --- | --- | --- |
-| İptal | "İptal" | İşlemleri ekleme veya güncelleştirme işlemi iptal etmek ve kullanıcı tarafından girilen değerler atmak için kullanılır. FormView denetimini ardından DefaultMode özelliği tarafından belirtilen modunu döndürür. |
-| Sil | "Sil" | Silme işlemleri veri kaynağından görüntülenen kaydı silmek için kullanılır. ItemDeleting ve ItemDeleted olayları başlatır. |
-| Düzenle | "Edit" | Güncelleştirme işlemleri FormView denetim düzenleme moduna yerleştirmek için kullanılır. Belirtilen içerik **EditItemTemplate** özelliği, veri satırı için görüntülenir. |
-| Ekleme | "Ekle" | Ekleme işlemleri veri kaynağında kullanıcı tarafından sağlanan değerleri kullanarak yeni bir kayıt eklemeye çalışırsanız için kullanılır. ItemInserting ve ItemInserted olayları başlatır. |
-| Yeni | "Yeni" | İşlem ekleme FormView denetim ekleme modunda yerleştirmek için kullanılır. Belirtilen içerik **InsertItemTemplate** özelliği, veri satırı için görüntülenir. |
-| Sayfa | "Page" | Disk belleği gerçekleştirir çağrı cihazı sırada bir düğmeyi temsil etmesi için disk belleği işlemlerinde kullanılır. Disk belleği işlemi belirtmek için ayarlayın **CommandArgument** özelliğini "İleri", "Önceki", "First", "Last" veya hangi gitmek sayfanın dizini. PageIndexChanging ve PageIndexChanged olayları başlatır. |
-| Güncelleştirme | "Güncelleştir" | Güncelleştirme işlemleri görüntülenen veri kaynağındaki kaydı kullanıcı tarafından sağlanan değerlerle güncelleştirin denemek için kullanılır. ItemUpdating ve Itemupdated olayları başlatır. |
+| İptal | Tıklatın | İşlemi iptal etmek ve Kullanıcı tarafından girilen değerleri atmak için işlemleri güncelleştirmek veya eklemek için kullanılır. FormView denetimi daha sonra DefaultMode özelliği tarafından belirtilen moda geri döner. |
+| Sil | Silmeli | Veri kaynağından görüntülenmiş kaydı silmek için silme işlemlerinde kullanılır. ItemDeleted ve ItemDeleted olaylarını yükseltir. |
+| Düzenle | Düzenle | FormView denetimini düzenleme moduna almak için işlemleri güncelleştirmek üzere kullanılır. **EditItemTemplate** özelliğinde belirtilen içerik veri satırı için görüntülenir. |
+| Ekleme | Ekleyin | Kullanıcı tarafından belirtilen değerleri kullanarak veri kaynağına yeni bir kayıt eklemeye çalışacak işlemler ekleme işlemi sırasında kullanılır. , En mini ve bağımsız olayları yükseltir. |
+| Yeni | Yeni | FormView denetimini Insert modunda yerleştirmek için ekleme işlemleri sırasında kullanılır. **InsertItemTemplate** özelliğinde belirtilen içerik veri satırı için görüntülenir. |
+| Sayfasında | Sayfasında | Sayfalama işlemlerinde, disk belleği çalıştıran sayfalayıcı satırındaki bir düğmeyi temsil etmek için kullanılır. Sayfalama işlemini belirtmek için düğmenin **CommandArgument** özelliğini "ileri", "önceki", "First", "Last" veya gidilecek sayfanın dizini olarak ayarlayın. PageIndexChanging ve PageIndexChanged olaylarını yükseltir. |
+| Güncelleştirme | Update | Veri kaynağındaki görüntülenmiş kaydı kullanıcı tarafından belirtilen değerlerle güncelleştirmeyi denemek için işlemleri güncelleştirmek üzere kullanılır. ItemUpdating ve ItemUpdated olaylarını yükseltir. |
 
-Silme aksine düğmesine (görüntülenen kaydı hemen silen), düzenleme veya yeni düğmesine tıklandığında, düzenleme denetimi bunlara FormView veya modu sırasıyla ekleyin. Düzenleme modunda yer alan içeriği **EditItemTemplate** özelliği için geçerli veri öğesi görüntülenir. Genellikle, Düzenle düğmesini iptal düğmesi ve bir güncelleştirme ile değiştirilir, öğe şablonu Düzen tanımlanır. Alanın veri türünü (örneğin, TextBox veya bir CheckBox denetimi) için uygun olan giriş denetimleri de genellikle kullanıcının değiştirmek bir alanın değeri görüntülenir. İptal düğmesine tıklayarak tüm değişiklikleri siler ancak güncelleştir düğmesine tıklayarak veri kaynağındaki kaydı güncelleştirir.
+Sil düğmesinden farklı olarak (görüntülenmiş kaydı hemen siler), Düzenle veya yeni düğme tıklandığında, FormView denetimi sırasıyla düzenleme veya ekleme moduna geçer. Düzenleme modunda, geçerli veri öğesi için **EditItemTemplate** özelliğinde bulunan içerik görüntülenir. Genellikle düzenleme öğesi şablonu, Düzenle düğmesi bir güncelleştirmeyle ve Iptal düğmesiyle değiştirilmeleri için tanımlanır. Alanın veri türü (TextBox veya CheckBox denetimi gibi) için uygun olan giriş denetimleri, genellikle kullanıcının değiştiremeyeceği bir alanın değeri ile birlikte görüntülenir. Güncelleştir düğmesine tıkladığınızda, veri kaynağındaki kayıt güncelleştirilir, ancak Iptal düğmesine tıkladığınızda herhangi bir değişiklik yapılır.
 
-Benzer şekilde, yer alan içeriği **InsertItemTemplate** denetim ekleme modunda olduğunda veri öğesi için özelliği görüntülenir. INSERT öğe şablonu, genellikle yeni düğme ekleme ve bir iptal düğmesi ile değiştirilir ve yeni kayıt için değerleri girmesini boş giriş denetimlerinin görüntülenir tanımlanır. İptal düğmesine tıklayarak tüm değişiklikleri siler ancak Ekle düğmesine tıklayarak veri kaynağında kayıt ekler.
+Benzer şekilde, **InsertItemTemplate** özelliğinde bulunan içerik, denetim ekleme modundayken veri öğesi için görüntülenir. Ekleme öğesi şablonu, genellikle yeni düğmenin bir INSERT ve Cancel düğmesiyle değiştirildiği ve Kullanıcı için yeni kayıt değerlerini girmesi için boş giriş denetimlerinin görüntülendiği şekilde tanımlanır. Ekle düğmesine tıklamak, kaydı veri kaynağına ekler, ancak Iptal düğmesine tıkladığınızda herhangi bir değişiklik yapılır.
 
-FormView denetimi, kullanıcının diğer veri kaynağındaki kayıtları gitmek bir disk belleği özelliği sağlar. Etkin olduğunda, çağrı cihazı satır sayfa gezinti denetimlerini içeren FormView denetimi görüntülenir. Disk belleğini etkinleştirmek için ayarlanmış **AllowPaging** özelliğini **true**. PagerStyle içinde bulunan nesnelerin özelliklerini ve PagerSettings özelliğini ayarlayarak, çağrı cihazı satır özelleştirebilirsiniz. Yerleşik çağrı satır UI kullanmak yerine, kendi kullanıcı arabirimini kullanarak oluşturabileceğiniz **PagerTemplate** özelliği.
+FormView denetimi, kullanıcının veri kaynağındaki diğer kayıtlara gitmesini sağlayan bir sayfalama özelliği sağlar. Etkinleştirildiğinde, bir sayfalayıcı satırı, sayfa gezintisi denetimlerini içeren FormView denetiminde görüntülenir. Disk belleğini etkinleştirmek için **AllowPaging** özelliğini **true**olarak ayarlayın. Sayfa stili ve PagerSettings özelliğinde yer alan nesnelerin özelliklerini ayarlayarak sayfalayıcı satırını özelleştirebilirsiniz. Yerleşik sayfalayıcı satırı Kullanıcı arabirimini kullanmak yerine, **PagerTemplate** özelliğini kullanarak kendi Kullanıcı arabiriminizi oluşturabilirsiniz.
 
 ## <a name="customizing-the-user-interface"></a>Kullanıcı Arabirimini Özelleştirme
 
-Denetimin farklı bölümlerine stil özelliklerini ayarlayarak FormView denetiminin görünümünü özelleştirebilirsiniz. Aşağıdaki tabloda, farklı bir stil özellikleri listeler.
+Denetimin farklı bölümlerinin stil özelliklerini ayarlayarak FormView denetiminin görünümünü özelleştirebilirsiniz. Aşağıdaki tabloda farklı stil özellikleri listelenmektedir.
 
-| **Stil özelliği** | **Açıklama** |
+| **Style özelliği** | **Açıklama** |
 | --- | --- |
-| EditRowStyle | FormView denetimini olduğunda veri satırı için stil ayarlarını düzenleme modu. |
-| EmptyDataRowStyle | Veri kaynağı herhangi bir kayıt olmadığında FormView denetimde görüntülenen boş veri satırı için stilini ayarlar. |
-| FooterStyle | FormView denetimini altbilgi satırının stilini ayarlar. |
-| HeaderStyle | FormView denetimi üstbilgi satırının stilini ayarlar. |
-| InsertRowStyle | FormView denetimini olduğunda veri satırı için stil ayarları modu ekleyin. |
-| PagerStyle | Disk belleği özelliği etkinleştirilmişse FormView denetimde görüntülenen çağrı satır stili ayarları. |
-| RowStyle | FormView denetimini salt okunur modunda olduğunda veri satırı için stilini ayarlar. |
+| Edıtrowstyle | FormView denetimi düzenleme modunda olduğunda veri satırı için stil ayarları. |
+| EmptyDataRowStyle | Veri kaynağı herhangi bir kayıt içermiyorsa FormView denetiminde görünen boş veri satırı için stil ayarları. |
+| FooterStyle | FormView denetiminin altbilgi satırı için stil ayarları. |
+| HeaderStyle | FormView denetiminin üstbilgi satırı için stil ayarları. |
+| InsertRowStyle | FormView denetimi ekleme modundayken veri satırı için stil ayarları. |
+| PagerStyle | Sayfalama özelliği etkinken FormView denetiminde görünen sayfalayıcı satırı için stil ayarları. |
+| RowStyle | FormView denetimi salt okuma modunda olduğunda veri satırı için stil ayarları. |
 
 ## <a name="events"></a>Olaylar
 
-FormView denetimini programlayabileceğiniz çeşitli olayları sağlar. Bu, her bir olay gerçekleştiğinde, özel bir yordamı çalıştırmak sağlar. FormView denetimi tarafından desteklenen olaylar aşağıdaki tabloda listelenmektedir.
+FormView denetimi, programlama için kullanabileceğiniz çeşitli olaylar sağlar. Bu, bir olay meydana geldiğinde özel bir yordam çalıştırmanızı sağlar. Aşağıdaki tabloda, FormView denetimi tarafından desteklenen olaylar listelenmektedir.
 
 | **Event** | **Açıklama** |
 | --- | --- |
-| ItemCommand | FormView denetimindeki bir düğme tıklandığında gerçekleşir. Bu olay, genellikle bir düğme denetimi tıklandığında bir görevi gerçekleştirmek için kullanılır. |
-| ItemCreated | FormView denetiminde tüm FormViewRow nesneler oluşturulduktan sonra gerçekleşir. Bu olay, genellikle gösterilmeden önce bir kayıt değerlerini değiştirmek için kullanılır. |
-| ItemDeleted | Sil düğmesini oluşur (bir düğme kendi **CommandName** özelliği "Sil" olarak ayarlanmış) tıklandığında, ancak FormView denetim kaydı veri kaynağından siler. Bu olay, genellikle sonuçlarını silme işlemini denetlemek için kullanılır. |
-| ItemDeleting | Sil düğmesine tıklandığında, ancak önce FormView denetim kaydı veri kaynağından siler gerçekleşir. Bu olay, genellikle silme işlemini iptal etmek için kullanılır. |
-| ItemInserted | Ekle düğmesi oluşur (bir düğme ile kendi **CommandName** özelliği "Ekleme" olarak ayarlanmış) tıklandığında, ancak kayıt FormView denetimi ekledikten sonra. Bu olay sık sık ekleme işleminin sonuçlarını denetlemek için kullanılır. |
-| ItemInserting | Ekle düğmesine tıklandığında, ancak önce FormView kaydı denetimi ekler gerçekleşir. Bu olay sık sık ekleme işlemi iptal etmek için kullanılır. |
-| Itemupdated | Güncelleştir düğmesine oluşur (bir düğme ile kendi **CommandName** özelliği "Güncelleştir" için ayarlanmış) tıklandığında, ancak FormView denetimini satırı güncelleştirir. Bu olay sık sık güncelleştirme işlemi sonuçlarını denetlemek için kullanılır. |
-| ItemUpdating | Güncelleştir düğmesine tıklandığında, ancak önce FormView denetim kaydı güncelleştirir gerçekleşir. Bu olay sık sık güncelleştirme işlemi iptal etmek için kullanılır. |
-| ModeChanged | FormView denetimini modları değiştirdikten sonra gerçekleşir (için düzenleme, ekleme veya salt okunur modda). Bu olay, genellikle FormView Denetim modu değiştiğinde bir görevi gerçekleştirmek için kullanılır. |
-| ModeChanging | FormView denetimini modları değiştirmeden önce ortaya çıkar (için düzenleme, ekleme veya salt okunur modda). Bu olay, genellikle bir modu değişikliği iptal etmek için kullanılır. |
-| PageIndexChanged | Çağrı düğmelerden birine tıklandığında, ancak disk belleği işlemi FormView denetim işleme sonra gerçekleşir. Bu olay, kullanıcı denetiminde farklı bir kayda gider sonra bir görev gerçekleştirmeniz gerektiğinde, yaygın olarak kullanılır. |
-| PageIndexChanging | Çağrı düğmelerden birine tıklandığında, ancak önce FormView disk belleği işlemi denetim işleme gerçekleşir. Bu olay, genellikle disk belleği işlemi iptal etmek için kullanılır. |
+| ItemCommand | FormView denetimi içindeki bir düğmeye tıklandığında gerçekleşir. Bu olay genellikle denetimde bir düğme tıklandığında bir görevi gerçekleştirmek için kullanılır. |
+| ItemCreated | FormView denetiminde tüm FormViewRow nesneleri oluşturulduktan sonra gerçekleşir. Bu olay, genellikle bir kaydın görüntülenmeden önce değerlerini değiştirmek için kullanılır. |
+| ItemDeleted | Bir Delete düğmesine ( **CommandName** özelliği "Delete" olarak ayarlanan bir düğmeye) tıklandığında gerçekleşir, ancak FormView denetimi veri kaynağından kaydı sildikten sonra. Bu olay genellikle silme işleminin sonuçlarını denetlemek için kullanılır. |
+| Itemsiliyor | Bir Delete düğmesine tıklandığında, ancak FormView denetimi veri kaynağından kaydı silmeden önce oluşur. Bu olay genellikle silme işlemini iptal etmek için kullanılır. |
+| Öğe yukarı | Bir INSERT düğmesine ( **CommandName** özelliği "INSERT" olarak ayarlanan bir düğmeye) tıklandığında gerçekleşir, ancak FormView denetimi kaydı ekledikten sonra. Bu olay genellikle ekleme işleminin sonuçlarını denetlemek için kullanılır. |
+| Iteminyıting | Bir INSERT düğmesine tıklandığında, ancak FormView denetimi kaydı eklemeden oluşur. Bu olay genellikle ekleme işlemini iptal etmek için kullanılır. |
+| ItemUpdated | Bir Update düğmesine ( **CommandName** özelliği "Update" olarak ayarlanmış bir düğmeye) tıklandığında, ancak FormView denetimi satırı güncelleştirdikten sonra gerçekleşir. Bu olay genellikle güncelleştirme işleminin sonuçlarını denetlemek için kullanılır. |
+| ItemUpdating | Bir Update düğmesine tıklandığında, ancak FormView denetimi kaydı güncelleştirmediğinde gerçekleşir. Bu olay genellikle güncelleştirme işlemini iptal etmek için kullanılır. |
+| ModeChanged | FormView denetimi modları değiştirdikten sonra oluşur (düzenleme, ekleme veya salt okuma modu için). Bu olay genellikle FormView denetimi modları değiştirdiğinde bir görevi gerçekleştirmek için kullanılır. |
+| Modu değiştirme | FormView denetimi modları değiştirmeden önce oluşur (düzenleme, ekleme veya salt okuma modu için). Bu olay, genellikle bir mod değişikliğini iptal etmek için kullanılır. |
+| PageIndexChanged | Sayfalayıcı düğmelerinden birine tıklandığında gerçekleşir, ancak FormView denetimi disk belleği işlemini işler. Bu olay genellikle Kullanıcı denetimdeki farklı bir kayda gittiğinde bir görev gerçekleştirmeniz gerektiğinde kullanılır. |
+| PageIndexChanging | Sayfalayıcı düğmelerinden birine tıklandığında, ancak FormView denetimi disk belleği işlemini gerçekleştirmeden önce gerçekleşir. Bu olay genellikle sayfalama işlemini iptal etmek için kullanılır. |
 
-## <a name="detailsview"></a>DetailsView
+## <a name="detailsview"></a>Işlenmemiş
 
-DetailsView denetiminde, her alan kaydın bir tablonun satırında görüntülendiği bir tablodaki veri kaynağından tek bir kayıt görüntülemek için kullanılır. Bunu birlikte bir GridView denetimi ile ana öğe-ayrıntı senaryoları için kullanılabilir. DetailsView denetiminde aşağıdaki özellikleri destekler:
+DetailsView denetimi, tablodaki her alanın tablonun bir satırında görüntülendiği bir veri kaynağından tek bir kayıt göstermek için kullanılır. Ana ayrıntı senaryoları için bir GridView denetimiyle birlikte kullanılabilir. DetailsView denetimi aşağıdaki özellikleri destekler:
 
-- SqlDataSource gibi kaynak denetimlerini verilere bağlama.
+- SqlDataSource gibi veri kaynağı denetimlerine bağlama.
 - Yerleşik ekleme özellikleri.
 - Yerleşik güncelleştirme ve silme özellikleri.
-- Yerleşik disk belleği özellikleri.
-- Özelliği dinamik olarak ayarlamak için DetailsView nesne modeli programlı erişim olaylarını işlemek ve benzeri.
-- Özelleştirilebilir görünümü temalar ve stilleri.
+- Yerleşik sayfalama özellikleri.
+- Özellikleri dinamik olarak ayarlamak, olayları işlemek vb. için DetailsView nesne modeline programlı erişim.
+- Temalar ve stiller aracılığıyla özelleştirilebilir görünüm.
 
 ## <a name="row-fields"></a>Satır Alanları
 
-DetailsView denetiminde her veri satırı bir alan denetimi bildirerek oluşturulur. Farklı satır alan türlerini denetimindeki satırları davranışını belirleyin. Alan denetimleri DataControlField türetilir. Aşağıdaki tablo kullanılabilecek farklı satır alan türlerini listeler.
+DetailsView denetimindeki her bir veri satırı, bir alan denetimi bildirerek oluşturulur. Farklı satır alanı türleri denetimdeki satırların davranışını belirrlar. Alan denetimleri DataControlField 'dan türetilir. Aşağıdaki tabloda, kullanılabilecek farklı satır alanı türleri listelenmektedir.
 
-| **Sütun alanı türü** | **Açıklama** |
+| **Sütun alan türü** | **Açıklama** |
 | --- | --- |
-| BoundField | Bir veri kaynağı, bir alanın değerini metin olarak görüntüler. |
-| ButtonField | Bir komut düğmesi DetailsView denetiminde TemplateField görüntüler. Bu bir Ekle veya Kaldır düğmesi gibi özel bir düğme denetimini sahip bir satır görüntülemenize olanak sağlar. |
-| CheckBoxField | DetailsView denetiminde TemplateField bir onay kutusu görüntüler. Bu satır alan türü, bir Boole değeri ile alanlarını görüntülemek için yaygın olarak kullanılır. |
-| CommandField | Yerleşik komut görüntüler düğmeleri, düzenleme, gerçekleştirmek için ekleme veya silme işlemleri DetailsView denetiminde. |
-| HyperLinkField | Bir alanın değerini bir veri kaynağında bir köprü olarak görüntüler. Bu satır alan türü, ikinci bir alanı köprünün URL'sini bağlamanıza olanak sağlar. |
-| ImageField | DetailsView denetiminde TemplateField bir resim görüntüler. |
-| TemplateField | Görüntüler kullanıcı tanımlı içerik DetailsView denetiminde belirtilen bir şablona göre bir satır için. Bu satır alan türü, bir özel satır alan oluşturmanızı sağlar. |
+| BoundField | Bir veri kaynağındaki bir alanın değerini metin olarak görüntüler. |
+| ButtonField | DetailsView denetimindeki bir komut düğmesini görüntüler. Bu, Ekle veya Kaldır düğmesi gibi özel bir düğme denetimiyle bir satır görüntülemenizi sağlar. |
+| CheckBoxField | DetailsView denetimindeki onay kutusunu görüntüler. Bu satır alanı türü genellikle Boole değeri olan alanları göstermek için kullanılır. |
+| CommandField | DetailsView denetiminde düzenleme, ekleme veya silme işlemlerini gerçekleştirmek için yerleşik komut düğmelerini görüntüler. |
+| Hyperlinkalanı | Bir veri kaynağındaki bir alanın değerini köprü olarak görüntüler. Bu satır alanı türü, köprünün URL 'sine ikinci bir alan bağlamanıza olanak tanır. |
+| ImageField | DetailsView denetimindeki bir görüntüyü görüntüler. |
+| TemplateField | DetailsView denetimindeki bir satır için, belirtilen şablona göre Kullanıcı tanımlı içeriği görüntüler. Bu satır alanı türü, özel bir satır alanı oluşturmanıza olanak sağlar. |
 
-Varsayılan olarak, AutoGenerateRows ayarlandığı **true**, otomatik olarak oluşturduğu bir ilişkili satır alan nesne bağlanabilir türünün her alanı için veri kaynağı. Geçerli bağlanabilir dize, DateTime, ondalık, GUID ve ilkel türleri türleridir. Her bir alan metin olarak her alan veri kaynağında görüntülendiği sırada bir satır sonra görüntülenir.
+Varsayılan olarak, AutoGenerateRows özelliği **true**olarak ayarlanır, bu da veri kaynağındaki bağlanabilir türde her alan için otomatik olarak bir bağlantılı satır alanı üretir. Geçerli bağlanabilir türler dize, DateTime, Decimal, Guid ve temel türler kümesidir. Her alan daha sonra metin olarak bir satırda, her alanın veri kaynağında göründüğü sırada görüntülenir.
 
-Otomatik olarak satırları oluşturma, kayıttaki her alan görüntülemek için hızlı ve kolay bir yol sağlar. Ancak DetailsView yararlanması için denetimin özelliklerini açıkça DetailsView denetiminde TemplateField eklenecek satır alanlar bildirmeniz gerekir Gelişmiş. Satır alanları bildirmek için ilk olarak **AutoGenerateRows** özelliğini **false**. Ardından, açılış ve kapanış ekleyin **&lt;alanları&gt;** açılış ve kapanış etiketlerinin DetailsView denetiminde arasında etiketler. Son olarak, açılış ve kapanış arasında dahil etmek istediğiniz satır alanları listesinde **&lt;alanları&gt;** etiketler. Belirtilen satır alanları listelendikleri sırada alanlar koleksiyona eklenir. **Alanları** koleksiyon DetailsView denetiminde bulunan satır alanlarının programlı bir şekilde yönetmenizi sağlar.
+Satırları otomatik olarak oluşturmak, kayıttaki her alanı görüntülemenin hızlı ve kolay bir yolunu sağlar. Ancak, DetailsView denetiminin gelişmiş yeteneklerini kullanmak için, DetailsView denetimine dahil edilecek satır alanlarını açıkça bildirmeniz gerekir. Satır alanlarını bildirmek için, önce **AutoGenerateRows** özelliğini **false**olarak ayarlayın. Sonra, DetailsView denetiminin açılış ve kapanış etiketleri arasına etiketleri&gt;açma ve kapatma **&lt;alanları** ekleyin. Son olarak, açma ve kapatma **&lt;alanları&gt;** etiketleri arasına dahil etmek istediğiniz satır alanlarını listeleyin. Belirtilen satır alanları, alanlar koleksiyonuna listelenen sırayla eklenir. **Alanlar** koleksiyonu, DetailsView denetimindeki satır alanlarını programlı bir şekilde yönetmenizi sağlar.
 
 > [!NOTE]
-> Satır alanları alanlar koleksiyona eklenmez otomatik olarak oluşturulur.
+> Otomatik olarak oluşturulan satır alanları alanlar koleksiyonuna eklenmez.
 
 ## <a name="binding-to-data"></a>Verilere Bağlama
 
-DetailsView denetiminde bir veri kaynağı denetimi gibi bağlanabilir **SqlDataSource** veya AccessDataSource, veya gibi System.Data.DataView, System.Collections.IEnumerable arabirimi uygulayan herhangi bir veri kaynağı System.Collections.ArrayList ve System.Collections.Hashtable.
+DetailsView denetimi, **SqlDataSource** veya AccessDataSource gibi bir veri kaynağı denetimine veya System. Data. DataView, System. Collections. ArrayList ve System. Collections. Hashtable gibi System. Collections. IEnumerable arabirimini uygulayan herhangi bir veri kaynağına bağlanabilir.
 
-DetailsView denetiminde uygun bir veri kaynağı türüne bağlamak için aşağıdaki yöntemlerden birini kullanın:
+DetailsView denetimini uygun veri kaynağı türüne bağlamak için aşağıdaki yöntemlerden birini kullanın:
 
-- Bir veri kaynak denetimine bağlamak için DataSourceID özelliği DetailsView denetimi veri kaynağı denetimini kimliği değerini ayarlayın. DetailsView denetiminde otomatik olarak belirtilen veri kaynak denetimine bağlar. Bu verilere bağlamak için tercih edilen yöntemdir.
-- Uygulayan bir veri kaynağına bağlamak için **System.Collections.IEnumerable** arabirim program aracılığıyla veri kaynağına DetailsView denetiminde veri kaynağı özelliği ayarlayabilir ve ardından DataBind yöntemi çağırın.
+- Bir veri kaynağı denetimine bağlamak için, DetailsView denetiminin DataSourceID özelliğini veri kaynağı denetiminin ID değeri olarak ayarlayın. DetailsView denetimi, belirtilen veri kaynağı denetimine otomatik olarak bağlanır. Bu, verilere bağlanmak için tercih edilen yöntemdir.
+- **System. Collections. IEnumerable** arabirimini uygulayan bir veri kaynağına bağlamak için, program aracılığıyla DetailsView denetiminin DataSource özelliğini veri kaynağına ayarlayın ve ardından DataBind metodunu çağırın.
 
 ## <a name="security"></a>Güvenlik
 
-Bu denetim, kullanıcı girişi, kötü amaçlı istemci komut dosyası içerebilir görüntülemek için kullanılabilir. Bir istemciden yürütülebilir komut dosyası, SQL deyimleri ya da başka bir kod için uygulamanızda görüntülemeden önce gönderilen tüm bilgiler kontrol edin. ASP.NET, bir giriş isteği doğrulama özelliği blok betiği ve HTML kullanıcı girişi sağlar.
+Bu denetim, kötü amaçlı istemci betiği içerebilecek Kullanıcı girişini göstermek için kullanılabilir. Uygulamanızda görüntülemeden önce yürütülebilir betik, SQL deyimleri veya diğer kod için bir istemciden gönderilen tüm bilgileri denetleyin. ASP.NET, Kullanıcı girişinde betiği ve HTML 'i engellemek için bir giriş isteği doğrulama özelliği sağlar.
 
 ## <a name="data-operations"></a>Veri İşlemleri
 
-DetailsView denetiminde, kullanıcının güncelleştirme, silme, ekleme ve denetimindeki öğeler arasında sayfasında olanak tanıyan yerleşik özellikleri sağlar. DetailsView denetiminde veri kaynak denetimine bağlı olduğunda DetailsView denetiminde denetimin özellikleri veri kaynağı yararlanabilir ve otomatik güncelleştirme, silme, ekleme ve işlevsellik sayfalama sağlayın.
+DetailsView denetimi, kullanıcının denetimdeki öğeleri güncelleştirme, silme, ekleme ve sayfada yer değiştirmesine izin veren yerleşik yetenekler sağlar. DetailsView denetimi bir veri kaynağı denetimine bağlandığında, DetailsView denetimi veri kaynağı denetiminin olanaklarından yararlanabilir ve otomatik güncelleştirme, silme, ekleme ve sayfalama işlevlerini sağlayabilir.
 
-DetailsView denetiminde, güncelleştirme, silme, ekleme ve sayfalandırma işlemleri ile diğer veri kaynağı türleri için destek sağlayabilirsiniz; Ancak, bu işlemlerin uygun Olay işleyicisindeki uygulamasını sağlamanız gerekir.
+DetailsView denetimi, diğer veri kaynağı türleriyle güncelleştirme, silme, ekleme ve sayfalama işlemleri için destek sağlar; Ancak, bu işlemler için uygun bir olay işleyicisinde uygulama sağlamanız gerekir.
 
-DetailsView denetiminde otomatik olarak ekleyebilirsiniz bir **CommandField** düğmesiyle AutoGenerateEditButton,AutoGenerateDeleteButtonveyaAutoGenerateInsertButtonözellikleriniayarlayarakbirdüzenleme,silmeveyayenisatıralan**true**sırasıyla. Silme aksine düğmesine (seçili kaydın hemen silen), düzenleme veya yeni düğmesine tıklandığında, düzenleme denetimi bunlara DetailsView veya modu, sırasıyla ekleyin. Düzenleme modunda Düzenle düğmesini iptal düğmesi ve bir güncelleştirme ile değiştirilir. Alanın veri türünü (örneğin, TextBox veya bir CheckBox denetimi) için uygun olan giriş denetimleri ile değiştirmek kullanıcı için bir alanın değeri görüntülenir. İptal düğmesine tıklayarak tüm değişiklikleri siler ancak güncelleştir düğmesine tıklayarak veri kaynağındaki kaydı güncelleştirir. Benzer şekilde, ekleme modunda yeni düğme ekleme ve bir iptal düğmesi ile değiştirilir ve boş giriş denetimleri için yeni kayıt için değerleri girmesini görüntülenir.
+DetailsView denetimi, sırasıyla AutoGenerateEditButton, AutoGenerateDeleteButton veya AutoGenerateInsertButton özelliklerini **true**olarak ayarlayarak bir **CommandField** satır alanını düzenleme, silme veya yeni düğme ile otomatik olarak ekleyebilir. Sil düğmesinden farklı olarak (seçili kaydı hemen siler), Düzenle veya yeni düğme tıklandığında, DetailsView denetimi sırasıyla düzenleme veya ekleme moduna geçer. Düzenleme modunda Düzenle düğmesi bir güncelleştirmeyle ve Iptal düğmesiyle değiştirilmiştir. Alanın veri türü (TextBox veya CheckBox denetimi gibi) için uygun olan giriş denetimleri, kullanıcının değiştiremeyeceği bir alanın değeri ile görüntülenir. Güncelleştir düğmesine tıkladığınızda, veri kaynağındaki kayıt güncelleştirilir, ancak Iptal düğmesine tıkladığınızda herhangi bir değişiklik yapılır. Benzer şekilde, ekleme modunda yeni düğme bir INSERT ve Cancel düğmesi ile değiştirilmiştir ve kullanıcının yeni kayıt için değerleri girmesi için boş giriş denetimleri görüntülenir.
 
-DetailsView denetiminde, kullanıcının diğer veri kaynağındaki kayıtları gitmek bir disk belleği özelliği sağlar. Etkin olduğunda, sayfa gezinti denetimlerinin bir çağrı satır görüntülenir. Disk belleğini etkinleştirmek için AllowPagingözelliðini ayarlamak **true**. Çağrı satır PagerStyle ve PagerSettings özellikleri kullanılarak özelleştirilebilir.
+DetailsView denetimi, kullanıcının veri kaynağındaki diğer kayıtlara gitmesini sağlayan bir sayfalama özelliği sağlar. Etkinleştirildiğinde, sayfa gezintisi denetimleri sayfalayıcı satırında görüntülenir. Disk belleğini etkinleştirmek için AllowPaging özelliğini **true**olarak ayarlayın. Sayfalayıcı satırı, PagerStyle ve PagerSettings özellikleri kullanılarak özelleştirilebilir.
 
 ## <a name="customizing-the-user-interface"></a>Kullanıcı Arabirimini Özelleştirme
 
-Denetimin farklı bölümlerine stil özelliklerini ayarlayarak DetailsView denetiminde görünümünü özelleştirebilirsiniz. Aşağıdaki tabloda, farklı bir stil özellikleri listeler.
+Denetimin farklı bölümlerinin stil özelliklerini ayarlayarak DetailsView denetiminin görünümünü özelleştirebilirsiniz. Aşağıdaki tabloda farklı stil özellikleri listelenmektedir.
 
-| **Stil özelliği** | **Açıklama** |
+| **Style özelliği** | **Açıklama** |
 | --- | --- |
-| AlternatingRowStyle | DetailsView denetiminde değişen veri satırları için stilini ayarlar. Bu özelliği ayarlandığında, veri satırları RowStyle ayarları arasında değişen görüntülenir ve **AlternatingRowStyle** ayarları. |
-| CommandRowStyle | DetailsView denetiminde yerleşik komut düğmeleri içeren satır için stilini ayarlar. |
-| EditRowStyle | DetailsView denetiminde olduğunda veri satırları için stil ayarlarını düzenleme modu. |
-| EmptyDataRowStyle | DetailsView denetiminde TemplateField veri kaynağı herhangi bir kayıt olmadığında görüntülenen boş veri satırı için stilini ayarlar. |
-| FooterStyle | DetailsView denetiminde alt bilgi satırının stilini ayarlar. |
-| HeaderStyle | DetailsView denetiminde üst bilgi satırının stilini ayarlar. |
-| InsertRowStyle | DetailsView denetiminde olduğunda veri satırları için stil ayarlarını modu ekleyin. |
-| PagerStyle | DetailsView denetiminde çağrı satırının stilini ayarlar. |
-| RowStyle | DetailsView denetiminde veri satırları için stilini ayarlar. Zaman **AlternatingRowStyle** özelliği ayarlanmışsa, veri satırları arasında değişen görüntülenen **RowStyle** ayarları ve **AlternatingRowStyle** ayarları. |
-| FieldHeaderStyle | DetailsView denetiminde üst sütun stilini ayarlar. |
+| AlternatingRowStyle | DetailsView denetimindeki alternatif veri satırları için stil ayarları. Bu özellik ayarlandığında, veri satırları RowStyle ayarları ve **AlternatingRowStyle** ayarları arasında dönüşümlü olarak görüntülenir. |
+| CommandRowStyle | DetailsView denetimindeki yerleşik komut düğmelerini içeren satırın stil ayarları. |
+| Edıtrowstyle | DetailsView denetimi düzenleme modunda olduğunda veri satırları için stil ayarları. |
+| EmptyDataRowStyle | Veri kaynağı herhangi bir kayıt içermiyorsa, DetailsView denetiminde görünen boş veri satırı için stil ayarları. |
+| FooterStyle | DetailsView denetiminin altbilgi satırı için stil ayarları. |
+| HeaderStyle | DetailsView denetiminin başlık satırı için stil ayarları. |
+| InsertRowStyle | DetailsView denetimi ekleme modunda olduğunda veri satırları için stil ayarları. |
+| PagerStyle | DetailsView denetiminin sayfalayıcı satırı için stil ayarları. |
+| RowStyle | DetailsView denetimindeki veri satırları için stil ayarları. **AlternatingRowStyle** özelliği de ayarlandığında, veri satırları **RowStyle** ayarları ve **AlternatingRowStyle** ayarları arasında dönüşümlü olarak görüntülenir. |
+| FieldHeaderStyle | DetailsView denetiminin üstbilgi sütunu için stil ayarları. |
 
 ## <a name="events"></a>Olaylar
 
-DetailsView denetiminde programlayabileceğiniz çeşitli olayları sağlar. Bu, her bir olay gerçekleştiğinde, özel bir yordamı çalıştırmak sağlar. Aşağıdaki tabloda DetailsView denetimi tarafından desteklenen olayları listeler. DetailsView denetiminde bu olaylar, temel sınıftan da devralır: Veri bağlama, veri bağlama, atıldı, Init, yük, PreRender ve işleme.
+DetailsView denetimi, programlama için kullanabileceğiniz çeşitli olaylar sağlar. Bu, bir olay meydana geldiğinde özel bir yordam çalıştırmanızı sağlar. Aşağıdaki tabloda, DetailsView denetimi tarafından desteklenen olaylar listelenmektedir. DetailsView denetimi Ayrıca bu olayları temel sınıflarından devralır: veri bağlama, veri sınırlama, atılmış, Init, Load, PreRender ve render.
 
 | **Event** | **Açıklama** |
 | --- | --- |
-| ItemCommand | DetailsView denetiminde TemplateField bir düğme tıklandığında gerçekleşir. |
-| ItemCreated | DetailsView denetiminde TemplateField tüm DetailsViewRow nesneler oluşturulduktan sonra gerçekleşir. Bu olay, genellikle gösterilmeden önce bir kayıt değerlerini değiştirmek için kullanılır. |
-| ItemDeleted | Sil düğmesine tıklandığında, ancak DetailsView denetiminde kayıt veri kaynağından sildikten sonra gerçekleşir. Bu olay, genellikle sonuçlarını silme işlemini denetlemek için kullanılır. |
-| ItemDeleting | Sil düğmesine tıklandığında, ancak önce DetailsView denetimi kaydı veri kaynağından siler gerçekleşir. Bu olay, genellikle silme işlemini iptal etmek için kullanılır. |
-| ItemInserted | Ekle düğmesine tıklandığında, ancak kayıt DetailsView denetimi ekledikten sonra gerçekleşir. Bu olay sık sık ekleme işleminin sonuçlarını denetlemek için kullanılır. |
-| ItemInserting | Ekle düğmesine tıklandığında, ancak önce DetailsView denetimi kaydı ekler gerçekleşir. Bu olay sık sık ekleme işlemi iptal etmek için kullanılır. |
-| Itemupdated | Güncelleştir düğmesine tıklandığında, ancak satır DetailsView denetiminde güncelleştirmeler sonra oluşur. Bu olay sık sık güncelleştirme işlemi sonuçlarını denetlemek için kullanılır. |
-| ItemUpdating | Güncelleştir düğmesine tıklandığında, ancak önce DetailsView denetimi kaydı güncelleştirir gerçekleşir. Bu olay sık sık güncelleştirme işlemi iptal etmek için kullanılır. |
-| ModeChanged | DetailsView denetiminde modları (düzenleme, ekleme veya salt okunur modda) olarak değiştirdikten sonra gerçekleşir. Bu olay, genellikle DetailsView denetiminde modu değiştiğinde bir görevi gerçekleştirmek için kullanılır. |
-| ModeChanging | DetailsView denetiminde modları (düzenleme, ekleme veya salt okunur modda) değiştirmeden önce gerçekleşir. Bu olay, genellikle bir modu değişikliği iptal etmek için kullanılır. |
-| PageIndexChanged | Çağrı düğmelerden birine tıklandığında, ancak disk belleği işlemi DetailsView denetiminde işleme sonra gerçekleşir. Bu olay, kullanıcı denetiminde farklı bir kayda gider sonra bir görev gerçekleştirmeniz gerektiğinde, yaygın olarak kullanılır. |
-| PageIndexChanging | Çağrı düğmelerden birine tıklandığında, ancak önce DetailsView denetimi disk belleği işlemi işleme gerçekleşir. Bu olay, genellikle disk belleği işlemi iptal etmek için kullanılır. |
+| ItemCommand | DetailsView denetimindeki bir düğmeye tıklandığında gerçekleşir. |
+| ItemCreated | DetailsView denetiminde tüm ayrıntılar Viewrow nesneleri oluşturulduktan sonra gerçekleşir. Bu olay, genellikle bir kaydın görüntülenmeden önce değerlerini değiştirmek için kullanılır. |
+| ItemDeleted | Bir Delete düğmesine tıklandığında, ancak DetailsView denetimi veri kaynağından kaydı sildiğinde gerçekleşir. Bu olay genellikle silme işleminin sonuçlarını denetlemek için kullanılır. |
+| Itemsiliyor | Bir Delete düğmesine tıklandığında, ancak DetailsView denetimi veri kaynağından kaydı sildiğinde gerçekleşir. Bu olay genellikle silme işlemini iptal etmek için kullanılır. |
+| Öğe yukarı | Bir INSERT düğmesine tıklandığında, ancak DetailsView denetimi kaydı eklediğinde gerçekleşir. Bu olay genellikle ekleme işleminin sonuçlarını denetlemek için kullanılır. |
+| Iteminyıting | Bir INSERT düğmesine tıklandığında, ancak DetailsView denetimi kaydı eklemeden oluşur. Bu olay genellikle ekleme işlemini iptal etmek için kullanılır. |
+| ItemUpdated | Bir Update düğmesine tıklandığında, ancak DetailsView denetimi satırı güncelleştirdikten sonra gerçekleşir. Bu olay genellikle güncelleştirme işleminin sonuçlarını denetlemek için kullanılır. |
+| ItemUpdating | Bir Update düğmesine tıklandığında, ancak DetailsView denetimi kaydı güncelleştirmediğinde gerçekleşir. Bu olay genellikle güncelleştirme işlemini iptal etmek için kullanılır. |
+| ModeChanged | DetailsView denetimi modları değiştirdikten sonra oluşur (düzenleme, ekleme veya salt okuma modu). Bu olay genellikle, DetailsView denetimi modları değiştirdiğinde bir görevi gerçekleştirmek için kullanılır. |
+| Modu değiştirme | DetailsView denetimi modları değiştirmeden önce oluşur (düzenleme, ekleme veya salt okuma modu). Bu olay, genellikle bir mod değişikliğini iptal etmek için kullanılır. |
+| PageIndexChanged | Sayfalayıcı düğmelerinden biri tıklandığında gerçekleşir, ancak DetailsView denetimi disk belleği işlemini işler. Bu olay genellikle Kullanıcı denetimdeki farklı bir kayda gittiğinde bir görev gerçekleştirmeniz gerektiğinde kullanılır. |
+| PageIndexChanging | Sayfalayıcı düğmelerinden biri tıklandığında, ancak DetailsView denetimi disk belleği işlemini gerçekleştirmeden önce gerçekleşir. Bu olay genellikle sayfalama işlemini iptal etmek için kullanılır. |
 
 ## <a name="the-menu-control"></a>Menü denetimi
 
-Menü denetimi ASP.NET 2.0, tam özellikli Gezinti sistem olacak şekilde tasarlanmıştır. Bu sınırlama SiteMapDataSource gibi hiyerarşik veri kaynaklarına kolayca olabilir.
+ASP.NET 2,0 ' deki menü denetimi tam özellikli bir gezinti sistemi olacak şekilde tasarlanmıştır. SiteMapDataSource gibi hiyerarşik veri kaynakları için kolayca verilere izin verebilir.
 
-Bir menü denetimleri yapısı bildirimli olarak veya dinamik olarak tanımlanabilir ve tek bir kök düğümde ve tüm alt düğümleri sayısı oluşur. Aşağıdaki kod, bir menü denetimi menüsünü bildirimli olarak tanımlar.
+Bir menü denetimleri yapısı bildirimli veya dinamik olarak tanımlanabilir ve tek bir kök düğümünden ve herhangi bir sayıda alt düğümden oluşur. Aşağıdaki kod, menü denetimi için bir menüyü bildirimli olarak tanımlar.
 
 [!code-aspx[Main](data-bound-controls/samples/sample4.aspx)]
 
-Yukarıdaki örnekte, kök düğümü Home.aspx düğümüdür. Çeşitli düzeylerde kök düğümü içindeki tüm diğer düğümlere yerleştirilir.
+Yukarıdaki örnekte, Home. aspx düğümü kök düğümdür. Diğer tüm düğümler, çeşitli düzeylerde kök düğüm içinde iç içe geçmiş.
 
-Menü denetimi işleyebilen menüleri iki tür vardır; statik menüleri ve dinamik menü. Statik menüler, her zaman görünür olduğu menü öğelerinin oluşur. Yalnızca kullanıcı bunlar üzerinde fareyle geldiğinde görünür olan menü öğelerinin dinamik menüler oluşur. Müşteriler genellikle bildirimli olarak tanımlanan menülerle statik menüleri ve menülerle çalışma zamanında databound olan dinamik menüler karışıklığa neden olabilir. Aslında, dinamik ve statik menüleri popülasyon yönteme ilgili değildir. Koşulları *statik* ve *dinamik* yalnızca olup olmadığını menü statik varsayılan olarak görüntülenen veya yalnızca için kullanıcı bazı eylemde bulunduğunda görüntülenme bakın.
+Menü denetiminin oluşturabileceği iki tür menü vardır; statik menüler ve dinamik menüler. Statik menüler her zaman görünür olan menü öğelerinden oluşur. Dinamik menüler yalnızca Kullanıcı fare ile üzerine geldiğinde görünen menü öğelerinden oluşur. Müşteriler genellikle statik menüleri, çalışma zamanında çok fazla veri sınırına sahip menüler ile bildirimli ve dinamik menülere karıştırabilir. Aslında, dinamik ve statik menüler, popülasyon yöntemiyle ilgisiz değildir. *Statik* ve *dinamik* terimleri yalnızca menünün varsayılan olarak statik olarak gösterilip gösterilmeyeceğini veya yalnızca Kullanıcı bazı işlemleri yapması durumunda görüntülenip görüntülenmeyeceğini ifade eder.
 
-**StaticDisplayLevels** özelliği, statik ve bu nedenle, varsayılan olarak görüntülenen menüyü kaç düzeyde yapılandırmak için kullanılır. Yukarıdaki örnekte ayarlama **StaticDisplayLevels** 2 değerini özelliği ana düğümü, müzik düğüm ve filmler düğümünü statik olarak görüntülenecek menü neden. Kullanıcı üst düğümün üzerine geldiğinde tüm diğer düğümlere dinamik olarak görüntülenir.
+**StaticDisplayLevels** özelliği, menünün kaç düzeyinin statik olduğunu ve bu nedenle varsayılan olarak görüntülendiğini yapılandırmak için kullanılır. Yukarıdaki örnekte, **StaticDisplayLevels** özelliğinin 2 değerine ayarlanması, menünün ana düğümü, müzik düğümünü ve filmler düğümünü statik olarak görüntülemesine neden olur. Diğer tüm düğümler, Kullanıcı üst düğümün üzerine geldiğinde dinamik olarak görüntülenir.
 
-**MaximumDynamicDisplayLevels** özelliği yapılandırır en fazla dinamik düzeylerini menü görüntüleyebilen. Dinamik menüler tarafından belirtilen değerden daha yüksek bir düzeyde **MaximumDynamicDisplayLevels** özelliği atılır.
+**MaximumDynamicDisplayLevels** özelliği, menünün görüntüleme yeteneğine sahip olduğu en fazla dinamik düzey sayısını yapılandırır. **MaximumDynamicDisplayLevels** özelliği tarafından belirtilen değerden daha yüksek bir düzeydeki dinamik menüler atılır.
 
 > [!NOTE]
-> Bu durumlarda menülerin nedeniyle MaximumDynamicDisplayLevels özelliği işlemek için burada görünmez karşılaşabileceğiniz neredeyse kesindir. Bu gibi durumlarda, özellik müşteriler menülerin görüntülenmesini için izin vermek için yeterince ayarlandığından emin olun.
+> MaximumDynamicDisplayLevels özelliği nedeniyle menülerin işleme görünmediği durumlarla karşılaşmanız neredeyse kesin. Bu durumlarda, özelliğinin müşteriler menülerinin görüntülenmesi için yeterince ayarlandığından emin olun.
 
-## <a name="data-binding-the-menu-control"></a>Veri bağlama menü denetimi
+## <a name="data-binding-the-menu-control"></a>Menü denetimini veri bağlama
 
-Menü denetimi SiteMapDataSource veya XmlDataSource'ta gibi bir hiyerarşik veri kaynağına bağlanabilir. SiteMapDataSource en yaygın olarak yöntemi Menü denetimine veri bağlama için dışına birtakım dosya akışları ve bilinen bir menü denetimi API'sine şemasına sağlar çünkü kullanılır. Listenin altındaki basit birtakım dosyası gösterir.
+Menü denetimi, SiteMapDataSource veya XMLDataSource gibi herhangi bir hiyerarşik veri kaynağına bağlanabilir. Web. sitemap dosyası ve şeması, menü denetimine yönelik bilinen bir API sağladığından, bir menü denetimine veri bağlama için en yaygın kullanılan yöntemdir. Aşağıdaki listede basit bir Web. sitemap dosyası gösterilmektedir.
 
 [!code-xml[Main](data-bound-controls/samples/sample5.xml)]
 
-Yalnızca bir kök siteMapNode öğesi, bu durumda, giriş öğesi olduğuna dikkat edin. Bazı öznitelikler için her siteMapNode yapılandırılabilir. En yaygın olarak kullanılan öznitelikler şunlardır:
+Bu durumda, giriş öğesi olan yalnızca bir kök siteMapNode öğesi olduğuna dikkat edin. Her siteMapNode için çeşitli öznitelikler yapılandırılabilir. En yaygın olarak kullanılan öznitelikler şunlardır:
 
-- **URL** kullanıcı menü öğesi tıkladığında görüntülenecek URL'sini belirtir. Bu öznitelik mevcut değilse düğüm yalnızca geri tıklandığında deftere.
-- **Başlık** menü öğesini görüntülenen metni belirtir.
-- **Açıklama** Belgeler düğümü için kullanılır. Ayrıca, fare, düğümün üzerine gelindiğinde Araç İpucu olarak görüntüler.
-- **siteMapFile** iç içe geçmiş Site Haritaları için izin verir. Bu öznitelik, doğru biçimlendirilmiş bir ASP.NET site haritası dosyasına işaret etmelidir.
-- **rolleri** ASP.NET güvenlik kırpma tarafından denetlenmesi için bir düğüm için görünümünü sağlar.
+- **URL** Kullanıcı menü öğesine tıkladığında görüntülenecek URL 'YI belirtir. Bu öznitelik yoksa, düğüm tıklandığında yalnızca geri gönderilir.
+- **başlık** Menü öğesinde görüntülenen metni belirtir.
+- **Açıklama** Düğüm için belge olarak kullanılır. Ayrıca fare, düğümün üzerine gelindiğinde bir araç ipucu olarak görüntülenir.
+- **siteMapFile** İç içe Sitemaps için izin verir. Bu öznitelik, iyi biçimlendirilmiş bir ASP.NET sitemap dosyasına işaret etmelidir.
+- **Roller** ASP.NET güvenlik kırpması tarafından denetlenerek bir düğümün görünümüne izin verir.
 
-Bu öznitelikler tüm isteğe bağlı olsa da, menü davranışını yok belirtilirse beklenen olmayabileceğini unutmayın. Örneğin, varsa *url* özniteliği ancak *açıklama* özniteliği değil, düğüm görünür durumda değildir ve belirtilen URL'ye mümkün olacaktır.
+Bu özniteliklerin tümü isteğe bağlı olsa da, menünün davranışı belirtilmemişse, beklenmediğini unutmayın. Örneğin, *URL* özniteliği belirtilmişse ancak *Açıklama* özniteliği değilse, düğüm görünür olmayacaktır ve belirtilen URL 'ye gitmenin bir yolu olmayacaktır.
 
-## <a name="controlling-a-menus-operation"></a>Menüler işlemi denetleme
+## <a name="controlling-a-menus-operation"></a>Menüler Işlemini denetleme
 
-Bir ASP.NET menü denetimi işleyişini etkileyen çeşitli özellikler vardır. **yönlendirme** özelliği **DisappearAfter** özelliği **StaticItemFormatString** özelliği ve **StaticPopoutImageUrl**özelliği olan bunlardan yalnızca birkaçıdır.
+Bir ASP.NET Menu denetiminin işlemini etkileyen bazı özellikler vardır; **yönlendirme** özelliği, **DisappearAfter** özelliği, **StaticItemFormatString** özelliği ve **StaticPopOutImageUrl** özelliği bunlardan yalnızca birkaçıdır.
 
-- **Yönlendirme** olarak ayarlanabilir *yatay* veya *dikey* ve statik menü öğeleri yatay veya dikey satırda düzenlendiği ve bağlı Yığılmış denetler başka bir. Bu özellik, dinamik menüler etkilemez.
-- **DisappearAfter** özelliği yapılandırır fare sonra ne kadar bir Dinamik menü görünür kalmalıdır uzağa taşınması. Değeri milisaniye ve 500 varsayılan olarak belirtilir. Bu özelliğin değerini -1 olarak ayarlanması, menüsünün hiçbir zaman otomatik olarak kaybolmasına neden olur. Bu durumda, kullanıcı menü dışında tıkladığında menü yalnızca kaybolur.
-- **StaticItemFormatString** özelliği tutarlı duyuruları menü sisteminizdeki bakımını yapmayı kolaylaştırır. Bu özelliği belirtirken *{0}* veri kaynağında açıklamasını yerine girilmesi gerekir. Örneğin, menü öğesi alıştırma 1 say Mız ürün sayfasını ziyaret edin, vb. sahip olmak için şu adresi ziyaret edin belirtebilirdiniz bizim {0} StaticItemFormatString sayfası. Çalışma zamanında tüm oluşumlarıyla ASP.NET değiştirecek {0} menü öğesi için doğru açıklaması.
-- **StaticPopoutImageUrl** özelliği, belirli menü düğümü üzerine gelerek erişilebilir alt düğümleri olduğunu göstermek için kullanılan görüntüyü belirtir. Dinamik menüler, varsayılan görüntü kullanmaya devam eder.
+- **Yön** *yatay* veya *Dikey* olarak ayarlanabilir ve statik menü öğelerinin yatay olarak bir satırda mi yoksa dikey olarak mı düzenlendiğini ve bir diğerinin üzerine yığılmadığını denetler. Bu özellik dinamik menüleri etkilemez.
+- **DisappearAfter** özelliği, fare konumundan uzağa taşındıktan sonra bir dinamik menünün görünür kalması gereken süreyi yapılandırır. Değer milisaniye cinsinden belirtilir ve varsayılan olarak 500 ' dir. Bu özelliğin-1 değerine ayarlanması, menünün hiçbir şekilde otomatik olarak kaybolmasına neden olur. Bu durumda, menü yalnızca kullanıcının menünün dışını tıkladığı zaman kaybolacaktır.
+- **StaticItemFormatString** özelliği, menü sisteminizde tutarlı verkage 'in korunmasını kolaylaştırır. Bu özelliği belirtirken, veri kaynağında görünen açıklamanın yerine *{0}* girilmelidir. Örneğin, alıştırma 1 ' den menü öğesine sahip olmak için, ürünlerimiz sayfamızı ziyaret edin, vb., StaticItemFormatString için {0} sayfamızı ziyaret edin. Çalışma zamanında ASP.NET, {0} herhangi bir oluşumunu menü öğesi için doğru açıklama ile değiştirecek.
+- **StaticPopOutImageUrl** özelliği, belirli bir menü düğümünün, üzerine gelindiğinde erişilebilen alt düğümlere sahip olduğunu göstermek için kullanılan resmi belirtir. Dinamik menüler varsayılan görüntüyü kullanmaya devam edecektir.
 
 ## <a name="templated-menu-controls"></a>Şablonlu menü denetimleri
 
-Menü denetimi, şablonlu denetim ve için iki farklı öğe şablonları sağlar; StaticItemTemplate'i ve DynamicItemTemplate'i. Bu şablonları kullanarak kolayca sunucu veya kullanıcı denetimleri, menülere ekleyebilirsiniz.
+Menü denetimi şablonlu bir denetimdir ve iki farklı ItemTemplate için izin verir; StaticItemTemplate ve DynamicItemTemplate. Bu şablonları kullanarak, menülere kolayca sunucu denetimleri veya Kullanıcı denetimleri ekleyebilirsiniz.
 
-Visual Studio .NET şablonlarında düzenlemek için akıllı etiket menüsünde düğmesini ve düzenleme şablonlarını seçin. Ardından StaticItemTemplate'i veya DynamicItemTemplate'i düzenleme arasında seçim yapabilirsiniz.
+Visual Studio .NET içindeki şablonları düzenlemek için menüdeki akıllı etiket düğmesine tıklayın ve Şablonları Düzenle ' yi seçin. Daha sonra StaticItemTemplate veya DynamicItemTemplate 'i Düzenle arasında seçim yapabilirsiniz.
 
-Sayfa yüklendiğinde StaticItemTemplate'e eklenen herhangi bir denetim statik menüsünde görünür. DynamicItemTemplate'e eklenen herhangi bir denetim tüm açılan menülerde görünür.
+StaticItemTemplate 'e eklenen denetimler, sayfa yüklendiğinde statik menüde görünür. DynamicItemTemplate 'e eklenen herhangi bir denetim, tüm açılır menülerde görünür.
 
 ## <a name="menu-events"></a>Menü olayları
 
-Menü denetimi için benzersiz olan iki olay; yine de sahip istiyor musunuz? **MenuItemClicked** ve **MenuItemDatabound** olay.
+Menü denetiminin kendine özgü iki olayı vardır; **Menuıtemclicked** ve **menuıtemtıtemi veri** bağlama olayı.
 
-Bir menü öğesi tıklatıldığında MenuItemClicked olay tetiklenir. Bir menü öğesi veriye bağlı olduğunda MenuItemDatabound olay tetiklenir. **MenuEventArgs** yapan için olay işleyicisi Item özelliği aracılığıyla menü öğesine erişim sağlar.
+Bir menü öğesine tıklandığında Menuıtemclicked olayı tetiklenir. Menü öğesi veri sınırına ulaştığında Menuıtemveriye bağlı bir olay tetiklenir. Olay işleyicisine geçirilen **MenuEventArgs** , öğe özelliği aracılığıyla menü öğesine erişim sağlar.
 
-## <a name="controlling-a-menus-appearance"></a>Menüler görünümü denetleme
+## <a name="controlling-a-menus-appearance"></a>Menüler görünümünü denetleme
 
-Ayrıca, bir veya daha fazla biçim menülere kullanılabilir birçok stilleri kullanarak bir menü denetimi görünümünü etkileyebilir. Bunlar arasında **StaticMenuStyle**, **DynamicMenuStyle**, **DynamicMenuItemStyle**, **DynamicSelectedStyle**ve **DynamicHoverStyle**. Bu özellikler, standart bir HTML stil dizesi kullanılarak yapılandırılır. Örneğin, aşağıdaki dinamik menüler stilini etkiler.
+Ayrıca, menüler için kullanılabilen birçok stili kullanarak bir menü denetiminin görünümünü de etkileyebilirsiniz. Bunlar arasında **StaticMenuStyle**, **DynamicMenuStyle**, **DynamicMenuItemStyle**, **DynamicSelectedStyle**ve **DynamicHoverStyle**bulunur. Bu özellikler standart bir HTML stil dizesi kullanılarak yapılandırılır. Örneğin, aşağıdakiler dinamik menülerin stilini etkiler.
 
 [!code-aspx[Main](data-bound-controls/samples/sample6.aspx)]
 
 > [!NOTE]
-> Vurgulu stillerin kullanıyorsanız eklemeniz gerekecektir bir &lt;baş&gt; öğesinde sayfasına *runat* öğesi kümesine *sunucu*.
+> Üzerine gelme stillerinden herhangi birini kullanıyorsanız, ' de *runat* Element for *Server*olarak ayarlanan bir &lt;Head&gt; öğesi eklemeniz gerekecektir.
 
-Menü denetimleri de ASP.NET 2.0 Temalar kullanımını destekler.
+Menü denetimleri Ayrıca ASP.NET 2,0 temalarının kullanımını destekler.
 
 ## <a name="the-treeview-control"></a>TreeView denetimi
 
-TreeView denetimi verileri gibi ağaç yapısında görüntüler. Menü denetimi gibi ile kolayca veri SiteMapDataSource gibi bir hiyerarşik veri kaynağına bağımlı olabilir.
+TreeView denetimi verileri ağaç benzeri bir yapıda görüntüler. Menü denetiminde olduğu gibi, SiteMapDataSource gibi herhangi bir hiyerarşik veri kaynağına kolayca veri bağlanabilir.
 
-Müşteriler, ASP.NET 2.0 TreeView denetimi ile ilgili sorun büyük olasılıkla sorunun ilk olup olmadığı için ASP.NET kullanılabilir TreeView IE WebControl ilişkili olduğu 1.x. Bu değil. ASP.NET 2.0 TreeView denetimi sıfırdan yazılmıştır ve önceden kullanılabilen IE TreeView WebControl üzerinde önemli bir iyileştirme sunar.
+Müşterilerin ASP.NET 2,0 ' de TreeView denetimi hakkında sormasını olası ilk soru, ASP.NET 1. x için kullanılabilir olan TreeView IE WebControl ile ilişkili olup olmadığını belirtir. Bu değildir. ASP.NET 2,0 TreeView denetimi sıfırdan yazılmıştır ve daha önce sunulan IE TreeView WebControl üzerinde önemli bir geliştirme sunar.
 
-Ayrıntıya menü denetimi ile aynı şekilde gerçekleştirildiği TreeView denetimi için bir site haritası bağlama konusunda gitmiyor. Ancak, TreeView denetimi çalışır bir şekilde ayrı bazı farklar vardır.
+Bir TreeView denetimini, menü denetimiyle tamamen aynı şekilde gerçekleştirildiği için bir site haritasına bağlama konusunda ayrıntıya geçeceğim. Ancak, TreeView denetiminin, çalıştığı şekilde bazı farklı farklılıkları vardır.
 
-Varsayılan olarak, bir TreeView denetimi tamamen genişletilmiş görünür. İlk yükleme sırasında genişletme düzeyini değiştirmek için değiştirme **ExpandDepth** denetiminin özelliği. Bu, özellikle TreeView databound belirli düğümlerini genişleterek bağlı olduğu durumlarda önemlidir.
+Varsayılan olarak, bir TreeView denetimi tamamen genişletilir. İlk yük sonrasında genişletmenin düzeyini değiştirmek için denetimin **ExpandDepth** özelliğini değiştirin. Bu özellikle, belirli düğümleri genişletmede TreeView 'un veri genişliyor olduğu durumlarda önemlidir.
 
-## <a name="databinding-the-treeview-control"></a>TreeView denetiminde veri bağlama
+## <a name="databinding-the-treeview-control"></a>TreeView denetimini veri bağlama
 
-Menü denetimi, ağaç görünümünde kendisi de büyük miktarlarda veri işleme için uygundur. Bu nedenle SiteMapDataSource veya XMLDataSource veri bağlama ek olarak, ağaç görünümünde genellikle bir veri kümesi veya diğer ilişkisel verileri bağlı veri'gereklidir. TreeView denetimi için büyük miktarlarda verinin nerede bağlı durumda, aslında denetimde görünen veri bağlamak en iyisidir. TreeView düğümleri genişletilmiş gibi ek veriler veri bağlama sonra kullanabilirsiniz.
+Menü denetiminden farklı olarak, TreeView, büyük miktarlarda veriyi işlemek için iyi bir sonuç verir. Bu nedenle, bir SiteMapDataSource veya XMLDataSource 'a veri bağlamayı ek olarak TreeView, genellikle veri kümesine veya diğer ilişkisel verilere bağlanır. TreeView denetiminin büyük miktarda veriye bağlı olduğu durumlarda, yalnızca denetimde görünür olan verilere bağlamak en iyisidir. Daha sonra veri bağlama, TreeView düğümleri genişletilmiş şekilde ek verilere bağlanabilir.
 
-Bu gibi durumlarda, **PopulateOnDemand** özelliği TreeView ayarlanmalıdır *true*. Ardından bir uygulama için sağlamanız gerekir **TreeNodePopulate** yöntemi.
+Bu durumlarda, TreeView 'un **PopulateOnDemand** özelliği *true*olarak ayarlanmalıdır. Daha sonra **TreeNodePopulate** yöntemi için bir uygulama sağlamanız gerekir.
 
-## <a name="data-binding-without-postback"></a>Veri bağlama geri gönderme
+## <a name="data-binding-without-postback"></a>Geri gönderme olmadan veri bağlama
 
-Önceki örnekte bir düğümü ilk kez genişlettiğinizde, sayfanın geri gönderir ve yeniler olduğuna dikkat edin. Thats Bu örnek, ancak sorun değil, bir üretim ortamında ile büyük miktarda veri olabilir hayal edebilirsiniz. Daha iyi bir senaryo biri, ağaç görünümünde yine de dinamik olarak düğümlerini doldurmak, ancak olmadan bir post, sunucuya geri göndermek olacaktır.
+Önceki örnekteki bir düğümü ilk kez genişlettiğinizde, sayfanın geri gönderdiğine ve yenilediğine dikkat edin. Bu örnekteki bir sorun değildir, ancak büyük miktarda veri içeren bir üretim ortamında olabileceğini hayal edebilirsiniz. Daha iyi bir senaryo, TreeView 'un düğümleri hala dinamik olarak doldurmasına, ancak sunucuya geri göndermenize gerek kalmaz.
 
-Ayarlayarak **PopulateNodesFromClient** ve **PopulateOnDemand** özelliklerini true olarak ASP.NET TreeView denetimi dinamik olarak tekrar olmadan düğümleri doldurmak. Üst düğüm genişletildiğinde istemci tarafından bir XMLHttp istekte ve OnTreeNodePopulate olay tetiklenir. Ardından verileri için kullanılan bir XML veri adası ile sunucu yanıt alt düğümleri bağlayın.
+**PopulateNodesFromClient** ve **PopulateOnDemand** özelliklerini true olarak ayarlayarak, ASP.net TreeView denetimi düğümleri geri gönderme olmadan dinamik olarak dolduracaktır. Üst düğüm genişletildiğinde, istemciden bir XMLHttp isteği yapılır ve OnTreeNodePopulate olayı tetiklenir. Sunucu, daha sonra alt düğümleri bağlamak için kullanılan bir XML veri Adası ile yanıt verir.
 
-ASP.NET dinamik olarak bu işlevselliğini uygular istemci kodu oluşturur. &lt;Betik&gt; betiği içeren etiketler, bir AXD dosyasına işaret eden oluşturulur. Örneğin, listenin altındaki XMLHttp isteği oluşturan kodu için kod bağlantıları gösterir.
+ASP.NET, bu işlevi uygulayan istemci kodunu dinamik olarak oluşturur. Betiği içeren &lt;betik&gt; etiketleri bir AXD dosyasına işaret eden oluşturulur. Örneğin, aşağıdaki listede XMLHttp isteğini üreten betik kodu için komut dosyası bağlantıları gösterilmektedir.
 
 [!code-html[Main](data-bound-controls/samples/sample7.html)]
 
-Tarayıcınızda AXD dosyanın üstüne gidin ve açmak XMLHttp istek uygulayan kod görürsünüz. Bu yöntem, müşterilerin betiğin değiştirmelerini engeller.
+Tarayıcınızda yukarıdaki AXD dosyasına gözatıp dosyayı açarsanız, XMLHttp isteğini uygulayan kodu görürsünüz. Bu yöntem, müşterilerin betik dosyasını değiştirmelerini engeller.
 
-## <a name="controlling-the-operation-of-the-treeview-control"></a>TreeView denetimi işlemini denetleme
+## <a name="controlling-the-operation-of-the-treeview-control"></a>TreeView denetiminin Işlemini denetleme
 
-TreeView denetimi, denetimin çalışmasını etkileyen birçok özelliğe sahiptir. En belirgin özellikleri **ShowCheckBoxes**, **ShowExpandCollapse**, ve **ShowLines**.
+TreeView denetiminin, denetimin işlemini etkileyen birkaç özelliği vardır. En belirgin özellikler **ShowCheckBox**, **ShowExpandCollapse**ve **ShowLines**özelliklerdir.
 
-**ShowCheckBoxes** özellik işlendiğinde bir onay kutusu düğüm Göster olup olmadığını etkiler. Bu özellik için geçerli değerler **hiçbiri**, **kök**, **üst**, **yaprak**, ve **tüm**. Bunlar gibi TreeView denetimini etkiler:
+**ShowCheckBox** özelliği, düğümlerin işlendiğinde bir onay kutusu görüntüleyip görüntülemediğinin etkilenmeyeceğini etkiler. Bu özellik için geçerli değerler None, **root**, **Parent**, **yaprak**ve **All** **'tur**. Bu, TreeView denetimini aşağıdaki gibi etkiler:
 
 | **Özellik değeri** | **Etki** |
 | --- | --- |
-| Yok. | Tüm düğümlerde onay kutuları görüntülenmez. Varsayılan ayar budur. |
-| Kök | Bir onay kutusu yalnızca kök düğümde görüntülenir. |
-| Üst öğe | Bir onay kutusu yalnızca alt düğüm varsa bu düğümler üzerinde görüntülenir. Bu alt düğümlerin, üst düğümleri veya yaprak düğümleri olabilir. |
-| Yaprak | Alt düğümler olmadan olan bu düğümlerde bir onay kutusu görüntülenir. |
+| Yok. | Onay kutuları herhangi bir düğümde gösterilmez. Varsayılan ayar budur. |
+| Asıl | Onay kutusu yalnızca kök düğümünde görüntülenir. |
+| Üst öğe | Onay kutusu yalnızca alt düğümleri olan düğümlerde görüntülenir. Bu alt düğümler üst düğümler veya yaprak düğümler olabilir. |
+| Dağıtımı | Bir onay kutusu yalnızca alt düğümleri olmayan düğümlerde görüntülenir. |
 | Tümü | Tüm düğümlerde bir onay kutusu görüntülenir. |
 
-Onay kutularını kullanıldığında **CheckedNodes** özelliği geri gönderme sırasında denetlenir TreeView düğümlerin koleksiyonunu döndürür.
+Onay kutuları kullanılırken, **CheckedNodes** özelliği geri gönderme sırasında denetlenen bir TreeView düğümleri koleksiyonu döndürür.
 
-**ShowExpandCollapse** özelliği, kök ve üst düğümleri yanındaki genişletme/daraltma görüntünün görünümünü denetler. Bu özellik ayarlanırsa **false**, ağaç düğümleri köprü olarak işlenir ve bağlantıya tıklayarak Genişlet/Daralt.
+**ShowExpandCollapse** özelliği, kök ve üst düğümlerin yanındaki Genişlet/Daralt resminin görünümünü denetler. Bu özellik **false**olarak ayarlandıysa, TreeView düğümleri köprü olarak işlenir ve bağlantıya tıklanarak genişletilir/daraltılır.
 
-**ShowLines** özellik denetler üst düğümleri alt düğümlerine bağlanma satırları olup olmadığını görüntülenir. Zaman **false** (varsayılan), satır görüntülenir. Zaman **true**, TreeView denetimi tarafından belirtilen klasörde satırları görüntülerini kullanacak **LineImagesFolder** özelliği.
+**ShowLines** özelliği, ana düğümlerin alt düğümlere bağlanması için satırların görüntülenip görüntülenmediğini denetler. **False** olduğunda (varsayılan), hiçbir satır gösterilmez. **True**olduğunda TreeView denetimi, **lineımafolder** özelliği tarafından belirtilen klasördeki çizgi görüntülerini kullanır.
 
-TreeView satırları görünümünü özelleştirmek için Visual Studio .NET 2005 bir satır Tasarımcısı araç içerir. TreeView denetimi akıllı etiket düğmeyi kullanarak bu aracına erişebilirsiniz.
+Visual Studio .NET 2005, TreeView çizgilerinin görünümünü özelleştirmek için bir çizgi tasarlayıcı aracı içerir. Bu araca aşağıdaki şekilde TreeView denetimindeki akıllı etiket düğmesini kullanarak erişebilirsiniz.
 
 ![](data-bound-controls/_static/image1.jpg)
 
 **Şekil 1**
 
-Seçtiğinizde **çizgi görüntülerini özelleştirme** menü seçeneğini satırı Tasarımcısı araç TreeView satırları görünümünü yapılandırmanıza olanak sağlayan başlatılır.
+**Satır görüntülerini Özelleştir** menü seçeneğini belirlediğinizde, satır Tasarımcısı aracı başlatılır ve bu da TreeView çizgilerinin görünümünü yapılandırmanıza olanak tanır.
 
 ## <a name="treeview-events"></a>TreeView olayları
 
-TreeView denetimi aşağıdaki benzersiz olaylar vardır:
+TreeView denetimi aşağıdaki benzersiz olaylara sahiptir:
 
-- Bir düğümü seçildiğinde SelectedNodeChanged gerçekleşir dayalı **SelectAction** özelliği.
-- TreeNodeCheckChanged düğümler checkboxs durumu değiştiğinde gerçekleşir.
-- Bir düğüm genişletildiğinde TreeNodeExpanded gerçekleşir dayalı **SelectAction** özelliği.
-- Bir düğüm daraltıldığında TreeNodeCollapsed gerçekleşir.
-- Bağlı veri bir düğümü olduğu TreeNodeDataBound gerçekleşir.
-- Bir düğüm doldurulur TreeNodePopulate gerçekleşir.
+- **SelectAction** özelliğini temel alan bir düğüm seçildiğinde SelectedNodeChanged oluşur.
+- TreeNodeCheckChanged, bir düğümler CheckBoxState değiştiğinde oluşur.
+- Bir düğüm **SelectAction** özelliğine dayalı olarak genişletildiğinde Treenodegenişletilen oluşur.
+- Bir düğüm daraltıldığında Treenodedaraltılması oluşur.
+- Bir düğüm veri bağlı olduğunda Treenodeveri sınırlama oluşur.
+- Bir düğüm doldurulursa TreeNodePopulate oluşur.
 
-**SelectAction** özelliği bir düğümü seçildiğinde hangi olay tetiklenir yapılandırmanıza olanak tanır. Aşağıdaki eylemleri SelectAction özelliği sağlar:
+**SelectAction** özelliği, bir düğüm seçildiğinde hangi olayın tetiklenme olduğunu yapılandırmanıza olanak tanır. SelectAction Özelliği aşağıdaki eylemleri sağlar:
 
-- TreeNodeSelectAction.Expand başlatır düğümü seçildiğinde TreeNodeExpanded.
-- TreeNodeSelectAction.None düğümü seçildiğinde bir olay başlatır.
-- TreeNodeSelectAction.Select düğümü seçildiğinde SelectedNodeChanged olayını başlatır.
-- TreeNodeSelectAction.SelectExpand SelectedNodeChanged olayı hem düğümü seçildiğinde TreeNodeExpanded olayını başlatır.
+- TreeNodeSelectAction. Expand, düğüm seçildiğinde Treenodegenişletilir.
+- TreeNodeSelectAction. None, düğüm seçildiğinde hiçbir olay vermez.
+- TreeNodeSelectAction. Select, düğüm seçildiğinde SelectedNodeChanged olayını başlatır.
+- TreeNodeSelectAction. SelectExpand, düğüm seçildiğinde SelectedNodeChanged olayını ve Treenodegenişletilen olayını oluşturur.
 
-## <a name="controlling-appearance-with-styles"></a>Stiller görünümü denetleme
+## <a name="controlling-appearance-with-styles"></a>Görünümleri stillerle denetleme
 
-Ağaç denetimi stilleri bir denetimin görünümünü kontrol etmek için birçok özellik sağlar. Aşağıdaki özellikler kullanılabilir.
+TreeView denetimi, denetimin görünümünü stillerle denetlemek için birçok özellik sağlar. Aşağıdaki özellikler mevcuttur.
 
 | **Özellik adı** | **Denetimler** |
 | --- | --- |
-| HoverNodeStyle | Fareyi üzerine gelindiğinde düğümlerini stilini denetler. |
-| LeafNodeStyle | Yaprak düğümlerini stilini denetler. |
-| NodeStyle | Tüm düğümleri stili denetler. Belirli bir düğümün stilleri (örneğin, LeafNodeStyle) bu stil geçersiz kılar. |
-| ParentNodeStyle | Tüm üst düğümleri stili denetler. |
-| RootNodeStyle | Kök düğüm stili denetler. |
-| SelectedNodeStyle | Seçili düğüm stili denetler. |
+| HoverNodeStyle | Fare üzerine gelindiğinde düğümlerin stilini denetler. |
+| LeafNodeStyle | Yaprak düğümlerin stilini denetler. |
+| NodeStyle | Tüm düğümlerin stilini denetler. Belirli düğüm stilleri (LeafNodeStyle gibi) bu stili geçersiz kılar. |
+| ParentNodeStyle | Tüm üst düğümlerin stilini denetler. |
+| RootNodeStyle | Kök düğümün stilini denetler. |
+| SelectedNodeStyle | Seçili düğümün stilini denetler. |
 
-Bu özelliklerin her biri, salt okunur. Ancak, bunlar her iade olacak bir **TreeNodeStyle** nesneyi ve nesnenin özelliklerini kullanarak değiştirilebilir *özelliği alt özellik* biçimi. Örneğin, ayarlanacak **ForeColor** özelliği **SelectedNodeStyle**, şu sözdizimini kullanmanız gerekir:
+Bu özelliklerin her biri salt okunurdur. Ancak, her biri **TreeNodeStyle** nesnesi döndürür ve bu nesnenin özellikleri *Property-Subproperty* biçimi kullanılarak değiştirilebilir. Örneğin, **SelectedNodeStyle**'ın **ForeColor** özelliğini ayarlamak için aşağıdaki sözdizimini kullanın:
 
 [!code-aspx[Main](data-bound-controls/samples/sample8.aspx)]
 
-Yukarıdaki etiketi kapatılmamış dikkat edin. Burada gösterilen bildirim temelli söz dizimi kullanırken TreeViews düğümleri de HTML kodunda verilebilir olmasıdır.
+Yukarıdaki etiketin kapandığına dikkat edin. Bunun nedeni, burada gösterilen bildirime dayalı sözdiziminin kullanılması nedeniyle, ağaç görünümleri düğümlerini HTML koduna da dahil edersiniz.
 
-Stil özellikleri de kullanarak kod içinde belirtilebilir *property.subproperty* biçimi. Örneğin, ayarlanacak **ForeColor** özelliği **RootNodeStyle** kodda, aşağıdaki sözdizimini kullanın:
+Stil özellikleri, *Property. Subproperty* biçimi kullanılarak kodda de belirtilebilir. Örneğin, kodda **RootNodeStyle** 'ın **ForeColor** özelliğini ayarlamak için aşağıdaki sözdizimini kullanın:
 
 [!code-csharp[Main](data-bound-controls/samples/sample9.cs)]
 
 > [!NOTE]
-> Farklı bir stil özellikleri kapsamlı bir listesi için TreeNodeStyle nesnede MSDN belgelerine bakın.
+> Farklı stil özelliklerinin kapsamlı bir listesi için TreeNodeStyle nesnesinin MSDN belgelerine bakın.
 
-## <a name="the-sitemappath-control"></a>SiteMapPath denetimi
+## <a name="the-sitemappath-control"></a>Bu denetim
 
-SiteMapPath denetimi, ASP.NET geliştiricilerine yönelik ekmek yakınında gezinme kontrolü sağlar. Başka gezinme denetimleri gibi veri kaynakları SiteMapDataSource veya XmlDataSource gibi hiyerarşik verilere bağlı kolayca olabilir.
+Bu, ASP.NET geliştiricileri için bir içerik haritası denetimi sağlar. Diğer gezinti denetimleri gibi, SiteMapDataSource veya XmlDataSource gibi hiyerarşik veri kaynaklarına kolayca veri bağlanabilir.
 
-Bir SiteMapPath denetimi SiteMapNodeItem nesnelerin oluşur. Düğümler üç tür vardır; Kök düğümü, üst düğümleri ve geçerli düğüm. Kök hiyerarşik yapının üst düğümü düğümüdür. Geçerli düğüm geçerli sayfayı temsil eder. Diğer tüm düğümlere üst düğümlerdir.
+Bir bu denetim, SiteMapNodeItem nesnelerinden oluşur. Üç tür düğüm vardır; Kök düğüm, üst düğümler ve geçerli düğüm. Kök düğüm, hiyerarşik yapının en üstündeki düğümdür. Geçerli düğüm geçerli sayfayı temsil eder. Diğer tüm düğümler üst düğümlerdir.
 
-## <a name="controlling-the-operation-of-the-sitemappath-control"></a>SiteMapPath denetimi işlemini denetleme
+## <a name="controlling-the-operation-of-the-sitemappath-control"></a>Bu denetimin Işlemini denetleme
 
-SiteMapPath denetimi işleyişini denetleyen özellikler aşağıdaki gibidir:
+, Bu denetimin işlemini denetleyen özellikler aşağıdaki gibidir:
 
-| **Özelliği** | **Özellik açıklaması** |
+| **Özellik** | **Özelliğin açıklaması** |
 | --- | --- |
-| ParentLevelsDisplayed | Kaç üst düğümleri görüntülenme şeklini denetler. Varsayılan değer üst düğümleri görüntülenen sayısına kısıtlama getirir -1 ' dir. |
-| PathDirection | Bir SiteMapPath yönünü denetler. Geçerli değerler şunlardır: (varsayılan) RootToCurrent ve CurrentToRoot. |
-| PathSeparator | Bir SiteMapPath denetimi düğümlerini ayıran karakter denetleyen bir dize. Varsayılan değer:. |
-| RenderCurrentNodeAsLink | Geçerli düğüm bir bağlantı olarak işlenen olup olmadığını denetleyen bir Boole değeri. Varsayılan değer false'tur. |
-| SkipLinkText | Ekran okuyucular tarafından sayfası görüntülendiğinde erişilebilirlik yardımcı olur. Bu özellik ekran okuyucular SiteMapPath denetimi atlamayı sağlar. Bu özelliği devre dışı bırakmak için String.Empty özelliğini ayarlayın. |
+| Parentlevelsgörüntülendi | Kaç üst düğümün görüntülendiğini denetler. Varsayılan değer, görüntülenen üst düğümlerin sayısı üzerinde hiçbir kısıtlama döndüren-1 ' dir. |
+| PathDirection | , Tadına 'ın yönünü denetler. Geçerli değerler RootToCurrent (varsayılan) ve CurrentToRoot değerleridir. |
+| PathSeparator | Bir bir veren denetimindeki düğümleri ayıran karakteri denetleyen bir dize. Varsayılan değer:. |
+| RenderCurrentNodeAsLink | Geçerli düğümün bağlantı olarak işlenip işlenmeyeceğini denetleyen bir Boole değeri. Varsayılan değer Yanlış değeridir. |
+| SkipLinkText | Sayfa ekran okuyucular tarafından görüntülendiğinde erişilebilirliğe yardımcı olur. Bu özellik ekran okuyucularının, bu denetimi atlamasına izin verir. Bu özelliği devre dışı bırakmak için, özelliğini String. Empty olarak ayarlayın. |
 
-## <a name="templated-sitemappath-controls"></a>Şablonlu SiteMapPath denetimleri
+## <a name="templated-sitemappath-controls"></a>Şablonlu denetim denetimleri
 
-SiteMapControl şablonlu bir denetimdir ve denetim görüntülenmesinde farklı şablonu kullanmak için bu nedenle, tanımlayabilirsiniz. Bir SiteMapPath denetimi şablonlarında düzenlemek için Denetim akıllı etiket düğmesine tıklayın ve menüden şablonları düzenleyin. Kullanılabilir farklı şablonlar seçebileceğiniz aşağıda gösterildiği gibi bu SiteMapTasks menü görüntüler.
+SiteMapControl şablonlu bir denetimdir ve bu şekilde, denetimi görüntülerken kullanmak üzere farklı şablonlar tanımlayabilirsiniz. Bir bu denetim içindeki şablonları düzenlemek için, denetimdeki akıllı etiket düğmesine tıklayın ve menüden Şablonları Düzenle ' yi seçin. Bu, aşağıda gösterildiği gibi, kullanılabilir farklı şablonlar arasından seçim yapabileceğiniz SiteMapTasks menüsünü görüntüler.
 
 ![](data-bound-controls/_static/image2.jpg)
 
 **Şekil 2**
 
-**NodeTemplate** şablon SiteMapPath herhangi bir düğüm gösterir. Düğüm bir kök düğümü geçerli düğüm olup olmadığını ve **RootNodeTemplate** veya **CurrentNodeTemplate** olan yapılandırılmış, NodeTemplate geçersiz kılınır.
+**NodeTemplate** şablonu, her bir düğüme başvurur. Düğüm bir kök düğüm veya geçerli düğüm ve bir **RootNodeTemplate** ya da **CurrentNodeTemplate** yapılandırılmışsa, NodeTemplate geçersiz kılınır.
 
-## <a name="sitemappath-events"></a>SiteMapPath olayları
+## <a name="sitemappath-events"></a>Bu olaylar
 
-Denetim sınıfından türetilmemiş iki olay SiteMapPath denetimi vardır. **ItemCreated** olay ve **ItemDataBound** olay. Bir SiteMapPath öğe oluşturulduğunda ItemCreated olay tetiklenir. Bir SiteMapPath düğüm veri bağlama sırasında DataBind yöntemi çağrıldığında ItemDataBound ortaya çıkar. A **SiteMapNodeItemEventArgs** nesne öğesi özelliği yoluyla belirli SiteMapNodeItem erişim sağlar.
+IBU denetim, Denetim sınıfından türetilmeyen iki olaya sahiptir; **ItemCreated** olayı ve **ıtemveriye** bağlı olayı. ItemCreated olayı, bir bir bir bir bir bir bir bir bir bir bir bir bir Bir bir bir bir bir, bir bir bir bir bir bir bir bir bir bir bir bir bir bir değer bağlama sırasında Bir **Sitemapnodeitemeventargs** nesnesi, öğe özelliği aracılığıyla belirli SiteMapNodeItem öğesine erişim sağlar.
 
-## <a name="controlling-appearance-with-styles"></a>Stiller görünümü denetleme
+## <a name="controlling-appearance-with-styles"></a>Görünümleri stillerle denetleme
 
-Aşağıdaki stilleri bir SiteMapPath denetimi biçimlendirme için kullanılabilir.
+Bir bir, bir bir bir bir bir bir denetim listesi için aşağıdaki stiller mevcuttur.
 
 | **Özellik adı** | **Denetimler** |
 | --- | --- |
-| CurrentNodeStyle | Geçerli düğüm için metin stili denetler. |
-| RootNodeStyle | Kök düğümü için metin stili denetler. |
-| NodeStyle | Tüm düğümleri CurrentNodeStyle veya RootNodeStyle uygulanmaz varsayılarak metni stilini denetler. |
+| CurrentNodeStyle | Geçerli düğümün metin stilini denetler. |
+| RootNodeStyle | Kök düğümün metin stilini denetler. |
+| NodeStyle | Bir CurrentNodeStyle veya RootNodeStyle 'ın geçerli olmadığı varsayılarak tüm düğümlerin metin stilini denetler. |
 
-NodeStyle özelliği CurrentNodeStyle veya RootNodeStyle tarafından geçersiz kılınır. Bu özelliklerin her birini salt okunur ve döndüren bir **stili** nesne. Bu özelliklerden birini kullanarak bir düğümü görünümünü etkilemek için döndürülen stil nesnesini özelliklerini ayarlamanız gerekir. Örneğin, aşağıdaki kod, geçerli düğümünün forecolor özelliği değiştirir.
+NodeStyle özelliği, CurrentNodeStyle ya da RootNodeStyle tarafından geçersiz kılınır. Bu özelliklerin her biri salt okunurdur ve bir **Stil** nesnesi döndürür. Bu özelliklerden birini kullanarak bir düğümün görünümünü etkilemek için döndürülen stil nesnesinin özelliklerini ayarlamanız gerekecektir. Örneğin, aşağıdaki kod geçerli düğümün ForeColor özelliğini değiştirir.
 
 [!code-aspx[Main](data-bound-controls/samples/sample10.aspx)]
 
-Özelliği de gösterildiği gibi program aracılığıyla uygulanabilir:
+Özelliği de programlı olarak aşağıdaki gibi uygulanabilir:
 
 [!code-csharp[Main](data-bound-controls/samples/sample11.cs)]
 
 > [!NOTE]
-> Bir şablonu uygulanmışsa, stili uygulanmaz.
+> Şablon uygulanmışsa, stil uygulanmaz.
 
-## <a name="lab-1-configuring-an-aspnet-menu-control"></a>1. Laboratuvar: Bir ASP.NET menü denetimi yapılandırma
+## <a name="lab-1-configuring-an-aspnet-menu-control"></a>Lab 1: ASP.NET Menu denetimini yapılandırma
 
 1. Yeni bir Web sitesi oluşturun.
-2. Dosya, yeni dosya ve Site Haritası dosya şablonları listesinden seçerek bir Site haritası dosyası ekleyin.
-3. Site haritası (varsayılan olarak birtakım) açın ve liste gibi görünüyor şekilde değiştirin. Site haritası bağlama sayfaları gerçekten var, ancak bu alıştırma için bir sorun olmayacaktır.
+2. Dosya, yeni, dosya ' yı seçerek ve dosya şablonları listesinden site haritası ' nı seçerek bir site haritası dosyası ekleyin.
+3. Site haritasını (varsayılan olarak Web. sitemap) açın ve aşağıdaki listeye benzemek üzere değiştirin. Site Haritası dosyasında bağlanmakta olduğunuz sayfalar gerçekten yoktur, ancak bu alıştırma için bir sorun olmayacaktır.
 
     [!code-xml[Main](data-bound-controls/samples/sample12.xml)]
-4. Varsayılan Web formunun Tasarım Görünümü'nde açın.
-5. Araç Kutusu Gezinti bölümünden sayfasına yeni bir menü denetimi ekleyin.
-6. Araç kutusu veri bölümünden yeni SiteMapDataSource ekleyin. SiteMapDataSource, sitenizdeki birtakım dosya otomatik olarak kullanır. (Birtakım dosya *gerekir* sitenin kök klasörü içinde.)
-7. Menü denetimine tıklayın ve ardından menü görevleri iletişim kutusu görüntülemek için akıllı etiket düğmesine tıklayın.
-8. Veri Kaynağı Seç açılan listede SiteMapDataSource1 seçin.
-9. AutoFormat bağlantısına tıklayın ve bir biçim menüsünü seçin.
-10. Özellikler bölmesinde **StaticDisplayLevels** özelliği 2. Menü denetimi, artık tasarımcıda giriş, ürünler ve hizmetler düğüm görüntülemelidir.
-11. Menü kullanabilmek için tarayıcınızı sayfasında göz atın. (Önceden site haritaya eklenen sayfaları gerçekten mevcut olduğundan, deneyin ve onlara göz atın, bir hata görürsünüz.)
+4. Tasarım görünümü varsayılan Web formunu açın.
+5. Araç kutusunun Gezinti bölümünden sayfaya yeni bir menü denetimi ekleyin.
+6. Araç kutusunun veri bölümünden yeni bir SiteMapDataSource ekleyin. SiteMapDataSource, sitenizdeki Web. sitemap dosyasını otomatik olarak kullanacaktır. (Web. *sitemap dosyası sitesinin kök klasöründe olmalıdır.* )
+7. Menü denetimi ' ne tıklayın ve ardından akıllı etiket düğmesine tıklayarak menü görevleri iletişim kutusunu görüntüleyin.
+8. Veri kaynağı seç açılan menüsünde SiteMapDataSource1 ' yi seçin.
+9. Otomatik Biçimlendir bağlantısına tıklayın ve menü için bir biçim seçin.
+10. Özellikler bölmesinde, **StaticDisplayLevels** özelliğini 2 olarak ayarlayın. Menü denetimi artık tasarımcıda giriş, ürünler ve Hizmetler düğümünü görüntülemelidir.
+11. Menüsünü kullanmak için tarayıcınızda sayfaya gidin. (Site haritasına eklediğiniz sayfalar gerçekten mevcut olmadığından, bu dosyalara erişmeye çalıştığınızda bir hata görürsünüz.)
 
-StaticDisplayLevels ve MaximumDynamicDisplayLevels özelliklerini değiştirme ile denemeler yapın ve bunlar menüsünün nasıl oluşturulacağını nasıl etkilediğini görün.
+StaticDisplayLevels ve MaximumDynamicDisplayLevels özelliklerini değiştirmeyi deneyin ve menünün nasıl oluşturulduğunu nasıl etkilediğini görün.
 
-## <a name="lab-2-dynamically-binding-a-treeview-control"></a>2. Laboratuvar: TreeView denetimi dinamik olarak bağlama
+## <a name="lab-2-dynamically-binding-a-treeview-control"></a>Laboratuvar 2: bir TreeView denetimini dinamik olarak bağlama
 
-Bu alıştırmada, yerel olarak çalışan SQL Server sahip olduğunuzu ve Northwind veritabanının SQL Server örneğinde mevcut olduğunu varsayar. Lütfen bu koşullar karşılanmazsa, örnek bağlantı dizesini değiştirin. Aynı zamanda güvenilir bir bağlantı yerine SQL Server kimlik doğrulaması belirtmek gerekebileceğini unutmayın.
+Bu alıştırma, yerel olarak çalıştırdığınız SQL Server olduğunu ve Northwind veritabanının SQL Server örneğinde bulunduğunu varsayar. Bu koşullar karşılanmazsa, lütfen örnekteki bağlantı dizesini değiştirin. Ayrıca, güvenilir bir bağlantı yerine SQL Server kimlik doğrulaması belirtmeniz gerekebileceğini unutmayın.
 
 1. Yeni bir Web sitesi oluşturun.
-2. Default.aspx kod görünümüne geçin ve tüm kod aşağıda kod ile değiştirin. 
+2. Default. aspx için kod görünümüne geçin ve tüm kodu aşağıda listelenen kodla değiştirin. 
 
     [!code-aspx[Main](data-bound-controls/samples/sample13.aspx)]
-3. Sayfayı treeview.aspx kaydedin.
-4. Sayfaya göz atın.
-5. Sayfanın ilk kez görüntülendiğinde, tarayıcınızda sayfa kaynağı görüntüleyin. Yalnızca görünür düğümleri istemciye gönderilen unutmayın.
+3. Sayfayı TreeView. aspx olarak kaydedin.
+4. Sayfasına gözatamazsınız.
+5. Sayfa ilk görüntülendiğinde, tarayıcınızdaki sayfanın kaynağını görüntüleyin. İstemciye yalnızca görünür düğümlerin gönderildiğini unutmayın.
 6. Herhangi bir düğümün yanındaki artı işaretine tıklayın.
-7. Sayfasında yeniden kaynağı görüntüle. Yeni düğüm mevcut olduğuna dikkat edin.
+7. Sayfadaki kaynağı yeniden görüntüleyin. Yeni görüntülenen düğümlerin artık mevcut olduğuna dikkat edin.
 
-## <a name="lab-3-details-view-and-editing-data-using-a-gridview-and-detailsview"></a>Laboratuvar 3: Ayrıntılar görünümü ve GridView ve DetailsView kullanarak verileri düzenleme
+## <a name="lab-3-details-view-and-editing-data-using-a-gridview-and-detailsview"></a>Laboratuvar 3: Ayrıntılar GridView ve DetailsView kullanarak verileri görüntüleme ve düzenlemeyle
 
 1. Yeni bir Web sitesi oluşturun.
-2. Yeni bir web.config Web sitesine ekleyin.
-3. Bir bağlantı dizesi aşağıda gösterildiği gibi web.config dosyasına ekleyin: 
+2. Web sitesine yeni bir Web. config ekleyin.
+3. Web. config dosyasına aşağıda gösterildiği gibi bir bağlantı dizesi ekleyin: 
 
     [!code-xml[Main](data-bound-controls/samples/sample14.xml)]
 
     > [!NOTE]
-    > Ortamınıza temel bağlantı dizesini değiştirmeniz gerekebilir.
-4. Web.config dosyasını kaydedip kapatın.
-5. Default.aspx açın ve yeni bir SqlDataSource denetimi ekleyin.
-6. SqlDataSource denetimi Kimliğini değiştirme **ürünleri**.
-7. İçinde **SqlDataSource görevleri** menüsünde tıklatın **veri kaynağı yapılandırma**.
-8. Seçin **Northwind** bağlantı açılır ve İleri'ye tıklayın.
-9. Seçin **ürünleri** gelen **adı** açılır ve **ProductID**, **ProductName**, **UnitPrice**, ve **unitsInStock** aşağıda gösterildiği gibi onay kutularını. 
+    > Bağlantı dizesini ortamınıza göre değiştirmeniz gerekebilir.
+4. Web. config dosyasını kaydedin ve kapatın.
+5. Default. aspx ' i açın ve yeni bir SqlDataSource denetimi ekleyin.
+6. SqlDataSource denetiminin KIMLIĞINI **Products**olarak değiştirin.
+7. **SqlDataSource Tasks** menüsünde, **veri kaynağını Yapılandır**' a tıklayın.
+8. Bağlantı açılan menüsünde **Northwind** ' i seçin ve ileri ' ye tıklayın.
+9. **Ad** açılan listesinden **Ürünler** ' i seçin ve aşağıda gösterildiği gibi **ProductID**, **ProductName**, **BirimFiyat**ve **UnitsInStock** onay kutularını işaretleyin. 
 
 ![](data-bound-controls/_static/image3.jpg)
 
     **Figure 3**
 10. **İleri**'ye tıklayın.
 11. **Son**'a tıklayın.
-12. Kaynak görünümüne geçin ve oluşturulan kodu inceleyin. Bildirim **SelectCommand**, **DeleteCommand**, **InsertCommand**, ve **UpdateCommand** SqlDataSource için eklendi denetimi. Ayrıca, eklenen parametreleri dikkat edin.
-13. Tasarım görünümüne geçin ve yeni bir GridView denetimi sayfaya ekleyin.
-14. Seçin **ürünleri** gelen **veri kaynağı Seç** açılır.
-15. Denetleme **etkinleştirme sayfalama** ve **Seçimi Etkinleştir** aşağıda gösterildiği gibi. 
+12. Kaynak görünümüne geçin ve oluşturulan kodu inceleyin. , SqlDataSource denetimine eklenen **SelectCommand**, **DeleteCommand**, **InsertCommand**ve **UpdateCommand** 'e dikkat edin. Ayrıca eklenen parametrelere de dikkat edin.
+13. Tasarım görünümü geçin ve sayfaya yeni bir GridView denetimi ekleyin.
+14. **Veri kaynağı seç** açılan listesinden **Ürünler** ' i seçin.
+15. **Sayfalamayı Etkinleştir** ' i işaretleyin ve aşağıda gösterildiği gibi **seçimi etkinleştirin** . 
 
 ![](data-bound-controls/_static/image4.jpg)
 
     **Figure 4**
-16. Tıklayın **sütunları Düzenle** emin olun ve bağlama **alanları otomatik olarak oluşturmak** denetlenir.
-17. **Tamam**'ı tıklatın.
-18. GridView denetimi seçili durumdayken yanındaki düğmeye tıklayın **DataKeyNames** özelliği Özellikler bölmesinde.
-19. Seçin **ProductID** gelen **uygun veri alanlarını** listelemek ve tıklayın **&gt;** düğmesi ekleyin.
+16. **Sütunları Düzenle** bağlantısına tıklayın ve **alanları otomatik oluştur** ' un seçili olduğundan emin olun.
+17. **Tamam**’a tıklayın.
+18. GridView denetimi seçili olduğunda, Özellikler bölmesinde **DataKeyNames** özelliğinin yanındaki düğmesine tıklayın.
+19. **Kullanılabilir veri alanları** listesinden **ProductID** öğesini seçin ve eklemek için **&gt;** düğmesine tıklayın.
 20. Tamam'a tıklayın.
-21. Yeni bir SqlDataSource denetimi sayfasına ekleyin.
-22. SqlDataSource denetimi Kimliğini değiştirme **ayrıntıları**.
-23. SqlDataSource Görevler menüsünden **veri kaynağı yapılandırma**.
-24. Seçin **Northwind** açılır ve **sonraki**.
-25. Seçin <strong>ürünleri</strong> gelen <strong>adı</strong> açılır ve <strong> \</ strong > * onay kutusu <strong>sütunları</strong> listbox.
-26. Tıklayın **burada** düğmesi.
-27. Seçin **ProductID** gelen **sütun** açılır.
-28. Seçin **=** işleci açılır.
-29. Seçin **denetimi** gelen **kaynak** açılır.
-30. Seçin **GridView1'i** gelen **denetim kimliği** açılır.
-31. Tıklayın **Ekle** düğmesini WHERE yan tümcesi ekleyin.
-32. **Tamam**'ı tıklatın.
-33. Tıklayın **Gelişmiş** denetleyin ve düğme **Generate INSERT, UPDATE ve DELETE deyimleri** onay kutusu.
-34. **Tamam**'ı tıklatın.
-35. Tıklayın **sonraki** tıklatıp **son**.
-36. Bir DetailsView denetimi sayfasına ekleyin.
-37. İçinde **veri kaynağı Seç** açılır listesinde, seçin **ayrıntıları**.
-38. Denetleme **düzenlemeyi etkinleştir** aşağıda gösterildiği gibi onay kutusu. 
+21. Sayfaya yeni bir SqlDataSource denetimi ekleyin.
+22. SqlDataSource denetiminin KIMLIĞINI **Ayrıntılar**olarak değiştirin.
+23. SqlDataSource Tasks menüsünde, **veri kaynağını Yapılandır**' ı seçin.
+24. Açılan listeden **Northwind** ' i seçin ve **İleri**' ye tıklayın.
+25. <strong>Ad</strong> açılan listesinden <strong>Ürünler</strong> ' i seçin ve <strong>sütunlar</strong> liste kutusunda <strong>\</strong > * onay kutusunu işaretleyin.
+26. **WHERE** düğmesine tıklayın.
+27. **Sütun** açılan listesinden **ProductID** ' yi seçin.
+28. Operatör açılan menüsünde **=** ' yi seçin.
+29. **Kaynak** açılan menüsünden **Denetim** ' i seçin.
+30. **DENETIM kimliği** açılan listesinden **GridView1** öğesini seçin.
+31. WHERE yan tümcesini eklemek için **Ekle** düğmesine tıklayın.
+32. **Tamam**’a tıklayın.
+33. **Gelişmiş** düğmesine tıklayın ve **Insert, Update ve delete deyimlerini oluştur** onay kutusunu işaretleyin.
+34. **Tamam**’a tıklayın.
+35. **İleri** ' ye tıklayın ve **son**' a tıklayın.
+36. Sayfaya bir DetailsView denetimi ekleyin.
+37. **Veri kaynağı seç** açılan menüsünde **Ayrıntılar**' ı seçin.
+38. Aşağıda gösterildiği gibi, **Düzenle etkinleştir** onay kutusunu işaretleyin. 
 
 ![](data-bound-controls/_static/image1.gif)
 
     **Figure 5**
-39. Sayfayı kaydedin ve Default.aspx göz atın.
-40. Tıklayın **seçin** DetailsView güncelleştirmeyi otomatik olarak görmek için farklı kayıtlara yanındaki bağlantı.
-41. Tıklayın **Düzenle** DetailsView denetiminde bağlantı.
-42. Kayıt için bir değişiklik yapın ve tıklayın **güncelleştirme**.
+39. Sayfayı kaydedin ve default. aspx ' i tarayın.
+40. DetailsView 'un otomatik olarak güncelleştirilmesini görmek için farklı kayıtlar ' ın yanındaki bağlantıyı **Seç** bağlantısına tıklayın.
+41. DetailsView denetimindeki **düzenleme** bağlantısına tıklayın.
+42. Kayıtta bir değişiklik yapıp **Güncelleştir**' e tıklayın.

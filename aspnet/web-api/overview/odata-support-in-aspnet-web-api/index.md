@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
-title: OData ASP.NET Web API'si - ASP.NET 4.x
+title: ASP.NET Web API 'SI-ASP.NET 4. x içinde OData
 author: rick-anderson
-description: OData uç noktaları için ASP.NET ASP.NET Web API'si oluşturma 4.x
+description: ASP.NET 4. x için ASP.NET Web API 'sinde OData uç noktaları oluşturma
 ms.author: riande
 ms.date: 08/17/2012
 ms.custom: seoapril2019
@@ -10,15 +10,15 @@ ms.assetid: 9151c605-e911-4f24-95b5-ca310b105abf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
 ms.openlocfilehash: 6d84b458a02b63b24334b137afdb5b710d91c5ee
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133162"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598765"
 ---
-# <a name="odata-in-aspnet-web-api"></a>ASP.NET Web API OData
+# <a name="odata-in-aspnet-web-api"></a>ASP.NET Web API 'de OData
 
-> OData uç noktaları için ASP.NET ASP.NET Web API'si oluşturma 4.x. OData, web için veri erişim kuralıdır. Sorgu ve veri kümeleri işlemek için Tekdüzen bir yol sunar. Web API, sürüm 3 hem OData Protokolü sürüm 4 destekler.
+> ASP.NET 4. x için ASP.NET Web API 'sinde OData uç noktaları oluşturma. OData, Web için bir veri erişim protokolüdür. Veri kümelerini sorgulamak ve işlemek için Tekdüzen bir yol sağlar. Web API 'SI, OData protokolünün hem sürüm 3 hem de sürüm 4 ' ü destekler.
 
 - [OData v4](odata-v4/index.md)
 

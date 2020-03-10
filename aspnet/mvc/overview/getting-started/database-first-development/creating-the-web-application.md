@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
-title: 'Öğretici: İlk ASP.NET MVC ile EF veritabanı için veri modelleri ve Web uygulaması oluşturma'
-description: Bu öğreticide web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
+title: 'Öğretici: ASP.NET MVC ile EF Database First için Web uygulaması ve veri modelleri oluşturma'
+description: Bu öğretici, Web uygulaması oluşturmaya ve veritabanı tablolarınıza göre veri modellerini oluşturmaya odaklanmaktadır.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,17 +10,17 @@ ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
 ms.openlocfilehash: 30fd42be5677df6fa6ee0630914098c30d21385b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59404526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616272"
 ---
-# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Öğretici: İlk ASP.NET MVC ile EF veritabanı için veri modelleri ve Web uygulaması oluşturma
+# <a name="tutorial-create-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Öğretici: ASP.NET MVC ile EF Database First için Web uygulaması ve veri modelleri oluşturma
 
- MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
+ MVC, Entity Framework ve ASP.NET Scafkatı kullanarak var olan bir veritabanına arabirim sağlayan bir Web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, kullanıcıların bir veritabanı tablosunda yer alan verileri görüntülemesini, düzenlemesini, oluşturmasını ve silmesini sağlayan nasıl otomatik olarak kod üretileyeceğiniz gösterilmektedir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 
-Bu öğreticide web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
+Bu öğretici, Web uygulaması oluşturmaya ve veritabanı tablolarınıza göre veri modellerini oluşturmaya odaklanmaktadır.
 
 Bu öğreticide şunları yaptınız:
 
@@ -30,78 +30,78 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Entity Framework 6 veritabanı MVC 5 kullanarak First ile çalışmaya başlama](setting-up-database.md)
+* [MVC 5 kullanarak Entity Framework 6 Database First kullanmaya başlama](setting-up-database.md)
 
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
 
-Yeni bir çözüm veya veritabanı projesini aynı çözümde Visual Studio'da yeni bir proje oluşturun ve seçin **ASP.NET Web uygulaması** şablonu. Projeyi adlandırın **ContosoSite**.
+Yeni bir çözümde veya veritabanı projesiyle aynı çözümde, Visual Studio 'da yeni bir proje oluşturun ve **ASP.NET Web uygulaması** şablonunu seçin. Projeyi **Contososite**olarak adlandırın.
 
-![Proje oluşturma](creating-the-web-application/_static/image1.png)
+![proje oluştur](creating-the-web-application/_static/image1.png)
 
-**Tamam**'ı tıklatın.
+**Tamam**’a tıklayın.
 
-Yeni ASP.NET projesi penceresinde **MVC** şablonu. Temizleyebilir **bulutta Barındır** , daha sonra uygulamanızı buluta dağıtmadan çünkü şu an için seçenek. Tıklayın **Tamam** uygulama oluşturmak için.
+Yeni ASP.NET projesi penceresinde **MVC** şablonunu seçin. Uygulamayı daha sonra buluta dağıtacağından, şimdi için **bulut seçeneğinde Konağı** temizleyebilirsiniz. Uygulamayı oluşturmak için **Tamam** ' ı tıklatın.
 
-Projenin varsayılan dosya ve klasörlerle oluşturulur.
+Proje varsayılan dosya ve klasörlerle oluşturulur.
 
-Bu öğreticide, Entity Framework 6 kullanır. NuGet paketlerini Yönet penceresi projenizdeki Entity Framework sürümünü denetleyin. Gerekirse, Entity Framework sürümünüzü güncelleştirin.
+Bu öğreticide Entity Framework 6 kullanacaksınız. NuGet Paketlerini Yönet penceresi aracılığıyla projenizdeki Entity Framework sürümünü bir kez daha kontrol edebilirsiniz. Gerekirse, Entity Framework sürümünüzü güncelleştirin.
 
-![Sürüm Göster](creating-the-web-application/_static/image3.png)
+![sürümü göster](creating-the-web-application/_static/image3.png)
 
 ## <a name="generate-the-models"></a>Modelleri oluşturma
 
-Bu gibi durumlarda, Entity Framework modelleri artık veritabanı tablolarından oluşturacaksınız. Bu modeli verilerle çalışmak için kullanacağınız sınıflardır. Her model, veritabanındaki bir tabloda yansıtır ve tablosundaki sütunlara karşılık gelen özelliklerle içerir.
+Artık veritabanı tablolarından Entity Framework modeller oluşturacaksınız. Bu modeller, verilerle çalışmak için kullanacağınız sınıflardır. Her model veritabanındaki bir tabloyu yansıtır ve tablodaki sütunlara karşılık gelen özellikleri içerir.
 
-Sağ **modelleri** klasörü ve select **Ekle** ve **yeni öğe**.
+**Modeller** klasörüne sağ tıklayın ve **Ekle** ' ye ve **Yeni öğe**' yi seçin.
 
-Yeni Öğe Ekle penceresinde **veri** sol bölmede ve **ADO.NET varlık veri modeli** Orta bölmedeki seçeneklerden. Yeni model dosyası adı **ContosoModel**.
+Yeni öğe Ekle penceresinde, sol bölmedeki **veriler** ' i seçin ve orta bölmedeki seçeneklerden **ADO.net varlık veri modeli** . Yeni model dosyası **Contosomodel**olarak adlandırın.
 
 **Ekle**'yi tıklatın.
 
-Varlık veri modeli Sihirbazı'nda seçin **EF veritabanı Tasarımcısından**.
+Varlık Veri Modeli sihirbazında, **veritabanından EF Designer**' ı seçin.
 
 **İleri**'ye tıklayın.
 
-Geliştirme ortamınızda tanımlanmış veritabanı bağlantınız varsa, önceden seçilmiş Bu bağlantılardan birini görebilirsiniz. Ancak, bu öğreticinin ilk bölümünde oluşturduğunuz veritabanına yeni bir bağlantı oluşturmak istiyorsunuz. Tıklayın **yeni bağlantı** düğmesi.
+Geliştirme ortamınızda tanımlanmış veritabanı bağlantılarınız varsa, bu bağlantılardan birini önceden seçmiş olabilirsiniz. Ancak, Bu öğreticinin ilk bölümünde oluşturduğunuz veritabanına yeni bir bağlantı oluşturmak istersiniz. **Yeni bağlantı** düğmesine tıklayın.
 
-Bağlantı Özellikleri penceresinde veritabanınızı oluşturulduğu yerel sunucunun adını belirtin (Bu durumda **(localdb) \ProjectsV13**). Sunucu adı girdikten sonra ContosoUniversityData kullanılabilir veritabanlarını seçin.
+Bağlantı Özellikler penceresi, veritabanınızın oluşturulduğu yerel sunucunun adını girin (Bu örnekte **(LocalDB) \ProjectsV13**). Sunucu adını sağladıktan sonra, kullanılabilir veritabanlarından Contosoüniversıdata ' ı seçin.
 
 ![bağlantı özelliklerini ayarlama](creating-the-web-application/_static/image8.png)
 
-**Tamam**'ı tıklatın.
+**Tamam**’a tıklayın.
 
-Doğru bağlantı özellikleri artık görüntülenir. Web.Config dosyasında bağlantı için varsayılan adı kullanabilirsiniz.
-
-**İleri**'ye tıklayın.
-
-Entity Framework'ün en son sürümü seçin.
+Doğru bağlantı özellikleri artık gösteriliyor. Web. config dosyasında bağlantı için varsayılan adı kullanabilirsiniz.
 
 **İleri**'ye tıklayın.
 
-Seçin **tabloları** üç tüm tablolar için modeller oluşturmak için.
+En son Entity Framework sürümünü seçin.
+
+**İleri**'ye tıklayın.
+
+Üç tabloya yönelik modeller oluşturmak için **Tablolar** ' ı seçin.
 
 **Son**'a tıklayın.
 
-Bir güvenlik uyarısı alırsanız seçin **Tamam** şablon çalıştırmaya devam etmek için.
+Bir güvenlik uyarısı alırsanız, şablonu çalıştırmaya devam etmek için **Tamam** ' ı seçin.
 
-Veritabanı tablolarından modelleri oluşturulur ve özelliklerini ve tablolar arasındaki ilişkileri gösteren bir diyagram görüntülenir.
+Modeller veritabanı tablolarından oluşturulur ve tablolar arasındaki özellikleri ve ilişkileri gösteren bir diyagram görüntülenir.
 
-![modelin diyagramı](creating-the-web-application/_static/image11.png)
+![Model diyagramı](creating-the-web-application/_static/image11.png)
 
-Modeller klasörü artık veritabanından oluşturulan modelleri ilgili çok sayıda yeni dosyaları içerir.
+Modeller klasörü artık veritabanından oluşturulan modellerle ilgili birçok yeni dosya içerir.
 
-**ContosoModel.Context.cs** dosyası içerir, türetilen bir sınıf **DbContext** sınıfı ve bir veritabanı tablosuna karşılık gelen her bir model sınıfı için bir özellik sağlar. **Course.cs**, **Enrollment.cs**, ve **Student.cs** dosyaları veritabanı tablolarını temsil eden model sınıfları içerir. Yapı iskelesi ile çalışırken bağlam sınıfını hem model sınıfları kullanır.
+**ContosoModel.Context.cs** dosyası **DbContext** sınıfından türetilen bir sınıf içerir ve bir veritabanı tablosuna karşılık gelen her model sınıfı için bir özellik sağlar. **Course.cs**, **enrollment.cs**ve **Student.cs** dosyaları, veritabanları tablolarını temsil eden model sınıflarını içerir. Yapı iskelesi ile çalışırken hem bağlam sınıfını hem de model sınıflarını kullanacaksınız.
 
-Bu öğretici ile devam etmeden önce projeyi derleyin. Bölüm projesi oluşturulmadı çalışmaz ancak bu, sonraki bölümde, veri modellerine göre kod oluşturur.
+Bu öğreticiye devam etmeden önce projeyi derleyin. Sonraki bölümde, veri modellerini temel alan kod oluşturacaksınız, ancak bu bölüm, proje oluşturulmadığında çalışmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * ASP.NET web uygulaması oluşturuldu
-> * Model
+> * Bir ASP.NET Web uygulaması oluşturuldu
+> * Modeller üretildi
 
-Veri modellerine göre kod oluşturmak nasıl oluşturulacağını öğrenmek için sonraki öğreticiye ilerleyin.
+Veri modellerini temel alan oluşturma kodu oluşturma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 > [!div class="nextstepaction"]
-> [Görünüm oluşturma](generating-views.md)
+> [Görünümler üretiliyor](generating-views.md)

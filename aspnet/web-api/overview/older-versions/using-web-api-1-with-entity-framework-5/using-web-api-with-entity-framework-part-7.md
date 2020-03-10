@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: 'Bölüm 7: Ana sayfa oluşturma | Microsoft Docs'
+title: '7\. Bölüm: Ana sayfa oluşturma | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,13 +9,13 @@ ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: fe4074c701159a137be3644d65ca844f160c2399
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599983"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598681"
 ---
-# <a name="part-7-creating-the-main-page"></a>Bölüm 7: Ana Sayfayı Oluşturma
+# <a name="part-7-creating-the-main-page"></a>7\. Bölüm: Ana sayfa oluşturma
 
 , [Mike te son](https://github.com/MikeWasson)
 
@@ -80,9 +80,9 @@ Daha fazla kod olan Tamam, ancak adım adım bir adım geliştirdik, bu sayede t
 
 Bu, Products dizisinin üzerinde dolaşır ve adı ve fiyatı görüntüler. "Sıraya ekle" düğmesi yalnızca Kullanıcı oturum açtığında görünür.
 
-"Sıraya ekle" düğmesi, ürünün `ProductViewModel` örneğindeki `addItemToCart` çağırır. Bu, altını gizleme. js ' nin iyi bir özelliğini gösterir: Bir görünüm modeli diğer görünüm modellerini içerdiğinde, bağlamaları iç modele uygulayabilirsiniz. Bu örnekte, `foreach` içindeki bağlamalar `ProductViewModel` örneklerinin her birine uygulanır. Bu yaklaşım, tüm işlevleri tek bir görünüm modeline yerleştirmekten çok daha temizdir.
+"Sıraya ekle" düğmesi, ürünün `ProductViewModel` örneğindeki `addItemToCart` çağırır. Bu, altını gizleme. js ' nin iyi bir özelliğini gösterir: bir görünüm modeli diğer görünüm modellerini içerdiğinde, bağlamaları iç modele uygulayabilirsiniz. Bu örnekte, `foreach` içindeki bağlamalar `ProductViewModel` örneklerinin her birine uygulanır. Bu yaklaşım, tüm işlevleri tek bir görünüm modeline yerleştirmekten çok daha temizdir.
 
-**Cart**
+**Tin**
 
 Sepetin bağlamaları aşağıda verilmiştir:
 
@@ -116,4 +116,4 @@ Ek kaynaklar:
 - [Entity Framework Geliştirici Merkezi](https://msdn.microsoft.com/data/ef)
 
 > [!div class="step-by-step"]
-> [Önceki](using-web-api-with-entity-framework-part-6.md)
+> [Öncekini](using-web-api-with-entity-framework-part-6.md)

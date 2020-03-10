@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-3-updating
-title: 'ASP.NET vNext videolar: Model bağlama bölüm 3 - güncelleştirme | Microsoft Docs'
+title: 'ASP.NET vNext videoları: model bağlama bölüm 3-güncelleştiriliyor | Microsoft Docs'
 author: DamianEdwards
-description: Bu videoda, verileri nasıl güncelleştirileceğini gösterimi, model bağlama gözden Damian Edwards tamamlar.
+description: Bu videoda, Davmian edi 'ler, verilerin nasıl güncelleştirileceğini gösteren model bağlamanın gözden geçirilmesini tamamlar.
 ms.author: riande
 ms.date: 08/22/2011
 ms.assetid: 63c42590-08ac-44da-91f8-bd79489b9ecc
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-3-updating
 msc.type: video
 ms.openlocfilehash: 25638d7af7f8e97160a2394173c685539fde1c68
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413418"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633758"
 ---
-# <a name="aspnet-vnext-videos-model-binding-part-3---updating"></a>ASP.NET vNext videolar: Model Bağlama 3. Bölüm - Güncelleştirme
+# <a name="aspnet-vnext-videos-model-binding-part-3---updating"></a>ASP.NET vNext videoları: model bağlama bölüm 3-güncelleştirme
 
-tarafından [Damian Edwards](https://github.com/DamianEdwards)
+, [Davmian edi](https://github.com/DamianEdwards) tarafından
 
-Bu videoda, verileri nasıl güncelleştirileceğini gösterimi, model bağlama gözden Damian Edwards tamamlar.
+Bu videoda, Davmian edi 'ler, verilerin nasıl güncelleştirileceğini gösteren model bağlamanın gözden geçirilmesini tamamlar.
 
-[&#9654;(1 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-3-updating)
+[&#9654;Videoyu izleyin (1 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-3-updating)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-vnext-videos-model-binding-part-2-filtering.md)

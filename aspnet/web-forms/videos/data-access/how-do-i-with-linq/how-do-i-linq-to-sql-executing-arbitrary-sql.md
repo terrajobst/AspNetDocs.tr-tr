@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql
-title: 'Nasıl Yaparım LINQ to SQL: Rastgele SQL yürütme | Microsoft Docs'
+title: 'Nasıl yapılır: LINQ to SQL: rastgele SQL yürütme | Microsoft Docs'
 author: scottstanfield
-description: Bu videoda, ExecuteCommand söz dizimi ve kısmi DataContext sınıfının kodlardan Kapsüllenen aracılığıyla tüm rastgele SQL yürütme işlemi gösterilmektedir.
+description: Bu videoda, ExecuteCommand söz dizimi aracılığıyla rastgele bir SQL yürütme ve kodun kısmi DataContext sınıfı aracılığıyla kapsüllenmesi gösterilmektedir.
 ms.author: riande
 ms.date: 03/13/2008
 ms.assetid: 9251bc80-33d9-4b86-9d96-a2e6f5c52a03
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql
 msc.type: video
 ms.openlocfilehash: 3162db9b0b3e8c057201d96e08133a086c384fe6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59416993"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631329"
 ---
-# <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a>Nasıl Yaparım LINQ to SQL: Rastgele SQL Yürütme
+# <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a>Nasıl yapılır: LINQ to SQL: rastgele SQL yürütme
 
-tarafından [Scott Stanfield](https://github.com/scottstanfield)
+[Scott Stanme alanına](https://github.com/scottstanfield) göre
 
-Bu videoda, ExecuteCommand söz dizimi ve kısmi DataContext sınıfının kodlardan Kapsüllenen aracılığıyla tüm rastgele SQL yürütme işlemi gösterilmektedir.
+Bu videoda, ExecuteCommand söz dizimi aracılığıyla rastgele bir SQL yürütme ve kodun kısmi DataContext sınıfı aracılığıyla kapsüllenmesi gösterilmektedir.
 
-[&#9654;(4 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-executing-arbitrary-sql)
+[&#9654;Videoyu izleyin (4 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-executing-arbitrary-sql)
 
 > [!div class="step-by-step"]
-> [Önceki](how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+> [Öncekini](how-do-i-linq-to-sql-updating-with-stored-procedures.md)

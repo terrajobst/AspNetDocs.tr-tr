@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: Yönlendirme kuralları ASP.NET Web API 2 Odata - ASP.NET 4.x
+title: ASP.NET Web API 2 OData-ASP.NET 4. x içindeki yönlendirme kuralları
 author: MikeWasson
-description: Yönlendirme kuralları, Web API 2 OData uç noktaları için ASP.NET 4.x kullanır açıklar.
+description: ASP.NET 4. x içindeki Web API 2 ' nin OData uç noktaları için kullandığı yönlendirme kurallarını açıklar.
 ms.author: riande
 ms.date: 07/31/2013
 ms.custom: seoapril2019
@@ -10,173 +10,173 @@ ms.assetid: adbc175a-14eb-4ab2-a441-d056ffa8266f
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
 ms.openlocfilehash: 63df4a82cd8df92631485b2544117844cfd0ca56
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130484"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78614718"
 ---
-# <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Yönlendirme kuralları ASP.NET Web API 2 Odata
+# <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>ASP.NET Web API 2 OData içindeki yönlendirme kuralları
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Bu makalede, Web API 2 OData uç noktaları için ASP.NET 4.x kullanır yönlendirme kuralları açıklanır.
+> Bu makalede, ASP.NET 4. x içindeki Web API 2 ' nin OData uç noktaları için kullandığı yönlendirme kuralları açıklanır.
 
-Web API OData isteği aldığında, denetleyici adı ve eylem adı için istek eşler. Eşleme, HTTP yöntemi ve URI temel alır. Örneğin, `GET /odata/Products(1)` eşlendiği `ProductsController.GetProduct`.
+Web API 'SI bir OData isteği aldığında, isteği bir denetleyici adı ve eylem adı ile eşler. Eşleme, HTTP yöntemini ve URI 'yi temel alır. Örneğin, `GET /odata/Products(1)` `ProductsController.GetProduct`eşlenir.
 
-Bölümünde, bu makalenin 1 miyim yerleşik OData rota kurallarını açıklar. Bu kuralları özellikle OData uç noktaları için tasarlanmıştır ve bunlar varsayılan Web API yönlendirme sistemi değiştirir. (Çağırdığınızda değişiklik olur **MapODataRoute**.)
+Bu makalenin 1. bölümünde, yerleşik OData yönlendirme kurallarını açıklıyorum. Bu kurallar, özel olarak OData uç noktaları için tasarlanmıştır ve varsayılan Web API yönlendirme sisteminin yerini alır. ( **MapODataRoute**' i çağırdığınızda değiştirme olur.)
 
-Bölüm 2'de, ben nasıl özel yönlendirme kuralları ekleneceğini göstermektedir. Şu anda yerleşik kuralları, tüm OData aralığı URI'ler kapsamaz, ancak ek durumlarında genişletebilirsiniz.
+Bölüm 2 ' de, özel yönlendirme kuralları eklemeyi gösterir. Şu anda yerleşik kurallar, tüm OData URI aralığını kapsamaz, ancak bunları ek durumları işleyecek şekilde genişletebilirsiniz.
 
 - [Yerleşik yönlendirme kuralları](#conventions)
-- [Özel rota kuralları](#custom)
+- [Özel yönlendirme kuralları](#custom)
 
 <a id="conventions"></a>
 ## <a name="built-in-routing-conventions"></a>Yerleşik yönlendirme kuralları
 
-Ben Web API OData rota kurallarını tanımlamak önce OData URI anlamak yararlıdır. Bir [OData URI'SİNİN](http://www.odata.org/documentation/odata-v3-documentation/url-conventions/) oluşur:
+Web API 'de OData yönlendirme kurallarını anladığımda, OData URI 'Lerini anlamak faydalı olabilir. [OData URI](http://www.odata.org/documentation/odata-v3-documentation/url-conventions/) aşağıdakilerden oluşur:
 
-- Hizmet kök
+- Hizmet kökü
 - Kaynak yolu
-- Sorgu Seçenekleri
+- Sorgu seçenekleri
 
 ![](odata-routing-conventions/_static/image1.png)
 
-Yönlendirme için önemli bir parçası ise kaynak yoludur. Kaynak yolu parçalara bölünmüştür. Örneğin, `/Products(1)/Supplier` üç segmentler içerir:
+Yönlendirme için, önemli parça kaynak yoludur. Kaynak yolu kesimlere bölünür. Örneğin, `/Products(1)/Supplier` üç parçaya sahiptir:
 
-- `Products` "Ürünler" adlı bir varlık kümesini ifade eder.
-- `1` kümesinden tek bir varlık seçerek bir varlık anahtarı.
-- `Supplier` ilgili varlık seçen bir gezinti özelliği var.
+- `Products`, "Ürünler" adlı bir varlık kümesini ifade eder.
+- `1`, kümeden tek bir varlık seçen bir varlık anahtarıdır.
+- `Supplier`, ilgili varlığı seçen bir gezinti özelliğidir.
 
-Bu nedenle bu yolu 1 ürün sağlayıcısıyla seçer.
+Bu nedenle bu yol, 1. ürünün tedarikçisine sahiptir.
 
 > [!NOTE]
-> OData yolu kesimleri her zaman URI segmentlere karşılık gelmez. Örneğin, "1", bir yol kesimi olarak kabul edilir.
+> OData yol kesimleri, her zaman URI kesimlerine karşılık gelmez. Örneğin, "1" bir yol kesimi olarak değerlendirilir.
 
-**Denetleyici adı.** Denetleyici adı her zaman varlık kümesi kaynak yolu kökünde türetilir. Örneğin, kaynak yolu ise `/Products(1)/Supplier`, Web API görünen adlı bir denetleyici için `ProductsController`.
+**Denetleyici adları.** Denetleyici adı her zaman kaynak yolunun kökündeki varlık kümesinden türetilir. Örneğin, kaynak yolu `/Products(1)/Supplier`ise, Web API 'SI `ProductsController`adlı bir denetleyici arar.
 
-**Eylem adları.** Eylem adları, aşağıdaki tablolarda listelenenler gibi yol kesimleri artı varlık veri modeli (EDM) türetilmiştir. Bazı durumlarda, eylem adı için iki seçeneğiniz vardır. Örneğin, "Get" veya &quot;GetProducts&quot;.
+**Eylem adları.** Eylem adları, aşağıdaki tablolarda listelendiği gibi yol kesimlerinden ve varlık veri modelinden (EDM) türetilir. Bazı durumlarda, eylem adı için iki seçeneğiniz vardır. Örneğin, "Get" veya &quot;GetProducts&quot;.
 
 **Varlıkları sorgulama**
 
-| İstek | Örnek URI | Eylem adı | Örnek eylem |
+| İstek | Örnek URI | Eylem Adı | Örnek eylem |
 | --- | --- | --- | --- |
-| /EntitySet Al | / Ürünleri | GetEntitySet veya Get | GetProducts |
-| /EntitySet(KEY) Al | /Products(1) | GetEntityType veya Get | GetProduct |
-| /EntitySet (anahtar) GET / atama | / Ürünleri (1) /Models.Book | GetEntityType veya Get | GetBook |
+| /EntitySet al | /Products | GetEntitySet veya Get | GetProducts |
+| /EntitySet (anahtar) Al | /Products (1) | GetEntityType veya Get | GetProduct |
+| /EntitySet (anahtar)/Cast al | /Products (1)/models.Book | GetEntityType veya Get | GetBook |
 
-Daha fazla bilgi için [salt okunur OData uç noktası oluşturma](odata-v3/creating-an-odata-endpoint.md).
+Daha fazla bilgi için bkz. [salt bir OData uç noktası oluşturma](odata-v3/creating-an-odata-endpoint.md).
 
-**Oluşturma, güncelleştirme ve varlıkları silme**
+**Varlıkları oluşturma, güncelleştirme ve silme**
 
-| İstek | Örnek URI | Eylem adı | Örnek eylem |
+| İstek | Örnek URI | Eylem Adı | Örnek eylem |
 | --- | --- | --- | --- |
-| POST /entityset | / Ürünleri | PostEntityType veya sonrası | PostProduct |
-| /EntitySet(KEY) yerleştirin | /Products(1) | PutEntityType veya Put | PutProduct |
-| /EntitySet (anahtar) PUT / atama | / Ürünleri (1) /Models.Book | PutEntityType veya Put | PutBook |
-| Düzeltme eki /entityset(key) | /Products(1) | PatchEntityType veya düzeltme eki | PatchProduct |
-| Düzeltme eki /EntitySet (anahtar) / atama | / Ürünleri (1) /Models.Book | PatchEntityType veya düzeltme eki | PatchBook |
-| /EntitySet(KEY) Sil | /Products(1) | DeleteEntityType ya da Delete | DeleteProduct |
-| /EntitySet (anahtar) silme / atama | / Ürünleri (1) /Models.Book | DeleteEntityType ya da Delete | DeleteBook |
+| /EntitySet SONRASı | /Products | PostEntityType veya post | PostProduct |
+| PUT/EntitySet (anahtar) | /Products (1) | PutEntityType veya put | PutProduct |
+| /EntitySet (anahtar)/Cast koy | /Products (1)/models.Book | PutEntityType veya put | PutBook |
+| PATCH/EntitySet (anahtar) | /Products (1) | PatchEntityType veya Patch | PatchProduct |
+| PATCH/EntitySet (anahtar)/Cast | /Products (1)/models.Book | PatchEntityType veya Patch | PatchBook |
+| /EntitySet 'i SIL (anahtar) | /Products (1) | DeleteEntityType veya delete | DeleteProduct |
+| /EntitySet (anahtar)/Cast SIL | /Products (1)/models.Book | DeleteEntityType veya delete | DeleteBook |
 
-**Bir gezinme özelliği sorgulama**
+**Gezinti özelliği sorgulama**
 
-| İstek | Örnek URI | Eylem adı | Örnek eylem |
+| İstek | Örnek URI | Eylem Adı | Örnek eylem |
 | --- | --- | --- | --- |
-| GET /entityset (anahtar) / gezinti | / Ürünleri (1) / sağlayıcı | GetNavigationFromEntityType veya GetNavigation | GetSupplierFromProduct |
-| /EntitySet (anahtar) / dönüştürme/Gezinti Al | / Ürünleri (1) /Models.Book/Author | GetNavigationFromEntityType veya GetNavigation | GetAuthorFromBook |
+| /EntitySet (anahtar)/gezinti al | /Products (1)/Tedarikçi | GetNavigationFromEntityType veya GetNavigation | GetSupplierFromProduct |
+| /EntitySet (anahtar)/ro/Navigation al | /Products (1)/Models.Book/Author | GetNavigationFromEntityType veya GetNavigation | GetAuthorFromBook |
 
-Daha fazla bilgi için [varlık ilişkilerinde çalışma](odata-v3/working-with-entity-relations.md).
+Daha fazla bilgi için bkz. [varlık ilişkileri Ile çalışma](odata-v3/working-with-entity-relations.md).
 
-**Oluşturma ve bağlantıları silme**
+**Bağlantı oluşturma ve silme**
 
-| İstek | Örnek URI | Eylem adı |
+| İstek | Örnek URI | Eylem Adı |
 | --- | --- | --- |
-| POST /entityset (anahtar) / $links/Gezinti | / Bağlantı/tedarikçi ürünleri (1) / $ | CreateLink |
-| PUT /entityset (anahtar) / $links/Gezinti | / Bağlantı/tedarikçi ürünleri (1) / $ | CreateLink |
-| DELETE /entityset (anahtar) / $links/Gezinti | / Bağlantı/tedarikçi ürünleri (1) / $ | DeleteLink |
-| /EntitySet(KEY)/$Links/Navigation(relatedKey) Sil | /Products/(1)/$Links/Suppliers(1) | DeleteLink |
+| /EntitySet (anahtar)/$links/Navigation SONRASı | /Products (1)/$links/Tedarikçi | CreateLink |
+| /EntitySet (anahtar)/$links/Navigation koy | /Products (1)/$links/Tedarikçi | CreateLink |
+| /EntitySet (anahtar)/$links/gezintiyi SIL | /Products (1)/$links/Tedarikçi | DeleteLink |
+| /EntitySet (anahtar)/$links/Navigation (relatedKey) SIL | /Products/(1)/$links/Suppliers (1) | DeleteLink |
 
-Daha fazla bilgi için [varlık ilişkilerinde çalışma](odata-v3/working-with-entity-relations.md).
+Daha fazla bilgi için bkz. [varlık ilişkileri Ile çalışma](odata-v3/working-with-entity-relations.md).
 
 **Özellikler**
 
 *Web API 2 gerektirir*
 
-| İstek | Örnek URI | Eylem adı | Örnek eylem |
+| İstek | Örnek URI | Eylem Adı | Örnek eylem |
 | --- | --- | --- | --- |
-| GET /entityset (anahtar) / özelliği | / Ürünleri (1) / ad | GetPropertyFromEntityType veya GetProperty | GetNameFromProduct |
-| /EntitySet (anahtar) / dönüştürme/özellik Al | / Ürünleri (1) /Models.Book/Author | GetPropertyFromEntityType veya GetProperty | GetTitleFromBook |
+| /EntitySet (anahtar)/Property al | /Products (1)/Name | GetPropertyFromEntityType veya GetProperty | GetNameFromProduct |
+| /EntitySet (anahtar)/ro/Property al | /Products (1)/Models.Book/Author | GetPropertyFromEntityType veya GetProperty | GetTitleFromBook |
 
 **Eylemler**
 
-| İstek | Örnek URI | Eylem adı | Örnek eylem |
+| İstek | Örnek URI | Eylem Adı | Örnek eylem |
 | --- | --- | --- | --- |
-| POST /entityset (anahtar) / işlem | / Ürünleri (1) / oranı | ActionNameOnEntityType veya ActionName | RateOnProduct |
-| /EntitySet (anahtar) / dönüştürme/eylem | / Ürünleri (1) /Models.Book/CheckOut | ActionNameOnEntityType veya ActionName | CheckOutOnBook |
+| POST/EntitySet (anahtar)/Action | /Products (1)/ücret | ActionNameOnEntityType veya ActionName | RateOnProduct |
+| POST/EntitySet (anahtar)/ro/Action | /Products (1)/Models.Book/CheckOut | ActionNameOnEntityType veya ActionName | CheckOutOnBook |
 
-Daha fazla bilgi için [OData eylemleri](odata-v3/odata-actions.md).
+Daha fazla bilgi için bkz. [OData eylemleri](odata-v3/odata-actions.md).
 
-**Yöntem imzaları**
+**Yöntem Imzaları**
 
-Yöntem imzaları için bazı kurallar şunlardır:
+Yöntem imzaları için bazı kurallar aşağıda verilmiştir:
 
-- Yolun bir anahtar içeriyorsa, eylem adlı bir parametresi olmalıdır *anahtar*.
-- Yolun bir gezinti özelliğine bir anahtar içeriyorsa, eylem adlı bir parametresi olmalıdır *relatedKey*.
-- Süslemek *anahtarı* ve *relatedKey* parametrelerle **[FromODataUri]** parametresi.
-- Varlık türünde bir parametre, POST ve PUT isteklerini yararlanın.
-- PATCH isteklerinde ele türünde bir parametre **Delta&lt;T&gt;** burada *T* varlık türü olduğu.
+- Yol bir anahtar içeriyorsa, eylem *anahtar*adlı bir parametreye sahip olmalıdır.
+- Yol, bir gezinti özelliğine bir anahtar içeriyorsa, eylem *RelatedKey*adlı bir parametreye sahip olmalıdır.
+- **[Fromodatauri]** parametresiyle *anahtar* ve *RelatedKey* parametreleri süsle.
+- POST ve PUT istekleri, varlık türünün bir parametresini alır.
+- Düzeltme Eki istekleri, **Delta&lt;t&gt;** türünde bir parametre alır, burada *t* varlık türüdür.
 
-Başvuru için her yerleşik OData rota kuralları örneği için yöntem imzaları gösteren bir örnek aşağıda verilmiştir.
+Başvuru için, her yerleşik OData yönlendirme kuralı için yöntem imzalarını gösteren bir örnek aşağıda verilmiştir.
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample1.cs)]
 
 <a id="custom"></a>
-## <a name="custom-routing-conventions"></a>Özel rota kuralları
+## <a name="custom-routing-conventions"></a>Özel yönlendirme kuralları
 
-Şu anda yerleşik kuralları, tüm olası OData URI kapsamaz. Yeni kuralları uygulayarak ekleyebileceğiniz **IODataRoutingConvention** arabirimi. Bu arabirim, iki yöntem vardır:
+Şu anda yerleşik kurallar olası tüm OData URI 'Lerini kapsamaz. **IODataRoutingConvention** arabirimini uygulayarak yeni kurallar ekleyebilirsiniz. Bu arabirimin iki yöntemi vardır:
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample2.cs)]
 
 - **SelectController** denetleyicinin adını döndürür.
-- **SelectAction** eylem adını döndürür.
+- **SelectAction** eylemin adını döndürür.
 
-Kural bu istek için geçerli değilse her iki yöntem için metot null döndürmelidir.
+Her iki yöntem için de kural bu istek için uygulanmadığından, yöntemi null döndürmelidir.
 
-**ODataPath** parametresini ayrıştırılmış OData kaynak yolunu temsil eder. Bir listesini içeren **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** örnekler, bir kaynak yolu, her bir kesim. **ODataPathSegment** bir Özet sınıf; her bir kesim türü türetilen bir sınıf tarafından temsil edilen **ODataPathSegment**.
+**ODataPath** parametresi, ayrıştırılmış OData kaynak yolunu temsil eder. Kaynak yolunun her segmenti için bir tane olmak üzere **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** örneklerinin bir listesini içerir. **ODataPathSegment** soyut bir sınıftır; her segment türü **ODataPathSegment**öğesinden türetilen bir sınıf tarafından temsil edilir.
 
-**ODataPath.TemplatePath** birleştirme temsil eden bir dize özelliği olan tüm yol kesimleri. Örneğin, URI ise `/Products(1)/Supplier`, yol şablonu &quot;~/entityset/key/navigation&quot;. Segmentlerini doğrudan URI segmentlere karşılık gelmeyen dikkat edin. Örneğin, varlık anahtarı (1) kendi olarak temsil edilen **ODataPathSegment**.
+**ODataPath. TemplatePath** özelliği, tüm yol segmentlerinin bitiştirilmesi temsil eden bir dizedir. Örneğin, URI `/Products(1)/Supplier`, yol şablonu &quot;~/EntitySet/Key/Navigation&quot;olur. Segmentlerin doğrudan URI kesimlerine karşılık gelmediğine dikkat edin. Örneğin, varlık anahtarı (1) kendi **ODataPathSegment**olarak temsil edilir.
 
-Genellikle, uygulaması **IODataRoutingConvention** şunları yapar:
+Genellikle, **IODataRoutingConvention** uygulamasında aşağıdakiler vardır:
 
-1. Bu kural için geçerli istek geçerliyse görmek için yol şablonu karşılaştırın. Bu geçerli değilse null döndür.
-2. Kuralı geçerliyse, özelliklerini kullanmak **ODataPathSegment** denetleyici ve eylem adları türetmek için örnekleri.
-3. Eylemler için eylem parametrelerini (genellikle varlık anahtarları) bağlanması için rota sözlüğünü herhangi bir değer ekleyin.
+1. Bu kuralın geçerli istek için geçerli olup olmadığını görmek için yol şablonunu karşılaştırın. Uygulama yoksa, null döndürün.
+2. Kural geçerliyse, denetleyiciyi ve eylem adlarını türetmek için **ODataPathSegment** örneklerinin özelliklerini kullanın.
+3. Eylemler için, işlem parametrelerine bağlanması gereken yol sözlüğüne herhangi bir değer ekleyin (genellikle varlık anahtarları).
 
-Belirli bir örneğe bakalım. Yerleşik yönlendirme kuralları, bir gezinti koleksiyon olarak dizinleme desteklemez. Diğer bir deyişle, bir URI'leri için hiçbir kural aşağıdaki gibi vardır:
+Belirli bir örneğe bakalım. Yerleşik yönlendirme kuralları bir gezinti koleksiyonuna dizin oluşturmayı desteklemez. Diğer bir deyişle, aşağıdaki gibi URI 'Ler için bir kural yoktur:
 
 [!code-javascript[Main](odata-routing-conventions/samples/sample3.js)]
 
-Bu tür bir sorgu işleme özel rota kuralları örneği aşağıda verilmiştir.
+Bu tür bir sorgu işlemek için özel bir yönlendirme kuralı aşağıda verilmiştir.
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample4.cs)]
 
 Notlar:
 
-1. Ben öğesinden türetilen **EntitySetRoutingConvention**, çünkü **SelectController** yöntemi bu sınıfta bu yeni yönlendirme kuralı için uygun. Anlamı yoktur ihtiyacım yeniden uygulamak **SelectController**.
-2. Kuralını yalnızca GET istekleri için ve yalnızca yol şablonu olduğunda geçerlidir &quot;~/entityset/key/navigation/key&quot;.
-3. Eylem adı &quot;{EntityType} alma&quot;burada *{EntityType}* Gezinti koleksiyon türü. Örneğin, &quot;GetSupplier&quot;. İstediğiniz herhangi bir adlandırma kuralını kullanabilirsiniz &#8212; eşleşen denetleyici eylemleri emin olmanız yeterlidir.
-4. Adlı iki parametre eylemde *anahtarı* ve *relatedKey*. (Bazı önceden tanımlanmış bir parametre adları listesi için bkz. [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
+1. Bu sınıftaki **SelectController** yöntemi bu yeni yönlendirme kuralına uygun olduğundan **EntitySetRoutingConvention**öğesinden türedim. Bu, **SelectController**'ı yeniden uygulamam gerekmediği anlamına gelir.
+2. Kural yalnızca GET istekleri için geçerlidir ve yalnızca yol şablonu &quot;~/EntitySet/Key/Navigation/Key&quot;olduğunda geçerlidir.
+3. Eylem adı &quot;Get {EntityType}&quot;; burada *{EntityType}* , gezinti koleksiyonunun türüdür. Örneğin, Gettedarikçinin&quot;&quot;. &#8212; Yalnızca denetleyici eylemlerinizin eşleştiğinden emin olmak istediğiniz adlandırma kurallarını kullanabilirsiniz.
+4. Eylem, *anahtar* ve *RelatedKey*adlı iki parametre alır. (Önceden tanımlanmış bazı parametre adlarının listesi için bkz. [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
-Sonraki adım, yeni kural yönlendirme kuralları listesine eklemektir. Aşağıdaki kodda gösterildiği gibi bu yapılandırma sırasında gerçekleşir:
+Sonraki adım, yönlendirme kuralları listesine yeni kuralı ekliyor. Bu, aşağıdaki kodda gösterildiği gibi yapılandırma sırasında gerçekleşir:
 
 [!code-csharp[Main](odata-routing-conventions/samples/sample5.cs)]
 
-İncelemek yararlı olan bazı diğer örnek yönlendirme kuralları şunlardır:
+Aşağıda, çalışmak için yararlı olan bazı diğer örnek yönlendirme kuralları verilmiştir:
 
 - [CompositeKeyRoutingConvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataCompositeKeySample/ODataCompositeKeySample/Extensions/CompositeKeyRoutingConvention.cs)
 - [CustomNavigationRoutingConvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataServiceSample/ODataService/Extensions/CustomNavigationRoutingConvention.cs)
-- [NonBindableActionRoutingConvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataActionsSample/ODataActionsSample/NonBindableActionRoutingConvention.cs)
+- [Nonbindavbleactionroutingconvention](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataActionsSample/ODataActionsSample/NonBindableActionRoutingConvention.cs)
 - [ODataVersionRouteConstraint](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/ODataVersioningSample/ODataVersioningSample/Extensions/ODataVersionRouteConstraint.cs)
 
-Ve Elbette gördüğünüz Web API'nin açık kaynaklı [kaynak kodu](http://aspnetwebstack.codeplex.com/) için yerleşik bir rota kuralları. Bu tanımlı **System.Web.Http.OData.Routing.Conventions** ad alanı.
+Ayrıca, Web API 'sinin kendisi açık kaynak olduğundan, yerleşik yönlendirme kuralları için [kaynak kodu](http://aspnetwebstack.codeplex.com/) görebilirsiniz. Bunlar **System. Web. http. OData. Routing. kurallarına** ilişkin ad alanında tanımlanmıştır.

@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/authentication/add-custom-data-to-the-authentication-method
-title: Kimlik doğrulama metoduna özel veri ekleme | Microsoft Docs
+title: Kimlik doğrulama yöntemine özel veri ekleme | Microsoft Docs
 author: JoeStagner
-description: ALi Stagner kimlik doğrulaması bileti için özel veri ekleme kimlik doğrulama yöntemini yapılandırarak ASP.NET kimlik doğrulaması araştırmaya devam eder...
+description: Ali Stagner, kimlik doğrulama biletine özel veri eklemek üzere kimlik doğrulama yöntemini yapılandırarak ASP.NET kimlik doğrulamasının araştırmasına devam edecek...
 ms.author: riande
 ms.date: 07/16/2008
 ms.assetid: 940bdecc-ae0f-448f-a189-405efa614049
 msc.legacyurl: /web-forms/videos/authentication/add-custom-data-to-the-authentication-method
 msc.type: video
 ms.openlocfilehash: 29326c8d6831456b15ba9485be40f8beb441b125
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59381516"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638805"
 ---
 # <a name="add-custom-data-to-the-authentication-method"></a>Kimlik Doğrulama Metoduna Özel Veri Ekleme
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-ALi Stagner ASP.NET tarafından kullanılan kimlik doğrulaması bileti için özel veri ekleme kimlik doğrulama yöntemini yapılandırarak ASP.NET kimlik doğrulaması araştırmaya devam eder. Bu Tanıtım hakkında daha fazla bilgi için bir öğretici bulunduğu [burada](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md).
+Ali Stagner, ASP.NET tarafından kullanılan kimlik doğrulama biletine özel veri eklemek üzere kimlik doğrulama yöntemini yapılandırarak ASP.NET kimlik doğrulamasının araştırmasına devam edecektir. Bu tanıtım hakkında daha fazla bilgi için [burada](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)bir öğretici bulunmaktadır.
 
-[&#9654;Videoyu (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/add-custom-data-to-the-authentication-method)
+[&#9654;Videoyu izleyin (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/add-custom-data-to-the-authentication-method)
 
 > [!div class="step-by-step"]
 > [Önceki](forms-login-custom-key-configuration.md)
