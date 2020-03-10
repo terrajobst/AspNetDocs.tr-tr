@@ -1,29 +1,29 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/working-with-video
-title: Video ile çalışma | Microsoft Docs
+title: Videoyla çalışma | Microsoft Docs
 author: JoeStagner
-description: Video isteyenler için öğretici Video ile çalışma
+description: Video destekleyici video öğreticisiyle çalışma
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 7544e93f-a754-4e1d-bd0f-461f38e11db9
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-video
 msc.type: video
 ms.openlocfilehash: 1682565cb872ed999c1285ddd2641a7afe02c4d2
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412092"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633226"
 ---
-# <a name="working-with-video"></a><span data-ttu-id="ba9a4-103">Video ile Çalışma</span><span class="sxs-lookup"><span data-stu-id="ba9a4-103">Working with Video</span></span>
+# <a name="working-with-video"></a><span data-ttu-id="e56f1-103">Video ile Çalışma</span><span class="sxs-lookup"><span data-stu-id="e56f1-103">Working with Video</span></span>
 
-<span data-ttu-id="ba9a4-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ba9a4-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="e56f1-104">[ali Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="e56f1-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="ba9a4-105">Video isteyenler için öğretici Video ile çalışma</span><span class="sxs-lookup"><span data-stu-id="ba9a4-105">Video accompaniment to the Working with Video tutorial</span></span>
+<span data-ttu-id="e56f1-105">Video destekleyici video öğreticisiyle çalışma</span><span class="sxs-lookup"><span data-stu-id="e56f1-105">Video accompaniment to the Working with Video tutorial</span></span>
 
-[<span data-ttu-id="ba9a4-106">&#9654;Videoyu (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="ba9a4-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-video)
+[<span data-ttu-id="e56f1-106">&#9654;Videoyu izleyin (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="e56f1-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-video)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="ba9a4-107">[Önceki](working-with-images.md)
-> [İleri](adding-email-to-your-web-site.md)</span><span class="sxs-lookup"><span data-stu-id="ba9a4-107">[Previous](working-with-images.md)
+> <span data-ttu-id="e56f1-107">[Önceki](working-with-images.md)
+> [İleri](adding-email-to-your-web-site.md)</span><span class="sxs-lookup"><span data-stu-id="e56f1-107">[Previous](working-with-images.md)
 [Next](adding-email-to-your-web-site.md)</span></span>

@@ -1,29 +1,29 @@
 ---
 uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-search-view-hierarchy
-title: Visual Studio 2010 hızlı isabet - kod arama görünüm hiyerarşisi
+title: Visual Studio 2010 hızlı Isabet-Kod Arama görünüm hiyerarşisi
 author: JoeStagner
-description: Bu videoda, Visual Studio'nun kod arama görünüm hiyerarşisi hakkında bilgi edineceksiniz.
+description: Bu videoda, Visual Studio 'nun kod arama görünümü hiyerarşisi hakkında bilgi edineceksiniz.
 ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 0f24b680-e3a6-46f6-a52a-91191e09ab78
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-search-view-hierarchy
 msc.type: video
 ms.openlocfilehash: a6ae54ef28b9fbfe99c0efb1dde22084f1b1acfc
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408816"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78636642"
 ---
-# <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a><span data-ttu-id="2fc2e-103">Visual Studio 2010 "Hızlı isabet" - kod arama görünüm hiyerarşisi</span><span class="sxs-lookup"><span data-stu-id="2fc2e-103">Visual Studio 2010 "Quick Hit" - Code Search View Hierarchy</span></span>
+# <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a><span data-ttu-id="55d38-103">Visual Studio 2010 "hızlı vuruş"-Kod Arama görünüm hiyerarşisi</span><span class="sxs-lookup"><span data-stu-id="55d38-103">Visual Studio 2010 "Quick Hit" - Code Search View Hierarchy</span></span>
 
-<span data-ttu-id="2fc2e-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="2fc2e-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="55d38-104">[ali Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="55d38-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="2fc2e-105">Bu videoda, Visual Studio'nun kod arama görünüm hiyerarşisi hakkında bilgi edineceksiniz.</span><span class="sxs-lookup"><span data-stu-id="2fc2e-105">In this video you will learn about Visual Studio's code search view hierarchy.</span></span>
+<span data-ttu-id="55d38-105">Bu videoda, Visual Studio 'nun kod arama görünümü hiyerarşisi hakkında bilgi edineceksiniz.</span><span class="sxs-lookup"><span data-stu-id="55d38-105">In this video you will learn about Visual Studio's code search view hierarchy.</span></span>
 
-[<span data-ttu-id="2fc2e-106">&#9654;(5 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="2fc2e-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-code-search-view-hierarchy)
+[<span data-ttu-id="55d38-106">&#9654;Videoyu izleyin (5 dakika)</span><span class="sxs-lookup"><span data-stu-id="55d38-106">&#9654; Watch video (5 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2010-quick-hit-code-search-view-hierarchy)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="2fc2e-107">[Önceki](visual-studio-2010-quick-hit-code-optimized-profile.md)
-> [İleri](visual-studio-2010-quick-hit-intellisense-smart-lists.md)</span><span class="sxs-lookup"><span data-stu-id="2fc2e-107">[Previous](visual-studio-2010-quick-hit-code-optimized-profile.md)
+> <span data-ttu-id="55d38-107">[Önceki](visual-studio-2010-quick-hit-code-optimized-profile.md)
+> [İleri](visual-studio-2010-quick-hit-intellisense-smart-lists.md)</span><span class="sxs-lookup"><span data-stu-id="55d38-107">[Previous](visual-studio-2010-quick-hit-code-optimized-profile.md)
 [Next](visual-studio-2010-quick-hit-intellisense-smart-lists.md)</span></span>

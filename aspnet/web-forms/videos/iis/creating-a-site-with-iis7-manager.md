@@ -1,29 +1,29 @@
 ---
 uid: web-forms/videos/iis/creating-a-site-with-iis7-manager
-title: IIS7 Yöneticisi ile Site oluşturma | Microsoft Docs
+title: IıS7 Manager ile site oluşturma | Microsoft Docs
 author: JoeStagner
-description: Bu videoda, yeni web siteleri ile IIS7 için sağlama işlemini gösterir.
+description: Bu videoda, ııS7 ile yeni Web siteleri için sağlama işlemi gösterilmektedir.
 ms.author: riande
 ms.date: 03/09/2009
 ms.assetid: f52814a3-b458-415c-ab9f-b0f904c48705
 msc.legacyurl: /web-forms/videos/iis/creating-a-site-with-iis7-manager
 msc.type: video
 ms.openlocfilehash: cead55311660a630ca5fe906e1afe8767c75aa7f
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394542"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639953"
 ---
-# <a name="creating-a-site-with-iis7-manager"></a><span data-ttu-id="ea458-103">IIS7 Yöneticisi ile Site Oluşturma</span><span class="sxs-lookup"><span data-stu-id="ea458-103">Creating a Site with IIS7 Manager</span></span>
+# <a name="creating-a-site-with-iis7-manager"></a><span data-ttu-id="45edc-103">IIS7 Yöneticisi ile Site Oluşturma</span><span class="sxs-lookup"><span data-stu-id="45edc-103">Creating a Site with IIS7 Manager</span></span>
 
-<span data-ttu-id="ea458-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="ea458-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="45edc-104">[ali Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="45edc-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="ea458-105">Bu videoda, yeni web siteleri ile IIS7 için sağlama işlemini gösterir.</span><span class="sxs-lookup"><span data-stu-id="ea458-105">This video demonstrates the provisioning process for new web sites with IIS7.</span></span>
+<span data-ttu-id="45edc-105">Bu videoda, ııS7 ile yeni Web siteleri için sağlama işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="45edc-105">This video demonstrates the provisioning process for new web sites with IIS7.</span></span>
 
-[<span data-ttu-id="ea458-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="ea458-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-site-with-iis7-manager)
+[<span data-ttu-id="45edc-106">&#9654;Videoyu izleyin (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="45edc-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-site-with-iis7-manager)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="ea458-107">[Önceki](troubleshooting-production-aspnet-apps.md)
-> [İleri](installing-ftp7.md)</span><span class="sxs-lookup"><span data-stu-id="ea458-107">[Previous](troubleshooting-production-aspnet-apps.md)
+> <span data-ttu-id="45edc-107">[Önceki](troubleshooting-production-aspnet-apps.md)
+> [İleri](installing-ftp7.md)</span><span class="sxs-lookup"><span data-stu-id="45edc-107">[Previous](troubleshooting-production-aspnet-apps.md)
 [Next](installing-ftp7.md)</span></span>

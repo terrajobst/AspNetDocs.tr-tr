@@ -1,29 +1,29 @@
 ---
 uid: web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
-title: "ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET uygulaması oluşturma | Microsoft Docs"
+title: "ColdFusion geliştiricileri için ASP.NET 'e giriş: ASP.NET uygulaması oluşturma | Microsoft Docs"
 author: microsoft
-description: Bu Web yayınında, deneyimli ColdFusion Geliştirici tam olarak ne NET bir fikir vermek için boş bir formdan başlayan bir ASP.NET uygulaması oluşturma işlemi gösterilmektedir...
+description: Bu Web yayınında, deneyimli bir ASP.NET uygulamasının bir boş formdan başlayarak nasıl oluşturulacağı gösterilmektedir.
 ms.author: riande
 ms.date: 07/25/2006
 ms.assetid: 47316dec-a4cd-4818-8ba7-87e29d963c38
 msc.legacyurl: /web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
 msc.type: video
 ms.openlocfilehash: 8ebbd7a8e8fa4adb9835cea9560797beee2b86fa
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59383933"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639841"
 ---
-# <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a><span data-ttu-id="898ef-103">ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET Uygulaması Oluşturma</span><span class="sxs-lookup"><span data-stu-id="898ef-103">Introduction to ASP.NET for ColdFusion Developers: Building an ASP.NET Application</span></span>
+# <a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a><span data-ttu-id="d34aa-103">ColdFusion geliştiricileri için ASP.NET 'e giriş: ASP.NET uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="d34aa-103">Introduction to ASP.NET for ColdFusion Developers: Building an ASP.NET Application</span></span>
 
-<span data-ttu-id="898ef-104">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="898ef-104">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="d34aa-104">[Microsoft](https://github.com/microsoft) tarafından</span><span class="sxs-lookup"><span data-stu-id="d34aa-104">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="898ef-105">Bu Web yayınında, deneyimli ColdFusion Geliştirici tam olarak ne ilgili NET bir fikir vermek için boş bir formdan başlayan bir ASP.NET uygulaması oluşturma işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="898ef-105">This webcast shows how to build an ASP.NET application starting from a blank form, to give the experienced ColdFusion developer a clear idea of exactly what is involved.</span></span>
+<span data-ttu-id="d34aa-105">Bu Web yayınında, deneyimli ColdFusion geliştiricisinin tam olarak neye dahil olduğunu açık bir fikir vermek için boş bir formdan başlayarak bir ASP.NET uygulamasının nasıl oluşturulacağı gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="d34aa-105">This webcast shows how to build an ASP.NET application starting from a blank form, to give the experienced ColdFusion developer a clear idea of exactly what is involved.</span></span>
 
-[<span data-ttu-id="898ef-106">&#9654;Videoyu (77 dakika)</span><span class="sxs-lookup"><span data-stu-id="898ef-106">&#9654; Watch video (77 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
+[<span data-ttu-id="d34aa-106">&#9654;Videoyu izleyin (77 dakika)</span><span class="sxs-lookup"><span data-stu-id="d34aa-106">&#9654; Watch video (77 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="898ef-107">[Önceki](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-> [İleri](interop-between-php-and-the-windows-platform.md)</span><span class="sxs-lookup"><span data-stu-id="898ef-107">[Previous](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+> <span data-ttu-id="d34aa-107">[Önceki](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+> [İleri](interop-between-php-and-the-windows-platform.md)</span><span class="sxs-lookup"><span data-stu-id="d34aa-107">[Previous](intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
 [Next](interop-between-php-and-the-windows-platform.md)</span></span>

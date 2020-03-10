@@ -9,21 +9,21 @@ ms.assetid: 0998df70-d53f-404b-800d-1384eea8f932
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/creating-a-consistent-look-part-2
 msc.type: video
 ms.openlocfilehash: b5eee0b5ce75f72ed058268b830ed4a716f839ca
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445562"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637881"
 ---
-# <a name="creating-a-consistent-look-part-2"></a><span data-ttu-id="25241-103">Tutarlı Bir Görünüm Oluşturma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="25241-103">Creating a Consistent Look (Part 2)</span></span>
+# <a name="creating-a-consistent-look-part-2"></a><span data-ttu-id="7195a-103">Tutarlı Bir Görünüm Oluşturma (2. Bölüm)</span><span class="sxs-lookup"><span data-stu-id="7195a-103">Creating a Consistent Look (Part 2)</span></span>
 
-<span data-ttu-id="25241-104">[ali Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="25241-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="7195a-104">[ali Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="7195a-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="25241-105">Video destekleyici tutarlı bir görünüm oluşturma öğreticisi (2. bölüm)</span><span class="sxs-lookup"><span data-stu-id="25241-105">Video accompaniment to the Creating a Consistent Look tutorial (Part 2)</span></span>
+<span data-ttu-id="7195a-105">Video destekleyici tutarlı bir görünüm oluşturma öğreticisi (2. bölüm)</span><span class="sxs-lookup"><span data-stu-id="7195a-105">Video accompaniment to the Creating a Consistent Look tutorial (Part 2)</span></span>
 
-<span data-ttu-id="25241-106">[&#9654;Videoyu izleyin (5 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-(part-2))</span><span class="sxs-lookup"><span data-stu-id="25241-106">[&#9654; Watch video (5 minutes)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-(part-2))</span></span>
+<span data-ttu-id="7195a-106">[&#9654;Videoyu izleyin (5 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-(part-2))</span><span class="sxs-lookup"><span data-stu-id="7195a-106">[&#9654; Watch video (5 minutes)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-a-consistent-look-(part-2))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="25241-107">[Önceki](creating-a-consistent-look-part-1.md)
-> [İleri](working-with-forms-part-1.md)</span><span class="sxs-lookup"><span data-stu-id="25241-107">[Previous](creating-a-consistent-look-part-1.md)
+> <span data-ttu-id="7195a-107">[Önceki](creating-a-consistent-look-part-1.md)
+> [İleri](working-with-forms-part-1.md)</span><span class="sxs-lookup"><span data-stu-id="7195a-107">[Previous](creating-a-consistent-look-part-1.md)
 [Next](working-with-forms-part-1.md)</span></span>

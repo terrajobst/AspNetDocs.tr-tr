@@ -9,15 +9,15 @@ ms.assetid: 89c96d26-6777-4e1d-839a-df67d2d5c1c2
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile141
 msc.type: content
 ms.openlocfilehash: 0c6697d87521f8c1fce8ac1bcf82df8241faff81
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59394113"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78562708"
 ---
-# <a name="jquery-mobile-141-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="88678-102">Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.1</span><span class="sxs-lookup"><span data-stu-id="88678-102">jQuery Mobile 1.4.1 on the Microsoft Ajax CDN</span></span>
+# <a name="jquery-mobile-141-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="e5d94-102">Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.1</span><span class="sxs-lookup"><span data-stu-id="e5d94-102">jQuery Mobile 1.4.1 on the Microsoft Ajax CDN</span></span>
 
-<span data-ttu-id="88678-103">JQuery Mobile 1.4.1 kitaplığı aşağıdaki dosyaları içerir:</span><span class="sxs-lookup"><span data-stu-id="88678-103">The jQuery Mobile 1.4.1 library includes the following files:</span></span>
+<span data-ttu-id="e5d94-103">JQuery Mobile 1.4.1 kitaplığı aşağıdaki dosyaları içerir:</span><span class="sxs-lookup"><span data-stu-id="e5d94-103">The jQuery Mobile 1.4.1 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.1/jquery.mobile.structure-1.4.1.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.4.1/jquery.mobile.structure-1.4.1.min.css
