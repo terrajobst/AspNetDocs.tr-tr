@@ -9,11 +9,11 @@ ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
 ms.openlocfilehash: 62918b17f42e54dfe4e45a08927b1039dcbb7012
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576063"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78571990"
 ---
 # <a name="create-the-project"></a>Projeyi Oluşturma
 
@@ -25,7 +25,7 @@ by [Erik Reitan](https://github.com/Erikre)
 
 Bu öğreticide, ASP.NET özellikleri hakkında bilgi sahibi olmak için Visual Studio 'da varsayılan projeyi oluşturacak, incelemesinin ve çalıştıracaksınız. Ayrıca, Visual Studio ortamını gözden geçilecektir.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 - Yeni bir Web Forms projesi oluşturma.
 - Web Forms projesinin dosya yapısı.
@@ -49,7 +49,7 @@ Bu öğreticide, ASP.NET özellikleri hakkında bilgi sahibi olmak için Visual 
     > [!NOTE]
     > Bu öğretici serisindeki projenin adı **wingtiptoys**' dır. Bu *tam* proje adını, öğretici serisi boyunca sunulan kodun beklenen şekilde işlevlerini sağlamak için kullanmanız önerilir.
 
-6. **Kimlik doğrulamayı Değiştir** düğmesine tıklayın. **Bireysel kullanıcı hesapları** ' nı seçin ve **Tamam** düğmesine tıklayın.
+6. **Kimlik Doğrulamayı Değiştir** düğmesine tıklayın. **Bireysel kullanıcı hesapları** ' nı seçin ve **Tamam** düğmesine tıklayın.
 
 7. **Web Forms** şablonunu seçin ve **Tamam** düğmesine tıklayın.
 
@@ -91,7 +91,7 @@ Visual Studio 'da **Çözüm Gezgini** penceresi, proje dosyalarını yönetmeni
 
 Visual Studio, projeniz için bazı başlangıç klasörlerini ve dosyalarını oluşturur. Bu öğreticide ilerleyen bölümlerinde birlikte çalışabileceksiniz ilk dosya şunlardır:
 
-| **Dosyasýný** | **Amaç** |
+| **Dosya** | **Amaç** |
 | --- | --- |
 | *Default. aspx* | Genellikle uygulama bir tarayıcıda çalıştırıldığında ilk sayfa görüntülenir. |
 | *Site. Master* | Uygulamanızda sayfalar için tutarlı bir düzen oluşturmanıza ve standart davranışı kullanmanıza olanak tanıyan bir sayfa. |

@@ -9,14 +9,14 @@ ms.assetid: b7c029cf-3fe0-4528-beb4-f577514b48ef
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-javascript-editor
 msc.type: video
 ms.openlocfilehash: 029422455bcd3f9f47d76b28991781e565dd4ad1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59380606"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578437"
 ---
 # <a name="visual-studio-2012-javascript-editor"></a>Visual Studio 2012 JavaScript Düzenleyicisi
 
-tarafından [Scott Hanselman](https://github.com/shanselman)
+[Scott Hanselman](https://github.com/shanselman) tarafından
 
-[&#9654;(5 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-javascript-editor)
+[&#9654;Videoyu izleyin (5 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/visual-studio-2012-javascript-editor)

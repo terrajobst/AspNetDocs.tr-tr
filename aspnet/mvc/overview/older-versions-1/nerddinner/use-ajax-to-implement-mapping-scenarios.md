@@ -1,193 +1,193 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
-title: AJAX kullanarak eşleme senaryoları gerçekleştirmeyi | Microsoft Docs
+title: Eşleme senaryolarını uygulamak için AJAX kullanma | Microsoft Docs
 author: microsoft
-description: 11. adım, oluşturma, düzenleme veya görüntüleme azalma l görmek için kullanıcıların etkinleştirme NerdDinner uygulamamıza, AJAX eşleme desteği tümleştirme işlemi açıklanır...
+description: Adım 11 ' de, AJAX eşleme desteğinin Nerdakşam yemeği uygulamamıza nasıl tümleştirileceği, Dinkim tarafından oluşturulan, düzenleyen veya görüntüleyen kullanıcıların l 'yi görmesini sağlama adımları gösterilmektedir...
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: f731990a-0a81-4d62-81df-87d676cdedd6
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
 ms.openlocfilehash: 7fc90f978b9f9eca511feca70a3c0d02ec69b940
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125522"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78580117"
 ---
 # <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX Kullanarak Eşleme Senaryoları Uygulama
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> 11. adım bir ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) adım 11 ' dir.
 > 
-> 11. adım, oluşturma, düzenleme veya görüntüleme azalma Akşam Yemeği konumunu grafik görmek için kullanıcılar etkinleştirme NerdDinner uygulamamıza, AJAX eşleme desteği tümleştirme işlemi açıklanır.
+> Adım 11 ' de, AJAX eşleme desteğinin Nerdakşam yemeği uygulamamız ile nasıl tümleştirileceği gösterilmektedir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-11-integrating-an-ajax-map"></a>NerdDinner 11. adım: Bir AJAX harita tümleştirme
+## <a name="nerddinner-step-11-integrating-an-ajax-map"></a>Nerdakşam yemeği adım 11: AJAX haritasını tümleştirme
 
-Şimdi uygulamamız biraz daha görsel olarak AJAX eşleme desteği tümleştirerek heyecan verici oluşturacağız. Bu, kullanıcılar oluşturma, düzenleme veya görüntüleme Akşam Yemeği konumunu grafik görmek için azalma olanak sağlar.
+Artık, AJAX eşleme desteğini tümleştirerek uygulamamızı daha da etkileyici bir şekilde yapacağız. Bu, akşam yemeği 'nin konumunu oluşturan, düzenleyen veya görüntüleyen kullanıcıların, bir kullanıcı tarafından grafik konumunu görmesini sağlar.
 
-### <a name="creating-a-map-partial-view"></a>Bir harita kısmi görünümü oluşturma
+### <a name="creating-a-map-partial-view"></a>Harita kısmi görünümü oluşturma
 
-Uygulamamızı içinde çeşitli yerlerde eşleme işlevselliği kullanmak için kullanacağız. Kodumuzu KURU tutmak biz birden çok denetleyici eylemleri ve görünümleri arasında yeniden kullanabilir miyiz tek bir kısmi şablonu içindeki ortak eşleme işlevselliği kapsülleyen. Biz, bu kısmi Görünüm "map.ascx" olarak adlandırın ve \Views\Dinners dizini içinde oluşturun.
+Uygulama dahilinde birkaç yerde eşleme işlevini kullanacağız. Kod KURUMıZA devam etmek için, birden çok denetleyici eylemi ve görünümünde yeniden kullanabileceğiniz tek bir kısmi şablon içinde ortak harita işlevini kapsülleyeceğiz. Bu kısmi görünümü "Map. ascx" olarak adlandırın ve \Views\dıntik dizininde oluşturun.
 
-Map.ascx kısmi \Views\Dinners dizinde sağ tıklayıp Ekle - i seçerek oluşturabiliriz&gt;görüntüle menü komutu. Biz "Map.ascx" Görünüm adı, kısmi görünüm denetleyin ve kesin tür belirtilmiş "Dinner" model sınıfı geçirilecek kullanacağız olduğunu gösterir:
+\Views\dıntik dizinine sağ tıklayıp, Ekle-&gt;görünümü menü komutunu seçerek Map. ascx kısmi öğesini de oluşturarız. "Map. ascx" görünümünü adlandıracağız, kısmi bir görünüm olarak kontrol edeceğiz ve bunu kesin yazılmış bir "akşam yemeği" model sınıfı olarak geçireceğiz.
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image1.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, bizim kısmi şablonu oluşturulur. Ardından Map.ascx aşağıdaki içeriği dosyaya güncelleştireceğiz:
+Kısmi şablonumuz "Ekle" düğmesine tıkladığımızda oluşturulacak. Ardından Map. ascx dosyasını aşağıdaki içeriğe sahip olacak şekilde güncelleştireceğiz:
 
 [!code-aspx[Main](use-ajax-to-implement-mapping-scenarios/samples/sample1.aspx)]
 
-İlk &lt;betik&gt; noktaları Microsoft sanal Earth 6.2 eşleme kitaplığına başvuru. İkinci &lt;betik&gt; noktaları ortak müşterilerimize Javascript eşleme mantığı kapsülleyen, kısa süre içinde oluşturacağız bir map.js dosyasına başvuru. &lt;Div kimliği = "theMap"&gt; Virtual Earth harita barındırmak için kullanacağınız HTML kapsayıcı bir öğedir.
+İlk &lt;betiği&gt; başvuru, Microsoft Virtual Earth 6,2 eşleme kitaplığına işaret eder. İkinci &lt;betiği&gt; başvuru, kısa bir süre önce oluşturacağınız ve ortak JavaScript eşleme mantığımızı kapsülleyen bir Map. js dosyasına işaret eder. &lt;div ID = "theMap"&gt; öğesi, Virtual Earth 'ın Haritayı barındırmak için kullanacağı HTML kapsayıcısıdır.
 
-Ardından katıştırılmış sahibiz &lt;betik&gt; bu görünüme belirli iki JavaScript işlevleri içeren blok. İlk işlev kablo yukarı sayfa istemci tarafı betiği çalıştırmaya hazır olduğunda yürüten bir işlev için jQuery kullanır. LoadMap() yardımcı işlevi, çağrı sanal earth harita denetiminin yüklemek için sunduğumuz Map.js betik dosyası içinde tanımlarız. İkinci işlevi tanımlayan bir konum eşleme için bir PIN ekleyen bir geri çağırma olay işleyicisidir.
+Daha sonra bu görünüme özgü iki JavaScript işlevi içeren bir katıştırılmış &lt;betik&gt; bloğuna sahipsiniz. İlk işlev, sayfa istemci tarafı betiği çalıştırmaya hazırsa yürütülen bir işlevi kurmak için jQuery kullanır. Virtual Earth harita denetimini yüklemek için Map. js betik dosyası içinde tanımlayacağımız bir LoadMap () yardımcı işlevini çağırır. İkinci işlev, bir konumu tanımlayan eşlemeye bir PIN ekleyen bir geri çağırma olay işleyicisidir.
 
-Sunucu tarafı nasıl kullanıyoruz fark &lt;% = %&gt; enlem ve boylamını istiyoruz JavaScript ile eşlemek için Dinner eklemek için istemci tarafı komut dosyası bloğu içinde blok. (Daha hızlı hale getiren – değerleri almak için ayrı bir AJAX çağrısı sunucuya geri gerek kalmadan) istemci tarafı komut dosyası tarafından kullanılabilecek dinamik değer çıktısı için yararlı bir tekniktir. &lt;% = %&gt; Blokları görünümü sunucuda – işlenirken yürütülecek ve bu nedenle HTML çıktısını yalnızca sona erecek gömülü JavaScript değerlerle (örneğin: var enlem 47.64312; =).
+JavaScript 'e eşlemek istediğimiz akşam yemeği 'nin Enlem ve boylalarını eklemek için istemci tarafı betik bloğu içinde sunucu tarafı &lt;% =%&gt; bloğunu nasıl kullandığınızı fark edin. Bu, istemci tarafı komut dosyası tarafından kullanılabilecek dinamik değerleri (değerleri almak için sunucuya ayrı bir AJAX çağrısı gerektirmeden) çıkarmak için kullanışlı bir tekniktir. Bu, daha hızlı hale gelir. &lt;% =%&gt; blokları, görünüm sunucuda işlendiğinde yürütülür. bu nedenle, HTML çıktısı yalnızca katıştırılmış JavaScript değerleriyle (örneğin: var Enlem = 47,64312;) sona kadar bitecektir.
 
-### <a name="creating-a-mapjs-utility-library"></a>Map.js yardımcı program kitaplığı oluşturma
+### <a name="creating-a-mapjs-utility-library"></a>Map. js yardımcı program kitaplığı oluşturma
 
-Artık bizim eşlemesi için JavaScript işlevi kapsülleyen (ve yukarıdaki LoadMap ve LoadPin yöntemleri uygulamak için) kullanabiliriz Map.js dosya oluşturalım. Biz bunu Projemizin \Scripts dizininde tıklatılarak ve ardından "Ekle -&gt;yeni öğe" menü komutu JScript öğesini seçip "Map.js" olarak adlandırın.
+Şimdi haritamız için JavaScript işlevini kapsülleyebilmemiz için kullanabileceğiniz Map. js dosyasını oluşturalım (ve daha önce LoadMap ve LoadPin yöntemlerini uygulayabiliriz). Bunu, projemizdeki \ KomutDosyaları dizinine sağ tıklayıp ardından "&gt;yeni öğe Ekle" menü komutunu seçip, JScript öğesini seçip "Map. js" olarak adlandırın.
 
-Aşağıda ekleyeceğiz JavaScript kodu verilmiştir, bizim harita görüntülemek ve konumları PIN'ler için sunduğumuz azalma eklemek için Virtual Earth etkileşim kuracağı Map.js dosya:
+Aşağıda, eşlemenizi görüntülemesi için sanal dünya ile etkileşimde bulunan Map. js dosyasına ekleyeceğiniz JavaScript kodu ve dinleyiciler için PIN 'leri bu konuma ekle:
 
 [!code-javascript[Main](use-ajax-to-implement-mapping-scenarios/samples/sample2.js)]
 
-### <a name="integrating-the-map-with-create-and-edit-forms"></a>Eşleme oluşturma ve düzenleme formları ile tümleştirme
+### <a name="integrating-the-map-with-create-and-edit-forms"></a>Eşlemeyi oluşturma ve düzenleme formlarıyla tümleştirme
 
-Biz artık eşleme desteğinin bizim mevcut oluşturma ve düzenleme senaryoları ile tümleştirerek. Güzel bir haberimiz var, bu oldukça kolay bir yapılacak iş ve bize denetleyicisi kodumuz değiştirmek gerektirmez ' dir. Bizim oluşturma ve düzenleme görünümleri dinner formun kullanıcı arabirimini uygulamak için ortak "DinnerForm" kısmi görünüm paylaştığından, tek bir yerde harita ekleyebilir ve bunu kullanmak hem bizim oluşturma ve düzenleme senaryolara sahip.
+Artık harita desteğini var olan oluşturma ve düzenleme senaryolarımızla tümleştireceğiz. İyi haber, bu oldukça kolay bir işlemdir ve denetleyici kodumuzu değiştirmemizi gerektirmez. Oluşturma ve düzenleme görünümlerimiz akşam yemeği Formu Kullanıcı arabirimini uygulamak için ortak bir "DinnerForm" kısmi görünümü paylaştığından, Haritayı tek bir yere ekleyebiliyoruz ve hem oluşturma hem de düzenleme senaryolarımızın onu kullanmasına olanak sağlar.
 
-Yapılacaklar ihtiyacımız olan \Views\Dinners\DinnerForm.ascx kısmi görünümü açın ve kısmi sunduğumuz yeni harita içerecek şekilde güncelleştirin. Harita eklendikten sonra güncelleştirilmiş DinnerForm nasıl görüneceğini aşağıda verilmiştir (Not: kod parçacığında kısaltma HTML form öğelerini göz ardı edilir):
+Tüm yapmanız gereken, \Views\Dinners\DinnerForm.ascx kısmi görünümü açmak ve yeni haritamızı kısmi olarak güncelleştirmek için onu güncelleştirmemiz gerekir. Güncelleştirilmiş DinnerForm, eşleme eklendikten sonra şöyle görünür (Note: HTML form öğeleri, kısaltma için aşağıdaki kod parçacığında atlanır):
 
 [!code-aspx[Main](use-ajax-to-implement-mapping-scenarios/samples/sample3.aspx)]
 
-(Bu hem bir Akşam Yemeği nesnesi, hem de ülkelerde dropdownlist doldurmak için bir SelectList gerektiğinden) üzerinde kısmi DinnerForm model türü olarak "DinnerFormViewModel" türünde bir nesne alır. Kısmi bizim Haritası "Akşam Yemeği" türünde bir nesne modeli türü olarak yalnızca gerekiyor. ve biz harita kısmi işleme, bu nedenle yalnızca Şimdi Akşam alt özelliğinin DinnerFormViewModel için geçiriyoruz:
+Yukarıdaki DinnerForm kısmi, model türü olarak "DinnerFormViewModel" türünde bir nesne alır (hem bir akşam yemeği nesnesi hem de ülkelerin DropDownList değerini doldurmak için bir SelectList gereklidir). Haritamız, yalnızca model türü olarak "akşam yemeği" türünde bir nesneye ihtiyaç duyuyor ve bu nedenle Haritayı kısmen işlerken DinnerFormViewModel 'in yalnızca akşam yemeği alt özelliğini geçiririz:
 
 [!code-aspx[Main](use-ajax-to-implement-mapping-scenarios/samples/sample4.aspx)]
 
-"Bulanıklaştırma" olay "Adres" HTML TextBox'a eklemek için kısmi kullandığı jQuery için JavaScript işlevi ekledik. Büyük olasılıkla bir metin kutusuna bir kullanıcı tıkladığında yangın "odak" olayları veya sekmeleri aldık. Bir kullanıcı bir metin kutusu çıktığında tetiklenen "Bulanıklaştırma" olay tersidir. Bu olur ve ardından yeni adres konumu bizim harita üzerinde çizim, yukarıdaki olay işleyicisi enlem ve boylam metin değerlerini temizler. Biz map.js dosyasında tanımlanan bir geri çağırma olay işleyicisi sonra size verdiği adresini temel alarak sanal earth tarafından döndürülen değerleri kullanarak formumuzu üzerinde boylam ve enlem metin kutuları güncelleştirilir.
+Kısmi öğesine eklediğimiz JavaScript işlevi, "adres" HTML metin kutusuna bir "bulanıklaştırma" olayı eklemek için jQuery kullanır. Bir Kullanıcı bir metin kutusunda veya sekmeye sekme tıkladığı zaman harekete gelen "odak" olaylarını duydunuz. Bunun tersi, bir Kullanıcı bir metin kutusu çıktığında harekete geçecek bir "bulanıklaştırma" olayıdır. Yukarıdaki olay işleyicisi, bu durumda Latitude ve Boylam metin kutusu değerlerini temizler ve haritalarımızda yeni adres konumunu çizer. Map. js dosyası içinde tanımladığımız bir geri çağırma olayı işleyicisi, yaptığımız adrese göre sanal dünya tarafından döndürülen değerleri kullanarak formumuzdaki boylam ve Latitude metin kutularını güncelleştirecektir.
 
-Ve artık ne zaman yeniden uygulamamızı çalıştırmak bizim standart Dinner form öğelerini birlikte görüntülenen bir varsayılan eşleme görüyoruz "Konak Dinner" sekmesine tıklayın:
+Şimdi uygulamamızı yeniden çalıştırdığımızda ve "ana bilgisayar akşam yemeği" sekmesine tıkladığınızda standart akşam yemeği form öğelerimiz ile birlikte bir varsayılan eşleme görüyoruz:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image2.png)
 
-Biz bir adresi yazın ve hemen sekmesinde, harita konumu göstermek için dinamik olarak güncelleştirir ve bizim olay işleyicisi enlem/boylam metin kutuları konumu değerlerle doldurulur:
+Bir adrese yazdığımızda ve sonra sekme uzağa geldiğinde, harita konumu görüntüleyecek şekilde dinamik olarak güncelleştirilecek ve olay işleyicimiz Enlem/Boylam metin kutularını konum değerleriyle dolduracaktır:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image3.png)
 
-Yeni Akşam Yemeği kaydedin ve yeniden düzenleme için açın, biz sayfa yüklendiğinde, harita konumu gösterilen bulabilirsiniz:
+Yeni akşam yemeği 'ni kaydedip daha sonra düzenlenmek üzere yeniden açtığınızda, sayfa yüklendiğinde harita konumunun görüntülendiğini öğreneceğiz:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image4.png)
 
-Adres alanı her değiştiğinde haritayı ve enlem/boylam koordinatları güncelleştirir.
+Adres alanı her değiştirildiğinde, eşleme ve enlem/boylam koordinatları güncelleşmeyecektir.
 
-Akşam Yemeği konumu haritada görüntüler, ayrıca enlem ve boylam form alanlarını (harita otomatik olarak bunları her zaman bir adres girdiniz güncelleştiriyor beri) bunun yerine gizli öğeleri olarak görünür metin kutuları olan Değiştirebiliriz. Yapılacaklar bu biz Html.Hidden() yardımcı yöntemi kullanarak Html.TextBox() HTML Yardımcısı kullanarak geçiş:
+Artık Haritada akşam yemeği konumu görünmediğine göre, enlem ve Boylam form alanlarını gizli öğeler (her bir adres girildiğinde bu, eşleme otomatik olarak güncelleştiriyoruz) olarak görünür metin olarak değiştirebiliriz. Bunu yapmak için HTML. TextBox () HTML Yardımcısını kullanarak HTML. Hidden () yardımcı yöntemini kullanmaya geçiş yapacağız:
 
 [!code-aspx[Main](use-ajax-to-implement-mapping-scenarios/samples/sample5.aspx)]
 
-Ve artık bizim formlar biraz daha kullanıcı dostu ve ham enlem/boylam (yine de bunları veritabanındaki her Akşam Yemeği ile depolarken) gösterilmesini:
+Artık formlarımız, daha kolay bir Kullanıcı dostu ve ham Enlem/Boylam 'yi görüntülemeden (yine de veritabanındaki her akşam yemeği ile depolarken):
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image5.png)
 
-### <a name="integrating-the-map-with-the-details-view"></a>Eşleme Ayrıntıları görünümü ile tümleştirme
+### <a name="integrating-the-map-with-the-details-view"></a>Haritayı Ayrıntılar görünümüyle tümleştirme
 
-Size sunduğumuz oluşturma ve düzenleme senaryoları ile tümleşik harita sahip olduğunuza göre şimdi de bunu ayrıntıları senaryomuz tümleştirin. Yapılacaklar ihtiyacımız olan çağrılacak &lt;% Html.RenderPartial("map"); %&gt; Ayrıntılar görünümü içinde.
+Artık harita oluşturma ve düzenleme senaryolarımızla tümleşik olduğunu öğrendiğimiz için, bunu Ayrıntılar senaryomızla de tümleştireceğiz. Tek yapmanız gereken,% HTML. RenderPartial ("map") &lt;çağırıyoruz; Ayrıntılar görünümü içinde%&gt;.
 
-Tam Ayrıntılar görünümünü (harita tümleştirmesiyle) kaynak koda benzer aşağıdadır:
+Aşağıda, tüm ayrıntılar görünümüne kaynak kodu (eşleme tümleştirmesi ile) şöyle görünür:
 
 [!code-aspx[Main](use-ajax-to-implement-mapping-scenarios/samples/sample6.aspx)]
 
-Artık bir kullanıcı bir /Dinners/Ayrıntılar / [ID] URL gittiğinde, Şimdi Akşam Yemeği harita üzerinde konumunu ayrıntılarını göreceksiniz (tam bir anında iletme PIN ile kullanırken vurgulanan görüntüler Akşam Yemeği başlığı ve bu adresi), ve RSVP fo için bir AJAX bağlantısı r onu:
+Artık bir Kullanıcı/Dinners/Details/[ID] URL 'sine gittiğinde, akşam yemeği hakkındaki ayrıntıları, Haritada akşam yemeği 'nin konumunu (üzerinde gezindiği zaman bir itme PIN 'i ile birlikte) ve bunun için bir AJAX bağlantısı olduğunu görürsünüz:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image6.png)
 
-### <a name="implementing-location-search-in-our-database-and-repository"></a>Veritabanı ve havuz uygulama konum arama
+### <a name="implementing-location-search-in-our-database-and-repository"></a>Veritabanı ve deponuzda konum arama uygulama
 
-AJAX kararlılığımızın işlemini tamamlamak için bir harita giriş sayfasına grafik bunları neredeyse azalma aramak kullanıcılara uygulamanın ekleyelim.
+AJAX uygulamamızı devre dışı bırakmak için, uygulamanın ana sayfasına, kullanıcıların yakın dinleleri grafik olarak aramasına imkan tanıyan bir harita ekleyelim.
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image7.png)
 
-Biz, RADIUS konum tabanlı arama azalma için verimli bir şekilde gerçekleştirmek için veritabanı ve veri deposu katman içinde destek uygulayarak başlarsınız. Kullanabiliriz yeni [Jeo-uzamsal özellikler SQL 2008](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) Bunu uygulamak için veya alternatif olarak, Gary Dryden makalede ele alınan bir SQL işlev yaklaşımı kullanabiliriz: [ http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx ](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) ve Rob Conery LINQ to SQL ile burada kullanma hakkında işaretlerinize: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
+Dinleler için konum tabanlı bir RADIUS aramasını verimli bir şekilde gerçekleştirmek üzere veritabanımızda ve veri havuzu katmanımız desteği uygulayarak başlayacağız. Bunu uygulamak için [sql 2008 ' in yeni Jeo-uzamsal özelliklerini](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) kullanabiliriz veya alternatif olarak, buradaki makalede ele alınan [http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) ve ramız 'e yönelik bir SQL işlev yaklaşımı kullanabiliriz: aşağıda LINQ to SQL ile birlikte kullanma hakkında: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
 
-Bu tekniği uygulamak için biz "Sunucu Gezgini" Visual Studio içinde açın, NerdDinner veritabanını seçin ve altındaki "işlevleri" alt düğüme sağ tıklayın ve yeni bir "skaler değerli işlev" oluşturmak seçin:
+Bu tekniği uygulamak için, Visual Studio içinde "Sunucu Gezgini" öğesini açıp Nerdakşam yemeği veritabanını seçin ve ardından altındaki "işlevler" alt düğümüne sağ tıklayıp yeni "skaler değerli bir işlev" oluşturmayı seçin:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image8.png)
 
-Biz, ardından aşağıdaki DistanceBetween işlevinde yapıştıracaksınız:
+Daha sonra aşağıdaki DistanceBetween işlevini yapıştıracağız:
 
 [!code-sql[Main](use-ajax-to-implement-mapping-scenarios/samples/sample7.sql)]
 
-Ardından yeni bir tablo değerli işlev "NearestDinners" ararız SQL Server'da oluşturacağız:
+Daha sonra, SQL Server "Nearestdıntik" çağıracağımız yeni bir tablo değerli işlev oluşturacağız:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image9.png)
 
-Bu "NearestDinners" tablo işlevi enlem, 100 mil içindeki tüm azalma döndürülecek DistanceBetween yardımcı işlevini kullanır ve boylam biz bunu sağlayın:
+Bu "Nearestdıntik" tablosu işlevi, DistanceBetween yardımcı işlevini kullanarak Enlem ve boyladığımız 100 mil içindeki tüm Dinlayıcıları döndürür:
 
 [!code-sql[Main](use-ajax-to-implement-mapping-scenarios/samples/sample8.sql)]
 
-Bu işlevi çağırmak için size ilk LINQ to SQL Tasarımcı bizim \Models dizininden NerdDinner.dbml dosyasını çift tıklayarak açmak:
+Bu işlevi çağırmak için, önce \Modeller dizinimizin içindeki Nerdakşam. dbml dosyasına çift tıklayarak LINQ to SQL tasarımcısını açacağız:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image10.png)
 
-Ardından NearestDinners ve DistanceBetween işlevleri LINQ bunları SQL NerdDinnerDataContext sınıfına bizim LINQ yöntemleri olarak eklenecek neden SQL tasarımcısına sürükleyip:
+Daha sonra Nearestdıntik ve DistanceBetween işlevlerini LINQ to SQL tasarımcı üzerine sürükleyeceğiz ve bu, LINQ to SQL NerdDinnerDataContext sınıfımızda yöntemler olarak eklenmesine neden olacak:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image11.png)
 
-Ardından "FindByLocation" sorgu metodu gelecek döndürülecek NearestDinner işlevi kullanan müşterilerimizin DinnerRepository sınıf kullanıma sunuyoruz, belirtilen konumun içinde 100 mil azalma:
+Daha sonra, belirtilen konumun 100 mil dahilinde olan gelecek iadeleri döndürmek için Nearestakşam yemeği işlevini kullanan DinnerRepository sınıfımızda bir "FindByLocation" sorgu yöntemi kullanıma sunabiliriz:
 
 [!code-csharp[Main](use-ajax-to-implement-mapping-scenarios/samples/sample9.cs)]
 
-### <a name="implementing-a-json-based-ajax-search-action-method"></a>AJAX, JSON tabanlı arama eylem yöntemi uygulama
+### <a name="implementing-a-json-based-ajax-search-action-method"></a>JSON tabanlı AJAX arama eylemi yöntemi uygulama
 
-Biz, artık bir harita doldurmak için kullanılan bir Akşam Yemeği veri listesi geri dönmek için yeni FindByLocation() depo yöntemi faydalanan denetleyici eylem yöntemine uygulayacaksınız. Biz, böylece istemci üzerinde JavaScript kullanarak kolayca yönetilebilir Dinner verileri JSON (JavaScript nesne gösterimi) biçiminde geri döndürür, bu eylem yöntemine sahip olacaksınız.
+Şimdi, bir Haritayı doldurmak için kullanılabilecek akşam yemeği verilerinin bir listesini geri döndürmek için yeni FindByLocation () depo yönteminden faydalanan bir denetleyici eylemi yöntemi uygulayacağız. Bu eylem yöntemi, istemci üzerindeki JavaScript kullanılarak kolayca işlenebilmesi için akşam yemeği verilerini JSON (JavaScript Nesne Gösterimi) biçiminde geri döndüreceğiz.
 
-Bunu gerçekleştirmek için yeni bir "SearchController" sınıf \Controllers dizinde sağ tıklayıp Ekle - i seçerek oluşturacağız&gt;denetleyicisi menü komutu. Biz, ardından "SearchByLocation" eylem yöntemi gibi yeni SearchController sınıftaki uygulayacaksınız:
+Bunu uygulamak için, \Controllers dizinine sağ tıklayıp add-&gt;Controller menü komutunu seçerek yeni bir "SearchController" sınıfı oluşturacağız. Daha sonra aşağıdaki gibi yeni SearchController sınıfında bir "SearchByLocation" eylem yöntemi uygulayacağız:
 
 [!code-csharp[Main](use-ajax-to-implement-mapping-scenarios/samples/sample10.cs)]
 
-SearchController'ın SearchByLocation eylem yöntemi, yakındaki azalma bir listesini almak için DinnerRepository üzerinde FindByLocation yöntemi dahili olarak çağırır. Ancak, Şimdi Akşam nesneleri doğrudan istemciye döndürmek yerine, bunun yerine JsonDinner nesneleri döndürür. Bir Akşam Yemeği özellik alt kümesi JsonDinner sınıfı gösterir (örnek: güvenlik açısından, bir akşam RSVP'd kişilerin adları ifşa değil). Ayrıca, Şimdi Akşam – üzerinde yok ve dinamik olarak belirli bir Akşam Yemeği ile ilişkili RSVP nesne sayısını sayma tarafından hesaplandığı RSVPCount özelliği içerir.
+SearchController 'ın SearchByLocation eylem yöntemi, yakındaki dinde bir liste almak için DinnerRepository üzerindeki FindByLocation metodunu dahili olarak çağırır. Bunun yerine, akşam yemeği nesnelerini doğrudan istemciye döndürmek yerine, Jsonakşam yemeği nesnelerini döndürür. Jsonakşam yemeği sınıfı, akşam yemeği özelliklerinin bir alt kümesini sunar (örneğin: güvenlik nedenleriyle, bir akşam yemeği için RSVP 'e sahip kişilerin adlarını açıklamaz). Ayrıca, akşam yemeği üzerinde mevcut olmayan ve belirli bir akşam yemeği ile ilişkili RSVP nesnelerinin sayısı sayarak dinamik olarak hesaplanan bir RSVPCount özelliği de içerir.
 
-Ardından Json() yardımcı yöntemi denetleyici temel sınıfta azalma JSON tabanlı kablo biçimini kullanarak bir dizisini döndürmek için kullanıyoruz. JSON, basit veri yapılarını temsil eden bir standart metin biçimidir. JSON biçimli bir iki JsonDinner nesnelerin listesini bizim eylem yönteminden döndürülen zaman göründüğünü bir örnek aşağıda verilmiştir:
+Daha sonra, JSON tabanlı bir Tel biçimi kullanarak dinetlerin sırasını döndürmek için denetleyici temel sınıfında JSON () yardımcı yöntemini kullanıyoruz. JSON, basit veri yapılarını temsil eden standart bir metin biçimidir. Aşağıda, iki Jsonakşam yemeği nesnesinin JSON ile biçimlendirilen listesinin, eylem yöntemızdan döndürüldüğünde nasıl göründüğü hakkında bir örnek verilmiştir:
 
 [!code-json[Main](use-ajax-to-implement-mapping-scenarios/samples/sample11.json)]
 
-### <a name="calling-the-json-based-ajax-method-using-jquery"></a>JQuery kullanarak AJAX, JSON tabanlı yöntemini çağırma
+### <a name="calling-the-json-based-ajax-method-using-jquery"></a>JQuery kullanarak JSON tabanlı AJAX metodunu çağırma
 
-Artık SearchController'ın SearchByLocation eylem yönteminin kullanılacağını NerdDinner uygulama ana sayfası güncelleştirmek hazırız. Yapılacaklar, biz /Views/Home/Index.aspx görünüm şablonunu açın ve bir metin kutusu, arama düğmesini, bizim harita sağlamak için güncelleştirmeniz ve bir &lt;div&gt; dinnerList adlı bir öğe:
+Şimdi SearchController 'ın SearchByLocation eylem yöntemini kullanmak için Nerdakşam yemeği uygulamasının giriş sayfasını güncelleştirmeye hazırsınız. Bunu yapmak için/views/Home/Index.aspx görünüm şablonunu açacak ve dinnerList adlı bir metin kutusu, arama düğmesi, haritamız ve bir &lt;div&gt; öğesi olacak şekilde güncelleştirmeniz gerekir:
 
 [!code-aspx[Main](use-ajax-to-implement-mapping-scenarios/samples/sample12.aspx)]
 
-İki JavaScript işlevleri ardından sayfasına ekleyebilirsiniz:
+Sonra sayfaya iki JavaScript işlevi ekleyebiliriz:
 
 [!code-html[Main](use-ajax-to-implement-mapping-scenarios/samples/sample13.html)]
 
-Sayfa ilk yüklendiğinde ilk JavaScript işlevi, eşleme yükler. İkinci JavaScript işlevi kablolarına bir JavaScript'kurmak, olay işleyicisi arama düğmesine tıklayın. Düğmeye basıldığında bizim Map.js dosyasına ekleyeceğiz FindDinnersGivenLocation() JavaScript işlevini çağırır:
+İlk JavaScript işlevi, sayfa ilk yüklendiğinde Haritayı yükler. İkinci JavaScript işlevi arama düğmesinde bir JavaScript 'e tıklama olayı işleyicisi. Düğmeye basıldığında Map. js dosyanıza ekleyeceğiniz FindDinnersGivenLocation () JavaScript işlevini çağırır:
 
 [!code-javascript[Main](use-ajax-to-implement-mapping-scenarios/samples/sample14.js)]
 
-Harita bu FindDinnersGivenLocation() işlevi çağırır. Find() girilen konuma göre ortalanmasını sanal Earth denetimi. Virtual earth harita hizmeti döndürdüğünde eşleme. Biz son bağımsız değişken olarak geçirilen callbackUpdateMapDinners geri çağırma yöntemi Find() yöntemini çağırır.
+Bu FindDinnersGivenLocation () işlevi eşlemeyi çağırır. Bu denetimi, girilen konumda ortalamak için Virtual Earth denetiminde bulun (). Virtual Earth harita hizmeti, eşlemesini döndürür. Find () yöntemi, en son bağımsız değişken olarak geçirdiğimiz Callbackupdatemapdınanlar geri çağırma yöntemini çağırır.
 
-Gerçek iş yeri yapılır callbackUpdateMapDinners() yöntemidir. Bir AJAX çağrısı bizim SearchController'ın SearchByLocation() eylem yöntemine – enlem ve boylamını yeni Ortala eşleminin geçirme gerçekleştirmek için jQuery'nın $.post() yardımcı yöntemini kullanır. $.Post() yardımcı yöntem tamamlandığında çağırılacak olan bir satır içi işlevi tanımlar ve "azalma" adında bir değişkene kullanarak eylem yöntemine geçirilecek SearchByLocation() dinner JSON ile biçimlendirilmiş sonuç döndürmedi. Ardından bir foreach döndürülen her Akşam Yemeği yapar ve yeni bir PIN haritaya eklemek için Akşam Yemeği'nın enlem ve boylam ve diğer özellikleri kullanır. Harita sağındaki azalma HTML listesine de bir Akşam Yemeği girdisi ekler. Bunu ardından kablolarına Raptiyeler hem de HTML listenin üzerine gelindiğinde kullanılacak etkinliğimize Akşam Yemeği hakkındaki ayrıntıları, bir kullanıcı üzerine geldiğinde görüntülenir artırma:
+Callbackupdatemapdınanlar () yöntemi, gerçek işin yapıldığı yerdir. Bu, SearchController 'ın SearchByLocation () eylem yöntemine yönelik bir AJAX çağrısı gerçekleştirmek için jQuery 'in $. Post () yardımcı yöntemini kullanır; bu, yeni ortalanmış haritanın Enlem ve boylamı olur. $. Post () yardımcı yöntemi tamamlandığında ve SearchByLocation () eylem yönteminden döndürülen JSON biçimli akşam yemeği sonuçları, bunu "dinlenebilir" olarak adlandırılan bir değişken kullanılarak geçirilecek bir satır içi işlevi tanımlar. Ardından, döndürülen her akşam yemeği üzerinden bir foreach yapar ve haritadaki yeni bir PIN eklemek için akşam yemeği 'nin Enlem ve boylam ve diğer özelliklerini kullanır. Ayrıca, eşlemenin sağındaki dinde HTML listesine bir akşam yemeği girişi ekler. Ardından, bir kullanıcı üzerlerine geldiğinde akşam yemeği hakkındaki ayrıntıların görüntülenmesi için hem Pushpin 'ler hem de HTML listesi için bir vurgulama olayı arar:
 
 [!code-html[Main](use-ajax-to-implement-mapping-scenarios/samples/sample15.html)]
 
-Ve artık size uygulamayı çalıştırın ve biz sahip bir eşleme sunulur giriş sayfasını ziyaret edin. Biz bir şehir adı girdiğiniz zaman, yakın gelecek azalma harita görüntülenir:
+Şimdi uygulamayı çalıştırdığımızda ve bir harita ile sunulacak olan giriş sayfasını ziyaret ettiğimiz zaman. Bir şehrin adını girdiğimiz zaman, haritada yakında yaklaşan başlayıcıları görüntülenecektir:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image12.png)
 
-Bir Akşam Yemeği geldiğinizde hakkındaki ayrıntıları görüntüler.
+Bir akşam yemeği üzerine gelindiğinde, onunla ilgili ayrıntılar görüntülenir.
 
-Akşam Yemeği başlığa tıklayarak Kabarcık veya HTML listesinde sağ taraftaki bize biz ardından isteğe bağlı olarak için RSVP dinner – gideceği:
+Akşam yemeği başlığına tıklayarak ya da HTML listesinin sağ tarafında, bize akşam yemeği, daha sonra isteğe bağlı olarak RSVP ile ilgili olarak şu şekilde bir işlem yapabilirsiniz:
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image13.png)
 
 ### <a name="next-step"></a>Sonraki adım
 
-NerdDinner uygulamamız tüm uygulama işlevselliğini artık uyguladık. Haydi şimdi biz nasıl olanak sağlayabileceğiniz göz otomatik birim sınama.
+Şimdi Nerdakşam yemeği uygulamamız için tüm uygulama işlevlerini uyguladık. Şimdi otomatik birim testlerini etkinleştirebilmemiz için bakalım.
 
 > [!div class="step-by-step"]
 > [Önceki](use-ajax-to-deliver-dynamic-updates.md)

@@ -1,25 +1,25 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu | Microsoft Docs
+title: ASP.NET Web Pages (Razor) sorun giderme kılavuzu | Microsoft Docs
 author: Rick-Anderson
-description: Bu makalede, ASP.NET Web sayfaları (Razor) ve bazı önerilen çözümleri ile çalışırken karşılaşabileceğiniz sorunlar açıklanmaktadır. Yazılım sürümleri ASP.NET Web fası...
+description: Bu makalede, ASP.NET Web Pages (Razor) ve bazı önerilen çözümlerle çalışırken karşılaşabileceğiniz sorunlar açıklanmaktadır. Yazılım sürümleri ASP.NET Web pag...
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
 ms.openlocfilehash: fc03767c16f46c1e282d24ee3a7df2409a7c38bb
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128566"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78585766"
 ---
 # <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web Sayfaları (Razor) Sorun Giderme Kılavuzu
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede, ASP.NET Web sayfaları (Razor) ve bazı önerilen çözümleri ile çalışırken karşılaşabileceğiniz sorunlar açıklanmaktadır.
+> Bu makalede, ASP.NET Web Pages (Razor) ve bazı önerilen çözümlerle çalışırken karşılaşabileceğiniz sorunlar açıklanmaktadır.
 > 
 > ## <a name="software-versions"></a>Yazılım sürümleri
 > 
@@ -27,132 +27,132 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web sayfaları (Razor) 3
 >   
 > 
-> Bu öğreticide, ASP.NET Web sayfaları 1.0 ve ASP.NET Web Pages 2 ile de çalışır.
+> Bu öğretici Ayrıca ASP.NET Web Pages 2 ve ASP.NET Web Pages 1,0 ile de kullanılabilir.
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
-- [Sayfaları çalıştıran sorunları](#Issues_Running_.cshtml_Pages)
-- [Razor kod ile ilgili sorunlar](#IssuesWithRazorCode)
-- [Güvenlik ve üyelik ile ilgili sorunlar](#membership)
+- [Çalışan sayfalarla ilgili sorunlar](#Issues_Running_.cshtml_Pages)
+- [Razor kodlu sorunlar](#IssuesWithRazorCode)
+- [Güvenlik ve üyelikle ilgili sorunlar](#membership)
 - [E-posta gönderme sorunları](#email)
 - [Ek Kaynaklar](#AdditionalResources)
 
-Genel sorular için bkz. [ASP.NET Web sayfaları (Razor) SSS](https://go.microsoft.com/fwlink/?LinkId=253000).
+Genel sorular için bkz. [ASP.NET Web Pages (Razor) SSS](https://go.microsoft.com/fwlink/?LinkId=253000).
 
 <a id="Issues_Running_.cshtml_Pages"></a>
-## <a name="issues-with-running-pages"></a>Sayfaları çalıştıran sorunları
+## <a name="issues-with-running-pages"></a>Çalışan sayfalarla ilgili sorunlar
 
-Çeşitli sorunlar engelleyebilir *.cshtml* ve *.vbhtml* düzgün çalışmasını sayfaları. Bu bölümde, genel hata iletileri listeler ve büyük olasılıkla neden olur.
+Birçok sorun, *. cshtml* ve *. vbhtml* sayfalarının düzgün çalışmasını engelleyebilir. Bu bölümde, yaygın hata iletileri ve olası nedenler listelenmektedir.
 
-### <a name="http-error-403---forbidden-access-is-denied"></a>HTTP Hata 403 - Yasak: Erişim reddedildi
+### <a name="http-error-403---forbidden-access-is-denied"></a>HTTP Hatası 403-Yasak: erişim reddedildi
 
-*Bu dizini veya sayfayı sağladığınız kimlik bilgileriyle görüntüleme izniniz yok.*
+*Sağladığınız kimlik bilgilerini kullanarak bu dizini veya sayfayı görüntüleme izniniz yok.*
 
-Sunucu .NET Framework sürümünü doğru çalışmıyorsa, bu hata oluşabilir. Sunucu (yerel olarak veya uzaktan) çalıştıran bilgisayarın en az .NET Framework 4 yüklü olduğundan emin olun. Ayrıca uygulamanın kendisinin doğru sürümünü çalıştırmak üzere yapılandırılmış olduğundan emin olun.
+Bu hata, sunucu doğru .NET Framework sürümünü çalıştırmadığından oluşabilir. Sunucuyu (yerel olarak veya uzaktan) çalıştıran bilgisayarın en azından .NET Framework 4 ' ün yüklü olduğundan emin olun. Ayrıca, uygulamanın kendisinin doğru sürümü çalıştıracak şekilde yapılandırıldığından emin olun.
 
-Bu sorunu yerel olarak Webmatrix'te çalışırken görürseniz, tıklayın **Site** çalışma alanında, ağaç görünümünde tıklayın, sonra da **ayarları**. İçinde **.NET Framework sürümünü seçin** listesinde, seçin **.NET 4 (tümleşik)**. Bu sürümü zaten ayarlanmışsa, WebMatrix yönetici olarak çalıştırın.
+WebMatrix 'te çalışırken bu sorunu yerel olarak görürseniz, **site** çalışma alanına tıklayın ve ardından TreeView 'da **Ayarlar**' a tıklayın. **.NET Framework sürüm Seç** listesinde, **.NET 4 (tümleşik)** öğesini seçin. Bu sürüm zaten ayarlandıysa, WebMatrix 'i yönetici olarak çalıştırmayı deneyin.
 
-Web sitenizin kök en az bir sahip olduğundan emin olun *.cshtml* içindeki dosya.
+Web sitenizin kökünde en az bir *. cshtml* dosyası bulunduğundan emin olun.
 
-Web sunucusu uzak bir sunucuda olduğunda bu hatayı görürseniz, sunucu yöneticisine başvurun. Veya üzerinin yüklü olduğundan emin sunucuda .NET Framework 4 olduğundan emin olun. Ayrıca uygulamayı,.NET Framework sürümünü kullanacak şekilde yapılandırılmış bir uygulama havuzunda çalıştığından emin olun.
+Web sunucusu uzak bir sunucuda olduğunda bu hatayı görürseniz, sunucu yöneticisine başvurun. Sunucuda .NET Framework 4 veya sonraki bir sürümünün yüklü olduğundan emin olun. Ayrıca, uygulamanın bu the.NET Framework sürümünü kullanacak şekilde yapılandırılmış bir uygulama havuzunda çalıştığından emin olun.
 
-Sunucu üzerinde denetime sahip olursunuz, .NET Framework sürümünü doğru çalıştığından emin olun. Çalıştırarak onarmayı deneyebilirsiniz `aspnet_regiis -iru` komutu. (IIS, .NET Framework'ü yükledikten sonra yüklerseniz, örneğin, IIS doğru ASP.NET sayfaları çalıştırmak için yapılandırılmaz.) Daha fazla bilgi için [ASP.NET IIS Kayıt Aracı (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
+Sunucu üzerinde denetiminiz varsa, .NET Framework doğru sürümünü çalıştırdığından emin olun. Ayrıca, `aspnet_regiis -iru` komutunu çalıştırarak yüklemeyi onarmayı deneyebilirsiniz. (Örneğin, .NET Framework yükledikten sonra IIS yüklerseniz, IIS ASP.NET sayfalarını çalıştıracak şekilde doğru şekilde yapılandırılmayacak.) Daha fazla bilgi için bkz. [ASP.NET IIS Kayıt Aracı (Aspnet\_regııs. exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
-### <a name="http-error-40314---forbidden"></a>HTTP Hatası 403.14 - Yasak
+### <a name="http-error-40314---forbidden"></a>HTTP Hatası 403,14-yasak
 
-*Web sunucusu bu dizinin içeriklerini değil listelemek için yapılandırılır.*
+*Web sunucusu bu dizinin içeriğini listebir şekilde yapılandırılmamış.*
 
-Korumalı bir kaynağın istemesi durumunda bu hata oluşabilir (gibi *Web.config* dosyası) veya korunan bir klasöre olan (gibi *uygulama\_veri* veya *uygulama\_Kod*).
+Bu hata, korunan bir kaynak ( *Web. config* dosyası gibi) veya korunan bir klasörde ( *App\_verileri* veya *uygulama\_kodu*gibi) istenirse oluşabilir.
 
-### <a name="http-error-40417---not-found"></a>HTTP Hatası 404,17 - bulunamadı
+### <a name="http-error-40417---not-found"></a>HTTP hatası 404,17-bulunamadı
 
-*Talep edilen içeriği, betik gibi görünüyor ve statik dosya işleyici tarafından sunulan değil.*
+*İstenen içerik betik gibi görünüyor ve statik dosya işleyicisi tarafından sunulmayacak.*
 
-Sunucu .NET Framework 4 kullanmak için düzgün yapılandırılmamış veya daha sonra ve bu nedenle kodda tanımıyor bu hata oluşabilir `@{ }` engeller. Bir açıklaması için önceki bkz *HTTP Hata 403 - Yasak: Erişim reddedildi*.
+Bu hata, sunucu .NET Framework 4 veya üzeri bir sürümü kullanmak için doğru yapılandırılmamışsa ve bu nedenle, `@{ }` bloklarda kodu tanımadığı durumlarda meydana gelebilir. Bkz. *http hatası 403-Yasak: erişim reddedildi*.
 
-### <a name="http-error-4047---not-found"></a>HTTP Hatası 404.7 - bulunamadı
+### <a name="http-error-4047---not-found"></a>HTTP hatası 404,7-bulunamadı
 
-*İstek Filtreleme modülü dosya uzantısını Reddet yapılandırılır*
+*İstek filtreleme modülü dosya uzantısını reddedecek şekilde yapılandırıldı*
 
-Bu hata oluşabilir *.cshtml* veya *.vbhtml* uzantıları sunucuda açıkça da engellenmiş. Bu sorunun belirtisi uzantısı, ancak dahil URL'leri dahil etmeyin URL'leri çalışan olduğunda *.cshtml* veya *.vbhtml* çalışmaz. Site uzantıları yeniden etkinleştirmek için olası bir çözüm olan *Web.config* dosya. Aşağıdaki örnek nasıl etkinleştirileceğini gösterir *.cshtml* uzantısı.
+Bu hata, sunucuda *. cshtml* veya *. vbhtml* uzantıları açıkça engellenmişse oluşabilir. Bu sorunun belirtisi, URL 'Lerin uzantı içermediği durumlarda çalıştığı, ancak *. cshtml* veya *. vbhtml* içeren URL 'lerin çalışmamasından oluşur. Olası bir çözüm, sitenin *Web. config* dosyasındaki uzantıları yeniden etkinleştirmektir. Aşağıdaki örnekte *. cshtml* uzantısının nasıl etkinleştirileceği gösterilmektedir.
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample1.xml?highlight=5-6)]
 
-### <a name="http-error-4048---not-found"></a>HTTP Hatası 404.8 - bulunamadı
+### <a name="http-error-4048---not-found"></a>HTTP hatası 404,8-bulunamadı
 
-*İstek Filtreleme modülü hiddenSegment bölüm içeren URL yolunda reddetmek üzere yapılandırılır.*
+*İstek filtreleme modülü, bir hiddenSegment bölümü içeren URL 'deki bir yolu reddedecek şekilde yapılandırılmıştır.*
 
-Korumalı bir kaynağın istemesi durumunda bu hata oluşabilir (gibi *Web.config* dosyası) veya korunan bir klasöre olan (gibi *uygulama\_veri* veya *uygulama\_Kod*).
+Bu hata, korunan bir kaynak ( *Web. config* dosyası gibi) veya korunan bir klasörde ( *App\_verileri* veya *uygulama\_kodu*gibi) istenirse oluşabilir.
 
-### <a name="this-type-of-page-is-not-served-server-error-in--application"></a>Bu sayfa türü ('/' uygulamasında sunucu hatası) sunulmuyor
+### <a name="this-type-of-page-is-not-served-server-error-in--application"></a>Bu tür bir sayfaya sunulmuyor ('/' uygulamasında sunucu hatası)
 
-HTTP Hatası 404,17 için önceki açıklamasına bakın.
+Daha önce HTTP hatası 404,17 için açıklamaya bakın.
 
 <a id="IssuesWithRazorCode"></a>
-## <a name="issues-with-razor-code"></a>Razor kod ile ilgili sorunlar
+## <a name="issues-with-razor-code"></a>Razor kodlu sorunlar
 
-### <a name="the-name-class-does-not-exist-in-the-current-context"></a>Adı '*sınıfı*' geçerli bağlamda yok
+### <a name="the-name-class-does-not-exist-in-the-current-context"></a>'*Class*' adı geçerli bağlamda yok
 
-Genellikle, bu hatayı görmek için bir neden olan `class` başvuruları yardımcı, ancak Yardımcısı yüklü değil. Örneğin, bir yardımcı kullanmayı denerseniz, ancak paket Nuget'ten yüklemediyseniz, bu hatayı görürsünüz. WebMatrix galeride bulmak ve Yardımcısı'nı yüklemek için kullanın.
+Genellikle, bu hatayı görmanızın bir nedeni `class` bir yardımcı başvuru, ancak yardımcı yüklenmez. Örneğin, bir yardımcı kullanmaya çalışırsanız, ancak paketi NuGet 'den yüklemediyseniz bu hatayı görürsünüz. Yardımcıyı bulmak ve yüklemek için WebMatrix 'teki galeriyi kullanın.
 
-Yardımcısı yüklü, ancak sayfa hala tanıyamadığı varsa deneyin ekleme bir `using` deyimi için kod. İçinde `using` deyimi, yardımcı içeren ad alanı başvurusu. Örneğin, ASP.NET Web Yardımcıları pakette olan temel olarak yardımcılardır `System.Web.Helpers` ad alanı. Yardımcı kullanmak istediğiniz sayfanın üst kısmında, aşağıdaki satırı ekleyin:
+Yardımcı yüklenirse, ancak sayfa hala tanınmıyorsa, koda bir `using` ekleyin ifadesini eklemeyi deneyin. `using` bildiriminde, yardımcı içeren ad alanına başvurun. Örneğin, ASP.NET Web yardımcıları paketindeki temel yardımcılar `System.Web.Helpers` ad alanıdır. Yardımcı 'yı kullanmak istediğiniz sayfanın en üstünde şu satırı ekleyin:
 
 `@using Microsoft.Web.Helpers;`
 
 <a id="membership"></a>
-## <a name="issues-with-security-and-membership"></a>Güvenlik ve üyelik ile ilgili sorunlar
+## <a name="issues-with-security-and-membership"></a>Güvenlik ve üyelikle ilgili sorunlar
 
-ASP.NET Web Pages'da (Razor) yerleşik güvenlik (Üyelik) sistemi kullanıyorsanız, aşağıdaki sorunlarla karşılaşabilirsiniz.
+ASP.NET Web Pages (Razor) içinde yerleşik güvenlik (üyelik) sistemini kullanıyorsanız, aşağıdaki sorunlarla karşılaşabilirsiniz.
 
-### <a name="to-call-this-method-the-membershipprovider-property-must-be-an-instance-of-extendedmembershipprovider"></a>Bu yöntem çağırmak için "Membership.Provider" özelliği "ExtendedMembershipProvider" örneği olmalıdır
+### <a name="to-call-this-method-the-membershipprovider-property-must-be-an-instance-of-extendedmembershipprovider"></a>Bu yöntemi çağırmak için, "Membership. Provider" özelliği "ExtendedMembershipProvider" öğesinin bir örneği olmalıdır
 
-Bu hata bildiren hiçbir `AspNetSqlMembershipProvider` sınıfı yapılandırılır. (Bir sitenin düzgün yerel olarak çalışır ancak bir barındırma sağlayıcısının sunucuya yayımladığınızda, bu hata oluşturuyor belirtisidir.) Bu sorun için bir düzeltme olan sitenin aşağıdakileri ekleyerek basit üyelik açıkça etkinleştirmek için *Web.config* dosyası:
+Bu hata, `AspNetSqlMembershipProvider` sınıfının yapılandırılmadığını gösterebilir. (Bir belirti, sitenin yerel olarak ince çalışacağından, ancak bir barındırma sağlayıcısının sunucusunda yayımladığınızda bu hatayı oluşturur.) Bu sorunun bir onarımı, sitenin *Web. config* dosyasına aşağıdakini ekleyerek basit üyeliği açıkça etkinleştirmektir:
 
 [!code-xml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample2.xml?highlight=6)]
 
 <a id="email"></a>
 ## <a name="issues-with-sending-email"></a>E-posta gönderme sorunları
 
-Hata ayıklamak için e-posta gönderme sorunlarını zor olabilir. SMTP sunucusuna bağlanamıyorsunuz ilk bir sorun olabilir. Bağlantı başarılı olursa, ASP.NET ileti kapalı SMTP sunucusuna uygulamalı. Ancak, SMTP sunucusu, göndermesini engeller ileti kendisi ile ilgili sorunlar olabilir.
+E-posta gönderme sorunları hata ayıklaması zor olabilir. Bir ilk sorun, SMTP sunucusuna bağlanamadan olabilir. Bağlantı başarılı olursa, iletiyi SMTP sunucusuna ASP.NET. Ancak, iletinin kendisiyle birlikte SMTP sunucusunun göndermesini önleyen sorunlar olabilir.
 
-Uygulamanız başarıyla e-posta göndermez, aşağıdakileri deneyin:
+Uygulamanız başarılı bir şekilde e-posta göndermezse, aşağıdakileri deneyin:
 
-- SMTP sunucusu adını genellikle gibi bir şeydir `smtp.provider.com` veya `smtp.provider.net`. Ancak, bir barındırma sağlayıcısına sitenizi yayımlayın, SMTP sunucusu adını bu noktada olabilir `localhost`. Yayımladığınız sonra sitenizi sağlayıcıya ait sunucu üzerinde çalıştığından, SMTP sunucusu yerel uygulamanızı perspektifinden olabileceğinden, bu durum oluşur. Sunucu adları bu değişikliğe, yayımlama işleminin bir parçası SMTP sunucusu adını değiştirmek zorunda anlamına gelebilir.
-- Bağlantı noktası numarası genellikle 25'tir. Ancak, bazı sağlayıcılar 587 veya bazı başka bir bağlantı, bağlantı noktası kullanmayı gerektirir. SMTP sunucusuna sahip, hangi bağlantı noktası numarasını kullanmak için beklediği denetleyin.
-- Doğru kimlik bilgilerini kullandığınızdan emin olun. Bir barındırma sağlayıcısına sitenizi yayımladığınız sağlayıcısı, e-posta için özellikle belirtti kimlik bilgilerini kullanın. Bu kimlik bilgileri yayımlamak için kullandığınız kimlik bilgilerinizden farklı olabilir.
-- Bazı durumlarda tüm kimlik bilgisi gerekmez. Kişisel ISS kullanarak e-posta gönderiyorsanız, e-posta sağlayıcınız kimlik bilgilerinizi zaten biliyor olabilirsiniz. Yayımladıktan sonra yerel bilgisayarınızda test ettiğinizde, farklı kimlik bilgileri kullanmanız gerekebilir.
-- E-posta sağlayıcınız şifreleme kullanıyorsa, ayarlama `WebMail.EnableSsl` için `true`.
+- SMTP sunucusu adı genellikle `smtp.provider.com` veya `smtp.provider.net`gibi bir şeydir. Ancak, sitenizi bir barındırma sağlayıcısına yayımlarsanız, söz konusu noktada SMTP sunucu adı `localhost`olabilir. Bu durum, yayımladıktan ve sitenizin sağlayıcının sunucusunda çalışıyor olması nedeniyle, SMTP sunucusu uygulamanızın perspektifinden yerel olabilir. Sunucu adlarında bu değişiklik, yayımlama işleminizin bir parçası olarak SMTP sunucu adını değiştirmeniz gerektiği anlamına gelebilir.
+- Bağlantı noktası numarası genellikle 25 ' tir. Ancak, bazı sağlayıcılar bağlantı noktası 587 ' yı veya başka bir bağlantı noktasını kullanmanızı gerektirir. SMTP sunucusunun sahibine, kullanmanız beklenen bağlantı noktası numarasını kontrol edin.
+- Doğru kimlik bilgilerini kullandığınızdan emin olun. Sitenizi bir barındırma sağlayıcısına yayımladıysanız, sağlayıcının özel olarak belirttiği kimlik bilgilerini e-posta için kullanın. Bu kimlik bilgileri, yayımlamak için kullandığınız kimlik bilgilerinden farklı olabilir.
+- Bazen kimlik bilgilerine gerek kalmaz. Kişisel ISS 'nizi kullanarak e-posta gönderiyorsanız, e-posta sağlayıcınız kimlik bilgilerinizi zaten bilir. Yayımladıktan sonra, yerel bilgisayarınızda sınama yaparken farklı kimlik bilgileri kullanmanız gerekebilir.
+- E-posta sağlayıcınız şifreleme kullanıyorsa, `WebMail.EnableSsl` `true`olarak ayarlayın.
 
-E-posta gönderilirken bir hata varsa, şuna benzer bir standart ASP.NET hata iletisini görebilirsiniz:
+E-posta gönderilirken bir hata oluşursa, şuna benzer bir standart ASP.NET hata iletisi görebilirsiniz:
 
-![E-posta ile ilgili bir sorun olduğunda ASP.NET hata iletisi](aspnet-web-pages-razor-troubleshooting-guide/_static/image1.png)
+![E-postada bir sorun olduğunda ASP.NET hata iletisi](aspnet-web-pages-razor-troubleshooting-guide/_static/image1.png)
 
-Kullanarak e-posta gönderme sorunlarını da ayıklayabilirsiniz bir `try-catch` aşağıdaki örnekteki gibi bir blok. Kullandığınızda, bir `try-catch` blok, ASP.NET, standart hata iletileri görüntülenmez. Bunun yerine, hatayı yakalayabilirsiniz `catch` blok kısmı.
+Ayrıca, aşağıdaki örnekte olduğu gibi `try-catch` bloğu kullanarak e-posta gönderme sorunlarını da ayıklayabilirsiniz. Bir `try-catch` bloğu kullandığınızda, ASP.NET standart hata iletilerini görüntülemez. Bunun yerine, hatayı bloğun `catch` bölümünde yakalayabilirsiniz.
 
 [!code-cshtml[Main](aspnet-web-pages-razor-troubleshooting-guide/samples/sample3.cshtml)]
 
-İçin uygun değerleri yerine `your-SMTP-server-name`ve benzeri. Bu şekilde görebileceğiniz hata iletileri bazıları şunlardır:
+`your-SMTP-server-name`için uygun değerleri değiştirin ve bu şekilde devam edin. Bu şekilde, bazı hata iletileri şunları görebilirsiniz:
 
-- *Posta gönderme başarısız oldu.*
+- *Posta gönderilirken hata oluştu.*
 
-    -veya-
+    veya
 
-    *Bağlı olan taraf doğru zaman ya da kurulan bağlantı bağlı konak yanıt başarısız olduğundan başarısız oldu. bir süre sonra yanıt vermediğinden bağlantı denemesi başarısız oldu.*
+    *Bağlı olan taraf bir süre sonra düzgün bir şekilde yanıt vermediğinden veya bağlı konak yanıt vermediğinden bağlantı kurulamadığı için bağlantı girişimi başarısız oldu*
 
-    Bu hata genellikle uygulama SMTP sunucusuna bağlanamadı anlamına gelir. Sunucu adını denetleyin ve bağlantı noktası numarası.
-- *Posta kutusu kullanılamaz. Sunucu yanıtı şöyleydi: 5.1.0 &lt; someuser@invaliddomain &gt; gönderen reddetti: Geçersiz gönderen etki alanı*
+    Bu hata genellikle uygulamanın SMTP sunucusuna bağlanamabileceği anlamına gelir. Sunucu adını ve bağlantı noktası numarasını kontrol edin.
+- *Posta kutusu kullanılamıyor. Sunucu yanıtı: 5.1.0 &lt;someuser@invaliddomain&gt; gönderen reddedildi: geçersiz gönderici etki alanı*
 
-    Bu iletiyi bildiren `From` adresi doğru değil veya eksik.
-- *Belirtilen dizenin bir e-posta adresi için gereken biçimde değil.*
+    Bu ileti, `From` adresinin doğru olmadığını veya eksik olduğunu gösteriyor olabilir.
+- *Belirtilen dize, bir e-posta adresi için gereken biçimde değil.*
 
-    Bu hata olabileceğini gösteren değeri `To` veya `From` özellikleri e-posta adresleri olarak tanınmıyor. (ASP.NET, e-posta adresi doğru biçimde gibi kullanıcının yalnızca geçerli olduğunu denetleyemez *name@domain.com*.)
+    Bu hata, `To` veya `From` özelliklerinin bir e-posta adresi olarak tanınmadığını gösterebilir. (ASP.NET, e-posta adresinin geçerli olduğunu, yalnızca *name@domain.com* gibi doğru biçimde olduğunu kontrol edemez.)
 
 > [!NOTE]
-> Hatayı görüntüler Biçimlendirmeyi Kaldır (`@errorMessage`) Canlı site için sayfayı yayımlamadan önce. Kullanıcıların bir sunucudan alın hata iletilerini görmek için iyi bir fikir değil.
+> Sayfayı canlı bir siteye yayımlamadan önce hatayı gösteren biçimlendirmeyi kaldırın (`@errorMessage`). Kullanıcıların bir sunucudan aldığınız hata iletilerini görmesini sağlamak iyi bir fikir değildir.
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 [ASP.NET Web Sayfaları (Razor) SSS](https://go.microsoft.com/fwlink/?LinkId=253000)
 
-[WebMatrix ve ASP.NET Web sayfaları](https://forums.asp.net/1224.aspx/1?WebMatrix) ASP.NET Web sitesinde Forumu
+ASP.NET Web sitesinde [WebMatrix ve ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix) Forumu

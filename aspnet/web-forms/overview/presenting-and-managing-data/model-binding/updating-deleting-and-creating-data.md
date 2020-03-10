@@ -1,115 +1,115 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
-title: Güncelleştirme, silme ve verileri model bağlama ve web forms ile oluşturma | Microsoft Docs
+title: Model bağlama ve Web formları ile verileri güncelleştirme, silme ve oluşturma | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
+description: Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama, veri etkileşimini daha düz-... hale getirir
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 602baa94-5a4f-46eb-a717-7a9e539c1db4
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
 ms.openlocfilehash: 11dc52ec79ca91119b37ea60e08164eb1b1d0e2b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130312"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586648"
 ---
-# <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Güncelleştirme, silme ve verileri model bağlama ve web forms ile oluşturma
+# <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Model bağlama ve Web formları ile verileri güncelleştirme, silme ve oluşturma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.
+> Bu öğretici serisi, model bağlamayı bir ASP.NET Web Forms projesiyle kullanmanın temel yönlerini gösterir. Model bağlama veri kaynağı nesneleriyle (örneğin, ObjectDataSource veya SqlDataSource) çok daha basit hale getirir. Bu seri giriş malzemesiyle başlar ve sonraki öğreticilerde daha gelişmiş kavramlara gider.
 > 
-> Bu öğreticide, oluşturmak, güncelleştirmek ve model bağlama ile verileri silmek gösterilir. Aşağıdaki özellikleri ayarlar:
+> Bu öğreticide, model bağlama ile veri oluşturma, güncelleştirme ve silme işlemlerinin nasıl yapılacağı gösterilmektedir. Aşağıdaki özellikleri ayarlayacaksınız:
 > 
 > - DeleteMethod
 > - InsertMethod
 > - UpdateMethod
 > 
-> Bu özellikler, karşılık gelen işlemi işleyen yöntem adını alır. Bu yöntem içinde verilerle etkileşim kurmak için mantığı sağlar.
+> Bu özellikler, karşılık gelen işlemi işleyen yöntemin adını alır. Bu yöntemde, verilerle etkileşim kurma mantığını sağlarsınız.
 > 
-> Bu öğreticide oluşturduğunuz ilk proje geliştirir [bölümü](retrieving-data.md) dizi.
+> Bu öğreticide, serinin ilk [bölümünde](retrieving-data.md) oluşturulan proje oluşturulur.
 > 
-> Yapabilecekleriniz [indirme](https://go.microsoft.com/fwlink/?LinkId=286116) tam projeyi C# veya vb İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile çalışır. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklıdır Visual Studio 2012 şablonu kullanır.
+> Tüm projeyi [](https://go.microsoft.com/fwlink/?LinkId=286116) C# veya vb 'ye indirebilirsiniz. İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile birlikte kullanılabilir. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklı olan Visual Studio 2012 şablonunu kullanır.
 
-## <a name="what-youll-build"></a>Derleme
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Bu öğreticide, gerekir:
+Bu öğreticide şunları yapmanız gerekir:
 
 1. Dinamik veri şablonları ekleme
-2. Model bağlama yöntemleri güncelleştirme ve silme veri etkinleştir
-3. Veri doğrulama kuralları uygulamak - bir veritabanında yeni bir kayıt oluşturma etkinleştirin
+2. Model bağlama yöntemleriyle verileri güncelleştirme ve silmeyi etkinleştirme
+3. Veri doğrulama kurallarını uygulama-veritabanında yeni bir kayıt oluşturmayı etkinleştirin
 
 ## <a name="add-dynamic-data-templates"></a>Dinamik veri şablonları ekleme
 
-Kod tekrarından en aza indirmek ve en iyi kullanıcı deneyimi sağlamak için dinamik veri şablonları kullanır. Bir NuGet paketini yükleyerek önceden oluşturulmuş dinamik veri şablonları mevcut sitenize kolayca tümleştirebilirsiniz.
+En iyi kullanıcı deneyimini sağlamak ve kod tekrarlamayı en aza indirmek için dinamik veri şablonlarını kullanacaksınız. Önceden oluşturulmuş dinamik veri şablonlarını, bir NuGet paketi yükleyerek var olan sitenize kolayca tümleştirebilirsiniz.
 
-Gelen **NuGet paketlerini Yönet**, yükleme **DynamicDataTemplatesCS**.
+**NuGet Paketlerini Yönet**' den **Dynamicdatatemplatescs**'yi yükler.
 
 ![dinamik veri şablonları](updating-deleting-and-creating-data/_static/image1.png)
 
-Projeniz artık adlı bir klasör içeriyorsa bildirimi **DynamicData**. Bu klasörde otomatik olarak web formlarınızı dinamik denetimlere uygulanan şablonlar bulabilirsiniz.
+Projenizin artık **DynamicData**adlı bir klasör içerdiğine dikkat edin. Bu klasörde, Web formlarınızda dinamik denetimlere otomatik olarak uygulanan şablonları bulacaksınız.
 
 ![dinamik veri klasörü](updating-deleting-and-creating-data/_static/image2.png)
 
-## <a name="enable-updating-and-deleting"></a>Etkinleştirme güncelleştirme ve silme
+## <a name="enable-updating-and-deleting"></a>Güncelleştirme ve silmeyi etkinleştir
 
-Kullanıcıların, güncelleştirme ve silme kayıtlarını veritabanında veri alma işlemine çok benzer. İçinde **UpdateMethod** ve **DeleteMethod** özellikleri, bu işlemleri gerçekleştiren yöntemler adlarını belirtin. Bir GridView denetimi Düzenle otomatik olarak oluşturulmasını belirtin ve Sil düğmeleri. Aşağıdaki vurgulanmış kodu GridView kod eklemeleri gösterir.
+Kullanıcıların veritabanındaki kayıtları güncelleştirmesini ve silmesini sağlamak, verileri alma sürecine çok benzer. **UpdateMethod** ve **DeleteMethod** özelliklerinde, bu işlemleri gerçekleştiren yöntemlerin adlarını belirtirsiniz. GridView denetimiyle, düzenleme ve silme düğmelerinin otomatik oluşturulmasını de belirtebilirsiniz. Aşağıdaki vurgulanan kod, GridView koduna yapılan eklemeleri gösterir.
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample1.aspx?highlight=4-5)]
 
-Kullanarak bir arka plan kod dosyasında, ekleme deyimini **System.Data.Entity.Infrastructure**.
+Arka plan kod dosyasında, **System. Data. Entity. Infrastructure**için bir using açıklaması ekleyin.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample2.cs)]
 
-Ardından, şu güncelleştirmeyi ekleyin ve yöntemlerini silin.
+Ardından, aşağıdaki güncelleştirmeyi ve silme yöntemlerini ekleyin.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample3.cs)]
 
-**TryUpdateModel** yöntemi web formu eşleşen verilere bağlı değerleri veri öğesi için geçerlidir. Veri öğesi dayalı kimliği parametresinin değeri olarak alınır.
+**TryUpdateModel** yöntemi, Web formundan eşleşen veri bağlantılı değerleri veri öğesine uygular. Veri öğesi, ID parametresinin değerine göre alınır.
 
-## <a name="enforce-validation-requirements"></a>Doğrulama gereksinimlerini zorunlu
+## <a name="enforce-validation-requirements"></a>Doğrulama gereksinimlerini zorla
 
-Verileri güncelleştirirken, Öğrenci sınıfında FirstName ve LastName yıl özelliklerine uygulanan doğrulama özniteliklerinin otomatik olarak uygulanır. İstemci ve sunucu doğrulayıcıları doğrulama özniteliklerine dayalı DynamicField denetimleri ekleyin. FirstName ve LastName özelliklerinin her ikisi de olduğundan gerekli. FirstName 20 karakterden uzun olamaz ve LastName 40 karakterden uzun olamaz. Yıl AcademicYear sabit listesi için geçerli bir değer olmalıdır.
+Öğrenci sınıfındaki FirstName, LastName ve Year özelliklerine uyguladığınız doğrulama öznitelikleri, veriler güncelleştirilirken otomatik olarak zorlanır. DynamicField denetimleri, doğrulama özniteliklerine göre istemci ve sunucu Doğrulayıcıları ekler. FirstName ve LastName özelliklerinin ikisi de gereklidir. FirstName uzunluğu 20 karakteri aşamaz ve LastName 40 karakteri aşamaz. Yıl, akademik Micyear numaralandırması için geçerli bir değer olmalıdır.
 
-Kullanıcı doğrulama gereksinimlerinden biri, ihlal edilirse, güncelleştirme devam etmez. Hata iletisini görmek için yukarıdaki GridView bir ValidationSummary denetimi ekleyin. Model bağlama doğrulama hatalarından görüntülenecek kümesi **ShowModelStateErrors** özelliğini **true**. 
+Kullanıcı doğrulama gereksinimlerinden birini ihlal ederse güncelleştirme devam etmez. Hata iletisini görmek için GridView 'un üzerine bir ValidationSummary denetimi ekleyin. Model bağlamasındaki doğrulama hatalarını göstermek için **ShowModelStateErrors** özelliğini **true**olarak ayarlayın. 
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample4.aspx)]
 
-Web uygulamasını çalıştırmak, güncelleştirme ve kayıtları silin.
+Web uygulamasını çalıştırın ve kayıtları güncelleştirin ve silin.
 
 ![verileri güncelleştirme](updating-deleting-and-creating-data/_static/image3.png)
 
-Düzenleme modunda yıl özelliğinin değeri otomatik olarak açılan bir liste olarak işlendiğinde dikkat edin. Year özelliği bir sabit listesi değeri ve bir açılan listeden düzenlemek için bir sabit listesi değeri için dinamik veri şablonu belirtir. Bu şablon açarak bulabilirsiniz **numaralandırma\_Edit.ascx** dosyası **DynamicData**/**FieldTemplates** klasör.
+Düzenleme modunda Year özelliğinin değeri otomatik olarak bir açılan liste olarak işlendiğine dikkat edin. Year özelliği bir sabit listesi değeridir ve bir numaralandırma değeri için dinamik veri şablonu, düzenlemenin açılan listesini belirtir. Bu şablonu, **DynamicData**/**FieldTemplates** klasöründe **numaralandırma\_. ascx** dosyasını açarak bulabilirsiniz.
 
-Geçerli değerler sağlarsanız, güncelleştirme başarıyla tamamlar. Doğrulama gereksinimlerini ihlal güncelleştirme devam etmiyor ve kılavuzun üzerindeki bir hata iletisi görüntülenir.
+Geçerli değerler sağlarsanız güncelleştirme başarıyla tamamlanır. Doğrulama gereksinimlerinden birini ihlal ederseniz, güncelleştirme devam etmez ve kılavuzun üzerinde bir hata mesajı görüntülenir.
 
 ![hata iletisi](updating-deleting-and-creating-data/_static/image4.png)
 
-## <a name="add-new-records"></a>Yeni kayıtlar ekleme
+## <a name="add-new-records"></a>Yeni kayıt Ekle
 
-GridView denetiminde yer almaz **InsertMethod** özelliği ve bu nedenle yeni bir kayıt ile model bağlama eklemek için kullanılamaz. InsertMethod özelliğinde bulabilirsiniz **FormView**, **DetailsView**, veya **ListView** kontrol eder. Bu öğreticide, yeni bir kayıt eklemek için FormView denetimi kullanır.
+GridView denetimi **InsertMethod** özelliğini içermez ve bu nedenle model bağlamaya sahip yeni bir kayıt eklemek için kullanılamaz. InsertMethod özelliğini **FormView**, **DetailsView**veya **ListView** denetimlerinde bulabilirsiniz. Bu öğreticide yeni bir kayıt eklemek için bir FormView denetimi kullanacaksınız.
 
-İlk olarak, yeni bir kayıt eklemek için oluşturacağınız yeni sayfasına bağlantı ekleyin. Bir ValidationSummary ekleyin:
+İlk olarak, yeni bir kayıt eklemek için oluşturacağınız yeni sayfanın bağlantısını ekleyin. ValidationSummary üzerinde şunu ekleyin:
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample5.aspx)]
 
-Yeni bağlantı içeriklerin Öğrenciler üstünde görünür.
+Yeni bağlantı öğrenciler sayfasının içeriğinin en üstünde görünür.
 
 ![Yeni bağlantı](updating-deleting-and-creating-data/_static/image5.png)
 
-Ardından, bir ana sayfa kullanan yeni bir web formu ekleyin ve adlandırın **AddStudent**. Site.Master ana sayfa olarak seçin.
+Ardından, ana sayfa kullanarak yeni bir Web formu ekleyin ve **Addöğrenci**olarak adlandırın. Ana sayfa olarak site. Master ' u seçin.
 
-Kullanarak yeni bir öğrenci eklemek için alanlar işleyecek bir **DynamicEntity** denetimi. Düzenlenebilir, Itemtype özelliğinde belirtilen sınıf özelliklerinde DynamicEntity denetimi oluşturur. StudentID özelliği ile işaretlenmiş **[ScaffoldColumn(false)]** değil işlenebilmesi özniteliği. MainContent yer tutucusu AddStudent sayfasının, aşağıdaki kodu ekleyin.
+**DynamicEntity** denetimini kullanarak yeni bir öğrenci eklemek için alanları oluşturacaksınız. DynamicEntity denetimi, ItemType özelliğinde belirtilen sınıfta düzenlenebilir özellikleri işler. Studentitıd özelliği, **[ScaffoldColumn (false)]** özniteliğiyle işaretlendi, bu nedenle işlenmiyor. Addöğrenci sayfasının MainContent yer tutucusuna aşağıdaki kodu ekleyin.
 
 [!code-aspx[Main](updating-deleting-and-creating-data/samples/sample6.aspx)]
 
-Arka plan kod dosyasında (AddStudent.aspx.cs) ekleme bir **kullanarak** bildirimi **ContosoUniversityModelBinding.Models** ad alanı.
+Arka plan kod dosyasında (AddStudent.aspx.cs), **Contosoüniversıtymodelbinding. model** ad alanı için bir **using** açıklaması ekleyin.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample7.cs)]
 
-Ardından, yeni bir kayıt ve iptal düğmesi için bir olay işleyicisi ekleme belirtmek için aşağıdaki yöntemleri ekleyin.
+Ardından, iptal düğmesi için nasıl yeni bir kayıt ve olay işleyicisi ekleneceğini belirtmek üzere aşağıdaki yöntemleri ekleyin.
 
 [!code-csharp[Main](updating-deleting-and-creating-data/samples/sample8.cs)]
 
@@ -117,17 +117,17 @@ Tüm değişiklikleri kaydedin.
 
 Web uygulamasını çalıştırın ve yeni bir öğrenci oluşturun.
 
-![Yeni bir öğrenci eklemek](updating-deleting-and-creating-data/_static/image6.png)
+![Yeni öğrenci Ekle](updating-deleting-and-creating-data/_static/image6.png)
 
-Tıklayın **Ekle** ve yeni Öğrenci oluşturulan dikkat edin.
+**Ekle** ' ye tıklayın ve yeni öğrenciye oluşturulduğuna dikkat edin.
 
-![Yeni Öğrenci görüntüleme](updating-deleting-and-creating-data/_static/image7.png)
+![Yeni öğrenci görüntüle](updating-deleting-and-creating-data/_static/image7.png)
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, güncelleştirme, silme ve verileri oluşturma etkin. Doğrulama kuralları verilerle etkileşim kurulurken uygulanır olmasını sağladı.
+Bu öğreticide, verileri güncelleştirme, silme ve oluşturma özelliği etkinleştirilmiştir. Verilerle etkileşim kurarken doğrulama kuralları uygulanır.
 
-Sonraki [öğretici](sorting-paging-and-filtering-data.md) bu dizide, sıralama, sayfalama ve verileri filtreleme sağlayacaktır.
+Bu serinin sonraki [öğreticide](sorting-paging-and-filtering-data.md) sıralama, sayfalama ve filtreleme verilerini etkinleştirecektir.
 
 > [!div class="step-by-step"]
 > [Önceki](retrieving-data.md)

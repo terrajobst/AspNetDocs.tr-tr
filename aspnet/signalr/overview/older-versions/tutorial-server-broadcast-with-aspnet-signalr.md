@@ -1,253 +1,253 @@
 ---
 uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
-title: 'Öğretici: ASP.NET SignalR ile sunucu yayını 1.x | Microsoft Docs'
+title: 'Öğretici: ASP.NET SignalR 1. x ile sunucu yayını | Microsoft Docs'
 author: bradygaster
-description: Bu öğreticide, sunucu yayın işlevselliği sağlamak için ASP.NET SignalR kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu anlamına gelir, communic yayını...
+description: Bu öğreticide, sunucu yayını işlevselliği sağlamak için ASP.NET SignalR kullanan bir Web uygulamasının nasıl oluşturulacağı gösterilmektedir. Sunucu yayını, communic...
 ms.author: bradyg
 ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 68908be34f6b010e512677fe5f5e31bfdefab592
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78579410"
 ---
 # <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını
 
-tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+by [Patrick Fletu](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu öğreticide, sunucu yayın işlevselliği sağlamak için ASP.NET SignalR kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu yayın istemcilere gönderilen iletişimleri sunucu tarafından başlatılır anlamına gelir. Bu senaryo, eşler arası senaryoları istemcilere iletişimler bir veya daha fazla istemcileri tarafından başlatılır, sohbet uygulamaları gibi daha farklı bir programlama yaklaşım gerektirir.
+> Bu öğreticide, sunucu yayını işlevselliği sağlamak için ASP.NET SignalR kullanan bir Web uygulamasının nasıl oluşturulacağı gösterilmektedir. Sunucu yayını, istemcilere gönderilen iletişimin sunucu tarafından başlatılmasıdır. Bu senaryo, istemcilere gönderilen iletişimin bir veya daha fazla istemciden başlatıldığı sohbet uygulamaları gibi eşler arası senaryolardan farklı bir programlama yaklaşımı gerektirir.
 > 
-> Bu öğreticide oluşturacağınız uygulama bir bandı yayın sunucusu işlevselliği için tipik bir senaryo benzetimini yapar.
+> Bu öğreticide oluşturacağınız uygulama, sunucu yayını işlevselliği için tipik bir senaryo olan bir stok Ticker benzetimini yapar.
 > 
-> Öğreticiyi hakkındaki yorumları davetlidir. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com).
+> Öğreticideki yorumlara hoş geldiniz. Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET SignalR forumuna](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com)'e gönderebilirsiniz.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-[Microsoft.AspNet.SignalR.Sample](http://nuget.org/packages/microsoft.aspnet.signalr.sample) NuGet paketini Visual Studio projesinde benzetimli örnek borsa uygulaması yükler. Bu öğreticinin ilk bölümünde sıfırdan uygulama basitleştirilmiş bir sürümünü oluşturacaksınız. Öğreticinin geri kalanında, NuGet paketini yüklemek ve onu oluşturan kodu ve ek özellikleri gözden geçirin.
+[Microsoft. Aspnet. SignalR. Sample](http://nuget.org/packages/microsoft.aspnet.signalr.sample) NuGet paketi, bir Visual Studio projesinde örnek bir sanal stok şeridi uygulaması yüklüyor. Bu öğreticinin ilk bölümünde, bu uygulamanın basitleştirilmiş bir sürümünü sıfırdan oluşturacaksınız. Öğreticinin geri kalanında NuGet paketini yükleyecek ve oluşturduğu ek özellikleri ve kodu gözden geçireceğiz.
 
-Bir "gönderme" veya yayın bildirimleri için düzenli aralıklarla bağlanan tüm istemciler için sunucudan istediğiniz gerçek zamanlı uygulama türünün başvuruda borsa uygulamasıdır.
+Hisse senedi bandı uygulaması, düzenli aralıklarla sunucudan tüm bağlı istemcilere "göndermek" veya yayımlamak istediğiniz bir tür gerçek zamanlı uygulamanın temsilcisidir.
 
-Bu öğreticinin ilk bölümünde oluşturacağınız uygulama stok verileri içeren bir kılavuz görüntüler.
+Bu öğreticinin ilk bölümünde oluşturacağınız uygulama, hisse senedi verileri içeren bir kılavuz görüntüler.
 
 ![StockTicker ilk sürümü](tutorial-server-broadcast-with-aspnet-signalr/_static/image1.png)
 
-Düzenli aralıklarla sunucu rastgele hisse senedi fiyatlarına güncelleştirir ve tüm bağlı istemcileri güncelleştirmeleri gönderir. Tarayıcı sayıları ve sembolleri **değiştirme** ve **%** sütunları dinamik olarak değiştirme sunucudan yanıt bildirimleri. Aynı URL'ye ek tarayıcılar açarsanız, bunların tümü aynı verilere ve verilere aynı değişiklikleri aynı anda gösterin.
+Düzenli aralıklarla sunucu, stok fiyatlarını rastgele güncelleştirir ve güncelleştirmeleri tüm bağlı istemcilere iter. Tarayıcıda, **değişiklik** ve **%** sütunlarında bulunan sayılar ve semboller, sunucudan gelen bildirimlere yanıt olarak dinamik olarak değişir. Aynı URL 'ye ek tarayıcılar açarsanız, hepsi aynı verileri ve verilerde aynı değişiklikleri aynı anda gösterir.
 
-Bu öğreticide, aşağıdaki bölümleri içerir:
+Bu öğretici aşağıdaki bölümleri içerir:
 
 - [Önkoşullar](#prerequisites)
-- [Proje oluşturma](#createproject)
-- [SignalR NuGet paketleri Ekle](#nugetpackages)
-- [Sunucu kodunu ayarlayın](#server)
-- [İstemci kodunu ayarlayın](#client)
+- [Projeyi oluşturma](#createproject)
+- [SignalR NuGet paketlerini ekleyin](#nugetpackages)
+- [Sunucu kodunu ayarlama](#server)
+- [İstemci kodunu ayarlama](#client)
 - [Uygulamayı test etme](#test)
-- [Günlüğe kaydetmeyi etkinleştirme](#enablelogging)
-- [Yükleme ve tam StockTicker örneği gözden geçirin](#fullsample)
+- [Günlüğü etkinleştirme](#enablelogging)
+- [Tam StockTicker örneğini yükleyip gözden geçirin](#fullsample)
 - [Sonraki adımlar](#nextsteps)
 
 > [!NOTE]
-> Uygulama oluşturma adımlarında size çalışmak istemiyorsanız SignalR.Sample paketini yeni bir yükleyebilirsiniz **boş bir ASP.NET Web uygulaması** proje ve kod açıklamaları almak için bu adımları okuyun. Öğreticinin ilk bölümünde bir alt kümesini SignalR.Sample kod kapsar ve ikinci bölümü ek işlevsellik SignalR.Sample paketteki anahtar özelliklerini açıklar.
+> Uygulamayı oluşturma adımları boyunca çalışmak istemiyorsanız, SignalR. Sample paketini yeni bir **boş ASP.NET Web uygulaması** projesine yükleyebilir ve kodun açıklamalarını almak için bu adımları okuyabilirsiniz. Öğreticinin ilk bölümü, SignalR. Sample kodunun bir alt kümesini kapsamakta ve ikinci bölüm SignalR. Sample paketindeki ek işlevlerin temel özelliklerini açıklar.
 
 <a id="prerequisites"></a>
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce sahip olduğunuz Visual Studio 2012 veya 2010 SP1'in bilgisayarınızda yüklü olduğundan emin olun. Visual Studio yoksa bkz [ASP.NET indirir](https://www.asp.net/downloads) ücretsiz Visual Studio Express 2012 için Web alınamıyor.
+Başlamadan önce, bilgisayarınızda Visual Studio 2012 veya 2010 SP1 yüklü olduğundan emin olun. Visual Studio yoksa, Web için ücretsiz Visual Studio 2012 Express 'i almak için bkz. [ASP.net İndirmeleri](https://www.asp.net/downloads) .
 
-Visual Studio 2010 varsa, emin [NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) yüklenir.
+Visual Studio 2010 kullanıyorsanız, [NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) 'in yüklü olduğundan emin olun.
 
 <a id="createproject"></a>
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
-1. Gelen **dosya** menüsünü tıklatın **yeni proje**.
-2. İçinde **yeni proje** iletişim kutusunda **C#** altında **şablonları** seçip **Web**.
-3. Seçin **ASP.NET boş Web uygulaması** şablon, proje adı *SignalR.StockTicker*, tıklatıp **Tamam**.
+1. **Dosya** menüsünde **Yeni proje**' ye tıklayın.
+2. **Yeni proje** Iletişim kutusunda Şablonlar ' ı genişletin **C#** ve **Web**' i seçin.
+3. **ASP.net boş Web uygulaması** şablonunu seçin, proje *SignalR. StockTicker*olarak adlandırın ve **Tamam**' a tıklayın.
 
     ![Yeni Proje iletişim kutusu](tutorial-server-broadcast-with-aspnet-signalr/_static/image2.png)
 
 <a id="nugetpackages"></a>
 
-## <a name="add-the-signalr-nuget-packages"></a>SignalR NuGet paketleri Ekle
+## <a name="add-the-signalr-nuget-packages"></a>SignalR NuGet paketlerini ekleyin
 
-### <a name="add-the-signalr-and-jquery-nuget-packages"></a>SignalR ve JQuery NuGet paketleri Ekle
+### <a name="add-the-signalr-and-jquery-nuget-packages"></a>SignalR ve JQuery NuGet paketlerini ekleyin
 
-Bir NuGet paketini yükleme yoluyla projeye SignalR işlevleri ekleyebilirsiniz.
+Bir NuGet paketi yükleyerek bir projeye SignalR işlevi ekleyebilirsiniz.
 
-1. Tıklayın **araçları | NuGet Paket Yöneticisi | Paket Yöneticisi Konsolu**.
-2. Paket Yöneticisi'nde aşağıdaki komutu girin.
+1. Araçlar 'ı tıklatın **| NuGet Paket Yöneticisi | Paket Yöneticisi konsolu**.
+2. Paket Yöneticisi 'nde aşağıdaki komutu girin.
 
     [!code-powershell[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample1.ps1)]
 
-    SignalR paket bağımlılıkları olarak birkaç NuGet paketi yükler. Yükleme tamamlandığında tüm SignalR bir ASP.NET uygulamasında kullanmak için gerekli istemci ve sunucu bileşenlerini sahip.
+    SignalR paketi, birkaç farklı NuGet paketini bağımlılıklar olarak yüklüyor. Yükleme tamamlandığında, bir ASP.NET uygulamasında SignalR 'yi kullanmak için gereken tüm sunucu ve istemci bileşenlerine sahip olursunuz.
 
 <a id="server"></a>
 
-## <a name="set-up-the-server-code"></a>Sunucu kodunu ayarlayın
+## <a name="set-up-the-server-code"></a>Sunucu kodunu ayarlama
 
-Bu bölümde sunucuda çalışan kodu ayarlayın.
+Bu bölümde, sunucuda çalışan kodu ayarlarsınız.
 
-### <a name="create-the-stock-class"></a>Stok sınıfı oluşturma
+### <a name="create-the-stock-class"></a>Hisse senedi sınıfını oluşturma
 
-Depolama ve stok hakkında bilgi iletmek için kullanacağınız hisse senedi model sınıfı oluşturarak başlayın.
+Bir hisse senedi hakkındaki bilgileri depolamak ve aktarmak için kullanacağınız stok modeli sınıfını oluşturarak başlarsınız.
 
-1. Proje klasöründe yeni bir sınıf dosyası oluşturun, adlandırın *Stock.cs*ve sonra şablon kodunu aşağıdaki kodla değiştirin:
+1. Proje klasöründe yeni bir sınıf dosyası oluşturun, *Stock.cs*olarak adlandırın ve ardından şablon kodunu şu kodla değiştirin:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample2.cs)]
 
-    ' % S'sembolü (örneğin, Microsoft MSFT) ve fiyat, stocks oluştururken ayarladığınız iki özellikler verilmiştir. Diğer özellikler, nasıl ve ne zaman fiyat ayarlamak bağlıdır. Fiyat, ayarladığınız ilk kez yayıldığı DayOpen için. Ne zaman fiyatı, değişiklik kümesi ve YüzdeDeğişiklikleri özellik değerlerini hesaplanan sonraki kez DayOpen ile fiyatı arasındaki fark temel.
+    Hisse senetleri oluştururken ayarlayacağımız iki özellik simgedir (örneğin, Microsoft için MSFT) ve fiyat. Diğer özellikler, fiyatı nasıl ve ne zaman ayarlayadiğinize bağlıdır. Fiyatı ilk kez ayarladığınızda, değer, Bayopen 'ya yayılır. Fiyatı ayarladığınızda, Change ve PercentChange özellik değerleri, Price ve kıyopen arasındaki farka göre hesaplanır.
 
 ### <a name="create-the-stockticker-and-stocktickerhub-classes"></a>StockTicker ve StockTickerHub sınıfları oluşturma
 
-SignalR hub'ı API sunucusu istemci etkileşimi işlemek için kullanacaksınız. SignalR hub'ı sınıfından türetilen StockTickerHub sınıfı bağlantıları ve yöntem çağrıları istemcilerinden gelen işler. Stok verileri korumak ve düzenli aralıklarla istemci bağlantıları bağımsız olarak fiyat güncelleştirmeleri tetiklemek için bir zamanlayıcı nesnesi çalıştırmak gerekir. Hub örneği geçici olmadığından bu işlevler bir Hub sınıfta konulamaz. Bir Hub örneği, bağlantılar ve istemciden sunucuya çağrılar gibi hub'ında her işlem için oluşturulur. Bu nedenle StockTicker ad, ayrı bir sınıf içinde çalıştırmak stok verileri tutar, fiyatları güncelleştirir ve fiyat güncelleştirmeleri yayınlar mekanizması vardır.
+Sunucudan istemciye etkileşimi işlemek için SignalR hub API 'sini kullanırsınız. SignalR hub sınıfından türetilen bir StockTickerHub sınıfı, istemcilerden gelen bağlantıları ve Yöntem çağrılarını almayı işleymeyecektir. Ayrıca, istemci bağlantılarından bağımsız olarak fiyat güncelleştirmelerini düzenli olarak tetiklemek için stok verilerini korumanız ve bir Zamanlayıcı nesnesi çalıştırmanız gerekir. Hub örnekleri geçici olduğundan bu işlevleri bir hub sınıfına koyamazsınız. Hub üzerindeki her işlem için, istemciden sunucuya bağlantılar ve çağrılar gibi bir hub sınıfı örneği oluşturulur. Bu nedenle, stok verilerini tutan, fiyatları güncelleştiren ve fiyat güncelleştirmelerinin yayınlaması gereken mekanizmanın ayrı bir sınıfta çalışması gerekir, bu da StockTicker olarak adlandırın.
 
-![Yayın StockTicker gelen](tutorial-server-broadcast-with-aspnet-signalr/_static/image4.png)
+![StockTicker 'den yayımlama](tutorial-server-broadcast-with-aspnet-signalr/_static/image4.png)
 
-Yalnızca her StockTickerHub örneğinden tekil StockTicker örneğe bir başvuru ayarlanacak ihtiyacınız olacak şekilde sunucuda çalıştırılacak StockTicker sınıfının bir örneğini istersiniz. Stok verileri içeren ve güncelleştirmeleri tetiklenir, ancak StockTicker Hub sınıfına değil çünkü istemcilere yayınlayabileceksiniz StockTicker sınıfı var. SignalR hub'ı bağlantı kapsamı nesnesine bir başvuru almak, bu nedenle, StockTicker sınıfı vardır. Bunu daha sonra SignalR bağlantı bağlam nesnesi istemcilere yayınlamak için kullanabilirsiniz.
+Yalnızca bir StockTicker sınıfının bir örneğinin sunucuda çalıştırılmasını istiyorsunuz, bu nedenle her bir StockTickerHub örneğinden Singleton StockTicker örneğine bir başvuru ayarlamanız gerekir. StockTicker sınıfı, stok verilerini ve Tetikleyiciler güncelleştirmelerini içerdiğinden, ancak StockTicker bir hub sınıfı olmadığından istemcilere yayınlayamaz. Bu nedenle, StockTicker sınıfının SignalR hub bağlantı bağlamı nesnesine bir başvuru alması gerekir. Daha sonra, istemcilere yayımlamak için SignalR bağlantı bağlamı nesnesini kullanabilir.
 
-1. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve tıklayın **Yeni Öğe Ekle**.
-2. Visual Studio 2012 ile varsa [ASP.NET ve Web Araçları 2012.2 güncelleştirme](https://go.microsoft.com/fwlink/?LinkId=279941), tıklayın **Web** altında **Visual C#** seçip **SignalR Hub sınıfı** öğe şablonu. Aksi takdirde seçin **sınıfı** şablonu.
-3. Yeni bir sınıf adı *StockTickerHub.cs*ve ardından **Ekle**.
+1. **Çözüm Gezgini**, projeye sağ tıklayın ve **Yeni öğe Ekle**' ye tıklayın.
+2. [ASP.NET and Web Tools 2012,2 güncelleştirmesiyle](https://go.microsoft.com/fwlink/?LinkId=279941)Visual Studio 2012 varsa,  **C# Visual** altında **Web** ' e tıklayın ve **SignalR hub sınıfı** öğe şablonunu seçin. Aksi takdirde, **sınıf** şablonunu seçin.
+3. Yeni sınıfı *StockTickerHub.cs*olarak adlandırın ve ardından **Ekle**' ye tıklayın.
 
-    ![StockTickerHub.cs ekleyin](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)
+    ![StockTickerHub.cs Ekle](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)
 4. Şablon kodunu aşağıdaki kodla değiştirin:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample3.cs)]
 
-    [Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) sınıfı, istemcilerin, sunucuya çağırabilir yöntemleri tanımlamak için kullanılır. Bir yöntem tanımladığınız: `GetAllStocks()`. Bir istemci sunucuya ilk kez bağlandığında, geçerli fiyatları ile stocks tümünün listesini almak için bu yöntemi çağırır. Yöntem zaman uyumlu yürütme ve dönüş `IEnumerable<Stock>` nedeniyle bellekten veri döndürüyor. Yöntem bir veritabanı araması veya bir web hizmeti çağrısı gibi bir bekleme kapsayacaktır bir şey yaparak verileri almak sahip olduğu belirtirsiniz `Task<IEnumerable<Stock>>` zaman uyumsuz işleme etkinleştirmek için dönüş değeri. Daha fazla bilgi için [ASP.NET SignalR Hubs API Kılavuzu - sunucu - zaman zaman uyumsuz olarak yürütülecek](index.md).
+    [Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) sınıfı, istemcilerin sunucuda çağırabilirler yöntemleri tanımlamak için kullanılır. Bir yöntem tanımlanıyor: `GetAllStocks()`. Bir istemci sunucuya ilk kez bağlandığında, geçerli fiyatlarına sahip tüm hisse senetleri listesini almak için bu yöntemi çağırır. Yöntem zaman uyumlu olarak yürütebilir ve bellekten veri döndürdüğü için `IEnumerable<Stock>` döndürebilir. Bir veritabanı araması veya Web hizmeti çağrısı gibi, beklenerek, yöntemin verileri alması gerekiyorsa, zaman uyumsuz işlemeyi etkinleştirmek için dönüş değeri olarak `Task<IEnumerable<Stock>>` belirtmeniz gerekir. Daha fazla bilgi için bkz. [ASP.NET SignalR hub 'LARı API Kılavuzu-sunucu-zaman uyumsuz olarak yürütülecektir](index.md).
 
-    İstemci üzerinde JavaScript kodunda Hub'ın nasıl başvurulacağını HubName özniteliğini belirtir. Bu öznitelik kullanmazsanız, istemcideki varsayılan adı stockTickerHub bu durumda olabilecek bir sınıf adı ortası büyük küçük harfleri bir sürümü var.
+    HubName özniteliği, hub 'ın istemcideki JavaScript kodunda nasıl başvurduğunu belirtir. Bu özniteliği kullanmazsanız istemcideki varsayılan ad, sınıf adının bir Camel-cased sürümüdür ve bu durumda stockTickerHub olacaktır.
 
-    StockTicker sınıfı oluşturduğunuzda, daha sonra göreceğiniz üzere, bu sınıfın tekil örneğini statik örneği özelliğinde oluşturulur. Tekil örneğini StockTicker kaç adet istemcinin bağlanın veya bağlantıyı kesin ne olursa olsun bellekte kalır ve bu örneğe GetAllStocks metodu geçerli bir stok bilgilerini döndürmek için kullandığı olduğunu.
-5. Proje klasöründe yeni bir sınıf dosyası oluşturun, adlandırın *StockTicker.cs*ve sonra şablon kodunu aşağıdaki kodla değiştirin:
+    Daha sonra StockTicker sınıfını oluştururken göreceğiniz gibi, bu sınıfın tek bir örneği statik örnek özelliğinde oluşturulur. Bu tek StockTicker örneği, kaç istemci bağlantı veya bağlantısı kesildiğine bakılmaksızın bellekte kalır ve bu örnek, geçerli stok bilgilerini döndürmek için Getallstock yönteminin kullandığı şeydir.
+5. Proje klasöründe yeni bir sınıf dosyası oluşturun, *StockTicker.cs*olarak adlandırın ve ardından şablon kodunu şu kodla değiştirin:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample4.cs)]
 
-    Birden çok iş parçacığı StockTicker kod'ın aynı örneğinin çalışacağı beri StockTicker sınıfı threadsafe olması gerekir.
+    Birden çok iş parçacığı aynı StockTicker Code örneğini çalıştırdığından, StockTicker sınıfının threadsafe olması gerekir.
 
-    ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Statik bir alana tekil örneğini depolama
+    ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Tek örneği statik bir alanda depolama
 
-    Statik kod başlatır \_örneğiyle sınıf ve bu örnek özelliği yedekleyen örneği alandır oluşturulabilir, sınıfın tek örneğine Oluşturucu, özel olarak işaretlendiğinden. [Yavaş başlatma](https://msdn.microsoft.com/library/dd997286.aspx) için kullanılan \_değildir ancak örnek oluşturma threadsafe olmasını sağlamak üzere performansı artırmak için örnek alanı.
+    Kod, örnek özelliğini bir sınıfının örneğiyle yedekleyen statik \_örneği alanını başlatır ve bu, Oluşturucu özel olarak işaretlendiğinden, oluşturulabilecek sınıfın tek örneğidir. [Yavaş başlatma](https://msdn.microsoft.com/library/dd997286.aspx) , performans nedenleriyle değil, örnek oluşturmanın threadsafe olduğundan emin olmak için \_örneği alanı için kullanılır.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample5.cs)]
 
-    StockTickerHub sınıfında daha önce anlatıldığı gibi bir istemci sunucuya her bağlandığında, ayrı bir iş parçacığı çalıştırırken StockTickerHub sınıfının yeni bir örneğini StockTicker.Instance statik özelliğinden StockTicker tekil örneğini alır.
+    İstemci sunucuya her bağlanışında, ayrı bir iş parçacığında çalışan StockTickerHub sınıfının yeni bir örneği, StockTickerHub sınıfında daha önce gördüğünüz gibi StockTicker. Instance static özelliğinden StockTicker Singleton örneğini alır.
 
-    ### <a name="storing-stock-data-in-a-concurrentdictionary"></a>Bir ConcurrentDictionary stok verileri depolama
+    ### <a name="storing-stock-data-in-a-concurrentdictionary"></a>Bir ConcurrentDictionary içinde hisse senedi verilerini depolama
 
-    Oluşturucu başlatır \_stocks koleksiyonuyla bazı örnek stok verileri ve GetAllStocks stocks döndürür. Daha önce bahsettiğim gibi stocks Bu koleksiyonu bir sunucu yöntemi istemciler çağırabilirsiniz Hub sınıfta olan StockTickerHub.GetAllStocks tarafından sırayla döndürülür.
+    Oluşturucu \_hisse senedi koleksiyonunu bazı örnek hisse senedi verileriyle başlatır ve Getallhisse senetleri, stokları geri döndürür. Daha önce gördüğünüz gibi, bu hisse senedi koleksiyonu, istemcilerin çağırabileceği hub sınıfında bir sunucu yöntemi olan StockTickerHub. Getallhisse öğeleri tarafından döndürülür.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample6.cs)]
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample7.cs)]
 
-    Hisse koleksiyon olarak tanımlanan bir [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) türü için iş parçacığı güvenliği. Alternatif olarak, kullanabileceğinizi bir [sözlük](https://msdn.microsoft.com/library/xfhwa508.aspx) nesne ve ona değişiklikler yaptığınızda sözlük açıkça kilitleme.
+    Hisse senetleri koleksiyonu, iş parçacığı güvenliği için bir [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) türü olarak tanımlanır. Alternatif olarak, bir [Sözlük](https://msdn.microsoft.com/library/xfhwa508.aspx) nesnesi kullanabilir ve üzerinde değişiklik yaptığınızda sözlüğü açıkça kilitleyemezsiniz.
 
-    Bu örnek uygulama için bu Tamam bellekte uygulama verilerini depolamak için ve StockTicker örneği çıkarıldığından, veri kaybına olur. Gerçek bir uygulamada bir veritabanı gibi bir arka uç veri deposu ile işe yarar.
+    Bu örnek uygulama için, uygulama verilerini bellekte depolamak ve StockTicker örneği atıldığı zaman verileri kaybetmek Tamam ' dır. Gerçek bir uygulamada, veritabanı gibi bir arka uç veri deposuyla çalışırsınız.
 
-    ### <a name="periodically-updating-stock-prices"></a>Hisse senedi fiyatlarına düzenli aralıklarla güncelleştiriliyor
+    ### <a name="periodically-updating-stock-prices"></a>Stok fiyatlarını düzenli olarak güncelleştirme
 
-    Düzenli aralıklarla hisse senedi fiyatlarına rastgele olarak güncelleştiren yöntemleri çağıran bir zamanlayıcı nesnesi oluşturan Oluşturucu başlatır.
+    Oluşturucu, stok fiyatlarını rastgele olarak güncelleştiren yöntemleri düzenli aralıklarla çağıran bir Zamanlayıcı nesnesi başlatır.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample8.cs)]
 
-    UpdateStockPrices state parametresi null geçirir. Zamanlayıcı tarafından çağrılır. Fiyatlar güncelleştirmeden önce bir kilit alınmış \_updateStockPricesLock nesne. Kod, başka bir iş parçacığı zaten fiyatları güncelleştiriyor ve ardından listedeki her stoktaki TryUpdateStockPrice çağırır denetler. TryUpdateStockPrice yöntemi hisse senedi fiyatının değiştirip değiştirmemeye karar verir ve değiştirmek için ne kadar. Hisse senedi fiyatının değişirse, hisse senedi fiyatı değişiklik bağlanan tüm istemciler için yayın için BroadcastStockPrice çağrılır.
+    UpdateStockPrices, durum parametresinde null değeri geçen Zamanlayıcı tarafından çağırılır. Fiyatları güncelleştirmeden önce \_updateStockPricesLock nesnesinde bir kilit alınır. Kod, başka bir iş parçacığının fiyatları zaten güncelleştirme olup olmadığını denetler ve ardından listedeki her bir stokta TryUpdateStockPrice öğesini çağırır. TryUpdateStockPrice yöntemi, stok fiyatının değiştirilip değişmeyeceğine ve ne kadarının değiştirileceğini belirler. Hisse senedi fiyatı değiştirilirse, stok fiyatı değişikliğini tüm bağlı istemcilere yayımlamak için BroadcastStockPrice çağırılır.
 
-    \_UpdatingStockPrices bayrak olarak işaretlenmiş [geçici](https://msdn.microsoft.com/library/x13ttww7.aspx) threadsafe erişimi olmasını sağlamak için.
+    \_updatingStockPrices bayrağı, erişimi threadsafe olduğundan emin olmak için [geçici](https://msdn.microsoft.com/library/x13ttww7.aspx) olarak işaretlenir.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample9.cs)]
 
-    Gerçek bir uygulamada TryUpdateStockPrice yöntemi fiyatı aramak için bir web hizmeti çağırırsınız; Bu kodda değişiklik rastgele bir rasgele sayı üreteci kullanır.
+    Gerçek bir uygulamada, TryUpdateStockPrice yöntemi fiyata bakmak için bir Web hizmeti çağırır; Bu kodda, değişiklikleri rastgele yapmak için rastgele bir sayı Oluşturucu kullanır.
 
-    ### <a name="getting-the-signalr-context-so-that-the-stockticker-class-can-broadcast-to-clients"></a>Böylece StockTicker sınıfı istemcilere yayınlayabilirsiniz SignalR bağlamı alma
+    ### <a name="getting-the-signalr-context-so-that-the-stockticker-class-can-broadcast-to-clients"></a>StockTicker sınıfının istemcilere yayınlanabilmesi için SignalR bağlamı alma
 
-    Fiyat değişiklikleri buraya StockTicker nesnesinde kaynaklı olduğundan bağlanan tüm istemciler updateStockPrice yöntemi çağırmak için gereken nesne budur. Bir Hub sınıfta bir API İstemci yöntemleri çağırmak için sahip olduğunuz, ancak StockTicker Hub sınıfından türemiyor ve herhangi bir Hub nesnesine bir başvuru yok. Bu nedenle, bağlı istemciler için yayın için StockTickerHub sınıf için SignalR bağlam örneği alın ve istemcilerde yöntemleri çağırmak için kullanmaya StockTicker sınıfı vardır.
+    Fiyat değişiklikleri StockTicker nesnesinde yer aldığı için, bu, tüm bağlı istemcilerde bir updateStockPrice yöntemi çağırması gereken nesnedir. Bir hub sınıfında, istemci yöntemlerini çağırmak için bir API 'SI vardır, ancak StockTicker hub sınıfından türetilmez ve herhangi bir hub nesnesine bir başvuruya sahip değildir. Bu nedenle, bağlı istemcilere yayımlamak için StockTicker sınıfının, StockTickerHub sınıfı için SignalR bağlam örneğini alması ve istemciler üzerinde yöntemleri çağırmak için bunu kullanması gerekir.
 
-    Başvuran geçişleri oluşturucuya tekil sınıfı örneğini oluşturduğunda, kod SignalR bağlamı için bir başvuru alır ve isteğe bağlı olarak Oluşturucu istemciler özelliğinde koyar.
+    Kod, tek sınıf örneğini oluşturduğunda SignalR bağlamına bir başvuru alır, bu başvuruyu oluşturucuya geçirir ve Oluşturucu bunu Istemciler özelliğine koyar.
 
-    Yalnızca bir kez bağlamı almak istediğiniz neden iki nedeni vardır: pahalı bir işlem olan içerik alma ve bir kez alma istemcilere gönderilen iletilerin hedeflenen sırasının korunmasını sağlar.
+    Bağlamı tek bir kez almak istemeniz gereken iki neden vardır: bağlamı almak pahalı bir işlemdir ve bu işlemin bir kez alınması, istemcilere gönderilen iletilerin amaçlanan sırasının korunmasını sağlar.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample10.cs)]
 
-    Bağlam istemciler özellik alma ve StockTickerClient özelliğinde koyarak olduğu gibi aynı görünen bir Hub sınıfta istemci yöntemleri çağırmak için kod yazmanıza olanak sağlar. Örneğin, tüm istemcilere yayın Clients.All.updateStockPrice(stock) yazabilirsiniz.
+    İçeriğin Istemciler özelliğinin alınması ve StockTickerClient özelliğine yerleştirilmesi, bir hub sınıfında olduğu gibi görünen istemci yöntemlerini çağırmak için kod yazmanıza olanak tanır. Örneğin, tüm istemcilere yayımlamak için, Istemcileri yazabilirsiniz. ALL. updateStockPrice (hisse senedi).
 
-    İçinde BroadcastStockPrice aradığınız updateStockPrice yöntemi henüz mevcut değil; istemcide çalışan kod yazdığınızda, daha sonra ekleyeceksiniz. Çalışma zamanında hesaplanacak olan ifade anlamına gelen dinamik Clients.All olduğu için burada updateStockPrice başvurabilir. Bu yöntem çağrısının yürütüldüğünde, SignalR yöntem adı ile parametre değeri istemciye gönderir ve istemci updateStockPrice adlı bir yöntemi varsa, bu yöntem çağrılır ve parametre değeri geçirilir.
+    BroadcastStockPrice içinde aradığınız updateStockPrice yöntemi henüz yok; daha sonra, istemcide çalışan bir kod yazdığınızda eklersiniz. UpdateStockPrice adresine başvurabilirsiniz çünkü Istemciler. All dinamik olduğundan, ifade çalışma zamanında değerlendirilecek anlamına gelir. Bu yöntem çağrısı yürütüldüğünde, SignalR yöntem adını ve parametre değerini istemciye gönderir ve istemcinin updateStockPrice adlı bir yöntemi varsa, bu yöntem çağrılır ve parametre değeri bu değere geçirilir.
 
-    Clients.All tüm istemcilere göndermek anlamına gelir. SignalR, hangi istemcilerin veya göndermek için istemci gruplarının belirtmek için diğer seçenekler sunar. Daha fazla bilgi için [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
+    İstemcileri. All tüm istemcilere gönder anlamına gelir. SignalR, hangi istemcileri veya istemci gruplarını gönderileceğini belirtmek için size diğer seçenekler sağlar. Daha fazla bilgi için bkz. [Hubconnectioncontext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
 
-### <a name="register-the-signalr-route"></a>SignalR yol kaydetme
+### <a name="register-the-signalr-route"></a>SignalR rotasını kaydetme
 
-Sunucunun kesecek ve SignalR ile doğrudan hangi URL'sini de bilmeniz gerekir. İçin bazı kodlar ekleyeceksiniz yapmak için *Global.asax* dosya.
+Sunucunun hangi URL 'yi ele geçirip SignalR 'ye yönlendireceğimizi bilmeleri gerekir. Bunu yapmak için *Global. asax* dosyasına bazı kodlar ekleyeceksiniz.
 
-1. İçinde **Çözüm Gezgini**projeye sağ tıklayın ve ardından **Yeni Öğe Ekle**.
-2. Seçin **genel uygulama sınıfı** öğe şablonu ve ardından **Ekle**.
+1. **Çözüm Gezgini**, projeye sağ tıklayın ve ardından **Yeni öğe Ekle**' ye tıklayın.
+2. **Genel uygulama sınıfı** öğe şablonunu seçin ve ardından **Ekle**' ye tıklayın.
 
-    ![Global.asax Ekle](tutorial-server-broadcast-with-aspnet-signalr/_static/image6.png)
-3. SignalR yol kayıt kodu uygulamanıza eklemek\_başlangıç yöntemi:
+    ![Global. asax Ekle](tutorial-server-broadcast-with-aspnet-signalr/_static/image6.png)
+3. SignalR yol kayıt kodunu uygulama\_başlangıç yöntemine ekleyin:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample11.cs)]
 
-    Varsayılan olarak, tüm SignalR trafiği temel URL'si olan "/ signalr", ve "/ signalr/hubs", uygulamanızda sahip olduğunuz tüm hub'ları proxy'lerini tanımlayan dinamik olarak üretilen bir JavaScript dosyasını almak için kullanılır. Farklı temel URL ile SignalR seçenekler belirli bir örneğini belirtmenize olanak tanıyan aşırı MapHubs yöntemi içeren [HubConfiguration](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubconfiguration(v=vs.111).aspx) sınıfı.
-4. Kullanarak bir ekleme deyimini dosyanın üst:
+    Varsayılan olarak, tüm SignalR trafiği için temel URL "/SignalR" ve "/SignalR/Hub", uygulamanızda sahip olduğunuz tüm Hub 'Lara yönelik proxy 'leri tanımlayan dinamik olarak oluşturulmuş bir JavaScript dosyası almak için kullanılır. MapHubs yöntemi, [Hubconfiguration](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubconfiguration(v=vs.111).aspx) sınıfının bir örneğinde farklı bır temel URL ve belirli bir SignalR seçeneği belirtmenize olanak tanıyan aşırı yüklemeleri içerir.
+4. Dosyanın üst kısmına bir using ifadesini ekleyin:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample12.cs)]
-5. Kaydet ve Kapat *Global.asax* dosya ve projeyi derleyin.
+5. *Global. asax* dosyasını kaydedip kapatın ve projeyi derleyin.
 
-Sunucu kodu ayarlama tamamladınız. Sonraki bölümde, istemci ayarlamanız.
+Artık sunucu kodunu ayarlamayı tamamladınız. Sonraki bölümde, istemcisini ayarlayacaksınız.
 
 <a id="client"></a>
 
-## <a name="set-up-the-client-code"></a>İstemci kodunu ayarlayın
+## <a name="set-up-the-client-code"></a>İstemci kodunu ayarlama
 
-1. Proje klasöründe yeni bir HTML dosyası oluşturun ve adlandırın *StockTicker.html*.
+1. Proje klasöründe yeni bir HTML dosyası oluşturun ve *StockTicker. html*olarak adlandırın.
 2. Şablon kodunu aşağıdaki kodla değiştirin:
 
     [!code-html[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample13.html)]
 
-    HTML 5 sütun ve üst bilgi satırı tüm 5 sütun kapsayan tek bir hücre içeren bir veri satırı bir tablo oluşturur. Veri satırı "yükleniyor..." görüntüler ve yalnızca kısa bir süre içinde uygulama başladığında gösterilir. JavaScript kodu satır kaldırın ve sunucudan alınan stok verilerini kendi yerde satır ekleyin.
+    HTML, 5 sütun, başlık satırı ve tüm 5 sütuna yayılan tek hücreli bir veri satırı içeren bir tablo oluşturur. Veri satırında "yükleniyor..." görüntülenir ve yalnızca uygulama başlatıldığında anlık olarak gösterilir. JavaScript kodu, bu satırı kaldırır ve kendi yerleştirme satırlarına sunucudan alınan stok verilerini ekler.
 
-    Komut dosyası etiketlerini jQuery komut dosyası, SignalR çekirdek komut dosyası, SignalR proxy'leri komut dosyası ve daha sonra oluşturacağınız bir StockTicker betik dosyası belirtin. "/ Signalr/hubs" URL'sini belirtir, SignalR proxy'leri komut dosyası dinamik olarak oluşturulur ve Hub sınıfı yöntemleri için proxy yöntemleri için StockTickerHub.GetAllStocks bu durumda tanımlar. Tercih ederseniz, bu JavaScript dosyasını el ile kullanarak oluşturabileceğiniz [SignalR yardımcı programları](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) ve MapHubs yöntemi çağrısında dinamik dosya oluşturma devre dışı bırakın.
+    Komut dosyası etiketleri, jQuery betik dosyası, SignalR Core betik dosyası, SignalR proxy 'leri betik dosyası ve daha sonra oluşturacağınız bir StockTicker betik dosyası belirtir. "/SignalR/hub 'ları" URL 'sini belirten SignalR proxy 'leri betik dosyası dinamik olarak oluşturulur ve bu örnekte StockTickerHub. Getallhisse malarındaki yöntemler için proxy yöntemlerini tanımlar. İsterseniz, bu JavaScript dosyasını [SignalR yardımcı programlarını](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) kullanarak el ile oluşturabilir ve MapHubs Yöntem çağrısında dinamik dosya oluşturmayı devre dışı bırakabilirsiniz.
 3. > [!IMPORTANT]
-   > JavaScript dosyası içinde başvurduğundan emin olun *StockTicker.html* doğrudur. Diğer bir deyişle, komut dosyası etiketi (örnekte 1.8.2) jQuery sürümünde projenizin jQuery sürümüyle aynı olduğundan emin olun *betikleri* klasöründe ve betik etiketinizi SignalR sürümünde SignalR ile aynı olduğundan emin olun projenizin sürüm *betikleri* klasör. Komut dosyası etiketlerini dosya adlarında gerekirse değiştirin.
-4. İçinde **Çözüm Gezgini**, sağ *StockTicker.html*ve ardından **Başlangıç Sayfası Ayarla**.
-5. Proje klasöründe yeni bir JavaScript dosyası oluşturun ve adlandırın *StockTicker.js*...
+   > *StockTicker. html* içindeki JavaScript dosyası başvurularının doğru olduğundan emin olun. Diğer bir deyişle, komut dosyası etiketinizdeki jQuery sürümünün (örnekteki 1.8.2) projenizin *betikler* klasöründeki jQuery sürümü ile aynı olduğundan emin olun ve betik etiketinizdeki SignalR sürümünün projenizin *betikler* klasöründeki SignalR sürümü ile aynı olduğundan emin olun. Gerekirse, komut dosyası etiketlerindeki dosya adlarını değiştirin.
+4. **Çözüm Gezgini**' de, *StockTicker. html*' ye sağ tıklayın ve ardından **Başlangıç sayfası olarak ayarla**' ya tıklayın.
+5. Proje klasöründe yeni bir JavaScript dosyası oluşturun ve *StockTicker. js*olarak adlandırın.
 6. Şablon kodunu aşağıdaki kodla değiştirin:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample14.js)]
 
-    $.connection SignalR proxy'leri için ifade eder. Kod StockTickerHub sınıf için proxy için bir başvuru alır ve bandı değişkenine yerleştirilir. Ara sunucu adını [HubName] özniteliği tarafından ayarlanan adıdır:
+    $. Connection, SignalR proxy 'leri anlamına gelir. Kod, StockTickerHub sınıfı için proxy 'ye bir başvuru alır ve bunu Ticker değişkenine koyar. Proxy adı [HubName] özniteliği tarafından ayarlanan addır:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample15.js)]
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample16.cs)]
 
-    Tüm değişkenlerin ve işlevlerin tanımlandıktan sonra dosyayı kodda son satırının SignalR başlangıç işlevini çağırarak SignalR bağlantı başlatır. Başlangıç işlev zaman uyumsuz olarak yürütür ve döndürür bir [jQuery ertelenmiş nesne](http://api.jquery.com/category/deferred-object/), bunun anlamı zaman uyumsuz işlem tamamlandığında çağırılacak işlev belirtmek için yapılan işlevi çağırabilir...
+    Tüm değişkenler ve işlevler tanımlandıktan sonra, dosyadaki kodun son satırı, SignalR start işlevini çağırarak SignalR bağlantısını başlatır. Start işlevi zaman uyumsuz olarak yürütülür ve bir [jQuery ertelenmiş nesnesi](http://api.jquery.com/category/deferred-object/)döndürür; bu, zaman uyumsuz işlem tamamlandığında çağrılacak işlevi belirtmek için Done işlevini çağırabilmeniz anlamına gelir.
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample17.js)]
 
-    İnit işlevi sunucuda getAllStocks işlevini çağırır ve sunucu Stok tablosu döndürür bilgileri kullanır. Yöntem adı sunucu üzerinde pascal harfleri olmasına rağmen camel istemcide büyük/küçük harfleri kullanmak zorunda varsayılan olarak, dikkat edin. Ortası büyük/küçük harf kuralı yalnızca nesneleri yöntemleri için geçerlidir. Örneğin, hisse senedi için bakın. Simge ve stok. Fiyat stock.symbol ya da değil stock.price.
+    İnit işlevi sunucudaki Getallstock işlevini çağırır ve sunucunun stok tablosunu güncelleştirmek için döndürdüğü bilgileri kullanır. Varsayılan olarak, yöntem adı sunucuda Pascal-cased olmasına rağmen, istemci üzerinde ortası büyük harfleri kullanmanız gerektiğini unutmayın. Camel-büyük harf kuralı, nesneler için değil yalnızca metotlar için geçerlidir. Örneğin, stoğa başvurursunuz. Sembol ve hisse senedi. Fiyat, stok. sembol veya hisse senedi. fiyat.
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample18.js)]
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample19.cs)]
 
-    İstemcide pascal casing kullanmak istediğinizi veya tamamen farklı yöntem adı kullanmak istiyorsanız, Hub yönteminin HubMethodName özniteliği ile aynı şekilde tasarlamanız Hub sınıfın kendisi HubName özniteliği ile donatılmış.
+    İstemcide Pascal büyük/küçük harf kullanmak istiyorsanız veya tamamen farklı bir yöntem adı kullanmak istiyorsanız, hub metodunu HubName özniteliğiyle birlikte yönettiğiniz şekilde, HubMethodName özniteliğiyle birlikte süslemek isteyebilirsiniz.
 
-    İnit yöntemi stok biçimi özelliklerine göre arama formatStock sunucudan alınan stok her nesne için bir tablo satır için HTML oluşturulur ve ardından çağırarak supplant (üst kısmında tanımlanan *StockTicker.js*) stok özellik değerleri rowTemplate değişkeni içindeki yer tutucuları değiştirmek için. Sonuçta elde edilen HTML sonra stok tablosuna eklenir.
+    İnit yönteminde, bir tablo satırı için HTML, stok nesnesinin özelliklerini biçimlendirmek üzere formatStock çağırarak ve sonra rowTemplate değişkeninde yer tutucuları ( *StockTicker. js*' nin üst kısmında tanımlanır) çağırarak, stok nesne özelliği değerleriyle birlikte RowTemplate değişkeninde bulunan her bir stok nesnesi için oluşturulur. Elde edilen HTML daha sonra hisse senedi tablosuna eklenir.
 
-    İnit, içinde zaman uyumsuz başlangıç işlevi tamamlandıktan sonra yürüten bir geri çağırma işlevi olarak geçirerek çağırın. Başlangıç çağrıldıktan sonra ayrı bir JavaScript ifadesi olarak init çağrılırsa, bağlantı kurma tamamlanması için başlangıç işlevi beklenmeden hemen yürütülür çünkü işlev başarısız olur. Bu durumda, init işlevi sunucu bağlantısı yeniden kurulmadan önce getAllStocks işlev çağrısı isteriz.
+    Başlatma işlemini, zaman uyumsuz başlatma işlevi tamamlandıktan sonra yürütülen bir geri çağırma işlevi olarak geçirerek çağırın. Start çağrıldıktan sonra ayrı bir JavaScript ekstresi olarak init olarak çağrılırsa, başlatma işlevinin bağlantıyı kurmayı bitirmesini beklemeden hemen yürütülemediğinden işlev başarısız olur. Bu durumda, init işlevi sunucu bağlantısı oluşturulmadan önce Getallhisse senedi işlevini çağırmaya çalışır.
 
-    Sunucu hisse ait fiyat değiştiğinde, bağlı istemciler üzerinde updateStockPrice çağırır. İşlev çağrıları sunucudan kullanabilmesi için stockTicker proxy istemci özelliğini eklenir.
+    Sunucu bir hisse senedi fiyatını değiştirdiğinde, bağlı istemcilerde updateStockPrice çağırır. İşlevi, stockTicker proxy 'sinin istemci özelliğine, sunucudan gelen çağrılar için kullanılabilir hale getirmek için eklenir.
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample20.js)]
 
-    Sunucudan init işlevi aynı şekilde bir tablo satır alınan bir stok updateStockPrice işlevi biçimlendirir. Ancak, tabloya satır ekleme, yerine tabloda hisse senedi'nın geçerli satırı bulur ve satır yenisiyle değiştirir.
+    UpdateStockPrice işlevi, sunucudan alınan bir hisse senedi nesnesini, init işleviyle aynı şekilde bir tablo satırına biçimlendirir. Ancak, satırı tabloya eklemek yerine, tablodaki geçerli satırını bulur ve bu satırı yeni bir satır ile değiştirir.
 
 <a id="test"></a>
 
@@ -255,162 +255,162 @@ Sunucu kodu ayarlama tamamladınız. Sonraki bölümde, istemci ayarlamanız.
 
 1. Uygulamayı hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
 
-    "Satırın ardından ilk stok verileri görüntülenen kısa bir gecikmeyle yükleniyor..." stok tablonun ilk başta görüntüler ve değiştirmek hisse senedi fiyatlarına başlatın.
+    Hisse senedi tablosu başlangıçta "yükleniyor..." satırı, ardından ilk stok verileri görüntülenirken kısa bir gecikmeden sonra Stok fiyatları değişmeden başlar.
 
     ![Yükleniyor](tutorial-server-broadcast-with-aspnet-signalr/_static/image7.png)
 
     ![İlk stok tablosu](tutorial-server-broadcast-with-aspnet-signalr/_static/image8.png)
 
-    ![Stok tablosu değişiklikleri sunucudan alınıyor](tutorial-server-broadcast-with-aspnet-signalr/_static/image9.png)
-2. Tarayıcınızın adres çubuğundan URL'yi kopyalayın ve bir veya daha fazla yeni tarayıcı pencerelerini yapıştırın.
+    ![Sunucudan değişiklikleri alan stok tablosu](tutorial-server-broadcast-with-aspnet-signalr/_static/image9.png)
+2. Tarayıcı adres çubuğundan URL 'YI kopyalayın ve bir veya daha fazla yeni tarayıcı penceresine yapıştırın.
 
-    İlk stok görünen ilk tarayıcı ile aynıdır ve değişiklikler aynı anda gerçekleşir.
-3. Tüm tarayıcıları kapatın ve yeni bir tarayıcı açın ve sonra aynı URL'ye gidin.
+    İlk stok görüntüsü ilk tarayıcıyla aynıdır ve değişiklikler aynı anda gerçekleşir.
+3. Tüm tarayıcıları kapatın ve yeni bir tarayıcı açın ve ardından aynı URL 'ye gidin.
 
-    StockTicker tekil nesnesi stocks değiştirmeye devam stok tablo gösterecek şekilde sunucu çalışmaya devam etti. (Şekiller değiştirme tablonun ilk sıfır görmüyorum.)
+    StockTicker Singleton nesnesi sunucuda çalışmaya devam etti, bu nedenle hisse senedi tablosu görünümü hisse senedinin değişmeye devam ediyor olduğunu gösterir. (İlk tabloyu sıfır değişiklik rakamlarını görmezsiniz.)
 4. Tarayıcıyı kapatın.
 
 <a id="enablelogging"></a>
 
-## <a name="enable-logging"></a>Günlü kaydını etkinleştir
+## <a name="enable-logging"></a>Günlüğü etkinleştirme
 
-SignalR istemcide giderilmesine yardımcı olmak için etkinleştirebileceğiniz bir yerleşik günlük işleve sahiptir. Bu bölümdeki günlük kaydını etkinleştirmek ve nasıl günlükleri SignalR kullanarak, aşağıdaki taşıma yöntemleri size gösteren örneklere bakın:
+SignalR 'de, sorun gidermeye yardımcı olmak için istemcisinde etkinleştirebilmeniz gereken yerleşik bir günlüğe kaydetme işlevi vardır. Bu bölümde, günlüğe kaydetmeyi etkinleştirir ve günlüklerin, SignalR aşağıdaki taşıma yöntemlerinden hangisini kullandığını nasıl söyletiğini gösteren örneklere bakabilirsiniz:
 
 - [WebSockets](http://en.wikipedia.org/wiki/WebSocket), IIS 8 ve geçerli tarayıcılar tarafından desteklenir.
-- [Sunucu tarafından gönderilen olayları](http://en.wikipedia.org/wiki/Server-sent_events), Internet Explorer dışındaki tarayıcıları tarafından desteklenmiyor.
-- [Sonsuza kadar çerçeve](http://en.wikipedia.org/wiki/Comet_(programming)#Hidden_iframe), Internet Explorer tarafından desteklenmiyor.
-- [AJAX uzun yoklama](http://en.wikipedia.org/wiki/Comet_(programming)#Ajax_with_long_polling), tüm tarayıcılar tarafından desteklenir.
+- Internet Explorer dışındaki tarayıcılar tarafından desteklenen [sunucu tarafından gönderilen olaylar](http://en.wikipedia.org/wiki/Server-sent_events).
+- Internet Explorer tarafından desteklenen [süresiz çerçeve](http://en.wikipedia.org/wiki/Comet_(programming)#Hidden_iframe).
+- Tüm tarayıcılar tarafından desteklenen [Ajax uzun yoklama](http://en.wikipedia.org/wiki/Comet_(programming)#Ajax_with_long_polling).
 
-Verilen herhangi bir bağlantısı için hem sunucu hem de istemci destekleyen en iyi bir aktarım yöntemi SignalR seçer.
+Verilen herhangi bir bağlantı için, SignalR hem sunucu hem de istemci tarafından desteklenen en iyi taşıma yöntemini seçer.
 
-1. Açık *StockTicker.js* ve bir dosyanın sonuna bağlantı başlatır kodundan hemen önce günlüğe kaydetmeyi etkinleştirmek için kod satırını ekleyin:
+1. *StockTicker. js* dosyasını açın ve dosyanın sonunda bağlantıyı başlatan koddan hemen önce günlüğe kaydetmeyi etkinleştirmek için bir kod satırı ekleyin:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample21.js)]
 2. Projeyi çalıştırmak için F5 tuşuna basın.
-3. Tarayıcınızın geliştirici araçları penceresini açın ve konsol günlükleri görmek için seçin. Signalr aktarım yöntemi için yeni bir bağlantı anlaşması günlükleri görmek için sayfayı yenilemeniz gerekebilir.
+3. Tarayıcınızın geliştirici araçları penceresini açın ve günlükleri görmek için konsolu seçin. Yeni bir bağlantı için taşıma yöntemiyle ilgili olarak, SignalR 'nin işlem için anlaşmasının günlüklerini görmek üzere sayfayı yenilemeniz gerekebilir.
 
-    Internet Explorer 10, Windows 8'de (IIS 8) çalıştırıyorsanız, aktarım WebSockets yöntemidir.
+    Windows 8 (IIS 8) üzerinde Internet Explorer 10 çalıştırıyorsanız, aktarım yöntemi WebSockets olur.
 
-    ![IE 10 IIS 8 Konsolu](tutorial-server-broadcast-with-aspnet-signalr/_static/image10.png)
+    ![IE 10 IIS 8 konsolu](tutorial-server-broadcast-with-aspnet-signalr/_static/image10.png)
 
-    Internet Explorer 10, Windows 7'de (IIS 7.5) çalıştırıyorsanız, aktarım iframe yöntemidir.
+    Windows 7 ' de (IIS 7,5) Internet Explorer 10 çalıştırıyorsanız, taşıma yöntemi iframe 'dir.
 
-    ![IE 10 konsolu, IIS 7.5](tutorial-server-broadcast-with-aspnet-signalr/_static/image11.png)
+    ![IE 10 konsolu, IIS 7,5](tutorial-server-broadcast-with-aspnet-signalr/_static/image11.png)
 
-    ' De Firefox, Firebug bir konsol penceresi almak için eklentisini yükleyin. Windows 8 (IIS 8)'de Firefox 19 çalıştırıyorsanız, aktarım WebSockets yöntemidir.
+    Firefox 'ta, bir konsol penceresi almak için Firebug eklentisini yüklersiniz. Windows 8 (IIS 8) üzerinde Firefox 19 çalıştırıyorsanız, aktarım yöntemi WebSockets olur.
 
-    ![Firefox 19 8 IIS Websockets](tutorial-server-broadcast-with-aspnet-signalr/_static/image12.png)
+    ![Firefox 19 IIS 8 WebSockets](tutorial-server-broadcast-with-aspnet-signalr/_static/image12.png)
 
-    Windows 7 (IIS 7.5)'de Firefox 19 çalıştırıyorsanız, aktarım sunucu tarafından gönderilen olayları yöntemidir.
+    Windows 7 (IIS 7,5) üzerinde Firefox 19 çalıştırıyorsanız, aktarım yöntemi sunucu tarafından gönderilen olaylardır.
 
-    ![IIS 7.5 Firefox 19 Konsolu](tutorial-server-broadcast-with-aspnet-signalr/_static/image13.png)
+    ![Firefox 19 IIS 7,5 konsolu](tutorial-server-broadcast-with-aspnet-signalr/_static/image13.png)
 
 <a id="fullsample"></a>
 
-## <a name="install-and-review-the-full-stockticker-sample"></a>Yükleme ve tam StockTicker örneği gözden geçirin
+## <a name="install-and-review-the-full-stockticker-sample"></a>Tam StockTicker örneğini yükleyip gözden geçirin
 
-Tarafından yüklenen StockTicker uygulama [Microsoft.AspNet.SignalR.Sample](http://nuget.org/packages/microsoft.aspnet.signalr.sample) NuGet paketini sıfırdan yeni oluşturduğunuz Basitleştirilmiş sürümden daha fazla özellik içerir. Öğreticinin bu bölümünde NuGet paketini yükleyin ve yeni özellikleri ve bunları uygulayan kod gözden geçirin.
+[Microsoft. Aspnet. SignalR. Sample](http://nuget.org/packages/microsoft.aspnet.signalr.sample) NuGet paketi tarafından yüklenen StockTicker uygulaması, sıfırdan yeni oluşturduğunuz Basitleştirilmiş sürümden daha fazla özellik içerir. Öğreticinin bu bölümünde, NuGet paketini yükler ve yeni özellikleri ve bunları uygulayan kodu gözden geçirin.
 
-### <a name="install-the-signalrsample-nuget-package"></a>SignalR.Sample NuGet paketini yükle
+### <a name="install-the-signalrsample-nuget-package"></a>SignalR. Sample NuGet paketini yükler
 
-1. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve tıklayın **NuGet paketlerini Yönet**.
-2. İçinde **NuGet paketlerini Yönet** iletişim kutusu, tıklayın **çevrimiçi**, girin *SignalR.Sample* içinde **çevrimiçi Ara** kutusuna ve ardından tıklatın **Yükleme** içinde **SignalR.Sample** paket.
+1. **Çözüm Gezgini**, projeye sağ tıklayın ve **NuGet Paketlerini Yönet**' e tıklayın.
+2. **NuGet Paketlerini Yönet** Iletişim kutusunda **çevrimiçi**' e tıklayın, **çevrimiçi ara** kutusuna *SignalR. Sample* girin ve ardından **SignalR. Sample** paketinde **Install (Kur** ) seçeneğine tıklayın.
 
-    ![SignalR.Sample paketini yükle](tutorial-server-broadcast-with-aspnet-signalr/_static/image14.png)
-3. İçinde *Global.asax* uygulamada daha önce eklediğiniz satır; dosyası, RouteTable.Routes.MapHubs() yorum\_yöntemi başlatın.
+    ![SignalR. Sample paketini yükler](tutorial-server-broadcast-with-aspnet-signalr/_static/image14.png)
+3. *Global. asax* dosyasında, RouteTable. Routes. MapHubs (); öğesini açıklama olarak inceleyin. daha önce uygulama\_başlangıç yöntemine eklediğiniz satır.
 
-    Kodda *Global.asax* SignalR yolda SignalR.Sample paket kaydeder olduğundan artık gerekli olmadığında *uygulama\_Start/RegisterHubs.cs* dosyası:
+    SignalR. Sample paketi, SignalR yolunu *App\_start/Registerhub. cs* dosyasına kaydettiği için *Global. asax* dosyasındaki koda artık gerek duyulmaz:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample22.cs)]
 
-    Bütünleştirilmiş kod özniteliği tarafından başvurulan WebActivator sınıfı SignalR.Sample paket bağımlılık olarak yüklü WebActivatorEx NuGet paketini dahildir.
-4. İçinde **Çözüm Gezgini**, genişletme *SignalR.Sample* SignalR.Sample paketini yükleyerek oluşturulduğu klasör.
-5. İçinde *SignalR.Sample* klasörü sağ tıklatın *StockTicker.html*ve ardından **başlangıç sayfası olarak ayarla**.
+    Derleme özniteliği tarafından başvurulan WebActivator sınıfı, SignalR. Sample paketinin bir bağımlılığı olarak yüklenen WebActivatorEx NuGet paketine dahildir.
+4. **Çözüm Gezgini**, SignalR. Sample paketini yükleyerek oluşturulan *SignalR. Sample* klasörünü genişletin.
+5. *SignalR. Sample* klasöründe, *StockTicker. html*' ye sağ tıklayın ve ardından **Başlangıç sayfası olarak ayarla**' ya tıklayın.
 
     > [!NOTE]
-    > Yükleme SignalR.Sample NuGet paketi uygulamanızdaki jQuery sürümü değişebilir, *betikleri* klasör. Yeni *StockTicker.html* paketi yükler dosya *SignalR.Sample* klasörü orijinal çalıştırmakistiyorsanızancakyükleyenpaket,jQuerysürümüileuyumluolacak*StockTicker.html* yeniden dosya, komut dosyası etiketi jQuery başvurusunda önce güncelleştirmeniz gerekebilir.
+    > SignalR. Sample NuGet paketini yükleme, *Scripts* klasörünüzdeki jQuery sürümünü değiştirebilir. Paketin *SignalR. Sample* klasörüne yüklediği yeni *StockTicker. html* dosyası, paketin yüklediği jQuery sürümüyle eşitlenmiş olacaktır, ancak özgün *StockTicker. html* dosyanızı tekrar çalıştırmak Istiyorsanız, önce komut dosyası etiketinde jQuery başvurusunu güncelleştirmeniz gerekebilir.
 
 ### <a name="run-the-application"></a>Uygulamayı çalıştırma
 
 1. Uygulamayı çalıştırmak için F5'e basın.
 
-    Daha önce gördüğünüzle kılavuza ek olarak, tam borsa uygulama aynı stok verileri görüntüleyen bir yatay kaydırma penceresi gösterilmektedir. Uygulamayı ilk kez çalıştırdığınızda, "pazar" "kapalı" ve statik bir kılavuz ve kaydırma değil bir bandı penceresi görürsünüz.
+    Daha önce gördüğünüz kılavuza ek olarak, tam hisse senedi şeridi uygulaması aynı stok verilerini görüntüleyen yatay bir kaydırma penceresi gösterir. Uygulamayı ilk kez çalıştırdığınızda, "Pazar" "kapalı" olur ve bir statik kılavuz ve kaydırılmayan bir Ticker penceresi görürsünüz.
 
-    ![StockTicker ekran Başlat](tutorial-server-broadcast-with-aspnet-signalr/_static/image15.png)
+    ![StockTicker ekranı Başlat](tutorial-server-broadcast-with-aspnet-signalr/_static/image15.png)
 
-    Tıkladığınızda **açık Pazar**, **Canlı hisse senedi bandı** seçenekler yatay kaydırma yapmak ve düzenli aralıklarla hisse senedi fiyatı değişiklikleri rastgele olarak yayınlamak sunucuyu başlatır. Her zaman bir hisse senedi fiyatı değiştirir, her ikisi de **hisse senedi tablo canlı** kılavuz ve **Canlı hisse senedi bandı** kutusu güncelleştirilir. Hisse ait fiyat değişikliği pozitif olduğunda hisse senedi yeşil bir arka plan ile gösterilir ve değişiklik negatif olduğunda hisse senedi kırmızı bir arka plan ile gösterilir.
+    **Pazara aç**' a tıkladığınızda, **canlı stok bandı** kutusu yatay olarak kaydırmaya başlar ve sunucu düzenli olarak stok fiyatı değişikliklerini rastgele bir şekilde yayınlar. Bir stok fiyatı her değiştiğinde, hem **canlı stok tablosu** Kılavuzu hem de **canlı hisse senedi bandı** kutusu güncelleştirilir. Bir hisse senedinin fiyat değişikliği pozitif olduğunda, stok yeşil bir arka plan ile gösterilir ve değişiklik negatif olduğunda, stok kırmızı bir arka plan ile gösterilir.
 
-    ![Pazar StockTicker uygulamasını açın](tutorial-server-broadcast-with-aspnet-signalr/_static/image16.png)
+    ![StockTicker uygulaması, Pazar açık](tutorial-server-broadcast-with-aspnet-signalr/_static/image16.png)
 
-    **Kapat Pazar** düğmesi değişiklikleri ve kaydırma bandı durur ve **sıfırlama** düğme fiyat değişiklikleriyle başlatmadan önce bu tüm stok verileri ilk durumuna sıfırlar. Daha fazla tarayıcı pencerelerini açmak ve aynı URL'ye gitmeniz her tarayıcıda aynı anda dinamik olarak güncelleştirilen aynı verileri görürsünüz. Düğmelerden birine tıkladığınızda, tüm tarayıcılar aynı anda aynı şekilde yanıt verin.
+    **Pazara kapat** düğmesi değişiklikleri durduruyor ve Ticker kaydırmasını durduruyor ve **Sıfırla** düğmesi, fiyat değişiklikleri başlatılmadan önce tüm stok verilerini ilk duruma sıfırlar. Daha fazla tarayıcı penceresi açıp aynı URL 'ye giderseniz, her tarayıcıda aynı anda aynı verilerin dinamik olarak güncelleştirildiğini görürsünüz. Düğmelerden birine tıkladığınızda, tüm tarayıcılar aynı anda aynı şekilde yanıt verir.
 
-### <a name="live-stock-ticker-display"></a>Canlı hisse senedi bandı görüntüleme
+### <a name="live-stock-ticker-display"></a>Canlı hisse şeridi görüntüleme
 
-**Canlı hisse senedi bandı** sırasız bir listesini tek bir satıra CSS stillerinden biçimlendirilmiş bir div öğesine içinde görüntülenir. Bandı başlatılır ve tabloyu aynı şekilde güncelleştirildi: içindeki yer tutucuları değiştirerek bir &lt;li&gt; şablonu dizesi ve dinamik olarak ekleme &lt;li&gt; öğelerine &lt;ul&gt; öğe. Kaydırma DIV içinde sırasız liste sol kenar boşluğu değiştirmek için jQuery Canlandır işlevi kullanılarak gerçekleştirilir
+**Canlı hisse senedi bandı** EKRANı, CSS stilleriyle tek bir satıra biçimlendirilen bir div öğesinde sıralanmamış bir listesidir. Ticker başlatılır ve tabloyla aynı şekilde güncelleştirilir: &lt;li&gt; şablon dizesindeki yer tutucuları değiştirerek ve &lt;li&gt; öğelerini &lt;ul&gt; öğesine dinamik olarak ekleme. Kaydırma, div içindeki sıralanmamış listenin sol kenar boşluğunu değiştirmek için jQuery canlandır işlevi kullanılarak gerçekleştirilir.
 
-HTML borsa kodu:
+Stock Ticker HTML:
 
 [!code-html[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample23.html)]
 
-CSS borsa kodu:
+Hisse şeridi için CSS:
 
 [!code-html[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample24.html)]
 
-Kolaylaştırır jQuery kodu kaydırın:
+Kaydırma yapan jQuery kodu:
 
 [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample25.js)]
 
-### <a name="additional-methods-on-the-server-that-the-client-can-call"></a>İstemci çağırabilirsiniz sunucuda ek yöntemleri
+### <a name="additional-methods-on-the-server-that-the-client-can-call"></a>Sunucuda istemcinin çağıra, ek Yöntemler
 
-İstemci çağırabilirsiniz dört ek yöntemleri StockTickerHub sınıfı tanımlar:
+StockTickerHub sınıfı, istemcinin çağırabileceğini dört ek yöntem tanımlar:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample26.cs)]
 
-Sayfanın üstündeki düğmeleri yanıt OpenMarket CloseMarket ve sıfırlama çağrılır. Bunlar, tüm istemcilere hemen yayılır durumundaki bir değişikliği tetikleyen bir istemci desenini gösterir. Bu yöntemlerin her biri bir yöntem StockTicker sınıfında Pazar durumu değiştirin ve ardından yeni durum yayınlar bu etkileri çağırır.
+OpenMarket, CloseMarket ve Reset, sayfanın en üstündeki düğmelere yanıt olarak çağırılır. Tek bir istemcinin, tüm istemcilere anında yayılmış durumdaki bir değişikliği tetikleyen bir istemcinin modelini gösterir. Bu yöntemlerin her biri, StockTicker sınıfındaki Pazar durumu değişikliğini etkileyen bir yöntemi çağırır ve sonra yeni durumu yayınlar.
 
-StockTicker sınıfında, Pazar durumunu MarketState enum değeri döndüren bir MarketState özelliği tarafından korunur:
+StockTicker sınıfında, Pazar durumu bir Pazar durum numaralandırması değeri döndüren bir pazar durumu özelliği tarafından korunur:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample27.cs)]
 
-Pazar durum değişikliği yöntemlerin her biri bunu kilit bloğu içinde StockTicker sınıfı threadsafe olabilir çünkü:
+StockTicker sınıfının threadsafe olması gerektiğinden, Pazar durumunu değiştiren yöntemlerin her biri bir kilit bloğunun içinde olur:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample28.cs)]
 
-Bu kod, threadsafe olduğundan emin olmak için \_MarketState özelliği yedekleyen marketState alan geçici olarak işaretlendi
+Bu kodun threadsafe olduğundan emin olmak için, MarketState özelliğini yedekleyen \_Pazar durumu alanı geçici olarak işaretlenir,
 
 [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample29.cs)]
 
-Bunlar istemcide tanımlanan farklı yöntemleri çağırmak dışında BroadcastMarketStateChange ve BroadcastMarketReset yöntemleri zaten gördüğünüz BroadcastStockPrice yöntemine benzerdir:
+Yayınmarkette ve Yayınmarketi sıfırlama yöntemleri, zaten gördüğünüz BroadcastStockPrice yöntemine benzerdir, ancak istemcide tanımlı farklı Yöntemler çağırır:
 
 [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample30.cs)]
 
-### <a name="additional-functions-on-the-client-that-the-server-can-call"></a>Sunucu çağırabilirsiniz istemcide ek işlevler
+### <a name="additional-functions-on-the-client-that-the-server-can-call"></a>İstemcinin çağıra, istemci üzerinde ek işlevler
 
-UpdateStockPrice işlevi artık kılavuz hem bandı görüntü işleme ve kırmızı ve yeşil renk Flash jQuery.Color kullanır.
+UpdateStockPrice işlevi artık hem kılavuz hem de Ticker görüntüsünü işler ve kırmızı ve yeşil renkleri Flash için jQuery. Color kullanır.
 
-Yeni işlevleri *SignalR.StockTicker.js* etkinleştirme ve devre dışı düğmeleri temel durum pazarlamak ve durdurma veya bandı pencereyi yatay kaydırma başlatın. Birden çok işlevleri ticker.client için eklendiği [jQuery işlevi genişletmek](http://api.jquery.com/jQuery.extend/) bunları eklemek için kullanılır.
+*SignalR. StockTicker. js* ' deki yeni işlevler, Pazar durumuna göre düğmeleri etkinleştirir ve devre dışı bırakır ve Ticker pencere yatay kaydırmasını durdurur veya başlatır. Ticker. Client 'a birden çok işlev eklendiğinden, bu nesneleri eklemek için [jQuery genişletme işlevi](http://api.jquery.com/jQuery.extend/) kullanılır.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample31.js)]
 
 ### <a name="additional-client-setup-after-establishing-the-connection"></a>Bağlantı kurulduktan sonra ek istemci kurulumu
 
-İstemci bağlantı kurar sonra yapmak için bazı ek işleri sahip: Pazar açık veya kapalı uygun marketOpened veya marketClosed işlevi çağırabilir ve sunucu yöntem çağrılarını düğmeleri eklemek için olup olmadığını öğrenin.
+İstemci bağlantıyı kurduktan sonra, başka bir iş yapması gerekir: uygun menkul değer veya pazar kapalı işlevini çağırmak için pazara açık veya kapalı olup olmadığını öğrenin ve sunucu yöntemi çağrılarını düğmelere ekleyin.
 
 [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample32.js)]
 
-Bağlantı kurulduktan sonra böylece kullanılabilir olmadan önce sunucu yöntemlerini çağırmak kod deneyemez server yöntemlerini kadar düğmeleri kadar kablolu arabirimlerdir değil.
+Sunucu yöntemleri, bağlantı kurulana kadar düğmelere bağlı değildir, böylece kod kullanılabilir olmadan önce sunucu yöntemlerini çağırmaya deneyemez.
 
 <a id="nextsteps"></a>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide sunucudan tüm bağlı istemciler, düzenli aralıklarla ve herhangi bir istemciden gelen bildirimlere yanıt iletileri yayınlar bir SignalR uygulama programı öğrendiniz. Sunucu durumunu korumak üzere bir çok iş parçacıklı tekil örneğini kullanarak desenini ayrıca çok oyunculu çevrimiçi oyun senaryolarda da kullanılabilir. Bir örnek için bkz. [SignalR tabanlı ShootR game](https://github.com/NTaylorMullen/ShootR).
+Bu öğreticide, sunucudan iletileri yayınlayan bir SignalR uygulamasının her ikisi de düzenli aralıklarla ve herhangi bir istemciden gelen bildirimlere yanıt olarak nasıl çalıştığını öğrendiniz. Sunucu durumunu korumak için çok iş parçacıklı tekil örnek kullanmanın bir deseninin aynı zamanda çok oyunculu çevrimiçi oyun senaryolarında de kullanılabilir. Bir örnek için bkz. [SignalR 'yi temel alan ShootR oyunu](https://github.com/NTaylorMullen/ShootR).
 
-Eşler arası iletişim senaryolarında gösteren öğreticiler için bkz. [SignalR ile çalışmaya başlama](index.md) ve [SignalR ile gerçek zamanlı güncelleştirme](index.md).
+Eşler arası iletişim senaryolarını gösteren öğreticiler için bkz. [SignalR Ile çalışmaya](index.md) başlama ve [SignalR Ile gerçek zamanlı güncelleştirme](index.md).
 
-Daha gelişmiş SignalR geliştirme kavramları hakkında bilgi için SignalR kaynak kodu ve kaynaklar için aşağıdaki siteleri ziyaret edin:
+Daha gelişmiş SignalR geliştirme kavramları hakkında daha fazla bilgi edinmek için, SignalR kaynak kodu ve kaynakları için aşağıdaki siteleri ziyaret edin:
 
 - [ASP.NET SignalR](https://asp.net/signalr/)
 - [SignalR projesi](http://signalr.net/)
-- [SignalR Github ve örnekleri](https://github.com/SignalR/SignalR)
-- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+- [SignalR GitHub ve örnekleri](https://github.com/SignalR/SignalR)
+- [SignalR wiki](https://github.com/SignalR/SignalR/wiki)

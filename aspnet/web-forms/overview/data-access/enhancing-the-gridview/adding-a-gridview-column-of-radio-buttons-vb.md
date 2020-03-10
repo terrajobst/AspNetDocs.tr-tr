@@ -9,11 +9,11 @@ ms.assetid: 2e31b60b-8723-4f14-b7ee-37859454dc3b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ee67a4556c65d2c9570bf15b42fc3c8e5f555bda
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74592848"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78590792"
 ---
 # <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Radyo Düğmelerinden Oluşan GridView Sütunu Ekleme (VB)
 
@@ -134,7 +134,7 @@ Radyo düğmelerinin gruplandırılmadığı nedeni, aynı `GroupName` özellik 
 
 [!code-html[Main](adding-a-gridview-column-of-radio-buttons-vb/samples/sample4.html)]
 
-`name` ve `id` özniteliklerinin her ikisi de Özellikler penceresi belirtilen şekilde tam değerler değildir, ancak başka bir sayıda `ID` değeri ile sona erer. Oluşturulan `id` ve `name` özniteliklerinin önüne eklenen ek `ID` değerleri, radyo düğmelerinin `ID` s `GridViewRow`, GridView s `ID`, Içerik denetim s `ID`ve Web formu s `ID`' ı denetler. Bu `ID` s, GridView 'daki her işlenmiş Web denetiminin benzersiz bir `id` ve `name` değerlerine sahip olmasını sağlayacak şekilde eklenir.
+`name` ve `id` özniteliklerinin her ikisi de Özellikler penceresi belirtilen şekilde tam değerler değildir, ancak başka bir sayıda `ID` değeri ile sona erer. Oluşturulan `id` ve `name` özniteliklerinin önüne eklenen ek `ID` değerleri, radyo düğmelerinin `ID` s `GridViewRow`, GridView s `ID`, Içerik denetim s `ID`ve Web formu s `ID`' ı denetler.`ID` Bu `ID` s, GridView 'daki her işlenmiş Web denetiminin benzersiz bir `id` ve `name` değerlerine sahip olmasını sağlayacak şekilde eklenir.
 
 Her işlenen denetim farklı bir `name` ve `id` gerekir çünkü bu, tarayıcının istemci tarafında her denetimi benzersiz bir şekilde tanımlaması ve geri gönderme sırasında ne tür ya da değişikliğin gerçekleştiği Web sunucusuna nasıl tanımladığı. Örneğin, her bir RadioButton on Checked durumu değiştirildiğinde bazı sunucu tarafı kodları çalıştırmak istediğimiz düşünün. Bunu, RadioButton s `AutoPostBack` özelliğini `True` olarak ayarlayıp `CheckChanged` olayı için bir olay işleyicisi oluşturarak gerçekleştirebiliriz. Ancak, tüm radyo düğmelerinin işlenen `name` ve `id` değerleri aynı olsaydı, geri göndermede hangi RadioButton 'ın tıklandığını belirleyemedik.
 

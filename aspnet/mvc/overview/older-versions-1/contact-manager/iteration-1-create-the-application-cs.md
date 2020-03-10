@@ -1,117 +1,117 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
-title: 'Yineleme #1 – (C#) uygulama oluşturma | Microsoft Docs'
+title: 'Yineleme #1 – uygulamayı oluşturma (C#) | Microsoft Docs'
 author: microsoft
-description: 'İlk yinelemede Kişi Yöneticisi basit şekilde olası oluştururuz. Temel veritabanı işlemleri için destek ekliyoruz: Oluşturma, okuma, güncelleştirme ve D...'
+description: 'İlk yinelemede, mümkün olan en kolay şekilde Contact Manager oluşturacağız. Temel veritabanı işlemleri için destek ekledik: oluşturma, okuma, güncelleştirme ve D...'
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: db0f160b-901c-46d3-865e-7ab6cd4ed68d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-cs
 msc.type: authoredcontent
 ms.openlocfilehash: d3a940308f21a4f87bf80249bd465e8812794f68
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123938"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582133"
 ---
-# <a name="iteration-1--create-the-application-c"></a>Yineleme #1 – (C#) uygulamayı oluşturma
+# <a name="iteration-1--create-the-application-c"></a>Yineleme #1 – uygulamayı oluşturma (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
 [Kodu indir](iteration-1-create-the-application-cs/_static/contactmanager_1_cs1.zip)
 
-> İlk yinelemede Kişi Yöneticisi basit şekilde olası oluştururuz. Temel veritabanı işlemleri için destek ekliyoruz: Oluşturma, okuma, güncelleştirme ve silme (CRUD).
+> İlk yinelemede, mümkün olan en kolay şekilde Contact Manager oluşturacağız. Temel veritabanı işlemleri için destek ekledik: oluşturma, okuma, güncelleştirme ve silme (CRUD).
 
-## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Bir kişi yönetimi ASP.NET MVC uygulama (VB)
+## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Kişi yönetimi ASP.NET MVC uygulaması oluşturma (VB)
 
-Bu öğretici serisinde, tamamlanması bir tüm kişi yönetimi uygulaması ekleriz. Kişi Yöneticisi uygulama kişilerin bir listesi için kişi bilgilerini - adları, telefon numarası ve e-posta adresleri - depolamanızı sağlar.
+Bu öğretici dizisinde, başlangıçtan sonuna kadar bir Iletişim yönetimi uygulaması oluşturacaksınız. Ilgili kişi Yöneticisi uygulaması, kişi listesi için kişi bilgilerini, telefon numaralarını ve e-posta adreslerini depolamanıza olanak sağlar.
 
-Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli olarak uygulama geliştirin. Bu birden çok yineleme yaklaşımı amacı, her değişikliğin nedenini anlamak etkinleştirmektir.
+Uygulamayı birden çok yineleme üzerinde oluşturacağız. Her yinelemede, uygulamayı kademeli olarak geliştirdik. Bu birden çok yineleme yaklaşımının hedefi, her bir değişikliğin nedenini anlamanıza olanak sağlamaktır.
 
-- Yineleme #1 - uygulama oluşturun. İlk yinelemede Kişi Yöneticisi basit şekilde olası oluştururuz. Temel veritabanı işlemleri için destek ekliyoruz: Oluşturma, okuma, güncelleştirme ve silme (CRUD).
+- Yineleme #1-uygulamayı oluşturun. İlk yinelemede, mümkün olan en kolay şekilde Contact Manager oluşturacağız. Temel veritabanı işlemleri için destek ekledik: oluşturma, okuma, güncelleştirme ve silme (CRUD).
 
-- Yineleme #2 - uygulamanın güzel görünmesini olun. Bu yineleme, varsayılan ASP.NET MVC görünüm ana sayfası değiştirme ve geçişli stil sayfası biz uygulamanın görünümünü geliştirin.
+- Yineleme #2-uygulamanın iyi görünmesini sağlayın. Bu yinelemede, varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfasını değiştirerek uygulamanın görünüşünü geliştiririz.
 
-- Yineleme #3 - form doğrulaması ekleme. Üçüncü yinelemede temel form doğrulaması ekleriz. Biz, kişi formu gerekli form alanlarını tamamlamadan göndermesinin önlenmesine. Biz de e-posta adresi ve telefon numaralarını doğrulayın.
+- Yineleme #3-form doğrulaması ekleme. Üçüncü yinelemede, temel form doğrulaması ekleyeceğiz. Kullanıcıların gerekli form alanlarını tamamlamadan form göndermesini önliyoruz. Ayrıca e-posta adreslerini ve telefon numaralarını da doğruladık.
 
-- Yineleme #4 - birbirine sıkı şekilde bağlı uygulama olun. Bu dördüncü yinelemede biz Bakım ve değişiklik kişi yöneticisi uygulamayı kolaylaştırmak için çeşitli yazılım tasarım desenleri yararlanın. Örneğin, biz uygulamamız depo deseni ve bağımlılık ekleme modelini kullanmak için yeniden düzenleyin.
+- Yineleme #4-uygulamayı gevşek olarak bağlanmış hale getirin. Bu dördüncü yinelemede, Contact Manager uygulamasının bakımını ve değiştirmesini kolaylaştırmak için çeşitli yazılım tasarımı desenlerinden faydalanır. Örneğin, uygulamamız depo deseninin ve bağımlılık ekleme düzeninin kullanılması için yeniden düzenliyoruz.
 
-- Yineleme #5 - birim testleri oluşturun. Beşinci yinelemede uygulamamız Bakım ve değişiklik birim testleri ekleyerek daha kolay vermiyoruz. Biz, bizim veri modeli sınıfları Sahne ve yapı denetleyicilerini ve Doğrulama mantığı birim testleri.
+- Yineleme #5-birim testleri oluşturun. Beşinci yinelemede, uygulamanızın birim testlerini ekleyerek bakımını ve değiştirmeyi daha kolay hale sunuyoruz. Denetleyicilerimizin ve doğrulama mantığımız için veri modeli Sınıflarımızı ve derleme birimi testlerini modelliyoruz.
 
-- Yineleme #6 - test odaklı geliştirme kullanma. Bu altıncı yinelemede yeni işlevsellik uygulamamız için ilk birim testleri yazma ve birim testlerini karşı kod yazma ekleriz. Bu yineleme, kişi grupları ekleriz.
+- Yineleme #6-test odaklı geliştirme kullanın. Bu altıncı yinelemede, önce birim testlerini yazarak ve birim testlerine göre kod yazarak uygulamamıza yeni işlevsellik ekleyeceğiz. Bu yinelemede kişi grupları ekleyeceğiz.
 
-- Yineleme #7 - Ajax işlevselliği ekleme. Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
+- Yineleme #7-Ajax işlevselliği ekleme. Yedinci yinelemede, Ajax desteği ekleyerek uygulamamızın yanıt hızını ve performansını geliştirdik.
 
 ## <a name="this-iteration"></a>Bu yineleme
 
-Bu ilk yinelemeyi temel uygulamayı ekleriz. Kişi Yöneticisi hızlı ve kolay şekilde derleme olmaktır. Sonraki yinelemelerde biz tasarımını uygulama geliştirin.
+Bu ilk yinelemede, temel uygulamayı oluşturacağız. Amaç, mümkün olan en hızlı ve en kolay şekilde Iletişim Yöneticisi oluşturmak için kullanılır. Sonraki yinelemelerde, uygulamanın tasarımını geliştirdik.
 
-Kişi Yöneticisi, temel bir veritabanı odaklı uygulama uygulamasıdır. Uygulama, yeni kişi oluşturun, var olan kişileri düzenleyip kişileri silmek için kullanabilirsiniz.
+Contact Manager uygulaması, temel bir veritabanı temelli uygulamadır. Uygulamayı kullanarak yeni kişiler oluşturabilir, var olan kişileri düzenleyebilir ve kişileri silebilirsiniz.
 
-Bu yineleme, biz aşağıdaki adımları tamamlayın:
+Bu yinelemede aşağıdaki adımları tamamlayacağız:
 
 1. ASP.NET MVC uygulaması
-2. Bizim kişiler depolamak için bir veritabanı oluşturun
-3. Microsoft Entity Framework ile bizim veritabanı için bir model sınıfı oluşturma
-4. Bir denetleyici eylemi ve tüm veritabanı kişiler listesi sağlıyor görünümü oluşturma
-5. Denetleyici eylemleri ve veritabanında yeni kişi oluşturun sağlıyor bir görünüm oluşturma
-6. Denetleyici eylemleri ve veritabanında var olan bir kişi düzenleme sağlıyor bir görünüm oluşturma
-7. Denetleyici eylemleri ve veritabanında var olan bir kişi Sil sağlıyor bir görünüm oluşturma
+2. Kişilerimi depolamak için bir veritabanı oluşturun
+3. Microsoft Entity Framework veritabanı için bir model sınıfı oluşturun
+4. Veritabanındaki tüm kişileri listemizi sağlayan bir denetleyici eylemi ve görünümü oluşturun
+5. Veritabanında yeni bir kişi oluşturmamızı sağlayan denetleyici eylemleri ve bir görünüm oluşturun
+6. Veritabanında var olan bir kişiyi düzenlemenizi sağlayan denetleyici eylemleri ve bir görünüm oluşturun
+7. Veritabanında var olan bir kişiyi silmemizi sağlayan denetleyici eylemleri ve bir görünüm oluşturun
 
 ## <a name="software-prerequisites"></a>Yazılım önkoşulları
 
-ASP.NET MVC uygulamalarında Visual Studio 2008 veya Visual Web Developer 2008 (Visual Web Developer Visual Studio'nun Gelişmiş özelliklerin tümünü içermez Visual Studio'nun Ücretsiz bir sürümü) bilgisayarınızda yüklü olması gerekir. Visual Studio 2008'in deneme sürümünü veya Visual Web Developer şu adresten indirebilirsiniz:
+ASP.NET MVC uygulamalarında, bilgisayarınızda Visual Studio 2008 veya Visual Web Developer 2008 yüklü olmalıdır (Visual Web Developer, Visual Studio 'nun tüm gelişmiş özelliklerini içermeyen, Visual Studio 'nun ücretsiz bir sürümüdür). Visual Studio 2008 ya da Visual Web Developer 'ın deneme sürümünü aşağıdaki adresten indirebilirsiniz:
 
 [https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 > [!NOTE] 
 > 
-> Visual Web Developer ile ASP.NET MVC uygulamaları için Visual Web Developer Hizmet Paketi 1 yüklü olmalıdır. Service Pack 1 içermeyen, Web Uygulama projeleri oluşturulamıyor.
+> Visual Web Developer ile ASP.NET MVC uygulamaları için, Visual Web Developer Service Pack 1 ' ın yüklü olması gerekir. Service Pack 1 olmadan, Web uygulaması projeleri oluşturamazsınız.
 
-ASP.NET MVC çerçevesi. ASP.NET MVC çerçevesi şu adresten indirebilirsiniz:
+ASP.NET MVC çerçevesi. ASP.NET MVC çerçevesini şu adresten indirebilirsiniz:
 
 [https://www.asp.net/mvc](../../../index.md)
 
-Bu öğreticide, bir veritabanına erişmek için Microsoft Entity Framework kullanın. Entity Framework, .NET Framework 3.5 Service Pack 1 ile dahildir. Bu hizmet paketinin şu konumdan indirebilirsiniz:
+Bu öğreticide, bir veritabanına erişmek için Microsoft Entity Framework kullanırız. Entity Framework, .NET Framework 3,5 hizmet paketi 1 ' de bulunur. Bu hizmet paketini aşağıdaki konumdan indirebilirsiniz:
 
-[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;d isplaylang = en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
-Bu indirmeleri tek tek her gerçekleştirme alternatif olarak, Web Platformu Yükleyicisi (Web PI) yararlanabilirsiniz. Web PI şu adresten indirebilirsiniz:
+Bu indirmelerin her birini tek tek yerine getirmek yerine Web Platformu Yükleyicisinden (Web PI) yararlanabilirsiniz. Web PI aşağıdaki adresten indirebilirsiniz:
 
 [https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 ## <a name="aspnet-mvc-project"></a>ASP.NET MVC projesi
 
-ASP.NET MVC Web Application Project. Visual Studio'yu başlatın ve menü seçeneğini **dosya, yeni proje**. **Yeni proje** iletişim kutusu görünür (bkz. Şekil 1). Seçin **Web** proje türü ve **ASP.NET MVC Web uygulaması** şablonu. Yeni projenizi adlandırın *ContactManager* ve Tamam düğmesine tıklayın.
+ASP.NET MVC web uygulaması projesi. Visual Studio 'Yu başlatın ve menü seçeneği **dosyasını, yeni proje ' yi**seçin. **Yeni proje** iletişim kutusu görüntülenir (bkz. Şekil 1). **Web** projesi türünü ve **ASP.NET MVC web uygulaması** şablonunu seçin. Yeni projenize *ContactManager* adını yazıp Tamam düğmesine tıklayın.
 
-.NET Framework 3.5 üstündeki aşağı açılan listeden, seçili olduğundan emin olun sağ **yeni proje** iletişim. Aksi takdirde, ASP.NET MVC Web uygulaması şablonu görünmez.
+**Yeni proje** iletişim kutusunun sağ üst köşesindeki aşağı açılan listeden .NET Framework 3,5 ' ın seçili olduğundan emin olun. Aksi halde, ASP.NET MVC web uygulaması şablonu görünmez.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image1.jpg)](iteration-1-create-the-application-cs/_static/image1.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image1.jpg)](iteration-1-create-the-application-cs/_static/image1.png)
 
-**Şekil 01**: Yeni Proje iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image2.png))
+**Şekil 01**: yeni proje iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image2.png))
 
-ASP.NET MVC uygulaması **birim testi projesi oluşturma** iletişim kutusu görüntülenir. ASP.NET MVC uygulamanızı oluştururken bir birim test projesi çözümünüze ekleyin ve oluşturmak istediğinizi belirtmek için bu iletişim kutusunu kullanabilirsiniz. Biz bu yineleme birim testleri oluşturma olmaz ancak seçeneği seçmelisiniz **Evet, birim testi projesi oluşturma** çünkü bir sonraki yinelemede birim testleri eklemeyi planlıyoruz. Yeni bir ASP.NET MVC projesi oluşturduğunuzda Test projesine ekleme, ASP.NET MVC projesi oluşturulduktan sonra bir Test projesi eklemeye kıyasla daha kolaydır.
+ASP.NET MVC uygulaması, **birim test projesi oluştur** iletişim kutusu görüntülenir. Bu iletişim kutusunu, ASP.NET MVC uygulamanızı oluştururken çözümünüze bir birim testi projesi oluşturmak ve eklemek istediğinizi belirtmek için kullanabilirsiniz. Bu yinelemede birim testleri oluşturmayacağız olsa da, daha sonraki bir yinelemede birim testleri eklemeyi planlıyoruz **, Evet seçeneğini belirleyip bir birim testi projesi oluşturmanız** gerekir. Yeni bir ASP.NET MVC projesi oluşturduğunuzda bir test projesi eklemek, ASP.NET MVC projesi oluşturulduktan sonra test projesi eklemekten çok daha kolaydır.
 
 > [!NOTE] 
 > 
-> Visual Web Developer Test projeleri desteklemediğinden, birim testi projesi oluşturma iletişim kutusu Visual Web Developer kullanırken almıyor.
+> Visual Web Developer test projelerini desteklemediğinden, Visual Web Developer 'ı kullanırken birim testi projesi oluştur iletişim kutusunu edinmeyin.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image2.jpg)](iteration-1-create-the-application-cs/_static/image3.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image2.jpg)](iteration-1-create-the-application-cs/_static/image3.png)
 
-**Şekil 02**: Birim testi projesi oluşturma iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image4.png))
+**Şekil 02**: birim testi projesi oluştur iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image4.png))
 
-ASP.NET MVC uygulamasını Visual Studio Çözüm Gezgini penceresinde görünür (bkz: Şekil 3). Bu pencere menü seçeneğini seçerek açabilirsiniz t don Solution Explorer penceresi görürseniz **görünümü, Çözüm Gezgini**. Çözüm iki proje içerdiğine dikkat edin: ASP.NET MVC projesi ve Test projesi. ASP.NET MVC projesi ContactManager olarak adlandırılır ve Test projesi ContactManager.Tests olarak adlandırılır.
+ASP.NET MVC uygulaması, Visual Studio Çözüm Gezgini penceresinde görünür (bkz. Şekil 3). Çözüm Gezgini pencereyi görmüyorsanız, bu pencereyi açmak için menü seçenek **görünümü ' ne Çözüm Gezgini**. Çözümün iki proje içerdiğine dikkat edin: ASP.NET MVC projesi ve test projesi. ASP.NET MVC projesi ContactManager olarak adlandırılır ve test projesi ContactManager. Tests olarak adlandırılır.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image3.jpg)](iteration-1-create-the-application-cs/_static/image5.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image3.jpg)](iteration-1-create-the-application-cs/_static/image5.png)
 
-**Şekil 03**: Çözüm Gezgini penceresinde ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image6.png))
+**Şekil 03**: Çözüm Gezgini penceresi ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image6.png))
 
-## <a name="deleting-the-project-sample-files"></a>Örnek proje dosyaları siliniyor
+## <a name="deleting-the-project-sample-files"></a>Proje örnek dosyalarını silme
 
-ASP.NET MVC proje şablonu denetleyicileri ve görünümleri için örnek dosyalarını içerir. Yeni bir ASP.NET MVC uygulaması oluşturmadan önce bu dosyalar silmeniz gerekir. Bir dosya veya klasörü sağ tıklatın ve menü seçeneğini belirleyerek dosyaları ve klasörleri Çözüm Gezgini penceresinde silebilir **Sil**.
+ASP.NET MVC proje şablonu, denetleyiciler ve görünümler için örnek dosyaları içerir. Yeni bir ASP.NET MVC uygulaması oluşturmadan önce bu dosyaları silmelisiniz. Çözüm Gezgini penceresindeki dosyaları ve klasörleri, bir dosya veya klasöre sağ tıklayıp **Sil**menü seçeneğini belirleyerek silebilirsiniz.
 
-ASP.NET MVC projeden aşağıdaki dosyaları silin yapmanız gerekir:
+Aşağıdaki dosyaları ASP.NET MVC projesinden silmeniz gerekir:
 
 - \Controllers\HomeController.cs
 
@@ -119,319 +119,319 @@ ASP.NET MVC projeden aşağıdaki dosyaları silin yapmanız gerekir:
 
 - \Views\Home\Index.aspx
 
-Ve Test projesinden aşağıdaki dosyası silmek gerekir:
+Ve, aşağıdaki dosyayı test projesinden silmeniz gerekir:
 
 \Controllers\HomeControllerTest.cs
 
 ## <a name="creating-the-database"></a>Veritabanı oluşturma
 
-Kişi Yöneticisi uygulama bir veritabanı odaklı web uygulamasıdır. Kişi bilgilerini depolamak için bir veritabanı kullanın.
+Contact Manager uygulaması, veritabanı odaklı bir Web uygulamasıdır. İletişim bilgilerini depolamak için bir veritabanı kullanıyoruz.
 
-Microsoft SQL Server, Oracle, MySQL ve IBM DB2 veritabanları dahil olmak üzere herhangi bir modern veritabanı ile ASP.NET MVC çerçevesi. Bu öğreticide, bir Microsoft SQL Server veritabanını kullanıyoruz. Visual Studio yüklediğinizde, Microsoft SQL Server Microsoft SQL Server veritabanının ücretsiz bir sürümü Express yükleme seçeneği ile sağlanır.
+Microsoft SQL Server, Oracle, MySQL ve IBM DB2 veritabanları dahil olmak üzere herhangi bir modern veritabanıyla ASP.NET MVC çerçevesi. Bu öğreticide, bir Microsoft SQL Server veritabanı kullanıyoruz. Visual Studio 'Yu yüklediğinizde, Microsoft SQL Server veritabanının ücretsiz bir sürümü olan Microsoft SQL Server Express yükleme seçeneği sunulur.
 
-Uygulamayı sağ tıklayarak yeni bir veritabanı oluşturmak\_veri klasörü Çözüm Gezgini penceresinde ve menü seçeneğini belirleyerek **Ekle, yeni öğe**. İçinde **Yeni Öğe Ekle** iletişim kutusunda **veri** kategorisi ve **SQL Server veritabanı** şablonu (bkz: Şekil 4). Yeni veritabanı ContactManagerDB.mdf adlandırın ve Tamam düğmesine tıklayın.
+Çözüm Gezgini penceresinde uygulama\_veri klasörüne sağ tıklayıp yeni bir veritabanı oluşturun ve menü seçeneğini **Ekle, yeni öğe ' yi**seçin. **Yeni öğe Ekle** Iletişim kutusunda **veri** kategorisini ve **SQL Server veritabanı** şablonunu seçin (bkz. Şekil 4). Yeni veritabanını ContactManagerDB. mdf olarak adlandırın ve Tamam düğmesine tıklayın.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image4.jpg)](iteration-1-create-the-application-cs/_static/image7.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image4.jpg)](iteration-1-create-the-application-cs/_static/image7.png)
 
-**Şekil 04**: Yeni bir Microsoft SQL Server Express veritabanı oluşturma ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image8.png))
+**Şekil 04**: yeni bir Microsoft SQL Server Express veritabanı oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image8.png))
 
-Yeni veritabanı oluşturduktan sonra veritabanı uygulamada görünür\_Çözüm Gezgini penceresinde veri klasörü. Sunucu Gezgini penceresini açın ve veritabanına bağlanmak için ContactManager.mdf dosyasına çift tıklayın.
+Yeni veritabanını oluşturduktan sonra veritabanı, Çözüm Gezgini penceresindeki App\_Data klasöründe görüntülenir. Sunucu Gezgini penceresini açmak ve veritabanına bağlanmak için ContactManager. mdf dosyasına çift tıklayın.
 
 > [!NOTE] 
 > 
-> Sunucu Gezgini penceresini veritabanı Gezgini penceresi Microsoft Visual Web Developer söz konusu olduğunda çağrılır.
+> Sunucu Gezgini penceresine Microsoft Visual Web Developer durumunda Veritabanı Gezgini penceresi denir.
 
-Veritabanı tabloları, görünümleri, tetikleyiciler ve saklı yordamlar gibi yeni veritabanı nesneleri oluşturmak için Sunucu Gezgini penceresini kullanabilirsiniz. Tabloları klasörü sağ tıklatın ve menü seçeneğini **Yeni Tablo Ekle**. Veritabanı Tablo Tasarımcısı (bkz: Şekil 5) görünür.
+Veritabanı tabloları, görünümler, Tetikleyiciler ve saklı yordamlar gibi yeni veritabanı nesneleri oluşturmak için Sunucu Gezgini penceresini kullanabilirsiniz. Tablolar klasörüne sağ tıklayın ve **Yeni Tablo Ekle**menü seçeneğini belirleyin. Veritabanı Tablo Tasarımcısı görüntülenir (bkz. Şekil 5).
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image5.jpg)](iteration-1-create-the-application-cs/_static/image9.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image5.jpg)](iteration-1-create-the-application-cs/_static/image9.png)
 
-**Şekil 05**: Veritabanı Tablo Tasarımcısı ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image10.png))
+**Şekil 05**: veritabanı Tablo Tasarımcısı ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image10.png))
 
-Biz şu sütunları içeren bir tablo oluşturmanız gerekir:
+Aşağıdaki sütunları içeren bir tablo oluşturuyoruz:
 
 <a id="0.1_table01"></a>
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Kimliği | int | false |
-| FirstName | nvarchar(50) | false |
-| LastName | nvarchar(50) | false |
-| Telefon | nvarchar(50) | false |
-| E-posta | nvarchar(255) | false |
+| Kimlik | int | false |
+| FirstName | nvarchar (50) | false |
+| LastName | nvarchar (50) | false |
+| Telefon | nvarchar (50) | false |
+| E-posta | nvarchar (255) | false |
 
-İlk sütun, kimlik sütunu özeldir. Kimlik sütunu bir kimlik sütunu ve birincil anahtar sütunu işaretlemek gerekir. Bir sütunun kimlik sütunu sütun özellikleri (Şekil 6'ın altındaki arama) ve kimlik belirtimi özelliği aşağı kaydırma gerektiğini belirtmiş olursunuz. Ayarlama **(kimlik olan)** özellik değerine **Evet**.
+İlk sütun, ID sütunu özeldir. Kimlik sütununu kimlik sütunu olarak işaretlemeniz ve birincil anahtar sütunu belirlemeniz gerekir. Sütun özelliklerini genişleterek (Şekil 6 ' nın alt kısmına bakarak) ve kimlik belirtimi özelliğine giderek bir sütunun bir kimlik sütunu olduğunu belirtirsiniz. **(Identity)** özelliğini **Yes**değerine ayarlayın.
 
-Sütun seçerek ve bir anahtar simgesi ile düğmeye tıklandığında bir sütun birincil anahtar sütunu olarak işaretleyin. Bir sütun birincil anahtar sütunu olarak işaretlendikten sonra yanındaki sütuna bir anahtar simgesi görünür (bkz. Şekil 6).
+Sütunu seçip bir anahtarın simgesiyle düğmesine tıklayarak bir sütunu birincil anahtar sütunu olarak işaretleyebilirsiniz. Bir sütun birincil anahtar sütunu olarak işaretlendikten sonra, sütunun yanında bir anahtarın simgesi görünür (bkz. Şekil 6).
 
-Tablo oluşturma işlemini tamamladıktan sonra yeni bir tablo kaydetmek için Kaydet düğmesine (düğme bir disket simgesi) tıklayın. Yeni tablonuzun adını verin *kişiler*.
+Tablo oluşturmayı tamamladıktan sonra, yeni tabloyu kaydetmek için Kaydet düğmesine (disketin simgesiyle birlikte düğme) tıklayın. Yeni tablonuza ad *kişileri*verin.
 
-Kişiler veritabanı tablosu oluşturma bitiş sonra tabloya bazı kayıtları eklemeniz gerekir. Sunucu Gezgini penceresinde kişi tabloya sağ tıklayıp menü seçeneğini **tablo verilerini Göster**. Bir veya daha fazla kişi görünen kılavuz girin.
+Kişiler veritabanı tablosunu oluşturduktan sonra, tabloya bazı kayıtlar eklemeniz gerekir. Sunucu Gezgini penceresinde kişiler tablosuna sağ tıklayın ve **tablo verilerini göster**menü seçeneğini belirleyin. Görüntülenen kılavuza bir veya daha fazla kişi girin.
 
 ## <a name="creating-the-data-model"></a>Veri modeli oluşturma
 
-ASP.NET MVC uygulamasını modelleri, görünümleri ve denetleyicileri içerir. Biz, önceki bölümde oluşturduğumuz kişiler tablosunu temsil eden bir Model sınıfı oluşturarak başlayın.
+ASP.NET MVC uygulaması modeller, görünümler ve denetleyicilerden oluşur. Önceki bölümde oluşturduğumuz kişiler tablosunu temsil eden bir model sınıfı oluşturarak başlayacağız.
 
-Bu öğreticide, bir model sınıfı veritabanından otomatik olarak oluşturmak için Microsoft Entity Framework kullanın.
+Bu öğreticide, veritabanından otomatik olarak bir model sınıfı oluşturmak için Microsoft Entity Framework kullanırız.
 
 > [!NOTE] 
 > 
-> ASP.NET MVC çerçevesi, herhangi bir şekilde Microsoft Entity Framework bağlı değildir. ASP.NET MVC, NHibernate, LINQ to SQL ve ADO.NET dahil olmak üzere alternatif veritabanı erişim teknolojileri ile kullanabilirsiniz.
+> ASP.NET MVC Framework, Microsoft Entity Framework herhangi bir şekilde bağlı değildir. ASP.NET MVC 'yi Nhazırda beklet, LINQ to SQL veya ADO.NET dahil alternatif veritabanı erişim teknolojileriyle kullanabilirsiniz.
 
-Veri modeli sınıfları oluşturmak için aşağıdaki adımları izleyin:
+Veri modeli sınıflarını oluşturmak için aşağıdaki adımları izleyin:
 
-1. Çözüm Gezgini penceresinde modelleri klasörüne sağ tıklayıp **Ekle, yeni öğe**. **Yeni Öğe Ekle** iletişim kutusu görünür (bkz. Şekil 6).
-2. Seçin **veri** kategorisi ve **ADO.NET varlık veri modeli** şablonu. Veri modelinizi ad *ContactManagerModel.edmx* tıklatıp **Ekle** düğmesi. (Bkz. Şekil 7) varlık veri modeli Sihirbazı görüntülenir.
-3. İçinde **Choose Model Contents** adım, select **veritabanından Oluştur** (bkz. Şekil 7).
-4. İçinde **veri bağlantınızı seçin** adım, ContactManagerDB.mdf veritabanını seçin ve adını *ContactManagerDBEntities* varlık bağlantı ayarlarını (bkz. Şekil 8) için.
-5. İçinde **veritabanı nesnelerinizi seçin** adım, tabloları (bkz. Şekil 9) etiketli onay kutusunu işaretleyin. Veri modeli (yalnızca bir tane olduğunu, kişiler tablosunu), veritabanındaki tüm tabloları içerir. Ad alanı girin *modelleri*. Sihirbazı tamamlamak için Son düğmesini tıklatın.
+1. Çözüm Gezgini penceresinde modeller klasörüne sağ tıklayın ve **Ekle, yeni öğe**' yi seçin. **Yeni öğe Ekle** iletişim kutusu görünür (bkz. Şekil 6).
+2. **Veri** kategorisini ve **ADO.net varlık veri modeli** şablonunu seçin. Veri modelinizi *Contactmanagermodel. edmx* olarak adlandırın ve **Ekle** düğmesine tıklayın. Varlık Veri Modeli Sihirbazı görüntülenir (bkz. Şekil 7).
+3. **Model Içeriğini seçin** adımında, **veritabanından oluştur** ' u seçin (bkz. Şekil 7).
+4. **Veri bağlantınızı seçin** adımında, ContactManagerDB. mdf veritabanını seçin ve varlık bağlantısı ayarları Için *Contactmanagerdbentities* adını girin (bkz. Şekil 8).
+5. **Veritabanı nesnelerinizi seçin** adımında, tablolar etiketli onay kutusunu seçin (bkz. Şekil 9). Veri modeli, veritabanınızda bulunan tüm tabloları (yalnızca bir tane, kişiler tablosu) içerir. Ad alanı *modellerini*girin. Sihirbazı gerçekleştirmek için son düğmesine tıklayın.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image6.jpg)](iteration-1-create-the-application-cs/_static/image11.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image6.jpg)](iteration-1-create-the-application-cs/_static/image11.png)
 
-**Şekil 06**: Yeni Öğe Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image12.png))
+**Şekil 06**: yeni öğe Ekle iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image12.png))
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image7.jpg)](iteration-1-create-the-application-cs/_static/image13.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image7.jpg)](iteration-1-create-the-application-cs/_static/image13.png)
 
-**Şekil 07**: Model içeriğinin seçin ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image14.png))
+**Şekil 07**: model içeriğini seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image14.png))
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image8.jpg)](iteration-1-create-the-application-cs/_static/image15.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image8.jpg)](iteration-1-create-the-application-cs/_static/image15.png)
 
-**Şekil 08**: Veri bağlantınızı seçin ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image16.png))
+**Şekil 08**: veri bağlantınızı seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image16.png))
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image9.jpg)](iteration-1-create-the-application-cs/_static/image17.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image9.jpg)](iteration-1-create-the-application-cs/_static/image17.png)
 
-**Şekil 09**: Veritabanı nesnelerinizi seçin ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image18.png))
+**Şekil 09**: veritabanı nesnelerinizi seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image18.png))
 
-Varlık veri modeli Sihirbazı tamamladıktan sonra varlık veri modeli Tasarımcısı görüntülenir. Tasarımcı modellenmiş her tabloya karşılık gelen bir sınıf görüntüler. Kişi adlı bir sınıf görmeniz gerekir.
+Varlık Veri Modeli Sihirbazı 'nı tamamladıktan sonra, Varlık Veri Modeli Tasarımcısı görüntülenir. Tasarımcı, modellenen her tabloya karşılık gelen bir sınıfı görüntüler. Kişiler adlı bir sınıf görmeniz gerekir.
 
-Varlık veri modeli Sihirbazı'nı veritabanı tablo adlarına göre sınıf adları oluşturur. Neredeyse her zaman, sihirbaz tarafından oluşturulan sınıfın adını değiştirmeniz gerekir. Menü seçeneği kişiler Sınıf Tasarımcısı'nda sağ tıklayıp **Yeniden Adlandır**. Sınıfın adı (çoğul) kişilerden (tekil) kişiye değiştirin. Sınıfı, sınıf adını değiştirdikten sonra Şekil 10 gibi görünmelidir.
+Varlık Veri Modeli Sihirbazı, veritabanı tablosu adlarını temel alan sınıf adları oluşturur. Neredeyse her zaman sihirbaz tarafından oluşturulan sınıfın adını değiştirmeniz gerekir. Tasarımcıda kişiler sınıfına sağ tıklayın ve **Yeniden Adlandır**seçeneğini belirleyin. Sınıf adını kişiler (plural) iken Iletişim (tekil) olarak değiştirin. Sınıf adını değiştirdikten sonra sınıf Şekil 10 gibi görünmelidir.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image10.jpg)](iteration-1-create-the-application-cs/_static/image19.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image10.jpg)](iteration-1-create-the-application-cs/_static/image19.png)
 
-**Şekil 10**: İlgili kişi sınıf ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image20.png))
+**Şekil 10**: kişi sınıfı ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image20.png))
 
-Bu noktada, veritabanı modelimizi oluşturduk. Belirli bir ilgili kişi kaydı veritabanımızda yer temsil etmek için ilgili kişi sınıf kullanabiliriz.
+Bu noktada veritabanı modelimizi oluşturduk. Veritabanımızda belirli bir kişi kaydını temsil etmek için Iletişim sınıfını kullanabiliriz.
 
-## <a name="creating-the-home-controller"></a>Giriş denetleyicisi oluşturma
+## <a name="creating-the-home-controller"></a>Ana denetleyici oluşturma
 
-Sonraki adım, giriş denetleyicimizin oluşturmaktır. Giriş denetleyicisine, bir ASP.NET MVC uygulamasındaki çağrılır varsayılan denetleyicisidir.
+Sonraki adım, ana denetleyicimizi oluşturmaktır. Ana denetleyici, bir ASP.NET MVC uygulamasında çağrılan varsayılan denetleyicisidir.
 
-Çözüm Gezgini penceresinde denetleyicileri klasörüne sağ tıklayarak ve menü seçeneğini belirleyerek giriş denetleyici sınıfını oluşturmak **Ekle, denetleyici** (bkz. Şekil 11). Etiketli onay kutusunu fark **oluşturma, güncelleştirme ve ayrıntıları senaryoları için eylem yöntemleri ekleme**. Tıklamadan önce bu onay kutusunun işaretli olduğundan emin olun **Ekle** düğmesi.
+Çözüm Gezgini penceresinde denetleyiciler klasörüne sağ tıklayıp **, denetleyici Ekle, denetleyici** (bkz. Şekil 11) menü seçeneğini belirleyerek giriş denetleyicisi sınıfını oluşturun. **Oluşturma, güncelleştirme ve ayrıntı senaryoları için eylem ekleme yöntemleri**etiketli onay kutusuna dikkat edin. **Ekle** düğmesine tıklamadan önce bu onay kutusunun işaretli olduğundan emin olun.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image11.jpg)](iteration-1-create-the-application-cs/_static/image21.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image11.jpg)](iteration-1-create-the-application-cs/_static/image21.png)
 
-**Şekil 11**: Giriş denetleyicisine ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image22.png))
+**Şekil 11**: giriş denetleyicisini ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image22.png))
 
-Giriş denetleyicisine oluşturduğunuzda, sınıf listesi 1'de alın.
+Ana denetleyiciyi oluştururken, kod 1 ' de sınıfı alırsınız.
 
-**1 - Controllers\HomeController.cs listeleme**
+**Listeleme 1-Controllers\HomeController.cs**
 
 [!code-csharp[Main](iteration-1-create-the-application-cs/samples/sample1.cs)]
 
-## <a name="listing-the-contacts"></a>Kişiler listesi
+## <a name="listing-the-contacts"></a>Kişileri listeleme
 
-Kişiler veritabanı tablosu, kayıtları görüntülemek için biz İNDİS() eylem ve bir dizin görünüm oluşturmanız gerekir.
+Kayıtları kişiler veritabanı tablosunda görüntülemek için bir dizin () eylemi ve bir dizin görünümü oluşturuyoruz.
 
-Giriş denetleyicisine İNDİS() eylem zaten içeriyor. 2 listeleme gibi görünüyor. böylece, bu yöntem değiştirmek ihtiyacımız var.
+Giriş denetleyicisi zaten bir dizin () eylemi içeriyor. Bu yöntemi, liste 2 gibi görünmesi için değiştirmemiz gerekiyor.
 
-**2 - Controllers\HomeController.cs listeleme**
+**Listeleme 2-Controllers\HomeController.cs**
 
 [!code-csharp[Main](iteration-1-create-the-application-cs/samples/sample2.cs)]
 
-Adlı bir özel alan 2 listeleme giriş controller sınıfında içerdiğine dikkat edin \_varlıklar. \_Varlık alanı veri modelindeki varlıkları temsil eder. Kullandığımız \_varlıkları alan veritabanıyla iletişim kurmak için.
+Liste 2 ' deki giriş denetleyicisi sınıfının \_varlıkları adlı bir özel alan içerdiğini unutmayın. \_varlıkları alanı, veri modelindeki varlıkları temsil eder. Veritabanıyla iletişim kurmak için \_varlıkları alanını kullanıyoruz.
 
-Tüm kişileri kişileri veritabanı tablosundan temsil eden bir görünüm İNDİS() yöntemi döndürür. İfade \_varlıklar. ContactSet.ToList() Kişiler listesi genel bir liste olarak döndürür.
+Index () yöntemi, kişiler veritabanı tablosundan tüm kişileri temsil eden bir görünüm döndürür. İfade \_varlıklar. ContactSet. ToList (), kişiler listesini genel liste olarak döndürür.
 
-Artık görüyoruz ve oluşturulan dizin denetleyicisi biz ardından dizini görünüm oluşturmanız gerekir. Dizin görünümünün oluşturmadan önce menü seçeneğini seçerek uygulamanızı derleyin **yapı, yapı çözümü**. Görüntülenecek sırada model sınıfları listesi için bir görünüm eklemeden önce projenizin her zaman yeniden derlemelisiniz **Görünüm Ekle** iletişim.
+Artık Dizin denetleyicisini oluşturduğumuz için, bir sonraki adımda dizin görünümü oluşturulması gerekir. Dizin görünümünü oluşturmadan önce **Build, Build Solution**seçeneklerini belirleyerek uygulamanızı derleyin. **Görünüm Ekle** iletişim kutusunda görüntülenecek model sınıflarının listesi için bir görünüm eklemeden önce projenizi her zaman derlemeniz gerekir.
 
-Dizin görünümünün İNDİS() yöntemi sağ tıklayarak ve menü seçeneğini belirleyerek oluşturma **Görünüm Ekle** (bkz. Şekil 12). Bu menü seçeneğini belirleyerek açılır **Görünüm Ekle** iletişim (bkz. Şekil 13).
+Dizin () yöntemine sağ tıklayıp **Görünüm Ekle** menü seçeneğini belirleyerek Dizin görünümünü oluşturursunuz (bkz. Şekil 12). Bu menü seçeneği belirlendiğinde **Görünüm Ekle** iletişim kutusu açılır (bkz. Şekil 13).
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image12.jpg)](iteration-1-create-the-application-cs/_static/image23.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image12.jpg)](iteration-1-create-the-application-cs/_static/image23.png)
 
-**Şekil 12**: Dizini görünümü ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image24.png))
+**Şekil 12**: Dizin görünümü ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image24.png))
 
-İçinde **Görünüm Ekle** iletişim kutusunda etiketli onay **kesin türü belirtilmiş görünüm oluşturmak**. Görünüm veri sınıfı ContactManager.Models.Contact ve içerik listesini görüntüle'ı seçin. Şu seçenekleri belirleyerek, kişi kayıtlarını içeren bir liste olarak görüntüleyen bir görünüm oluşturur.
+**Görünüm Ekle** iletişim kutusunda, **türü kesin belirlenmiş görünüm oluştur**onay kutusunu işaretleyin. View Data sınıfını ContactManager. modeller. Contact ve içeriği görüntüle listesini seçin. Bu seçeneklerin belirlenmesi, kişi kayıtlarının listesini görüntüleyen bir görünüm oluşturur.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image13.jpg)](iteration-1-create-the-application-cs/_static/image25.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image13.jpg)](iteration-1-create-the-application-cs/_static/image25.png)
 
-**Şekil 13**: Görünüm Ekle iletişim kutusu ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image26.png))
+**Şekil 13**: Görünüm Ekle iletişim kutusu ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image26.png))
 
-Tıkladığınızda **Ekle** düğmesi, listeleme 3 dizin görünümünde oluşturulur. Bildirim &lt;% @ sayfa %&gt; dosyanın üst kısmında görünür yönergesi. Dizin görünümünün ViewPage devralan&lt;IEnumerable&lt;ContactManager.Models.Contact&gt; &gt; sınıfı. Diğer bir deyişle, kişi varlıkları listesi görünümünde Model sınıfı temsil eder.
+**Ekle** düğmesine tıkladığınızda, liste 3 ' teki dizin görünümü oluşturulur. Dosyanın üst kısmında görüntülenen &lt;% @ Page%&gt; yönergesine dikkat edin. Dizin görünümü ViewPage&lt;IEnumerable&lt;ContactManager. modeller. Contact&gt;&gt; sınıfına devralır. Diğer bir deyişle, görünümdeki model sınıfı, Iletişim varlıklarının bir listesini temsil eder.
 
-Model sınıfı tarafından temsil edilen kişileri yinelenen bir foreach döngü gövdesi dizin görünümünün içerir. Kişi sınıfın her bir özellik değeri, bir HTML tablosu içinde görüntülenir.
+Dizin görünümü gövdesi, model sınıfı tarafından temsil edilen kişilerin her biri boyunca yinelenen bir foreach döngüsü içerir. Kişi sınıfının her özelliğinin değeri bir HTML tablosu içinde görüntülenir.
 
-**3 - Views\Home\Index.aspx (üzerinde değişiklik yapılmadan) listeleme**
+**Listeleme 3-Views\home\ındex.aspx (değiştirilmemiş)**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample3.aspx)]
 
-Dizin görünümünün bir değişiklik yapmanız gerekir. Ayrıntılar görünümü oluşturmadığınızı çünkü ayrıntıları bağlantı kaldırabiliriz. Bulun ve aşağıdaki kodu dizin görünümden kaldır:
+Dizin görünümünde bir değişiklik yapmanız gerekiyor. Ayrıntı görünümü oluşturmadığımızda, Ayrıntılar bağlantısını kaldırabiliriz. Aşağıdaki kodu Dizin görünümünden bulun ve kaldırın:
 
-{ id=item.Id })%&gt;
+{id = öğe. Kimlik})%&gt;
 
-Dizin görünümünün değiştirdikten sonra Kişi Yöneticisi uygulamayı çalıştırabilirsiniz. Menü seçeneği hata ayıklama, hata ayıklamayı Başlat'ı seçin veya F5 tuşuna basmanız yeterlidir. Uygulamayı çalıştırmak ilk kez Şekil 14'te iletişim kutusu. Seçeneğini **hata ayıklamayı etkinleştirmek için Web.config dosyasını değiştirme** ve Tamam düğmesine tıklayın.
+Dizin görünümünü değiştirdikten sonra, Contact Manager uygulamasını çalıştırabilirsiniz. Hata Ayıkla, hata ayıklamayı Başlat menü seçeneğini belirleyin veya F5 tuşuna basın. Uygulamayı ilk kez çalıştırdığınızda Şekil 14 ' te iletişim kutusu alırsınız. **Hata ayıklamayı etkinleştirmek Için Web. config dosyasını Değiştir** seçeneğini belirleyin ve Tamam düğmesine tıklayın.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image14.jpg)](iteration-1-create-the-application-cs/_static/image27.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image14.jpg)](iteration-1-create-the-application-cs/_static/image27.png)
 
-**Şekil 14**: Hata ayıklamayı etkinleştirme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image28.png))
+**Şekil 14**: hata ayıklamayı etkinleştirme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image28.png))
 
-Dizin görünümünün varsayılan olarak döndürülür. Bu görünüm tüm kişileri veritabanı tablosundan veri listelenir (bkz. Şekil 15).
+Dizin görünümü varsayılan olarak döndürülür. Bu görünüm, kişiler veritabanı tablosundaki tüm verileri listeler (bkz. Şekil 15).
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image15.jpg)](iteration-1-create-the-application-cs/_static/image29.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image15.jpg)](iteration-1-create-the-application-cs/_static/image29.png)
 
-**Şekil 15**: Dizin görünümünün ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image30.png))
+**Şekil 15**: Dizin görünümü ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image30.png))
 
-Dizin görünümünün yeni görünüm alt kısmındaki Oluştur etiketli bağlantı içerdiğine dikkat edin. Sonraki bölümde, yeni kişiler oluşturma konusunda bilgi edinin.
+Dizin görünümünün, görünümün alt kısmında yeni oluştur etiketli bir bağlantı içerdiğine dikkat edin. Sonraki bölümde, yeni kişiler oluşturmayı öğreneceksiniz.
 
-## <a name="creating-new-contacts"></a>Yeni kişi oluşturma
+## <a name="creating-new-contacts"></a>Yeni kişiler oluşturma
 
-Kullanıcılarının yeni kişileri oluşturmasına olanak sağlamak için şu iki Create() eylemi giriş denetleyicisine eklemeniz gerekir. Yeni bir kişi oluşturmak için bir HTML formuna döndüren bir Create() eylem için oluşturmamız gerekir. Yeni iletişim asıl veritabanını ekleme gerçekleştirir ikinci bir Create() eylemi için oluşturmamız gerekir.
+Kullanıcıların yeni kişiler oluşturmalarına olanak tanımak için, ana denetleyiciye iki Create () eylemi eklememiz gerekiyor. Yeni bir kişi oluşturmak için bir HTML formu döndüren bir Create () eylemi oluşturmamız gerekir. Yeni kişinin gerçek veritabanı eklemesini gerçekleştiren ikinci bir Create () eylemi oluşturuyoruz.
 
-Giriş denetleyicisine eklemek için gereken yeni Create() yöntemleri listeleme 4'te yer alır.
+Ana denetleyiciye eklemesi gereken yeni Create () yöntemleri, liste 4 ' te yer alır.
 
-**4 - Controllers\HomeController.cs (oluşturma yöntemleriyle) listeleme**
+**Listeleme 4-Controllers\HomeController.cs (oluşturma yöntemleriyle)**
 
 [!code-csharp[Main](iteration-1-create-the-application-cs/samples/sample4.cs)]
 
-İkinci Create() yöntemini yalnızca HTTP POST tarafından çağrılabilir olsa ilk Create() yöntemi bir HTTP GET ile çağrılabilir. Diğer bir deyişle, ikinci Create() yöntemi yalnızca bir HTML formu aktarırken çağrılabilir. İlk Create() yöntemi yalnızca yeni kişi oluşturmaya HTML formu içeren bir görünüm verir. İkinci Create() yöntem daha da ilginçtir: veritabanına yeni kişi ekler.
+İlk Create () yöntemi bir HTTP GET ile çağrılabilir, ancak ikinci Create () yöntemi yalnızca bir HTTP POST tarafından çağrılabilir. Diğer bir deyişle, ikinci Create () yöntemi yalnızca bir HTML formu postalamak için çağrılabilir. İlk Create () yöntemi yalnızca yeni bir kişi oluşturmak için HTML formunu içeren bir görünüm döndürür. İkinci Create () yöntemi çok daha ilginç: veritabanına yeni kişiyi ekler.
 
-İkinci Create() yöntem kişi sınıfının bir örneğini kabul etmek için değiştirilmiş dikkat edin. HTML formundan gönderilen form değerleri bu kişi sınıfına ASP.NET MVC çerçevesi tarafından otomatik olarak bağlanır. Her form oluştur HTML form alanından bir kişi parametre özelliğine atanır.
+İkinci Create () yönteminin, kişi sınıfının bir örneğini kabul edecek şekilde değiştirildiğini unutmayın. HTML formundan gönderilen form değerleri, ASP.NET MVC çerçevesi tarafından otomatik olarak bu Iletişim sınıfına bağlanır. HTML oluştur formundaki her form alanı, Iletişim parametresinin bir özelliğine atanır.
 
-Kişi parametresi [bağlama] özniteliği ile donatılmış, dikkat edin. [Bağlama] özniteliği, ilgili kişi kodu özellik bağlamasını dışlamak için kullanılır. ID özelliği bir kimlik özelliği temsil ettiğinden, şu t ID özelliği ayarlamak istiyorsanız ki.
+Iletişim parametresinin bir [bind] özniteliğiyle donatılmış olduğuna dikkat edin. [Bind] özniteliği, kişi kimliği özelliğinin bağlamadan hariç tutulması için kullanılır. ID özelliği bir kimlik özelliğini temsil ettiğinden, ID özelliğini ayarlamak istemiyorum.
 
-Create() yöntemin gövdesinde, Entity Framework, yeni kişi veritabanına eklemek için kullanılır. Yeni kişi kişilerin mevcut kümesine eklenir ve bu değişiklikler temel alınan veritabanına geri göndermek için SaveChanges() yöntemi çağrılır.
+Create () yönteminin gövdesinde, Entity Framework yeni kişiyi veritabanına eklemek için kullanılır. Yeni kişi var olan kişiler kümesine eklenir ve bu değişiklikleri arka plandaki veritabanına geri göndermek için SaveChanges () yöntemi çağırılır.
 
-Yeni kişileri iki Create() yöntemlerden birini sağ tıklayarak ve menü seçeneğini belirleyerek oluşturmak için bir HTML formuna oluşturabileceğiniz **Görünüm Ekle** (bkz. Şekil 16).
+İki Create () yönteminden birini sağ tıklayarak ve **Görünüm Ekle** menü seçeneğini belirleyerek yeni kişiler oluşturmak IÇIN bir HTML formu oluşturabilirsiniz (bkz. Şekil 16).
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image16.jpg)](iteration-1-create-the-application-cs/_static/image31.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image16.jpg)](iteration-1-create-the-application-cs/_static/image31.png)
 
-**Şekil 16**: Oluştur görünümünün ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image32.png))
+**Şekil 16**: oluştur görünümü ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image32.png))
 
-İçinde **Görünüm Ekle** iletişim kutusunda **ContactManager.Models.Contact** sınıfı ve **Oluştur** içeriği görüntüle seçeneğini (bkz. Şekil 17). Tıkladığınızda **Ekle** görünümü otomatik olarak oluşturulan bir oluşturma düğmesi.
+**Görünüm Ekle** iletişim kutusunda, içerik görüntüle Için **ContactManager. modeller. Contact** sınıfını ve **Oluştur** seçeneğini belirleyin (bkz. Şekil 17). **Ekle** düğmesine tıkladığınızda otomatik olarak bir oluştur görünümü oluşturulur.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image17.jpg)](iteration-1-create-the-application-cs/_static/image33.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image17.jpg)](iteration-1-create-the-application-cs/_static/image33.png)
 
-**Şekil 17**: Explode bir sayfayı görmeden ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image34.png))
+**Şekil 17**: sayfa açılımı görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image34.png))
 
-Oluştur görünümünün her bir ilgili kişi sınıf özelliklerini için form alanlarını içerir. Oluştur görünümünün kodunu listeleme 5'te eklenmiştir.
+Oluştur görünümü, kişi sınıfının her bir özelliği için form alanları içerir. Oluşturma görünümü kodu, 5. listeye dahil edilir.
 
-**Listing 5 - Views\Home\Create.aspx**
+**Listeleme 5-Views\Home\Create.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample5.aspx)]
 
-Create() yöntemleri değiştirme ve oluşturma görünümü ekleme sonra kişinin yöneticisi uygulamayı çalıştırın ve yeni kişiler oluşturma. Tıklayın **Yeni Oluştur** oluşturma görünümüne gitmek için dizin görünümünde görüntülenen bağlantı. Şekil 18 görünümünde görmeniz gerekir.
+Create () yöntemlerini değiştirdikten ve oluşturma görünümünü ekledikten sonra, Ilgili kişi Yöneticisi uygulamasını çalıştırabilir ve yeni kişiler oluşturabilirsiniz. Oluştur görünümüne gitmek için dizin görünümünde görüntülenen **Yeni oluştur** bağlantısına tıklayın. Görünümü Şekil 18 ' de görmeniz gerekir.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image18.jpg)](iteration-1-create-the-application-cs/_static/image35.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image18.jpg)](iteration-1-create-the-application-cs/_static/image35.png)
 
-**Şekil 18**: Görünüm Oluştur ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image36.png))
+**Şekil 18**: oluştur görünümü ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image36.png))
 
-## <a name="editing-contacts"></a>Kişiler düzenleme
+## <a name="editing-contacts"></a>Kişileri Düzenle
 
-Bir ilgili kişi kaydı düzenlemek için işlevsellik ekleme yeni kişi kayıtları oluşturmak için ekleme işlevine benzer. İlk olarak, şu iki yeni düzenleme metotlarını giriş denetleyici sınıfına eklemeniz gerekir. Bu yeni Edit() yöntemleri listeleme 6'da yer alır.
+Bir kişi kaydını düzenlemenin işlevlerini eklemek, yeni kişi kayıtları oluşturmaya yönelik işlevselliği eklemeye çok benzer. İlk olarak, giriş denetleyicisi sınıfına iki yeni düzenleme yöntemi eklememiz gerekiyor. Bu yeni düzenleme () yöntemleri, liste 6 ' da bulunur.
 
-**6 - Controllers\HomeController.cs (düzenleme metotlarını ile) listeleme**
+**6-Controllers\HomeController.cs (düzenleme yöntemleriyle) listeleniyor**
 
 [!code-csharp[Main](iteration-1-create-the-application-cs/samples/sample6.cs)]
 
-İlk Edit() yöntemi bir HTTP GET işlemi tarafından çağrılır. Bir kimliği parametre düzenlenmekte olan ilgili kişi kaydı kimliği temsil eden bu yönteme iletilir. Entity Framework kimlik eşleştiren bir kişi almak için kullanılır Bir kaydı düzenlemek için bir HTML formu içeren bir görünümü döndürülür.
+İlk Edit () yöntemi bir HTTP GET işlemi tarafından çağırılır. Düzenlenmekte olan kişi kaydının kimliğini temsil eden bu yönteme bir ID parametresi geçirilir. Entity Framework, kimlik ile eşleşen bir kişiyi almak için kullanılır. Bir kaydın düzenlenmesiyle ilgili HTML formu içeren bir görünüm döndürülür.
 
-İkinci Edit() yöntemi veritabanına gerçek güncelleştirme gerçekleştirir. Bu yöntem kişi sınıfının bir örneği bir parametre olarak kabul eder. ASP.NET MVC çerçevesi form alanlarını düzenleme formu bu sınıf için otomatik olarak bağlar. T ki dikkat edin (kimliği özelliğinin değeri ihtiyacımız) bir kişiyi düzenlerken [bağlama] özniteliği içerir.
+İkinci düzenleme () yöntemi, veritabanının gerçek güncelleştirmesini gerçekleştirir. Bu yöntem, bir parametre olarak kişi sınıfının bir örneğini kabul eder. ASP.NET MVC Framework form alanlarını düzenleme formundan bu sınıfa otomatik olarak bağlar. Bir kişiyi (kimlik özelliğinin değerine ihtiyacımız olması gerekir) düzenlediğinizde [bind] özniteliğini dahil ettiğine dikkat edin.
 
-Entity Framework, değiştirilmiş ilgili veritabanına kaydetmek için kullanılır. Özgün kişinin ilk veritabanından alınmalıdır. Ardından, ilgili değişiklikleri kaydetmek için Entity Framework ApplyPropertyChanges() yöntemi çağrılır. Son olarak, temel alınan veritabanına değişiklikleri kalıcı hale getirmek için Entity Framework SaveChanges() yöntemi çağrılır.
+Entity Framework, değiştirilen kişiyi veritabanına kaydetmek için kullanılır. Özgün kişi önce veritabanından alınmalıdır. Sonra, kişide yapılan değişiklikleri kaydetmek için Entity Framework ApplyPropertyChanges () yöntemi çağırılır. Son olarak, Entity Framework SaveChanges () yöntemi, temel veritabanında yapılan değişiklikleri kalıcı hale getirmek için çağrılır.
 
-Edit() yöntemi sağ tıklayın ve Ekle görüntüle menü seçeneğini belirleyerek düzenleme formu içeren görünümü oluşturabilirsiniz. Görünüm Ekle iletişim kutusunda, seçmek **ContactManager.Models.Contact** sınıfı ve **Düzenle** içeriği görüntüle (bkz. Şekil 19).
+Düzenle () yöntemine sağ tıklayıp Görünüm Ekle menü seçeneğini belirleyerek düzenleme formunu içeren görünümü oluşturabilirsiniz. Görünüm Ekle iletişim kutusunda **ContactManager. modeller. Contact** sınıfını ve **düzenleme** görünümü içeriğini seçin (bkz. Şekil 19).
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image19.jpg)](iteration-1-create-the-application-cs/_static/image37.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image19.jpg)](iteration-1-create-the-application-cs/_static/image37.png)
 
-**Şekil 19**: Bir düzen görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image38.png))
+**Şekil 19**: düzenleme görünümü ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image38.png))
 
-Ekle düğmesine tıkladığınızda yeni bir düzenleme görünümü otomatik olarak oluşturulur. Oluşturulan HTML formu her kişi sınıfı (7 listeleme bakın) özelliklerinin karşılık gelen alanları içerir.
+Ekle düğmesine tıkladığınızda, yeni bir düzenleme görünümü otomatik olarak oluşturulur. Oluşturulan HTML formu, kişi sınıfının özelliklerinin her birine karşılık gelen alanları içerir (bkz. Listeleme 7).
 
-**Listing 7 - Views\Home\Edit.aspx**
+**Liste 7-Views\Home\Edit.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample7.aspx)]
 
-## <a name="deleting-contacts"></a>Kişileri silme
+## <a name="deleting-contacts"></a>Kişiler siliniyor
 
-Ardından kişiler silmek istiyorsanız giriş denetleyici sınıfına iki Delete() eylem eklemeniz gerekir. İlk Delete() eylemi silme onayı form görüntüler. İkinci Delete() eylemi gerçek silme gerçekleştirir.
+Kişileri silmek isterseniz, ana denetleyici sınıfına iki Delete () eylemi eklemeniz gerekir. İlk Delete () eylemi bir silme onayı formunu görüntüler. İkinci Delete () eylemi, gerçek silme işlemini gerçekleştirir.
 
 > [!NOTE] 
 > 
-> Daha sonra Ajax silme tek bir adımda destekler, böylece yineleme # 7'de, biz Kişi Yöneticisi değiştirin.
+> Daha sonra, yineleme #7 içinde, bir adım Ajax silmeyi desteklemesi için Ilgili kişi Yöneticisi ' ni değiştirirsiniz.
 
-İki yeni Delete() yöntemleri listeleme 8'de yer alır.
+İki yeni Delete () yöntemi, listeleme 8 ' de yer alır.
 
-**8 - Controllers\HomeController.cs (Delete metotlarını) listeleme**
+**8-Controllers\HomeController.cs (silme yöntemleri) listesi**
 
 [!code-csharp[Main](iteration-1-create-the-application-cs/samples/sample8.cs)]
 
-Bir ilgili kişi kaydı veritabanından silmek için bir onay formu ilk Delete() yöntemi döndürür (Figure20 bakın). İkinci Delete() yöntem veritabanında gerçek silme işlemini gerçekleştirir. Özgün kişinin veritabanından alındıktan sonra veritabanı silme gerçekleştirme Entity Framework DeleteObject() ve SaveChanges() yöntemleri çağrılır.
+İlk Delete () yöntemi veritabanından bir kişi kaydını silmek için bir onay formu döndürür (bkz. Figure20). İkinci Delete () yöntemi, gerçek silme işlemini veritabanına göre gerçekleştirir. Özgün kişi veritabanından alındıktan sonra, veritabanı silme işlemini gerçekleştirmek için Entity Framework DeleteObject () ve SaveChanges () yöntemleri çağırılır.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image20.jpg)](iteration-1-create-the-application-cs/_static/image39.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image20.jpg)](iteration-1-create-the-application-cs/_static/image39.png)
 
-**Şekil 20**: Silme onayı görüntüle ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image40.png))
+**Şekil 20**: silme onayı görünümü ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image40.png))
 
-(Bkz. Şekil 21) ilgili kişi kaydı silmek için bir bağlantı içeren dizini görünümünü değiştirmek ihtiyacımız var. Aşağıdaki kodu düzenleme bağlantısını içeren aynı tablo hücresi eklemeniz gerekir:
+Dizin görünümünü, kişi kayıtlarını silmeye yönelik bir bağlantı içerecek şekilde değiştirmemiz gerekiyor (bkz. Şekil 21). Aşağıdaki kodu düzenleme bağlantısını içeren tablo hücresine eklemeniz gerekir:
 
-Html.ActionLink ({kimliği = öğe. % Kimliği})&gt;
+HTML. ActionLink ({ID = öğesi). Kimlik})%&gt;
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image21.jpg)](iteration-1-create-the-application-cs/_static/image41.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image21.jpg)](iteration-1-create-the-application-cs/_static/image41.png)
 
-**Şekil 21**: Dizini Düzenle bağlantısına sahip Görünüm ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image42.png))
+**Şekil 21**: düzenleme bağlantısıyla dizin görünümü ([tam boyutlu görüntüyü görüntülemek için tıklatın](iteration-1-create-the-application-cs/_static/image42.png))
 
-Ardından, biz silme onayı görünüm oluşturmanız gerekir. Giriş denetleyicisine sınıfındaki Delete() yöntemi sağ tıklayın ve Ekle görüntüle menü seçeneğini belirleyin. Görünüm Ekle iletişim kutusu (bkz. Şekil 22) görünür.
+Ardından, silme onayı görünümünü oluşturuyoruz. Giriş denetleyicisi sınıfında Delete () yöntemine sağ tıklayın ve Görünüm Ekle menü seçeneğini belirleyin. Görünüm Ekle iletişim kutusu görünür (bkz. Şekil 22).
 
-Farklı olarak liste, oluşturma ve düzenleme görünümler söz konusu olduğunda, Görünüm Ekle iletişim kutusu silme görünümü oluşturmak için bir seçenek içermiyor. Bunun yerine, seçin **ContactManager.Models.Contact** veri sınıfı ve **boş** içeriği görüntüle. Bize kendimize görünümü oluşturmak içerik seçeneği gerektirir boş Görünüm seçme.
+Liste, oluşturma ve düzenleme görünümlerinin aksine, Görünüm Ekle iletişim kutusu silme görünümü oluşturma seçeneği içermez. Bunun yerine **ContactManager. modeller. Contact** veri sınıfını ve **boş** görünüm içeriğini seçin. Boş görünüm içeriği seçeneğinin belirlenmesi, kendimize görünümü oluşturmamızı gerektirir.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image22.jpg)](iteration-1-create-the-application-cs/_static/image43.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image22.jpg)](iteration-1-create-the-application-cs/_static/image43.png)
 
-**Şekil 22**: Silme onayı görünüm ekleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image44.png))
+**Şekil 22**: silme onayı görünümü ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image44.png))
 
-Delete görünümün içeriğini listeleme 9'da yer alır. Bu görünüm onaylayan bir formu içeren belirli bir kişi veya depolamamayı olmalıdır (bkz: Şekil 21) silindi.
+Silme görünümünün içeriği, liste 9 ' da bulunur. Bu görünüm belirli bir kişinin silinip silinmeyeceğini doğrulayan bir form içerir (bkz. Şekil 21).
 
-**Listing 9 - Views\Home\Delete.aspx**
+**9-Views\Home\Delete.aspx listeleme**
 
 [!code-aspx[Main](iteration-1-create-the-application-cs/samples/sample9.aspx)]
 
-## <a name="changing-the-name-of-the-default-controller"></a>Varsayılan denetleyici adının değiştirilmesi
+## <a name="changing-the-name-of-the-default-controller"></a>Varsayılan denetleyicinin adını değiştirme
 
-Kişiler ile çalışmak için sunduğumuz denetleyici sınıfı adı HomeController sınıf olarak adlandırılır sizi rahatsız. Denetleyici ContactController adlı olmaması gerekir?
+Bu, kişilerle çalışma için denetleyici sınıfımız adının HomeController sınıfı olarak adlandırıldığını gösterebilir. Denetleyici ContactController olarak adlandırılmamalıdır mi?
 
-Bu sorunu düzeltmek kolay bir işlemdir. İlk olarak, giriş denetleyicisine adını yeniden ihtiyacımız var. HomeController sınıf Visual Studio Kod Düzenleyicisi'nde açın, sınıfın adını sağ tıklayın ve menü seçeneğini **yeniden düzenleme, yeniden adlandırma**. Bu menü seçeneğini belirleyerek yeniden adlandır iletişim kutusunu açar.
+Bu sorun, düzeltilmesi için yeterince kolay. İlk olarak, ana denetleyicinin adını yeniden düzenlemeniz gerekir. Visual Studio Code düzenleyicisinde HomeController sınıfını açın, sınıfın adına sağ tıklayın ve **yeniden Düzenle ' yi seçerek yeniden adlandır**' ı seçin. Bu menü seçeneğinin belirlenmesi yeniden adlandır iletişim kutusunu açar.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image23.jpg)](iteration-1-create-the-application-cs/_static/image45.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image23.jpg)](iteration-1-create-the-application-cs/_static/image45.png)
 
-**Şekil 23**: Denetleyici adı yeniden düzenleme ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image46.png))
+**Şekil 23**: bir denetleyici adını yeniden düzenleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image46.png))
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image24.jpg)](iteration-1-create-the-application-cs/_static/image47.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image24.jpg)](iteration-1-create-the-application-cs/_static/image47.png)
 
-**Şekil 24**: Yeniden Adlandır iletişim kutusunu kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image48.png))
+**Şekil 24**: Yeniden Adlandır iletişim kutusunu kullanma ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image48.png))
 
-Denetleyici sınıfınıza yeniden adlandırırsanız, Visual Studio klasöründe görünümleri de adını güncelleştirir. Visual Studio \Views\Contact klasöre \Views\Home klasörü yeniden adlandırır.
+Denetleyici sınıfınızı yeniden adlandırırsanız, Visual Studio, görünümler klasöründeki klasörün adını da güncelleştirir. Visual Studio \Views\Home klasörünü \Views\Contact klasörüne yeniden adlandıracak.
 
-Bu değişikliği yaptıktan sonra uygulamanız artık giriş denetleyicisine sahip. Uygulamanızı çalıştırdığınızda, Şekil 25'hata sayfası alırsınız.
+Bu değişikliği yaptıktan sonra, uygulamanız artık bir giriş denetleyicisine sahip olmayacaktır. Uygulamanızı çalıştırdığınızda, Şekil 25 ' te hata sayfasını alırsınız.
 
-[![Yeni Proje iletişim kutusu](iteration-1-create-the-application-cs/_static/image25.jpg)](iteration-1-create-the-application-cs/_static/image49.png)
+[Yeni proje iletişim kutusunu ![](iteration-1-create-the-application-cs/_static/image25.jpg)](iteration-1-create-the-application-cs/_static/image49.png)
 
-**Şekil 25**: Varsayılan denetleyici yok ([tam boyutlu görüntüyü görmek için tıklatın](iteration-1-create-the-application-cs/_static/image50.png))
+**Şekil 25**: Varsayılan denetleyici yok ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-1-create-the-application-cs/_static/image50.png))
 
-Giriş denetleyicisine yerine kişi denetleyicisi kullanmak için Global.asax dosyasında varsayılan yönlendirmesini güncelleştirmek ihtiyacımız var. Global.asax dosyası açın ve varsayılan rota (10 listeleme bakın) tarafından kullanılan varsayılan denetleyicisi değiştirin.
+Global. asax dosyasındaki varsayılan yolu, ana denetleyici yerine Ilgili kişi denetleyicisini kullanacak şekilde güncelleştirmemiz gerekir. Global. asax dosyasını açın ve varsayılan yol tarafından kullanılan varsayılan denetleyiciyi değiştirin (bkz. listeleme 10).
 
-**10 - Global.asax.cs listeleme**
+**Listeleme 10-Global.asax.cs**
 
 [!code-csharp[Main](iteration-1-create-the-application-cs/samples/sample10.cs)]
 
-Kişi Yöneticisi, bu değişiklikleri yaptıktan sonra düzgün çalışır. Şimdi, ilgili kişi denetleyicisi sınıf varsayılan denetleyicisi olarak kullanır.
+Bu değişiklikleri yaptıktan sonra, Ilgili kişi Yöneticisi doğru şekilde çalışır. Şimdi, varsayılan denetleyici olarak Iletişim denetleyicisi sınıfını kullanacaktır.
 
 ## <a name="summary"></a>Özet
 
-Bu ilk yinelemeyi, temel bir kişi Yöneticisi uygulaması en hızlı şekilde olası oluşturduk. Başlangıç kodunu görünümleri ve denetleyicileri otomatik olarak oluşturmak için Visual Studio'nun avantajı attık. Ayrıca bizim veritabanı modeli sınıfları otomatik olarak oluşturmak için Entity Framework avantajlarından attık.
+Bu ilk yinelemede, mümkün olan en hızlı şekilde temel bir Contact Manager uygulaması oluşturduk. Denetleyicilerimizin ve görünümlerimize ait ilk kodu otomatik olarak oluşturmak için Visual Studio 'dan faydalanır. Ayrıca, veritabanı modeli sınıflarınızı otomatik olarak oluşturmak için Entity Framework avantajlarından de yararlanıyoruz.
 
-Şu anda, biz listesinde, oluşturabilir, düzenleme ve Kişi Yöneticisi uygulamayla ilgili kişi kaydı silin. Diğer bir deyişle, biz bütün bir veritabanı odaklı web uygulaması tarafından gerekli temel veritabanı işlemleri gerçekleştirebilirsiniz.
+Şu anda Contact Manager uygulamasıyla kişi kayıtlarını listeliyoruz, oluşturabilir, düzenleyebilir ve silebilirsiniz. Diğer bir deyişle, veritabanı odaklı bir Web uygulaması için gereken tüm temel veritabanı işlemlerini gerçekleştirebiliriz.
 
-Ne yazık ki, uygulamamız bazı sorunlar vardır. Bu havalı. ilk ve istemeyebilir, kişi Yöneticisi uygulama en cazip uygulaması değil. Bu, bazı tasarım çalışması gerekir. Bir sonraki yinelemede nasıl varsayılan görünüm ana sayfasını ve uygulama görünüşünü iyileştirmek için geçişli stil sayfası Değiştirebiliriz adresindeki inceleyeceğiz.
+Ne yazık ki uygulamamız bazı sorunlar içeriyor. İlk olarak bunu kabul etmek için, Ilgili kişi Yöneticisi uygulaması en çekici uygulama değildir. Bazı tasarım işleri gerektirir. Bir sonraki yinelemede, uygulamanın görünümünü geliştirmek için varsayılan görünüm ana sayfasını ve basamaklı stil sayfasını nasıl değiştirebileceğimizi inceleyeceğiz.
 
-İkinci olarak, herhangi bir form doğrulaması uyguladık değil. Örneğin, bir şey yok herhangi bir form alanı değerlerini girmeden Oluştur iletişim formu göndermelerini engellemek için. Ayrıca, geçersiz telefon numaraları ve e-posta adreslerini girin. Yineleme #3 form doğrulama sorunu gidermek Başlat.
+İkincisi, herhangi bir form doğrulaması uygulamadık. Örneğin, form alanlarından herhangi birine değer girmeden kişi oluştur formunu göndermenizi önleyen bir şey yoktur. Ayrıca, geçersiz telefon numaralarını ve e-posta adreslerini de girebilirsiniz. Yineleme #3, form doğrulama sorununun üstesinden gelmeye başladık.
 
-Son ve en önemlisi, kişi Yöneticisi uygulamasının geçerli yineleme kolayca tutulan veya değiştirilemez. Örneğin, veritabanı erişim mantığı sağ denetleyici eylemlerine hazır. Başka bir deyişle, biz bizim denetleyicileri değiştirmeden bizim veri erişim kodu değiştiremezsiniz. Sonraki yinelemelerde Kişi Yöneticisi değiştirilecek daha dayanıklı hale getirmek için uygulayabileceğiniz yazılım tasarım desenleri inceleyeceğiz.
+Son olarak, en önemlisi, Contact Manager uygulamasının geçerli yinelemesi kolayca değiştirilemez veya korunmaz. Örneğin, veritabanı erişim mantığı, denetleyici eylemlerine göre doğru bir şekilde yapılır. Bu, denetleyicilerimizi değiştirmeden veri erişim kodumuzu değiştiremeyeceğiniz anlamına gelir. Daha sonraki yinelemelerde, Iletişim yöneticisinin değişiklik yapmasını daha dayanıklı hale getirmek için uygulayabilmemiz gereken yazılım tasarım düzenlerini araştırıyoruz.
 
 > [!div class="step-by-step"]
 > [Next](iteration-2-make-the-application-look-nice-cs.md)

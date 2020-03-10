@@ -2,398 +2,398 @@
 uid: web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 title: Visual Studio 2005 geliştirmeleri | Microsoft Docs
 author: microsoft
-description: Visual Studio 2005 iyileştirmeler ve geliştirmeler Web projeleri için uzun bir liste ile Web uygulaması geliştiricileri sağlar.
+description: Visual Studio 2005, Web projelerine yönelik uzun bir iyileştirmeler ve geliştirmeler listesi sunan Web uygulaması geliştiricileri sağlar.
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 72d90cd0-b3d9-454c-b2eb-ed0d9812f32c
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
 msc.type: authoredcontent
 ms.openlocfilehash: 64215d556ded0850537a13856fe69b094116ebca
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130322"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78575581"
 ---
 # <a name="improvements-in-visual-studio-2005"></a>Visual Studio 2005’teki Geliştirmeler
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> Visual Studio 2005 iyileştirmeler ve geliştirmeler Web projeleri için uzun bir liste ile Web uygulaması geliştiricileri sağlar.
+> Visual Studio 2005, Web projelerine yönelik uzun bir iyileştirmeler ve geliştirmeler listesi sunan Web uygulaması geliştiricileri sağlar.
 
-Visual Studio 2005 iyileştirmeler ve geliştirmeler Web projeleri için uzun bir liste ile Web uygulaması geliştiricileri sağlar. Güçlü Visual Studio .NET 2002 ve 2003 olduğu gibi vardı birçok şikayetlerinin şekilde Web projeleri işlendi. Visual Studio 2005 bu şikayetlerinin değinmek için çok sayıda yeni özellikleri ekler. Kişiler için Visual Studio .NET 2003 Web uygulamalarının derlenmesi işlenme tercih, bkz: [Web Uygulama projeleri](https://go.microsoft.com/fwlink/?LinkId=57870).
+Visual Studio 2005, Web projelerine yönelik uzun bir iyileştirmeler ve geliştirmeler listesi sunan Web uygulaması geliştiricileri sağlar. Visual Studio .NET 2002 ve 2003 gibi güçlü bir deyişle, web projelerinin işlendiği şekilde birçok şikayet vardır. Visual Studio 2005, bu şikayeti ele almak için önemli sayıda yeni özellik ekler. Visual Studio .NET 2003 'in Web uygulamalarının derlemesini nasıl ele aldığı konusunda tercih eden kullanıcılar için bkz. [Web uygulaması projeleri](https://go.microsoft.com/fwlink/?LinkId=57870).
 
-Bu modülde, Web projesi oluşturma, yönetim ve geliştirme iyileştirmeleri de içerir. Daha sonra bir modülde, Web projeleri oluşturmak ve bunları dağıtmaya yönelik geliştirmeler de kapsar.
+Bu modülde, Web projesi oluşturma, yönetim ve geliştirme konusundaki geliştirmeleri de kapsar. Daha sonraki bir modülde, Web projeleri oluşturma ve bunları dağıtma geliştirmeleri hakkında daha fazla geliştirmeler de kapsar.
 
-## <a name="frontpage-server-extensions"></a>FrontPage Server Extensions
+## <a name="frontpage-server-extensions"></a>FrontPage Sunucu uzantıları
 
-Visual Studio .NET 2002 ve 2003 FrontPage Server Extensions kutusunda veya Web projeleri oluşturma için gereklidir. Geliştiriciler sahip iki farklı erişim modları (FrontPage Server Extensions veya dosya erişim modu) arasında seçim yapma, FrontPage Server Extensions hem de uygulama kökü ayarlama, IIS, vb. gibi görevleri gerçekleştirmek için kullanılır.
+Web projeleri oluşturmak veya oluşturmak için, kutuda Visual Studio .NET 2002 ve 2003 gerekli FrontPage Server uzantıları. Geliştiricilerin iki farklı erişim modu (FrontPage Sunucu uzantıları veya dosya erişim modu) arasında bir seçeneği vardır, her ikisi de IIS 'de uygulama kökünü ayarlama gibi görevleri gerçekleştirmek için kullanılan FrontPage Sunucu uzantıları, vb.
 
-FrontPage Server Extensions güvenme yerel projeleri için Visual Studio 2005 kaldırır. Visual Studio 2005 artık IIS metabase FrontPage Server Extensions kullanmak yerine doğrudan erişir. Visual Studio 2005 ayrıca FrontPage Server Extensions gerek kalmadan uzak proje erişimi sağlayan FTP için destek ekler.
+Visual Studio 2005, yerel projeler için FrontPage sunucu uzantılarında güvenini kaldırır. Visual Studio 2005 artık FrontPage Sunucu uzantılarını kullanmak yerine IIS metatabanına doğrudan erişir. Visual Studio 2005, FrontPage Sunucu uzantıları gerekmeden uzak proje erişimine izin veren FTP desteğini de ekler.
 
-Kendi projeleri FrontPage Server Extensions kullanmak istediğiniz geliştiriciler seçenek yine de kullanılabilir. Ancak, ASP.NET Geliştirici topluluğu güçlü görüşleri göre bu bir gereksinim değildir.
+Projelerinde FrontPage Server Extensions kullanmak isteyen geliştiriciler için, bu seçenek hala kullanılabilir. Ancak, ASP.NET geliştirici topluluğunun güçlü geri bildirimlerine bağlı olarak, bir gereksinim değildir.
 
 > [!NOTE]
-> FrontPage Server Extensions uzak proje oluşturma, açma, vb. için hala gereklidir.
+> Uzak proje oluşturma, açma, vb. için FrontPage Sunucu uzantıları yine de gereklidir.
 
 ## <a name="aspnet-development-server"></a>ASP.NET Geliştirme Sunucusu
 
-Visual Studio 2005 ASP.NET Geliştirme Sunucusu adı verilen yeni bir Web sunucusu ile birlikte gelir. (Bu Web sunucusu daha önce Cassini biliniyordu.)
+Visual Studio 2005, ASP.NET Development Server adlı yeni bir Web sunucusuyla birlikte gelir. (Bu Web sunucusu daha önce Cassini olarak biliniyordu.)
 
-ASP.NET Geliştirme Sunucusu, çeşitli avantajları vardır.
+ASP.NET geliştirme sunucusunun çeşitli avantajları vardır.
 
-- Yönetici olmayanlar için geliştirme ve bir Web sunucusunda hata ayıklama artık mümkündür.
-- ASP.NET Geliştirme Sunucusu herhangi bir yere sanal dizinler için esnek bir proje konumları sağlayan dosya sistemindeki dinamik olarak eşler.
-- IIS zaten kullanan kullanıcılar Windows XP Professional, artık dosya veya klasör yapısı, kendi varsayılan Web sitesi IIS'de etkilemez yeni Web uygulamaları oluşturmak mümkün olacaktır.
+- Yönetici olmayanlar Web sunucusunda geliştirme ve hata ayıklama işlemlerini artık mümkündür.
+- ASP.NET Development Server, sanal dizinleri, esnek proje konumlarına izin veren dosya sistemindeki herhangi bir konuma dinamik olarak eşler.
+- Daha önce IIS kullanan Windows XP Professional kullanıcıları, IIS 'de varsayılan Web sitelerinin dosya veya klasör yapısını etkilemeyen yeni Web uygulamaları oluşturabiliyor.
 
-ASP.NET Geliştirme Sunucusu yararlanmak için özel bir yapılandırma gerekir. Dosya sistemi üzerinde barındırılan bir Web projesi hata ayıklaması veya göz, Visual Studio 2005 ASP.NET Geliştirme Sunucusu örneği isteğe hizmet vermek için rastgele bir bağlantı noktası üzerinde otomatik olarak başlatın.
+ASP.NET Development Server avantajlarından yararlanmak için özel yapılandırma gerekmez. Dosya sisteminde barındırılan bir Web projesi hata ayıklaması veya tarandığında, Visual Studio 2005, isteğe hizmet vermek için rastgele bir bağlantı noktasında ASP.NET Development Server örneğini otomatik olarak başlatır.
 
-ASP.NET geliştirme Sunucusu'nda daha sonra bu modül hakkında daha fazla bilgi ele alınmaktadır.
+Daha sonra bu modülün ASP.NET geliştirme sunucusunda daha fazla bilgi alınacaktır.
 
-## <a name="improved-file-management"></a>Gelişmiş dosya yönetimi
+## <a name="improved-file-management"></a>Geliştirilmiş dosya yönetimi
 
-Visual Studio 2002 ve 2003'te bir proje dosyası (.vbproj VB.NET için) ve C# için .csproj Web uygulamasındaki tüm dosyalar bilgileri depolanır. Çözüm Gezgini görünen proje dosyasındaki dosya bilgilere dayanır. Bu nedenle, Çözüm Gezgini'nde genellikle hatalı bilgilerin dış düzenleyicileri kullanıldığı durumlarda görüntülenebilir. Visual Studio 2002 ve 2003 genellikle dosya değişiklikleri üzerine mi dosyaların en son sürümünü görüntüleme.
+Visual Studio 2002 ve 2003 ' de, bir proje dosyası (örneğin C#, vb.net ve. csproj için. vbproj) Web uygulamasındaki tüm dosyalarda depolanan bilgileri saklı. Çözüm Gezgini görüntüsü, proje dosyasındaki dosya bilgilerine bağlıdır. Bu nedenle Çözüm Gezgini, genellikle dış düzenleyicilerin kullanıldığı durumlarda yanlış bilgiler görüntüler. Visual Studio 2002 ve 2003 çoğu zaman dosya değişikliklerinin üzerine yazar veya dosyaların en son sürümünü görüntülemez.
 
-Visual Studio 2005 yerine proje dosyasıyla birlikte yapar. Bunun yerine, projenizdeki dosyaları doğru bir görünümünü výsledek doğrudan diskten dosya ve klasör bilgilerini okur. Visual Studio 2002 ve 2003'nde başvurular klasörünün Web uygulamanızda gerçek bir klasör göstermediğinden, Visual Studio 2005 başvuruları klasörü Çözüm Gezgini'nden de kaldırır. Visual Studio 2005 projeniz için başvuruları erişmek için proje için özellik sayfaları kullanmanız gerekir.
+Visual Studio 2005, proje dosyası ile uzakta. Bunun yerine, dosya ve klasör bilgilerini doğrudan diskten okur ve bu, projenizdeki dosyaların doğru bir görüntüsüne neden olur. Visual Studio 2002 ve 2003 ' deki başvurular klasörü Web uygulamanızdaki gerçek bir klasörü temsil etmediği için, Visual Studio 2005 aynı zamanda başvurular klasörünü Çözüm Gezgini de kaldırır. Visual Studio 2005 ' de projenizin başvurularına erişmek için, projenin özellik sayfalarını kullanmanız gerekir.
 
 ## <a name="creating-web-projects"></a>Web projeleri oluşturma
 
-Web geliştiricileri, Visual Studio 2005'te proje oluşturmaya yönelik birçok yeni seçeneğiniz vardır. Web siteleri artık herhangi bir dosya sisteminde oluşturulabilir ve ardından ayıklanabilir veya yeni ASP.NET geliştirme sunucusu kullanarak göz. Geliştiriciler ayrıca FTP kullanarak yeni Web siteleri oluşturabilirsiniz.
+Web geliştiricilerinin, Visual Studio 2005 ' de proje oluşturmaya yönelik birçok yeni seçenek bulunur. Web siteleri artık dosya sisteminde herhangi bir yerde oluşturulabilir ve sonra, yeni ASP.NET geliştirme sunucusu kullanılarak ayıklanamaz veya gözatılabilir. Geliştiriciler, FTP kullanarak yeni Web siteleri de oluşturabilir.
 
-Visual Studio 2005'te Web projeleri oluşturma videosu görüntülemek için buraya tıklayın.
+Visual Studio 2005 ' de Web projeleri oluşturmaya yönelik bir video kılavuzunu görüntülemek için buraya tıklayın.
 
 ![](improvements-in-visual-studio-2005/_static/image1.png)
 
-[Açık tam ekran görüntü](improvements-in-visual-studio-2005/_static/creating_projects1.wmv)
+[Tam ekran videosunu açın](improvements-in-visual-studio-2005/_static/creating_projects1.wmv)
 
 ### <a name="file-system-projects"></a>Dosya sistemi projeleri
 
-Video kılavuzda gördüğünüz gibi yerel makinede veya bir dosya paylaşımı aracılığıyla uzak bir konumda dosya sistemi Web siteleri oluşturmak seçebilirsiniz. Dosya sistemi üzerinde oluşturulan Web siteleri, taranan ve ASP.NET geliştirme sunucusu kullanarak görüntüde hata ayıklamayı.
+Video kılavuzunuzda gördüğünüz gibi, dosya sisteminde yerel makinede ya da bir dosya paylaşımından uzak bir konumda Web siteleri oluşturmayı tercih edebilirsiniz. Dosya sisteminde oluşturulan Web sitelerine Gözatılıyor ve ASP.NET Development Server kullanılarak hata ayıklıyor.
 
 > [!NOTE]
-> ASP.NET Geliştirme Sunucusu müşteriler için karışıklığa neden olabilir. IISs dizin yapısına (örneğin c:/inetpub/wwwroot) dosya sistemindeki bir Web projesi oluşturduysanız, yine de Web sitesi ile ASP.NET geliştirme sunucusu içinde Visual Studio 2005 başlatıldığında taranmasına. Bu nedenle, herhangi bir IIS yapılandırması (yani, kimlik doğrulama yöntemleri) geçerli değil.
+> ASP.NET geliştirme sunucusu müşterilerin bazı karışıklığına neden olabilir. IISS dizin yapısındaki (ör. c:/ınetpub/Wwwroot) dosya sisteminde bir Web projesi oluşturulduysa, Visual Studio 2005 içinden başlatıldığında Web sitesine hala ASP.NET geliştirme sunucusu üzerinden gözatılabilir. Bu nedenle, herhangi bir IIS yapılandırması (Yani kimlik doğrulama yöntemleri) uygulanamaz.
 
-Varsayılan web projesi de çok kaldırır yük tarafından yalnızca bir Default.aspx sayfasında, default.cs dosya ve uygulama/_veri klasör içerir. Gerektiğinde özel klasör (yani uygulama/_kod) ve web.config eklenir. Web projenizi yalnızca gereksinim duyduğunuz klasör ve dosyaları içerir.
+Varsayılan Web projesi Ayrıca, yalnızca bir default. aspx sayfası, default.cs dosyası ve bir App/_Data klasörü içeren ek yükün çoğunu da kaldırır. Web. config ve özel klasörler (örn. uygulama/_code) gerektiği gibi eklenir. Web projeniz yalnızca ihtiyacınız olan dosya ve klasörleri içerir.
 
 ### <a name="http-projects"></a>HTTP projeleri
 
-HTTP projeleri yerel IIS Web sitesinde veya bir uzak Web sitesinde oluşturulan projeleri ya da olabilir. Varsayılan proje konumu `http://localhost`. Göz at düğmesine tıklarsanız, HTTP iki seçenek vardır: Yerel IIS ve uzak Site. Bu iki seçenek de temel fark, web sitesi bilgilerin konumu seçin iletişim kutusunda ve dosyalar Web sunucusuna nasıl kopyalanır görüntülenir yöntemidir.
+HTTP projeleri, yerel bir IIS Web sitesinde veya uzak Web sitesinde oluşturulmuş projeler olabilir. Varsayılan proje konumu `http://localhost`. Tarayıcı düğmesine tıklarsanız, iki HTTP seçeneği vardır: yerel IIS ve uzak site. Bu iki seçenek içindeki temel fark, Web sitesi bilgilerinin konum Seç iletişim kutusunda ve dosyaların Web sunucusuna nasıl kopyalandığı yöntemi olan yöntemdir.
 
-Yerel IIS seçeneği metatabanı yerel makinede site bilgilerini okur ve dosya sistemi kullanılarak dosyalar kopyalanır. Uzak Site seçeneğini FrontPage Server Extensions ve site bilgilerini kullanır ve HTTP kullanarak dosyalar kopyalanır ve FrontPage Server Extensions RPC çağırır.
+Yerel IIS seçeneği, yerel makinedeki metatabanından site bilgilerini okur ve dosyalar dosya sistemi kullanılarak kopyalanır. Uzak site seçeneği, FrontPage Sunucu uzantılarını ve site bilgilerini ve dosyaları, HTTP ve FrontPage Sunucu uzantıları RPC çağrıları kullanılarak kopyalanır.
 
 > [!NOTE]
-> Artık get/_aspx/_ver.aspx ve vs###/_tmp.htm dosya sürüm bilgisi belirlemek için kullanılır.
+> Vs # # #/_tmp. htm dosyası ve Get/_aspx/_ver. aspx artık sürüm bilgilerini belirlemede kullanılmıyor.
 
-Varsayılan HTTP yerel IIS seçenektir. Bu seçenek, hangi siteleri kullanılabilir belirlemek için IIS metatabanı ve içerik oluşturulacağı konumu okur. Ağaç görünümünde seçerek farklı bir klasör veya sanal dizin seçebilirsiniz. Ayrıca yeni bir sanal dizin oluşturma, klasörleri uygulamalar olarak işaretlemek, yapabilir bu iletişim kutusundan mevcut sanal dizinleri silin.
+Varsayılan HTTP seçeneği yerel IIS 'dir. Bu seçenek, hangi sitelerin kullanılabilir olduğunu ve içeriğin oluşturulacağı konumu öğrenmek için IIS metatabanını okur. Ağaç görünümünde seçerek, farklı bir klasör veya sanal dizin seçebilirsiniz. Ayrıca, yeni bir sanal dizin oluşturabilir, klasörleri uygulamalar olarak işaretleyebilir ve var olan sanal dizinleri bu iletişim kutusundan silebilirsiniz.
 
-![Konum iletişim seçin](improvements-in-visual-studio-2005/_static/image1.gif)
+![Konum Seç Iletişim kutusu](improvements-in-visual-studio-2005/_static/image1.gif)
 
-**Şekil 1**: Konum iletişim seçin
+**Şekil 1**: konum Seç iletişim kutusu
 
-Farklı Visual Studio'nun, işaretlerseniz, önceki sürümlerde **Güvenli Yuva Katmanı kullan** , yaptığınız isteyen bir güvenlik uyarısı iletişim kutusu ile sunulan, onay ve SSL sertifikasını kullandığınız URL eşleşmiyor devam etmek istiyor. Eşleşen bir sertifika olmasaydı Visual Studio .NET 2003 kullanarak, proje oluşturma başarısız olur.
+Visual Studio 'nun önceki sürümlerinden farklı olarak, **Use güvenli yuva katmanı** onay kutusunu IŞARETLERSENIZ ve SSL sertifikası GÖZATTıĞıNıZ URL ile eşleşmiyorsa, devam etmek isteyip istemediğinizi soran bir güvenlik uyarısı iletişim kutusu görüntülenir. Visual Studio .NET 2003 kullanarak, sertifika eşleşen bir sertifika değilse, projenin oluşturulması başarısız olur.
 
-![Güvenlik Uyarısı ilgili SSL sertifikası](improvements-in-visual-studio-2005/_static/image2.gif)
+![SSL sertifikasıyla Ilgili güvenlik uyarısı](improvements-in-visual-studio-2005/_static/image2.gif)
 
-**Şekil 2**: Güvenlik Uyarısı ilgili SSL sertifikası
+**Şekil 2**: SSL sertifikasıyla Ilgili güvenlik uyarısı
 
-### <a name="note-on-host-headers"></a>Konak üstbilgileri ilgili not
+### <a name="note-on-host-headers"></a>Konak başlıklarında göz önünde
 
-Bir sitede belirli bir IP için bağlı bir Web uygulaması oluşturuyorsanız, bir konak üstbilgisi yapılandırıldığından emin olmanız gerekir. Aksi takdirde, Visual Studio sitede oluşturacak `http://localhost`, ancak IP adresi doğru olduğunda site göz veya gelen ve IDE içinde hata ayıklama çözümlemez.
+Belirli bir IP 'ye bağlı bir sitede Web uygulaması oluşturuyorsanız, bir ana bilgisayar üstbilgisinin yapılandırıldığından emin olmanız gerekir. Aksi halde, Visual Studio `http://localhost`sitesini oluşturur, ancak site gözatılırken veya IDE içinden hata ayıklaması yapıldığında IP adresi doğru şekilde çözümlenmeyecektir.
 
-Uzak Site seçeneğini seçerseniz, yeni Web sitesi için hedef URL'sini olanak tanımak için iletişim değiştirir. Bu URL, FrontPage Server Extensions etkin olan bir sunucu üzerinde olması gerekir. FrontPage Server Extensions'ı kullanarak yerel Web sunucunuz ile çalışmak istiyorsanız, uzak Site seçeneğini kullanın ve yerel bir URL belirtin.
+Uzak site seçeneğini belirlerseniz, iletişim kutusu, yeni Web sitesinin hedef URL 'sini girmenize izin verecek şekilde değişir. Bu URL, FrontPage sunucu uzantılarının etkin olduğu bir sunucuda olmalıdır. FrontPage Sunucu uzantılarını kullanarak yerel Web sunucunuz ile çalışmak istiyorsanız, uzak site seçeneğini kullanabilir ve yerel bir URL belirtebilirsiniz.
 
-![Uzak bir sunucuda bir Web sitesi oluşturma](improvements-in-visual-studio-2005/_static/image1.jpg)
+![Uzak sunucuda bir Web sitesi oluşturma](improvements-in-visual-studio-2005/_static/image1.jpg)
 
-**Şekil 3**: Uzak bir sunucuda bir Web sitesi oluşturma
+**Şekil 3**: uzak sunucuda bir Web sitesi oluşturma
 
-SSL sertifikası eşleşmiyorsa SSL üzerinden uzak bir sitede bir uygulama oluştururken, onay iletişim kutusunda yerel IIS seçeneği kullanılırken görüntülenen iletişim biraz farklıdır.
+SSL aracılığıyla uzak bir sitede bir uygulama oluştururken, SSL sertifikası eşleşmezse, onay iletişim kutusu yerel IIS seçeneği kullanılırken görüntülenenden biraz farklıdır.
 
-![Uzak Site Güvenlik Uyarısı](improvements-in-visual-studio-2005/_static/image3.gif)
+![Uzak site güvenlik uyarısı](improvements-in-visual-studio-2005/_static/image3.gif)
 
-**Şekil 4**: Uzak Site Güvenlik Uyarısı
+**Şekil 4**: uzak site güvenlik uyarısı
 
 <a id="_Toc116100243"></a>
 
 #### <a name="ftp"></a>FTP
 
-Visual Studio 2005 FTP üzerinden Web siteleri oluşturmak için bu seçeneği sunar. Bu seçeneği kullandığınızda, IDE dosyaları yerel olarak kullanıcıların geçici klasörde oluşturur ve ardından dosyaları FTP konuma taşımak için FTP kullanır.
+Visual Studio 2005, FTP aracılığıyla Web siteleri oluşturma seçeneğini sunar. Bu seçeneği kullandığınızda, IDE dosyaları kullanıcılar geçici klasöründe yerel olarak oluşturur ve sonra FTP 'yi kullanarak dosyaları FTP konumuna taşır.
 
 > [!NOTE]
-> Geçici klasör konumu c:/belgeler ve ayarlar olduğu /&lt;kullanıcı&gt;/yerel ayarları/Temp/VWDWebCache/&lt;sunucu&gt;/_&lt;uygulama adı&gt;
+> Geçici klasör konumu c:/Documents and Settings/&lt;User&gt;/Local Settings/Temp/VWDWebCache/&lt;Server&gt;/_&lt;uygulama adı&gt;
 
-FTP seçeneği kullanılırken, bir konum seçin iletişim kutusu ile sunulur. Aşağıda gösterildiği gibi bu iletişim kutusunda, gerekli FTP bağlantı bilgilerini girin.
+FTP seçeneğini kullanırken konum Seç iletişim kutusu görüntülenir. Gerekli FTP bağlantı bilgilerini aşağıda gösterildiği gibi bu iletişim kutusuna girersiniz.
 
-![FTP konumu iletişim seçin](improvements-in-visual-studio-2005/_static/image2.jpg)
+![FTP için konum seç Iletişim kutusu](improvements-in-visual-studio-2005/_static/image2.jpg)
 
-**Şekil 5**: FTP konumu iletişim seçin
+**Şekil 5**: FTP Için konum Seç iletişim kutusu
 
-## <a name="lab-setup-ftp-site-and-create-a-project"></a>Laboratuvar: FTP sitesini ayarlayın ve proje oluşturma
+## <a name="lab-setup-ftp-site-and-create-a-project"></a>Laboratuvar: FTP sitesini ayarlama ve proje oluşturma
 
-Bir kullanıcı yalnızca bunlar için FTP aracılığıyla karşıya yükleyebilecek bir konuma sahip olacak şekilde aşağıdaki adımları FTP sitesini yapılandırın.
+Aşağıdaki adımlar FTP sitesini bir kullanıcının FTP aracılığıyla yalnızca yükleyebilecekleri bir konuma sahip olacak şekilde yapılandırır.
 
-### <a name="install-the-ftp-service"></a>FTP hizmetinin yükleme
+### <a name="install-the-ftp-service"></a>FTP hizmetini yükler
 
-1. Program Ekle/Kaldır'ı açın, Windows Bileşenlerini Ekle/Kaldır'ı seçin
-2. Internet Information Services (Windows 2003'te uygulama sunucusu) seçin ve tıklayın **ayrıntıları**.
-3. Denetleme **Dosya Aktarım Protokolü (FTP) hizmet** tıklatıp **Tamam**.
-4. Tıklayın **sonraki** FTP hizmeti yüklemek için.
+1. Program Ekle Kaldır ' ı açın, Windows Bileşenlerini Ekle/Kaldır ' ı seçin
+2. Internet Information Services (Windows 2003 üzerinde uygulama sunucusu) öğesini seçin ve **Ayrıntılar**' a tıklayın.
+3. **Dosya Aktarım Protokolü (FTP) hizmetini** denetleyin ve **Tamam 'a**tıklayın.
+4. FTP hizmetini yüklemek için **İleri** 'ye tıklayın.
 
-### <a name="create-a-new-folder-for-content"></a>Yeni bir klasör için içerik oluşturun
+### <a name="create-a-new-folder-for-content"></a>Içerik için yeni bir klasör oluştur
 
-1. Windows Gezgini'nde, adlı yeni bir klasör oluşturma **User1** inetpub/c:/wwwroot içinde.
+1. Windows Gezgini 'nde, c:/ınetpub/Wwwroot içinde **kullanıcı1** adlı yeni bir klasör oluşturun.
 
-#### <a name="configure-folders-and-permissions-on-folders"></a>Klasörleri ve izinlerini klasörleri yapılandırın.
+#### <a name="configure-folders-and-permissions-on-folders"></a>Klasörler üzerinde klasörleri ve izinleri yapılandırın.
 
-1. Internet Information Services ek bileşenini Yönetim Araçları'ndan açın. Bilgisayar adı düğümün altında bir FTP siteleri klasörünü şimdi gerekir.
-2. Genişletin **FTP siteleri**.
-3. Sağ **varsayılan FTP sitesi**seçin **yeni**, ardından **sanal dizin**, ardından **sonraki**.
-4. Girin **User1** tıklayın ve sanal dizin adı için **sonraki**.
-5. Girin **c:/inetpub/wwwroot/User1** tıklayın ve yolu için **sonraki**.
-6. Tıklayın **sonraki** ardından **son** Sihirbazı tamamlayın.
-7. Sağ **User1** varsayılan FTP sitesi ve select altında sanal dizin **özellikleri**.
-8. Denetleme **yazma** onay kutusunu tıklatıp **Tamam** iletişim kutusunu kapatmak için.
-9. Sağ **varsayılan FTP sitesi** seçip **özellikleri**.
-10. Üzerinde **güvenlik hesapları** sekmesinde, onay kutusunu temizleyin **anonim bağlantılara izin ver**.
-11. Tıklayın **Evet** devam etmek isteyip istemediğinizi soran iletişim kutusunda.
-12. Tıklayın **Tamam** iletişim kutusunu kapatmak için.
-13. Genişletin **varsayılan Web sitesi** altında **Web siteleri** düğümü.
-14. Sağ **User1** dizin ve select **özellikleri**
-15. İçinde **uygulama ayarları** bölümünde **Oluştur** klasörü bir uygulama olarak işaretlenecek.
-16. Tıklayın **Tamam** iletişim kutusunu kapatmak için.
-17. Internet Information Services eklentisini kapatın.
+1. Yönetim araçlarından Internet Information Services ek bileşenini açın. Artık bilgisayar adı düğümünün altında bir FTP siteleri klasörünüze sahip olursunuz.
+2. **FTP siteleri**' ni genişletin.
+3. **Varsayılan FTP sitesini**sağ tıklatın, **Yeni**' yi ve ardından **sanal dizin**' i seçin ve ardından **İleri**' ye tıklayın.
+4. Sanal dizin adı için **kullanıcı1** girin ve **İleri**' ye tıklayın.
+5. Yol için **c:/ınetpub/Wwwroot/Kullanıcı1** yazın ve **İleri**' ye tıklayın.
+6. **İleri** ' ye tıklayın ve Sihirbazı tamamladıktan sonra **son** ' a tıklayın.
+7. Varsayılan FTP sitesi altında **kullanıcı1** sanal dizinine sağ tıklayın ve **Özellikler**' i seçin.
+8. **Yazma** onay kutusunu Işaretleyin ve **Tamam** ' a tıklayarak iletişim kutusunu kapatın.
+9. **Varsayılan FTP sitesi** ' ne sağ tıklayın ve **Özellikler**' i seçin.
+10. **Güvenlik hesapları** sekmesinde, **anonim bağlantılara izin ver**onay işaretini kaldırın.
+11. Devam etmek isteyip istemediğinizi soran iletişim kutusunda **Evet** ' e tıklayın.
+12. İletişim kutusunu kapatmak için **Tamam** ' ı tıklatın.
+13. **Web siteleri** düğümünün altında **varsayılan Web sitesi** ' ni genişletin.
+14. **Kullanıcı1** dizinine sağ tıklayıp **Özellikler** ' i seçin
+15. **Uygulama ayarları** bölümünde, klasörü bir uygulama olarak Işaretlemek için **Oluştur** ' a tıklayın.
+16. İletişim kutusunu kapatmak için **Tamam** ' ı tıklatın.
+17. Internet Information Services ek bileşenini kapatın.
 
-### <a name="create-web-project"></a>Web projesi oluşturma
+### <a name="create-web-project"></a>Web projesi oluştur
 
-1. Visual Studio 2005'i açın.
-2. Gelen **dosya** menüsünde **yeni Web sitesi**.
-3. İçinde **konumu** açılır menüsünde, select **FTP**.
+1. Visual Studio 2005 ' i açın.
+2. **Dosya** menüsünde **Yeni Web sitesi**' ni seçin.
+3. **Konum** açılır listesinde **FTP**' yi seçin.
 4. **Gözat**'ı tıklatın.
-5. Girin **localhost** içinde **sunucu** metin.
-6. Girin **User1** dizin metin kutusuna.
-7. Tıklayın **açık**. FTP konumu yeni Web sitesi iletişim kutusuna girilir.
-8. **Tamam**'ı tıklatın.
-9. Onay kutusunu temizleyin **anonim oturum açma** FTP oturum açma iletişim kutusunda, kimlik bilgilerinizi girin ve tıklayın **Tamam**.
-10. Proje URL'si nedir? (Çözüm Gezgini'nde proje URL'sini görüntülenir.)
-11. Gelen **derleme** menüsünde **derleme Web sitesi** veya **Çözümü Derle**.
-12. Çözüm Gezgini içinde default.aspx öğesini sağ tıklatın ve seçin **tarayıcıda görüntüle**.
-13. Web sitesi URL'si gerekli iletişim kutusuna girin `http://localhost/user1` tıklatın ve URL için **Tamam**.
+5. **Sunucu** metin kutusuna **localhost** girin.
+6. Dizin metin kutusuna **kullanıcı1** yazın.
+7. **Aç**'a tıklayın. FTP konumu yeni Web sitesi iletişim kutusuna girilir.
+8. **Tamam**’a tıklayın.
+9. FTP oturum açma iletişim kutusunda **anonim oturum** açma seçeneğinin işaretini kaldırın, kimlik bilgilerinizi girin ve **Tamam**' a tıklayın.
+10. Projenin URL 'SI nedir? (Projenin URL 'SI Çözüm Gezgini içinde görüntülenir.)
+11. **Derleme** menüsünden **Web sitesi oluştur** veya **çözüm oluştur**' u seçin.
+12. Çözüm Gezgini ' de default. aspx ' e sağ tıklayın ve **Tarayıcıda görüntüle**' yi seçin.
+13. Web sitesi URL 'SI gerekli iletişim kutusunda URL için `http://localhost/user1` girin ve **Tamam**' a tıklayın.
 
 > [!NOTE]
-> Türü /_Default yüklenecek bağlantı kurma sorunu olduğunu belirten bir hata alırsanız, Web siteniz ve daha önceki bir sürümü üzerinde ASP.NET 2.0 çalıştığından emin olun. Internet Information Services'ın ASP.NET sekmesinden bunu yapabilirsiniz.
+> Türü/_Default yükleyemediğini belirten bir hata alırsanız, ASP.NET 2,0 ' i daha önceki bir sürümü değil web sitenizde çalıştırdığınızdan emin olun. Bunu, Internet Information Services ASP.NET sekmesinden yapabilirsiniz.
 
-## <a name="opening-web-projects"></a>Açılış Web projeleri
+## <a name="opening-web-projects"></a>Web projelerini açma
 
-Web projelerini açmak, proje oluşturma işlemiyle benzerdir. Aşağıdaki bölümlerde, çıkış için IDE içinde çalışırken takip etmek için alanları ilgilendiren. Ayrıca, HTTP ve FTP kullanarak Web projeleri ile çalışmayı kapsar.
+Web projelerini açmak, proje oluşturmaya benzer. Aşağıdaki bölümlerde, IDE içinde çalışırken bir göz atın. Ayrıca, HTTP ve FTP kullanarak Web projeleriyle çalışmayı da ele alır.
 
-Bir Web projesi açmak için Dosya menüsünden Web sitesini Aç'ı seçin. Daha önce ele aynı konumu seçin iletişim kutusu ile istenir ve kullanabileceğiniz aynı dört seçenekleriniz vardır: Dosya sistemi, yerel IIS, FTP ve uzak Site.
+Bir Web projesi açmak için Dosya menüsünden Web sitesi aç ' ı seçin. Daha önce ele alınan aynı konum Seç iletişim kutusuyla istenir ve kullanabileceğiniz dört seçenek vardır: dosya sistemi, yerel IIS, FTP ve uzak site.
 
 <a id="_Toc116100245"></a>
 
 ## <a name="file-system"></a>Dosya sistemi
 
-Bu modülde daha önce belirtildiği gibi Visual Studio artık proje dosyası kullanır. Bu nedenle, dosya sisteminden bir Web sitesini açmak isterseniz, aslında seçtiğiniz klasöre başlangıçta Visual Studio'da bir Web projesi olarak oluşturulmamış olsa bile, istediğiniz herhangi bir klasör seçme seçeneğiniz vardır. Örneğin, bir Web sitesi olarak Belgelerim klasörünü açmak seçin ve Visual Studio sonsuza dek açın ve aşağıda gösterildiği gibi dosyalarınızı görüntüleyin.
+Bu modülde daha önce belirtildiği gibi, Visual Studio artık bir proje dosyası kullanmaz. Bu nedenle, dosya sisteminden bir Web sitesi açmayı seçerseniz, seçtiğiniz klasör Visual Studio 'da başlangıçta bir Web projesi olarak oluşturulmasa bile, istediğiniz herhangi bir klasörü seçme seçeneğiniz vardır. Örneğin, Belgelerim klasörünü bir Web sitesi olarak açmayı seçebilirsiniz ve Visual Studio bu dosyayı açıp açmak ve dosyalarınızı aşağıda gösterildiği gibi görüntülemektir.
 
-![Bir Web sitesi açılan Belgelerim](improvements-in-visual-studio-2005/_static/image3.jpg)
+![Web sitesi olarak açılan Belgelerim](improvements-in-visual-studio-2005/_static/image3.jpg)
 
-**Şekil 6**: *Belgelerim* bir Web sitesi açılır
+**Şekil 6**: *Belgelerim* bir Web sitesi olarak açıldı
 
-Visual Studio, yalnızca ek dosyaları ve klasörleri gerektiğinde oluşturduğundan, hiçbir ek dosya veya klasör, açık konuma eklenir. Bu mimarinin yan etkisi, Web siteleri dosya sisteminde iç içe engellenmesidir. Örneğin, aşağıdaki dizin yapısını göz önünde bulundurun.
+Visual Studio, gerekli olduğunda yalnızca ek dosya ve klasörler oluşturduğundan, açtığınız konuma ek dosya veya klasör eklenmez. Bu mimarinin yan etkisi, Web sitelerini dosya sistemine iç içe geçirmeyi engellemektedir. Örneğin, aşağıdaki dizin yapısını göz önünde bulundurun.
 
-C:/numaralı Web projesi
+C:/MyWebSite konumundaki Web projesi
 
-C:/numaralı/iç içe başka bir web projesi
+C:/MyWebSite/Iç Içe geçmiş bir Web projesi
 
-C:/numaralı Web sitesinde açtığınızda, iç içe geçmiş klasör bu uygulamanın bir alt klasör görünür.
+Web sitesini c:/MyWebSite adresinde açtığınızda, Iç Içe geçmiş klasör o uygulamanın alt klasörü olarak görünür.
 
 <a id="_Toc116100246"></a>
 
 ## <a name="http"></a>HTTP
 
-HTTP üzerinden Web siteleri açarken ayarları (yerel IIS) IIS metatabanı veya FrontPage Server Extensions (Uzak Site.) kullanarak okunur İç içe geçmiş web uygulamaları varsa, bunlar da bunları bir uygulama olarak tanımlayan bir simge ile gösterilir. FrontPage web uygulamaları ile birlikte çalışma bilginiz varsa, Visual Studio 2005 davranış benzerdir.
+HTTP üzerinden Web siteleri açılırken, ayarlar IIS metatabanından (yerel IIS) veya FrontPage Sunucu Uzantıları (uzak site) kullanılarak okunabilir. İç içe geçmiş Web uygulamaları varsa bunlar, bunları uygulama olarak tanımlayan bir simgeyle birlikte görüntülenir. FrontPage 'de Web uygulamalarıyla çalışmaya alışdıysanız, Visual Studio 2005 davranışı benzerdir.
 
-Visual Studio IDE içinde şu anda açıldığında uygulamanın altında iç içe uygulamalar için bir simge görüntüler olsa da, bunları içeriklerini görmek için genişletmenize sağlayamaz. Ancak, bunları açmak için çift tıklayabilirsiniz. Bunu yaptığınızda ya da web uygulamasını (ve şu anda açık olan çözümü değiştirmek için) isteyen bir iletişim kutusu ile sunulur veya geçerli çözümünüzden Web uygulamasına ekleyin.
+Visual Studio, IDE içinde o anda açılan uygulamanın altında iç içe yerleştirilmiş uygulamalar için bir simge görüntülemesine rağmen, içeriğini görmek için bunları genişletmenizi sağlar. Ancak, bunları açmak için çift tıklayabilirsiniz. Bunu yaptığınızda, Web uygulamasını açmak isteyip istemediğinizi soran bir iletişim kutusu görüntülenir (ve şu anda açık olan çözümü değiştirmeniz) veya Web uygulamasını geçerli çözümünüze eklemeniz istenir.
 
-![İç içe geçmiş uygulama simgesini çift ile bu iletişim kutusunu gösterir](improvements-in-visual-studio-2005/_static/image4.jpg)
+![İç içe yerleştirilmiş bir uygulama simgesine çift tıklamak size bu iletişim kutusunu sunar](improvements-in-visual-studio-2005/_static/image4.jpg)
 
-**Şekil 7**: İç içe geçmiş uygulama simgesini çift ile bu iletişim kutusunu gösterir
+**Şekil 7**: iç içe geçmiş bir uygulama simgesine çift tıklamak size bu iletişim kutusunu sunar
 
 <a id="_Toc116100247"></a>
 
-## <a name="ftp-site"></a>FTP sitesi
+## <a name="ftp-site"></a>FTP Sitesi
 
-FTP aracılığıyla bir siteyi açtığınızda, dosyalar tüm yerel geçici klasörünüze kopyalanır. Yerel depolama konumu için tam yol, proje için Özellikler bölmesi görüntülenir ve aşağıdaki biçimi kullanarak oluşturulur.
+FTP aracılığıyla bir site açtığınızda dosyaların tümü geçici klasörünüze yerel olarak kopyalanır. Yerel depolama konumunun tam yolu, projenin Özellikler bölmesinde görüntülenir ve aşağıdaki biçim kullanılarak oluşturulur.
 
-C:/belgeler ve ayarlar /&lt;kullanıcı&gt;/yerel ayarları/Temp/VWDWebCache/&lt;sunucu&gt;/_&lt;uygulama adı&gt;
+C:/Documents and Settings/&lt;User&gt;/Local Settings/Temp/VWDWebCache/&lt;Server&gt;/_&lt;uygulama adı&gt;
 
-FTP kullanarak, Visual Studio projeniz için temel URL'yi aşağıda gösterildiği gibi gözatabilirsiniz belirtmeniz gerekir. Temel bir URL belirtmezseniz, Visual Studio, bunları Web sitesinde bir sayfaya göz atın girişimi ilk kez isteriz.
+FTP kullanırken, Visual Studio 'nun, aşağıda gösterildiği gibi gözatabilmeniz için projenizin temel URL 'sini belirtmesi gerekir. Temel URL belirtmezseniz, Visual Studio sizden Web sitesindeki bir sayfaya ilk kez gözatmaya çalıştığınızda sizi sorar.
 
 ![FTP siteleri için temel URL belirtme](improvements-in-visual-studio-2005/_static/image5.jpg)
 
-**Şekil 8**: FTP siteleri için temel URL belirtme
+**Şekil 8**: FTP siteleri IÇIN temel URL belirtme
 
-## <a name="improvements-in-compilation"></a>Derleme geliştirmeleri
+## <a name="improvements-in-compilation"></a>Derlemedeki geliştirmeler
 
-Web uygulamaları Visual Studio 2005 ile çalışma önceki sürümlerden önemli ölçüde daha hızlı gerçekleşir. Derleme mimari değişiklikler nedeniyle hiçbir küçük bir bölümü budur.
+Visual Studio 2005 ' de Web uygulamalarıyla çalışma, önceki sürümlere göre önemli ölçüde hızlıdır. Bunun nedeni, derleme mimarisinde değişikliklere küçük bir bölüm değildir.
 
-Visual Studio 2002 ve 2003'te Web uygulamaları / Bin klasöründe bulunan bir birincil derlemesini derlendi. Visual Studio 2005'te, bir uygulama/_kod klasör eklendi. Sınıfları ve diğer UI olmayan kod uygulama/_kod klasörüne eklenir. Visual Studio projeyi oluşturduğunda, uygulama/_kod klasördeki tüm dosyaları tek bir App/_Code.dll dosyasına derlenir. Bu değişikliğin sonucu ardışık derlemeler önceki sürümlerde çok daha hızlı olmasıdır.
+Visual Studio 2002 ve 2003 ' de Web uygulamaları,/bin klasöründe bulunan bir birincil derlemede derlendi. Visual Studio 2005 ' de bir uygulama/_Code klasörü eklenmiştir. Sınıflar ve diğer kullanıcı arabirimi olmayan kodlar App/_Code klasörüne eklenir. Visual Studio projeyi oluşturduğunda, uygulama/_Code klasöründeki tüm dosyalar tek bir App/_Code. dll dosyasında derlenir. Bu değişikliğin sonucu, sonraki derlemelerin önceki sürümlerden çok daha hızlı olmasını sağlar.
 
 > [!NOTE]
-> MSBuild komut satırı yardımcı programı, ASP.NET Web uygulamaları oluşturmak için de kullanılabilir. Bu aracı 9 modülünde ele alınmaktadır.
+> MSBuild komut satırı yardımcı programı, ASP.NET Web uygulamaları oluşturmak için de kullanılabilir. Bu araç modül 9 ' da ele alınacaktır.
 
-Başka bir derleme geliştirme derle menüsünde yeni yapı sayfası seçeneğidir. Bu özellik, böylece değişiklikleri daha hızlı bir şekilde derlenebilir yalnızca geçerli sayfa (ile birlikte, kurs ve bağımlılıkları) yeniden derlemek bir geliştirici sağlar. C#, IntelliSense, vb. güncelleştirmek amacıyla arka plan derlemesi sağlamaz çünkü yalnızca tek bir sayfayı yeniden oluşturmayı hızlı bir şekilde güncelleştirilmesi IntelliSense izin bunlar iyice bu özellikten yararlanabilirsiniz.
+Başka bir derleme geliştirmesi, derleme menüsündeki yeni derleme sayfası seçeneğidir. Bu özellik, bir geliştiricinin değişiklikler daha hızlı derlenebilecek şekilde yalnızca geçerli sayfayı (Elbette ve bağımlılıklarla birlikte) yeniden derlemesine olanak tanır. C# , IntelliSense 'i güncelleştirme amaçları için arka plan derlemesi sunmadığından, IntelliSense 'in tek bir sayfayı yeniden oluşturarak IntelliSense 'in hızla güncelleştirilmesini sağlayacak olduğundan bu özellikten özellikle bu özellikten faydalanacaktır.
 
-Proje derleme özelliklerini başlangıç sayfasını yürütülmeden önce oluşan yapı türünü yapılandırmanıza olanak sağlar. Geliştiriciler Visual Studio uygulamalarında kod değişikliklerinden sonra daha hızlı hata ayıklama başlayabilmesi yalnızca geçerli sayfayı yapı seçebilirsiniz.
+Bir projenin yapı özellikleri, başlangıç sayfası yürütülmeden önce oluşan yapı türünü yapılandırmanıza olanak tanır. Geliştiriciler, kod değişikliklerinden sonra Visual Studio 'Nun uygulamalarda hata ayıklamayı daha hızlı başlatabilmesi için yalnızca geçerli sayfayı derlemeyi seçebilir.
 
-![Derleme sayfası başlangıç eylemi](improvements-in-visual-studio-2005/_static/image6.jpg)
+![Derleme sayfası başlatma eylemi](improvements-in-visual-studio-2005/_static/image6.jpg)
 
-**Şekil 9**: Derleme sayfası başlangıç eylemi
+**Şekil 9**: derleme sayfası başlatma eylemi
 
-Visual Studio ve ASP.NET mimarisinin harika geliştirme başka bir düzenleme alanındadır ve devam edin. Geliştiriciler Visual Studio 2005'te bir projesinde hata ayıklamaya başlama ve hata ayıklayıcı ayırma olmadan projede kod değişiklikleri yapabilir. Aslında, gerçek anlamda bir projede hata ayıklamaya başlayabilirsiniz yeni bir sınıf daha ekleyin, o sınıf için kod ekleme, kod bu sınıfın yeni bir örneğini oluşturan sayfanıza eklemek ve sınıfın tüm hata ayıklayıcı ayırma olmadan bir yöntem yürütülmeye. Yeni kod yürüten tarayıcıyı yenilemeyi olarak tam anlamıyla oldukça kolaydır!
+Visual Studio ve ASP.NET mimarisine yönelik harika bir geliştirme, Düzenle ve devam et alanıdır. Visual Studio 2005 ' de geliştiriciler bir projede hata ayıklamaya başlayabilir ve hata ayıklayıcıyı kullanımdan çıkarmadan proje üzerinde kod değişiklikleri yapabilir. Aslında, bir projede hata ayıklamaya başlayabilir, yeni bir sınıf ekleyebilir, bu sınıfa kod ekleyebilir, bu sınıfın yeni bir örneğini oluşturan ve sınıfın bir yöntemini yürütebilmeniz ve hata ayıklayıcıyı kullanımdan çıkarmadan, sayfanıza kod ekleyebilirsiniz. Yeni kodun yürütülmesi, tarayıcıyı yenilemek kadar kolaydır!
 
-Video düzenleme bkz ve Visual Studio 2005'te özellik devam etmek için buraya tıklayın.
+Visual Studio 2005 ' de Düzenle ve devam et özelliğine yönelik bir video kılavuzu görmek için buraya tıklayın.
 
 ![](improvements-in-visual-studio-2005/_static/image2.png)
 
-[Açık tam ekran görüntü](improvements-in-visual-studio-2005/_static/editcontinue1.wmv)
+[Tam ekran videosunu açın](improvements-in-visual-studio-2005/_static/editcontinue1.wmv)
 
-Güçlü düzenleyebilir veya işlevselliği ASP.NET 2.0 ile devam edin ve bir değişimdir ASP.NET uygulamaları için Visual Studio 2005 kaynaklanır. ASP.NET'te 1.x, Visual Studio 2002/2003'te oluşturulan uygulamalar / bin klasöründeki birincil bir bütünleştirilmiş kod içine derlenmiş. Tüm sınıflar, sayfalar, vb. uygulama derlenmiş için tek bir DLL. Ardından çalışma zamanında ASP.NET tüm denetimleri, biçimlendirme ve sayfaları içinde ASP.NET kodu derleyin ve bu DLL'leri ASP.NET geçici klasöre kopyalayın.
+ASP.NET 2,0 ve Visual Studio 2005 ' deki güçlü düzenleme ve devam etme işlevleri, ASP.NET uygulamalarının mimari değişikliği nedeniyle yapılır. ASP.NET 1. x içinde, Visual Studio 2002/2003 ' de oluşturulan uygulamalar,/bin klasöründe depolanan bir birincil derlemede derlendi. Uygulamanın tüm sınıfları, sayfaları, vb., bu DLL 'ye derlendi. Sonra, ASP.NET çalışma zamanında tüm denetimleri, biçimlendirmeyi ve ASP.NET kodunu sayfalar içinde derleyip bu DLL 'Leri ASP.NET geçici klasörüne kopyalar.
 
-ASP.NET 2. 0'da, çalışma zamanında iki derleme modelleri (Visual Studio için bir tane) ve ASP.NET için yukarıda ana hatlarıyla kullanarak Visual Studio 2005 ortak derleme modeline birleştirildi. Tüm derleme sorunları artık yerine geliştirme aşamasında çalışma zamanında yakalanabilmesini ve anlamına gelir. Tasarımcı ve kullanıcı denetimleri ve ana sayfalar gibi özellikler için IntelliSense desteği de sağlar.
+Visual Studio 2005 ' de ASP.NET 2,0 kullanarak, yukarıdaki iki derleme modeli ana hattı (Visual Studio için bir diğeri de çalışma zamanında ASP.NET için), tek bir ortak derleme modelinde birleştirilmiştir. Diğer bir deyişle, çalışma zamanı yerine geliştirme aşamasında tüm derleme sorunlarının artık yakalandığını gösterir. Ayrıca, Kullanıcı denetimleri ve ana sayfalar gibi özellikler için tasarımcı ve IntelliSense desteğine de olanak tanır.
 
-Kullanıcı denetimleri için tasarımcı desteği videosu görmek için buraya tıklayın.
+Kullanıcı denetimleri için tasarımcı desteğinin videosunu görmek için buraya tıklayın.
 
 ![](improvements-in-visual-studio-2005/_static/image3.png)
 
-[Açık tam ekran görüntü](improvements-in-visual-studio-2005/_static/usercontrols1.wmv)
+[Tam ekran videosunu açın](improvements-in-visual-studio-2005/_static/usercontrols1.wmv)
 
 > [!NOTE]
-> Bir kullanıcı denetimi bir sayfadan kaldırıldığında @Register yönergesi işaretlemede kalır ve kullanıcı denetimi Web sitesinden silinirse ayrıştırıcı hatalarını önlemek için el ile kaldırılması gerekiyor.
+> Bir kullanıcı denetimi bir sayfadan kaldırıldığında, @Register yönergesi biçimlendirmede kalır ve Kullanıcı denetimi Web sitesinden silinirse ayrıştırıcı hatalarından kaçınmak için el ile kaldırılmalıdır.
 
-Visual Studio derleme modelinde başka bir geliştirme, Web sitesi yayımlama özelliğidir. Geliştiriciler, Yayımla özelliğini Web sitesi işlemini gerçekleştirir. çünkü derleme isteğe bağlı herhangi bir şey yapmak zorunda eklenen performansı keyfini çıkarabilirsiniz. Dağıtılacak kaynak kodu yok sahip olacak şekilde, aynı zamanda uygulama/_kod klasöründeki tüm kaynak kodu bir DLL içine işlemini gerçekleştirir.
+Visual Studio derleme modelinde başka bir geliştirme de Web sitesi yayımla özelliğidir. Yayımla özelliği Web sitesini önceden derlediğinden, geliştiriciler isteğe bağlı bir şeyi derlemek zorunda kalmadan eklenen performansın tadını çıkarabilirsiniz. Ayrıca, uygulama/_Code klasöründeki tüm kaynak kodlarını bir DLL 'ye önceden derler, böylece kaynak kodu dağıtılmalıdır.
 
-![Yayımla Web sitesi iletişim kutusu](improvements-in-visual-studio-2005/_static/image7.jpg)
+![Web sitesi yayımla Iletişim kutusu](improvements-in-visual-studio-2005/_static/image7.jpg)
 
-**Şekil 10**: Yayımla Web sitesi iletişim kutusu
-
-> [!NOTE]
-> Aspnet/_compile.exe yardımcı programı, bir ASP.NET Web uygulamasına önceden derlemek için de kullanılabilir. Bu aracı 9 modülünde ele alınmaktadır.
-
-Ne zaman aşağıda gösterildiği gibi Yayımla bir Web sitesi önceden derlenmiş dosyaları ASP.NET dosyaları klasöründe depolanır. İle dosyaları bir *.compiled* dosya uzantısı olan belirli DLL'ler için bağımlıkları tanımlama XML dosyaları. Herhangi bir Webform veya kullanıcı denetimleri ile başlayan rastgele DLL'leri içine derlenmiş *uygulama /_Web /_* .
-
-Bırakırsanız *güncelleştirilebilir bu önceden derlenmiş sitenin izin* onay kutusu seçili, biçimlendirme, Webforms ve kullanıcı denetimleri içinde dağıtımdan sonra değişiklik yapmanızı sağlayan bir DLL içine önceden derlenmiş olmayacak. Böylece değişiklikleri dağıtılan içerik için izin verilmeyen biçimlendirme kilitlemek tercih ederseniz, bu kutunun işaretini kaldırın.
-
-*Kullanım sabit adlandırma ve tek sayfa bütünleştirilmiş kodlarını* , böylece her sayfada sabit adlandırılmış bir bütünleştirilmiş kod içine derlenmiş toplu derlemeyi devre dışı bırakmak onay kutusunu olanak sağlar. Bu kutusunun işaretlenmemesi Toplu derleme avantajlarından yararlanmanıza olanak sağlar.
-
-*Önceden derlenmiş derlemeleri etkinleştir üzerinde güçlü adlandırma* onay verir tanımlayıcı ad için önceden derlenmiş bütünleştirilmiş kodlarınızı.
+**Şekil 10**: Web sitesi Yayımla iletişim kutusu
 
 > [!NOTE]
-> ASP.NET'te 1.x, tanımlayıcı adlı derlemeler genel derleme önbelleği (GAC) içinde yüklü gerekiyordu. ASP.NET 2. 0 ', katı adlı derlemeler GAC içine yüklemek için gerekli değildir.
+> ASPNET/_compile. exe yardımcı programı, bir ASP.NET Web uygulamasını önceden derlemek için de kullanılabilir. Bu araç modül 9 ' da ele alınacaktır.
 
-![Bir ASP.NET uygulamaları önceden derlenmiş dosyalar](improvements-in-visual-studio-2005/_static/image8.jpg)
+Bir Web sitesi yayımladığınızda, önceden derlenmiş dosyalar aşağıda gösterildiği gibi Temporary ASP.NET Files klasöründe depolanır. *. Derlenmiş* bir dosya uzantısına sahip dosyalar, belirli dll 'lerin BAĞıMLıLıKLARıNı tanımlayan xml dosyalarıdır. Tüm WebForm veya Kullanıcı denetimleri, *App/_Web/_* Ile başlayan rastgele dll 'ler halinde derlenir.
 
-**Şekil 11**: Bir ASP.NET uygulamaları önceden derlenmiş dosyalar
+*Bu önceden derlenmiş sitenin güncelleştirilebilir olmasına Izin ver* onay kutusunu işaretli bırakırsanız, WebForms ve Kullanıcı denetimlerinizin içindeki işaretleme, dağıtımdan sonra değişiklik yapmanıza izin veren bir dll 'ye önceden derlenmeyecektir. Dağıtılan içerikte değişikliklere izin verilmediğinden biçimlendirmeyi kilitlemeyi tercih ediyorsanız, bu kutunun işaretini kaldırın.
 
-> [!NOTE]
-> Yukarıdaki uygulama web.config dosyası yoktu. Geliştirilmişse, onu çağrılmış *PrecompiledApp.config* sonra yayımlama Web sitesi işlemi.
+*Sabit adlandırma ve tek sayfa bütünleştirilmiş kodlarını kullan* onay kutusu, her sayfanın sabit adlı bir derlemeye derlenmesi için Batch derlemesini devre dışı bırakmanıza olanak tanır. Bu kutuyu işaretsiz bırakmak, Batch derleme özelliğinden yararlanmanızı sağlar.
 
-## <a name="improvements-in-deployment"></a>Dağıtım geliştirmeleri
-
-Olarak bir kopyası proje özelliği Visual Studio 2005 Visual Studio 2002 ve 2003 ile sunar. Ancak, özellik Visual Studio 2005'te barındıracak ve artık Web sitesini kopyalama çağrılır.
-
-Kopyalama Web sitesi iletişim kutusunda, sol çerçeve ve doğru bir çerçeve ayrılır. Sol çerçeve kaynak Web sitesinde ve uzak Web sitesinde doğru çerçeve olarak adlandırılır. Bazı geliştiriciler karışıklığa neden olabilir bir şey doğru çerçevede gösterilen site mutlaka bir uzak site olmamasıdır. Yerel dosya sisteminde veya yerel IIS örneği üzerinde bir site olabilir. İletişim kutusu uzak Web sitesinden yayımlamanıza olanak tanır. Ayrıca, sol çerçevede gösterilen site mutlaka kaynak Web sitesinde olmadığından *için* kaynak Web sitesinde.
-
-Bu site, uzak bir Web sitesi için bir proje kopyalıyorsanız FrontPage Server Extensions'in yüklü olması gerekir. Aksi takdirde, FTP kullanarak bağlanmak gerekir. Öte yandan, bir proje için yerel IIS örneği kopyalanıyorsa, FrontPage Server Extensions gerekli değildir.
+*Önceden derlenmiş derlemelerde tanımlayıcı adlandırmayı etkinleştir* onay kutusu, önceden derlenmiş derlemelerinizi güçlü bir şekilde adlandıralmanıza olanak sağlar.
 
 > [!NOTE]
-> Yerel IIS örneğinde yeni bir Web sitesi oluşturmak deneyin ve FrontPage 2002 Sunucu Uzantıları yüklenir, Web siteleri oluşturma bir SharePoint sunucusuna desteklenmediğini söyleyen bir hata iletisi alırsınız. Bu durumda, FrontPage 2000 Server Uzantıları yükleme veya FrontPage Server Extensions kaldırma seçeneğiniz vardır.
+> ASP.NET 1. x içinde, tanımlayıcı adlı derlemelerin genel derleme önbelleği 'ne (GAC) yüklenmesi gerekiyordu. ASP.NET 2,0 ' de, kesin adlı derlemeleri GAC içine yüklemenize gerek yoktur.
 
-Web sitesini kopyalama özelliğinin bir videosu için buraya tıklayın.
+![Önceden derlenmiş ASP.NET uygulamaları](improvements-in-visual-studio-2005/_static/image8.jpg)
+
+**Şekil 11**: ASP.NET uygulamaları önceden derlenmiş dosyalar
+
+> [!NOTE]
+> Yukarıdaki uygulamada, Web. config dosyası yoktu. Varsa, Web sitesi yayımla işleminden sonra *PreCompiledApp. config* olarak adlandırılırlar.
+
+## <a name="improvements-in-deployment"></a>Dağıtımdaki geliştirmeler
+
+Visual Studio 2002 ve 2003 ' de olduğu gibi, Visual Studio 2005 de bir proje kopyalama özelliği sunar. Ancak özellik Visual Studio 2005 ' de geliştirilmiştir ve artık Web sitesi kopyalama olarak adlandırılmaktadır.
+
+Web sitesini Kopyala iletişim kutusu, bir sol çerçeveye ve doğru çerçeveye bölünür. Sol çerçeveye kaynak web sitesi denir ve doğru çerçeveye uzak Web sitesi denir. Bazı geliştiricilere karıştırabilecek bir şey, doğru çerçevede görüntülenen Sitenin uzak bir site olması gerekmez. Yerel dosya sisteminde veya IIS 'nin yerel örneğindeki bir site olabilir. Ayrıca, iletişim kutusu uzak *Web sitesinden kaynak Web sitesine yayımlamanıza* izin verdiğinden, sol çerçevede görüntülenecek site kaynak web sitesi değildir.
+
+Bir projeyi uzak bir Web sitesine kopyalıyorsanız, bu sitede FrontPage sunucu uzantılarının yüklü olması gerekir. Aksi takdirde, FTP kullanarak bağlanmanız gerekir. Öte yandan, bir projeyi yerel IIS örneğine kopyalıyorsanız, FrontPage Sunucu uzantıları gerekli değildir.
+
+> [!NOTE]
+> Yerel IIS örneğinde yeni bir Web sitesi oluşturmayı denerseniz ve FrontPage 2002 Sunucu uzantıları yüklüyse, Web siteleri oluşturmanın bir SharePoint sunucusunda desteklenmediğini belirten bir hata iletisi alırsınız. Bu durumda FrontPage 2000 sunucu uzantılarını yükleme veya FrontPage Sunucu uzantılarını kaldırma seçeneğiniz vardır.
+
+Web sitesini Kopyala özelliği hakkında bir video kılavuzu için buraya tıklayın.
 
 ![](improvements-in-visual-studio-2005/_static/image4.png)
 
-[Açık tam ekran görüntü](improvements-in-visual-studio-2005/_static/copysite1.wmv)
+[Tam ekran videosunu açın](improvements-in-visual-studio-2005/_static/copysite1.wmv)
 
 ## <a name="improvements-in-debugging"></a>Hata ayıklama geliştirmeleri
 
-Visual Studio 2005'te hata ayıklama dört önemli geliştirmeleri vardır.
+Visual Studio 2005 ' de hata ayıklamada dört temel geliştirmeler vardır.
 
-- Yerel yönetici olmayan hata ayıklama, kullanıma hazır mümkündür.
-- Derleme ögesi hata ayıklama özelliği şimdi varsayılan olarak false değil.
-- Uzaktan hata ayıklama kurulumu ve yapılandırması, önce daha kolay olur.
-- Artık bir Web sitesi FTP konumu açılan ayıklayabilirsiniz.
+- Yönetici olmayan olarak yerel olarak hata ayıklama, kutudan çıkar.
+- Derleme öğesinin hata ayıklama özniteliği varsayılan olarak false 'tur.
+- Uzaktan hata ayıklama kurulumu ve yapılandırması, daha kolay.
+- Artık FTP konumu aracılığıyla açılan bir Web sitesinde hata ayıklaması yapabilirsiniz.
 
-## <a name="debugging-as-a-non-administrator"></a>Yönetici olmayan hata ayıklama
+## <a name="debugging-as-a-non-administrator"></a>Yönetici olmayan olarak hata ayıklama
 
-ASP.NET Geliştirme Sunucusu eklenmesi yönetici olmayanların kolayca çıktığı ASP.NET uygulamalarının hatalarını ayıklamanızı sağlar. Yerel dosya sistemi üzerinde çalışan bir ASP.NET uygulamanın hataları ayıklanırken, Visual Studio ASP.NET geliştirme sunucusu altında oturum açmış kullanıcının bağlamını başlatır. Bu kullanıcı ardından herhangi bir ek yapılandırma olmadan bu uygulamada hata ayıklaması yapabilirsiniz.
+ASP.NET Development Server 'ın eklenmesi, yönetici olmayanların ASP.NET uygulamalarında kolayca hata ayıklamasına olanak tanır. Yerel dosya sisteminde çalışan bir ASP.NET uygulamasının hatası ayıklandığında, Visual Studio, oturum açan kullanıcının bağlamı altında ASP.NET geliştirme sunucusunu başlatır. Bu Kullanıcı daha sonra herhangi bir ek yapılandırma olmadan bu uygulamada hata ayıklayabilirler.
 
-## <a name="debug-is-false-by-default"></a>Hata ayıklama False olduğundan varsayılan olarak
+## <a name="debug-is-false-by-default"></a>Hata ayıklama varsayılan olarak false şeklindedir
 
-ASP.NET'te 1.x, *hata ayıklama* özniteliğini *derleme* web.config dosyasının sonuna öğe ayarlanmıştır *true* varsayılan olarak. Geliştiriciler bu öznitelik ayarlanmış olduğunu her zaman öneriliyordu *false* üretim, bir uygulamayı dağıtmadan önce ancak çoğu Geliştirici hata ayıklama özniteliği bırakarak sonuçlarını tam olarak anlamadığınız TRUE, bunlar yalnızca olarak sol-olduğu.
+ASP.NET 1. x içinde, Web. config dosyasının *derleme* öğesindeki *Debug* özniteliği varsayılan olarak *true* olarak ayarlanmıştır. Her zaman, geliştiricilerin bir uygulamayı üretime dağıtmadan önce bu özniteliği *false* olarak ayarlamış olması önerilir, ancak çoğu geliştirici hata ayıklama özniteliği true olarak ayarlanan sonuçları tam olarak anlamadığından, yalnızca olduğu gibi ayrılmaları gerekir.
 
-En önemli bir sorun hata ayıklama özniteliğine sahip ile true ASP.NETs Toplu derleme modeli devre dışı olarak ayarlanması. Bu nedenle, her sayfaya ayrı bir DLL içine derlenir. Anlamına gelir bir Web sayfaları (değil duyulmamış herhangi bir yolla olarak), binlerce uygulama oluşur, birkaç bin küçük DLL'leri o uygulama tarafından oluşturulur. Bu DLL'leri boyutunda küçük olsa da, bunlar herhangi belirli bir konuma bellekteki yüklü değildir. Bu nedenle, sistem belleğini parçalanmasına neden ve OutOfMemoryException oluşum katkıda bulunabilir.
+Hata ayıklama özniteliği true olarak ayarlanmış en ciddi sorun, ASP. netme Batch derleme modelini devre dışı bırakmasıdır. Bu nedenle, her sayfa ayrı bir DLL 'de derlenir. Bir Web uygulaması binlerce sayfadan oluşuyorsa (herhangi bir anlama göre değil), bu uygulama tarafından birkaç bin küçük dll oluşturulacak demektir. Bu dll 'Lerin boyutu küçük olsa da, bellekte belirli bir konuma yüklenmez. Bu nedenle, sistem belleğinde parçalanma oluşmasına neden olur ve OutOfMemoryException oluşumlarına katkıda bulunabilir.
 
-ASP.NET 2. 0'da, hata ayıklama öznitelik varsayılan olarak false olarak ayarlanır. Zaten, ne zaman bir geliştirici bir ASP.NET uygulamasını Visual Studio 2005 ' te hata ayıklamasına gördüğünüz gibi hata ayıklama etkin olan web.config dosyası eklemeniz istenir. Bunun yapılması, ASP.NET'te mevcut aynı dezavantajları doğurur 1.x, ama şimdi Geliştirici açıkça uyarılır uygulamayı üretim ortamına geçmeden önce özniteliği false değerine sıfırlanmalıdır.
+ASP.NET 2,0 ' de, hata ayıklama özniteliği varsayılan olarak false olarak ayarlanır. Zaten gördüğünüze göre, bir geliştirici Visual Studio 2005 ' de bir ASP.NET uygulamasını hata ayıkladığında, hata ayıklama etkinken bir Web. config dosyası eklemesi istenir. Bunun yapılması, ASP.NET 1. x içinde bulunan dezavantajları doğurur, ancak artık geliştirici, uygulamanın üretime taşınmadan önce özniteliğin yanlış olarak sıfırlanması gerektiğini açıkça unutmayın.
 
 ## <a name="remote-debugging-setup-and-configuration"></a>Uzaktan hata ayıklama kurulumu ve yapılandırması
 
-Visual Studio 2002/2003'te, uzaktan hata ayıklama için Makine Hata Ayıklama Yöneticisi (mdm.exe) ve vs7jit.exe işlem yararlandı. Nedeniyle, uzaktan hata ayıklama sorunlarını giderme genellikle olan müşteriler için bir siyah kutu ve PSS için çok daha iyi değildir.
+Visual Studio 2002/2003 ' de, uzaktan hata ayıklama makine hata ayıklama Yöneticisi 'ne (MDM. exe) ve Vs7jit. exe işlemine güvendi. Bu nedenle, uzaktan hata ayıklama sorunlarının giderilmesi genellikle müşteriler için siyah bir kutu olduğunu ve genellikle PSS için çok daha iyi bir seçenektir.
 
-Visual Studio 2005 mdm.exe ve vs7jit.exe işlemleri güvenme kaldırır. Bunun yerine, artık uzaktan hata ayıklama İzleyicisi (msvsmon.exe) hizmeti kullanır
+Visual Studio 2005, MDM. exe ve Vs7jit. exe işlemlerine güvenliğini ortadan kaldırır. Bunun yerine, artık uzaktan hata ayıklama Izleyicisi hizmetini (Msvsmon. exe) kullanır.
 
-Visual Studio 2005'te uzaktan hata ayıklama gereksinimi oldukça basittir. Hata ayıklama önce uzak sunucuda msvsmon.exe çalıştırmanız gerekir. Visual Studio CD'den uzaktan hata ayıklama İzleyicisi'ni yükleyebilirsiniz veya hiçbir şey hiç Web sunucusunda yüklemeden msvsmon.exe bir paylaşımdan yalnızca çalıştırabilirsiniz.
+Visual Studio 2005 ' de uzaktan hata ayıklama gereksinimi oldukça basittir. Hata ayıklamadan önce uzak sunucuda Msvsmon. exe ' yi çalıştırmanız gerekir. Uzaktan hata ayıklama Izleyicisi 'Ni Visual Studio CD 'sinden yükleyebilir veya yalnızca Web sunucusunda herhangi bir şey yüklemeden bir paylaşımdan Msvsmon. exe dosyasını çalıştırabilirsiniz.
 
-Msvsmon.exe çalıştırdığınızda, uzaktan hata ayıklama için engellenme bağlantı noktaları hakkında şikayet olasıdır. Neyse ki, kolayca bağlantı noktalarından sağ Uyarısı iletişim kutusu içinde aşağıda gösterildiği gibi engelini kaldırabilirsiniz.
+Msvsmon. exe dosyasını çalıştırdığınızda, uzaktan hata ayıklama için engellenmekte olan bağlantı noktaları hakkında şikayetde olabilir. Neyse ki, aşağıda gösterildiği gibi, uyarı iletişim kutusunda sağ taraftaki bağlantı noktalarını kolayca kaldırabilirsiniz.
 
-![Windows Güvenlik Duvarı uzaktan hata ayıklamayı engelleyen olduğunu söyleyen bir bildirim](improvements-in-visual-studio-2005/_static/image9.jpg)
+![Windows Güvenlik Duvarı 'nın uzaktan hata ayıklamayı engellediğini bildirme](improvements-in-visual-studio-2005/_static/image9.jpg)
 
-**Şekil 12**: Windows Güvenlik Duvarı uzaktan hata ayıklamayı engelleyen olduğunu söyleyen bir bildirim
+**Şekil 12**: Windows Güvenlik Duvarı 'Nın uzaktan hata ayıklamayı engellediğini bildirme
 
-Hata ayıklama için gerekli bağlantı noktalarını engeli kaldırılmış sonra aşağıda gösterildiği gibi uzaktan hata ayıklama İzleyicisi'ni göreceksiniz. Bu arabirimden bağlantıları izleyebilir ve izinler bir kolayca hata ayıklama değiştirin.
+Hata ayıklama için gereken bağlantı noktalarının engeli kaldırıldıktan sonra, aşağıda gösterildiği gibi Uzaktan Hata Ayıklama İzleyicisi görürsünüz. Bu arabirimden bağlantıları izleyebilir ve hata ayıklama izinlerini kolayca değiştirebilirsiniz.
 
-![Uzaktan hata ayıklama İzleyicisi](improvements-in-visual-studio-2005/_static/image10.jpg)
+![Uzaktan Hata Ayıklama İzleyicisi](improvements-in-visual-studio-2005/_static/image10.jpg)
 
-**Şekil 13**: Uzaktan hata ayıklama İzleyicisi
+**Şekil 13**: uzaktan hata ayıklama İzleyicisi
 
-FTP aracılığıyla açık bir Web uygulaması uzaktan hata ayıklamak mümkündür. Adımları bu daha önce ele aynıdır. Ancak, bu modülün daha önce belirtildiği gibi FTP projeye göz atmak için bir temel URL'si belirtmeniz gerekecektir.
+FTP aracılığıyla açılan bir Web uygulamasında uzaktan hata ayıklama de mümkündür. Adımlar, daha önce kapsanmış olanlarla aynıdır. Ancak, bu modülde daha önce özetlenen şekilde, FTP projesine göz atmak için bir temel URL belirtmeniz gerekir.
 
-## <a name="lab-2"></a>Lab 2
+## <a name="lab-2"></a>Laboratuvar 2
 
 ## <a name="remote-debugging-with-visual-studio-2005"></a>Visual Studio 2005 ile uzaktan hata ayıklama
 
-Bu Laboratuvar, Visual Studio 2005 ile uzaktan hata ayıklama aracılığıyla anlatılmaktadır.
+Bu laboratuvar, Visual Studio 2005 ile uzaktan hata ayıklama boyunca size yol gösterecektir.
 
-Bu laboratuvarı bir videosu için buraya tıklayın.
+Bu laboratuvarın video kılavuzu için buraya tıklayın.
 
 ![](improvements-in-visual-studio-2005/_static/image5.png)
 
-[Açık tam ekran görüntü](improvements-in-visual-studio-2005/_static/remdebug1.wmv)
+[Tam ekran videosunu açın](improvements-in-visual-studio-2005/_static/remdebug1.wmv)
 
-Bu Laboratuvar çalışan Visual Studio 2005 ve diğer çalışan IIS 5 veya daha büyük olmak üzere iki makine olması gerekir.
+Bu laboratuvar, biri Visual Studio 2005 çalıştıran ve IIS 5 ya da üstünü çalıştıran iki makineniz olmasını gerektirir.
 
-1. Visual Studio 2005'i açın ve uzak sunucuda yeni bir Web sitesi oluşturun.
+1. Visual Studio 2005 ' i açın ve uzak sunucuda yeni bir Web sitesi oluşturun.
 
 > [!NOTE]
-> Uzak bir IIS örneği veya FTP üzerinden Web sitesi oluşturabilirsiniz.
+> Web sitesini uzak bir IIS örneğinde veya FTP aracılığıyla oluşturabilirsiniz.
 
-1. Uzak Web sunucusundan bir UNC yolu kullanarak geliştirme makinede msvsmon.exe bulun ve yürütün.  
- //Server/c$/Program dosyaları/Microsoft Visual Studio 8/Common7/IDE/uzaktan hata ayıklayıcı/x86 msvsmon.exe için varsayılan konumdur.
-2. Uzaktan hata ayıklama için bağlantı noktalarını engellemesini kaldırmak isteyip istemediğiniz sorulduğunda bunu yapın.
-3. Geliştirme makinesinden Default.aspx için gerideki açın ve sayfa/_yük yöntemde bir kesme noktası ayarlayın.
-4. Geliştirme makinesinden hatalarını ayıklamaya başlayın.
+1. Uzak Web sunucusundan, bir UNC yolu kullanarak geliştirme makinesindeki Msvsmon. exe ' yi bulun ve yürütün.  
+ Msvsmon. exe için varsayılan konum/sunucu \ sunucu/c $/Program Files/Microsoft Visual Studio 8/Common7/IDE/Remote Debugger/x86.
+2. Uzaktan hata ayıklama için bağlantı noktalarının engellemesini kaldırmanız istenirse, bunu yapın.
+3. Geliştirme makinesinden, default. aspx için arka plan kodunu açın ve sayfa/_Load yönteminde bir kesme noktası ayarlayın.
+4. Geliştirme makinesinden hata ayıklamayı başlatın.
 
-Beklenen şekilde kesme noktasına isabet.
+Kesme noktasına beklenen şekilde vurmalısınız.
 
 ## <a name="aspnet-development-server"></a>ASP.NET Geliştirme Sunucusu
 
-Biz tartışmış, Visual Studio 2005 ASP.NET geliştirme sunucusu olarak adlandırılan bir Web sunucusu ile birlikte gelir. (ASP.NET Geliştirme Sunucusu bazen Cassini adlandırılır.) Bu Web sunucusu, göz atmak ve dosya sistemi üzerinde çalışan Web uygulamalarında hata ayıklama için kullanışlı bir yoludur.
+Zaten tartışıyoruz. Visual Studio 2005, ASP.NET Development Server adlı bir Web sunucusuyla birlikte gelir. (ASP.NET geliştirme sunucusu bazen Cassini olarak adlandırılır.) Bu Web sunucusu, dosya sisteminde çalışan Web uygulamalarına gözatacağınız ve hata ayıklamanın uygun bir yoludur.
 
-ASP.NET Geliştirme Sunucusu kısıtlı bir Web sunucusudur. Uzak bağlantılara izin vermediğinden, uygulamanın tüm istekleri Web sunucusu başlatan kullanıcının dışındaki herhangi bir kullanıcının izin verilmez. ASP sayfalarını sunmadan yeteneği de yok. Yalnızca ASP.NET ve HTML kaynaklarının (görüntüler, CSS dosyaları, vb. dahil) sunulur.
+ASP.NET Development Server, kısıtlı bir Web sunucusudur. Uzak bağlantılara izin vermez, Web sunucusunu başlatan kullanıcı dışında herhangi bir kullanıcıdan gelen isteklere izin vermez. Ayrıca, ASP sayfaları sunma özelliğine sahip değildir. Yalnızca ASP.NET kaynakları ve HTML kaynakları (görüntüler, CSS dosyaları vb. dahil) sunulur.
 
-ASP.NET Geliştirme Sunucusu c:/Windows/Microsoft.NET/Framework/v2.0./ bulunan WebDev.WebServer.exe dosyasını çalıştırarak komut satırı üzerinden başlatılabilir */* /  */* /*. Kullanılabilir parametreler aşağıdaki iletişim kutusunu görüntüler.
+ASP.NET geliştirme sunucusu, c:/Windows/Microsoft. NET/Framework/v 2.0./ */* / */* /* konumunda bulunan webdev. webserver. exe dosyası çalıştırılarak komut satırı aracılığıyla başlatılabilir. Aşağıdaki iletişim kutusu kullanılabilir parametreleri görüntüler.
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)
 
 **Şekil 14**
 
 > [!NOTE]
-> ASP.NET Geliştirme Sunucusu açıkça komut satırı üzerinden başlatıldığında desteklenmiyor.
+> ASP.NET geliştirme sunucusu, komut satırı aracılığıyla açıkça başlatıldığında desteklenmez.

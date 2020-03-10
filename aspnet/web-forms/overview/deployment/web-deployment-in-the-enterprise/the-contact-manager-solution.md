@@ -1,66 +1,66 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: Kişi Yöneticisi çözümü | Microsoft Docs
+title: Contact Manager çözümü | Microsoft Docs
 author: jrjlee
-description: Bu öğretici serisinde, kullanan örnek bir çözüm&#x2014;Kişi Yöneticisi çözümünü&#x2014;kurumsal ölçekli uygulamayla gerçekçi leve temsil etmek için...
+description: Bu öğreticide, gerçekçi bir uygulama olan&#x2014;kurumsal ölçekte bir uygulamayı&#x2014;temsil etmek üzere Contact Manager çözümü örnek bir çözümü kullanılmaktadır...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 4d8c8d19-055b-4b70-9ee1-f748f0db3a01
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
 ms.openlocfilehash: 12ed7827f7392e559e04121386f7cd045de8462b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65130927"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586270"
 ---
 # <a name="the-contact-manager-solution"></a>Kişi Yöneticisi Çözümü
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu [öğretici serisinde,](web-deployment-in-the-enterprise.md) kullanan örnek bir çözüm&#x2014;Kişi Yöneticisi çözümünü&#x2014;kurumsal ölçekli uygulamayla gerçekçi bir karmaşıklık düzeyi temsil etmek için. Bu konu, kişi yöneticisi çözümünü sunar, çözüm'in temel bileşenlerinden açıklar ve bu tür bir kuruluş ortamında çeşitli Hedef platformlar için uygulama dağıtma karşılaşılan tanımlar.
+> Bu [öğretici serisi](web-deployment-in-the-enterprise.md) , gerçek bir karmaşıklık düzeyi&#x2014;olan kurumsal ölçekte bir&#x2014;uygulamayı temsil etmek üzere ilgili kişi Yöneticisi çözümünü örnek bir çözüm kullanır. Bu konuda, Contact Manager çözümü tanıtılmakta, çözümün temel bileşenleri açıklanmakta ve bu tür bir uygulamayı bir kurumsal ortamdaki çeşitli hedef platformlara dağıtmanın güçlükleri tanımlanmaktadır.
 > 
-> Aşağıdaki öğreticilerde konu başlıklarını çalışırken, kurumsal dağıtım senaryolarında özgü zorlukları nasıl karşıladığını gösteren bir başvuru uygulaması olarak kişi yöneticisi çözümünü kullanabilirsiniz. Bir sonraki konu [ayarı oluşturan kişi yöneticisi çözümü](setting-up-the-contact-manager-solution.md), indirmek ve çözümü Geliştirici iş istasyonunuzda çalıştırmak açıklar.
+> Bu öğreticilerdeki konularda çalışırken, kurumsal dağıtım senaryolarında belirli zorlukları nasıl karşılabileceğinizi gösteren bir başvuru uygulama olarak Contact Manager çözümünü kullanabilirsiniz. Bir sonraki konu, [Contact Manager çözümünü ayarlama](setting-up-the-contact-manager-solution.md), çözümün geliştirici iş istasyonunda nasıl indirileceği ve çalıştırılacağı açıklanmaktadır.
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
 
-Kişi Yöneticisi çözümünü dört ayrı ayrı projelerin oluşur:
+Ilgili kişi Yöneticisi çözümü, dört ayrı projeden oluşur:
 
 ![](the-contact-manager-solution/_static/image1.png)
 
-- **ContactManager.Mvc**. Çözüm için giriş noktasını temsil eden bir ASP.NET MVC 3 web uygulaması projesi budur. Kullanıcıları oluşturma ve kişi ayrıntılarını görüntüleme olanağı sağlama gibi bazı temel web uygulaması işlevselliği sunar. Uygulamanın, kişiler ve kimlik doğrulama ve yetkilendirme yönetmek için bir ASP.NET uygulama hizmetleri veritabanına yönetmek için bir Windows Communication Foundation (WCF) hizmeti kullanır.
-- **ContactManager.Database**. Visual Studio veritabanı projesi budur. Proje depoları ayrıntıları başvurun bir veritabanı için şema tanımlar.
-- **ContactManager.Service**. Bir WCF web hizmeti projesi budur. Alma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştirin izin veren bir uç nokta oluşturma, WCF Hizmeti kullanıma sunan **ContactManager** veritabanı. Hizmet **ContactManager** veritabanı ve **ContactManager.Common.dll** derleme.
-- **ContactManager.Common**. Bir sınıf kitaplığı projesi budur. Bu derlemede tanımlanan türlerin WCF Hizmeti kullanır.
+- **ContactManager. Mvc**. Bu, çözüm için giriş noktasını temsil eden bir ASP.NET MVC 3 Web uygulaması projem. Kullanıcılara kişi ayrıntıları oluşturma ve görüntüleme yeteneği sağlama gibi bazı temel Web uygulaması işlevleri sunar. Uygulama, kimlik doğrulama ve yetkilendirmeyi yönetmek üzere kişileri ve ASP.NET uygulama Hizmetleri veritabanını yönetmek için bir Windows Communication Foundation (WCF) hizmetini kullanır.
+- **ContactManager. Database**. Bu bir Visual Studio veritabanı projem. Proje, iletişim ayrıntılarını depolayan bir veritabanının şemasını tanımlar.
+- **ContactManager. Service**. Bu bir WCF Web hizmeti projem. WCF hizmeti, çağıranların **ContactManager** veritabanında oluşturma, alma, güncelleştirme ve SILME (CRUD) işlemlerini gerçekleştirmesine olanak tanıyan bir uç nokta sunar. Hizmet, **ContactManager** veritabanını ve **ContactManager. Common. dll** derlemesini kullanır.
+- **ContactManager. Common**. Bu bir sınıf kitaplığı projem. WCF hizmeti bu derlemede tanımlanan türleri kullanır.
 
-Çözüm ayrıca Yayımla adlı bir çözüm klasörü içerir. Bu, çeşitli özel proje dosyalarını ve nasıl kontrol edebilir ve düzenleme derleme ve dağıtım sürecini gösteren komut dosyalarını içerir. Bunlar, bu öğreticinin ilerleyen bölümlerinde daha ayrıntılı olarak ele alınmaktadır.
+Çözüm, Yayımla adlı bir çözüm klasörünü de içerir. Bu, derleme ve dağıtım sürecini nasıl denetleyebileceğinizi ve işleyebileceğinizi gösteren çeşitli özel proje dosyalarını ve komut dosyalarını içerir. Bunlar, Bu öğreticinin ilerleyen kısımlarında daha ayrıntılı bir şekilde ele alınmıştır.
 
-Çözüm bileşenleri, kavramsal bir düzeyde şöyle araya getireceğinizi:
+Kavramsal düzeyde, çözümün bileşenleri şu şekilde bir araya sığacak:
 
 ![](the-contact-manager-solution/_static/image2.png)
 
 > [!NOTE]
-> Web uygulaması kapsamındaki tüm sayfaları, ASP.NET MVC 3 web uygulamasına ASP.NET üyelik sağlayıcısını kullanırken, anonim erişime izin. Bu açıkça gerçekçi bir yapılandırma değildir. Ancak, çözümü dağıtın ve kullanıcı hesapları ve rollerini yapılandırmadan çözümü test kolaylaştırmak için bu şekilde ayarlanır.
+> ASP.NET MVC 3 Web uygulaması ASP.NET üyelik sağlayıcısını kullandığında, Web uygulaması içindeki tüm sayfalar anonim erişime izin verir. Bu, gerçekçi bir yapılandırma değildir. Ancak çözüm, Kullanıcı hesaplarını ve rolleri yapılandırmadan çözümü dağıtmanızı ve test etmeniz için bu şekilde ayarlanır.
 
 ## <a name="deployment-challenges"></a>Dağıtım zorlukları
 
-Kişi Yöneticisi çözümü, kurumsal dağıtım senaryolarında çok sayıda için ortak olan birkaç dağıtım zorlukları gösterilmektedir:
+Ilgili kişi Yöneticisi çözümü, birçok kurumsal dağıtım senaryosunda ortak olan çeşitli dağıtım güçlükleri gösterir:
 
-- Çözüm, birden çok bağımlı projeler oluşur. Bu projeler eş zamanlı olarak dağıtılması gerekir.
-- Bağlantı dizelerini ve hizmet uç noktaları her ortam için güncelleştirilmesi gereken ve çok durumlarda bu bilgiler geliştiriciler için kullanılabilir olmayacak.
-- Dağıtırken **ContactManager** veritabanı sonraki dağıtımlarda mevcut verilerinizi korumak gereken hazırlık ve üretim ortamları için.
-- ASP.NET uygulama hizmetleri veritabanına dağıttığınızda, bazı yapılandırma verilerini dağıtmak, ancak herhangi bir kullanıcı hesabı veri atlarsanız gerekir.
-- Bazı dosya ve klasörlerin değil dağıtılmalıdır projeleri içerir. Bu dosya ve klasörler, dağıtım işleminin dışında tutmanız gerekir.
-- Team Foundation Server (TFS) yapı sunucusu otomatik dağıtımı desteklemek çözüm gerekir.
+- Çözüm birden çok bağımlı projeden oluşur. Bu projeleri eşzamanlı olarak dağıtmanız gerekir.
+- Bağlantı dizeleri ve hizmet uç noktalarının her ortam için güncelleştirilmeleri gerekir ve çok sayıda durumda bu bilgiler geliştirici tarafından kullanılamaz.
+- **ContactManager** veritabanını hazırlama ve üretim ortamlarına dağıtırken, sonraki dağıtımlarda mevcut verileri korumanız gerekir.
+- ASP.NET uygulama Hizmetleri veritabanını dağıttığınızda, bazı yapılandırma verilerini dağıtmanız gerekir, ancak herhangi bir kullanıcı hesabı verisini atlayabilirsiniz.
+- Projeler, dağıtılmayacak bazı dosya ve klasörleri içerir. Dağıtım işleminden bu dosya ve klasörleri hariç bırakmanız gerekir.
+- Çözümün, bir Team Foundation Server (TFS) yapı sunucusundan otomatik dağıtımı desteklemesi gerekir.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda sağlanan Kişi Yöneticisi çözümünü üst düzey bir genel bakış ve birçok kurumsal dağıtım senaryoları için ortak olan doğal dağıtım zorlukları bazılarını belirledik. Bu öğreticide kalan konularda bu zorluklar karşılamak için kullanabileceğiniz yöntemlerden bazıları açıklanmaktadır.
+Bu konu, Contact Manager çözümüne üst düzey bir genel bakış sağladı ve birçok kurumsal dağıtım senaryosunda yaygın olarak karşılaşılan bazı dağıtım güçlüklerinden bazılarını tanımladı. Bu öğreticideki geri kalan konularda, bu zorlukları karşılamak için kullanabileceğiniz tekniklerin bazıları açıklanır.
 
-Bir sonraki konu [ayarı oluşturan kişi yöneticisi çözümü](setting-up-the-contact-manager-solution.md), indirmek ve çözümü Geliştirici iş istasyonunuzda çalıştırmak açıklar.
+Bir sonraki konu, [Contact Manager çözümünü ayarlama](setting-up-the-contact-manager-solution.md), çözümün geliştirici iş istasyonunda nasıl indirileceği ve çalıştırılacağı açıklanmaktadır.
 
 > [!div class="step-by-step"]
 > [Önceki](web-deployment-in-the-enterprise.md)

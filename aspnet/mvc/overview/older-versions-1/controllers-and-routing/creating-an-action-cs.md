@@ -1,63 +1,63 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
-title: Eylem (C#) oluşturma | Microsoft Docs
+title: Eylem oluşturma (C#) | Microsoft Docs
 author: microsoft
-description: ASP.NET MVC denetleyicisi için yeni bir eylem eklemeyi öğrenin. Bir eylem için bir yöntem gereksinimleri hakkında bilgi edinin.
+description: Bir ASP.NET MVC denetleyicisine yeni bir eylem eklemeyi öğrenin. Bir yöntemin eylem olması için gereksinimler hakkında bilgi edinin.
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: cb33b28c-3025-4bd1-a1fa-eaa3af7bb56f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-cs
 msc.type: authoredcontent
 ms.openlocfilehash: ebba935383819935ad85c95245666f4eaf6a0dca
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123461"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78582056"
 ---
 # <a name="creating-an-action-c"></a>Eylem Oluşturma (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> ASP.NET MVC denetleyicisi için yeni bir eylem eklemeyi öğrenin. Bir eylem için bir yöntem gereksinimleri hakkında bilgi edinin.
+> Bir ASP.NET MVC denetleyicisine yeni bir eylem eklemeyi öğrenin. Bir yöntemin eylem olması için gereksinimler hakkında bilgi edinin.
 
-Bu öğreticinin amacı, yeni bir denetleyici eylemi nasıl oluşturacağınızı açıklar sağlamaktır. Bir eylem yönteminin gereksinimleri hakkında bilgi edinin. Ayrıca bir yöntem bir eylem olarak açıklanmasını önlemenize öğrenin.
+Bu öğreticinin amacı, yeni bir denetleyici eylemi oluşturmayı açıklamaktır. Bir eylem yönteminin gereksinimleri hakkında bilgi edinirsiniz. Ayrıca bir yöntemin eylem olarak gösterilmesini nasıl önleyeceğinizi öğreneceksiniz.
 
-## <a name="adding-an-action-to-a-controller"></a>Denetleyici için eylem ekleme
+## <a name="adding-an-action-to-a-controller"></a>Denetleyiciye eylem ekleme
 
-Bir denetleyici için yeni bir yöntem denetleyiciye ekleyerek yeni bir eylem ekleyin. Örneğin, denetleyici 1 listeleme İNDİS() adlı bir eylem ve SayHello() adlı bir eylem içerir. Her iki yöntem de eylem olarak kullanıma sunulur.
+Denetleyiciye yeni bir yöntem ekleyerek denetleyiciye yeni bir eylem eklersiniz. Örneğin, liste 1 ' deki denetleyici dizin () adlı bir eylem ve SayHello () adlı bir eylem içerir. Her iki yöntem de eylem olarak sunulur.
 
-**1 - Controllers\HomeController.cs listeleme**
+**Listeleme 1-Controllers\HomeController.cs**
 
 [!code-csharp[Main](creating-an-action-cs/samples/sample1.cs)]
 
-Bir eylem olarak evreni maruz kalabilir için bir yöntem belirli gereksinimleri karşılamalıdır:
+Bir eylem olarak Universe sunulmak için bir yöntemin belirli gereksinimleri karşılaması gerekir:
 
-- Yöntemi, ortak olmalıdır.
-- Yöntem statik bir yöntemi olamaz.
-- Yöntemin bir genişletme yöntemi olamaz.
-- Bir oluşturucu, alıcı veya ayarlayıcı yöntemi olamaz.
-- Yöntemi, açık genel türler sahip olamaz.
-- Yöntemi denetleyici temel sınıfın bir yöntem değil.
-- Bir yöntemi içeremez **ref** veya **kullanıma** parametreleri.
+- Yöntemin ortak olması gerekir.
+- Metot statik bir yöntem olamaz.
+- Yöntem bir genişletme yöntemi olamaz.
+- Yöntem bir Oluşturucu, alıcı veya ayarlayıcı olamaz.
+- Metodun açık genel türleri olamaz.
+- Yöntemi, denetleyici temel sınıfının bir yöntemi değildir.
+- Yöntem **ref** veya **Out** parametreleri içeremez.
 
-Bir denetleyici eylemi dönüş türüne hiçbir kısıtlama olduğuna dikkat edin. Bir denetleyici eylemi bir dize bir DateTime Random sınıfını veya void örneği döndürebilir. ASP.NET MVC çerçevesi bir eylem sonucu bir dizeye değil herhangi bir dönüş türü dönüştürmek ve tarayıcıya dize işleme.
+Bir denetleyici eyleminin dönüş türü üzerinde hiçbir kısıtlama olmadığına dikkat edin. Bir denetleyici eylemi, bir dize, bir tarih saat, rastgele sınıfın bir örneği veya void döndürebilir. ASP.NET MVC Framework, bir eylem sonucu olmayan herhangi bir dönüş türünü bir dizeye dönüştürür ve dizeyi tarayıcıya işler.
 
-Bu gereksinimleri denetleyicisi ihlal etmemesini herhangi bir yöntemi eklediğinizde, yöntem bir denetleyici eylemi kullanıma sunulur. Burada dikkatli olun. Bir denetleyici eylemi, Internet'e bağlı herhangi bir kişi tarafından çağrılabilir. Örneğin, bir DeleteMyWebsite() denetleyici eylemi oluşturmayın.
+Bu gereksinimleri ihlal etmediği herhangi bir yöntemi bir denetleyiciye eklediğinizde, yöntem bir denetleyici eylemi olarak sunulur. Burada dikkatli olun. Bir denetleyici eylemi, Internet 'e bağlı olan herkes tarafından çağrılabilir. Örneğin, bir Deletemde Web sitesi () denetleyici eylemi oluşturun.
 
-## <a name="preventing-a-public-method-from-being-invoked"></a>Genel bir yöntem çağrılmakta olan önleme
+## <a name="preventing-a-public-method-from-being-invoked"></a>Ortak yöntemin çağrılmasını önlemek
 
-Ardından bir controller sınıfında genel bir yöntem oluşturmanız gerekir ve yöntemi bir denetleyici eylemi olarak kullanıma sunmak istemiyorsanız, yöntemi [NonAction] özniteliğini kullanarak çağrılmasını engelleyebilir. Örneğin, denetleyici listeleme 2'deki [NonAction] özniteliği ile donatılmış CompanySecrets() adlı bir genel yöntem içerir.
+Denetleyici sınıfında ortak bir yöntem oluşturmanız gerekiyorsa ve yöntemi bir denetleyici eylemi olarak göstermek istemiyorsanız, yöntemin [Nonactıon] özniteliği kullanılarak çağrılmasını engelleyebilirsiniz. Örneğin, liste 2 ' deki denetleyici, [Nonactıon] özniteliğiyle donatılmış Companygizlilikler () adlı bir genel yöntem içerir.
 
-**2 - Controllers\WorkController.cs listeleme**
+**Listeleme 2-Controllers\WorkController.cs**
 
 [!code-csharp[Main](creating-an-action-cs/samples/sample2.cs)]
 
-Tarayıcınızın adres çubuğuna /Work/CompanySecrets yazarak CompanySecrets() denetleyici eylemini çağırma denerseniz, Şekil 1'de hata iletisi alırsınız.
+Tarayıcınızın adres çubuğuna/Work/companygizlilikler yazarak Companygizlilikler () denetleyici eylemini çağırmaya çalışırsanız Şekil 1 ' de hata iletisini alırsınız.
 
-[![NonAction yöntemi çağırma](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
+[Eylem olmayan bir yöntemi çağırmak ![](creating-an-action-cs/_static/image1.jpg)](creating-an-action-cs/_static/image1.png)
 
-**Şekil 01**: NonAction yöntemi çağırma ([tam boyutlu görüntüyü görmek için tıklatın](creating-an-action-cs/_static/image2.png))
+**Şekil 01**: eylem olmayan bir yöntem çağırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](creating-an-action-cs/_static/image2.png))
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-controller-cs.md)

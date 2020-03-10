@@ -9,11 +9,11 @@ ms.assetid: f904cd2c-a408-4484-9324-8b8d7fe33893
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 78051696bd75e1d574f55b1c5d5891fe67c3030d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74630450"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78595370"
 ---
 # <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Özel Bir Veritabanı Odaklı Site Haritası Sağlayıcısı Oluşturma (VB)
 
@@ -206,7 +206,7 @@ Site Haritası oluşturma işlemi, kök düğümü oluşturup `root`atamaya baş
 - `SiteMapNode` s `Url`. `Url` isteğe bağlıdır, ancak sağlanmışsa, her `SiteMapNode` s `Url` değeri benzersiz olmalıdır.
 - Gerekli olan `SiteMapNode` s `Title`.
 
-`AddNode(root)` yöntemi çağrısı, `SiteMapNode` `root` site eşlemesine kök olarak ekler. Sonra, `ProductsDataTable` her `ProductRow` numaralandırılır. Geçerli ürün kategorisi için zaten bir `SiteMapNode` varsa, buna başvurulur. Aksi takdirde, kategori için yeni bir `SiteMapNode` oluşturulur ve `AddNode(categoryNode, root)` yöntem çağrısıyla `SiteMapNode``root` alt öğesi olarak eklenir. Uygun kategori `SiteMapNode` düğüm bulduktan veya oluşturulduktan sonra, geçerli ürün için bir `SiteMapNode` oluşturulur ve `AddNode(productNode, categoryNode)`aracılığıyla kategori `SiteMapNode` alt öğesi olarak eklenir. `SiteMapNode` s `Url` Özellik değeri, ürün `SiteMapNode` s `Url` özelliği atandığında `~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID` olduğunu unutmayın.
+`AddNode(root)` yöntemi çağrısı, `SiteMapNode` `root` site eşlemesine kök olarak ekler. Sonra, `ProductsDataTable` her `ProductRow` numaralandırılır. Geçerli ürün kategorisi için zaten bir `SiteMapNode` varsa, buna başvurulur. Aksi takdirde, kategori için yeni bir `SiteMapNode` oluşturulur ve `AddNode(categoryNode, root)` yöntem çağrısıyla `SiteMapNode``root` alt öğesi olarak eklenir. Uygun kategori `SiteMapNode` düğüm bulduktan veya oluşturulduktan sonra, geçerli ürün için bir `SiteMapNode` oluşturulur ve `AddNode(productNode, categoryNode)`aracılığıyla kategori `SiteMapNode` alt öğesi olarak eklenir. `SiteMapNode` s `Url` Özellik değeri, ürün `SiteMapNode` s `Url` özelliği atandığında `~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID` olduğunu unutmayın.`~/SiteMapNode/ProductDetails.aspx?ProductID=productID`
 
 > [!NOTE]
 > `CategoryID` için bir veritabanı `NULL` değeri olan ürünler, `Title` özelliği None olarak ayarlanmış ve `Url` özelliği boş bir dizeye ayarlanmış olan bir kategori `SiteMapNode` altında gruplandırılır. `ProductBLL` sınıf s `GetProductsByCategory(categoryID)` yöntemi şu anda yalnızca bir `NULL` `CategoryID` değeri olan ürünleri döndürme özelliği olmadığından, `Url` boş bir dizeye ayarlamaya karar verdim. Ayrıca, gezinti denetimlerinin, `Url` özelliği için bir değer olmayan bir `SiteMapNode` nasıl işlemesini göstermek istiyordum. Bu öğreticiyi genişletmenize, None `SiteMapNode` s `Url` özelliğinin `ProductsByCategory.aspx`işaret edebilmesi için, ancak yalnızca `NULL` `CategoryID` değerleri olan ürünleri görüntülerimize teşvik ediyorum.
