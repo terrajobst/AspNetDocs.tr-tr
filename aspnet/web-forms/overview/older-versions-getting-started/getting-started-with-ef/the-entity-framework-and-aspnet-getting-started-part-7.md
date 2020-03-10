@@ -1,139 +1,139 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
-title: ASP.NET 4 Entity Framework 4.0 Database First çalışmaya başlama ve Web Forms - 7. Bölüm | Microsoft Docs
+title: Entity Framework 4,0 Database First ve ASP.NET 4 Web Forms-Bölüm 7 ' yi kullanmaya başlama | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması, Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamayı ediyor...
+description: Contoso Üniversitesi örnek Web uygulaması, Entity Framework kullanarak nasıl ASP.NET Web Forms uygulamalar oluşturacağınızı gösterir. Örnek uygulama...
 ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: f8afb245-b705-419c-8790-0b295e90d5e2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
 ms.openlocfilehash: 18d4b44c5e23fd6942c3adf48a33a5602e6df6d0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133098"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78603434"
 ---
-# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 7. Bölüm
+# <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4,0 Database First ve ASP.NET 4 Web Forms-Bölüm 7 ' yi kullanmaya başlama
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso Üniversitesi örnek Web uygulaması, 4,0 ve Visual Studio 2010 Entity Framework kullanarak nasıl ASP.NET Web Forms uygulamalar oluşturacağınızı gösterir. Öğretici serisi hakkında daha fazla bilgi için, [serideki ilk öğreticiye](the-entity-framework-and-aspnet-getting-started-part-1.md) bakın
 
 ## <a name="using-stored-procedures"></a>Saklı Yordamları Kullanma
 
-Önceki öğreticide tablo başına hiyerarşi devralma deseni uygulanır. Bu öğreticide, veritabanı erişimi üzerinde daha fazla denetim kazanmak için saklı yordamlar kullanma gösterilmektedir.
+Önceki öğreticide, bir hiyerarşi başına devralma düzeni uygulamış olursunuz. Bu öğreticide, veritabanı erişimi üzerinde daha fazla denetim kazanmak için saklı yordamların nasıl kullanılacağı gösterilir.
 
-Entity Framework, saklı yordamlar için veritabanı erişimi kullanması gerektiğini belirtmenize olanak sağlar. Herhangi bir varlık türü için bir saklı yordam oluşturma, güncelleştirme veya silme varlık türü için kullanılacak belirtebilirsiniz. Daha sonra veri modeli varlık kümeleri alma gibi görevleri gerçekleştirmek için kullanabileceğiniz saklı yordamlarına yönelik başvuruları ekleyebilirsiniz.
+Entity Framework, veritabanı erişimi için saklı yordamları kullanması gerektiğini belirtmenize olanak tanır. Herhangi bir varlık türü için, bu türdeki varlıkları oluşturmak, güncelleştirmek veya silmek için kullanmak üzere bir saklı yordam belirtebilirsiniz. Ardından, veri modelinde varlık kümelerini alma gibi görevleri gerçekleştirmek için kullanabileceğiniz saklı yordamlara başvurular ekleyebilirsiniz.
 
-Saklı yordamları kullanarak, veritabanı erişimi için ortak bir gereksinimdir. Bazı durumlarda, bir veritabanı yöneticisi, tüm veritabanı erişimi, güvenlik nedenleriyle depolanmış yordamlar yoluyla Git gerektirebilir. Diğer durumlarda veritabanı güncelleştirdiğinde, Entity Framework kullanan işlemlerin bazıları iş mantığı oluşturmak isteyebilirsiniz. Örneğin, bir varlık silindiğinde bir arşiv veritabanına kopyalamak isteyebilirsiniz. Veya bir satır güncelleştirildiğinde, değişikliği yapan kayıt günlüğü tabloya bir satır yazmak isteyebilirsiniz. Entity Framework bir varlığı silen veya bir varlığı güncelleştiren çağrılan saklı yordam, bu tür görevleri gerçekleştirebilirsiniz.
+Saklı yordamları kullanmak, veritabanı erişimi için yaygın bir gereksinimdir. Bazı durumlarda, bir veritabanı yöneticisi tüm veritabanı erişiminin güvenlik nedenleriyle saklı yordamlar üzerinden gitmesini gerektirebilir. Diğer durumlarda, veritabanını güncelleştirdiğinde Entity Framework kullandığı işlemlerden bazılarına iş mantığı oluşturmak isteyebilirsiniz. Örneğin, bir varlık silindiğinde bir arşiv veritabanına kopyalamak isteyebilirsiniz. Ya da bir satır güncelleştirildiğinde değişikliği yapan bir günlüğe kaydetme tablosuna bir satır yazmak isteyebilirsiniz. Bu tür görevleri, Entity Framework bir varlığı sildiği veya bir varlığı güncelleştiren her seferinde çağrılan bir saklı yordamda gerçekleştirebilirsiniz.
 
-Önceki öğreticide olduğu gibi yeni sayfalar oluşturursunuz değil. Bunun yerine, veritabanı, zaten oluşturduğunuz sayfalardan bazıları için Entity Framework erişen şekilde değiştireceksiniz.
+Önceki öğreticide olduğu gibi, yeni sayfa oluşturabileceksiniz. Bunun yerine, Entity Framework zaten oluşturduğunuz bazı sayfalardan veritabanına erişim şeklini değiştirirsiniz.
 
-Bu öğreticide, saklı yordamlar eklemek için veritabanında oluşturursunuz `Student` ve `Instructor` varlıklar. Veri modeline ekleyeceksiniz ve Entity Framework bunları eklemek için kullanması gerektiğini belirtirsiniz `Student` ve `Instructor` veritabanına varlıklar. Ayrıca almak için kullanabileceğiniz bir saklı yordam oluşturacaksınız `Course` varlıklar.
+Bu öğreticide, `Student` ve `Instructor` varlıkları eklemek için veritabanında saklı yordamlar oluşturacaksınız. Bunları veri modeline ekleyeceksiniz ve Entity Framework veritabanına `Student` ve `Instructor` varlıkları eklemek için onları kullanması gerektiğini belirtirsiniz. Ayrıca, `Course` varlıkları almak için kullanabileceğiniz bir saklı yordam oluşturacaksınız.
 
 ## <a name="creating-stored-procedures-in-the-database"></a>Veritabanında saklı yordamlar oluşturma
 
-(Kullanıyorsanız *School.mdf* dosyayı projeden Bu öğretici ile indirilebilir, saklı yordamları zaten mevcut olduğundan bu bölümü atlayabilirsiniz.)
+(Bu öğreticide, projedeki *okul. mdf* dosyasını kullanıyorsanız, saklı yordamlar zaten mevcut olduğundan bu bölümü atlayabilirsiniz.)
 
-İçinde **Sunucu Gezgini**, genişletme *School.mdf*, sağ **saklı yordamlar**seçip **yeni saklı yordam Ekle**.
+**Sunucu Gezgini**, *okul. mdf*' yi genişletin, **saklı yordamlar**' a sağ tıklayın ve **Yeni saklı yordam Ekle**' yi seçin.
 
 [![image15](the-entity-framework-and-aspnet-getting-started-part-7/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image1.png)
 
-Aşağıdaki SQL deyimlerini kopyalayın ve iskelet saklı yordamı değiştirerek saklı yordam penceresine yapıştırın.
+Aşağıdaki SQL deyimlerini kopyalayıp, çatı saklı yordamını değiştirerek saklı yordam penceresine yapıştırın.
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample1.sql)]
 
 [![image14](the-entity-framework-and-aspnet-getting-started-part-7/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image3.png)
 
-`Student` varlıkları dört özellikleri vardır: `PersonID`, `LastName`, `FirstName`, ve `EnrollmentDate`. Veritabanı kimliği değeri otomatik olarak oluşturur ve saklı yordam için diğer üç parametre kabul eder. Entity Framework, bellekte tutar varlık sürümünde izlemek için saklı yordam yeni sıranın kayıt anahtarının değerini döndürür.
+`Student` varlıkların dört özelliği vardır: `PersonID`, `LastName`, `FirstName`ve `EnrollmentDate`. Veritabanı KIMLIK değerini otomatik olarak oluşturur ve saklı yordam diğer üç için parametreleri kabul eder. Saklı yordam, Entity Framework, yeni satırın kayıt anahtarı değerini döndürür, böylece, bellekte devam eden varlığın sürümünde bunu takip edebilir.
 
-Kaydet ve saklı yordam penceresini kapatın.
+Saklı yordam penceresini kaydedin ve kapatın.
 
-Oluşturma bir `InsertInstructor` aşağıdaki SQL deyimlerini kullanarak aynı şekilde, saklı yordam:
+Aşağıdaki SQL deyimlerini kullanarak `InsertInstructor` saklı yordamı aynı şekilde oluşturun:
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample2.sql)]
 
-Oluşturma `Update` saklı yordamlar için `Student` ve `Instructor` varlıklar da. (Veritabanı zaten bir `DeletePerson` saklı yordamı için hem de çalışan `Instructor` ve `Student` varlıkları.)
+`Student` ve `Instructor` varlıkları için de `Update` saklı yordamlar oluşturun. (Veritabanı zaten `Instructor` ve `Student` varlıkları için çalışacak `DeletePerson` saklı bir yordama sahiptir.)
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample3.sql)]
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample4.sql)]
 
-Bu öğreticide üç işlev--INSERT, update ve delete--her varlık türü için eşleyebilirsiniz. Entity Framework sürüm 4 tek eşlemenizi sağlar veya Bunlardan ikisi başkalarıyla, bir özel durum eşleme olmadan saklı yordamlar için işlevleri: güncelleştirme işlevini ancak silme işlevini eşlerseniz, Entity Framework bir özel durum olduğunda, bir varlığı silme girişimi. Entity Framework sürüm 3.5, saklı yordamlar eşleme bu kadar esneklik yoktu: bir işlev eşlediyseniz üç eşlemek için gerekli.
+Bu öğreticide, her varlık türü için üç işlevi (INSERT, Update ve Delete--) eşlersiniz. Entity Framework sürüm 4, bu işlevlerden yalnızca birini veya ikisini, diğerlerini eşleştirmeden saklı yordamlara eşlemenizi sağlar, tek bir özel durum: güncelleştirme işlevini eşleştirmeniz ancak Delete işlevini belirtmezseniz, bu işlem yaptığınızda Entity Framework bir özel durum oluşturur bir varlığı silmeyi deneyin. Entity Framework sürüm 3,5 ' de, saklı yordamları eşleme konusunda bu çok esnekliğe sahip değilsiniz: bir işlevi eşleştirdiyseniz, üçünü eşlemek için gerekli olan
 
-Veri güncelleştirmeleri yerine okuyan bir saklı yordam oluşturmak için tüm seçer oluşturma `Course` varlıklar, aşağıdaki SQL deyimlerini kullanarak:
+Güncelleştirme verileri yerine okuyan bir saklı yordam oluşturmak için aşağıdaki SQL deyimlerini kullanarak tüm `Course` varlıklarını seçen bir tane oluşturun:
 
 [!code-sql[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample5.sql)]
 
 ## <a name="adding-the-stored-procedures-to-the-data-model"></a>Saklı yordamları veri modeline ekleme
 
-Saklı yordamları veritabanında artık tanımlanır, ancak Entity Framework için kullanılabilir hale getirmek için veri modeline eklenmelidir. Açık *SchoolModel.edmx*tasarım yüzeyine sağ tıklayın ve seçin **veritabanından bir güncelleştirme modeli**. İçinde **Ekle** sekmesinde **veritabanı nesnelerinizi seçin** iletişim kutusunda **saklı yordamlar**, yeni oluşturulan saklı yordamları seçin ve `DeletePerson` saklı yordam ve ardından **son**.
+Saklı yordamlar artık veritabanında tanımlanmıştır, ancak Entity Framework için kullanılabilir hale getirmek üzere veri modeline eklenmelidir. *SchoolModel. edmx*' i açın, tasarım yüzeyine sağ tıklayın ve **modeli veritabanından Güncelleştir**' i seçin. **Veritabanı nesnelerinizi seçin** Iletişim kutusundaki **Ekle** sekmesinde, **saklı yordamlar**' ı genişletin, yeni oluşturulan saklı yordamları ve `DeletePerson` saklı yordamını seçin ve ardından **son**' a tıklayın.
 
 [![image20](the-entity-framework-and-aspnet-getting-started-part-7/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image5.png)
 
 ## <a name="mapping-the-stored-procedures"></a>Saklı yordamları eşleme
 
-Veri modeli Tasarımcısı'nda sağ `Student` varlık ve select **saklı yordam eşlemesi**.
+Veri modeli tasarımcısında `Student` varlığına sağ tıklayıp **saklı yordam eşlemesi**' ni seçin.
 
 [![image21](the-entity-framework-and-aspnet-getting-started-part-7/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image7.png)
 
-**Eşleşme ayrıntıları** penceresi görüntülenirse, Entity Framework, ekleme, güncelleştirme ve bu tür varlıkları silmek için kullanması gereken saklı yordamlar belirtebilirsiniz.
+**Eşleme ayrıntıları** penceresi görüntülenir, burada Entity Framework bu türden varlıkları eklemek, güncelleştirmek ve silmek için kullanması gereken saklı yordamları belirtebilirsiniz.
 
 [![image22](the-entity-framework-and-aspnet-getting-started-part-7/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image9.png)
 
-Ayarlama **Ekle** işlevi **InsertStudent**. Pencere, her biri bir varlık özelliğine eşleniyor gerekir, saklı yordam parametrelerinin listesini gösterir. Adları aynı olduğundan Bunlardan ikisi otomatik olarak eşlenir. Adlı bir varlık özelliği yok `FirstName`, el ile seçmeniz gerekir, böylece `FirstMidName` aşağı açılan listeden kullanılabilir varlık özelliklerini gösterir. (Adı değiştirilmiş olmasıdır `FirstName` özelliğini `FirstMidName` ilk öğreticide.)
+**Insert** Işlevini **ınsertstudent**olarak ayarlayın. Pencere, her birinin bir varlık özelliğine eşlenmesi gereken saklı yordam parametrelerinin bir listesini gösterir. Adların ikisi de aynı olduğundan, bunlar otomatik olarak eşlenir. `FirstName`adlı bir varlık özelliği yoktur, bu nedenle kullanılabilir varlık özelliklerini gösteren bir açılan listeden `FirstMidName` el ile seçmeniz gerekir. (Bunun nedeni, `FirstName` özelliğinin adını ilk öğreticideki `FirstMidName` olarak değiştirdiniz.)
 
 [![image23](the-entity-framework-and-aspnet-getting-started-part-7/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image11.png)
 
-Aynı **eşleşme ayrıntıları** penceresinde, harita `Update` işlevi `UpdateStudent` saklı yordamını (belirttiğinizden emin olun `FirstMidName` parametre değeri olarak `FirstName`yaptığınız gibi `Insert` saklı yordam) ve `Delete` işlevi `DeletePerson` saklı yordamı.
+Aynı **eşleme ayrıntıları** penceresinde, `Update` işlevini `UpdateStudent` saklı yordamla eşleyin (`Insert` saklı yordamı için yaptığınız gibi `FirstName`parametre değeri olarak `FirstMidName` belirttiğinizden emin olun) ve `Delete` işlevi `DeletePerson` saklı yordamına.
 
-[![Image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
+[![image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
 
-INSERT, update ve delete eşlemek için aynı yordamı saklı yordamlar için eğitmen için izleme `Instructor` varlık.
+`Instructor` varlığı için Eğitmenler için INSERT, Update ve delete saklı yordamlarını eşlemek için aynı yordamı izleyin.
 
 [![image02](the-entity-framework-and-aspnet-getting-started-part-7/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image15.png)
 
-Güncelleştirme verilerini yerine okuyun saklı yordamlar için kullandığınız **Model tarayıcı** varlığa saklı yordamı eşlemek için pencereyi döndürür yazın. Veri modeli Tasarımcısı'nda tasarım yüzeyi ve select sağ **Model tarayıcı**. Açık **SchoolModel.Store** düğümünü ve ardından açın **saklı yordamlar** düğümü. Ardından sağ tıklayarak `GetCourses` saklı yordam ve select **ekleme işlevi alma**.
+Verileri güncelleştirmek yerine okunan saklı yordamlar için, saklı yordamı döndürdüğü varlık türüne eşlemek için **Model tarayıcı** penceresini kullanın. Veri modeli tasarımcısında, tasarım yüzeyine sağ tıklayıp **model tarayıcısı**' nı seçin. **SchoolModel. Store** düğümünü açın ve sonra **saklı yordamlar** düğümünü açın. Ardından `GetCourses` saklı yordamına sağ tıklayıp **Işlev Içeri aktarma Ekle**' yi seçin.
 
 [![image24](the-entity-framework-and-aspnet-getting-started-part-7/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image17.png)
 
-İçinde **ekleme işlevi içeri aktarma** iletişim kutusunda, **bir koleksiyon, döndürür** seçin **varlıkları**ve ardından `Course` varlık türü olarak döndürdü. İşiniz bittiğinde, **Tamam**’a tıklayın. Kaydet ve Kapat *.edmx* dosya.
+**Işlev Içeri aktarma Ekle** iletişim kutusunda, bir SELECT **varlıklarının** **koleksiyonunu döndürür** ve döndürülen varlık türü olarak `Course` öğesini seçin. İşiniz bittiğinde, **Tamam**’a tıklayın. *. Edmx* dosyasını kaydedin ve kapatın.
 
 [![image25](the-entity-framework-and-aspnet-getting-started-part-7/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image19.png)
 
-## <a name="using-insert-update-and-delete-stored-procedures"></a>INSERT kullanarak, güncelleştirme ve saklı yordamlar silme
+## <a name="using-insert-update-and-delete-stored-procedures"></a>INSERT, Update ve delete saklı yordamlarını kullanma
 
-Saklı yordamlar eklemek için güncelleştirme ve verileri silmek varlık çerçevesi tarafından veri modeline ekleme ve bunları uygun varlıklara eşlenen sonra otomatik olarak kullanılır. Şimdi Çalıştır *StudentsAdd.aspx* sayfasında ve Entity Framework, yeni bir öğrenci her oluşturduğunuzda kullanacağınız `InsertStudent` saklı yordamı için yeni satır eklemek için `Student` tablo.
+Verileri ekleme, güncelleştirme ve silmeye yönelik saklı yordamlar, veri modeline eklendikten ve bunları uygun varlıklarla eşleştirdikten sonra otomatik olarak Entity Framework tarafından kullanılır. Artık *StudentsAdd. aspx* sayfasını çalıştırabilirsiniz ve yeni bir öğrenci oluşturduğunuzda Entity Framework, yeni bir satırı `Student` tablosuna eklemek için `InsertStudent` saklı yordamını kullanır.
 
-[![Image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
+[![image03](the-entity-framework-and-aspnet-getting-started-part-7/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image21.png)
 
-Çalıştırma *Students.aspx* sayfası ve yeni Öğrenci listesinde belirir.
+*Öğrenciler. aspx* sayfasını çalıştırın ve listede yeni öğrenci görüntülenir.
 
 [![image04](the-entity-framework-and-aspnet-getting-started-part-7/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image23.png)
 
-Güncelleştirme işlevin çalıştığını doğrulamak için adı değiştirin ve ardından delete işlevin çalıştığını doğrulamak için Öğrenci silin.
+Update işlevinin çalıştığını doğrulamak için adı değiştirin ve ardından DELETE işlevinin çalıştığını doğrulamak için öğrenci 'yi silin.
 
 [![image05](the-entity-framework-and-aspnet-getting-started-part-7/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image25.png)
 
-## <a name="using-select-stored-procedures"></a>Select saklı yordamları kullanma
+## <a name="using-select-stored-procedures"></a>SELECT saklı yordamlarını kullanma
 
-Entity Framework otomatik olarak saklı yordamlar gibi çalışmaz `GetCourses`, ve bunları kullanamazsınız `EntityDataSource` denetimi. Bunları kullanmak için bunları koddan çağırın.
+Entity Framework, `GetCourses`gibi saklı yordamları otomatik olarak çalıştırmaz ve bunları `EntityDataSource` denetimiyle kullanamazsınız. Bunları kullanmak için, bunları koddan çağırabilirsiniz.
 
-Açık *InstructorsCourses.aspx.cs* dosya. `PopulateDropDownLists` Yöntemi bir LINQ-varlıklar sorgu döngü listede ilerleyin ve hangilerinin bir eğitmen atanır ve hangilerinin atanmamış belirlemek kurs tüm varlıkları almak için kullanır:
+*InstructorsCourses.aspx.cs* dosyasını açın. `PopulateDropDownLists` yöntemi, tüm kurs varlıklarını almak için bir LINQ-Entities sorgusu kullanır ve bu sayede bir eğitmenin ne olduğunu ve hangilerinin atanmamış olduğunu belirleyebilir:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample6.cs)]
 
-Bunu, aşağıdaki kodla değiştirin:
+Bunu şu kodla değiştirin:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-7/samples/sample7.cs)]
 
-Sayfa artık kullanan `GetCourses` saklı yordamı tüm dersleri listesi alınamıyor. Önce yaptığınız gibi çalıştığını doğrulamak için sayfayı çalıştırın.
+Sayfa artık tüm kursların listesini almak için `GetCourses` saklı yordamını kullanır. Daha önce olduğu gibi çalıştığını doğrulamak için sayfayı çalıştırın.
 
-(Bir saklı yordam tarafından alınan varlık Gezinti özellikleri değil otomatik olarak doldurulur bağlı olarak, bu varlıklarla ilgili verilerle `ObjectContext` varsayılan ayarlar. Daha fazla bilgi için [ilgili nesneler Yükleniyor](https://msdn.microsoft.com/library/bb896272.aspx) MSDN Kitaplığı'ndaki.)
+(Saklı yordam tarafından alınan varlıkların gezinti özellikleri, `ObjectContext` varsayılan ayarlarına bağlı olarak bu varlıklarla ilgili verilerle otomatik olarak doldurulmayabilir. Daha fazla bilgi için, MSDN Kitaplığı 'nda [Ilgili nesneleri yükleme](https://msdn.microsoft.com/library/bb896272.aspx) bölümüne bakın.)
 
-Sonraki öğreticide, program ve test verilerini biçimlendirme ve doğrulama kuralları daha kolay hale getirmek için dinamik veri işlevini kullanmayı öğreneceksiniz. Veri biçimi dizeleri gibi her bir web sayfası kuralları ve bir alanın gerekli olduğuna olup olmadığını belirtmek, yerine her sayfada otomatik olarak uygulanan ve veri modelinin meta verilerde bu tür bir kurallar belirtebilirsiniz.
+Sonraki öğreticide, veri biçimlendirmeyi ve doğrulama kurallarını programlamayı ve test yapmayı kolaylaştırmak için dinamik veri işlevselliğini nasıl kullanacağınızı öğreneceksiniz. Veri biçimi dizeleri ve bir alanın gerekli olup olmadığı gibi her bir Web sayfası kuralı için belirtmek yerine, veri modeli meta verilerinde bu tür kuralları belirtebilirsiniz ve bunlar her sayfada otomatik olarak uygulanır.
 
 > [!div class="step-by-step"]
 > [Önceki](the-entity-framework-and-aspnet-getting-started-part-6.md)

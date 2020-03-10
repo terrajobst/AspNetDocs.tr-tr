@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
-title: "[Bunu nasıl yaparım:]  ASP.NET'te özel kullanıcı denetimi oluşturabilir? | Microsoft Docs"
+title: '[Nasıl yapılır:]  ASP.NET içinde özel bir kullanıcı denetimi mi oluşturulsun? | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel bir web sitesinin tamamında veya birçok web siteleri genelinde kullanılabilir ASP.NET'te özel kullanıcı denetimi oluşturmak nasıl sürdürebileceğiniz gösterilecek. STA...
+description: Bu videoda, bir Web sitesi genelinde veya birçok Web sitesinde kullanılabilecek ASP.NET içinde özel bir kullanıcı denetimi oluşturmayı gösterir. STA...
 ms.author: riande
 ms.date: 10/26/2007
 ms.assetid: 76e0f17c-c31b-4237-89b5-a46efe602ece
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-user-control-in-aspnet
 msc.type: video
 ms.openlocfilehash: 01bfda20b12dddac3a564b2222e8d069fa0e8ee9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59406346"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78523634"
 ---
-# <a name="how-do-i--create-a-custom-user-control-in-aspnet"></a>[Bunu nasıl yaparım:]  ASP.NET'te özel kullanıcı denetimi oluşturabilir?
+# <a name="how-do-i--create-a-custom-user-control-in-aspnet"></a>[Nasıl yapılır:]  ASP.NET içinde özel bir kullanıcı denetimi mi oluşturulsun?
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda, Chris piksel bir web sitesinin tamamında veya birçok web siteleri genelinde kullanılabilir ASP.NET'te özel kullanıcı denetimi oluşturmak nasıl sürdürebileceğiniz gösterilecek. Başlangıç out doğrulama dahil olmak üzere birden çok sayfada kullanılacak bir kullanıcı denetimi oluşturmanın temellerini öğrenerek kullanarak biçimlendirmenin stil öğeleri ve kullanıcı için veri yükleme/kaydetme arabirimi öğeleri. Kullanıcı oluşturmak için video konuları genelinde kolayca saklanır ve birden çok sayfada kullanılan denetimler ele alınmıştır.
+Bu videoda, bir Web sitesi genelinde veya birçok Web sitesinde kullanılabilecek ASP.NET içinde özel bir kullanıcı denetimi oluşturmayı gösterir. Doğrulama, stil öğelerini kullanarak biçimlendirmeyi denetleme ve Kullanıcı arabirimi öğeleri için verileri yükleme/kaydetme gibi birden çok sayfada kullanılacak bir kullanıcı denetimi oluşturma hakkında temel bilgileri öğrenerek başlayın. Çok sayıda sayfada kolayca korunabilme ve kullanılabilecek Kullanıcı denetimleri oluşturmaya yönelik video hakkında dikkat edilecek konular ele alınmıştır.
 
-[&#9654;Videoyu (27 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-user-control-in-aspnet)
+[&#9654;Videoyu izleyin (27 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-user-control-in-aspnet)

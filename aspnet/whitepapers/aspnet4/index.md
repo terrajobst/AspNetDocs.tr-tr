@@ -1,19 +1,19 @@
 ---
 uid: whitepapers/aspnet4/index
-title: ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış | Microsoft Docs
+title: ASP.NET 4 ve Visual Studio 2010 Web geliştirmesine genel bakış | Microsoft Docs
 author: rick-anderson
-description: Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
+description: Bu belgede, the.NET Framework 4 ve Visual Studio 2010 ' de yer alan ASP.NET için yeni özelliklerin çoğuna genel bakış sunulmaktadır.
 ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: 6bea4655-b0a2-442a-b9c1-d323467befd8
 msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 7a73b6657e6f074cac5e63c907924a8cae68e60e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397194"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546230"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
 

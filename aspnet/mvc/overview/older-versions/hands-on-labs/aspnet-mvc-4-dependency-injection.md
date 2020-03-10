@@ -1,286 +1,286 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
-title: ASP.NET MVC 4 bağımlılık ekleme | Microsoft Docs
+title: ASP.NET MVC 4 bağımlılığı ekleme | Microsoft Docs
 author: rick-anderson
-description: 'Not: Bu uygulamalı Laboratuvar, ASP.NET MVC ve ASP.NET MVC 4 filtreleri temel bilgiye sahip varsayar. ASP.NET MVC 4 filtrelerden önce biz rec kullanmadıysanız...'
+description: 'Note: Bu uygulamalı laboratuvar, ASP.NET MVC ve ASP.NET MVC 4 filtrelerinin temel bilgisine sahip olduğunuzu varsayar. Daha önce ASP.NET MVC 4 filtrelerini kullanmadıysanız rec...'
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
 ms.openlocfilehash: 15c9d4dcb9e2c6b9f6adf54d65d15737b32cca3b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129737"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78560615"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 Bağımlılık Ekleme
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
+[Web Camps eğitim setini indirin](https://aka.ms/webcamps-training-kit)
 
-Bu uygulamalı laboratuvarı temel bilgiye sahip olduğunuz varsayılır **ASP.NET MVC** ve **ASP.NET MVC 4 filtreler**. Kullanmadıysanız, **ASP.NET MVC 4 filtreler** gitmenizi öneririz önce **ASP.NET MVC özel eylem filtreleri** Hands-on-Lab.
+Bu uygulamalı laboratuvar, **ASP.NET MVC** ve **ASP.NET MVC 4 filtrelerinin**temel bilgisine sahip olduğunuzu varsayar. Daha önce **ASP.NET MVC 4 filtrelerini** kullanmadıysanız, **ASP.NET MVC özel eylem filtreleri** uygulamalı laboratuvarına gitmeniz önerilir.
 
 > [!NOTE]
-> Web Kampları eğitim Seti'nde bulunan, tüm örnek kodu ve kod parçacıkları dahil [Microsoft-Web/WebCampTrainingKit yayınlar](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje kullanılabilir [ASP.NET MVC 4 bağımlılık ekleme](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection).
+> Tüm örnek kod ve kod parçacıkları, [Microsoft-Web/Webkamptraıningkit yayımlarından](https://aka.ms/webcamps-training-kit)erişilebilen Web Camps eğitim seti ' ne dahildir. Bu laboratuvara özgü proje, [ASP.NET MVC 4 bağımlılığı ekleme](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection)adresinde bulunabilir.
 
-İçinde **nesne yönelimli programlama** paradigm, nesneleri birlikte çalışır bir işbirliği modelinde katkıda bulunanların ve tüketiciler olduğu. Doğal olarak, bu iletişim modelini nesneleri ve karmaşıklık artar yönetmek zor hale bileşenleri arasındaki bağımlılıkları oluşturur.
+**Nesne yönelimli programlama** paradigması 'nda nesneler, katkıda bulunanlar ve tüketiciler bulunan bir işbirliği modelinde birlikte çalışır. Doğal olarak, bu iletişim modeli nesneler ve bileşenler arasında bağımlılıklar oluşturur ve karmaşıklık arttıkça yönetilmesi zor hale gelir.
 
-![Sınıf bağımlılıkları ve model karmaşıklığı](aspnet-mvc-4-dependency-injection/_static/image1.png "sınıfı bağımlılıkları ve model karmaşıklığı")
+![Sınıf bağımlılıkları ve model karmaşıklığı](aspnet-mvc-4-dependency-injection/_static/image1.png "Sınıf bağımlılıkları ve model karmaşıklığı")
 
 *Sınıf bağımlılıkları ve model karmaşıklığı*
 
-Büyük olasılıkla hakkında duymuş **Fabrika deseni** ve arabirim ve istemci nesneler genellikle hizmet konumu için sorumlu olduğu hizmetleri kullanılarak uygulama arasındaki ayrımı.
+Büyük olasılıkla, istemci nesnelerinin genellikle hizmet konumundan sorumlu olduğu, **fabrika modelini** ve arabirim ile uygulama arasındaki ayrımı hakkında bilgi sahibi olabilirsiniz.
 
-Bağımlılık ekleme, ters çevirmeyi denetimin belirli bir uygulama modelidir. **Tersine çevirme (IOC) denetiminin** nesneleri bağlı oldukları işlerini yapmak için diğer nesnelerin oluşturmayın anlamına gelir. Bunun yerine bir dış kaynaktan (örneğin, bir xml yapılandırma dosyası) ihtiyaç duydukları nesneleri alın.
+Bağımlılık ekleme deseninin, denetimin Inversion öğesinin belirli bir uygulamasıdır. **Denetimin INVERSION (IOC)** , nesnelerin işlerini yapmak için kullandıkları başka nesneler oluşturmayacağı anlamına gelir. Bunun yerine, bir dış kaynaktan (örneğin, bir XML yapılandırma dosyası) ihtiyaç duydukları nesneleri alırlar.
 
-**Bağımlılık ekleme (dı)** bu nesne müdahalesi olmadan genellikle Oluşturucusu parametrelerini geçirir framework bileşeni tarafından yapılır ve özelliklerini ayarlama, anlamına gelir.
+**Bağımlılık ekleme (dı)** , bu, genellikle Oluşturucu parametrelerini geçiren ve özellikleri ayarlanmış bir çerçeve bileşeni tarafından nesne müdahalesi olmadan yapıldığı anlamına gelir.
 
 <a id="The_Dependency_Injection_DI_Design_Pattern"></a>
-### <a name="the-dependency-injection-di-design-pattern"></a>Bağımlılık ekleme (dı) tasarım deseni
+### <a name="the-dependency-injection-di-design-pattern"></a>Bağımlılık ekleme (dı) tasarım deseninin
 
-Yüksek bir düzeyde bağımlılık ekleme amacı olan bir istemci sınıfı (örn *golfçü*) arabirim karşılayan bir şey gerekir (örn *IClub*). Somut türünü nedir önemli değildir (örn *WoodClub, IronClub, WedgeClub* veya *PutterClub*), işleyen başka birisi istediği (örneğin iyi *caddy*). ASP.NET mvc'de bağımlılık çözümleyiciyi bağımlılık mantığınızı başka bir yerde kaydetmenizi izin verebilirsiniz (örneğin bir kapsayıcı veya bir *kulüpleri paketi*).
+Yüksek düzeyde, bağımlılık ekleme 'nin amacı, bir istemci sınıfının (örneğin *, golfçü*) bir arabirim (ör. *Iclub*) karşılayan bir şeye ihtiyaç duymaktır. Somut türün ne olduğunu (ör. *Woodclub, ıronkulüler, Dilimgeclub* veya *putterkulüler*), başka birinin (örneğin, iyi bir *Caddy*) işlemesini istiyor. ASP.NET MVC 'deki bağımlılık Çözümleyicisi, başka bir yere (ör. bir kapsayıcı veya *sinek torbası*) bağımlılık mantığınızı kaydetmenize izin verebilir.
 
-![Bağımlılık ekleme diyagramı](aspnet-mvc-4-dependency-injection/_static/image2.png "bağımlılık ekleme çizim")
+![Bağımlılık ekleme diyagramı](aspnet-mvc-4-dependency-injection/_static/image2.png "Bağımlılık ekleme çizimi")
 
-*Bağımlılık ekleme - Golf benzerleme*
+*Bağımlılık ekleme-Golf benzerleme vurguladı*
 
-Bağımlılık ekleme desenini ve tersine çevirme denetim kullanmanın avantajları şunlardır:
+Bağımlılık ekleme deseninin ve denetimin Inversion kullanmanın avantajları şunlardır:
 
-- Sınıf bağlantısı azaltır
+- Sınıf bağlantısını azaltır
 - Kodu yeniden kullanma artırır
-- Kod bakımı artırır
-- Uygulamayı test artırır
+- Kod bakımumu geliştirir
+- Uygulama testini geliştirir
 
 > [!NOTE]
-> Bağımlılık ekleme bazen soyut Fabrika tasarım deseni ile karşılaştırıldığında, ancak her iki yaklaşım arasında küçük bir fark yoktur. DI fabrikaları ve kaydedilen Hizmetleri çağırarak bağımlılıkları çözmeye arkasında çalışma bir çerçeve vardır.
+> Bağımlılık ekleme bazen soyut fabrika tasarım düzeniyle karşılaştırılır, ancak her iki yaklaşım arasında hafif bir farklılık vardır. Dı, fabrikaları ve kayıtlı Hizmetleri çağırarak bağımlılıkları çözümlemek için arka planda çalışan bir çerçevedir.
 
-Bağımlılık ekleme desenini anladığınıza göre ASP.NET MVC 4'te uygulama bu Laboratuvar öğreneceksiniz. Bağımlılık ekleme kullanılarak başlar **denetleyicileri** Veritabanı Erişim hizmeti eklemek için. Ardından, bağımlılık ekleme için uygulayacağınız **görünümleri** bir hizmeti kullanmak ve bilgi göstermek için. Son olarak, bir özel eylem filtresi çözümdeki ekleme DI ASP.NET MVC 4 filtreleri için genişletilir.
+Bağımlılık ekleme modelini anladığınıza göre, bu laboratuvarın tamamında ASP.NET MVC 4 ' te nasıl uygulanacağını öğreneceksiniz. Bir veritabanı erişim hizmeti eklemek için **denetleyicilerde** bağımlılık ekleme 'yi kullanmaya başlayacaksınız. Daha sonra, bir hizmeti kullanmak ve bilgileri göstermek için **görünümlere** bağımlılık ekleme işlemini uygulayacaksınız. Son olarak, ASP.NET MVC 4 filtrelerinden bir özel eylem filtresi ekleme.
 
-Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- ASP.NET MVC 4 bağımlılık ekleme için NuGet paketlerini kullanarak Unity ile tümleştirin
-- ASP.NET MVC denetleyicisi içinde kullanım bağımlılık ekleme
-- Bir ASP.NET MVC görünümü içinde kullanım bağımlılık ekleme
-- Bir ASP.NET MVC eylem filtresi içinde kullanım bağımlılık ekleme
+- NuGet paketlerini kullanarak bağımlılık ekleme için Unity ile ASP.NET MVC 4 ' ü tümleştirin
+- ASP.NET MVC denetleyicisi içinde bağımlılık ekleme kullanma
+- ASP.NET MVC görünümü içinde bağımlılık ekleme kullanma
+- Bağımlılık ekleme Işlemini bir ASP.NET MVC eylem filtresi içinde kullanma
 
 > [!NOTE]
-> Bu Laboratuvar için bağımlılık çözümlemesi Unity.Mvc3 NuGet paketi kullanıyor, ancak ASP.NET MVC 4 ile çalışmak için bir bağımlılık ekleme Framework uyum sağlamak mümkündür.
+> Bu laboratuvar, bağımlılık çözümlemesi için Unity. Mvc3 NuGet paketini kullanıyor, ancak herhangi bir bağımlılık ekleme çerçevesini ASP.NET MVC 4 ile çalışacak şekilde uyarlamak mümkündür.
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-Bu laboratuvarı tamamlamak için aşağıdakiler olmalıdır:
+Bu Laboratuvarı tamamlayabilmeniz için aşağıdaki öğelere sahip olmanız gerekir:
 
-- [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya üst (okuma [ek A](#AppendixA) nasıl yükleneceği hakkında yönergeler için).
+- [Web veya üst için Microsoft Visual Studio Express 2012](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) (nasıl yükleneceğine ilişkin yönergeler Için [Ek A](#AppendixA) oku).
 
 <a id="Setup"></a>
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum
 
-**Kod parçacıkları yükleniyor**
+**Kod parçacıklarını yükleme**
 
-Kolaylık olması için bu Laboratuvar yöneteceğiniz kodun çoğu Visual Studio kod parçacıkları kullanılabilir. Kod parçacıklarını çalıştırmak yüklenecek **.\Source\Setup\CodeSnippets.vsi** dosya.
+Kolaylık olması için, bu laboratuvar boyunca yönettiğiniz kodun çoğu Visual Studio kod parçacıkları olarak sunulmaktadır. Kod parçacıklarını yüklemek için **.\Source\Setup\CodeSnippets.vsi** dosyasını çalıştırın.
 
-Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek B: Kod parçacıkları](#AppendixB)&quot;.
+Visual Studio Code parçacıkları hakkında bilginiz yoksa ve bunları nasıl kullanacağınızı öğrenmek isterseniz, [Ek B: kod parçacıkları&quot;kullanarak](#AppendixB) bu belgedeki eke başvurabilirsiniz &quot;.
 
 ---
 
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
+## <a name="exercises"></a>Alıştırmalarda
 
-Bu uygulamalı Laboratuvar tarafından aşağıdaki çalışmaları oluşur:
+Bu uygulamalı laboratuvar aşağıdaki alýþtýrmalardan oluşur:
 
-1. [Alıştırma 1: Denetleyici ekleme](#Exercise1)
-2. [Alıştırma 2: Görünüm ekleme](#Exercise2)
-3. [Alıştırma 3: Filtre ekleme](#Exercise3)
+1. [Alıştırma 1: ekleme a Controller](#Exercise1)
+2. [Alıştırma 2: ekleme a View](#Exercise2)
+3. [Alıştırma 3: ekleme filtreleri](#Exercise3)
 
 > [!NOTE]
-> Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
+> Her alıştırma, alıştırmaları tamamladıktan sonra elde etmeniz gereken sonuç çözümünü içeren bir **son** klasör ile birlikte sunulur. Bu çözümü, alýþtýrmalar üzerinden çalışarak daha fazla yardıma ihtiyacınız varsa kılavuz olarak kullanabilirsiniz.
 
-Bu laboratuvarı tamamlamak için tahmini süre: **30 dakika**.
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **30 dakika**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Injecting_a_Controller"></a>
-### <a name="exercise-1-injecting-a-controller"></a>Alıştırma 1: Denetleyici ekleme
+### <a name="exercise-1-injecting-a-controller"></a>Alıştırma 1: ekleme a Controller
 
-Bu alıştırmada, bir NuGet paketi kullanarak Unity tümleştirerek ASP.NET MVC denetleyicileri bağımlılık ekleme kullanmayı öğreneceksiniz. Bu nedenle, veri erişim mantığı ayırmak için MvcMusicStore denetleyicilere Hizmetleri dahil edilir. Hizmetleri yardımıyla bağımlılık ekleme kullanılarak çözümlenir denetleyici Oluşturucu, yeni bir bağımlılık oluşturacak **Unity**.
+Bu alıştırmada, bir NuGet paketi kullanarak Unity 'yi tümleştirerek ASP.NET MVC denetleyicilerindeki bağımlılık ekleme işlemini nasıl kullanacağınızı öğreneceksiniz. Bu nedenle, verileri veri erişiminden ayırmak için MvcMusicStore denetleyicilerinize hizmetleri dahil edersiniz. Hizmetler, **Unity**'Nin yardımıyla bağımlılık ekleme kullanılarak çözülecektir, denetleyici oluşturucuda yeni bir bağımlılık oluşturur.
 
-Bu yaklaşım, daha esnek ve bakımı ve test etmek daha kolay olan daha az bağlı uygulamalar, oluşturma adımları gösterilmektedir. Aynı zamanda ASP.NET MVC, Unity ile tümleştirmeyi öğreneceksiniz.
+Bu yaklaşım, daha esnek ve bakım ve test etme işlemlerini daha kolay olan, daha az bağlanmış uygulamalar oluşturmayı gösterir. Ayrıca, ASP.NET MVC 'nin Unity ile nasıl tümleştirileceğini öğreneceksiniz.
 
 <a id="About_StoreManager_Service"></a>
 #### <a name="about-storemanager-service"></a>StoreManager hizmeti hakkında
 
-MVC müzik başlangıç çözümde şimdi sağlanan Store adlı Store denetleyicisi verileri yöneten bir hizmet içerir **StoreService**. Aşağıda Store hizmet uygulaması bulabilirsiniz. Tüm yöntemleri modeli varlıklarından dönüş unutmayın.
+Başlangıç çözümünde belirtilen MVC müzik deposu artık **StoreService**adlı depolama denetleyicisi verilerini yöneten bir hizmet içeriyor. Mağaza hizmeti uygulamasını aşağıda bulabilirsiniz. Tüm yöntemlerin model varlıkları döndürdüğüne unutmayın.
 
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample1.cs)]
 
-**StoreController** begin işlevinden çözümü şimdi tüketir **StoreService**. Tüm veri başvurularını sıradan kaldırıldığını **StoreController**ve geçerli veri erişimi sağlayıcısı kullanan herhangi bir yöntemi değiştirmeden artık mümkün **StoreService**.
+Başlangıç çözümünden **Storecontroller** artık **StoreService**kullanıyor. Tüm veri başvuruları **Storecontroller**'dan kaldırılmıştır ve artık **StoreService**kullanan herhangi bir yöntemi değiştirmeden geçerli veri erişim sağlayıcısını değiştirmek mümkün değildir.
 
-Bunun altında bulabilirsiniz **StoreController** uygulaması ile bir bağımlılık içeriyor **StoreService** sınıf oluşturucusu içinde.
+**Storecontroller** uygulamasının sınıf oluşturucusunun Içinde **StoreService** 'e bağımlılığı olduğunu aşağıda bulabilirsiniz.
 
 > [!NOTE]
-> Bu alıştırmada, sunulan bağımlılık ilgili **denetim tersine çevirme** (IOC).
+> Bu alıştırmada tanıtılan bağımlılık, **denetimin INVERSION** (IOC) ile ilgilidir.
 > 
-> **StoreController** sınıf oluşturucusunu alır bir **IStoreService** sınıf içinde hizmet çağrılarından gerçekleştirmek için gerekli olan tür parametresi. Ancak, **StoreController** herhangi bir denetleyici, ASP.NET MVC ile çalışmak için gereken varsayılan oluşturucu (parametresiz) uygulamıyor.
+> **Storecontroller** sınıf oluşturucusu, sınıfının içinden hizmet çağrıları gerçekleştirmek için gerekli olan bir **ıtoreservice** tür parametresi alır. Ancak **Storecontroller** , ASP.NET MVC ile çalışmak için herhangi bir denetleyicinin olması gereken varsayılan oluşturucuyu (parametresiz) uygulamaz.
 > 
-> Bağımlılık çözmek için denetleyici soyut bir Fabrika (belirtilen türde herhangi bir nesne döndürür sınıfı) tarafından oluşturulması gerekir.
+> Bağımlılığı çözümlemek için, denetleyicinin bir soyut fabrika tarafından oluşturulması gerekir (belirtilen türde herhangi bir nesne döndüren bir sınıf).
 
 [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample2.cs)]
 
 > [!NOTE]
-> Hizmet nesnesi göndermeden StoreController bildirilen parametresiz bir oluşturucusu olmadığından oluşturmak sınıf çalıştığında bir hata alırsınız.
+> Parametresiz bir Oluşturucu bildirildiği için, sınıf, hizmet nesnesini göndermeden StoreController oluşturmayı denediğinde bir hata alacaksınız.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Running_the_Application"></a>
-#### <a name="task-1---running-the-application"></a>Görev 1 - Uygulamayı çalıştırma
+#### <a name="task-1---running-the-application"></a>Görev 1-uygulamayı çalıştırma
 
-Bu görevde, veri erişimi uygulama mantığından ayıran Store denetleyici hizmeti içerir başlangıç uygulama çalışır.
+Bu görevde, uygulama mantığındaki veri erişimini ayıran mağaza denetleyicisine hizmeti içeren BEGIN uygulamasını çalıştıracaksınız.
 
-Denetleyici Hizmeti varsayılan olarak bir parametre olarak geçirilir şekilde uygulama çalışırken, bir özel durum alırsınız:
+Uygulamayı çalıştırırken, denetleyici hizmeti varsayılan olarak bir parametre olarak geçirilmediğinden bir özel durum alırsınız:
 
-1. Açık **başlamak** çözüm bulunan **Source\Ex01 ekleme Controller\Begin**.
+1. **Source\Ex01-Injecting Controller\Begin**dizininde bulunan **Başlangıç** çözümünü açın.
 
-   1. Bazı eksik NuGet paketleri indirmeniz gerekecek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Tuşuna **Ctrl + F5 tuşlarına basarak** uygulamayı hata ayıklama olmadan çalıştırın. Hata iletisi alırsınız &quot; **bu nesne için tanımlanmış parametresiz bir oluşturucusu**&quot;:
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
+2. Uygulamayı hata ayıklamadan çalıştırmak için **CTRL + F5** tuşlarına basın. **Bu nesne için tanımlı olmayan &quot;oluşturucu**&quot;hata iletisini alırsınız:
 
-    ![ASP.NET MVC uygulaması başlamak çalıştırılırken hata](aspnet-mvc-4-dependency-injection/_static/image3.png "başlamak ASP.NET MVC uygulaması çalıştırılırken hata")
+    ![ASP.NET MVC başlangıç uygulaması çalıştırılırken hata oluştu](aspnet-mvc-4-dependency-injection/_static/image3.png "ASP.NET MVC başlangıç uygulaması çalıştırılırken hata oluştu")
 
-    *ASP.NET MVC uygulaması başlamak çalıştırılırken hata*
+    *ASP.NET MVC başlangıç uygulaması çalıştırılırken hata oluştu*
 3. Tarayıcıyı kapatın.
 
-Aşağıdaki adımlarda bu denetleyicisi bağımlılık ekleme müzik Store çözüm üzerinde çalışır.
+Aşağıdaki adımlarda, bu denetleyiciye gereken bağımlılığı eklemek için müzik deposu çözümünde çalışacaksınız.
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Including_Unity_into_MvcMusicStore_Solution"></a>
-#### <a name="task-2---including-unity-into-mvcmusicstore-solution"></a>Görev 2 - MvcMusicStore çözümünde dahil olmak üzere Unity
+#### <a name="task-2---including-unity-into-mvcmusicstore-solution"></a>2\. görev-MvcMusicStore çözümüne Unity dahil
 
-Bu görevde, içerecektir **Unity.Mvc3** çözüm için NuGet paketi.
+Bu görevde, çözüme **Unity. Mvc3** NuGet paketini dahil edersiniz.
 
 > [!NOTE]
-> Unity.Mvc3 paketi ASP.NET MVC 3 için tasarlanmıştır ancak ASP.NET MVC 4 ile tamamen uyumludur.
+> Unity. Mvc3 paketi ASP.NET MVC 3 için tasarlandı, ancak ASP.NET MVC 4 ile tamamen uyumludur.
 > 
-> Unity örneği için bir hafif, Genişletilebilir bağımlılık ekleme kapsayıcısını isteğe bağlı destek olduğu ve durdurma yazın. Her tür .NET uygulama kullanmak için genel amaçlı bir kapsayıcıdır. Bağımlılık ekleme mekanizmalar da dahil olmak üzere tüm ortak özellikleri sağlar: nesne oluşturma, kapsayıcıya Bileşen Yapılandırması erteleyerek çalışma zamanı ve esneklik, bağımlılıkları belirterek gereksinimleri soyutlamasıdır.
+> Unity, örnek ve tür saklama için isteğe bağlı desteği olan hafif, genişletilebilir bir bağımlılık ekleme kapsayıcısıdır. Bu, herhangi bir tür .NET uygulamasında kullanmak için genel amaçlı bir kapsayıcıdır. Bağımlılık ekleme mekanizmalarda bulunan tüm ortak özellikleri sağlar: nesne oluşturma, gereksinimlerin soyutlaması, çalışma zamanında bağımlılıkları belirterek ve esneklik, kapsayıcıya bileşen yapılandırmasını erteleyerek.
 
-1. Yükleme **Unity.Mvc3** NuGet paketini **MvcMusicStore** proje. Bunu yapmak için açık **Paket Yöneticisi Konsolu** gelen **görünümü** | **diğer Windows**.
+1. **Mvcmusicstore** projesinde **Unity. Mvc3** NuGet paketini yükler. Bunu yapmak için, **diğer Windows** | **Görünüm** ' den **Paket Yöneticisi konsolunu** açın.
 2. Şu komutu çalıştırın.
 
     PMC
 
     [!code-powershell[Main](aspnet-mvc-4-dependency-injection/samples/sample3.ps1)]
 
-    ![Unity.Mvc3 NuGet paketini yükleyerek](aspnet-mvc-4-dependency-injection/_static/image4.png "Unity.Mvc3 NuGet paketi yükleniyor")
+    ![Unity. Mvc3 NuGet paketi yükleniyor](aspnet-mvc-4-dependency-injection/_static/image4.png "Unity. Mvc3 NuGet paketi yükleniyor")
 
-    *Unity.Mvc3 NuGet paketi yükleniyor*
-3. Bir kez **Unity.Mvc3** paketinin yüklendiğinden, otomatik olarak ekler Unity yapılandırmasını basitleştirmek için klasör ve dosya keşfedin.
+    *Unity. Mvc3 NuGet paketi yükleniyor*
+3. **Unity. Mvc3** paketi yüklendikten sonra Unity yapılandırmasını basitleştirmek için otomatik olarak eklediği dosya ve klasörleri keşfedebilirsiniz.
 
-    ![Yüklü Unity.Mvc3 paket](aspnet-mvc-4-dependency-injection/_static/image5.png "Unity.Mvc3 paket yüklü")
+    ![Unity. Mvc3 paketi yüklendi](aspnet-mvc-4-dependency-injection/_static/image5.png "Unity. Mvc3 paketi yüklendi")
 
-    *Yüklü Unity.Mvc3 paketi*
+    *Unity. Mvc3 paketi yüklendi*
 
 <a id="Ex1Task3"></a>
 
 <a id="Task_3_-_Registering_Unity_in_Globalasaxcs_Application_Start"></a>
-#### <a name="task-3---registering-unity-in-globalasaxcs-applicationstart"></a>Görev 3 - kaydetme Unity Global.asax.cs uygulamada\_Başlat
+#### <a name="task-3---registering-unity-in-globalasaxcs-application_start"></a>Görev 3-Global.asax.cs uygulamasında Unity kaydetme\_başlangıç
 
-Bu görevde, güncelleştirecektir **uygulama\_Başlat** yöntemi bulunan **Global.asax.cs** Unity önyükleyici Başlatıcı arayın ve sonra önyükleyici dosya kaydetme güncelleştirmek için Denetleyici ve hizmet bağımlılık ekleme için kullanır.
+Bu görevde, **Global.asax.cs** ' de bulunan **uygulama\_start** metodunu, Unity önyükleyici başlatıcısını çağırmak için güncelleştiğini ve sonra bağımlılık ekleme Için kullanacağınız hizmet ve denetleyiciyi kaydeden önyükleyici dosyasını güncelleştirirsiniz.
 
-1. Şimdi, Unity kapsayıcı başlatır dosyası olan önyükleyici ve bağımlılık çözümleyiciyi yedekleme kanca. Bunu yapmak için açık **Global.asax.cs** ve içinde aşağıdaki vurgulanmış kodu ekleyin **uygulama\_Başlat** yöntemi.
+1. Şimdi, Unity kapsayıcısını ve bağımlılık çözümleyici 'yi Başlatan dosya olan önyükleyici 'yi yedektacaksınız. Bunu yapmak için **Global.asax.cs** açın ve **uygulama\_start** yöntemine aşağıdaki vurgulanmış kodu ekleyin.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex01 - Unity başlatmak*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex01-Unity 'Yi Başlat*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample4.cs)]
-2. Açık **Bootstrapper.cs** dosya.
-3. Aşağıdaki ad alanları şunlardır: **MvcMusicStore.Services** ve **MusicStore.Controllers**.
+2. **Bootstrapper.cs** dosyasını açın.
+3. Şu ad alanlarını ekleyin: **Mvcmusicstore. Services** ve **MusicStore. Controllers**.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme - Ex01 - Laboratuvar önyükleyici ad alanlarını ekleme*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex01-önyükleyici ekleme ad alanı*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample5.cs)]
-4. Değiştirin **BuildUnityContainer** yöntemini aşağıdaki kodla Store denetleyici ve Store hizmet kaydeden içerik.
+4. **Buildunitycontainer** yönteminin Içeriğini, depo denetleyicisi ve mağaza hizmetini kaydeden aşağıdaki kodla değiştirin.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex01 - kayıt Store denetleyici ve hizmet*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex01-kayıt depolama denetleyicisi ve hizmeti*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample6.cs)]
 
 <a id="Ex1Task4"></a>
 
 <a id="Task_4_-_Running_the_Application"></a>
-#### <a name="task-4---running-the-application"></a>Görev 4 - Uygulamayı çalıştırma
+#### <a name="task-4---running-the-application"></a>Görev 4-uygulamayı çalıştırma
 
-Bu görevde, bunu şimdi Unity eklendikten sonra yüklenebileceğini doğrulamak amacıyla uygulamanın çalışır.
+Bu görevde, şimdi Unity 'yi dahil ettikten sonra yüklenebildiğini doğrulamak için uygulamayı çalıştıracaksınız.
 
-1. Tuşuna **F5** uygulamayı çalıştırmak için uygulama artık herhangi bir hata iletisi göstermeden yüklenecektir.
+1. Uygulamayı çalıştırmak için **F5** tuşuna basın, uygulamanın artık herhangi bir hata iletisi görüntülenmeden yüklenmesi gerekir.
 
-    ![Uygulama bağımlılık ekleme ile çalışan](aspnet-mvc-4-dependency-injection/_static/image6.png "bağımlılık ekleme ile uygulama çalıştırma")
+    ![Uygulama bağımlılık ekleme ile çalıştırılıyor](aspnet-mvc-4-dependency-injection/_static/image6.png "Uygulama bağımlılık ekleme ile çalıştırılıyor")
 
-    *Bağımlılık ekleme ile çalışan uygulama*
-2. Gözat **/Store**. Bu çağırma **StoreController**, artık oluşturulduğu kullanarak **Unity**.
+    *Uygulama bağımlılık ekleme ile çalıştırılıyor*
+2. **/Store**'a gidin. Bu işlem, artık **Unity**kullanılarak oluşturulan **storecontroller**'ı çağırır.
 
-    ![MVC müzik Store](aspnet-mvc-4-dependency-injection/_static/image7.png "MVC müzik Store")
+    ![MVC müzik deposu](aspnet-mvc-4-dependency-injection/_static/image7.png "MVC müzik deposu")
 
-    *MVC müzik Store*
+    *MVC müzik deposu*
 3. Tarayıcıyı kapatın.
 
-Aşağıdaki alıştırmalarda ASP.NET MVC görünümleri ve eylem filtrelerini içinde kullanmak için bağımlılık ekleme kapsamını genişletmek öğreneceksiniz.
+Aşağıdaki alıştırmalarda, bağımlılık ekleme kapsamının ASP.NET MVC görünümleri ve eylem filtreleri içinde kullanmak için nasıl uzatılacağınızı öğreneceksiniz.
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Injecting_a_View"></a>
-### <a name="exercise-2-injecting-a-view"></a>Alıştırma 2: Görünüm ekleme
+### <a name="exercise-2-injecting-a-view"></a>Alıştırma 2: ekleme a View
 
-Bu alıştırmada, bağımlılık ekleme ile ASP.NET MVC 4'ün yeni özelliklerini görünümünde Unity tümleştirme için nasıl kullanılacağını öğreneceksiniz. Bunu yapabilmek için Store Gözat bir ileti ve aşağıdaki görüntü gösterilir görünümü içinde özel bir hizmeti çağırır.
+Bu alıştırmada, Unity tümleştirmesi için ASP.NET MVC 4 ' ün yeni özelliklerine sahip bir görünümde bağımlılık ekleme işlemini nasıl kullanacağınızı öğreneceksiniz. Bunu yapmak için mağaza tarama görünümü içinde bir ileti ve aşağıda bir görüntü gösteren özel bir hizmet çağıracaksınız.
 
-Daha sonra projeyi Unity ile tümleştirin ve bağımlılıkları eklenmek üzere bir özel bağımlılık çözümleyiciyi oluşturun.
+Ardından, projeyi Unity ile tümleştirecaksınız ve bağımlılıkları eklemek için özel bir bağımlılık Çözümleyicisi oluşturacaksınız.
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Creating_a_View_that_Consumes_a_Service"></a>
-#### <a name="task-1---creating-a-view-that-consumes-a-service"></a>Görev 1 - bir hizmeti bir görünüm oluşturma
+#### <a name="task-1---creating-a-view-that-consumes-a-service"></a>Görev 1-bir hizmeti tüketen bir görünüm oluşturma
 
-Bu görevde, yeni bir bağımlılık oluşturmak için bir hizmet çağrısı gerçekleştiren bir görünümü oluşturur. Bu çözümde bulunan basit bir Mesajlaşma hizmetinde hizmet oluşur.
+Bu görevde, yeni bir bağımlılık oluşturmak için hizmet çağrısı gerçekleştiren bir görünüm oluşturacaksınız. Hizmet, bu çözüme dahil olan basit bir mesajlaşma hizmeti ile oluşur.
 
-1. Açık **başlamak** çözüm bulunan **Source\Ex02 ekleme View\Begin** klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde edilen önceki egzersizini tamamlayarak.
+1. **Source\Ex02-Injecting View\Begin** klasöründe bulunan **BEGIN** çözümünü açın. Aksi takdirde, önceki Alıştırmayı tamamlayarak elde edilen **son** çözümü kullanmaya devam edebilirsiniz.
 
-   1. Sağlanan açtıysanız **başlamak** çözümü ihtiyaç duyacağınız bazı eksik NuGet paketlerini yüklemek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Belirtilen **Başlangıç** çözümünü açtıysanız devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
       > 
-      > Bu makalede daha fazla bilgi için bkz: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
-2. Dahil **MessageService.cs** ve **IMessageService.cs** sınıfları bulunan **\Assets kaynak** klasöründe **/Hizmetleri**. Bunu yapmak için sağ **Hizmetleri** klasörü ve select **varolan öğeyi Ekle**. Dosyaların konumuna göz atın ve bunları ekleyebilirsiniz.
+      > Daha fazla bilgi için şu makaleye bakın: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+2. **/Services**içindeki **kaynak \varlıklar** klasöründe bulunan **MessageService.cs** ve **IMessageService.cs** sınıflarını dahil edin. Bunu yapmak için, **Hizmetler** klasörü öğesine sağ tıklayın ve **Varolan öğe Ekle**' yi seçin. Dosyaların konumuna gidin ve bunları dahil edin.
 
-    ![İleti hizmeti ve hizmet arabirimi ekleme](aspnet-mvc-4-dependency-injection/_static/image8.png "ileti hizmeti ve hizmet arabirimi ekleme")
+    ![Ileti hizmeti ve hizmet arabirimi ekleniyor](aspnet-mvc-4-dependency-injection/_static/image8.png "Ileti hizmeti ve hizmet arabirimi ekleniyor")
 
-    *Ekleme ileti hizmeti ve hizmet arabirimi*
+    *Ileti hizmeti ve hizmet arabirimi ekleniyor*
 
     > [!NOTE]
-    > **IMessageService** arabirimi tarafından uygulanan iki özellikler tanımlar **MessageService** sınıfı. Bu özellikleri -**ileti** ve **ImageUrl**-görüntülenecek iletiyi ve görüntünün URL'sini depolayın.
-3. Klasör Oluştur **/sayfaları** projenin kök klasörünü ve ardından varolan sınıf Ekle **MyBasePage.cs** gelen **Source\Assets**. Devralınacağı temel sayfa aşağıdaki yapıya sahiptir.
+    > **Imessageservice** arabirimi, **MessageService** sınıfı tarafından uygulanan iki özelliği tanımlar. Bu özellikler-**ileti** ve **ImageUrl**-ileti ve görüntülenecek görüntünün URL 'sini depolar.
+3. Projenin kök klasöründe **/Pages** klasörünü oluşturun ve sonra **MyBasePage.cs** sınıfını **source\varlıklarından**ekleyin. İçinden kalıtımla alacak temel sayfa aşağıdaki yapıya sahiptir.
 
-    ![Sayfalar klasöründe](aspnet-mvc-4-dependency-injection/_static/image9.png "sayfaları klasörü")
+    ![Sayfalar klasörü](aspnet-mvc-4-dependency-injection/_static/image9.png "Sayfalar klasörü")
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample7.cs)]
-4. Açık **Browse.cshtml** görünümüne **/Views/Store** klasöründe ve devralınan hale **MyBasePage.cs**.
+4. **/Views/Store** klasöründen **gözataal. cshtml** görünümünü açın ve **MyBasePage.cs**adresinden devralma yapın.
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample8.cshtml)]
-5. İçinde **Gözat** görüntülemek için bir çağrı ekleyin **MessageService** görüntü ve hizmet tarafından alınan bir ileti görüntülemek için.
+5. Bir görüntü ve hizmet tarafından alınan bir ileti görüntülemek için, **Gözden** geçirme görünümünde **MessageService** 'e bir çağrı ekleyin.
    (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample9.cshtml)]
@@ -288,193 +288,193 @@ Bu görevde, yeni bir bağımlılık oluşturmak için bir hizmet çağrısı ge
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_Including_a_Custom_Dependency_Resolver_and_a_Custom_View_Page_Activator"></a>
-#### <a name="task-2---including-a-custom-dependency-resolver-and-a-custom-view-page-activator"></a>Görev 2 - özel bağımlılık çözümleyiciyi ve özel görünüm sayfa Etkinleştiricisini dahil
+#### <a name="task-2---including-a-custom-dependency-resolver-and-a-custom-view-page-activator"></a>Görev 2-özel bir bağımlılık Çözümleyicisi ve özel bir görünüm sayfası Etkinleştirici dahil
 
-Önceki görevde bir hizmet çağrısı içindeki gerçekleştirmek için bir görünüm içindeki yeni bir bağımlılık eklenmiş. ASP.NET MVC bağımlılık ekleme arabirimlerini uygulayarak, bağımlılık şimdi çözülecektir **IViewPageActivator** ve **Idependencyresolver**. Çözümde uygulaması içerecektir **Idependencyresolver** , baş hizmet alma ile Unity kullanarak. Ardından, başka bir özel uygulanışı içerecektir **IViewPageActivator** oluşturulması görünüm çözmek için arabirim.
+Önceki görevde, içinde bir hizmet çağrısı gerçekleştirmek için bir görünümün içine yeni bir bağımlılık eklendi. Şimdi, ASP.NET MVC bağımlılık ekleme arabirimlerini **ıviewpageetkinleştirici** ve **ıdependencyresolver**uygulayarak bu bağımlılığı çöztecaksınız. Çözümdeki bir **ıdependencyresolver** uygulaması, Unity kullanarak hizmet alımı ile ilgilenecektir. Daha sonra, görünümlerin oluşturulmasını çözecek bir **ıviewpagesemblyınterface** özel uygulaması dahil edersiniz.
 
 > [!NOTE]
-> ASP.NET MVC 3'ten sonraki bağımlılık ekleme için uygulama Hizmetleri'ne kaydetme arabirimler Basitleştirilmiş. **Idependencyresolver** ve **IViewPageActivator** bağımlılık ekleme için ASP.NET MVC 3 özellikleri parçasıdır.
+> ASP.NET MVC 3 ' den itibaren, bağımlılık ekleme için uygulama, Hizmetleri kaydetme arabirimlerini basitleştirdi. **Idependencyresolver** ve **ıviewpageetkinleştirici** , bağımlılık ekleme için ASP.NET MVC 3 özelliklerinin bir parçasıdır.
 > 
-> **-Idependencyresolver** arabirimi önceki IMvcServiceLocator değiştirir. Uygulayıcılar Idependencyresolver, hizmetin veya hizmet koleksiyonu örneği döndürmelidir.
+> **-Idependencyresolver** arabirimi önceki ımvcservicelocator 'un yerini almıştır. Idependencyresolver 'ın uygulayıcıları, hizmet veya hizmet koleksiyonunun bir örneğini döndürmelidir.
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample10.cs)]
 > 
-> **-IViewPageActivator** arabirimi görünüm sayfalarının bağımlılık ekleme nasıl örneği oluşturulur üzerinde daha ayrıntılı denetim sağlar. Uygulayan sınıflar **IViewPageActivator** arabirimi örnekleri görüntüle bağlam bilgilerini kullanarak oluşturabilirsiniz.
+> **-Iviewpageetkinleştirici** arabirimi, görünüm sayfalarının bağımlılık ekleme yoluyla nasıl örneklendiği konusunda daha ayrıntılı denetim sağlar. **Iviewpageetkinleştirici** arabirimini uygulayan sınıflar, bağlam bilgilerini kullanarak görünüm örnekleri oluşturabilir.
 > 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample11.cs)]
 
-1. Oluşturma /**fabrikaları** projenin kök klasöründe.
-2. Dahil **CustomViewPageActivator.cs** çözümünüzden için **/kaynakları/varlıklar/** için **fabrikaları** klasör. Bunu yapmak için sağ **/Factories** klasörüne **Ekle | Var olan öğe** seçip **CustomViewPageActivator.cs**. Bu sınıfın uyguladığı **IViewPageActivator** Unity kapsayıcı tutmak için arabirim.
+1. Projenin kök klasöründe/**Factory** klasörünü oluşturun.
+2. **/Sources/Assets/** to **factory** klasöründen çözümünüze **CustomViewPageActivator.cs** ekleyin. Bunu yapmak için **/Factory** klasörüne sağ tıklayın, Ekle ' yi seçin.  **Mevcut öğe** ve ardından **CustomViewPageActivator.cs**' ı seçin. Bu sınıf, Unity kapsayıcısını tutmak için **ıviewpageetkinleştirici** arabirimini uygular.
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample12.cs)]
 
     > [!NOTE]
-    > **CustomViewPageActivator** Unity kapsayıcısını kullanarak bir görünüm oluşturma yönetmekten sorumludur.
-3. Dahil **UnityDependencyResolver.cs** dosya **/kaynakları/varlıklar** için **/Factories** klasör. Bunu yapmak için sağ **/Factories** klasörüne **Ekle | Var olan öğe** seçip **UnityDependencyResolver.cs** dosya.
+    > **Customviewpageetkinleştirici** , bir Unity kapsayıcısı kullanarak bir görünümün oluşturulmasını yönetmekten sorumludur.
+3. **/Sources/varlıklarından** **/factory** klasöründen **UnityDependencyResolver.cs** dosyasını ekleyin. Bunu yapmak için **/Factory** klasörüne sağ tıklayın, Ekle ' yi seçin.  **Varolan öğe** ve ardından **UnityDependencyResolver.cs** dosyası ' nı seçin.
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample13.cs)]
 
     > [!NOTE]
-    > **UnityDependencyResolver** Unity için özel bir DependencyResolver sınıftır. Bir hizmet içinde Unity kapsayıcı bulunamıyor, temel çözümleyici invocated.
+    > **Unitydependencyresolver** sınıfı, Unity için özel bir dependencyresolver. Unity kapsayıcısı içinde bir hizmet bulunamazsa, taban çözümleyici gönderilir.
 
-Aşağıdaki görev hem de uygulamaları, hizmetleri ve görünümleri konumunu bilmeniz modeli izin vermek için kaydedilir.
+Aşağıdaki görevde her iki uygulama da modelin hizmetlerin ve görünümlerin konumunu bilmesini sağlamak için kaydedilir.
 
 <a id="Ex2Task3"></a>
 
 <a id="Task_3_-_Registering_for_Dependency_Injection_within_Unity_container"></a>
-#### <a name="task-3---registering-for-dependency-injection-within-unity-container"></a>Görev 3 - için bağımlılık ekleme kapsayıcısına Unity kaydediliyor
+#### <a name="task-3---registering-for-dependency-injection-within-unity-container"></a>Görev 3-Unity kapsayıcısı içinde bağımlılık ekleme için kaydetme
 
-Bu görevde, birlikte çalışma bağımlılık ekleme yapmak için önceki her şeyi koyacaktır.
+Bu görevde, bağımlılık ekleme işini yapmak için önceki tüm şeyleri bir araya getirebilirsiniz.
 
-Şimdiye kadar çözümünüzün aşağıdaki öğelere sahiptir:
+Çözümünüz Şu anda aşağıdaki öğelere sahiptir:
 
-- A **Gözat** devralınan görünümü **MyBaseClass** ve **MessageService**.
-- Bir ara sınıfı -**MyBaseClass**-bağımlılık ekleme için hizmet arabirimi bildirilen sahiptir.
-- Hizmeti - **MessageService** - ve arabirimiyle **IMessageService**.
-- Unity için-özel bağımlılık çözümleyici **UnityDependencyResolver** -hizmet alma ile ilgilidir.
-- Bir görünüm sayfa etkinleştiricisini - **CustomViewPageActivator** -sayfası oluşturur.
+- **MyBaseClass** 'tan devralan ve **MessageService**'i tüketen bir **tarama** görünümü.
+- Hizmet arabirimi için belirtilen bağımlılık eklenmesine sahip olan bir ara sınıf-**MyBaseClass**.
+- Hizmet- **MessageService** ve arabirimi **ımessageservice**.
+- Unity- **Unitydependencyresolver** için özel bir bağımlılık Çözümleyicisi; hizmet alımı ile ilgilidir.
+- Sayfayı oluşturan bir görünüm sayfası Etkinleştirici- **Customviewpageetkinleştirici** .
 
-Eklemesine **Gözat** görünümü artık kayıt özel bağımlılık çözümleyiciyi Unity kapsayıcısında.
+**Gezinme** görünümü eklemek Için şimdi Unity kapsayıcısına özel bağımlılık çözümleyici 'yi kaydetmelisiniz.
 
-1. Açık **Bootstrapper.cs** dosya.
-2. Örneğini kaydetmek **MessageService** hizmeti başlatmak için Unity kapsayıcıya alın:
+1. **Bootstrapper.cs** dosyasını açın.
+2. Hizmeti başlatmak için bir **MessageService** örneğini Unity kapsayıcısına kaydedin:
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex02 - kayıt iletisi hizmeti*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex02-Register Ileti hizmeti*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample14.cs)]
-3. Bir başvuru ekleyin **MvcMusicStore.Factories** ad alanı.
+3. **Mvcmusicstore. Factory** ad alanına bir başvuru ekleyin.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme - Ex02 - Laboratuvar fabrikaları Namespace*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex02-Factory ad alanı*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample15.cs)]
-4. Kayıt **CustomViewPageActivator** Unity kapsayıcı içine bir görünüm sayfa etkinleştiricisini olarak:
+4. **Customviewpageetkinleştirici** öğesini Unity kapsayıcısına bir görünüm sayfası Etkinleştirici olarak Kaydet:
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex02 - kayıt CustomViewPageActivator*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex02-Register Customviewpageetkinleştirici*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample16.cs)]
-5. ASP.NET MVC 4 varsayılan bağımlılık çözümleyici örneği ile değiştirin **UnityDependencyResolver**. Bunu yapmak için değiştirin **başlatmak** yöntemini aşağıdaki kodla içerik:
+5. ASP.NET MVC 4 varsayılan bağımlılık çözümleyicisini **Unitydependencyresolver**örneğiyle değiştirin. Bunu yapmak için, **Initialize** Yöntemi içeriğini aşağıdaki kodla değiştirin:
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex02 - güncelleştirme bağımlılık çözümleyiciyi*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex02-güncelleştirme bağımlılık Çözümleyicisi*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample17.cs)]
 
     > [!NOTE]
-    > ASP.NET MVC varsayılan bağımlılık çözümleyici sınıfı sağlar. Unity için oluşturduk biri olarak özel bağımlılık çözümleyiciler ile çalışmak için bu çözümleyici değiştirilmesi gerekir.
+    > ASP.NET MVC varsayılan bağımlılık çözümleyici sınıfı sağlar. Unity için oluşturduğumuz özel bağımlılık çözümleyicilerine göre çalışmak için, bu çözümleyici değiştirilmelidir.
 
 <a id="Ex2Task4"></a>
 
 <a id="Task_4_-_Running_the_Application"></a>
-#### <a name="task-4---running-the-application"></a>Görev 4 - Uygulamayı çalıştırma
+#### <a name="task-4---running-the-application"></a>Görev 4-uygulamayı çalıştırma
 
-Bu görevde, Store Tarayıcı hizmeti ve görüntü ve alınan ileti gösterilir doğrulamak amacıyla uygulamanın çalışır:
+Bu görevde, mağaza tarayıcısının hizmeti tükettiğini ve görüntüyü ve alınan iletiyi gösterdiğini doğrulamak için uygulamayı çalıştıracaksınız:
 
-1. Tuşuna **F5** uygulamayı çalıştırın.
-2. Tıklayın **Rock** görmek türler menü ve içinde nasıl **MessageService** Hoş Geldiniz iletisi ve görüntü yüklendi ve görünüm eklendi. Bu örnekte biz için giriyorsunuz &quot; **Rock**&quot;:
+1. Uygulamayı çalıştırmak için **F5**'e basın.
+2. Tarzlar menüsünde **rock** ' e tıklayın ve **MessageService** 'in görünüme nasıl eklendiğini ve hoş geldiniz iletisini ve görüntüsünü nasıl yüklei görün. Bu örnekte, &quot;**Rock**&quot;:
 
-    ![MVC müzik Store - görünümü ekleme](aspnet-mvc-4-dependency-injection/_static/image10.png "MVC müzik Store - görünümü ekleme")
+    ![MVC müzik deposu-görünüm ekleme](aspnet-mvc-4-dependency-injection/_static/image10.png "MVC müzik deposu-görünüm ekleme")
 
-    *MVC müzik Store - görünümü ekleme*
+    *MVC müzik deposu-görünüm ekleme*
 3. Tarayıcıyı kapatın.
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Injecting_Action_Filters"></a>
-### <a name="exercise-3-injecting-action-filters"></a>Alıştırma 3: Eylem filtrelerini ekleme
+### <a name="exercise-3-injecting-action-filters"></a>Alıştırma 3: ekleme eylem filtreleri
 
-Önceki uygulamalı laboratuvarda **özel eylem filtreleri** filtreleri özelleştirme ve ekleme çalıştı. Bu alıştırmada, Unity kapsayıcısını kullanarak bağımlılık ekleme ile filtre eklemesine öğreneceksiniz. Bunu yapmak için site etkinliklerini izler bir özel eylem filtresi müzik Store çözüme ekleyeceksiniz.
+Önceki uygulamalı laboratuvar **özel eylem filtrelerinde** , filtre özelleştirme ve ekleme ile çalıştık. Bu alıştırmada, Unity kapsayıcısını kullanarak bağımlılık ekleme ile filtrelerin nasıl ekleneceğini öğreneceksiniz. Bunu yapmak için, müzik deposu çözümüne, sitenin etkinliğini izleyen özel bir eylem filtresi ekleyebilirsiniz.
 
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_Including_the_Tracking_Filter_in_the_Solution"></a>
-#### <a name="task-1---including-the-tracking-filter-in-the-solution"></a>Görev 1 - izleme filtresi dahil
+#### <a name="task-1---including-the-tracking-filter-in-the-solution"></a>Görev 1-çözüm içindeki Izleme Filtresi dahil
 
-Bu görevde, bir özel eylem filtresi olayları izlemek müzik Store içerecektir. Özel eylem filtresi olarak kavramları zaten önceki laboratuvarda değerlendirilir &quot;özel eylem filtreleri&quot;, yalnızca bu Laboratuvar varlıklarını klasöründen filtre sınıfının içerir ve Unity için filtre sağlayıcı oluşturup:
+Bu görevde,, olayları izlemek için özel bir eylem filtresi olan müzik deposuna dahil edersiniz. Özel eylem filtresi kavramları zaten önceki laboratuvarda&quot;&quot;özel eylem filtrelerinde değerlendirildiğinden, filtre sınıfını bu laboratuvarın varlıklar klasöründen dahil eder ve ardından Unity için bir filtre sağlayıcısı oluşturursunuz:
 
-1. Açık **başlamak** çözüm bulunan **Source\Ex03 - ekleme eylemi Filter\Begin** klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde edilen önceki egzersizini tamamlayarak.
+1. **Source\ex03-ekleme Action Filter\begın** Folder konumundaki **Begin** çözümünü açın. Aksi takdirde, önceki Alıştırmayı tamamlayarak elde edilen **son** çözümü kullanmaya devam edebilirsiniz.
 
-   1. Sağlanan açtıysanız **başlamak** çözümü ihtiyaç duyacağınız bazı eksik NuGet paketlerini yüklemek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Belirtilen **Başlangıç** çözümünü açtıysanız devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
       > 
-      > Bu makalede daha fazla bilgi için bkz: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
-2. Dahil **TraceActionFilter.cs** dosya **/kaynakları/varlıklar** için **/filtreler** klasör.
+      > Daha fazla bilgi için şu makaleye bakın: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+2. **/Sources/varlıklarından** **/filters** klasöründen **TraceActionFilter.cs** dosyasını ekleyin.
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample18.cs)]
 
     > [!NOTE]
-    > Bu özel eylem filtresi ASP.NET izleme gerçekleştirir. Denetleyebilirsiniz &quot;ASP.NET MVC 4 yerel ve dinamik eylem filtrelerini&quot; Laboratuvar için daha fazla başvuru.
-3. Boş sınıf ekleme **FilterProvider.cs** klasöründe projeye   **/filtreler.**
-4. Ekleme **System.Web.Mvc** ve **Microsoft.Practices.Unity** ad alanlarında **FilterProvider.cs**.
+    > Bu özel eylem filtresi ASP.NET izlemeyi gerçekleştirir. Daha fazla başvuru için &quot;ASP.NET MVC 4 yerel ve dinamik eylem filtrelerini&quot; Laboratuvarı kontrol edebilirsiniz.
+3. **FilterProvider.cs** boş sınıfını **/Filters.** klasörüne ekleyin.
+4. **FilterProvider.cs**içinde **System. Web. Mvc** ve **Microsoft. Yöntemler. Unity** ad alanlarını ekleyin.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex03 - filtre sağlayıcı ad alanları ekleme*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex03-filtre sağlayıcısı ad alanları ekleme*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample19.cs)]
-5. Devralınan sınıf olun **IFilterProvider** arabirimi.
+5. Sınıfın **IFilterProvider** arabiriminden devralmasını sağlayın.
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample20.cs)]
-6. Ekleme bir **IUnityContainer** özelliğinde **FilterProvider** sınıfı ve kapsayıcı atamak için bir sınıf oluşturucusuna oluşturun.
+6. **FilterProvider** sınıfına bir **ıunitycontainer** özelliği ekleyin ve kapsayıcıyı atamak için bir sınıf Oluşturucu oluşturun.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex03 - filtre sağlayıcısı Oluşturucusu*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex03-filtre sağlayıcısı Oluşturucusu*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample21.cs)]
 
     > [!NOTE]
-    > Filtre sağlayıcısı sınıf oluşturucusu olmayan oluşturma bir **yeni** iç nesne. Kapsayıcı, bir parametre olarak geçirilir ve bağımlılık Unity tarafından çözülür.
-7. İçinde **FilterProvider** yöntemi uygulamak, sınıf **GetFilters** gelen **IFilterProvider** arabirimi.
+    > Filtre sağlayıcısı sınıf Oluşturucusu içinde **Yeni** bir nesne oluşturmamıyor. Kapsayıcı bir parametre olarak geçirilir ve bağımlılık Unity tarafından çözülür.
+7. **FilterProvider** sınıfında, **IFilterProvider** arabiriminden **GetFilters** yöntemini uygulayın.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex03 - filtre sağlayıcısı GetFilters*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex03-filtre sağlayıcısı GetFilters*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample22.cs)]
 
 <a id="Ex3Task2"></a>
 
 <a id="Task_2_-_Registering_and_Enabling_the_Filter"></a>
-#### <a name="task-2---registering-and-enabling-the-filter"></a>Görev 2 - kaydetme ve filtre etkinleştirme
+#### <a name="task-2---registering-and-enabling-the-filter"></a>Görev 2-filtreyi kaydetme ve etkinleştirme
 
-Bu görevde, site izlemeyi etkinleştirir. Bunu yapmak için filtreye kaydolacak **Bootstrapper.cs BuildUnityContainer** yöntemi izlemeyi başlatmak için:
+Bu görevde site izlemeyi etkinleştirecektir. Bunu yapmak için, izlemeye başlamak için filtreyi **Bootstrapper.cs BuildUnityContainer** yöntemine kaydedersiniz:
 
-1. Açık **Web.config** etkinleştir izleme izleme System.Web grubu ve proje kök bulunur.
+1. Proje kökünde bulunan **Web. config** dosyasını açın ve System. Web grubunda izleme izlemeyi etkinleştirin.
 
     [!code-xml[Main](aspnet-mvc-4-dependency-injection/samples/sample23.xml)]
-2. Açık **Bootstrapper.cs** proje kökündeki.
-3. Bir başvuru ekleyin **MvcMusicStore.Filters** ad alanı.
+2. Proje kökünde **Bootstrapper.cs** öğesini açın.
+3. **Mvcmusicstore. Filters** ad alanına bir başvuru ekleyin.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme - Ex03 - Laboratuvar önyükleyici ad alanlarını ekleme*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex03-önyükleyici ekleme ad alanı*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample24.cs)]
-4. Seçin **BuildUnityContainer** yöntemi ve kayıt Unity kapsayıcısında filtre. Eylem filtresi yanı sıra filtresi sağlayıcıyı kaydetmek gerekir.
+4. **Buildunitycontainer** yöntemini seçin ve filtreyi Unity kapsayıcısına kaydedin. Filtre sağlayıcısını ve eylem filtresini kaydetmeniz gerekir.
 
-    (Kod parçacığını - *ASP.NET bağımlılık ekleme Laboratuvar - Ex03 - kayıt FilterProvider ve ActionFilter*)
+    (Kod parçacığı- *ASP.net bağımlılığı ekleme Laboratuvarı-Ex03-Register FilterProvider ve ActionFilter*)
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample25.cs)]
 
 <a id="Ex3Task3"></a>
 
 <a id="Task_3_-_Running_the_Application"></a>
-#### <a name="task-3---running-the-application"></a>Görev 3 - Uygulamayı çalıştırma
+#### <a name="task-3---running-the-application"></a>Görev 3-uygulamayı çalıştırma
 
-Bu görevde, uygulamayı çalıştırmak ve özel eylem filtresi Etkinlik izleme, test edin:
+Bu görevde, uygulamayı çalıştıracaksınız ve özel eylem filtresinin etkinliğin izlenmesini test edersiniz:
 
-1. Tuşuna **F5** uygulamayı çalıştırın.
-2. Tıklayın **Rock** içindeki türleri. İsterseniz daha fazla oyun türü için göz atabilirsiniz.
+1. Uygulamayı çalıştırmak için **F5**'e basın.
+2. Tarzlar menüsünde **rock** ' e tıklayın. İsterseniz daha fazla tarzya gidebilirsiniz.
 
-    ![Müzik Store](aspnet-mvc-4-dependency-injection/_static/image11.png "müzik Store")
+    ![Müzik Deposu](aspnet-mvc-4-dependency-injection/_static/image11.png "Müzik Deposu")
 
     *Müzik Deposu*
-3. Gözat **/Trace.axd** uygulama sayfasını ve ardından izlemek için **ayrıntıları**.
+3. Uygulama Izleme sayfasını görmek için **/Trace.exe** öğesine gidin ve **Ayrıntıları görüntüle**' ye tıklayın.
 
-    ![Uygulama izleme günlüğü](aspnet-mvc-4-dependency-injection/_static/image12.png "uygulama izleme günlüğü")
+    ![Uygulama Izleme günlüğü](aspnet-mvc-4-dependency-injection/_static/image12.png "Uygulama Izleme günlüğü")
 
-    *Uygulama izleme günlüğü*
+    *Uygulama Izleme günlüğü*
 
-    ![Uygulama izleme - istek ayrıntılarını](aspnet-mvc-4-dependency-injection/_static/image13.png "uygulama izleme - istek ayrıntıları")
+    ![Uygulama Izleme-Istek ayrıntıları](aspnet-mvc-4-dependency-injection/_static/image13.png "Uygulama Izleme-Istek ayrıntıları")
 
-    *Uygulama izleme - istek ayrıntıları*
+    *Uygulama Izleme-Istek ayrıntıları*
 4. Tarayıcıyı kapatın.
 
 ---
@@ -484,31 +484,31 @@ Bu görevde, uygulamayı çalıştırmak ve özel eylem filtresi Etkinlik izleme
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu uygulamalı laboratuvarı tamamlayarak bağımlılık ekleme ASP.NET MVC 4'te bir NuGet paketi kullanarak Unity tümleştirerek kullanmayı öğrendiniz. Bunu başarmak için bağımlılık ekleme denetleyicileri, görünümler ve eylem filtrelerini içinde kullandınız.
+Bu uygulamalı Laboratuvarı tamamlayarak, bir NuGet paketi kullanarak Unity 'yi tümleştirerek ASP.NET MVC 4 ' te bağımlılık ekleme 'nin nasıl kullanılacağını öğrendiniz. Bunu başarmak için, denetleyiciler, görünümler ve eylem filtreleri içinde bağımlılık ekleme 'yi kullandınız.
 
-Aşağıdaki kavramlar kapsanan:
+Aşağıdaki kavramlar ele alınmıştır:
 
-- ASP.NET MVC 4 bağımlılık ekleme özellikleri
-- Unity.Mvc3 NuGet paketi kullanarak unity tümleştirmesi
-- Denetleyicileri bağımlılık ekleme
-- Görünümlere bağımlılık ekleme
-- Eylem filtreleri bağımlılık ekleme
+- ASP.NET MVC 4 bağımlılığı ekleme özellikleri
+- Unity. Mvc3 NuGet paketini kullanarak Unity tümleştirmesi
+- Denetleyicilere bağımlılık ekleme
+- Görünümlerde bağımlılık ekleme
+- Eylem filtrelerinin bağımlılık ekleme
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Web için Express 2012 Visual Studio'yu yükleme
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Web için Visual Studio Express 2012 yükleme
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+**[Microsoft Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** kullanarak **Web için Microsoft Visual Studio Express 2012** veya başka bir &quot;Express&quot; sürümü yükleyebilirsiniz. Aşağıdaki yönergeler *Microsoft Web Platformu Yükleyicisi*kullanarak *Web Için Visual Studio Express 2012* ' i yüklemek için gereken adımlarda size yol gösterir.
 
-1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) kısmına gidin. Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK ile Web</em>&quot;.
-2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
-3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
+1. [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169) kısmına gidin. Alternatif olarak, Web Platformu Yükleyicisi zaten yüklüyse, <em>Microsoft Azure SDK&quot;Ile Web için Visual Studio Express 2012</em> &quot;ürünü açabilir ve bunu arayabilirsiniz.
+2. **Şimdi yüklensin**' e tıklayın. **Web platformu yükleyicinizi** yoksa, önce indirmek ve yüklemek üzere yönlendirilirsiniz.
+3. **Web Platformu Yükleyicisi** açıkken, kurulum 'u başlatmak için **yükleme** ' ye tıklayın.
 
-    ![Visual Studio Express yükleyin](aspnet-mvc-4-dependency-injection/_static/image14.png "Visual Studio Express'i yükle")
+    ![Visual Studio Express yüklensin](aspnet-mvc-4-dependency-injection/_static/image14.png "Visual Studio Express yüklensin")
 
-    *Visual Studio Express yükleyin*
-4. Tüm ürünlerin lisans ve koşulları okuyun ve tıklayın **kabul ediyorum** devam etmek için.
+    *Visual Studio Express yüklensin*
+4. Tüm ürünlerin lisanslarını ve koşullarını okuyun ve devam etmek için **kabul ediyorum** ' a tıklayın.
 
     ![Lisans koşullarını kabul etme](aspnet-mvc-4-dependency-injection/_static/image15.png)
 
@@ -518,58 +518,58 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
     ![Yükleme ilerleme durumu](aspnet-mvc-4-dependency-injection/_static/image16.png)
 
     *Yükleme ilerleme durumu*
-6. Yükleme tamamlandığında, tıklayın **son**.
+6. Yükleme tamamlandığında **son**' a tıklayın.
 
     ![Yükleme tamamlandı](aspnet-mvc-4-dependency-injection/_static/image17.png)
 
     *Yükleme tamamlandı*
-7. Tıklayın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
-8. Web için Visual Studio Express'te açmak için Git **Başlat** ekranında ve yazmaya başlayabilirsiniz &quot; **VS Express**&quot;, ardından **Web için VS Express** bir kutucuk.
+7. Web Platformu Yükleyicisi 'ni kapatmak için **Çıkış** ' a tıklayın.
+8. Web için Visual Studio Express açmak için **Başlangıç** ekranına gidin ve &quot;**vs Express**&quot;yazmaya başlayın ve ardından **Web için vs Express** kutucuğuna tıklayın.
 
-    ![Web kutucuğu için VS Express](aspnet-mvc-4-dependency-injection/_static/image18.png)
+    ![Web için VS Express kutucuğu](aspnet-mvc-4-dependency-injection/_static/image18.png)
 
-    *Web kutucuğu için VS Express*
+    *Web için VS Express kutucuğu*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Using_Code_Snippets"></a>
-## <a name="appendix-b-using-code-snippets"></a>Ek B: Kod parçacıkları
+## <a name="appendix-b-using-code-snippets"></a>Ek B: kod parçacıklarını kullanma
 
-Kod parçacıkları ile parmaklarınızın ucunda ihtiyacınız olan tüm kod vardır. Laboratuvar belgenin tam olarak ne zaman, kullanabilmek için aşağıdaki şekilde gösterildiği gibi size bildirir.
+Kod parçacıkları ile, ihtiyacınız olan tüm koda parmaklarınızın elinizin altında olmasını sağlayabilirsiniz. Laboratuvar belgesi, aşağıdaki şekilde gösterildiği gibi, bunları yalnızca ne zaman kullanacağınızı söyleyecektir.
 
-![Kod projenize eklemek için Visual Studio kod parçacıkları](aspnet-mvc-4-dependency-injection/_static/image19.png "kod projenize eklemek için Visual Studio kullanarak kod parçacıkları")
+![Projenize kod eklemek için Visual Studio kod parçacıklarını kullanma](aspnet-mvc-4-dependency-injection/_static/image19.png "Projenize kod eklemek için Visual Studio kod parçacıklarını kullanma")
 
-*Kod projenize eklemek için Visual Studio kod parçacıkları*
+*Projenize kod eklemek için Visual Studio kod parçacıklarını kullanma*
 
-***Klavye (yalnızca C#) kullanarak bir kod parçacığı eklemek için***
+***Klavyeyi kullanarak bir kod parçacığı eklemek için (C# yalnızca)***
 
-1. Kod eklemesini istediğiniz imleci yerleştirin.
-2. (Olmadan, boşluk veya tire) kod parçacığı adı yazmaya başlayın.
-3. Kod parçacıkları adlarla eşleşen IntelliSense görüntüler izleyin.
-4. Doğru kod parçacığını seçin (veya tüm parçacığının adı seçilene kadar yazmaya devam edin).
-5. İki kez İmleç konumuna kod parçacığını eklemek için SEKME tuşuna basın.
+1. Kodu eklemek istediğiniz yere imleci yerleştirin.
+2. Kod parçacığı adını yazmaya başlayın (boşluk veya tire olmadan).
+3. IntelliSense, eşleşen kod parçacıklarının adlarını gösterdiği gibi izleyin.
+4. Doğru kod parçacığını seçin (veya tüm kod parçacığının adı seçilene kadar yazmaya devam edin).
+5. Kod parçacığını imleç konumuna eklemek için SEKME tuşuna iki kez basın.
 
-![Kod parçacığı adını yazmaya başlayın](aspnet-mvc-4-dependency-injection/_static/image20.png "kod parçacığı adını yazmaya başlayın")
+![Kod parçacığı adını yazmaya başlayın](aspnet-mvc-4-dependency-injection/_static/image20.png "Kod parçacığı adını yazmaya başlayın")
 
 *Kod parçacığı adını yazmaya başlayın*
 
-![Vurgulanan kod parçacığı seçmek için SEKME tuşuna basın](aspnet-mvc-4-dependency-injection/_static/image21.png "vurgulanan kod parçacığı seçmek için Tab tuşuna basın")
+![Vurgulanan parçacığı seçmek için Tab tuşuna basın](aspnet-mvc-4-dependency-injection/_static/image21.png "Vurgulanan parçacığı seçmek için Tab tuşuna basın")
 
-*Vurgulanan kod parçacığı seçmek için SEKME tuşuna basın*
+*Vurgulanan parçacığı seçmek için Tab tuşuna basın*
 
-![Yeniden Tab tuşuna basın ve kod parçacığı genişletir](aspnet-mvc-4-dependency-injection/_static/image22.png "yeniden Tab tuşuna basın ve kod parçacığı genişletir")
+![Sekmeye tekrar basın ve kod parçacığı genişletilir](aspnet-mvc-4-dependency-injection/_static/image22.png "Sekmeye tekrar basın ve kod parçacığı genişletilir")
 
-*Yeniden Tab tuşuna basın ve kod parçacığı genişletir*
+*Sekmeye tekrar basın ve kod parçacığı genişletilir*
 
-***Fare (C#, Visual Basic ve XML) kullanarak bir kod parçacığı eklemek için*** 1. Kod parçacığını eklemek istediğiniz yeri sağ tıklayın.
+***Fareyi kullanarak bir kod parçacığı eklemek için (C#, Visual Basic ve XML)*** 1. Kod parçacığını eklemek istediğiniz yere sağ tıklayın.
 
-1. Seçin **parçacık Ekle** ardından **kod Parçacıklarım**.
-2. Tıklayarak ilgili kod parçacığı listeden seçin.
+1. Kod **parçacığı Ekle** ' yi ve ardından **kod parçacıklarını**seçin.
+2. Listeden tıklatarak ilgili kod parçacığını seçin.
 
-![İstediğiniz kod parçacığını eklemek ve parçacık eklemek için sağ tıklama](aspnet-mvc-4-dependency-injection/_static/image23.png "sağ tıklayın, istediğiniz kod parçacığını eklemek ve kod parçacığı Ekle")
+![Kod parçacığını eklemek istediğiniz yere sağ tıklayın ve parçacığı Ekle ' yi seçin.](aspnet-mvc-4-dependency-injection/_static/image23.png "Kod parçacığını eklemek istediğiniz yere sağ tıklayın ve parçacığı Ekle ' yi seçin.")
 
-*Kod parçacığını eklemek ve parçacık eklemek istediğiniz sağ tıklayın*
+*Kod parçacığını eklemek istediğiniz yere sağ tıklayın ve parçacığı Ekle ' yi seçin.*
 
-![Tıklayarak ilgili kod parçacığını listesinden çekme](aspnet-mvc-4-dependency-injection/_static/image24.png "tıklayarak ilgili kod parçacığı listeden seçin")
+![Listeden tıklatarak ilgili kod parçacığını seçin](aspnet-mvc-4-dependency-injection/_static/image24.png "Listeden tıklatarak ilgili kod parçacığını seçin")
 
-*Tıklayarak ilgili kod parçacığı listeden seçin*
+*Listeden tıklatarak ilgili kod parçacığını seçin*

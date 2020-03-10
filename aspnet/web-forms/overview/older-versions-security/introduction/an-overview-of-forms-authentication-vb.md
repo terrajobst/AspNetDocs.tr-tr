@@ -9,11 +9,11 @@ ms.assetid: 83267f7d-64d9-41ee-82cf-da91b1bf534d
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
 msc.type: authoredcontent
 ms.openlocfilehash: d8ceb6b5290300992e52199caa9314c573de1942
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74626295"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633905"
 ---
 # <a name="an-overview-of-forms-authentication-vb"></a>Forms kimlik doğrulamasına genel bakış (VB)
 
@@ -205,7 +205,7 @@ Gördüğünüz gibi, üç geçerli kullanıcı hesabı vardır: Scott, Jisun ve
 
 Kullanıcı geçerli kimlik bilgileri girdiğinde ilgili sayfaya yönlendirildiğine bahsetmiştim. Ne olmasa da uygun sayfa nedir? Kullanıcı, görüntüleme yetkisine sahip olmayan bir sayfayı ziyaret ettiğinde, FormsAuthenticationModule otomatik olarak oturum açma sayfasına yönlendirir. Bunu yaparken, istenen URL 'yi ReturnUrl parametresi aracılığıyla QueryString içinde içerir. Diğer bir deyişle, bir Kullanıcı ProtectedPage. aspx ' i ziyaret etmeyi denediğinde ve bunu yapmak için yetkilendirilmeyen FormsAuthenticationModule, bunları şu şekilde yönlendirecektir:
 
-Login. aspx? ReturnUrl = ProtectedPage. aspx
+Login.aspx?ReturnUrl=ProtectedPage.aspx
 
 Başarıyla oturum açtıktan sonra, Kullanıcı ProtectedPage. aspx 'e yeniden yönlendirilmelidir. Alternatif olarak, kullanıcılar kendi oyları üzerinde oturum açma sayfasını ziyaret edebilir. Bu durumda, kullanıcıya oturum açtıktan sonra, kök klasörün default. aspx sayfasına gönderilmesi gerekir.
 

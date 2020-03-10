@@ -9,11 +9,11 @@ ms.assetid: 32b7fb6e-d74b-4048-91f8-70631b2523ee
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 67093266567a97cd22b353115616484fd9ef155e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74596778"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574384"
 ---
 # <a name="nested-master-pages-c"></a>İç İçe Geçmiş Ana Sayfalar (C#)
 
@@ -183,7 +183,7 @@ Bu iki zorluk, iç içe geçmiş ana sayfa oluşturduğumuzdan ve var olan içer
 
 ## <a name="step-4-creating-the-nested-master-page"></a>4\. Adım: Iç Içe geçmiş ana sayfa oluşturma
 
-İlk göreviniz, yönetim bölümündeki sayfalar tarafından kullanılacak iç içe yerleştirilmiş ana sayfayı oluşturmaktır. 2\. adımda gördüğümüz gibi, iç içe yerleştirilmiş ana sayfanın üst ana sayfasını belirtmemiz gereken yeni bir iç içe ana sayfa eklenirken. Ancak en üst düzey iki ana sayfanız vardır: `Site.master` ve `Alternate.master`. Önceki öğreticide `Alternate.master` oluşturduğumuz ve `BasePage` sınıfında, çalışma zamanında sayfa nesnesinin `MasterPageFile` özelliğini `Site.master` veya `Alternate.master` oturum değişkeninin değerine bağlı olarak alan bir kod yazdığımızda geri çekin.
+İlk göreviniz, yönetim bölümündeki sayfalar tarafından kullanılacak iç içe yerleştirilmiş ana sayfayı oluşturmaktır. 2\. adımda gördüğümüz gibi, iç içe yerleştirilmiş ana sayfanın üst ana sayfasını belirtmemiz gereken yeni bir iç içe ana sayfa eklenirken. Ancak en üst düzey iki ana sayfanız vardır: `Site.master` ve `Alternate.master`. Önceki öğreticide `Alternate.master` oluşturduğumuz ve `BasePage` sınıfında, çalışma zamanında sayfa nesnesinin `MasterPageFile` özelliğini `Site.master` veya `Alternate.master` oturum değişkeninin değerine bağlı olarak alan bir kod yazdığımızda geri çekin.`MyMasterPage`
 
 İç içe geçmiş ana sayfamızı, uygun üst düzey ana sayfayı kullanacak şekilde nasıl yapılandıracağız? İki seçeneğiniz vardır:
 
@@ -232,7 +232,7 @@ Artık, Yönetim bölümünde bulunan içerik sayfalarının `BasePage`yerine `A
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample12.cs)]
 
-Kime:
+Hedef:
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample13.cs)]
 
@@ -252,7 +252,7 @@ Bu hatayı düzeltireceğiz, `AdminNested.master` arka plan kod sınıfı `BaseM
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample14.cs)]
 
-Kime:
+Hedef:
 
 [!code-csharp[Main](nested-master-pages-cs/samples/sample15.cs)]
 

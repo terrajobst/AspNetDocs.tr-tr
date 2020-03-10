@@ -9,11 +9,11 @@ ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
 ms.openlocfilehash: ecde48f6bd88ee5f569bfeb8b70c26a50bc869c2
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74576865"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630174"
 ---
 # <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış
 
@@ -793,7 +793,7 @@ Aralık seçeneği arama seçeneğine benzerdir, ancak aralığı tanımlamak i�
 
 [!code-aspx[Main](overview/samples/sample62.aspx)]
 
-#### <a name="propertyexpression"></a>PropertyExpression koleksiyonda
+#### <a name="propertyexpression"></a>PropertyExpression
 
 Özellik ifadesi seçeneği, bir özellik değeriyle karşılaştırma tanımlamanıza olanak sağlar. İfade *true*olarak değerlendirilirse, incelenmekte olan veriler döndürülür. Aşağıdaki örnekte, *Querygenişletici* denetimi verileri `Discontinued` sütunundaki verileri, sayfadaki checkboxdiscontinued denetimindeki değerle karşılaştırarak filtreler.
 
@@ -927,8 +927,8 @@ Varsayılan olarak, bir Web uygulaması veya Web sitesi .NET Framework 4 ' ü he
 
 *Controlrenderingcompatibility* değeri, gelecek sürümlerde olası yeni sürüm tanımlarına izin veren bir dizedir. Geçerli sürümde, bu özellik için aşağıdaki değerler desteklenir:
 
-- "3,5". Bu ayar, eski işleme ve işaretlemeyi gösterir. Denetimler tarafından işlenen biçimlendirme %100 geriye dönük olarak uyumludur ve *Xhtmluyum* özelliğinin ayarı kabul edilir.
-- "4,0". Özelliğin bu ayarı varsa, ASP.NET Web sunucusu denetimleri şunları yapın:
+- "3.5". Bu ayar, eski işleme ve işaretlemeyi gösterir. Denetimler tarafından işlenen biçimlendirme %100 geriye dönük olarak uyumludur ve *Xhtmluyum* özelliğinin ayarı kabul edilir.
+- "4.0". Özelliğin bu ayarı varsa, ASP.NET Web sunucusu denetimleri şunları yapın:
 - *Xhtmluygunluğu* özelliği her zaman "katı" olarak değerlendirilir. Sonuç olarak, denetim XHTML 1,0 katı biçimlendirmeyi işler.
 - Giriş olmayan denetimleri devre dışı bırakmak artık geçersiz stilleri oluşturmayacağını.
 - gizli alanlar etrafındaki *div* öğeleri, Kullanıcı tarafından oluşturulan CSS kurallarıyla karışabilmeleri için artık stilleniyor.
@@ -977,7 +977,7 @@ Ardından, aşağıdaki örnekte olduğu gibi, yalnızca ASP.NET tarafından olu
 Varsayılan olarak, aşağıdaki ASP.NET Web sunucusu, destek şablonlarının satır içi stilleri uygulamak için kullanılan bir dış tabloya otomatik olarak sarılacağını denetler:
 
 - *FormView*
-- *LOGIN*
+- *Oturum açma*
 - *PasswordRecovery*
 - *Parola*
 - *Ekleme*

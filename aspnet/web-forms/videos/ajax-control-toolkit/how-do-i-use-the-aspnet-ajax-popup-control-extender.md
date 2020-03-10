@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-popup-control-extender
-title: '[Bunu nasıl yaparım:] ASP.NET AJAX açılan denetim genişletici kullanılsın mı? | Microsoft Docs'
+title: "[Nasıl yapılır:] ASP.NET AJAX açılan denetim genişletici 'i mi kullanıyorsunuz? | Microsoft Docs"
 author: JoeStagner
-description: Bu videoda ASP.NET AJAX Denetim Araç Seti ile birlikte gelen açılan denetim genişletici kullanımını gösterir. TextBox denetimi genişletmeyi öğrenin böylece...
+description: Bu videoda, ASP.NET AJAX denetim araç seti ile birlikte gelen açılan denetim genişletici 'in kullanımı gösterilmektedir. TextBox denetiminin nasıl genişletileceğini öğrenmek için...
 ms.author: riande
 ms.date: 01/26/2007
 ms.assetid: ecd34391-958f-410c-849d-cfaa2dd414dd
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-popup-control-extender
 msc.type: video
 ms.openlocfilehash: be086315943d9d680faa2a8bc784c2b995425903
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398403"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641717"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-popup-control-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX açılan denetim genişletici kullanılsın mı?
+# <a name="how-do-i-use-the-aspnet-ajax-popup-control-extender"></a>[Nasıl yapılır:] ASP.NET AJAX açılan denetim genişletici 'i mi kullanıyorsunuz?
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoda ASP.NET AJAX Denetim Araç Seti ile birlikte gelen açılan denetim genişletici kullanımını gösterir. TextBox denetimi bir açılan iletişim kutusu odağı aldığında seçeneklerin bir listesi görünür böylece genişletmeyi öğrenin.
+Bu videoda, ASP.NET AJAX denetim araç seti ile birlikte gelen açılan denetim genişletici 'in kullanımı gösterilmektedir. Metin kutusu denetimini genişletmeyi öğrenin, böylece odak aldığında bir açılan iletişim kutusu bir seçenek listesi ile görüntülenir.
 
-[&#9654;Videoyu (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-popup-control-extender)
+[&#9654;Videoyu izleyin (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-popup-control-extender)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender.md)

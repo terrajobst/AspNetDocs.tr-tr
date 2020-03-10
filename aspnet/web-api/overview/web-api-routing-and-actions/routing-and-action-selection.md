@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: Yönlendirme ve eylem seçimi ASP.NET Web API'de | Microsoft Docs
+title: ASP.NET Web API 'de yönlendirme ve eylem seçimi | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,168 +9,168 @@ ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
 ms.openlocfilehash: 62114e56fb29e80c93b82dcb78ce2bc2a123a83b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133663"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554889"
 ---
-# <a name="routing-and-action-selection-in-aspnet-web-api"></a>Yönlendirme ve eylem seçimi ASP.NET Web API
+# <a name="routing-and-action-selection-in-aspnet-web-api"></a>ASP.NET Web API 'sinde yönlendirme ve eylem seçimi
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Bu makalede, bir HTTP isteği ASP.NET Web API denetleyicisine belirli bir eylemi için nasıl yönlendirdiğini açıklanır.
+Bu makalede, ASP.NET Web API 'sinin bir denetleyicideki belirli bir eyleme HTTP isteğini nasıl yönlendirdiğini açıklanmaktadır.
 
 > [!NOTE]
-> Yönlendirme ilişkin üst düzey genel bakış için bkz: [ASP.NET Web API'de yönlendirme](routing-in-aspnet-web-api.md).
+> Yönlendirmeye yönelik üst düzey bir genel bakış için bkz. [ASP.NET Web API 'de yönlendirme](routing-in-aspnet-web-api.md).
 
-Bu makalede, yönlendirme işleminin ayrıntılarını da ele alınmaktadır. Umarım bu makalede bir Web API projesi oluşturursanız ve beklediğiniz gibi bazı istekler elde etmezsiniz Bul yönlendirilmesini yardımcı olur.
+Bu makale, yönlendirme sürecinin ayrıntılarına bakar. Bir Web API projesi oluşturur ve bazı isteklerin istediğiniz şekilde yönlendirilmeyeceğini görürseniz, bu makalede yardımcı olacak.
 
-Yönlendirme üç ana aşama içerir:
+Yönlendirme üç ana aşamaya sahiptir:
 
-1. Bir rota şablonu için URI eşleşen.
-2. Bir denetleyici seçin.
-3. Bir eylem seçebilirsiniz.
+1. URI ile bir yol şablonuna eşleme.
+2. Denetleyici seçiliyor.
+3. Bir eylem seçme.
 
-İşlemin bazı bölümleri, kendi özel davranışlarınızı ile değiştirebilirsiniz. Bu makalede, ben varsayılan davranışını açıklar. Sonunda, ben burada davranışını özelleştirebilirsiniz yerleri unutmayın.
+İşlemin bazı parçalarını kendi özel davranışlarınız ile değiştirebilirsiniz. Bu makalede, varsayılan davranışı açıklıyorum. Sonda, davranışı özelleştirebileceğiniz yerleri de göz önünde koydum.
 
-## <a name="route-templates"></a>Rota şablonlarının
+## <a name="route-templates"></a>Rota şablonları
 
-Bir rota şablonu için bir URI yolu gibi görünür, ancak küme ayracı ile gösterilen, yer tutucu değerlerini sahip olabilir:
+Bir yol şablonu bir URI yoluna benzer, ancak küme ayraçları ile gösterilen yer tutucu değerlerine sahip olabilir:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample1.ps1)]
 
-Bir rota oluşturduğunuzda, bazılarını veya tümünü yer tutucular için varsayılan değerler sağlayabilirsiniz:
+Bir yol oluşturduğunuzda, yer tutucuların bazıları veya tümü için varsayılan değer sağlayabilirsiniz:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample2.cs)]
 
-Ayrıca, bir URI segmenti yer tutucu nasıl eşleşebilir kısıtlama kısıtlamaları, sağlayabilirsiniz:
+Ayrıca, bir URI segmentinin bir yer tutucu ile nasıl eşleşeceğini kısıtlayan kısıtlamalar da sağlayabilirsiniz:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample3.js)]
 
-Framework, şablon URI'si yoldaki kesimlerin eşleştirmeyi dener. Şablondaki değişmez değerler tam olarak eşleşmelidir. Bir yer tutucu kısıtlamaları belirtmediğiniz sürece herhangi bir değer ile eşleşir. Framework URI, ana bilgisayar adı veya sorgu parametreleri gibi diğer bölümleri eşleşmiyor. Framework ilk yönlendirme URI'si ile eşleşen rota tablosunda seçer.
+Çerçeve, URI yolundaki kesimleri şablonla eşleştirmeye çalışır. Şablondaki değişmez değerler tam olarak eşleşmelidir. Bir yer tutucu, kısıtlama belirtmediğiniz müddetçe herhangi bir değerle eşleşir. Çerçeve, URI 'nin ana bilgisayar adı veya sorgu parametreleri gibi diğer bölümleriyle eşleşmez. Framework, yol tablosundaki URI ile eşleşen ilk yolu seçer.
 
-İki özel yer tutucuları vardır: "{denetleyici}" ve "{action}".
+İki özel yer tutucu vardır: "{Controller}" ve "{Action}".
 
-- "{denetleyici}" denetleyicinin adı sağlar.
-- "{action}" eyleminin adını sağlar. Web API'de normal "{action}" atlamak için kuralıdır.
+- "{Controller}" denetleyicinin adını sağlar.
+- "{Action}", eylemin adını sağlar. Web API 'de, her zamanki kural "{Action}" öğesini atlayamaz.
 
 ### <a name="defaults"></a>Varsayılanları
 
-Rota Varsayılanları sağlarsanız, bu kesimleri eksik bir URI eşleşir. Örneğin:
+Varsayılan değer sağlarsanız, yol, bu kesimleri eksik olan bir URI ile eşleştirecektir. Örneğin:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-Bir URI'leri `http://localhost/api/products/all` ve `http://localhost/api/products` önceki rota ile eşleşmekte. İkinci uri'sindeki eksik `{category}` segment, varsayılan değer atanır `all`.
+URI 'Ler `http://localhost/api/products/all` ve `http://localhost/api/products` önceki rotayla eşleşir. İkinci URI 'de, eksik `{category}` kesimine `all`varsayılan değer atanır.
 
-### <a name="route-dictionary"></a>Rota sözlüğünü
+### <a name="route-dictionary"></a>Yol sözlüğü
 
-Framework bir URI için bir eşleşme bulduğunda, için her bir yer tutucu değeri içeren bir sözlük oluşturur. Anahtarlar ve küme ayraçlarının dahil değil yer tutucu adlarıdır. Değerler, URI yolu veya Varsayılanları alınır. Sözlüğüne depolanan **IHttpRouteData** nesne.
+Çerçeve bir URI için eşleşme bulursa, her yer tutucunun değerini içeren bir sözlük oluşturur. Anahtarlar, küme ayraçları dahil değil yer tutucu adlarıdır. Değerler URI yolundan veya varsayılandan alınır. Sözlük **ıhttproutedata** nesnesinde depolanır.
 
-Bu rota için eşleşen aşamasında, özel "{denetleyici}" ve "{action}" yer tutucuları yalnızca diğer yer tutucuları gibi kabul edilir. Bunlar yalnızca diğer değerlerle sözlükte depolanır.
+Bu rota eşleştirme aşamasında, özel "{Controller}" ve "{Action}" yer tutucuları, diğer yer tutucuları gibi değerlendirilir. Yalnızca diğer değerlerle sözlükte depolanırlar.
 
-Özel değeri, bir varsayılan olabilir **RouteParameter.Optional**. Bu değer bir yer tutucu atandığını, değer için rota sözlüğünü eklenmez. Örneğin:
+Varsayılan, RouteParameter özel değerine sahip olabilir **. Isteğe bağlı**. Bir yer tutucu bu değere atanmışsa, değer yol sözlüğüne eklenmez. Örneğin:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample5.cs)]
 
-URI yolu "API/ürünleri" rota sözlüğünü içerir:
+"API/Products" URI yolu için yol sözlüğü şunları içerir:
 
 - Denetleyici: "Ürünler"
-- Kategori: "tüm"
+- Kategori: "tümü"
 
-"API/ürünler/toys/123 için", ancak rota sözlüğünü içerir:
+Bununla birlikte, "API/Products/Toys/123" için yol sözlüğü şunları içerir:
 
 - Denetleyici: "Ürünler"
-- Kategori: "toys"
-- Kimliği: "123"
+- Kategori: "Toys"
+- Kimlik: "123"
 
-Varsayılan değerleri, rota şablonu herhangi bir yerde görünmez bir değer de içerebilir. Rotanın eşleşmesi durumunda bu değer sözlükte depolanır. Örneğin:
+Varsayılanlar, yol şablonunda hiçbir yerde görünmeyen bir değer içerebilir. Yol eşleşiyorsa, bu değer sözlükte depolanır. Örneğin:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample6.cs)]
 
-URI yolu "kök/API/8" ise, sözlük iki değerlerini içerir:
+URI yolu "api/root/8" ise, sözlük iki değer içerir:
 
-- Denetleyici: "Müşteri"
-- Kimliği: "8"
+- Denetleyici: "müşteriler"
+- Kimlik: "8"
 
-## <a name="selecting-a-controller"></a>Bir denetleyici seçme
+## <a name="selecting-a-controller"></a>Denetleyici seçme
 
-Denetleyici seçimi tarafından işlenir **IHttpControllerSelector.SelectController** yöntemi. Bu yöntem bir **HttpRequestMessage** örneği ve döndürür bir **HttpControllerDescriptor**. Varsayılan uygulama tarafından sağlanan **DefaultHttpControllerSelector** sınıfı. Bu sınıf, bir basit algoritması kullanır:
+Denetleyici seçimi **IHttpControllerSelector. SelectController** yöntemi tarafından işlenir. Bu yöntem bir **HttpRequestMessage** örneği alır ve bir **httpcontrollerdescriptor**döndürür. Varsayılan uygulama **DefaultHttpControllerSelector** sınıfı tarafından sağlanır. Bu sınıf, basit bir algoritma kullanır:
 
-1. "Controller" anahtarı için rota sözlüğünü bakın.
-2. Bu anahtar için değeri alabilir ve denetleyici türü adını almak için "Controller" dizesini.
-3. Bu tür adı ile bir Web API denetleyicisi arayın.
+1. "Denetleyici" anahtarı için yol sözlüğüne bakın.
+2. Bu anahtar için değeri alın ve denetleyicinin tür adını almak için "Controller" dizesini ekleyin.
+3. Bu tür adıyla bir Web API denetleyicisi arayın.
 
-Denetleyici türü "ProductsController" ise, "Ürünler" Örneğin, rota sözlüğünü "controller" anahtar-değer çifti içeriyorsa =. Eşleşen bir türü veya birden çok eşleşme varsa, framework istemciye bir hata döndürür.
+Örneğin, yol sözlüğü anahtar-değer çifti "denetleyici" = "Ürünler" içeriyorsa, denetleyici türü "ProductsController" olur. Eşleşen bir tür veya birden fazla eşleşme yoksa, çerçeve istemciye bir hata döndürür.
 
-Adım 3 ' ü **DefaultHttpControllerSelector** kullanan **IHttpControllerTypeResolver** Web API denetleyicisi türleri listesini almak için arabirim. Varsayılan uygulaması **IHttpControllerTypeResolver** tüm ortak sınıfları döndürür (a) uygulayan **IHttpController**, (b) olan değil soyut ve (c) "Denetleyicisi" ile biten bir adı vardır.
+3\. adım için, **DefaultHttpControllerSelector** Web API denetleyici türlerinin listesini almak Için **ıhttpcontrollertyperesolver** arabirimini kullanır. **Ihttpcontrollertyperesolver** 'in varsayılan uygulaması, (a) **ıhttpcontroller**uygulayan tüm genel sınıfları döndürür, (b) soyut değildir ve (c) "Controller" ile biten bir ada sahiptir.
 
-## <a name="action-selection"></a>Eylem Seçimi
+## <a name="action-selection"></a>Eylem seçimi
 
-Denetleyici seçtikten sonra framework eylemi çağırarak seçer **IHttpActionSelector.SelectAction** yöntemi. Bu yöntem bir **HttpControllerContext** ve döndüren bir **HttpActionDescriptor**.
+Denetleyiciyi seçtikten sonra Framework, **ıhttpactionselector. SelectAction** yöntemini çağırarak eylemi seçer. Bu yöntem bir **HttpControllerContext** alır ve bir **HttpActionDescriptor**döndürür.
 
-Varsayılan uygulama tarafından sağlanan **ApiControllerActionSelector** sınıfı. Bir eylem seçmek için aşağıdaki konumda görünür:
+Varsayılan uygulama **ApiControllerActionSelector** sınıfı tarafından sağlanır. Bir eylem seçmek için, aşağıdakilere bakar:
 
 - İsteğin HTTP yöntemi.
-- Varsa rota şablonu içinde "{action}" yer tutucu.
-- Denetleyici eylemleri parametreleri.
+- Varsa, yol şablonunda "{Action}" yer tutucusu.
+- Denetleyicideki eylemlerin parametreleri.
 
-Seçimi algoritması aramadan önce denetleyici eylemleri hakkında bazı şeyleri anlamak ihtiyacımız var.
+Seçim algoritmasına bakmadan önce, denetleyici eylemleriyle ilgili bazı şeyleri anladık.
 
-**Hangi yöntemlerin denetleyicisinde "Eylemler" olarak kabul edilir?** Bir eylem seçerken framework denetleyicisinde yalnızca ortak örnek yöntem ele arar. Ayrıca, dışlar ["özel adı"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) yöntemleri (Oluşturucular, olaylar, İşleç aşırı yüklemeleri ve diğerleri) ve devralınan yöntemleri **ApiController** sınıfı.
+**Denetleyicideki hangi Yöntemler "eylemler" olarak değerlendirilir?** Bir eylem seçerken, çerçeve yalnızca denetleyicideki ortak örnek yöntemlerine bakar. Ayrıca, ["özel ad"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) yöntemlerini (oluşturucular, olaylar, operatör aşırı yüklemeleri vs.) ve **Apicontroller** sınıfından devralınan yöntemleri dışlar.
 
-**HTTP yöntemleri.** Framework, aşağıdaki gibi belirlenen isteğin HTTP yöntemi ile eşleşen eylemleri yalnızca seçer:
+**HTTP yöntemleri.** Framework yalnızca isteğin HTTP yöntemiyle eşleşen eylemleri seçer, şöyle belirlenir:
 
-1. HTTP yöntemi ile bir öznitelik belirtebilirsiniz: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**, **HttpOptions**, **HttpPatch**, **HttpPost**, veya **HttpPut**.
-2. Denetleyici yöntemin adı "Get", "Post", "Put", "Delete", "Ana", "Seçenekler" veya "Düzeltme" ile başlıyorsa, aksi takdirde, sonra Kural gereği eylemi, HTTP yöntemini destekler.
-3. Yukarıdakilerin hiçbiri, POST yöntemi destekler.
+1. HTTP yöntemini bir özniteliğiyle belirtebilirsiniz: **Acceptverbs**, **httpdelete**, **HttpGet**, **httphead**, **HttpOptions**, **httppatch**, **HttpPost**veya **httpput**.
+2. Aksi halde, denetleyici yönteminin adı "Get", "Post", "put", "Delete", "Head", "Options" veya "Patch" ile başlıyorsa ve bu HTTP yöntemini desteklediği kurala göre yapılır.
+3. Yukarıdakilerden hiçbiri, yöntemi GÖNDERIYI destekler.
 
-**Parametre bağlama.** Parametre bağlaması, Web API'si, bir parametre için bir değer nasıl oluşturur? ' dir. Parametre bağlaması için varsayılan kuralı şu şekildedir:
+**Parametre bağlamaları.** Bir parametre bağlama, Web API 'sinin bir parametre için bir değer oluşturmasıdır. Parametre bağlama için varsayılan kural aşağıda verilmiştir:
 
-- Basit türler URI'SİNDEN alınır.
+- Basit türler URI 'den alınır.
 - Karmaşık türler, istek gövdesinden alınır.
 
-Basit türler dahil tüm [.NET Framework ilkel türleri](https://msdn.microsoft.com/library/system.type.isprimitive), artı **DateTime**, **ondalık**, **GUID**, **dize** , ve **TimeSpan**. En fazla bir parametre, her eylem için istek gövdesi okuyabilirsiniz.
+Basit türler [.NET Framework ilkel türler](https://msdn.microsoft.com/library/system.type.isprimitive), ayrıca **DateTime**, **Decimal**, Guid, **dize**ve **TimeSpan** **değerleri**içerir. Her eylem için, en fazla bir parametre istek gövdesini okuyabilir.
 
 > [!NOTE]
-> Varsayılan bağlama kurallarını geçersiz kılmak mümkündür. Bkz: [başlık altında Webapı parametre bağlaması](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
+> Varsayılan bağlama kurallarını geçersiz kılmak mümkündür. Bkz. bir [çocuk altındaki WebAPI parametre bağlama](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
 
-Bu bilgileri, eylem seçimi algoritma aşağıda verilmiştir.
+Bu arka plan ile eylem seçim algoritması aşağıda verilmiştir.
 
-1. HTTP istek yöntemi eşleşen denetleyicisinde tüm eylemlerin bir listesini oluşturun.
-2. Rota sözlüğünü "action" girişi varsa, eylem adı, bu değeri eşleşmiyor kaldırın.
-3. Eylem parametreleri için URI şu şekilde eşleşecek şekilde deneyin: 
+1. Denetleyicide HTTP istek yöntemiyle eşleşen tüm eylemlerin bir listesini oluşturun.
+2. Yol sözlüğünde bir "Action" girişi varsa, adı bu değerle eşleşmeyen eylemleri kaldırın.
+3. Aşağıdaki gibi eylem parametrelerini URI ile eşleştirmeye çalışın: 
 
-    1. Her eylem için burada bağlama parametresi URI'SİNDEN alır bir basit türü parametreler listesini alın. İsteğe bağlı parametreler hariç tutun.
-    2. Rota sözlüğünü veya URI sorgu dizesinde her parametre adı için bir eşleşme bulmak bu listeden deneyin. Eşleşme büyük/küçük harfe duyarsızdır ve parametre sırasını bağımlı olmadan.
-    3. Her parametre listesinde URI'de bir eşleşme bulunduğu bir eylem seçin.
-    4. Daha fazla, bir eylem aşağıdaki ölçütleri karşılıyorsa, çoğu parametresi eşleşme ile seçin.
-4. Eylemler Yoksay **[NonAction]** özniteliği.
+    1. Her eylem için, bağlamanın URI 'den parametreyi aldığı basit türde parametrelerin bir listesini alın. İsteğe bağlı parametreleri dışlayın.
+    2. Bu listeden, yol sözlüğünde veya URI sorgu dizesinde her bir parametre adı için bir eşleşme bulmayı deneyin. Eşleşmeler büyük/küçük harfe duyarlıdır ve parametre sırasına bağlı değildir.
+    3. Listedeki her parametrenin URI 'de eşleşen bir eylem seçin.
+    4. Bu ölçütlere uyan birden fazla eylem varsa, en fazla parametre eşleştirmelerle birini seçin.
+4. **[Nonactıon]** özniteliğiyle eylemleri yoksayın.
 
-#3. adım büyük olasılıkla en karmaşıktır. Bir parametre değeri ya da urı'sinden, istek gövdesinden veya özel bir bağlama alabilirsiniz temel olur. URİ'den gelen parametre URI gerçekten yolu (aracılığıyla rota sözlüğünü) veya sorgu dizesinde, parametre için bir değer içerdiğinden emin olmak istiyoruz.
+Adım #3, büyük olasılıkla en karmaşıktır. Temel düşünce, bir parametrenin değerini URI 'den, istek gövdesinden veya özel bir bağlamadan alabilir. URI 'den gelen parametreler için, URI 'nin gerçekten bu parametre için bir değer (yol sözlüğü aracılığıyla) ya da sorgu dizesinde bir değer içerdiğinden emin olmak istiyoruz.
 
 Örneğin, aşağıdaki eylemi göz önünde bulundurun:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample7.cs)]
 
-*Kimliği* URI parametreyi bağlar. Bu nedenle, bu eylem yalnızca "id", rota sözlüğünü veya sorgu dizesi için bir değer içeren bir URI ile eşleşebilir.
+*ID* parametresi URI 'ye bağlanır. Bu nedenle, bu eylem yalnızca yol sözlüğünde veya sorgu dizesinde "ID" değeri içeren bir URI ile eşleşemez.
 
-İsteğe bağlı oldukları için isteğe bağlı bir özel durum parametrelerdir. Bağlama değeri URI'SİNDEN alınamıyor, isteğe bağlı bir parametre için Tamam olduğunu.
+İsteğe bağlı parametreler, isteğe bağlı oldukları için bir özel durumdur. İsteğe bağlı bir parametre için bağlama URI 'den değeri alamazsanız Tamam olur.
 
-Karmaşık türler, farklı bir neden için bir özel durumdur. Karmaşık bir tür, yalnızca üzerinden özel bağlama için URI bağlayabilirsiniz. Ancak bu durumda, framework önceden parametresi için belirli bir URI bağlayın olup olmadığını bilemezsiniz. Öğrenmek için bu bağlama çağırmasına gerekir. Seçimi algoritması amacı herhangi bir bağlama çağırmadan önce statik açıklamasından eylem seçmektir. Bu nedenle, eşleştirme algoritmasını kullanarak karmaşık türler hariç tutulur.
+Karmaşık türler, farklı bir nedenden dolayı özel durumdur. Karmaşık bir tür yalnızca özel bir bağlama aracılığıyla URI 'ye bağlanabilir. Ancak bu durumda, parametrenin belirli bir URI 'ye bağlanıp bağlanamayacağını önceden bilemezsiniz. Bunu öğrenmek için bağlamayı çağırması gerekir. Seçim algoritmasının hedefi, herhangi bir bağlama çağırmadan önce statik açıklamadan bir eylem seçmektir. Bu nedenle, karmaşık türler eşleşen algoritmadan dışlanır.
 
-Tüm parametre bağlamaları eylem seçildikten sonra çağrılır.
+Eylem seçildikten sonra tüm parametre bağlamaları çağrılır.
 
 Özet:
 
-- Eylem, isteğin HTTP yöntemi ile eşleşmesi gerekir.
-- Eylem adı için rota sözlüğünü "action" girişi varsa eşleşmelidir.
-- Parametresi URI'den alınmışsa eylemin her parametre için sonra parametre adı için rota sözlüğünü veya URI sorgu dizesinde bulunması gerekir. (İsteğe bağlı parametreler ve karmaşık türler parametrelerle bırakılır.)
-- Parametre sayısı en çok eşleşen deneyin. En iyi eşleşmeyi parametresiz bir yöntem olabilir.
+- Eylemin, isteğin HTTP yöntemiyle eşleşmesi gerekir.
+- Varsa, yol sözlüğünde eylem adı "Action" girdisiyle eşleşmelidir.
+- İşlemin her parametresi için parametre URI 'den alınsaydı, parametre adının yol sözlüğünde ya da URI sorgu dizesinde bulunması gerekir. (Karmaşık türler içeren isteğe bağlı parametreler ve parametreler dışarıda bırakılır.)
+- En fazla parametre sayısını eşleştirmeye çalışın. En iyi eşleşme parametresi olmayan bir yöntem olabilir.
 
-## <a name="extended-example"></a>Genişletilmiş örneği
+## <a name="extended-example"></a>Genişletilmiş örnek
 
-Yollar:
+Yolların
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample8.cs)]
 
@@ -182,55 +182,55 @@ HTTP isteği:
 
 [!code-console[Main](routing-and-action-selection/samples/sample10.cmd)]
 
-### <a name="route-matching"></a>Eşleşen yol
+### <a name="route-matching"></a>Rota eşleştirme
 
-URI "DefaultApi" adlı rota eşleşir. Rota sözlüğünü aşağıdaki girdileri içerir:
+URI, "DefaultApi" adlı yol ile eşleşiyor. Yol sözlüğü aşağıdaki girişleri içerir:
 
 - Denetleyici: "Ürünler"
-- Kimliği: "1"
+- Kimlik: "1"
 
-Sorgu dizesi parametreleri, "Sürüm" ve "details" rota sözlüğünü içermiyor, ancak bunlar yine de sırasında eylem seçimi kabul edilir.
+Yol sözlüğü sorgu dizesi parametreleri, "sürüm" ve "Ayrıntılar" içeremez, ancak bunlar eylem seçimi sırasında göz önünde bulundurulacaktır.
 
 ### <a name="controller-selection"></a>Denetleyici seçimi
 
-Rota sözlüğünde "controller" girdisinden denetleyicisi türüdür `ProductsController`.
+Yol sözlüğündeki "denetleyici" girdisinden, denetleyici türü `ProductsController`.
 
-### <a name="action-selection"></a>Eylem Seçimi
+### <a name="action-selection"></a>Eylem seçimi
 
-Bir GET isteği HTTP isteğidir. GET işlemini denetleyici eylemleri `GetAll`, `GetById`, ve `FindProductsByName`. Biz eylem adıyla eşleşmesi gerekmez rota sözlüğünü "action" için bir giriş içermiyor.
+HTTP isteği bir GET isteği. GET 'i destekleyen denetleyici eylemleri `GetAll`, `GetById`ve `FindProductsByName`. Yol sözlüğü "eylem" için bir giriş içermiyor, bu nedenle eylem adıyla eşleşmesi gerekmez.
 
-Ardından, biz eylemleri için parametre adlarını eşleştirmek yalnızca GET eylemlerini bakarak deneyin.
+Ardından, eylemler için parametre adlarını eşleştirmeye çalışırız ve yalnızca GET eylemlerine bakmaya çalışıyoruz.
 
-| Eylem | Eşleştirme parametreleri |
+| Eylem | Eşleştirilecek parametreler |
 | --- | --- |
 | `GetAll` | yok |
-| `GetById` | "id" |
-| `FindProductsByName` | "name" |
+| `GetById` | numarasını |
+| `FindProductsByName` | ada |
 
-Dikkat *sürüm* parametresinin `GetById` isteğe bağlı parametresi olduğundan, olarak kabul edilmez.
+İsteğe bağlı bir parametre olduğu için `GetById` *Sürüm* parametresinin değerlendirilmediğine dikkat edin.
 
-`GetAll` Yöntemi artık önemsiz olarak eşleşir. `GetById` Yöntemi ayrıca eşleşen, çünkü "id" rota sözlüğünü içeriyor. `FindProductsByName` Yöntemi eşleşmiyor.
+`GetAll` yöntemi, önemli ölçüde eşleşir. Yol sözlüğü "ID" içerdiğinden `GetById` yöntemi de eşleşir. `FindProductsByName` yöntemi eşleşmiyor.
 
-`GetById` Yöntemi WINS parametresi yerine bir parametre eşleştiğinden `GetAll`. Yöntemi, aşağıdaki parametre değerleriniz ile çağrılır:
+`GetById` yöntemi, bir parametresiyle eşleştiğinden, `GetAll`için hiçbir parametre olmadığından WINS. Yöntemi aşağıdaki parametre değerleriyle çağrılır:
 
-- *Kimliği* = 1
-- *Sürüm* 1.5 =
+- *kimlik* = 1
+- *Sürüm* = 1,5
 
-Rağmen dikkat *sürüm* kullanılmadığı seçimi algoritması URI sorgu dizesi parametresinin değeri gelir.
+*Sürüm* seçim algoritmasında kullanılmasa da, PARAMETRENIN değeri URI sorgu dizesinden geliyor olduğuna dikkat edin.
 
 ## <a name="extension-points"></a>Uzantı noktaları
 
-Web API'si, bazı bölümlerini yönlendirme işlemi için uzantı noktaları sağlar.
+Web API 'SI, yönlendirme sürecinin bazı bölümleri için uzantı noktaları sağlar.
 
 | Arabirim | Açıklama |
 | --- | --- |
 | **IHttpControllerSelector** | Denetleyiciyi seçer. |
-| **IHttpControllerTypeResolver** | Denetleyici türleri listesini alır. **DefaultHttpControllerSelector** denetleyici türü bu listeden seçer. |
-| **IAssembliesResolver** | Proje derleme listesini alır. **IHttpControllerTypeResolver** arabirimi denetleyici türlerini bulmak için bu listeyi kullanır. |
-| **IHttpControllerActivator** | Yeni denetleyici örneği oluşturur. |
-| **IHttpActionSelector** | Eylemi seçer. |
-| **IHttpActionInvoker** | Eylemi çağırır. |
+| **Ihttpcontrollertyperesolver** | Denetleyici türleri listesini alır. **DefaultHttpControllerSelector** bu listeden denetleyici türünü seçer. |
+| **Ibirleştiricliesresolver** | Proje derlemelerinin listesini alır. **Ihttpcontrollertyperesolver** arabirimi, denetleyici türlerini bulmak için bu listeyi kullanır. |
+| **Ihttpcontrolleretkinleştirici** | Yeni denetleyici örnekleri oluşturur. |
+| **Ihttpactionselector** | Eylemi seçer. |
+| **Ihttpactionınvoker** | Eylemi çağırır. |
 
-Şu arabirimlerin herhangi birinde için kendi uygulamasını sağlamak için kullanın **Hizmetleri** koleksiyonunda **HttpConfiguration** nesnesi:
+Bu arabirimlerin herhangi birine yönelik uygulamanızı sağlamak için **HttpConfiguration** nesnesindeki **Hizmetler** koleksiyonunu kullanın:
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample11.cs)]

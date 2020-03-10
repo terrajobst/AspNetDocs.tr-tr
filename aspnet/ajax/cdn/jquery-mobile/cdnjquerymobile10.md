@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-mobile/cdnjquerymobile10
-title: Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 | Microsoft Docs
+title: Microsoft Ajax CDN üzerinde jQuery Mobile 1,0 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: f236d9f1-1e1c-47a0-be96-40758bf1c22f
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile10
 msc.type: content
 ms.openlocfilehash: aba7930d02be04b85c7036da06005e8795da2b75
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59394087"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563128"
 ---
 # <a name="jquery-mobile-10-on-the-microsoft-ajax-cdn"></a>Microsoft Ajax CDN üzerinde jQuery Mobile 1.0
 
-JQuery Mobile 1.0 kitaplığı aşağıdaki dosyaları içerir:
+JQuery Mobile 1,0 kitaplığı aşağıdaki dosyaları içerir:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0/jquery.mobile-1.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.0/jquery.mobile-1.0.min.js

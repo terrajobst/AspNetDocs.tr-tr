@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-classes-in-javascript
-title: Nasıl Yaparım Oluşturma ve JavaScript'te sınıfları kullanılsın mı? | Microsoft Docs
+title: "Nasıl yapılır: JavaScript 'te sınıfları oluşturma ve kullanma | Microsoft Docs"
 author: rick-anderson
-description: Bu videoda, Chris piksel sınıfları JavaScript'te işlevselliğe sahip nesne yönelimli capabilitie diğer programlama dilleriyle benzer nasıl oluşturulacağını gösterir...
+description: Bu videoda, nesne yönelimli capabilitie... ile diğer programlama dillerine benzer işlevlerle JavaScript 'te sınıfların nasıl oluşturulacağı gösterilmektedir.
 ms.author: riande
 ms.date: 01/08/2010
 ms.assetid: 348d1bda-69e0-4cb5-a59f-a104133c2f93
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-and-use-classes-in-javascript
 msc.type: video
 ms.openlocfilehash: 92a488b4f3e9b4c6ccfc0316fc69c96b8889b04a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59394347"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634745"
 ---
-# <a name="how-do-i-create-and-use-classes-in-javascript"></a>Nasıl Yaparım Oluşturma ve JavaScript'te sınıfları kullanılsın mı?
+# <a name="how-do-i-create-and-use-classes-in-javascript"></a>Nasıl yapılır: JavaScript 'te sınıfları oluşturma ve kullanma
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda, Chris piksel sınıfları JavaScript'te işlevselliği ile benzer şekilde, nesne yönelimli özelliklere sahip başka bir programlama dilini nasıl oluşturulacağını gösterir. İlk örnek bir web sitesi projesi ile harici bir JavaScript dosyası oluşturulur. Bir function() oluşturulur ve işlev "işlev" ve "Yeni" anahtar sözcüğü bir sınıf oluşturucu olarak kullanılması arasındaki farkı ele alınmıştır. Ardından ortak özellikler, sınıf oluşturucusu yanı sıra özel değişkenleri eklenir. Sonraki ayrı bir işlev oluşturulur ve sınıfı bir yöntem olarak atanır. Alternatif olarak, aynı yöntem, sınıf oluşturucusu içinde tanımlanan bir işlev olarak gösterilir. Son olarak, bir özel sınıf yöntemi oluşturulur ve sınıf oluşturucusu içinde kullanılır.
+Bu videoda, nesne yönelimli yeteneklere sahip diğer programlama dillerine benzer işlevlerle JavaScript 'te sınıfların nasıl oluşturulacağı gösterilmektedir. İlk olarak, bir dış JavaScript dosyasıyla örnek bir Web sitesi projesi oluşturulur. Bir işlev () oluşturulur ve işlevin "function" olarak kullanılması ve "New" anahtar sözcüğüyle bir sınıf oluşturucu olarak açıklanmaktadır. Ortak özellikler de sınıf oluşturucusuna ve özel değişkenlere eklenir. Bir sonraki adımda ayrı bir işlev oluşturulur ve sınıfa bir yöntem olarak atanır. Alternatif olarak, aynı yöntem sınıf oluşturucusunda tanımlanan bir işlev olarak gösterilir. Son olarak, bir özel sınıf yöntemi oluşturulur ve sınıf oluşturucu içinde kullanılır.
 
-[&#9654;Videoyu (18 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-and-use-classes-in-javascript)
+[&#9654;Videoyu izleyin (18 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-and-use-classes-in-javascript)

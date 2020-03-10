@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax
-title: '[Bunu nasıl yaparım:] ASP.NET AJAX olmadan veya özel sunucu denetimleri oluşturabilir? | Microsoft Docs'
+title: '[Nasıl yapılır:] ASP.NET AJAX Ile veya bu olmadan çalışan özel sunucu denetimleri oluşturun mi? | Microsoft Docs'
 author: rick-anderson
-description: ASP.NET AJAX çalışabilmek için olmalıdır, varsa, ASP.NET AJAX avantajlarından henüz sürebilir bir özel sunucu denetimi için bir fikriniz...
+description: ASP.NET AJAX olmadan çalışabilmeniz gereken özel sunucu denetimine yönelik bir fikriniz var, ancak varsa ASP.NET AJAX 'tan faydalanabilir...
 ms.author: riande
 ms.date: 09/01/2007
 ms.assetid: db9e13d3-c8f5-4051-ad9d-dc5649b1c41f
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax
 msc.type: video
 ms.openlocfilehash: 81fcc7b533f682d5f515847150345b08aff3d984
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398247"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544823"
 ---
-# <a name="how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax"></a>[Bunu nasıl yaparım:] ASP.NET AJAX olmadan veya özel sunucu denetimleri oluşturabilir?
+# <a name="how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax"></a>[Nasıl yapılır:] ASP.NET AJAX Ile veya bu olmadan çalışan özel sunucu denetimleri oluşturun mi?
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Özel sunucu denetimi, ASP.NET AJAX çalışabilmek için olmalıdır, varsa, ASP.NET AJAX avantajlarından henüz sürebilir fikriniz mi var? Bu videoda ASP.NET AJAX derleme başvurusu değil, ancak "iyi yürütmek için" yansıma kullanan bir özel sunucu denetimi oluşturmak nasıl biz bilgi ASP.NET AJAX UpdatePanel ile.
+ASP.NET AJAX olmadan çalışabilmeniz gereken özel sunucu denetimine yönelik bir fikriniz var, ancak varsa ASP.NET AJAX 'tan faydalanabilir mi? Bu videoda, ASP.NET AJAX derlemesine başvurmayan, ancak ASP.NET AJAX UpdatePanel ile "iyi oynat" için yansıma kullanan özel bir sunucu denetimi oluşturmayı öğreneceksiniz.
 
-[&#9654;Videoyu (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax)
+[&#9654;Videoyu izleyin (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-create-an-aspnet-ajax-extender-from-scratch.md)

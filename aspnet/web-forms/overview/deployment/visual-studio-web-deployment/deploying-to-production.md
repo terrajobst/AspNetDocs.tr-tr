@@ -9,11 +9,11 @@ ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
 ms.openlocfilehash: ddc3d15f0436c4c3a24491cf0377111768da67df
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74617638"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632785"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web dağıtımı: üretime dağıtma
 
@@ -33,7 +33,7 @@ Anımsatıcı: bir hata iletisi alırsanız veya öğreticide ilerlediğinizden 
 
 ## <a name="get-a-microsoft-azure-account"></a>Microsoft Azure hesabı alın
 
-Henüz bir Azure hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz deneme](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Henüz bir Azure hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 ## <a name="create-a-staging-environment"></a>Hazırlama ortamı oluşturma
 
@@ -72,7 +72,7 @@ Henüz bir Azure hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bi
 9. **Sunucu** kutusunda **Yeni SQL veritabanı sunucusu**' nu seçin.
 10. Bir yönetici adı ve parola girin.
 
-    Buraya mevcut bir ad ve parola girmemeniz gerekir. Daha sonra veritabanına erişirken kullanmak üzere, şimdi tanımladığınız yeni bir ad ve parola girersiniz.
+    Buraya mevcut bir ad ve parola girmemeniz gerekir. Daha sonra veritabanına eriştiğinizde kullanmak için şu anda tanımladığınız bir adı ve parolayı girersiniz.
 11. **Bölge** kutusunda, Web uygulaması için seçtiğiniz bölgeyi seçin.
 
     Web sunucusu ve veritabanı sunucusunun aynı bölgede tutulması, size en iyi performansı sağlar ve giderleri en aza indirir.
@@ -198,11 +198,11 @@ Bu öğretici için bir *robots. txt* dosyası oluşturacaksınız.
 
     Arama altyapılarının üretim uygulamanızı kataloglanmasını istiyorsanız, bu dosyayı üretim dağıtımından hariç bırakmanız gerekir. Bunu yapmak için, oluşturma sırasında üretim yayımlama profilinde bir ayar yapılandırırsınız.
 
-### <a name="deploy-to-staging"></a>Hazırlama için dağıt
+### <a name="deploy-to-staging"></a>Hazırlık ortamına dağıtma
 
 1. Contoso Üniversitesi projesine sağ tıklayıp **Yayımla**' ya tıklayarak **Web 'i Yayımla** Sihirbazı ' nı açın.
 2. **Hazırlama** profilinin seçili olduğundan emin olun.
-3. **Yayımla**' ya tıklayın.
+3. **Yayımla**’ta tıklayın.
 
     **Çıkış** penceresinde hangi dağıtım eylemlerinin alındığı ve dağıtımın başarılı bir şekilde tamamlandığını raporlayan görüntülenir. Varsayılan tarayıcı, dağıtılan Web uygulamasının URL 'SI için otomatik olarak açılır.
 
@@ -287,7 +287,7 @@ Web uygulamanızı başarıyla dağıtmış ve test ettiğiniz için, Internet �
 Sonraki öğreticide, uygulama kodunu güncelleştireceksiniz ve değişikliği test, hazırlama ve üretim ortamlarına dağıtırsınız.
 
 > [!NOTE]
-> Uygulamanız üretim ortamında kullanımda olsa da bir kurtarma planı uygulamanız gerekir. Diğer bir deyişle, veritabanlarını üretim uygulamasından düzenli olarak güvenli bir depolama konumuna yedeklemeniz ve bu tür yedeklemelerin çeşitli nesilleri tutmanız gerekir. Veritabanını güncelleştirdiğinizde, değişiklikten hemen önce bir yedekleme kopyası oluşturmalısınız. Daha sonra, bir hata yaparsanız ve bunu üretime dağıtana kadar bulamadıysanız, veritabanını bozmadan önce bulunduğu duruma geri yükleyemezsiniz. Daha fazla bilgi için bkz. [Azure SQL veritabanı yedekleme ve geri yükleme](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
+> Uygulamanız üretim ortamında kullanımda olsa da bir kurtarma planı uygulamanız gerekir. Diğer bir deyişle, veritabanlarını üretim uygulamasından düzenli olarak güvenli bir depolama konumuna yedeklemeniz ve bu tür yedeklemelerin çeşitli nesilleri tutmanız gerekir. Veritabanını güncelleştirdiğinizde, değişiklikten hemen önce bir yedekleme kopyası oluşturmalısınız. Daha sonra, bir hata yaparsanız ve bunu üretime dağıtana kadar bulamadıysanız, veritabanını bozmadan önce bulunduğu duruma geri yükleyemezsiniz. Daha fazla bilgi için bkz. [Azure SQL Veritabanı Yedekleme ve Geri Yükleme](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 > 
 > 
 > [!NOTE]

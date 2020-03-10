@@ -2,22 +2,22 @@
 uid: web-forms/overview/data-access/custom-formatting/index
 title: Özel biçimlendirme | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticiler GridView ve DetailsView FormView denetimlerinde olay işleyicilerini kullanarak veri bağlama sırasında veri görüntüleme özelleştirme bakın.
+description: Bu öğreticiler, GridView, DetailsView ve FormView denetimlerinde olay işleyicileri kullanarak veri bağlama sırasında veri görüntülemeyi nasıl özelleştireceğinizi göz atalım.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 320b7d26-837f-4fa7-a242-1ab82f8bdbe9
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting
 msc.type: chapter
 ms.openlocfilehash: e7e54bd1c5d4b0e9a0afcd011c3389c267b891ec
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128686"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78531607"
 ---
 # <a name="custom-formatting"></a>Özel Biçimlendirme
 
-> Bu öğreticiler GridView ve DetailsView FormView denetimlerinde olay işleyicilerini kullanarak veri bağlama sırasında veri görüntüleme özelleştirme bakın.
+> Bu öğreticiler, GridView, DetailsView ve FormView denetimlerinde olay işleyicileri kullanarak veri bağlama sırasında veri görüntülemeyi nasıl özelleştireceğinizi göz atalım.
 
 - [Verileri Temel Alan Özel Biçimlendirme (C#)](custom-formatting-based-upon-data-cs.md)
 - [GridView Denetiminde TemplateField Kullanma (C#)](using-templatefields-in-the-gridview-control-cs.md)

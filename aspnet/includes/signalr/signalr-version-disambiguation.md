@@ -1,2 +1,2 @@
 > [!WARNING]
-> Bu belge, SignalR için en son sürümünü değil. Bir göz atın [ASP.NET Core SignalR](/aspnet/core/signalr/introduction).
+> Bu belge, SignalR 'nin en son sürümü için değildir. [ASP.NET Core SignalR](/aspnet/core/signalr/introduction)'ye göz atın.

@@ -9,11 +9,11 @@ ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
 ms.openlocfilehash: 52d5eb7abe4520ebdf6667d299d055fc7619a635
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615461"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568224"
 ---
 # <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2017"></a>ASP.NET 4,5 Web Forms ve Visual Studio 2017 ile çalışmaya başlama
 
@@ -134,7 +134,7 @@ PayPal 'den döndükten sonra, siparişinizi gözden geçirebilir ve tamamlayabi
 
 ![Wingtip Toys-sipariş Incelemesi](introduction-and-overview/_static/image7.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce, aşağıdaki yazılımın bilgisayarınızda yüklü olduğundan emin olun:
 
@@ -154,7 +154,7 @@ Visual Studio hakkında aşağıdakileri göz önünde edin:
 
 Önkoşulları yükledikten sonra, bu öğretici serisinde sunulan Web projesini oluşturmaya başlamaya hazırsınız demektir.
 
-## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin
+## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
  Tamamlanmış örnek uygulamayı dilediğiniz zaman MSDN örnekleri sitesinden indirebilirsiniz:
 

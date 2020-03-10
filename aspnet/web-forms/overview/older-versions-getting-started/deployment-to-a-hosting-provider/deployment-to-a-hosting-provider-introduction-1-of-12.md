@@ -9,11 +9,11 @@ ms.assetid: a2d7f33b-8c4a-4b48-9fb1-9139cf9b9878
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: ea88da1e6d510f706fc7ca370cfa32974c1243f8
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587726"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525636"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Visual Studio kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: giriş-1/12
 
@@ -39,7 +39,7 @@ Sorun giderme sayfasında 11 ' in tümünde ve her türlü öğreticilerin sayı
 
 Öğreticiler sırayla çalışacak şekilde tasarlanmıştır ve her bölüm önceki bölümde oluşturulur. Bununla birlikte, durumunuza uygun olmayan parçaları atlayabilirsiniz. (Parçaların atlanması, sonraki öğreticilerde yordamları ayarlamanızı gerektirebilir.)
 
-## <a name="intended-audience"></a>Hedeflenen hedef kitle
+## <a name="intended-audience"></a>Hedef Kitle
 
 Öğreticiler, Küçük kuruluşlarda veya diğer ortamlarda çalışan ASP.NET geliştiricilerine (burada) sahiptir:
 
@@ -77,7 +77,7 @@ Dağıtım sırasında bir hata oluştuğunda veya dağıtılan Site doğru şek
 
 Öğreticilerle ilgili açıklamalar hoş geldiniz ve öğretici, öğreticinin ne zaman güncelleştirildiği, öğretici açıklamalarında sunulan geliştirmeler için hesap düzeltmelerini veya önerilerini almak üzere her çaba sunulacaktır.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce, Windows 7 veya sonraki bir sürüme sahip olduğunuzdan ve bilgisayarınızda aşağıdaki ürünlerden birinin yüklü olduğundan emin olun:
 

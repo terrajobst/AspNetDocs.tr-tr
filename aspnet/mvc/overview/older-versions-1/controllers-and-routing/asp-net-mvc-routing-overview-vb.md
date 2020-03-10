@@ -1,107 +1,107 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
-title: ASP.NET MVC yönlendirmesine genel bakış (VB) | Microsoft Docs
+title: ASP.NET MVC yönlendirmeye genel bakış (VB) | Microsoft Docs
 author: StephenWalther
-description: Bu öğreticide, ASP.NET MVC çerçevesi tarayıcı istekleri denetleyici eylemleri için nasıl eşlendiğini Stephen Walther gösterir.
+description: Bu öğreticide, Stephen Walther, ASP.NET MVC çerçevesinin Tarayıcı isteklerini denetleyici eylemlerine nasıl eşlediğini gösterir.
 ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 4bc8d19a-80f1-44b4-adbf-95ed22d691ca
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ed043d76b89ce31945cf3423b0c5afca9383cc21
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123640"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78601537"
 ---
 # <a name="aspnet-mvc-routing-overview-vb"></a>ASP.NET MVC Yönlendirmesine Genel Bakış (VB)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-> Bu öğreticide, ASP.NET MVC çerçevesi tarayıcı istekleri denetleyici eylemleri için nasıl eşlendiğini Stephen Walther gösterir.
+> Bu öğreticide, Stephen Walther, ASP.NET MVC çerçevesinin Tarayıcı isteklerini denetleyici eylemlerine nasıl eşlediğini gösterir.
 
-Bu öğreticide, önemli bir özelliği olarak adlandırılan her bir ASP.NET MVC uygulaması için sunulan *ASP.NET yönlendirmesi*. ASP.NET yönlendirme modülü, belirli MVC denetleyici eylemleri için gelen tarayıcı istekleri eşlemek için sorumludur. Bu öğreticide sonuna kadar standart bir yol tablosu istekleri denetleyici eylemlerine eşlemelerini nasıl anlayacaksınız.
+Bu öğreticide, *ASP.net yönlendirme*adlı her ASP.NET MVC uygulamasının önemli bir özelliğine sunulmuştur. ASP.NET yönlendirme modülü, gelen tarayıcı isteklerini belirli MVC denetleyici eylemlerine eşlemeden sorumludur. Bu öğreticinin sonunda standart yol tablosunun istekleri denetleyici eylemlerine nasıl eşlediğini anlamış olursunuz.
 
-## <a name="using-the-default-route-table"></a>Varsayılan rota tablosu kullanma
+## <a name="using-the-default-route-table"></a>Varsayılan yol tablosunu kullanma
 
-Yeni bir ASP.NET MVC uygulaması oluşturduğunuzda uygulama ASP.NET yönlendirmesi kullanmak için zaten yapılandırıldı. ASP.NET yönlendirme iki yerde kurulur.
+Yeni bir ASP.NET MVC uygulaması oluşturduğunuzda uygulama zaten ASP.NET yönlendirme kullanmak üzere yapılandırılmıştır. ASP.NET yönlendirme iki yerde kurulumlardır.
 
-İlk olarak, ASP.NET yönlendirmesi, uygulamanızın Web yapılandırma dosyasında (Web.config dosyası) etkinleştirilir. Yapılandırma dosyasındaki Yönlendirmeyle ilgili dört bölüm vardır: system.web.httpModules bölümü, system.web.httpHandlers bölümü, system.webserver.modules bölümü ve system.webserver.handlers bölümü. Bu bölümler yönlendirme artık çalışmaz çünkü bu bölümleri silmemeye dikkat edin.
+İlk olarak, ASP.NET yönlendirme uygulamanızın Web yapılandırma dosyasında (Web. config dosyası) etkinleştirilir. Yapılandırma dosyasında yönlendirmeyle ilgili dört bölüm vardır: System. Web. httpModules bölümü, System. Web. httpHandlers bölümü, System. webserver. Modules bölümü ve System. webserver. Handlers bölümü. Bu bölüm yönlendirmenin artık çalışmadığı için, bu bölümleri silmemeye dikkat edin.
 
-İkinci ve daha da önemlisi, uygulamanın Global.asax dosyasında bir yol tablosu oluşturulur. Global.asax dosyası, ASP.NET uygulama yaşam döngüsü olayları için olay işleyicileri içeren özel bir dosyadır. Rota tablosunu uygulama başlatma olayı sırasında oluşturulur.
+İkinci ve daha önemlisi, uygulamanın Global. asax dosyasında bir yol tablosu oluşturulur. Global. asax dosyası, ASP.NET uygulama yaşam döngüsü olayları için olay işleyicileri içeren özel bir dosyadır. Yol tablosu, uygulama başlatma olayı sırasında oluşturulur.
 
-1 listeleme dosyasında bir ASP.NET MVC uygulaması için varsayılan Global.asax dosyası içerir.
+Listeleme 1 ' deki dosya, bir ASP.NET MVC uygulaması için varsayılan Global. asax dosyasını içerir.
 
-**Listing 1 - Global.asax.vb**
+**Listeleme 1-Global. asax. vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample1.vb)]
 
-Bir MVC uygulaması ilk kez başlatıldığında, uygulama\_Start() yöntemi çağrılır. Bu yöntem, buna karşılık RegisterRoutes() yöntemini çağırır. RegisterRoutes() metodu rota tablosu oluşturur.
+MVC uygulaması ilk kez başlatıldığında, uygulama\_Start () yöntemi çağrılır. Bu yöntem, sırasıyla RegisterRoutes () yöntemini çağırır. RegisterRoutes () yöntemi yol tablosu oluşturur.
 
-Varsayılan rota tablosu (varsayılan olarak adlandırılır) tek bir yol içeriyor. Denetleyici adını, ikinci bir denetleyici eylemi için bir URL kesimini ve üçüncü kesim adlı bir parametre için bir URL ilk kesimi varsayılan rotayı eşler **kimliği**.
+Varsayılan yol tablosu, tek bir yol içerir (varsayılan olarak adlandırılır). Varsayılan yol bir URL 'nin ilk segmentini bir denetleyici adına, bir URL 'nin ikinci kesimini bir denetleyici eylemine ve üçüncü segmenti **ID**adlı bir parametreye eşler.
 
-Imagine web tarayıcınızın adres çubuğuna aşağıdaki URL'yi girin:
+Web tarayıcınızın adres çubuğuna aşağıdaki URL 'YI girdiğinizi varsayın:
 
-/ Home/Index/3
+/Home/Index/3
 
-Varsayılan yol bu URL'yi aşağıdaki parametrelerle eşlenir:
+Varsayılan yol bu URL 'YI aşağıdaki parametrelerle eşler:
 
-- Denetleyici giriş =
+- denetleyici = ana
 
-- Eylem dizini =
+- eylem = Dizin
 
-- Kimlik = 3
+- kimlik = 3
 
-URL /Home/dizin/3 istediğinizde, aşağıdaki kod yürütülür:
+/Home/Index/3 URL 'sini istediğinizde, aşağıdaki kod yürütülür:
 
 HomeController.Index(3)
 
-Varsayılan yol üç tüm parametreler için varsayılan değerleri içerir. Bir denetleyici sağlamazsanız, denetleyici parametre değerine varsayılanları **giriş**. Eylem parametresinin değeri varsayılan olarak, bu eylem sağlamazsanız, **dizin**. Son olarak, bir kimliği sağlamazsanız, ID parametresi boş dize olarak varsayar.
+Varsayılan yol, üç parametre için varsayılan değerleri içerir. Bir denetleyici belirtmezseniz, denetleyici parametresi varsayılan olarak **giriş**değerini alır. Bir eylem belirtmezseniz, eylem parametresi varsayılan değer **dizinine**göre yapılır. Son olarak, bir kimlik belirtmezseniz, ID parametresi varsayılan olarak boş bir dize olur.
 
-Varsayılan rota denetleyici eylemleri için URL'leri eşlemelerini nasıl bazı örnekler bakalım. Imagine tarayıcı adres çubuğuna aşağıdaki URL'yi girin:
+Varsayılan yolun, URL 'Leri denetleyici eylemlerine nasıl eşlediğini gösteren bazı örneklere bakalım. Tarayıcınızın adres çubuğuna aşağıdaki URL 'YI girdiğinizi varsayın:
 
-/ Giriş
+/Home
 
-Varsayılan rota parametresi Varsayılanları nedeniyle, bu URL girilerek 2 çağrılacak listeleme HomeController sınıfının İNDİS() yöntemi neden olur.
+Varsayılan yol parametresi Varsayılanları nedeniyle, bu URL 'YI girmek, liste 2 ' deki HomeController sınıfının Index () yönteminin çağrılmasına neden olur.
 
-**Listing 2 - HomeController.vb**
+**Listeleme 2-HomeController. vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample2.vb)]
 
-Listeleme 2'de HomeController sınıfı kimliği adlı tek bir parametre kabul eden İNDİS() adlı bir yöntem içerir. URL /Home İNDİS() yöntemi değeriyle kimliği parametresinin değeri olarak bir şey çağrılmasına neden olur.
+Liste 2 ' de HomeController sınıfı, ID adlı tek bir parametreyi kabul eden Index () adlı bir yöntemi içerir. /Home URL 'SI, dizin () yönteminin ID parametresinin değeri olarak Nothing değeri ile çağrılmasına neden olur.
 
-MVC çerçevesi denetleyici eylemleri çağırır şekli nedeniyle, URL /Home listeleme 3'te HomeController sınıfının İNDİS() yöntemi de eşleşir.
+MVC çerçevesinin denetleyici eylemlerini çağırdığı şekilde,/Home URL 'SI, liste 3 ' teki HomeController sınıfının Index () yöntemiyle de eşleşir.
 
-**3 - HomeController.vb (dizin eylem hiçbir parametre ile) listeleme**
+**Kod 3-HomeController. vb (parametre olmadan dizin eylemi)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample3.vb)]
 
-Listeleme 3'te İNDİS() yöntemi herhangi bir parametre kabul etmiyor. URL /Home bu İNDİS() yöntem çağrılacak neden olur. URL /Home/dizin/3 de (kimliği göz ardı edilir) bu yöntemi çağırır.
+Listeleme 3 ' teki Index () yöntemi herhangi bir parametre kabul etmez. /Home URL 'SI, bu dizin () yönteminin çağrılmasına neden olur. /Home/Index/3 URL 'SI de bu yöntemi çağırır (kimlik yoksayıldı).
 
-URL /Home listeleme 4'te HomeController sınıfının İNDİS() yöntemi de eşleşir.
+/Home URL 'SI, liste 4 ' teki HomeController sınıfının Index () yöntemiyle de eşleşir.
 
-**4 - HomeController.vb (boş değer atanabilen parametresi ile dizin eylem) listeleme**
+**4-HomeController. vb dosyasını (null yapılabilir parametresiyle Dizin eylemi) listeleme**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample4.vb)]
 
-Listeleme 4'te İNDİS() yöntemi, bir tam sayı parametresi vardır. Parametresi (değeri hiçbir şey olabilir) bir boş değer atanabilen parametresi olduğundan, bir hata yükseltmeden İNDİS() çağrılabilir.
+Liste 4 ' te, Index () yönteminde bir tamsayı parametresi vardır. Parametre null yapılabilir bir parametre olduğundan (değer Nothing olabilir), dizin () bir hata oluşturulmadan çağrılabilir.
 
-Son olarak, URL /Home ile listeleme 5'te İNDİS() metodu çağrılırken beri ID parametresine bir özel durum neden *değil* boş değer atanabilen parametresi. İNDİS() yöntemini çağırmak çalışırsanız, Şekil 1'de görüntülenen hata alırsınız.
+Son olarak, kod parametresi null atanabilir bir parametre *olmadığından* , ana sayfa URL 'si olan 5. liste ile dizin () yöntemini çağırmak özel duruma neden olur. Index () yöntemini çağırmaya çalışırsanız Şekil 1 ' de hata alırsınız.
 
-**5 - HomeController.vb (dizin Eylem Kimliği parametresiyle) listeleme**
+**Listeleme 5-HomeController. vb (kimlik parametresiyle Dizin eylemi)**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample5.vb)]
 
-[![Bir parametre değerinin bir denetleyici eylemi çağırma](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
+[bir parametre değeri bekleyen bir denetleyici eylemini çağırma ![](asp-net-mvc-routing-overview-vb/_static/image1.jpg)](asp-net-mvc-routing-overview-vb/_static/image1.png)
 
-**Şekil 01**: Bir parametre değerinin bir denetleyici Eylemi Çağırma ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-routing-overview-vb/_static/image2.png))
+**Şekil 01**: parametre değeri bekleyen bir denetleyici eylemi çağırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](asp-net-mvc-routing-overview-vb/_static/image2.png))
 
-URL /Home/dizin/3, diğer taraftan, yalnızca düzgün listeleme 5'te dizin denetleyici eylemi ile çalışır. İstek /Home/Index/3 İNDİS() yöntemi ile 3 değerine sahip bir ID parametresi çağrılmasına neden olur.
+Diğer yandan,/Home/Index/3 URL 'SI, kod 5 ' teki Dizin denetleyicisi eylemiyle sorunsuz bir şekilde çalışıyor. /Home/Index/3 isteği, dizin () yönteminin 3 değerine sahip bir kimlik parametresiyle çağrılmasına neden olur.
 
 ## <a name="summary"></a>Özet
 
-ASP.NET yönlendirmesi için kısa bir giriş sağlamak için bu öğreticinin amacı oluştu. Biz, size yeni bir ASP.NET MVC uygulaması ile varsayılan rota tablosu incelenir. Varsayılan rota denetleyici eylemleri için URL'leri eşlemelerini nasıl yapılacağını öğrendiniz.
+Bu öğreticinin amacı size ASP.NET yönlendirme hakkında kısa bir giriş sunmaktır. Yeni bir ASP.NET MVC uygulamasıyla aldığınız varsayılan yol tablosunu inceledik. Varsayılan yolun URL 'Leri denetleyici eylemlerine nasıl eşlediğini öğrendiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-an-action-cs.md)

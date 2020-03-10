@@ -9,11 +9,11 @@ ms.assetid: f84b4a16-e8bb-49e8-87a0-1832879a3501
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
 ms.openlocfilehash: c27d1ffac3846fe4bc13b32c2ae91a63b2493126
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74590127"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543542"
 ---
 # <a name="creating-model-classes-with-linq-to-sql-c"></a>LINQ to SQL ile Model Sınıfları Oluşturma (C#)
 
@@ -63,9 +63,9 @@ Veritabanı tablomuza aşağıdaki sütunları eklememiz gerekiyor:
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Numarasını | int | False |
+| Kimlik | int | False |
 | Başlık | Nvarchar (200) | False |
-| Ktörü | nvarchar (50) | False |
+| Direktörü | nvarchar (50) | False |
 
 Kimlik sütununda iki özel şey yapmanız gerekir. İlk olarak, Tablo Tasarımcısı sütunu seçip bir anahtarın simgesine tıklayarak ID sütununu birincil anahtar sütunu olarak işaretlemeniz gerekir. LINQ to SQL, veritabanına yönelik ekleme veya güncelleştirme gerçekleştirirken birincil anahtar sütunlarınızı belirtmenizi gerektirir.
 

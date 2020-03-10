@@ -9,11 +9,11 @@ ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
 ms.openlocfilehash: 4235f4fe666cdeb7d0821127a2b349f2ff30cd6e
-ms.sourcegitcommit: 295cf898a4c87e264b0c35c7254b0fa4169f2278
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74057037"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539440"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4 Sürümündeki Yenilikler
 
@@ -45,7 +45,7 @@ Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Önkoşullar
 
 Bu Laboratuvarı tamamlayabilmeniz için aşağıdaki öğelere sahip olmanız gerekir:
 
@@ -101,7 +101,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonlarındaki geliştirmeleri araşt�
     > [!NOTE]
     > Şimdi oluşturduğunuz PhotoGallery ASP.NET MVC 4 çözümünü daha sonra özelleştirecek.
 
-    ![Yeni bir proje oluşturma](whats-new-in-aspnet-mvc-4/_static/image1.png "Yeni bir proje oluşturma")
+    ![Yeni bir proje oluşturma](whats-new-in-aspnet-mvc-4/_static/image1.png "Yeni proje oluşturma")
 
     *Yeni bir proje oluşturma*
 3. **Yeni ASP.NET MVC 4 projesi** Iletişim kutusunda **Internet uygulaması** proje şablonunu seçin ve **Tamam**' a tıklayın. Görünüm altyapısı olarak Razor seçtiğinizden emin olun.
@@ -203,7 +203,7 @@ ASP.NET MVC 4, mobil ve tablet tarayıcılarına yönelik Web sitelerinin geliş
 
         Mobil uygulama projesi şablonu, mobil tarayıcı uyumluluğuna yönelik açık bir kaynak kitaplığı olan jQuery mobil kitaplığını içerir. jQuery Mobile, CSS ve JavaScript 'i destekleyen mobil tarayıcılara aşamalı geliştirme uygular. Aşamalı geliştirme tüm tarayıcıların bir Web sayfasının temel içeriğini görüntülemesini sağlar, ancak yalnızca en güçlü tarayıcıların zengin içeriği görüntülemesine olanak sağlar. JQuery Mobile stilinde bulunan JavaScript ve CSS dosyaları, mobil tarayıcıların sayfa biçimlendirmesinde herhangi bir değişiklik yapmadan ekrandaki içeriğe sığması için yardım sağlar.
 
-        ![jQuery-mobil-kitaplık-dahil-şablon](whats-new-in-aspnet-mvc-4/_static/image12.png)
+        ![jQuery-mobile-library-included-in-the-template](whats-new-in-aspnet-mvc-4/_static/image12.png)
 
         *şablona dahil olan jQuery mobil kitaplığı*
     - **HTML5 tabanlı biçimlendirme**
@@ -318,7 +318,7 @@ Bu görevde, galeride görüntülenecek içeriği almak için fotoğraf hizmeti 
 
     *Moclenmiş fotoğraf hizmetini test etme*
 
-Gerçek bir uygulamada, Fotoğraf Galerisi hizmetini uygulamak için [ASP.NET Web API 'sini](../../../../web-api/index.md) kullanabilirsiniz. ASP.NET Web API 'SI, tarayıcılar ve mobil cihazlar dahil olmak üzere çok çeşitli istemcilere ulaşan HTTP Hizmetleri oluşturmayı kolaylaştıran bir çerçevedir. ASP.NET Web API 'SI, .NET Framework üzerinde yeniden uygulamalar oluşturmaya yönelik ideal bir platformdur.
+Gerçek bir uygulamada, Fotoğraf Galerisi hizmetini uygulamak için [ASP.NET Web API 'sini](../../../../web-api/index.md) kullanabilirsiniz. ASP.NET Web API; tarayıcılar ve mobil cihazlar dahil olmak üzere, geniş bir yelpazedeki istemcilere erişen HTTP hizmetlerini oluşturmayı kolaylaştıran bir çerçevedir. ASP.NET Web API; .NET Framework üzerinde RESTful uygulamaları geliştirmek için ideal bir platformdur.
 
 <a id="Task_2_-_Displaying_the_Photo_Gallery"></a>
 #### <a name="task-2---displaying-the-photo-gallery"></a>Görev 2-fotoğraf galerisini görüntüleme
@@ -389,7 +389,7 @@ ASP.NET MVC 4 ' teki temel güncelleştirmelerden biri, mobil geliştirme için 
     > [!NOTE]
     > Aşağıdaki komutu çalıştırarak, jQuery. Mobile. MVC kitaplığını NuGet 'den indirilecektir.
 
-    9
+    PM
 
     [!code-powershell[Main](whats-new-in-aspnet-mvc-4/samples/sample9.ps1)]
 
@@ -397,7 +397,7 @@ ASP.NET MVC 4 ' teki temel güncelleştirmelerden biri, mobil geliştirme için 
 
     - **Görünümler/paylaşılan/\_Layout. Mobile. cshtml**: daha küçük bir ekran Için Iyileştirilmiş jQuery Mobile tabanlı bir düzen. Web sitesi bir mobil tarayıcıdan istek aldığında, özgün düzen (\_Layout. cshtml) bu ile değiştirilir.
     - Bir görünüm-değiştirici bileşeni: **Görünümler/paylaşılan/\_Viewdeğiştirici. cshtml** kısmi görünümden ve **ViewSwitcherController.cs** denetleyicisinden oluşur. Bu bileşen, kullanıcıların sayfanın masaüstü sürümüne geçiş kurmasını sağlamak için mobil tarayıcılarda bir bağlantı gösterir.  
-        ![Mobil desteğe sahip Fotoğraf Galerisi projesi](whats-new-in-aspnet-mvc-4/_static/image23.png "PhMobil desteğe sahip Me Gallery Projesi ")
+        ![Mobil desteğe sahip Fotoğraf Galerisi projesi](whats-new-in-aspnet-mvc-4/_static/image23.png "Mobil desteğe sahip Fotoğraf Galerisi projesi")
 
         *Mobil desteğe sahip Fotoğraf Galerisi projesi*
 4. Mobil paketleri kaydedin. Bunu yapmak için, **Global.asax.cs** dosyasını açın ve aşağıdaki satırı ekleyin.
@@ -516,7 +516,7 @@ Bu görevde, jQuery. Mobile. MVC tarafından eklenen bir görünüm değiştiric
 
     - **HttpContext. ClearOverriddenBrowser ()** yöntemi, geçerli istek için geçersiz kılınan Kullanıcı aracılarını kaldırır.
     - **HttpContext. SetOverriddenBrowser ()** yöntemi, belirtilen Kullanıcı aracısını kullanarak isteğin gerçek Kullanıcı Aracısı değerini geçersiz kılar.  
-        ![Viewdeğiştirici denetleyicisi](whats-new-in-aspnet-mvc-4/_static/image31.png "ViEwdeğiştirici denetleyicisi ")  
+        ![Viewdeğiştirici denetleyicisi](whats-new-in-aspnet-mvc-4/_static/image31.png "Viewdeğiştirici denetleyicisi")  
 *Viewdeğiştirici denetleyicisi*
 
         Tarayıcı geçersiz kılma, jQuery. Mobile. MVC paketini yüklemeseniz bile bulunan ASP.NET MVC 4 ' ün temel bir özelliğidir. Ancak, bu özellik yalnızca görünüm, düzen ve kısmi görünümü etkiler ve Isteğin. Browser nesnesine bağlı olan özelliklerden hiçbirini etkilemez.
@@ -538,7 +538,7 @@ Bu görevde, masaüstü mizanpajını görünüm-değiştirici dahil olacak şek
     ![Masaüstü görünümünde işlenen değiştirici görüntüle](whats-new-in-aspnet-mvc-4/_static/image32.png "Masaüstü görünümünde işlenen değiştirici görüntüle")
 
     *Masaüstü görünümünde işlenen değiştirici görüntüle*
-7. Mobil görünüme yeniden geçin **ve sayfaya gidin** (http://localhost [bağlantı noktası]/Home/About). Bir about. Mobile. cshtml görünümü oluşturmamış olsanız bile, mobil düzen (\_Layout. Mobile. cshtml) kullanılarak hakkında sayfasının görüntülendiğini unutmayın.
+7. Mobil görünüme yeniden geçin **ve sayfaya gidin** (http://localhost[bağlantı noktası]/Home/About). Bir about. Mobile. cshtml görünümü oluşturmamış olsanız bile, mobil düzen (\_Layout. Mobile. cshtml) kullanılarak hakkında sayfasının görüntülendiğini unutmayın.
 
     ![Sayfa hakkında](whats-new-in-aspnet-mvc-4/_static/image33.png "Sayfa hakkında")
 
@@ -589,7 +589,7 @@ Artık ASP.NET MVC 4 uygulamanızda 3 düzenimize sahipsiniz:
 7. **F5** tuşuna basarak uygulamayı çalıştırın ve **Windows Phone öykünücüsünde**siteye gidin.
 8. Bir **iPhone simülatörü** açın (iPhone simülatörü yükleyip yapılandırma hakkında yönergeler için bkz. [Ek C](#AppendixC) ) ve siteye nasıl gözatacağınız. Her telefonun belirli bir şablonu kullandığını fark edebilirsiniz.
 
-    ![---------------Görünümlerini kullanma](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Her mobil cihaz için farklı görünümler kullanma*
 
@@ -933,7 +933,7 @@ Bu ek, Microsoft Azure Yönetim Portalı yeni bir Web sitesi oluşturmayı ve La
 7. **Pano** sayfasında, **Hızlı bakış** bölümünde, **Yayımlama profilini indir** bağlantısına tıklayın.
 
     > [!NOTE]
-    > *Yayımlama profili* , bir Web uygulamasını etkin her yayımlama yöntemi Için bir Windows Azure Web sitesinde yayımlamak için gereken tüm bilgileri içerir. Yayımlama profili, bir yayın yönteminin etkinleştirildiği uç noktalara bağlanmak ve kimlik doğrulaması yapmak için gereken URL 'Leri, Kullanıcı kimlik bilgilerini ve veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Web için Microsoft Visual Studio Express** ve **Microsoft Visual Studio 2012** , Web uygulamalarını Microsoft Azure Web siteleri 'ne yayımlamak üzere bu programların yapılandırılmasını otomatik hale getirmek için yayımlama profillerinin okunmasını destekler.
+    > *Yayımlama profili* , bir Web uygulamasını etkin her yayımlama yöntemi Için bir Windows Azure Web sitesinde yayımlamak için gereken tüm bilgileri içerir. Yayımlama profili, bir yayımlama yönteminin etkinleştirildiği her bir uç noktasına bağlanmak ve kimlik doğrulaması yapmak için gereken URL'leri, kullanıcı kimlik bilgilerini ve veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Web için Microsoft Visual Studio Express** ve **Microsoft Visual Studio 2012** , Web uygulamalarını Microsoft Azure Web siteleri 'ne yayımlamak üzere bu programların yapılandırılmasını otomatik hale getirmek için yayımlama profillerinin okunmasını destekler.
 
     ![Web sitesi yayımlama profili indiriliyor](whats-new-in-aspnet-mvc-4/_static/image67.png "Web sitesi yayımlama profili indiriliyor")
 
@@ -1005,12 +1005,12 @@ Uygulamanız SQL Server veritabanlarını kullanıyorsa, bir SQL veritabanı sun
      ![Hedef bağlantı dizesi yapılandırılıyor](whats-new-in-aspnet-mvc-4/_static/image77.png "Hedef bağlantı dizesi yapılandırılıyor")
 
      *Hedef bağlantı dizesi yapılandırılıyor*
-6. Sonra **Tamam**'a tıklayın. Veritabanını oluşturmak isteyip istemediğiniz sorulduğunda **Evet**' e tıklayın.
+6. Daha sonra, **Tamam**'a tıklayın. Veritabanını oluşturmak isteyip istemediğiniz sorulduğunda **Evet**' e tıklayın.
 
     ![Veritabanı oluşturma](whats-new-in-aspnet-mvc-4/_static/image78.png "Veritabanı dizesi oluşturuluyor")
 
     *Veritabanı oluşturma*
-7. Windows Azure 'da SQL veritabanı 'na bağlanmak için kullanacağınız bağlantı dizesi varsayılan bağlantı metin kutusu içinde gösterilir. Sonra **İleri**'ye tıklayın.
+7. Windows Azure 'da SQL veritabanı 'na bağlanmak için kullanacağınız bağlantı dizesi varsayılan bağlantı metin kutusu içinde gösterilir. Ardından **İleri**'ye tıklayın.
 
     ![SQL veritabanı 'na işaret eden bağlantı dizesi](whats-new-in-aspnet-mvc-4/_static/image79.png "SQL veritabanı 'na işaret eden bağlantı dizesi")
 

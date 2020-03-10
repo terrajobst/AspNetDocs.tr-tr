@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 4b2c88280df39aa81d60f9508910e8fe5d6db6b8
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519121"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616818"
 ---
 # <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>ASP.NET Identity (C#) ile hesap onaylama ve parola kurtarma
 
@@ -83,7 +83,7 @@ Bağlantıyı seçtiğinizde sıfırlama sayfasına gidecektir.
 
 ASP.NET Identity için varsayılan veri deposu Entity Framework, ancak başka veri depoları kullanmak ve ek alanlar eklemek için yapılandırabilirsiniz. Bu öğreticinin sonundaki [ek kaynaklar](#addRes) bölümüne bakın.
 
-[Owın başlangıç sınıfı](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *Startup.cs* ), uygulama başlatıldığında çağrılır ve *App\_Start\Startup.auth.cs*' de, owın ardışık düzenini yapılandıran ve ASP.NET Identity Başlatan `ConfigureAuth` yöntemini çağırır. İnceleme `ConfigureAuth` yöntemi. Her `CreatePerOwinContext` çağrısı, belirtilen türden bir örnek oluşturmak için her istek için bir kez çağrılacak bir geri çağırma (`OwinContext`kaydedilir) kaydeder. Her türde (`ApplicationDbContext, ApplicationUserManager`) oluşturucuda ve `Create` yönteminde bir kesme noktası ayarlayabilir ve bunların her istekte çağrıldığından emin olabilirsiniz. `ApplicationDbContext` ve `ApplicationUserManager` bir örneği, uygulama genelinde erişilebilen OWIN bağlamında saklanır. Tanımlama bilgisi ara yazılımı aracılığıyla OWıN ardışık düzeninde kancalar ASP.NET Identity. Daha fazla bilgi için, bkz. [ASP.NET Identity Içindeki UserManager için istek ömrü yönetimi](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
+[Owın başlangıç sınıfı](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *Startup.cs* ), uygulama başlatıldığında çağrılır ve *App\_Start\Startup.auth.cs*' de, owın ardışık düzenini yapılandıran ve ASP.NET Identity Başlatan `ConfigureAuth` yöntemini çağırır. `ConfigureAuth` metodunu inceleyin. Her `CreatePerOwinContext` çağrısı, belirtilen türden bir örnek oluşturmak için her istek için bir kez çağrılacak bir geri çağırma (`OwinContext`kaydedilir) kaydeder. Her türde (`ApplicationDbContext, ApplicationUserManager`) oluşturucuda ve `Create` yönteminde bir kesme noktası ayarlayabilir ve bunların her istekte çağrıldığından emin olabilirsiniz. `ApplicationDbContext` ve `ApplicationUserManager` bir örneği, uygulama genelinde erişilebilen OWIN bağlamında saklanır. Tanımlama bilgisi ara yazılımı aracılığıyla OWıN ardışık düzeninde kancalar ASP.NET Identity. Daha fazla bilgi için, bkz. [ASP.NET Identity Içindeki UserManager için istek ömrü yönetimi](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
 
 Güvenlik profilinizi değiştirdiğinizde, *Aspnetusers* tablosunun `SecurityStamp` alanında yeni bir güvenlik damgası oluşturulur ve depolanır. `SecurityStamp` alanının güvenlik tanımlama bilgisinden farklı olduğunu aklınızda yapın. Güvenlik tanımlama bilgisi `AspNetUsers` tabloda (veya kimlik DB 'de başka herhangi bir yerde) depolanmaz. Güvenlik tanımlama bilgisi belirteci, [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) kullanılarak kendinden imzalanır ve `UserId, SecurityStamp` ile sona erme saati bilgileriyle oluşturulur.
 

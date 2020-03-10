@@ -9,11 +9,11 @@ ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
 ms.openlocfilehash: d3b619ebd9448d30857ffbaf17fd245b1d54a662
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519303"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641472"
 ---
 # <a name="shopping-cart"></a>Alışveriş Sepeti
 
@@ -56,7 +56,7 @@ Bu öğretici serisinde daha önce, *modeller* klasöründe `Category` ve `Produ
 1. *Modeller* klasörüne sağ tıklayın ve **yeni öğe**&gt; -**Ekle** ' yi seçin. 
 
     ![Alışveriş sepeti-yeni öğe](shopping-cart/_static/image1.png)
-2. **Yeni Öğe Ekle** iletişim kutusu görüntülenir. **Kodu**seçin ve ardından **sınıf**' ı seçin. 
+2. **Yeni öğe Ekle** iletişim kutusu görüntülenir. **Kodu**seçin ve ardından **sınıf**' ı seçin. 
 
     ![Alışveriş sepeti-yeni öğe Ekle Iletişim kutusu](shopping-cart/_static/image2.png)
 3. Bu yeni sınıfı *CartItem.cs*olarak adlandırın.
@@ -130,7 +130,7 @@ Daha önce belirtildiği gibi, kullanıcının alışveriş sepetine yeni ürün
 #### <a name="to-create-the-add-to-cart-functionality"></a>Add-cart işlevini oluşturmak için:
 
 1. **Çözüm Gezgini**, **wingtiptoys**projesine sağ tıklayın, **Yeni öğe**&gt; -**Ekle** ' ye tıklayın.  
-   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
 2. *AddToCart. aspx*adlı uygulamaya standart yeni bir sayfa (Web formu) ekleyin. 
 
     ![Alışveriş sepeti-Web formu ekleme](shopping-cart/_static/image4.png)
@@ -148,7 +148,7 @@ Daha önce belirtildiği gibi, bir Kullanıcı `ID`, belirli bir kullanıcıyla 
 *ShoppingCart. aspx* sayfası, kullanıcının kendi alışveriş sepetine eklediği ürünleri görüntüler. Ayrıca, alışveriş sepetindeki öğeleri ekleme, kaldırma ve güncelleştirme olanağı da sağlar.
 
 1. **Çözüm Gezgini**, **wingtiptoys**' a sağ tıklayın, **Yeni öğe**&gt; -**Ekle** ' ye tıklayın.  
-   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni öğe Ekle** iletişim kutusu görüntülenir.
 2. Ana sayfa **kullanarak Web formu**' nu seçerek ana sayfa içeren yeni bir sayfa (Web formu) ekleyin. Yeni sayfayı *ShoppingCart. aspx*olarak adlandırın.
 3. Ana sayfayı yeni oluşturulan *. aspx* sayfasına eklemek için **site. Master** ' u seçin.
 4. *ShoppingCart. aspx* sayfasında, varolan biçimlendirmeyi aşağıdaki biçimlendirme ile değiştirin:   

@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/getting-started/index
-title: ASP.NET Web Forms ile çalışmaya başlama | Microsoft Docs
+title: ASP.NET Web Forms kullanmaya başlama | Microsoft Docs
 author: rick-anderson
-description: Bilgi hakkında ASP.NET Web Forms ASP.NET Web Forms, tanıdık bir Sürükle ve bırak, olay odaklı modeli kullanarak dinamik build Web siteleri olanak tanır. Bir tasarım yüzeyi ve hund...
+description: ASP.NET Web Forms ASP.NET Web Forms hakkında bilgi edinin, tanıdık bir sürükle ve bırak, olay odaklı model kullanarak dinamik Web siteleri oluşturmanıza olanak sağlar. Tasarım yüzeyi ve höa...
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: f645d3b1-1092-43c6-a28a-074b413924b4
 msc.legacyurl: /web-forms/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: d76e65ae807b1da97d07199e7f0fce21fbf14af6
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133442"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632722"
 ---
-# <a name="getting-started-with-aspnet-web-forms"></a>ASP.NET Web Forms ile çalışmaya başlama
+# <a name="getting-started-with-aspnet-web-forms"></a>ASP.NET Web Forms kullanmaya başlama
 
-> Web Forms modeli ve nasıl sayfaları ve denetimleri kullanın.
+> Web Forms modeli ve sayfaların oluşturulması ve denetimlerin kullanımı.
 
 - [ASP.NET 4.5 Web Forms ve Visual Studio 2013 ile Çalışmaya Başlama](getting-started-with-aspnet-45-web-forms/index.md)
 

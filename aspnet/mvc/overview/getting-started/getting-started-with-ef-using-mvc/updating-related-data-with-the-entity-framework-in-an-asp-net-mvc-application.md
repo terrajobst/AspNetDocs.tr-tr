@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme'
-description: Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir.
+title: 'Öğretici: bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme'
+description: Bu öğreticide ilgili verileri güncelleştireceksiniz. Çoğu ilişki için, bu, yabancı anahtar alanları veya gezinti özellikleri güncelleştirilerek yapılabilir.
 author: tdykstra
 ms.author: riande
 ms.date: 01/19/2019
@@ -10,279 +10,279 @@ ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 4d5f6447fdccefdcdf9497a9e94f23243302a0e1
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65120905"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616006"
 ---
-# <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme
+# <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme
 
-Önceki öğreticide ilgili verileri görüntülenir. Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir. Varlıklar için ve uygun Gezinti özelliklerinden ekleyip şekilde çoktan çoğa ilişkiler için Entity Framework birleşim tablosundan doğrudan ortaya çıkarmıyor.
+Önceki öğreticide ilgili verileri görüntülediyseniz. Bu öğreticide ilgili verileri güncelleştireceksiniz. Çoğu ilişki için, bu, yabancı anahtar alanları veya gezinti özellikleri güncelleştirilerek yapılabilir. Çoka çok ilişkiler için Entity Framework, JOIN tablosunu doğrudan kullanıma sunmaz, bu yüzden, uygun gezinti özelliklerine ve içindeki varlıkları ekleyip kaldırmanız gerekir.
 
-Aşağıdaki çizimler ile çalışma sayfaları bazılarını göstermektedir.
+Aşağıdaki çizimlerde, üzerinde çalıştığınız sayfaların bazıları gösterilmektedir.
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
 ![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-![Kurslarıyla Eğitmen Düzenle](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+![Kurslar ile eğitmen düzenleme](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Kursları sayfalarını özelleştirme
-> * Office Eğitmenler sayfasına ekleme
-> * Kursları Eğitmenler sayfasına ekleme
-> * Güncelleştirme DeleteConfirmed
-> * Ofis konumu ve kurslar oluşturma sayfasına ekleme
+> * Kurslar sayfalarını özelleştirme
+> * Office 'i eğitmenler sayfasına Ekle
+> * Eğitmenler sayfasına kurslar ekleyin
+> * Deleteonaylandı Güncelleştir
+> * Oluşturma sayfasına Office konum ve kurslar ekleme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [İlgili Verileri Okuma](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
-## <a name="customize-courses-pages"></a>Kursları sayfalarını özelleştirme
+## <a name="customize-courses-pages"></a>Kurslar sayfalarını özelleştirme
 
-Yeni bir kurs varlık oluşturulduğunda, var olan bir bölüm arasında bir ilişki olması gerekir. Bunu kolaylaştırmak için iskele kurulan kodu denetleyici metotları ve departman seçmek için aşağı açılan listede yer oluşturma ve düzenleme görünümleri içerir. Açılır listede kümeleri `Course.DepartmentID` yabancı anahtar özellik ve tüm yük için Entity Framework gereken `Department` uygun sahip gezinme özelliği `Department` varlık. İskele kurulan kodu kullanır ancak biraz hata işleme eklemek ve açılan listeyi sıralamak için değiştirmeniz.
+Yeni bir kurs varlığı oluşturulduğunda, mevcut bir departmanla bir ilişkisi olmalıdır. Bunu kolaylaştırmak için, yapı iskelesi kodu denetleyici yöntemlerini içerir ve departmanı seçmeye yönelik bir açılan liste içeren görünümler oluşturup düzenleyebilir. Açılan liste `Course.DepartmentID` yabancı anahtar özelliğini ayarlar ve bu, `Department` gezinti özelliğini uygun `Department` varlığıyla yüklemek için tüm Entity Framework gereksinimlidir. Scafkatmış kodu kullanacaksınız, ancak hata işleme eklemek ve açılan listeyi sıralamak için biraz değişiklik yapacaksınız.
 
-İçinde *CourseController.cs*, dört Sil `Create` ve `Edit` yöntemleri ve bunları aşağıdaki kodla değiştirin:
+*CourseController.cs*' de, dört `Create` ve `Edit` yöntemleri silin ve bunları şu kodla değiştirin:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,11-12,19-25,40,44,46,48-78)]
 
-Aşağıdaki `using` dosyasının başında deyimi:
+Aşağıdaki `using` ifadesini dosyanın başına ekleyin:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-`PopulateDepartmentsDropDownList` Yöntemi tüm Departmanlar adına göre sıralanmış bir listesini alır, oluşturur bir `SelectList` koleksiyonu için bir açılan liste ve toplama görünümüne geçirir bir `ViewBag` özelliği. Yöntemi isteğe bağlı olarak kabul `selectedDepartment` açılır listede işlendiğinde seçilir öğeyi belirtmek çağıran kod veren parametresi. Görünüm adı geçer `DepartmentID` için [DropDownList](../../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md) Yardımcısı ve yardımcı ardından bilir aranacak `ViewBag` nesnesi bir `SelectList` adlı `DepartmentID`.
+`PopulateDepartmentsDropDownList` yöntemi, ada göre sıralanmış tüm bölümlerin bir listesini alır, açılan liste için bir `SelectList` koleksiyonu oluşturur ve koleksiyonu bir `ViewBag` özelliğindeki görünüme geçirir. Yöntemi, çağıran kodun, açılan liste işlendiğinde seçilecek öğeyi belirtmesini sağlayan isteğe bağlı `selectedDepartment` parametresini kabul eder. Görünüm, adı `DepartmentID` [DropDownList](../../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md) Yardımcısı 'na geçecek ve yardımcı sonra `DepartmentID`adlı bir `SelectList` için `ViewBag` nesnesine bakmış olur.
 
-`HttpGet` `Create` Yöntem çağrılarını `PopulateDepartmentsDropDownList` için yeni bir kurs departman henüz yapılandırılmadı çünkü seçilen öğe ayarlama olmadan yöntemi:
+`HttpGet` `Create` yöntemi, seçilen öğeyi ayarlamadan `PopulateDepartmentsDropDownList` yöntemini çağırır, çünkü yeni bir kurs için departman henüz kurulmadı:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
-`HttpGet` `Edit` Yöntemi düzenlenmekte olan kursa zaten atanmış bölüm Kimliğini temel öğeye ayarlar:
+`HttpGet` `Edit` yöntemi, düzenlenen kursa zaten atanmış departmanın KIMLIğINE bağlı olarak seçili öğeyi ayarlar:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=12)]
 
-`HttpPost` Hem de yöntemleri `Create` ve `Edit` de bunlar sayfanın bir hatanın ardından yeniden seçili öğe ayarlar kodu içerir:
+Hem `Create` hem de `Edit` için `HttpPost` yöntemleri, bir hatadan sonra sayfayı yeniden görüntülerken seçili öğeyi ayarlayan kodu içerir:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs?highlight=6)]
 
-Bu kod, her departman seçilen hata mesajını göstermeye sayfası görüntülendiğinde, seçili kalmasını sağlar.
+Bu kod, sayfa hata iletisini göstermek için yeniden görüntülendiğinde, seçilen bölümün seçili kalırsa emin olmanızı sağlar.
 
-Kurs görünümleri zaten departmanı alanı için aşağı açılır listeler ile iskele kurulmuş, ancak aşağıdaki vurgulanmış yapma değiştirmek için bu alan için DepartmentID açıklamalı alt yazı istemiyorsanız *Views\Course\Create.cshtml* dosya açıklamalı alt yazı değiştirin.
+Kurs görünümleri, bölüm alanı için aşağı açılan listelerle zaten Uzlanabilir, ancak bu alanın DepartmentID açıklamalı başlığını istemezsiniz, bu nedenle başlık değiştirmek için *Views\course\create.exe* dosyasında aşağıdaki vurgulanmış değişikliği yapın.
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cshtml?highlight=43)]
 
-İçinde aynı değişikliği yapmanız *Views\Course\Edit.cshtml*.
+*Views\course\edit.exe*' de aynı değişikliği yapın.
 
-Anahtar değeri veritabanı tarafından oluşturulur ve değiştirilemez ve kullanıcılara gösterilmesi için anlamlı bir değer değildir çünkü iskele kurucu normalde bir birincil anahtar iskelesini değil. Kurs varlıkları için iskele kurucu bir metin kutusu içermez `CourseID` anlar, çünkü alan `DatabaseGeneratedOption.None` özniteliği anlamına gelir kullanıcı mümkün birincil anahtarı değerini girin. Ancak sayı anlamlı olduğundan el ile eklemeniz gerekmez diğer görünümlerde görmek istediğiniz anlamıyor.
+Normal olarak, anahtar değeri veritabanı tarafından oluşturulduğundan ve değiştirilemediğinden ve kullanıcılara gösterilemeyecek anlamlı bir değer olmadığından desteği birincil anahtar üzerinde değişiklik yapmaz. Kurs varlıkları için, `DatabaseGeneratedOption.None` özniteliğinin kullanıcının birincil anahtar değerini girebilmelidir anlamına geldiğini anladığından, desteği `CourseID` alanı için bir metin kutusu içerir. Ancak bu, sayının diğer görünümlerde görmek istediğiniz anlamlı olduğundan, bunu el ile eklemeniz gerektiğini anlamaz.
 
-İçinde *Views\Course\Edit.cshtml*, önce bir kurs sayı alan eklemek **başlık** alan. Birincil anahtar olduğu için nerde gösterilirse, ancak değiştirilemez.
+*Views\course\edit.exe*' de **başlık** alanından önce bir kurs numarası alanı ekleyin. Birincil anahtar olduğundan, görüntülenir, ancak değiştirilemez.
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cshtml)]
 
-Gizli bir alan zaten var. (`Html.HiddenFor` Yardımcısı) düzenleme Görünümü'nde kurs numarası. Ekleme bir *Html.LabelFor* Yardımcısı kullanıcı tıkladığında, deftere nakledilen verileri eklenecek kurs sayısı neden olmayan gizli alan gereksinimini ortadan değil **Kaydet** Düzenle sayfasında.
+Düzenleme görünümündeki kurs numarası için gizli bir alan (`Html.HiddenFor` Yardımcısı) zaten var. Bir *HTML. LabelFor* Helper eklemek, Kullanıcı düzenleme sayfasında **Kaydet** ' i tıklattığında, kurs numarasının gönderilen verilere dahil edilmesini neden olmadığı için gizli alanın gereksinimini ortadan kaldırmaz.
 
-İçinde *Views\Course\Delete.cshtml* ve *Views\Course\Details.cshtml*önce kursta sayı alanı ekleyin ve "Departman" için "Adından" bölüm adı başlığını değiştirme **başlığı**  alan.
+*Views\course\delete.exe* ve *Views\course\details.cshtml*' de, Bölüm adı başlığını "ad" iken "Departman" olarak değiştirin ve **başlık** alanından önce bir kurs numarası alanı ekleyin.
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cshtml?highlight=2,9-15)]
 
-Çalıştırma **Oluştur** sayfa (kurs dizin sayfasını görüntüleyin ve tıklayın **Yeni Oluştur**) ve yeni bir kurs için veri girin:
+**Oluştur** sayfasını çalıştırın (kurs dizinini görüntüle sayfasını ve **Yeni oluştur**' a tıklayın) ve yeni bir kurs için veri girin:
 
 | Değer | Ayar |
 | ----- | ------- |
-| Sayı | Girin *1000*. |
-| Başlık | Girin *Cebir*. |
-| Jenerik | Girin *4*. |
-|Bölüm | Seçin **matematik**. |
+| Sayı | *1000*girin. |
+| Başlık | *Algeköşeli*girin. |
+| Krediler | *4*girin. |
+|Bölüm | **Matematik**seçeneğini belirleyin. |
 
-**Oluştur**'u tıklatın. Listeye eklenen yeni kurs ile kurs dizin sayfası görüntülenir. Bölüm adı dizin sayfası listesinde ilişki doğru şekilde kurulduğundan gösteren navigation özelliğinden gelir.
+**Oluştur**'u tıklatın. Kurs dizini sayfası, listeye eklenen yeni kursla birlikte görüntülenir. Dizin sayfası listesindeki departman adı, ilişkinin doğru şekilde oluşturulduğunu gösteren gezinti özelliğinden gelir.
 
-Çalıştırma **Düzenle** sayfa (kurs dizin sayfasını görüntüleyin ve tıklayın **Düzenle** kurs üzerinde).
+**Düzenleme** sayfasını çalıştırın (kurs dizinini görüntüleyin ve bir kurs üzerinde **Düzenle** ' ye tıklayın).
 
-Sayfadaki verileri değiştirip'ı **Kaydet**. Güncelleştirilmiş kurs verilerle kurs dizin sayfası görüntülenir.
+Sayfadaki verileri değiştirin ve **Kaydet**' e tıklayın. Kurs dizini sayfası, güncelleştirilmiş kurs verileriyle birlikte görüntülenir.
 
-## <a name="add-office-to-instructors-page"></a>Office Eğitmenler sayfasına ekleme
+## <a name="add-office-to-instructors-page"></a>Office 'i eğitmenler sayfasına Ekle
 
-Bir eğitmen kaydı düzenlediğinizde, eğitmen ofis ataması güncelleştirilecek yönetebilmek istiyorsunuz. `Instructor` Varlığı ile bir sıfır-veya-bir ilişkisi vardır `OfficeAssignment` aşağıdaki durumlarda işlemek gerekir yani varlık:
+Bir eğitmen kaydını düzenlediğinizde, eğitmenin Office atamasını güncelleştirebilmek istersiniz. `Instructor` varlığı, `OfficeAssignment` varlığı ile bire sıfır veya-arasında bir ilişkiye sahiptir; yani aşağıdaki durumları işlemeniz gerekir:
 
-- Kullanıcı ofis ataması temizler ve ilk olarak bir değer vardı, Sil kaldırın ve gereken `OfficeAssignment` varlık.
-- Kullanıcı bir office atama değer girer ve başlangıçta boş ise, yeni bir oluşturmalısınız `OfficeAssignment` varlık.
-- Kullanıcı bir ofis ataması değeri değişirse, mevcut değerin değiştirmeli `OfficeAssignment` varlık.
+- Kullanıcı Office atamasını temizlediğinde ve başlangıçta bir değer içeriyorsa, `OfficeAssignment` varlığını kaldırmanız ve silmeniz gerekir.
+- Kullanıcı bir Office atama değeri girerse ve başlangıçta boşsa, yeni bir `OfficeAssignment` varlığı oluşturmanız gerekir.
+- Kullanıcı bir Office atamasının değerini değiştirirse, mevcut bir `OfficeAssignment` varlığındaki değeri değiştirmeniz gerekir.
 
-Açık *InstructorController.cs* bakın `HttpGet` `Edit` yöntemi:
+*InstructorController.cs* ' i açın ve `HttpGet` `Edit` yöntemine bakın:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-İskele kurulan kodu buraya istediklerinizi değildir. Bu verileri ayarı bir açılan liste, ancak için bir metin kutusu ihtiyacınız olduğu. Bu yöntem, aşağıdaki kodla değiştirin:
+Burada scafkatlama kodu istediğiniz gibi değildir. Bu, bir açılan liste için veri ayarlıyor, ancak ihtiyacınız olan bir metin kutusu. Bu yöntemi aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs?highlight=7-10)]
 
-Bu kod bıraktığı `ViewBag` deyimi ve ilişkili istekli yükleme ekler `OfficeAssignment` varlık. İle istekli yükleme gerçekleştiremezsiniz `Find` yöntemi, bu nedenle `Where` ve `Single` yöntemleri yerine Eğitmen seçmek için kullanılır.
+Bu kod `ViewBag` ifadesini bırakır ve ilişkili `OfficeAssignment` varlığı için ekip yükleme ekler. `Find` yöntemiyle Eager yüklemesi gerçekleştiremezsiniz, bu nedenle `Where` ve `Single` yöntemleri eğitmeni seçmek için kullanılır.
 
-Değiştirin `HttpPost` `Edit` yöntemini aşağıdaki kod ile. hangi office atama güncelleştirmelerini işler:
+`HttpPost` `Edit` yöntemini aşağıdaki kodla değiştirin. Office atama güncelleştirmelerini işleyen:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Başvuru `RetryLimitExceededException` gerektiren bir `using` ekleyin-fareyi üzerine deyimi; `RetryLimitExceededException`. Aşağıdaki ileti görünür: ![ Özel durum iletisi yeniden deneyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
+`RetryLimitExceededException` başvurusu `using` bir ifade gerektirir; eklemek için farenizi `RetryLimitExceededException`üzerine getirin. Aşağıdaki ileti görünür: ![ yeniden deneme özel durum iletisi](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 
-Seçin **olası düzeltmeleri göster**, ardından **System.Data.Entity.Infrastructure kullanma**
+**Olası düzeltmeleri göster**' i seçin ve ardından **System. Data. Entity. Infrastructure kullanarak**
 
-![Yeniden deneme özel durumu çözümleyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
+![Yeniden deneme özel durumunu çözümle](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 Kod şunları yapar:
 
-- Yöntem adına değişiklikleri `EditPost` imza artık aynı olduğundan `HttpGet` yöntemi ( `ActionName` özniteliği belirtir /Edit/ URL'si hala kullanılır).
-- Geçerli alır `Instructor` istekli yükleme için kullanarak veritabanını bir varlıktan `OfficeAssignment` gezinme özelliği. Bu, yaptığınız aynıdır `HttpGet` `Edit` yöntemi.
-- Alınan güncelleştirmeler `Instructor` varlık değerlerle model bağlayıcı. [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) aşırı kullanılan olanak tanır *izin verilenler listesi* dahil etmek istediğiniz özellikler. Bu aşırı posta açıklandığı şekilde engeller [ikinci öğreticide](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- İmza artık `HttpGet` yöntemiyle aynı olduğundan (`ActionName` özniteliği,/Edit/URL 'nin hala kullanıldığını belirten), yöntem adını `EditPost` olarak değiştirir.
+- `OfficeAssignment` gezinti özelliği için Eager yükleme kullanarak geçerli `Instructor` varlığını veritabanından alır. Bu, `HttpGet` `Edit` yönteminde yaptığınız şeydir.
+- Alınan `Instructor` varlığını model Ciltçideki değerlerle güncelleştirir. Kullanılan [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) aşırı yüklemesi, dahil etmek istediğiniz özellikleri *beyaz listelemenize* olanak sağlar. Bu, [ikinci öğreticide](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)açıklandığı gibi, daha fazla nakletmeyi önler.
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
-- Ofis konumu boş ise, ayarlar `Instructor.OfficeAssignment` özelliği null böylece ilgili satırdaki `OfficeAssignment` tablo silinecek.
+- Office konumu boşsa, `OfficeAssignment` tablosundaki ilgili satırın silinebilmesi için `Instructor.OfficeAssignment` özelliğini null olarak ayarlar.
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 - Değişiklikleri veritabanına kaydeder.
 
-İçinde *Views\Instructor\Edit.cshtml*, sonra `div` için öğeleri **işe giriş tarihi** alan, ofis konumu düzenlemek için yeni bir alan ekleyin:
+*Views\komutctor\edit.exe*' de, **işe alma tarihi** alanı için `div` öğelerinden sonra, Office konumunu düzenlemekte yeni bir alan ekleyin:
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cshtml)]
 
-Sayfayı çalıştırın (seçin **Eğitmenler** sekmesine ve ardından **Düzenle** bir eğitmen üzerinde). Değişiklik **ofis konumu** tıklatıp **Kaydet**.
+Sayfayı çalıştırın ( **eğitmenler** sekmesini seçin ve ardından bir eğitmende **Düzenle** ' ye tıklayın). **Office konumunu** değiştirin ve **Kaydet**' e tıklayın.
 
-## <a name="add-courses-to-instructors-page"></a>Kursları Eğitmenler sayfasına ekleme
+## <a name="add-courses-to-instructors-page"></a>Eğitmenler sayfasına kurslar ekleyin
 
-Eğitmenler kursları herhangi bir sayıda öğretin. Artık bir grup onay kutularını kullanarak kurs atamalarını değiştirme olanağı ekleyerek Eğitmen Düzenle sayfasında geliştirmek.
+Eğitmenler, istediğiniz sayıda kurs öğretebilir. Artık bir grup onay kutusu kullanarak kurs atamalarını değiştirme özelliğini ekleyerek eğitmen düzenleme sayfasını geliştirirsiniz.
 
-Arasındaki ilişkiyi `Course` ve `Instructor` varlıklar olduğunu çoktan çoğa, birleştirme tabloda yer alan yabancı anahtar özelliklerini doğrudan erişim sahip olmadığınız anlamına gelir. Bunun yerine, ekleyip varlıkları ve ondan `Instructor.Courses` gezinme özelliği.
+`Course` ve `Instructor` varlıkları arasındaki ilişki çoktan çoğa, bu, JOIN tablosunda bulunan yabancı anahtar özelliklerine doğrudan erişiminizin olmadığı anlamına gelir. Bunun yerine, `Instructor.Courses` gezinti özelliğine ve öğesinden varlıkları ekler ve kaldırılır.
 
-Hangi kursları değiştirmenize olanak sağlayan bir eğitmen UI'dir atanan onay kutularını grubudur. Her kurs sonunda verilen veritabanında bir onay kutusu görüntülenir ve Eğitmen şu anda atandığı olanları seçilir. Kullanıcı seçin veya kurs atamaları değiştirmek için onay kutularının işaretini kaldırın. Kursları sayısı çok büyük, görünüm verileri sunmak için farklı bir yöntem kullanmak istiyorsunuz, ancak oluşturmak veya ilişkileri silmek için Gezinti özelliklerini düzenleme aynı yöntemini kullanmanız gerekir.
+Bir eğitmenin hangi kurslara atandığını değiştirmenize olanak sağlayan kullanıcı arabirimi bir grup onay kutusu olur. Veritabanındaki her kurs için bir onay kutusu görüntülenir ve eğitmenin Şu anda atanmış olduğu yer seçilidir. Kullanıcı kurs atamalarını değiştirmek için onay kutularını seçebilir veya temizleyebilir. Kurs sayısı çok fazlaysa, büyük olasılıkla görünümde verileri göstermek için farklı bir yöntem kullanmak isteyeceksiniz, ancak ilişkiler oluşturmak veya silmek için gezinti özelliklerini düzenleme yöntemini kullanırsınız.
 
-Verileri görüntülemek için onay kutusu listesi sağlamak için bir görünüm modeli sınıfı kullanacaksınız. Oluşturma *AssignedCourseData.cs* içinde *Viewmodel'lar* klasörü ve varolan kodu aşağıdaki kodla değiştirin:
+Onay kutuları listesinin görünümüne veri sağlamak için bir görünüm modeli sınıfı kullanacaksınız. *Viewmodeller* klasöründe *AssignedCourseData.cs* oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 
-İçinde *InstructorController.cs*, değiştirin `HttpGet` `Edit` yöntemini aşağıdaki kod ile. Değişiklikler vurgulanır.
+*InstructorController.cs*' de `HttpGet` `Edit` yöntemini aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cs?highlight=9,12,20-35)]
 
-İstekli yükleme için kod ekler `Courses` gezinme özelliğini ve yeni çağırır `PopulateAssignedCourseData` dizi onay kutusunu kullanma hakkında bilgi sağlamak için yöntemi `AssignedCourseData` model sınıfı görüntüleyin.
+Kod, `Courses` gezinti özelliği için Eager yüklemesi ekler ve `AssignedCourseData` View model sınıfını kullanarak onay kutusu dizisi bilgilerini sağlamak için yeni `PopulateAssignedCourseData` yöntemini çağırır.
 
-Kodda `PopulateAssignedCourseData` yöntemi okur ile tüm `Course` varlıklar listesi görünümünü kullanarak kursları yüklemek için model sınıfı. Her kurs için kod kursu Eğitmen içinde mevcut olup olmadığını denetler `Courses` gezinme özelliği. Bir kurs eğitmen için atanmış olup olmadığını denetlerken verimli arama oluşturmak için eğitmen için atanan kursları içine yerleştirilir bir [HashSet](https://msdn.microsoft.com/library/bb359438.aspx) koleksiyonu. `Assigned` Özelliği `true` kursları Eğitmen atanır. Görünüm, bu özellik, hangi onay kutuları olarak görüntülenmelidir seçili belirlemek için kullanır. Son olarak, listenin Görünümü'nde geçirilecek bir `ViewBag` özelliği.
+`PopulateAssignedCourseData` yöntemindeki kod, görünüm modeli sınıfını kullanarak bir kurs listesi yüklemek için tüm `Course` varlıklarından okur. Kod, her kurs için, kursun `Courses` gezinti özelliğinde mevcut olup olmadığını denetler. Eğitmenin bir kurs atanıp atanmadığını denetlerken etkili arama oluşturmak için, eğitmene atanan kurslar bir [diyez kümesi](https://msdn.microsoft.com/library/bb359438.aspx) koleksiyonuna konur. `Assigned` özelliği, eğitmenin atandığı kurslar için `true` olarak ayarlanır. Görünüm, hangi onay kutularının seçili olarak gösterileceğini belirlemede bu özelliği kullanır. Son olarak, liste bir `ViewBag` özelliğindeki görünüme geçirilir.
 
-Ardından, kullanıcı tıkladığında yürütülen kod ekleme **Kaydet**. Değiştirin `EditPost` yöntemini aşağıdaki kodla güncelleştirmeleri yeni bir yöntemi çağıran `Courses` gezinti özelliği `Instructor` varlık. Değişiklikler vurgulanır.
+Sonra, Kullanıcı **Kaydet**' i tıklattığında yürütülen kodu ekleyin. `EditPost` yöntemini, `Instructor` varlığının `Courses` gezinti özelliğini güncelleştiren yeni bir yöntemi çağıran aşağıdaki kodla değiştirin. Değişiklikler vurgulanır.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cs?highlight=3,11,25,37,40-68)]
 
-Yöntem imzası farklı `HttpGet` `Edit` yöntemi için yöntem adını değişiklikleri `EditPost` geri `Edit`.
+Yöntem imzası artık `HttpGet` `Edit` yönteminden farklıdır. bu nedenle, yöntem adı `EditPost` geri `Edit`olarak değişir.
 
-Görünüm koleksiyonunu olmadığı `Course` varlıklar, model bağlayıcı güncelleştiremiyor otomatik olarak `Courses` gezinme özelliği. Güncelleştirilecek model bağlayıcısını kullanmak yerine `Courses` gezinti özelliği, bu yeni gerçekleştirirsiniz `UpdateInstructorCourses` yöntemi. Bu nedenle hariç tutmak ihtiyacınız `Courses` model bağlama özelliği. Bunu çağıran kodu herhangi bir değişiklik gerektirmez [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) kullanmakta olduğunuz çünkü *beyaz listeye ekleme* aşırı yükleme ve `Courses` ekleme listesinde değil.
+Görünümün bir `Course` varlıkları koleksiyonu olmadığından, model Bağlayıcısı `Courses` gezinti özelliğini otomatik olarak güncelleştiremez. `Courses` gezinti özelliğini güncelleştirmek için model cildi kullanmak yerine, bunu yeni `UpdateInstructorCourses` yönteminde yapacaksınız. Bu nedenle `Courses` özelliğini model bağlamadan çıkarmanız gerekir. Bu, *beyaz liste* aşırı yüklemesini kullandığınız ve `Courses` içerme listesinde olmadığı Için [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) 'i çağıran kodda herhangi bir değişiklik yapılmasını gerektirmez.
 
-Onay kutuları seçilmedi, kodda `UpdateInstructorCourses` başlatır `Courses` sahip boş bir koleksiyon gezinme özelliği:
+Hiçbir onay kutusu seçilmediyse `UpdateInstructorCourses` kod, `Courses` gezinti özelliğini boş bir koleksiyon ile başlatır:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-Kod sonra veritabanındaki tüm kurslara döngü ve her kurs sonunda verilen görünümünde seçilen olanları karşı Eğitmen atanmış olanlar karşı denetler. Verimli aramaları kolaylaştırmak için ikinci iki koleksiyon depolanır `HashSet` nesneleri.
+Kod daha sonra, veritabanındaki tüm kurslardan geçer ve bu her kursu, görünümde seçili olanlar ile ilgili olarak eğitmenin atandığı her bir kursa karşı denetler. Etkili aramaları kolaylaştırmak için, ikinci iki koleksiyon `HashSet` nesnelerinde depolanır.
 
-Bir kurs için onay kutusu seçili ancak kursu değil `Instructor.Courses` gezinti özelliği, kurs gezinme özelliğini koleksiyona eklenir.
+Kurs onay kutusu seçilmişse ancak kurs `Instructor.Courses` gezinti özelliğinde değilse, kurs, Gezinti özelliğindeki koleksiyona eklenir.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cs)]
 
-Bir kurs için onay kutusu seçili değildi, ancak kursu bulunduğu `Instructor.Courses` Gezinti özelliğine, kurs navigation özelliğinden kaldırılır.
+Kurs onay kutusu seçilmemişse, ancak kurs `Instructor.Courses` gezinti özelliği ise, kurs, gezinti özelliğinden kaldırılır.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample20.cs)]
 
-İçinde *Views\Instructor\Edit.cshtml*, ekleme bir **kursları** aşağıdakileri ekleyerek onay kutularını bir alan hemen sonra kod `div` için öğeleri `OfficeAssignment` alan ve önce `div` öğesi için **Kaydet** düğmesi:
+*Views\komutctor\edit.exe*' de, `OfficeAssignment` alanı için `div` öğeden hemen sonra ve **kaydet** düğmesine ait `div` öğesinden önce aşağıdaki kodu ekleyerek bir dizi onay kutusu içeren bir **Kurslar** alanı ekleyin:
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cshtml)]
 
-Yapıştırdıktan sonra burada yaptığınız gibi satır sonlarını, kod ve girinti görünmüyor, burada gördüğünüz gibi görünüyor. böylece her şeyi el ile düzeltin. Girinti mükemmel, olması gerekmez ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@</tr>` satırları her tek bir satırda gösterilen gibi olmalıdır veya bir çalışma zamanı hatası alırsınız.
+Kodu yapıştırdıktan sonra, satır sonları ve girintileme buradaki gibi görünmüyorsa, burada gördüğünüz gibi görünmesi için her şeyi el ile onarın. Girintide kusursuz olması gerekmez, ancak `@</tr><tr>`, `@:<td>`, `@:</td>`ve `@</tr>` satırların her biri gösterildiği gibi tek bir satırda olması gerekir, aksi halde bir çalışma zamanı hatası alırsınız.
 
-Bu kod, üç sütuna sahip bir HTML tablosu oluşturur. Her kurs numarası ve başlığı oluşan bir resim yazısı tarafından izlenen bir onay kutusu sütunundadır. Tüm onay kutularını oldukları bir grup olarak kabul edilmesi için model bağlayıcı bildirir aynı adı ("selectedCourses") sahip. `value` Her onay kutusunun öznitelik değeri olarak ayarlanır `CourseID.` sayfa gönderildiğinde, model bağlayıcı dizisi içeren denetleyicisine geçirir. `CourseID` yalnızca, seçilen onay kutularına için değerler.
+Bu kod, üç sütun içeren bir HTML tablosu oluşturur. Her sütunda, bir onay kutusu ve ardından kurs numarası ve başlığından oluşan bir açıklamalı alt yazı bulunur. Onay kutularının hepsi aynı ada ("Selectedkurslar") sahiptir, bu da model cilde bir grup olarak değerlendirilme bildirir. Her onay kutusunun `value` özniteliği, sayfa gönderildiğinde `CourseID.` değerine ayarlanır, model Ciltçi yalnızca seçili onay kutularının `CourseID` değerlerinden oluşan bir diziyi denetleyiciye geçirir.
 
-Onay kutularını başlangıçta işlendiğinde, eğitmen için atanan kurslara olanlar sahip `checked` öznitelikleri, bunları (bunları kullanıma gösterir) seçer.
+Onay kutuları başlangıçta işlendiğinde, eğitmenin atandığı kurslara yönelik olanlar, onları seçen `checked` özniteliklerine sahiptir (bunları işaretli olarak görüntüler).
 
-Kurs atamaları değiştirdikten sonra site döndüğünde değişiklikleri doğrulamak için isteyebilirsiniz `Index` sayfası. Bu nedenle, bu sayfa tabloda bir sütun eklemeniz gerekir. Bu durumda kullanmanız gerekmez `ViewBag` görüntülemek istediğiniz bilgileri zaten kullanımda olduğundan, nesne `Courses` gezinti özelliği `Instructor` sayfasına model olarak geçirerek varlık.
+Kurs atamalarını değiştirdikten sonra, site `Index` sayfasına döndüğünde değişiklikleri doğrulayabilmek isteyeceksiniz. Bu nedenle, bu sayfadaki tabloya bir sütun eklemeniz gerekir. Bu durumda, göstermek istediğiniz bilgiler, sayfaya model olarak geçirdiğiniz `Instructor` varlığının `Courses` gezinti özelliğinde zaten yer aldığı için `ViewBag` nesnesini kullanmanız gerekmez.
 
-İçinde *Views\Instructor\Index.cshtml*, ekleme bir **kursları** hemen başlık **Office** aşağıdaki örnekte gösterildiği gibi başlığı:
+*Views\komutctor\ındex.cshtml*içinde, aşağıdaki örnekte gösterildiği gibi, **Office** başlığından hemen sonra bir **Kurslar** başlığı ekleyin:
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cshtml?highlight=6)]
 
-Ardından office konumu ayrıntı hücre hemen ardından, yeni bir ayrıntı hücresi ekleyin:
+Ardından, Office konumu ayrıntı hücresini hemen takip eden yeni bir ayrıntı hücresi ekleyin:
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cshtml?highlight=7-14)]
 
-Çalıştırma **Eğitmen dizin** her eğitmen için atanan kursları görmek için sayfayı.
+Her bir eğitmene atanan kursları görmek için **eğitmen dizini** sayfasını çalıştırın.
 
-Tıklayın **Düzenle** üzerinde bir eğitmen Düzen sayfasına bakın.
+Düzenleme sayfasını görmek için bir eğitmende **Düzenle** ' ye tıklayın.
 
-Bazı kurs atamalarını değiştirip'ı **Kaydet**. Dizin sayfasında, yaptığınız değişiklikler yansıtılır.
+Bazı kurs atamalarını değiştirin ve **Kaydet**' e tıklayın. Yaptığınız değişiklikler Dizin sayfasında yansıtılır.
 
- Not: Eğitmen kurs verileri düzenlemek için burada uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi, daha büyük olan koleksiyonları için gerekli olacaktır.
+ Note: Eğitmen Kursu verilerini düzenlemek için buradaki yaklaşım, sınırlı sayıda kurs olduğunda iyi bir şekilde gerçekleştirilir. Çok daha büyük olan koleksiyonlar için, farklı bir kullanıcı arabirimi ve farklı bir güncelleştirme yöntemi gerekir.
 
-## <a name="update-deleteconfirmed"></a>Güncelleştirme DeleteConfirmed
+## <a name="update-deleteconfirmed"></a>Deleteonaylandı Güncelleştir
 
-İçinde *InstructorController.cs*, silme `DeleteConfirmed` aşağıdaki kodu yerine yöntemi ve ekleme.
+*InstructorController.cs*' de `DeleteConfirmed` yöntemini silin ve yerine aşağıdaki kodu ekleyin.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample24.cs?highlight=5-8,12-18)]
 
-Bu kod, aşağıdaki değişiklik yapar:
+Bu kod aşağıdaki değişikliği yapar:
 
-- Eğitmen departmanı Yöneticisi olarak atanmış ise, departmanından Eğitmen atama kaldırır. Bu kod olmadan, bir departman için yönetici olarak atanan bir eğitmen silmeye çalıştığınız bir başvuru bütünlüğü hatası elde edersiniz.
+- Eğitmen herhangi bir departmanın yöneticisi olarak atanırsa, bu departmandaki eğitmen atamasını kaldırır. Bu kod olmadan, bir departman için yönetici olarak atanmış bir eğitmeni silmeye çalıştıysanız, başvurusal bütünlük hatası alırsınız.
 
-Bu kod, birden çok Departmanlar için yönetici olarak atanan bir eğitmen senaryo işlemiyor. Son öğreticisinde, bu senaryonun oluşmasını engeller kod ekleyeceksiniz.
+Bu kod, birden çok departman için yönetici olarak atanan bir eğitmenin senaryosunu işlemez. Son öğreticide, bu senaryonun oluşmasını önleyen bir kod ekleyeceksiniz.
 
-## <a name="add-office-location-and-courses-to-the-create-page"></a>Ofis konumu ve kurslar oluşturma sayfasına ekleme
+## <a name="add-office-location-and-courses-to-the-create-page"></a>Oluşturma sayfasına Office konum ve kurslar ekleme
 
-İçinde *InstructorController.cs*, silme `HttpGet` ve `HttpPost` `Create` yöntemleri ve bunun yerine aşağıdaki kodu ekleyin:
+*InstructorController.cs*' de, `HttpGet` ve `HttpPost` `Create` yöntemleri silin ve ardından aşağıdaki kodu kendi yerine ekleyin:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample25.cs)]
 
-Bu kod, hiçbir kursları seçilmemesini dışında hangi düzenleme yöntemlerini gördüğünüz için benzer. `HttpGet` `Create` Yöntem çağrılarını `PopulateAssignedCourseData` değil olabileceğinden ancak seçilmiş yöntemi sipariş sağlamak için boş bir koleksiyon için `foreach` (Aksi halde kodu görüntüle throw bir null başvurusu özel durumu görünümünde döngü ).
+Bu kod, başlangıçta hiçbir kurs seçilmemiş olması dışında, düzenleme yöntemleri için gördüklerinize benzer. `HttpGet` `Create` yöntemi `PopulateAssignedCourseData` yöntemini çağırır çünkü seçili kurslar olabilir ancak görünümdeki `foreach` döngüsü için boş bir koleksiyon sağlamak üzere (Aksi halde görünüm kodu bir null başvuru özel durumu oluşturur).
 
-HttpPost oluşturma yöntemi seçilen her kurs sonunda verilen önce doğrulama hatalarını denetler ve yeni Eğitmen veritabanına ekler şablon kodunu kursları gezinme özelliği ekler. Model hataları olsa bile kursları eklenir böylece model hatalar (için örnek, geçersiz tarih Anahtarlanan kullanıcı) yapılan herhangi bir kurs Seçimi sayfasında bir hata iletisi ile ne zaman yeniden böylece otomatik olarak geri yüklenir.
+HttpPost oluşturma yöntemi, seçili her kursu, doğrulama hatalarını denetleyen şablon kodundan önce kurslar gezintisi özelliğine ekler ve yeni eğitmeni veritabanına ekler. Model hataları olduğunda (örneğin, Kullanıcı geçersiz bir tarih olarak anahtarlıdır), bu sayede, sayfa bir hata iletisiyle yeniden görüntülendiğinde, yapılan tüm kurs seçimleri otomatik olarak geri yüklendiğinde kurslar eklenir.
 
-Kursa eklemeniz mümkün olması için dikkat `Courses` Gezinti özelliğine sahip olarak boş bir koleksiyon özelliğini başlatmak için:
+`Courses` gezinti özelliğine kurs ekleyebilmesinin, özelliği boş bir koleksiyon olarak başlatmak için sahip olmanız gerektiğini unutmayın:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample26.cs)]
 
-Denetleyici kodda bunu alternatif olarak, eğitmen modelde mevcut değilse otomatik olarak koleksiyonu aşağıdaki örnekte gösterildiği gibi oluşturmak için özellik Get yordamı değiştirerek bunu:
+Bunu denetleyici kodunda yapmanın bir alternatifi olarak, aşağıdaki örnekte gösterildiği gibi, özellik alıcısının, koleksiyonu otomatik olarak oluşturmak üzere değiştirerek, bunu eğitmen modelinde yapabilirsiniz:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample27.cs)]
 
-Değiştirirseniz `Courses` özelliği bu şekilde, denetleyicinin açık özellik başlatma kodu kaldırabilirsiniz.
+`Courses` özelliğini bu şekilde değiştirirseniz, denetleyicideki açık özellik başlatma kodunu kaldırabilirsiniz.
 
-İçinde *Views\Instructor\Create.cshtml*, bir office konumu metin kutusu ekleyin ve işe alım alan tarihten ve önce onay kutularını kurs **Gönder** düğmesi.
+*Views\komutctor\create.exe*' de, işe alma tarihi alanından sonra ve **Gönder** düğmesinden önce bir Office konum metin kutusu ve kurs onay kutuları ekleyin.
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample28.cshtml)]
 
-Kod yapıştırıldıktan sonra daha önce düzenleme sayfası için yaptığınız gibi satır sonu ve girinti düzeltin.
+Kodu yapıştırdıktan sonra, düzenleme sayfasında daha önce yaptığınız gibi satır sonlarını ve girintiyi düzeltir.
 
-Oluştur sayfasında çalıştırın ve bir eğitmen ekleyin.
+Oluştur sayfasını çalıştırın ve bir eğitmen ekleyin.
 
 <a id="transactions"></a>
 
-## <a name="handling-transactions"></a>İşlem işleme
+## <a name="handling-transactions"></a>İşlemleri işleme
 
-İçinde anlatıldığı gibi [temel CRUD işlevselliği öğretici](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), varsayılan olarak Entity Framework örtük olarak işlemler uygular. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri çalışma](https://msdn.microsoft.com/data/dn456843) MSDN'de.
+[Temel CRUD işlevselliği öğreticisinde](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)açıklandığı gibi, varsayılan olarak Entity Framework işlemleri örtülü olarak uygular. Daha fazla denetime ihtiyacınız olan senaryolar için--örneğin, bir işlem içinde Entity Framework dışında yapılan işlemleri eklemek istiyorsanız, bkz. MSDN 'de [Işlemlerle çalışma](https://msdn.microsoft.com/data/dn456843) .
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[Projeyi yükle](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
+[Tamamlanmış projeyi indirin](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar, [ASP.NET Data Access-önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md)bölümünde bulunabilir.
 
 ## <a name="next-step"></a>Sonraki adım
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Özelleştirilmiş kursları sayfaları
-> * Eğitmenler sayfasına eklenen office
-> * Eğitmenler sayfasına eklenen kursları
-> * Güncelleştirilmiş DeleteConfirmed
-> * Eklenen ofis konumu ve kurslar Oluştur sayfası
+> * Özelleştirilmiş Kurslar sayfaları
+> * Office, Eğitmenler sayfasına eklendi
+> * Eğitmenler sayfasına kurslar eklendi
+> * Deleteonaylandı güncelleştirildi
+> * Office konumu ve kurslar oluşturma sayfasına eklendi
 
-Bir zaman uyumsuz programlama modeli uygulama hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Bir zaman uyumsuz programlama modelinin nasıl uygulanacağını öğrenmek için sonraki makaleye ilerleyin.
 > [!div class="nextstepaction"]
 > [Zaman uyumsuz programlama modeli](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)

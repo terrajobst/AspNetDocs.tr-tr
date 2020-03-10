@@ -2,22 +2,22 @@
 uid: web-forms/videos/aspnet-ajax/index
 title: ASP.NET AJAX | Microsoft Docs
 author: rick-anderson
-description: Bir JavaScript Uzman olmasanız bile yüksek derecede yanıt veren sayfaları, ASP.NET AJAX ile çalışmanın yolları.
+description: JavaScript uzmanı olmasa bile, yüksek oranda yanıt veren sayfalar oluşturmak için ASP.NET AJAX ile çalışmanın yolları.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
 ms.openlocfilehash: 52cc785a92bc3e902f0f3266333d6157c6a78354
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116129"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628627"
 ---
 # <a name="aspnet-ajax"></a>ASP.NET AJAX
 
-> Bir JavaScript Uzman olmasanız bile yüksek derecede yanıt veren sayfaları, ASP.NET AJAX ile çalışmanın yolları.
+> JavaScript uzmanı olmasa bile, yüksek oranda yanıt veren sayfalar oluşturmak için ASP.NET AJAX ile çalışmanın yolları.
 
 - [ASP.NET AJAX ile Çalışmaya Başlama](how-do-i-get-started-with-aspnet-ajax.md)
 - [ASP.NET AJAX ile Dinamik Kısmi Sayfa Güncelleştirmeleri Uygulama](how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax.md)

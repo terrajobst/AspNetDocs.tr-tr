@@ -1,264 +1,264 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
-title: 'Bölüm 5: Formlar ve şablon düzenleme | Microsoft Docs'
+title: '5\. Bölüm: formları ve şablon oluşturmayı düzenleme | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 5. Bölüm formları düzenleme ve şablon oluşturma kapsar.
+description: Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm, formları ve şablon oluşturmayı düzenlemenizi içerir.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 6b09413a-6d6a-425a-87c9-629f91b91b28
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
 ms.openlocfilehash: 20b99cbe57b5dfa623205838a5929733a6c2d70d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112979"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559551"
 ---
-# <a name="part-5-edit-forms-and-templating"></a>Bölüm 5: Formları Düzenleme ve Şablon Oluşturma
+# <a name="part-5-edit-forms-and-templating"></a>5\. Bölüm: Formları Düzenleme ve Şablon Oluşturma
 
-tarafından [Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) tarafından
 
-> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
+> MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Studio 'nun nasıl kullanılacağını anlatan bir öğretici uygulamadır.  
 >   
-> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.
+> MVC müzik deposu, çevrimiçi olarak müzik albümlerini satan ve temel site yönetimi, Kullanıcı oturum açma ve alışveriş sepeti işlevlerini uygulayan basit bir örnek depolama uygulamasıdır.
 > 
-> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 5. Bölüm formları düzenleme ve şablon oluşturma kapsar.
+> Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 5\. bölüm, formları ve şablon oluşturmayı düzenlemenizi içerir.
 
-Son bölümde, biz bizim veritabanından veri yükleme ve görüntülemeden. Bu bölümde, biz de verileri düzenleme tıklatmalarını sağlarsınız.
+Önceki bölümde, veritabanımızdan veri yüklüyor ve görüntüleme yaptık. Bu bölümde, verileri düzenlemenizi de olanaklı yapacağız.
 
 ## <a name="creating-the-storemanagercontroller"></a>StoreManagerController oluşturma
 
-Biz adlı yeni bir denetleyici oluşturarak başlarsınız **StoreManagerController**. Bu denetleyici için biz ASP.NET MVC 3 araçları güncelleştirme kullanılabilir olan yapı İskelesi özelliklerinin avantajlarından yararlanmakla. Denetleyici Ekle iletişim kutusu seçenekleri aşağıda gösterildiği gibi ayarlayın.
+**Storemanagercontroller**adlı yeni bir denetleyici oluşturarak başlayacağız. Bu denetleyici için, ASP.NET MVC 3 araçları güncelleştirmesinde bulunan yapı Iskelesi özelliklerinden faydalanacağız. Denetleyici Ekle iletişim kutusu seçeneklerini aşağıda gösterildiği gibi ayarlayın.
 
 ![](mvc-music-store-part-5/_static/image1.png)
 
-Ekle düğmesine tıkladığınızda, ASP.NET MVC 3 yapı iskelesi mekanizması iyi bir iş miktarı sizin için halleder olduğunu görürsünüz:
+Ekle düğmesine tıkladığınızda, ASP.NET MVC 3 yapı iskelesi mekanizmasının sizin için iyi bir iş miktarı olduğunu görürsünüz:
 
-- Yerel bir Entity Framework değişkenle yeni StoreManagerController oluşturur
-- Projenin görünümleri klasörüne StoreManager klasör ekler
-- Albüm sınıfı için kesin Create.cshtml, Delete.cshtml Details.cshtml Edit.cshtml ve Index.cshtml görünümü ekler
+- Yerel bir Entity Framework değişkeniyle yeni StoreManagerController oluşturur
+- Projenin görünümler klasörüne bir StoreManager klasörü ekler
+- Bu, albüm sınıfına kesin olarak yazılan Create. cshtml, delete. cshtml, details. cshtml, Edit. cshtml ve Index. cshtml görünümünü ekler
 
 ![](mvc-music-store-part-5/_static/image2.png)
 
-Yeni StoreManager denetleyici sınıfı içeren CRUD (oluşturma, okuma, güncelleştirme ve silme) nasıl ile albümü çalışılacağını bildiğinizi denetleyici eylemleri model sınıfı ve veritabanı erişimi için Entity Framework bağlamına bizim kullanın.
+Yeni StoreManager denetleyici sınıfı, albüm model sınıfıyla çalışmayı ve veritabanı erişimi için Entity Framework bağlamımızı kullanmayı bilen CRUD (oluşturma, okuma, güncelleştirme, silme) denetleyicisi eylemlerini içerir.
 
-## <a name="modifying-a-scaffolded-view"></a>İskele kurulmuş bir görünümünü değiştirme
+## <a name="modifying-a-scaffolded-view"></a>Bir yapı Iskelesi görünümünü değiştirme
 
-Bizim için bu kodu oluşturuldu, ancak sadece biz Bu öğretici boyunca yazma gibi standart ASP.NET MVC kodu olduğunu unutmamak önemlidir. Ortak denetleyicisi kod yazma ve kesin türü belirtilmiş görünümler el ile oluşturmak harcadığı zamanı kaydetmek hedeflenen, ancak bu oluşturulan kod içinde nasıl değiştiğini gerekmez hakkında yorumlar doğrudan uyarılarla başında görülen tür değil kodu. Bu, kodunuzu ve değiştirmek için beklenen.
+Bu kod, Bu öğreticinin tamamında yazdığımız gibi standart ASP.NET MVC kodsunurken, bu kodun bizim için oluşturulduğunu unutmamak önemlidir. Ortak denetleyici kodu yazmak ve kesin olarak belirlenmiş görünümleri el ile oluşturmak için harcadığınız zamanı kaydetmek amaçlanmıştır, ancak bu, şu şekilde değişiklik yapma konusunda d uyarılar ile önceden ortaya çıkacak gördüğünüz oluşturulan kod türüdür. kodudur. Bu kodunuzda bu sizin değiştirmeniz beklenmektedir.
 
-Bu nedenle, hızlı düzenleme StoreManager dizin görünümüne başlayalım (/ Views/StoreManager/Index.cshtml). Bu görünümü, bizim deposundaki albümleri düzenleme ile listeleyen bir tablo görüntüler / Ayrıntılar / Sil bağlantılarını ve albüm genel özellikleri içerir. Bu görünümde çok yararlı olduğu AlbumArtUrl alanın kaldıracağız. İçinde &lt;tablo&gt; bölümü görünümü kod kaldırmak &lt;th&gt; ve &lt;td&gt; AlbumArtUrl başvuruları, aşağıda vurgulanan satırları tarafından belirtildiği gibi çevreleyen öğeleri:
+Bu nedenle, StoreManager dizin görünümüne hızlı bir düzenleme (/views/storemanager/Index.cshtml) ile başlayalım. Bu görünüm, depolarımızda düzenleme/Ayrıntılar/silme bağlantılarıyla birlikte gelen albümleri listeleyen bir tablo görüntüler ve albümün ortak özelliklerini içerir. Bu ekranda çok faydalı olmadığından Albümlerüorturl alanını kaldıracağız. Görünüm kodunun &lt;tablo&gt; bölümünde, aşağıdaki vurgulanan satırlarda gösterildiği gibi, albümle birlikte bulunan &lt;&gt; ve &lt;TD öğelerini çevreleyen öğeleri&gt; silin:
 
 [!code-cshtml[Main](mvc-music-store-part-5/samples/sample1.cshtml)]
 
-Değiştirilen görünümü kod şu şekilde görünür:
+Değiştirilen görünüm kodu şu şekilde görünür:
 
 [!code-cshtml[Main](mvc-music-store-part-5/samples/sample2.cshtml)]
 
-## <a name="a-first-look-at-the-store-manager"></a>İlk göz Store Yöneticisi
+## <a name="a-first-look-at-the-store-manager"></a>Mağaza Yöneticisi 'ne ilk bakış
 
-Artık uygulamayı çalıştırabilir ve/StoreManager/dizinine göz atın. Bu, biz yalnızca, depolama, Ayrıntılar, düzenleme ve silme için bağlantılarla birlikte albümleri listesini gösteren değiştiren Store Yöneticisi dizini görüntüler.
+Şimdi uygulamayı çalıştırın ve/Storemanager/dizinine gidin. Bu, yeni değiştirdiğimiz mağaza yöneticisi dizinini görüntüleyerek, Düzenle, Ayrıntılar ve Sil bağlantılarıyla depodaki Albümler listesini gösterir.
 
 ![](mvc-music-store-part-5/_static/image3.png)
 
-Düzenleme bağlantısını tıklatarak tarz ve sanatçının için açılır menüleri kullanarak da dahil olmak üzere albümü, bir düzenleme formunda alanları görüntüler.
+Düzenle bağlantısına tıkladığınızda, albümün alanları içeren bir düzenleme formu görüntülenir ve bu da, tarz ve sanatçının açılan listeleri dahil değildir.
 
 ![](mvc-music-store-part-5/_static/image4.png)
 
-Altındaki "Geri listesine" bağlantısına tıklayın ve ardından Albüm Ayrıntıları bağlantısına tıklayın. Bu, tek tek albüm için ayrıntılı bilgileri görüntüler.
+Alttaki "listeye geri dön" bağlantısına tıklayın ve ardından bir albümün Ayrıntılar bağlantısına tıklayın. Bu, tek bir albümün ayrıntı bilgilerini görüntüler.
 
 ![](mvc-music-store-part-5/_static/image5.png)
 
-Yeniden liste bağlantısını için Geri'yi tıklatın ve ardından bir Delete bağlantıya tıklayın. Bu, albüm ayrıntılarını gösteren ve biz silmek istediğinizden emin olup olmadığınızı onay iletişim kutusunda görüntüler.
+Yeniden, listeye geri dön bağlantısına ve ardından silme bağlantısına tıklayın. Bu, albüm ayrıntılarını gösteren bir onay iletişim kutusu görüntüler ve bunu silmek istediğdiğimiz emin olup olmadığını sorar.
 
 ![](mvc-music-store-part-5/_static/image6.png)
 
-Alttaki Sil düğmesine tıklanarak albümü silin ve Silinen albümü gösteren dizin sayfasına dönün.
+Alt kısımdaki Sil düğmesine tıkladığınızda, albüm silinir ve silinen albümün gösterildiği dizin sayfasına dönersiniz.
 
-Store yöneticisiyle tamamlanmadı ancak denetleyici ve Görünüm Kodu başlatmak CRUD işlemleri için çalışma sahibiz.
+Mağaza Yöneticisi ile karşılaştık, ancak başlayacağız CRUD işlemleri için çalışma denetleyicisi ve kod görüntüleme yaptık.
 
-## <a name="looking-at-the-store-manager-controller-code"></a>Store Yöneticisi denetleyicisi koda baktığınızda
+## <a name="looking-at-the-store-manager-controller-code"></a>Mağaza Yöneticisi denetleyici koduna bakıyor
 
-Store Yöneticisi denetleyicisi iyi miktarda kod içerir. Bu üstten alta Bahsedelim. Bazı standart ad alanları bizim modelleri ad alanı başvuru yanı sıra, bir MVC denetleyicisi için denetleyici içerir. Denetleyici MusicStoreEntities her denetleyici eylemleri tarafından kullanılan veri erişimi için özel bir örneği vardır.
+Mağaza Yöneticisi denetleyicisi iyi bir kod miktarı içerir. Bunu yukarıdan aşağıya doğru ilerlim. Denetleyici, MVC denetleyicisinin bazı standart ad alanlarını ve modeller ad alanımızın bir başvurusunu içerir. Denetleyicinin, veri erişimi için her bir denetleyici eylemi tarafından kullanılan özel bir MusicStoreEntities örneği vardır.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample3.cs)]
 
-### <a name="store-manager-index-and-details-actions"></a>Dizin Yöneticisi ve ayrıntıları Eylemler Store
+### <a name="store-manager-index-and-details-actions"></a>Mağaza Yöneticisi Dizin ve ayrıntıları eylemleri
 
-Dizin görünümünün albümleri, biz Store Gözat yöntem üzerinde çalışırken, daha önce bahsettiğim gibi her albüm başvurulan tarz ve sanatçı bilgiler dahil olmak üzere bir listesini alır. Denetleyici, verimli ve bu bilgileri özgün istek için sorgulama için her albüm Tarz hem de sanatçının adını görüntüleyebilmesi dizin görünümünün bağlı nesnelere başvuru kullanılmasıdır.
+Dizin görünümü, bir albümün başvurulan tarzı ve sanatçı bilgileri de dahil olmak üzere Albümler listesini alır ve daha önce Store Gözatım yönteminde çalışırken gördük. Dizin görünümü, bağlantılı nesnelere yapılan başvuruları izleyerek her bir albümün tarz adını ve sanatçı adını görüntüleyebilir, bu nedenle denetleyicinin etkin ve bu bilgileri özgün istekte sorguladığını unutmayın.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample4.cs)]
 
-Tam olarak aynı yazdığımız daha önce - albümü için sorgular Store denetleyicisi Ayrıntılar eylemi StoreManager denetleyicinin ayrıntıları denetleyici eylemi çalışır Find() yöntemi kullanarak ve Kimliğe göre ardından görünümü verir.
+StoreManager denetleyicisinin Ayrıntılar denetleyicisi eylemi, depolama denetleyicisi ayrıntıları eylemiyle tam olarak aynı şekilde çalışarak Find () yöntemini kullanarak albüm KIMLIĞI için önceden BT sorguları yazdık, sonra da görünüme döndürülür.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample5.cs)]
 
-### <a name="the-create-action-methods"></a>Eylem yöntemleri oluşturun
+### <a name="the-create-action-methods"></a>Oluşturma eylemi yöntemleri
 
-Bunlar form girişi işlediğinden Oluştur eylemi şu ana kadar gördük olanları biraz farklı yöntemlerdir. Bir kullanıcı ilk /StoreManager/oluşturma/ziyaret ettiğinde boş bir form gösterilir. Bu HTML sayfası içerecek bir &lt;form&gt; açılan menüyü ve metin kutusu içeren öğeleri nerede bunlar girebilirsiniz albüm ayrıntıları girin.
+Oluşturma eylemi yöntemleri, şimdiye kadar gördüğdiklerden biraz farklıdır, çünkü form girişi işler. Bir Kullanıcı/StoreManager/Create/öğesini ilk kez ziyaret ettiğinde boş bir form görüntülenir. Bu HTML sayfası, albümün ayrıntılarını girebilecekleri açılan menü ve metin kutusu giriş öğelerini içeren bir &lt;form&gt; öğesi içerir.
 
-Kullanıcı albüm form değerlerine dolgular, bunlar bu değişiklikleri uygulamamız veritabanı içinde kaydetmeyi geri göndermek için "Kaydet" düğmesine basabilirsiniz. Kullanıcı, "Kaydet" düğmesine bastığında &lt;form&gt; dön /StoreManager/oluşturma/URL bir HTTP POST gerçekleştirin ve gönderme &lt;form&gt; değerleri HTTP POST bir parçası olarak.
+Kullanıcı albüm form değerlerini doldurduktan sonra, bu değişiklikleri veritabanına kaydetmek için bu değişiklikleri uygulamanıza geri göndermek için "Kaydet" düğmesine basabilir. Kullanıcı "Kaydet" düğmesine bastığında &lt;form&gt;,/StoreManager/Create/URL 'ye bir HTTP-POST işlemi gerçekleştirir ve &lt;formu&gt; değerlerini HTTP-POST 'un bir parçası olarak gönderir.
 
-ASP.NET MVC kolayca bizim StoreManagerController sınıf içindeki – /StoreManager/Create ilk HTTP GET Gözat işlemek için iki ayrı "Oluştur" eylem yöntemleri uygulamak bize etkinleştirerek bu iki URL çağırma senaryolar mantığı oluşturma bölme sağlıyor / URL ve diğer gönderilen değişiklikler, HTTP POST işlemek için.
+ASP.NET MVC, StoreManagerController sınıfımızda iki ayrı "Create" eylem yöntemi uygulamamızı sağlayarak bu iki URL çağırma senaryosunun mantığını kolayca bölmemizi sağlar. ilk HTTP-GET-/StoreManager/Create/URL 'sine gidin ve diğer yandan gönderilen değişikliklerin HTTP-POST işlemini idare edin.
 
-### <a name="passing-information-to-a-view-using-viewbag"></a>Görünüm paketi kullanarak bir görünüme bilgi geçirme
+### <a name="passing-information-to-a-view-using-viewbag"></a>ViewBag kullanarak bir görünüme bilgi geçirme
 
-Biz ViewBag, bu öğreticide daha önce kullandınız, ancak bunu hakkında pek fazla açıklandı henüz. Görünüm paketi bilgileri kesin olarak belirlenmiş model nesnesi kullanmadan görünüme iletilecek sağlıyor. Bu durumda, HTTP GET Düzenle denetleyicisi eylemimiz açılır menüleri kullanarak doldurmak için forma bir listesi türleri ve sanatçıların geçirmek gereken ve bunu yapmanın en kolay yolu ViewBag öğeleri olarak döndürülecek olan.
+Bu öğreticide daha önce olan görünüm paketini kullandık, ancak bunun çok fazla olmadığı için. ViewBag, türü kesin belirlenmiş bir model nesnesi kullanmadan görünüme bilgi iletmemize olanak sağlar. Bu durumda, HTTP-GET denetleyiciyi Düzenle eyleminin, açılan listeleri doldurmak için forma bir tür ve sanatçı listesi geçirmesi gerekir ve bunu yapmanın en kolay yolu, bunları ViewBag öğeleri olarak döndürmektir.
 
-Görünüm paketini ViewBag.Foo veya ViewBag.YourNameHere bu özelliklerini tanımlamak için kod yazmaya gerek kalmadan yazabilirsiniz, yani dinamik bir nesne olan. Bu durumda, bunlar ayarı Albüm özellikleri GenreId ve ArtistId, formun ile gönderilen açılır değerleri olması denetleyici kodlarının ViewBag.GenreId ve ViewBag.ArtistId kullanır.
+ViewBag, bu özellikleri tanımlamak için kod yazmadan ViewBag. foo veya ViewBag. YourNameHere türünde, dinamik bir nesnedir. Bu durumda, denetleyici kodu ViewBag. Genreıd ve ViewBag. ArtistId ' yi kullanarak, form ile gönderilen aşağı açılan değerlerin Genreıd ve ArtistId olur ve bu da bu ayarların ayartıkları albüm özellikleridir.
 
-Bu açılır değerleri yalnızca bu amaç için oluşturulan SelectList nesnesini kullanarak forma döndürülür. Bunu yapmanız bu kodu kullanarak:
+Bu açılan değerler, yalnızca bu amaçla oluşturulan SelectList nesnesi kullanılarak forma döndürülür. Bu, aşağıdaki gibi kod kullanılarak yapılır:
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample6.cs)]
 
-Eylem yöntemi koddan görebileceğiniz gibi bu nesnenin oluşturulacağı üç parametreler kullanılıyor:
+Eylem yöntemi kodundan görebileceğiniz gibi, bu nesneyi oluşturmak için üç parametre kullanılır:
 
-- Açılan listeyi görüntüleme öğeleri listesi. Bu yalnızca bir dize değil - biz türleri listesini geçirme unutmayın.
-- SelectList için geçirilen sonraki parametre seçtiğiniz bir değerdir. Bu nasıl SelectList önceden listesindeki bir öğeyi seçmek nasıl bilir. Bu, oldukça benzer düzenleme formunda baktığımızda anlamak daha kolay olacaktır.
-- Görüntülenecek özelliği son parametredir. Genre.Name özelliği kullanıcıya gösterilecek olduğunu gösteren bu durumda, bu.
+- DropDown 'ın görüntüleneceği öğelerin listesi. Bunun yalnızca bir dize olmadığını unutmayın; bir tür listesi geçiriyoruz.
+- SelectList öğesine geçirilen sonraki parametre seçili değerdir. Bu, SelectList 'in listede bir öğenin nasıl önceden ekleneceğini nasıl öğrendiği. Bu, oldukça benzer olan düzenleme formuna baktığımızda anlaşılması daha kolay olacaktır.
+- Son parametre, görüntülenecek özelliktir. Bu durumda, Genre.Name özelliğinin kullanıcıya gösterildiğine işaret eder.
 
-Böylece aklınızda daha sonra HTTP GET Oluştur eylemi oldukça basittir - iki SelectLists ViewBag için eklenir ve model nesnesi yok (Bu henüz oluşturulmadıysa bu yana) biçimine geçirilir.
+Göz önünde bulundurularak, HTTP-GET oluşturma eylemi oldukça basittir; ViewBag 'e iki SelectLists eklenir ve forma hiçbir model nesnesi geçirilmemiştir (henüz oluşturulmadığından).
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample7.cs)]
 
-### <a name="html-helpers-to-display-the-drop-downs-in-the-create-view"></a>HTML Yardımcıları oluşturma Görünümü'nde açılan listeleri görüntülemek için
+### <a name="html-helpers-to-display-the-drop-downs-in-the-create-view"></a>Oluştur görünümünde açılan listeleri görüntülemek için HTML Yardımcıları
 
-Değerleri açılan görünümüne geçirilir nasıl hakkında konuştuk olduğundan, bu değerlerin gösterilme biçimini görmek için görüntüyü hızlı bir göz atalım. Görünüm kod (/ Views/StoreManager/Create.cshtml), türe açılan görüntülemek için aşağıdaki Çağrının yapıldığı görürsünüz aşağı.
+Açılan değerlerin görünüme nasıl geçtiğini ele geçirdiğimiz için, bu değerlerin nasıl görüntülendiğini görmek üzere görünüme hızlı bir göz atalım. Görünüm kodunda (/views/storemanager/Create.exe), tarz açılan ekranını görüntülemek için aşağıdaki çağrının yapıldığını görürsünüz.
 
 [!code-cshtml[Main](mvc-music-store-part-5/samples/sample8.cshtml)]
 
-Bu, bir HTML Yardımcısı - genel bir görünüm görev gerçekleştiren bir yardımcı yöntem bilinir. HTML Yardımcıları görünümü kodumuz kısa süren ve okunabilir sağlamadaki çok yararlı olur. Html.DropDownList Yardımcısı, ASP.NET MVC tarafından sağlanır, ancak daha sonra anlatıldığı gibi kodu görüntüle biz uygulamamız yeniden için kendi Yardımcıları oluşturmak mümkündür.
+Bu, ortak bir görüntüleme görevi gerçekleştiren bir HTML Yardımcısı-bir yardımcı program yöntemi olarak bilinir. HTML Yardımcıları, görünüm kodumuzu kısa ve okunabilir halde tutmanın çok yararlı olur. HTML. DropDownList Yardımcısı, ASP.NET MVC tarafından sağlanır, ancak daha sonra uygulamamızda yeniden kullanacağımız görünüm kodu için kendi yardımcıları oluşturmak mümkün olacaktır.
 
-Html.DropDownList çağrı yalnızca iki şey - get görüntülemek için listede ve (varsa) hangi değeri önceden seçilmiş olmalıdır nerede olduğunu gerekiyor. İlk parametre, GenreId, modeli veya ViewBag GenreId adlı değeri aramak için DropDownList söyler. İkinci parametre olarak ilk açılan listeden seçilen gösterilecek değeri belirtmek için kullanılır. Bu form, form oluştur olduğundan, hiçbir değer seçilmiş olması ve String.Empty geçirilir.
+HTML. DropDownList çağrısının yalnızca iki şey söyleilmesi gerekir. listenin görüntüleneceği yer, (varsa) bir değer önceden seçilmelidir. Birinci parametre olan Genreıd, DropDownList 'e model veya ViewBag içinde Genreıd adlı bir değer bakmasını söyler. İkinci parametre, açılan listede başlangıçta seçildiği şekilde gösterilecek değeri göstermek için kullanılır. Bu form bir oluşturma formu olduğundan, önceden seçilecek bir değer yok ve String. Empty geçildi.
 
-### <a name="handling-the-posted-form-values"></a>Gönderilen Form değerleri işleme
+### <a name="handling-the-posted-form-values"></a>Postalanan form değerlerini işleme
 
-Önce Bahsettiğimiz gibi her bir formla ilişkili iki eylem yöntemleri vardır. İlk HTTP GET isteği işler ve form görüntüler. İkinci gönderilen form değerleri içeren HTTP POST isteği işler. Denetleyici eylemini ASP.NET MVC, yalnızca HTTP POST isteklerini yanıtlaması gerektiğini söyleyen bir [HttpPost] özniteliği olduğuna dikkat edin.
+Daha önce anlatıldığı gibi, her formla ilişkili iki eylem yöntemi vardır. İlki HTTP-GET isteğini işler ve formu görüntüler. İkincisi, gönderilen form değerlerini içeren HTTP-POST isteğini işler. Denetleyici eyleminin, ASP.NET MVC 'nin yalnızca HTTP-POST isteklerine yanıt vermesi gerektiğini belirten bir [HttpPost] özniteliği olduğunu fark edersiniz.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample9.cs)]
 
-Bu eylem, dört sorumluluklara sahiptir:
+Bu eylem dört sorumluluklara sahiptir:
 
-- 1. Form değerlerini okuma
-- 2. Form değerlerini geçirdiğiniz tüm doğrulama kurallarını denetleyin
-- 3. Form gönderme geçerliyse, verileri kaydetmek ve güncelleştirilmiş listesini görüntüleme
-- 4. Form gönderme geçerli değilse, doğrulama hata formu görüntülemek
+- 1. Form değerlerini oku
+- 2. Form değerlerinin herhangi bir doğrulama kuralını geçmediğinden emin olun
+- 3. Form gönderimi geçerliyse, verileri kaydedin ve güncelleştirilmiş listeyi görüntüleyin
+- 4. Form gönderimi geçerli değilse, doğrulama hatalarıyla formu yeniden görüntüleyin
 
-#### <a name="reading-form-values-with-model-binding"></a>Okuma Form değerleri Model bağlama
+#### <a name="reading-form-values-with-model-binding"></a>Model bağlamasıyla form değerlerini okuma
 
-Denetleyici eylemini başlık, fiyat ve AlbumArtUrl değerlerinden GenreId ve ArtistId (aşağı açılan listeden) ve metin değerlerini içeren bir form gönderimi işliyor. Form değerlerini doğrudan erişmek mümkün olsa da, daha iyi bir yaklaşım ASP.NET MVC yerleşik bağlama modeli özelliklerini kullanmaktır. Bir denetleyici eylemi bir model türünü bir parametre olarak alan, ASP.NET MVC form girişleri (hem de Yönlendirme ve sorgu dizesi değerleri) kullanarak bu türde bir nesne doldurun dener. Bunu adları eşleşen özellikler model nesnesi, örn değerlerini bakarak yapar yeni albüm nesnenin GenreId değerini ayarlarken GenreId ada sahip bir girdi arar. Standart yöntemlerini kullanarak ASP.NET MVC görünümleri oluşturduğunuzda, formlar Bu alan adları yalnızca eşleşmemesidir girdi alanı adları, özellik adları kullanarak her zaman işlenir.
+Denetleyici eylemi, Genreıd ve ArtistId (açılan listeden) ve başlık, Fiyat ve albümle ilgili metin kutusu değerlerini içeren bir form gönderimini işliyor. Form değerlerine doğrudan erişmek mümkün olsa da, ASP.NET MVC içinde yerleşik model bağlama özelliklerini kullanmak daha iyi bir yaklaşımdır. Bir denetleyici eylemi bir parametre olarak model türü alırsa, ASP.NET MVC Form girişlerini (Ayrıca Route ve QueryString değerlerini) kullanarak o türdeki bir nesneyi doldurmayı dener. Bu, adları model nesnesinin özellikleriyle eşleşen değerleri arayarak yapar; örneğin, yeni albüm nesnesinin Genreıd değeri ayarlanırken, Genreıd adında bir giriş arar. ASP.NET MVC 'de standart yöntemleri kullanarak görünümler oluşturduğunuzda, formlar her zaman giriş alanı adı olarak özellik adları kullanılarak işlenir, bu nedenle alan adları yalnızca eşleşmeyecektir.
 
-#### <a name="validating-the-model"></a>Model doğrulama
+#### <a name="validating-the-model"></a>Model doğrulanıyor
 
-Modelin basit ModelState.IsValid çağrısı ile doğrulanır. Henüz herhangi bir doğrulama kuralları bizim albüm sınıfına eklemediniz - biz biraz - İşte şimdi bu denetimi yapmak için çok olmayan gerçekleştirirsiniz. Önemli olan bu ModelStat.IsValid denetimi, doğrulama kuralları ileride yapılacak değişiklikler denetleyici eylem kodu herhangi bir güncelleştirme yapılması gerekmez, böylece biz modelimizi üzerinde yerleştirin doğrulama kurallarına göre uyarlayacak olduğu.
+Model, ModelState. IsValid basit çağrısıyla onaylanır. Henüz albüm sınıfınız için herhangi bir doğrulama kuralı eklemediniz. bu şekilde, bu denetim artık bu denetimi çok fazla yapacağız. Bu ModelStat. IsValid denetiminin, modelinize yerleştirdiğimiz doğrulama kurallarına uyarlanmasının önemli olması, bu nedenle Doğrulama kurallarındaki gelecekteki değişikliklerin, denetleyici eylem kodunda herhangi bir güncelleştirme gerektirmemesi gerekir.
 
 #### <a name="saving-the-submitted-values"></a>Gönderilen değerler kaydediliyor
 
-Form gönderme doğrulama testlerini geçerse, bu değerleri veritabanına kaydetme zamanı geldi. Entity Framework ile yalnızca model albümleri koleksiyona ekleme ve SaveChanges çağırma gerektirir.
+Form gönderimi doğrulamayı geçerse, değerleri veritabanına kaydetmeniz zaman olur. Entity Framework ile, yalnızca bir modelin Albümler koleksiyonuna eklenmesini ve SaveChanges 'in çağrılmasını gerektirir.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample10.cs)]
 
-Entity Framework değeri kalıcı hale getirmek için uygun SQL komutlarını oluşturur. Güncelleştirmemiz görebiliriz verileri kaydettikten sonra size geri albümleri listesine yönlendirmelidir, böylece. Bu, görüntülenen istiyoruz denetleyici eylemi adıyla RedirectToAction döndürerek gerçekleştirilir. Bu durumda, dizin yöntemidir.
+Entity Framework, değeri kalıcı hale getirmek için uygun SQL komutlarını üretir. Verileri kaydettikten sonra, güncelleştirmemizi görebilmemiz için Albümler listesine geri yönlendiriyoruz. Bu işlem, görüntülenmesini istediğimiz denetleyici eyleminin adı ile RedirectToAction döndürülmesiyle yapılır. Bu durumda, Dizin yöntemi budur.
 
-#### <a name="displaying-invalid-form-submissions-with-validation-errors"></a>Geçersiz form gönderilerini görselleştirip doğrulama hataları ile görüntüleme
+#### <a name="displaying-invalid-form-submissions-with-validation-errors"></a>Doğrulama hatalarıyla geçersiz form gönderimleri görüntüleme
 
-Geçersiz bir form girişi, söz konusu olduğunda açılır değerleri Görünüm (olduğu gibi HTTP GET) paketi eklenir ve bağlanmış modeli değerleri görünüme dönmek için görünen geçirilir. Doğrulama hataları, kullanarak otomatik olarak görüntülenir @Html.ValidationMessageFor HTML Yardımcısı.
+Geçersiz form girişi durumunda, açılan değerler ViewBag 'e eklenir (HTTP-GET durumunda olduğu gibi) ve bağlantılı model değerleri görüntüleme görünümüne geri geçirilir. Doğrulama hataları @Html.ValidationMessageFor HTML Yardımcısı kullanılarak otomatik olarak görüntülenir.
 
-#### <a name="testing-the-create-form"></a>Test oluşturma formu
+#### <a name="testing-the-create-form"></a>Oluşturma formunu test etme
 
-Bu, çalışma /StoreManager/oluşturma / - göz atın ve uygulamayı test etmek için bu, StoreController oluşturma HTTP GET yöntemi tarafından döndürülen boş form gösterir.
+Bunu test etmek için uygulamayı çalıştırın ve/StoreManager/Create/adresine gidin. Bu, StoreController Create HTTP-GET yöntemi tarafından döndürülen boş formu gösterir.
 
-Bazı değerleri doldurun ve formunun Oluştur düğmesine tıklayın.
+Formu göndermek için bazı değerleri girin ve Oluştur düğmesine tıklayın.
 
 ![](mvc-music-store-part-5/_static/image7.png)
 
 ![](mvc-music-store-part-5/_static/image8.png)
 
-### <a name="handling-edits"></a>Düzenlemelerini işleme
+### <a name="handling-edits"></a>Düzenlemeleri işleme
 
-Düzenleme eylem çifti (HTTP GET ve HTTP POST) yalnızca inceledik oluşturma eylem yöntemlerine oldukça benzerdir. İçinde bir rota üzerinden geçen mevcut albümü, Düzen HTTP-albümü "id" parametresini temel alan metodunun GET ile çalışma düzenleme senaryo içerir. Daha önce ayrıntı denetleyici eylemi inceledik AlbumId tarafından albüm almak için bu kodu aynı olur. Gibi oluşturma / HTTP GET yöntemi, değerleri açılan ViewBag döndürülür. Bu bize albüm bizim model nesnesi (hangi albüm sınıfı için kesin) görüntülemek için döndürülecek ek veriler (örneğin türleri listesi) görünüm paketini geçirirken sağlar.
+Düzenleme eylemi çifti (HTTP-GET ve HTTP-POST), az önce bakdığımız oluşturma eylemi yöntemlerine çok benzer. Düzenleme senaryosu mevcut bir albümle çalışmayı içerdiğinden, Edit HTTP-GET yöntemi, albümü, yol aracılığıyla geçirilen "ID" parametresine göre yükler. Bu kod, Albümno 'a göre bir albümü almaya yönelik bu kod, daha önce ayrıntılar denetleyicisi eyleminde bakdığımız şekilde aynıdır. Create/HTTP-GET yönteminde olduğu gibi, açılan değerler de ViewBag aracılığıyla döndürülür. Bu, model nesnemiz olarak görünüm (örneğin, bir tarzın listesi) ile ViewBag aracılığıyla bir albüm döndürmemize olanak sağlar.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample11.cs)]
 
-HTTP POST Düzenle eylemi için HTTP POST oluşturma eylemini çok benzer. Tek fark DB'ye yeni albümü eklemek yerine olmasıdır. Albümleri koleksiyon db kullanarak biz albümü'nün geçerli örneğini bulma. Entry(Album) ve durumuna Modified olarak ayarlama. Bu, yeni bir tane oluşturmak yerine var olan bir albümü değiştiriyorsunuz Entity Framework bildirir.
+HTTP-POST işlemini Düzenle eylemi, HTTP-POST oluşturma eylemine çok benzer. Tek fark, veritabanına yeni bir albüm eklemek yerine kullanılır. Albümler koleksiyonu, veritabanı kullanarak albümün geçerli örneğini buluyoruz. Giriş (albüm) ve durumunu değiştirildi olarak ayarlama. Bu, yeni bir albümü oluşturmak yerine var olan bir albümü değiştirmekte olduğumuz Entity Framework söyler.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample12.cs)]
 
-Bu uygulamayı çalıştırma ve tarama/StoreManger/sonra albüm düzenleme bağlantısını tıklatarak sınayabiliriz.
+Uygulamayı çalıştırıp/StoreManger/adresine giderek ve ardından bir albümün düzenleme bağlantısına tıklayarak bunu test edebilirsiniz.
 
 ![](mvc-music-store-part-5/_static/image9.png)
 
-Bu düzen HTTP GET yöntemi tarafından gösterilen düzenleme formu görüntüler. Bazı değerleri doldurun ve Kaydet düğmesine tıklayın.
+Bu, düzenleme HTTP-GET yöntemi tarafından gösterilen düzenleme formunu görüntüler. Bazı değerleri girin ve Kaydet düğmesine tıklayın.
 
 ![](mvc-music-store-part-5/_static/image10.png)
 
-Bu formu gönderir, değerleri kaydeder ve bize güncelleştirilmiş değerleri olduğunu gösteren albüm listesine döndürür.
+Bu, formu gönderir, değerleri kaydeder ve ABD 'nin güncelleştirildiğini gösteren albüm listesine döndürür.
 
 ![](mvc-music-store-part-5/_static/image11.png)
 
-### <a name="handling-deletion"></a>İşleme silme
+### <a name="handling-deletion"></a>Silme Işlemi işleniyor
 
-Silme, düzenleme ve oluşturma, form gönderme işlemek için başka bir denetleyici eylemi ile onay formu görüntülemek için bir denetleyici eylemi olarak aynı deseni izler.
+Silme, düzenleme ve oluşturma ile aynı kalıbı izler, onay formunu göstermek için bir denetleyici eylemi ve form gönderimini işlemek için başka bir denetleyici eylemi kullanmaktır.
 
-HTTP GET Sil denetleyici eylemi tam olarak önceki Store Manager ayrıntıları denetleyicisi eylemimiz ile aynıdır.
+HTTP-GET Delete Controller eylemi, önceki Store Manager ayrıntıları denetleyicisi eylemmizden tamamen aynıdır.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample13.cs)]
 
-Delete Görünümü içerik şablonu kullanarak bir albüm türü kesin belirlenmiş bir form görüntüleriz.
+Görünüm içeriğini sil şablonunu kullanarak bir albüm türüne kesin olarak yazılmış bir form görüntüyoruz.
 
 ![](mvc-music-store-part-5/_static/image12.png)
 
-Delete şablon modeli için tüm alanları gösterir, ancak biz bir bit alt basitleştirin. /Views/StoreManager/Delete.cshtml görünümü kod şu şekilde değiştirin.
+Şablonu Sil, modelin tüm alanlarını gösterir, ancak bu şekilde bir bit ' i basitleştireceğiz. /Views/storemanager/delete.exe ' deki görünüm kodunu aşağıdaki şekilde değiştirin.
 
 [!code-cshtml[Main](mvc-music-store-part-5/samples/sample14.cshtml)]
 
-Bu basitleştirilmiş bir silme onayı görüntüler.
+Bu, Basitleştirilmiş bir silme onayı görüntüler.
 
 ![](mvc-music-store-part-5/_static/image13.png)
 
-Sil düğmesine tıklanarak DeleteConfirmed eylemi yürüten sunucuya geri, yayımlanacak formun neden olur.
+Sil düğmesine tıkladığınızda formun sunucuya geri nakledilmesine neden olur ve bu da Deleteonaylanan eylemi yürütür.
 
 [!code-csharp[Main](mvc-music-store-part-5/samples/sample15.cs)]
 
-HTTP POST Sil denetleyicisi Eylemimiz aşağıdaki işlemleri yapar:
+HTTP-POST silme denetleyici eylemi aşağıdaki eylemleri gerçekleştirir:
 
-- 1. Albüm kimliği tarafından yükler
-- 2. Albüm siler ve değişiklikleri kaydedin
-- 3. Albüm listeden kaldırıldığını gösteren bir dizini yeniden yönlendirir
+- 1. Albümü KIMLIĞE göre yükler
+- 2. Albümü siler ve değişiklikleri kaydeder
+- 3. Albümün listeden kaldırıldığını gösteren dizine yeniden yönlendirir
 
-Bunu test etmek için uygulamayı çalıştırın ve /StoreManager için göz atın. Albüm listeden seçin ve Sil bağlantısını tıklayın.
+Bunu test etmek için uygulamayı çalıştırın ve/Storemanagera gidin. Listeden bir albüm seçin ve Sil bağlantısına tıklayın.
 
 ![](mvc-music-store-part-5/_static/image14.png)
 
-Bu, bizim silme onay ekranında görüntüler.
+Bu, silme onayı ekranımızı görüntüler.
 
 ![](mvc-music-store-part-5/_static/image15.png)
 
-Sil düğmesine tıklanarak albümü kaldırır ve bize albümü silindiğini gösterir Store Yöneticisi dizin sayfasına döndürür.
+Sil düğmesine tıkladığınızda albüm kaldırılır ve bu, albümün silindiğini gösteren mağaza yöneticisi dizin sayfasına döndürülür.
 
 ![](mvc-music-store-part-5/_static/image16.png)
 
-### <a name="using-a-custom-html-helper-to-truncate-text"></a>Metin kesmek için özel bir HTML Yardımcısını kullanma
+### <a name="using-a-custom-html-helper-to-truncate-text"></a>Metni kesmek için özel HTML Yardımcısı kullanma
 
-Bir olası sorun Store Yöneticisi dizini sayfamızı yapılandırdığımıza göre. Bizim albüm başlığı ve sanatçı adı özelliklerinin her ikisi de bunlar bizim tablo biçimlendirmeyi devre dışı durum oluşturabilir yeterince uzun olabilir. Bize bu ve diğer özellikler bizim görünümlerde bir kolayca kesecek şekilde izin vermek için özel bir HTML Yardımcısı oluşturacağız.
+Store Manager Dizin sayfamızda bir olası sorun var. Albüm başlığımız ve sanatçı adı özellikleri, tablo biçimimizi oluşturabilecek kadar uzun olabilir. Görünümlerimizde bu ve diğer özellikleri kolayca kesmemizi sağlamak için özel bir HTML Yardımcısı oluşturacağız.
 
 ![](mvc-music-store-part-5/_static/image17.png)
 
-Razor'ın @helper söz dizimi vermiştir, oldukça kolay kendi kullanımı için yardımcı işlevleri, görünümler oluşturun. /Views/StoreManager/Index.cshtml görünümü açın ve hemen sonra aşağıdaki kodu ekleyin @model satır.
+Razor @helper söz dizimi, görünümlerinizin kullanımı için kendi yardımcı işlevlerinizi oluşturmayı oldukça kolay hale yaptı. /Views/storemanager/Index.cshtml görünümünü açın ve @model satırından hemen sonra aşağıdaki kodu ekleyin.
 
 [!code-cshtml[Main](mvc-music-store-part-5/samples/sample16.cshtml)]
 
-Bu yardımcı yöntemi, bir dize ve izin vermek için bir maksimum uzunluğunu alır. Sağlanan metnin belirtilen uzunluktan daha kısaysa yardımcı olarak çıkarır-olduğu. Uzunsa, metni keser ve geri kalanı için "..." işler.
+Bu yardımcı yöntem, izin vermek için bir dize ve en fazla uzunluğu alır. Sağlanan metin belirtilen uzunluktan kısaysa, yardımcı bunu olduğu gibi verir. Daha uzunsa, metni keser ve "..." oluşturur geri kalanı için.
 
-Bizim Truncate Yardımcısı albüm başlığı ve sanatçı adı özellikleri 25 karakterden az olduğundan emin olmak için şimdi kullanabiliriz. Yeni sunduğumuz Truncate Yardımcısı kullanarak tam görünümü kodu altında görünür.
+Şimdi, albüm başlığı ve sanatçı adı özelliklerinin 25 karakterden az olduğundan emin olmak için Truncate Helper 'ı kullanabiliriz. Yeni kesme yardımımızın kullanıldığı tüm görünüm kodu aşağıda gösterilir.
 
 [!code-cshtml[Main](mvc-music-store-part-5/samples/sample17.cshtml)]
 
-Şimdi biz /StoreManager/ URL göz attığınızda, Albümler ve başlıkları müşterilerimizin en çok uzunlukları tutulur.
+Şimdi/StoreManager/URL 'ye gözatarken, albümler ve başlıklar en büyük uzunlularımızın altında tutulur.
 
 ![](mvc-music-store-part-5/_static/image18.png)
 
-Not: Bu, oluşturma ve tek bir görünümde bir Yardımcısını kullanarak basit bir durumda gösterir. Siteniz kullanabileceğiniz Yardımcıları oluşturma hakkında daha fazla bilgi için Bilgisayarım blog gönderisi bakın: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
+Note: Bu, bir yardım 'ın tek bir görünümde oluşturulması ve kullanılması için basit bir durumdur. Siteniz genelinde kullanabileceğiniz yardımcılar oluşturma hakkında daha fazla bilgi edinmek için bkz. blog gönderisi: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-4.md)

@@ -1,140 +1,140 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
-title: ASP.NET Web sayfaları (Razor) siteleri HTML formları ile çalışma | Microsoft Docs
+title: ASP.NET Web Pages (Razor) sitelerinde HTML formlarıyla çalışma | Microsoft Docs
 author: Rick-Anderson
-description: Metin kutuları, onay kutuları, radyo düğmeleri ve aşağı açılır listeleri gibi kullanıcı girişi denetimleri yerleştirdiğiniz yere bir bölümü bir HTML belgesinin biçimidir. Formları kullanma ne...
+description: Form, metin kutuları, onay kutuları, radyo düğmeleri ve aşağı açılan listeler gibi kullanıcı girişi denetimleri yerleştirdiğiniz bir HTML belgesi bölümüdür. Biçimleri kullanıyorsunuz...
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: c7d4802063c8610a246afe67bd15eea429f7304a
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67410839"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639708"
 ---
-# <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde HTML formlarla çalışma
+# <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) sitelerinde HTML formlarıyla çalışma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede bir HTML formuna (ile metin kutuları ve düğmeler) işlemek nasıl bir ASP.NET Web sayfaları (Razor) Web sitesinde çalışırken.
+> Bu makalede bir ASP.NET Web Pages (Razor) Web sitesinde çalışırken bir HTML formunun (metin kutuları ve düğmeler ile) nasıl işlenmesi açıklanmaktadır.
 > 
-> **Öğrenecekleriniz:** 
+> **Şunları öğreneceksiniz:** 
 > 
-> - Bir HTML formu oluşturma
-> - Kullanıcı Giriş formundan okumak nasıl.
-> - Kullanıcı girişini doğrulama yapma.
-> - Form değerleri, sayfa gönderildikten sonra geri yükleme.
+> - HTML formu oluşturma.
+> - Formdan Kullanıcı girişini okuma.
+> - Kullanıcı girişini doğrulama.
+> - Sayfa gönderildikten sonra form değerlerini geri yükleme.
 > 
-> Programlama Kavramları makalesinde sunulan ASP.NET şunlardır:
+> Makalesinde sunulan ASP.NET programlama kavramları şunlardır:
 > 
-> - `Request` Nesne.
+> - `Request` nesnesi.
 > - Giriş doğrulaması.
 > - HTML kodlaması.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
 >   
 > 
-> Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
+> Bu öğretici, ASP.NET Web Pages 2 ile de kullanılabilir.
 
-## <a name="creating-a-simple-html-form"></a>Basit bir HTML formu oluşturma
+## <a name="creating-a-simple-html-form"></a>Basit HTML formu oluşturma
 
 1. Yeni bir Web sitesi oluşturun.
-2. Kök klasöründe bir web sayfası oluşturma *Form.cshtml* ve aşağıdaki biçimlendirme girin:
+2. Kök klasörde, *form. cshtml* adlı bir Web sayfası oluşturun ve aşağıdaki biçimlendirmeyi girin:
 
     [!code-html[Main](4-working-with-forms/samples/sample1.html)]
-3. Sayfanın tarayıcıda başlatın. (Webmatrix'te, içinde **dosyaları** çalışma alanında, dosyaya sağ tıklayın ve ardından **tarayıcıda Başlat**.) Üç giriş alanlarını basit bir formla ve **Gönder** düğmesi görüntülenir.
+3. Sayfayı tarayıcınızda başlatın. (WebMatrix 'te **dosyalar** çalışma alanında, dosyaya sağ tıklayın ve ardından **tarayıcıda Başlat**' ı seçin.) Üç giriş alanı ve **Gönder** düğmesi içeren basit bir form görüntülenir.
 
-    ![Üç metin kutusu ile bir formun ekran görüntüsü.](4-working-with-forms/_static/image1.png)
+    ![Üç metin kutusu içeren bir formun ekran görüntüsü.](4-working-with-forms/_static/image1.png)
 
-    Tıklarsanız bu noktada **Gönder** düğmesi, hiçbir şey olmaz. Form kullanışlı hale getirmek için sunucuda çalıştırılacak bazı kod eklemeniz gerekir.
+    Bu noktada **Gönder** düğmesine tıklarsanız hiçbir şey olmaz. Formu faydalı hale getirmek için sunucuda çalışacak bir kod eklemeniz gerekir.
 
-## <a name="reading-user-input-from-the-form"></a>Kullanıcı giriş formu okuma
+## <a name="reading-user-input-from-the-form"></a>Formdan Kullanıcı girişi okunuyor
 
-Formu işlemeye gönderilen alan değerlerini okur ve bunları ile bir sorun mu kodu ekleyin. Bu yordam okunur alanlar ve kullanıcı girişi sayfada görüntülemek nasıl gösterir. (Bir üretim uygulamasında, genellikle kullanıcı girişi ile daha ilgi çekici bir şeyler yapın. Bu makalede, veritabanları ile çalışma hakkında gerçekleştirirsiniz.)
+Formu işlemek için, gönderilen alan değerlerini okuyan ve bunlarla bir şey yapan kodu eklersiniz. Bu yordam, alanların nasıl okunacağını ve Kullanıcı girişinin sayfada nasıl görüntüleneceğini gösterir. (Bir üretim uygulamasında genellikle Kullanıcı girişiyle ilgili daha ilgi çekici şeyler olursunuz. Bu, veritabanlarıyla çalışma hakkında makalesinde yapılır.)
 
-1. Üst kısmındaki *Form.cshtml* dosyasında, aşağıdaki kodu girin:
+1. *Form. cshtml* dosyasının en üstünde aşağıdaki kodu girin:
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample2.cshtml)]
 
-    Kullanıcının ilk sayfa istediğinde, yalnızca boş formu görüntülenir. (Bu olacaktır) kullanıcı biçiminde doldurur ve ardından tıkladığında **Gönder**. (Posta) gönderdiğinde bu sunucu için kullanıcı girişi. Varsayılan olarak, aynı sayfaya isteğin gittiğini (yani, *Form.cshtml*).
+    Kullanıcı sayfayı ilk kez istediğinde yalnızca boş form görüntülenir. Kullanıcı (sizin olur) formu doldurur ve ardından **Gönder**' i tıklamalıdır. Bu, Kullanıcı girişini sunucuya gönderir (gönderir). Varsayılan olarak, istek aynı sayfaya (yani, *form. cshtml*) gider.
 
-    Bu süre sayfa gönderdiğinizde, girdiğiniz değerleri yalnızca formun görüntülenir:
+    Sayfayı bu kez gönderdiğinizde, girdiğiniz değerler formun hemen üzerinde görüntülenir:
 
-    ![Sayfada görüntülenen girmiş olduğunuz değerleri gösteren ekran görüntüsü.](4-working-with-forms/_static/image2.png)
+    ![Sayfada girdiğiniz değerleri gösteren ekran görüntüsü.](4-working-with-forms/_static/image2.png)
 
-    Kod sayfasına bakın. Öncelikle `IsPost` sayfa gönderilen olup olmadığını belirlemek için yöntemi &#8212; kullanılıp bir kullanıcı başka bir deyişle, tıklanan **Gönder** düğmesi. Bu bir post ise `IsPost` true değerini döndürür. Bu ilk bir istek (bir GET isteği) veya bir geri gönderme (bir POST isteği) ile çalışıyorsanız olup olmadığını belirlemek için standart ASP.NET Web Pages'de yoludur. (GET ve POST hakkında daha fazla bilgi için bkz: "HTTP alma ve POST ve IsPost Property" kenar [ASP.NET Web sayfaları programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Sayfanın koduna bakın. İlk olarak, bir kullanıcının **Gönder** düğmesine tıklamadığı bir, sayfanın mi nakledildiğini &#8212; öğrenmek için `IsPost` yöntemini kullanırsınız. Bu bir gönderise, `IsPost` true döndürür. Bu, ASP.NET Web sayfalarında bir ilk istek (bir GET isteği) veya geri gönderme (POST isteği) ile çalışıp çalışmadığını belirlemede standart bir yoldur. (GET ve POST hakkında daha fazla bilgi için, [Razor söz dizimini kullanarak ASP.NET Web sayfaları programlamasına giriş](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost)bölümünde "http get ve post ve ıspost özelliği" başlıklı kenar çubuğuna bakın.)
 
-    Ardından, gelen kullanıcı doldurulan değerleri alın `Request.Form` nesne ve put onları değişkenlerinde daha sonra kullanmak üzere. `Request.Form` Nesne sayfası, her bir anahtar tarafından tanımlanmış gönderilen tüm değerleri içerir. Anahtar eşdeğerdir `name` okumak istediğiniz form alanının özniteliği. Örneğin, okuma için `companyname` alanı (metin kutusu) kullandığınız `Request.Form["companyname"]`.
+    Ardından, kullanıcının `Request.Form` nesnesinden doldurduğu değerleri alır ve bunları daha sonra değişkenlere yerleştirebilirsiniz. `Request.Form` nesnesi, her biri bir anahtarla tanımlanan sayfayla gönderilen tüm değerleri içerir. Anahtar, okumak istediğiniz form alanının `name` özniteliğine eşdeğerdir. Örneğin, `companyname` alanını (metin kutusu) okumak için `Request.Form["companyname"]`kullanırsınız.
 
-    Form değerlerini depolanır `Request.Form` dizeler olarak nesnesi. Bu nedenle, bir sayı veya bir tarih veya başka bir tür bir değer ile çalışmak zorunda, dizenin bu türe dönüştürmeniz gerekir. Örnekte, `AsInt` yöntemi `Request.Form` (çalışan sayısı içeren) çalışanlar alanın değeri bir tamsayıya dönüştürmek için kullanılır.
-2. Tarayıcınızda sayfasını başlatmak, form alanlarını doldurun ve tıklayın **Gönder**. Sayfa girdiğiniz değerleri görüntüler.
+    Form değerleri, `Request.Form` nesnesinde dizeler olarak depolanır. Bu nedenle, bir sayı veya tarih ya da başka bir tür olarak bir değerle çalışmanız gerektiğinde, bir dizeden bu türe dönüştürmeniz gerekir. Örnekte, `Request.Form` `AsInt` yöntemi, çalışanlar alanının (bir çalışan sayısı içeren) değerini bir tamsayıya dönüştürmek için kullanılır.
+2. Sayfayı tarayıcınızda başlatın, form alanlarını doldurup **Gönder**' e tıklayın. Sayfada girdiğiniz değerler görüntülenir.
 
 > [!TIP] 
 > 
 > <a id="SB_HTMLEncoding"></a>
-> ### <a name="html-encoding-for-appearance-and-security"></a>HTML görünümü ve güvenlik için kodlama
+> ### <a name="html-encoding-for-appearance-and-security"></a>Görünüm ve güvenlik için HTML kodlaması
 > 
-> HTML var. özel kullanımlar gibi karakterler için `<`, `>`, ve `&`. Bu özel karakterlerin nerede bunlar beklendiği görünüyorsa, Görünüm ve işlevselliği, web sayfanızın sicil. Örneğin, tarayıcı yorumlar `<` (bir boşluk ile izlenir sürece) gibi bir HTML öğesi başlangıcı olarak karakter `<b>` veya `<input ...>`. Yalnızca tarayıcı öğe tanımazsa ile başlayan dize atar `<` , bir şey ulaşana kadar yeniden tanır. Kuşkusuz, bu sayfasındaki bazı tuhaf işleme neden olabilir.
+> HTML 'de `<`, `>`ve `&`gibi karakterlerin özel kullanımları vardır. Bu özel karakterler beklenmediği yerlerde görünürse, Web sayfanızın görünümü ve işlevselliği için bir görünüm verebilir. Örneğin, tarayıcı, `<b>` veya `<input ...>`gibi bir HTML öğesinin başlangıcına kadar `<` karakterini (bir boşluk değilse) yorumlar. Tarayıcı öğeyi tanımıyorsa, tekrar tanıdığı bir şeye ulaşana kadar `<` ile başlayan dizeyi atar. Kuşkusuz, bu, sayfada bazı tuhaf işlemeye neden olabilir.
 > 
-> HTML kodlaması tarayıcılar doğru simgesi olarak yorumlar bir kodu bu ayrılmış karakterleri değiştirir. Örneğin, `<` karakter ile değiştirilir `&lt;` ve `>` karakter ile değiştirilir `&gt;`. Tarayıcının bu değiştirme dizelerini, görmek istediğiniz karakter olarak işler.
+> HTML kodlaması, bu ayrılmış karakterlerin, tarayıcıların doğru sembol olarak yorumlayacağı bir kodla yerini alır. Örneğin, `<` karakteri `&lt;` ile, `>` karakteri ise `&gt;`ile değiştirilmiştir. Tarayıcı, bu değiştirme dizelerini görmek istediğiniz karakterler olarak işler.
 > 
-> Bu, HTML kodlaması dizeler görüntülemek istediğiniz zaman kullanmak için (aldığınız bir kullanıcıdan giriş), iyi bir fikirdir. Aksi takdirde, bir kullanıcı, web kötü amaçlı bir komut dosyası çalıştırma veya başka bir şey, kendi site güvenliği tehlikeye atar veya sadece ne istediğiniz sayfaya ulaşmak deneyebilirsiniz. (Kullanıcı girişi alan, bir yer depolar ve daha sonra görüntülemek, bu özellikle önemlidir &#8212; Örneğin, bir blog yorum, kullanıcı gözden geçirme ya da benzer bir şey olarak.)
+> Bir kullanıcıdan aldığınız dizeleri (giriş) görüntülediğinizde HTML kodlaması kullanmak iyi bir fikirdir. Bunu yapmazsanız, bir Kullanıcı, Web sayfanızı kötü amaçlı bir betik çalıştırmak veya site güvenliğini karşılayan başka bir şey yapmak ya da yalnızca sizin tasarladığınız şeyi yapmak için deneyebilir. (Kullanıcı girişi gerçekleştirmezseniz, bunu bir yerde depolarsanız ve daha &#8212; sonra Örneğin, bir blog yorumu, Kullanıcı incelemesi veya bunun gibi bir şey gibi), bu özellikle önemlidir.
 > 
-> Otomatik olarak ASP.NET Web Pages bu sorunları önlemeye yardımcı olmak için HTML olarak kodlar herhangi bir metin içeriği o kodunuzdan çıktı. Örneğin, bir değişken veya kod kullanarak bir ifade içeriğini görüntülediğinizde `@MyVar`, ASP.NET Web sayfaları, çıktı otomatik olarak kodlar.
+> Bu sorunları önlemeye yardımcı olmak için, ASP.NET Web sayfaları otomatik olarak HTML-kodlarınızdan çıktı aldığınız tüm metin içeriğini kodlar. Örneğin, `@MyVar`gibi kodu kullanarak bir değişkenin veya ifadenin içeriğini görüntülediğinizde, ASP.NET Web sayfaları çıktıyı otomatik olarak kodlar.
 
 ## <a name="validating-user-input"></a>Kullanıcı girişini doğrulama
 
-Kullanıcılar hata yapar. Bir alanı doldurmak için isteyin ve bunlar için unuttunuz veya çalışanların sayısını girin isteyin ve bunlar bunun yerine bir ad yazın. Bu işlemeden önce bir form doğru şekilde doldurulmuş olduğunu emin olmak için kullanıcının girişi doğrulayın.
+Kullanıcılar hata yapar. Bu kullanıcılardan bir alanı doldurmasını ve bunları unutmasını veya çalışanların sayısını girmesini istediğinizi ve bunun yerine bir ad yazmalarını isteyebilirsiniz. Bir formun işlem yapılmadan önce doğru şekilde doldurulduğundan emin olmak için, kullanıcının girişini doğrularsınız.
 
-Bu yordam, kullanıcı boş bırakabilirsiniz yaramadı emin olmak için tüm üç form alanlarını doğrulama işlemi gösterilmektedir. Ayrıca, çalışan sayısı değeri bir sayı olduğunu denetleyin. Hatalar varsa bir hata görüntüleyeceksiniz kullanıcının hangi değerleri belirten ileti doğrulama başarılı olmadı.
+Bu yordamda, kullanıcının onları boş bırakmaması için üç form alanının tümünün nasıl doğrulanacağı gösterilmektedir. Ayrıca, çalışan sayısı değerinin bir sayı olup olmadığını kontrol edersiniz. Hatalar varsa, kullanıcıya hangi değerlerin doğrulamadan geçemeyeceğini belirten bir hata iletisi görüntülenir.
 
-1. İçinde *Form.cshtml* dosya, ilk kod bloğunu aşağıdaki kodla değiştirin: 
+1. *Form. cshtml* dosyasında, ilk kod bloğunu aşağıdaki kodla değiştirin: 
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample3.cshtml)]
 
-    Kullanıcı girişini onaylamak için kullandığınız `Validation` Yardımcısı. Gerekli alanları kayıt `Validation.RequireField`. Çağırarak diğer doğrulama türlerini kaydetme `Validation.Add` ve doğrulamak için alan ve gerçekleştirmek için doğrulama türünü belirtin.
+    Kullanıcı girişini doğrulamak için `Validation` Yardımcısı ' nı kullanırsınız. Gerekli alanları `Validation.RequireField`çağırarak kaydedersiniz. `Validation.Add` çağırarak ve doğrulanacak alanı ve gerçekleştirilecek doğrulama türünü girerek diğer doğrulama türlerini kaydedersiniz.
 
-    Sayfa çalıştığında, ASP.NET, tüm doğrulama yapar. Çağırarak sonuçları kontrol edebilirsiniz `Validation.IsValid`, her şeyi aktarılırsa true döndüren ve herhangi bir alan doğrulama başarısız olursa false. Genellikle, arama `Validation.IsValid` kullanıcı girişi herhangi bir işlem gerçekleştirmeden önce.
-2. Güncelleştirme `<body>` üç çağrıları ekleyerek öğesi `Html.ValidationMessage` böyle bir yöntemi:
+    Sayfa çalıştırıldığında, ASP.NET tüm doğrulama yapar. `Validation.IsValid`çağırarak sonuçları kontrol edebilirsiniz, her şey başarılı olursa true, herhangi bir alan doğrulamada başarısız olursa false döndürür. Genellikle, Kullanıcı girişinde herhangi bir işlem gerçekleştirmeden önce `Validation.IsValid` çağırın.
+2. Aşağıdaki gibi `Html.ValidationMessage` yöntemine üç çağrı ekleyerek `<body>` öğesini güncelleştirin:
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample4.cshtml?highlight=8,13,18)]
 
-    Doğrulama hatası iletilerini görüntülemek için Html çağırabilirsiniz.`ValidationMessage` ve ileti için istediğiniz alanın adı geçirin.
-3. Sayfayı çalıştırın. Alanları boş bırakın ve tıklayın **Gönder**. Hata iletisi görürsünüz.
+    Doğrulama hata iletilerini göstermek için HTML 'yi çağırabilirsiniz.`ValidationMessage` ve iletiyi istediğiniz alanın adı olarak geçirin.
+3. Sayfayı çalıştırın. Alanları boş bırakın ve **Gönder**' e tıklayın. Hata iletilerini görürsünüz.
 
-    ![Kullanıcı girişini doğrulama başarısız olursa görüntülenen hata iletilerini gösteren ekran görüntüsü.](4-working-with-forms/_static/image3.jpg)
-4. Bir dize (örneğin, "ABC") eklemek **Employee Count** alan ve tıklayın **Gönder** yeniden. Bu süre belirten bir hata göreceğiniz dizesi doğru biçimde, yani, bir tamsayı değil.
+    ![Kullanıcı girişi doğrulamayı geçemediğinde görüntülenen hata iletilerini gösteren ekran görüntüsü.](4-working-with-forms/_static/image3.jpg)
+4. **Çalışan sayısı** alanına bir dize (örneğin, "abc") ekleyin ve yeniden **Gönder** ' e tıklayın. Bu kez, dizenin doğru biçimde olmadığını belirten bir hata görürsünüz, yani bir tamsayı.
 
-    ![Kullanıcılar çalışanların alan için bir dize girin, görüntülenen hata iletilerini gösteren ekran görüntüsü.](4-working-with-forms/_static/image4.jpg)
+    ![Kullanıcılar çalışanlar alanı için bir dize girirse görüntülenen hata iletilerini gösteren ekran görüntüsü.](4-working-with-forms/_static/image4.jpg)
 
-ASP.NET Web sayfaları, böylece kullanıcılar, tarayıcıda anında geri bildirim almak otomatik olarak istemci komut dosyasını kullanarak doğrulama gerçekleştirme yeteneği de dahil olmak üzere, kullanıcı girişini doğrulama için diğer seçenekler sağlar. Bkz: [ek kaynaklar](#Additional_Resources) daha fazla bilgi için sonraki bölümü.
+ASP.NET Web sayfaları, kullanıcıların tarayıcıda anında geri bildirim alması için istemci betiği kullanılarak otomatik olarak doğrulama gerçekleştirme özelliği de dahil olmak üzere Kullanıcı girişini doğrulamak için daha fazla seçenek sunar. Daha fazla bilgi için daha sonra [ek kaynaklar](#Additional_Resources) bölümüne bakın.
 
-## <a name="restoring-form-values-after-postbacks"></a>Form değerleri Geri göndermeler sonra geri yükleme
+## <a name="restoring-form-values-after-postbacks"></a>Geri göndermeler sonrasında form değerlerini geri yükleme
 
-Sayfasında önceki bölümde Test ettiğinizde, bir doğrulama hatası oluştu, her şeyi (yalnızca geçersiz veriler) girdiğiniz kaybolur ve tüm alanlar için değerleri yeniden girmek zorunda fark etmiş. Önemli bir nokta bunu göstermektedir: sıfırdan bir sayfası gönderme, işleyin ve sonra sayfayı yeniden oluşturmak, sayfayı yeniden oluşturulur. Gördüğünüz gibi bu sayfada zaman gönderildiği olan tüm değerler kaybedilir anlamına gelir.
+Önceki bölümde yer alan sayfayı sınadıktan sonra, girdiğiniz her şey (yalnızca geçersiz veriler değil) geçmiş olduğunu fark etmiş olabilirsiniz ve tüm alanlar için değerleri yeniden girmeniz gerekiyordu. Bu önemli bir noktayı gösterir: bir sayfa gönderdiğinizde, işlem tamamlandıktan sonra sayfayı yeniden oluşturduktan sonra sayfa sıfırdan yeniden oluşturulur. Gördüğünüz gibi, bu, gönderildiği sırada sayfadaki tüm değerlerin kaybedildiği anlamına gelir.
 
-Bunu kolayca, Bununla birlikte düzeltebilir. Gönderilen değerlere erişebilirsiniz (içinde `Request.Form` sayfa işlendiğinde form alanlarına değerler doldurabilir. Bu nedenle, nesne.
+Ancak bunu kolayca çözebilirsiniz. Gönderilen değerlere erişiminiz vardır (`Request.Form` nesnesinde, sayfa işlendiğinde bu değerleri form alanlarına geri doldurabilirsiniz.
 
-1. İçinde *Form.cshtml* dosyası, değiştirin `value` özniteliklerini `<input>` kullanarak öğeleri `value` özniteliği.: 
+1. *Form. cshtml* dosyasında, `value` özniteliğini kullanarak `<input>` öğelerinin `value` özniteliklerini değiştirin.: 
 
     [!code-cshtml[Main](4-working-with-forms/samples/sample5.cshtml?highlight=13,19,25)]
 
-    `value` Özniteliği `<input>` öğeleri dinamik olarak dışı alan değerini okumak için ayarlandı `Request.Form` nesne. İstenen sayfa, ilk kez değerleri `Request.Form` nesne tüm boş. Böylece form boş olduğundan bu güzel, budur.
-2. Tarayıcınızda sayfasını başlatmak, form alanlarını doldurun veya boş bırakabilirsiniz ve tıklayın **Gönder**. Gönderilen değerleri gösteren bir sayfa görüntülenir.
+    `<input>` öğelerinin `value` özniteliği `Request.Form` nesnesinden alan değerini dinamik olarak okumak üzere ayarlanmıştır. Sayfa istendiğinde ilk kez `Request.Form` nesnesindeki değerler boştur. Bu, formun boş olduğu şekilde bu şekilde iyidir.
+2. Sayfayı tarayıcınızda başlatın, form alanlarını doldurup boş bırakın ve **Gönder**' e tıklayın. Gönderilen değerleri gösteren bir sayfa görüntülenir.
 
-    ![Form-5](4-working-with-forms/_static/image5.jpg)
+    ![Formlar-5](4-working-with-forms/_static/image5.jpg)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Web kullanıcı girişi alma 1,001 yolları](https://msdn.microsoft.com/library/ms971057.aspx)
-- [Formları kullanarak ve kullanıcı girişini işleme](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
+- [Web kullanıcılarından giriş almanın 1.001 yolu](https://msdn.microsoft.com/library/ms971057.aspx)
+- [Formları kullanma ve Kullanıcı girişini Işleme](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
 - [ASP.NET Web Sayfaları Sitelerinde Kullanıcı Girişini Doğrulama](https://go.microsoft.com/fwlink/?LinkId=253002)
-- [HTML formlarına otomatik tamamlama özelliğini kullanma](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)
+- [HTML formlarında otomatik tamamlamayı kullanma](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

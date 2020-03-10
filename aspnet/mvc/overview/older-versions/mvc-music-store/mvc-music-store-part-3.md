@@ -1,259 +1,259 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
-title: "Bölüm 3: Görünümler ve Viewmodel'lar | Microsoft Docs"
+title: '3\. kısım: görünümler ve Viewmodeller | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 3, görünümler ve Viewmodel'lar kapsar.
+description: Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. Bölüm 3, görünümleri ve ViewModel içerir.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
 ms.openlocfilehash: 3fcfc816cde22c697a78bab2c9ea7ace1bf68501
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129673"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559810"
 ---
-# <a name="part-3-views-and-viewmodels"></a>Bölüm 3: Görünümler ve Görünüm Modelleri
+# <a name="part-3-views-and-viewmodels"></a>3\. Bölüm: Görünümler ve ViewModel’lar
 
-tarafından [Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) tarafından
 
-> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
+> MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Studio 'nun nasıl kullanılacağını anlatan bir öğretici uygulamadır.  
 >   
-> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik deposu, çevrimiçi olarak müzik albümlerini satan ve temel site yönetimi, Kullanıcı oturum açma ve alışveriş sepeti işlevlerini uygulayan basit bir örnek depolama uygulamasıdır.  
 >   
-> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 3, görünümler ve Viewmodel'lar kapsar.
+> Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. Bölüm 3, görünümleri ve ViewModel içerir.
 
-Şu ana kadar biz yalnızca dizeleri denetleyici eylemlerine döndürmeyi. Denetleyicileri nasıl çalıştığı hakkında fikir almak için iyi bir yolu olan ancak olduğu nasıl gerçek bir web uygulaması derleme istemezsiniz. Daha iyi bir yolu geri sitemizi ziyaret tarayıcılara HTML oluşturmak istediğiniz kullanacağız: geri bir kolayca HTML içeriğini özelleştirmek için şablon dosyaları burada kullanabiliriz gönderin. Tam olarak neler görünümleri olmasıdır.
+Şu ana kadar yalnızca denetleyici eylemlerinden dizeler döndürdük. Bu, denetleyicilerin nasıl çalıştığı konusunda fikir sahibi olmak için iyi bir yoldur, ancak gerçek bir Web uygulaması oluşturmak istemekten değildir. Sitemizi ziyaret eden tarayıcılarımıza geri HTML oluşturmak için daha iyi bir yol isteyeceksiniz. Bu, şablon dosyalarını yalnızca bir HTML içeriğini geri gönder ' i daha kolay özelleştirmek için kullanabilirsiniz. Tam olarak bu görünümler vardır.
 
-## <a name="adding-a-view-template"></a>Bir görünüm şablonu ekleme
+## <a name="adding-a-view-template"></a>Görünüm şablonu ekleme
 
-Görünüm şablonu kullanmak için biz ActionResult döndürülecek HomeController dizin yöntemini değiştirin ve sahip aşağıdaki gibi View(), dönüş:
+Bir görünüm şablonu kullanmak için, HomeController Dizin yöntemini bir ActionResult döndürecek şekilde değiştirecek ve aşağıdaki gibi bir görünüm () döndürüyor.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample1.cs)]
 
-Yukarıdaki değişikliği yerine bir dize döndürdüğünü gösterir, bunun yerine bir sonucu geri üretmek için "Görünüm" kullanılacak istiyoruz.
+Yukarıdaki değişiklik, bir dize döndürmesinin yerine, bir sonuç oluşturmak için bir "Görünüm" kullanmak istediğinin olduğunu gösterir.
 
-Artık uygun bir şablonu görüntüleme için Projemizin ekleyeceğiz. Bunu yapmak için biz dizin eylem yöntemi içinde metin imleci konumlandırma sonra sağ tıklayın ve "Görünüm Ekle"'i seçin. Bu Görünüm Ekle iletişim kutusu getirir:
+Şimdi projemizi uygun bir görünüm şablonu ekleyeceğiz. Bunu yapmak için, metin imlecini Dizin eylemi yöntemine konumlandırır, sonra sağ tıklayıp "Görünüm Ekle" seçeneğini belirleyin. Bu işlem, Görünüm Ekle iletişim kutusunu getirir:
 
-![](mvc-music-store-part-3/_static/image1.jpg)![](mvc-music-store-part-3/_static/image1.png)
+![](mvc-music-store-part-3/_static/image1.jpg) ![](mvc-music-store-part-3/_static/image1.png)
 
-"Görünüm Ekle" iletişim kutusu hızlı ve kolay bir görünümü şablon dosyaları oluşturmasını sağlıyor. Varsayılan olarak "Görünüm Ekle" iletişim kullanacak olan eylem yönteminin eşleşmesi oluşturmak için Görünüm şablonunun adı önceden doldurur. Bizim HomeController İNDİS() eylem yöntemi içindeki "Görünüm Ekle" bağlam menüsü kullandığımız için yukarıdaki "Görünüm Ekle" iletişim kutusu "Index" Görünüm adını varsayılan olarak önceden doldurulmuş olarak sahiptir. Gerekmez bu iletişim kutusundaki seçeneklerden herhangi birini değiştirmek için bu nedenle Ekle düğmesine tıklayın.
+"Görünüm Ekle" iletişim kutusu, görünüm şablonu dosyalarını hızlı ve kolay bir şekilde üretmemize olanak sağlar. Varsayılan olarak, "Görünüm Ekle" iletişim kutusu, oluşturulacak eylem yöntemiyle eşleşecek şekilde oluşturmak için görünüm şablonunun adını önceden doldurur. HomeController 'ın Index () eylem yöntemi içinde "Görünüm Ekle" bağlam menüsünü kullandığımız için, yukarıdaki "Görünüm Ekle" iletişim kutusunda varsayılan olarak önceden doldurulan görünüm adı olarak "Dizin" bulunur. Bu iletişim kutusundaki seçeneklerden herhangi birini değiştirmemiz gerekmez, bu nedenle Ekle düğmesine tıklayın.
 
-Biz Ekle düğmesine tıkladığınızda, Visual Web Developer \Views\Home dizininde değilse klasör oluşturma görünümü şablon bizim için zaten yoksa yeni bir Index.cshtml oluşturacaksınız.
+Ekle düğmesine tıkladığımızda, Visual Web Developer, daha önce yoksa klasörü oluşturmak için \Views\Home dizininde yeni bir Index. cshtml görünüm şablonu oluşturacaktır.
 
 ![](mvc-music-store-part-3/_static/image2.png)
 
-"Index.cshtml" dosya adı ve klasör konumunu önemlidir ve varsayılan ASP.NET MVC adlandırma kurallarını izler. Dizin adı, \Views\Home, HomeController adlı denetleyicisi - eşleşir. Görünüm şablonu adı, dizin, görünümün görüntüleme denetleyici eylem yöntemine eşleşir.
+"Index. cshtml" dosyasının adı ve klasör konumu önemlidir ve varsayılan ASP.NET MVC adlandırma kurallarını izler. \Views\Home dizin adı, HomeController adlı denetleyiciyle eşleşir. Görünüm şablonu adı, dizin, görünümü görüntüleyen denetleyici eylemi yöntemiyle eşleşir.
 
-ASP.NET MVC görünüm döndürmek için bu adlandırma kuralı kullanıyoruz, adına veya konumuna bir görünüm şablonunun açıkça belirtmek zorunda kalmamak olanak sağlıyor. Size sunduğumuz HomeController içinde aşağıdaki gibi kod yazdığınızda, varsayılan olarak \Views\Home\Index.cshtml görünüm şablonu işlenir:
+ASP.NET MVC, bir görünüm döndürmek için bu adlandırma kuralını kullanırken bir görünüm şablonunun adını veya konumunu açık bir şekilde belirtmemizi önlemenize olanak tanır. Bu, varsayılan olarak \Views\home\ındex.cshtml görünüm şablonunu izleyerek HomeController içinde aşağıdaki gibi kod yazdığımızda işlenir:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample2.cs)]
 
-Visual Web Developer, oluşturulan ve size "Görünüm Ekle" iletişim kutusu içinde "Ekle" düğmesine tıkladı sonra "Index.cshtml" Görünüm şablonu açılır. Index.cshtml içeriğini aşağıda gösterilmektedir.
+"Görünüm Ekle" iletişim kutusunda "Ekle" düğmesine tıkladıktan sonra Visual Web Developer "Index. cshtml" görünüm şablonunu oluşturup açtı. Index. cshtml 'nin içerikleri aşağıda gösterilmiştir.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample3.cshtml)]
 
-Bu görünüm, Web Forms, ASP.NET Web Forms ve ASP.NET MVC önceki sürümlerinde kullanılan görünüm altyapısını daha kısa olan Razor sözdizimi kullanıyor. Web Forms görünüm altyapısı ASP.NET MVC 3'te hala kullanılabilir, ancak Razor görüntüleme motorunu ASP.NET MVC geliştirme gerçekten iyi uyduğunu birçok geliştiricinin bulun.
+Bu görünüm, ASP.NET Web Forms ve önceki ASP.NET MVC sürümlerinde kullanılan Web Forms görünüm altyapısından daha kısa olan Razor söz dizimi kullanıyor. Web Forms View Engine, ASP.NET MVC 3 ' te hala kullanılabilir, ancak birçok geliştirici Razor görünüm altyapısının ASP.NET MVC geliştirme sürecinde uygun olduğunu bulur.
 
-İlk üç satırını ViewBag.Title kullanarak sayfa başlığını ayarlayın. Biz bunun daha ayrıntılı olarak yakında, ancak ilk şimdi güncelleştirme işleyişi sırasında Başlık metin ara ve sayfayı görüntülemek. Güncelleştirme &lt;h2&gt; etiketi aşağıda gösterildiği gibi "Bu olduğundan ana sayfa" deyin.
+İlk üç satır, ViewBag. title kullanarak sayfa başlığını ayarlar. Bunun kısa süre içinde nasıl çalıştığını inceleyeceğiz, ancak ilk olarak metin başlık metnini güncelleştirip sayfayı görüntüleyelim. &lt;H2&gt; etiketini aşağıda gösterildiği gibi "Bu giriş sayfasıdır" olarak güncelleştirin.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample4.cshtml)]
 
-Sunduğumuz yeni metin giriş sayfasında görünür olduğunu uygulama programları çalışıyor.
+Uygulamanın çalıştırılması, yeni metnimizin giriş sayfasında görünür olduğunu gösterir.
 
 ![](mvc-music-store-part-3/_static/image3.png)
 
-## <a name="using-a-layout-for-common-site-elements"></a>Sık kullanılan site öğeleri bir düzen kullanarak
+## <a name="using-a-layout-for-common-site-elements"></a>Ortak site öğeleri için Düzen kullanma
 
-Çoğu Web sitesi birçok sayfalar arasında paylaşılan içeriğe sahip: gezinti, altbilgiler, logosu görüntüler, stil sayfası başvuruları, vs. Razor görünüm altyapısı bu adlı bir sayfasını kullanarak yönetmenizi kolaylaştırır \_Layout.cshtml, / görünümler/paylaşılan klasörü içinde bizim için otomatik olarak oluşturuldu.
+Çoğu Web sitesinin birçok sayfa arasında paylaşılan içeriği vardır: gezinme, altbilgiler, logo görüntüleri, stil sayfası başvuruları, vb. Razor Görünüm altyapısı, bu işlemi otomatik olarak/Views/Shared klasöründe oluşturulan \_Layout. cshtml adlı bir sayfa kullanarak yönetmeyi kolaylaştırır.
 
 ![](mvc-music-store-part-3/_static/image4.png)
 
-Bu klasör ve aşağıda da gösterilen içeriği görüntülemek için çift tıklayın.
+Aşağıda gösterilen içerikleri görüntülemek için bu klasöre çift tıklayın.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample5.cshtml)]
 
-İçeriği bizim tek bir görünüm tarafından görüntülenen @RenderBody() komut ve dışında görünen istediğiniz herhangi bir ortak içerik eklenebilir \_Layout.cshtml biçimlendirme. Biz, şablona doğrudan yukarıdaki ekleyeceğiz şekilde bizim giriş sayfası ve Store alanına sitesindeki tüm sayfalara bağlantılarla birlikte ortak bir üst bilgi sağlamak için sunduğumuz MVC müzik Store isteyeceksiniz @RenderBody() deyimi.
+Bireysel görünümlerimizin içeriği, @RenderBody() komutuyla ve bunun dışında görünmesini istediğimiz tüm ortak içerikler, \_Layout. cshtml biçimlendirmesine eklenebilir. MVC müzik mağazamız, sitedeki tüm sayfalarda giriş sayfası ve depolama alanı bağlantılarıyla ortak bir üst bilgiye sahip olmasını istiyoruz, bu nedenle bu @RenderBody() deyimin hemen üstüne bu şablonu ekleyeceğiz.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample6.cshtml)]
 
-## <a name="updating-the-stylesheet"></a>Stil sayfası güncelleştiriliyor
+## <a name="updating-the-stylesheet"></a>Stil sayfasını güncelleştirme
 
-Boş proje şablonu, yalnızca doğrulama iletileri görüntülemek için kullanılan stilleri içeren çok kolaylaştırılmış bir CSS dosyası içerir. Bizim Tasarımcısı, bazı ek CSS ve görüntüleri görünümü için sitemizi, şimdi de ekleyeceğiz şekilde tanımlamak için sağlamıştır.
+Boş proje şablonu, yalnızca doğrulama iletilerini göstermek için kullanılan stilleri içeren çok kolaylaştırılmış bir CSS dosyası içerir. Tasarımcı, sitemizin görünümünü tanımlamak için bazı ek CSS ve görüntüler sağladı, bu nedenle bunları şimdi ekleyeceğiz.
 
-Güncelleştirilmiş CSS dosyası ve görüntü kullanılabilir olan MvcMusicStore Assets.zip içerik dizinin içinde yer [MVC müzik Store](https://github.com/evilDave/MVC-Music-Store). Biz ikisini birden Windows Gezgini'nde seçin ve aşağıda gösterildiği gibi bizim çözümün Visual Web Developer, içerik klasörüne bırakın:
+Güncelleştirilmiş CSS dosyası ve görüntüleri, [MVC-Music-Store](https://github.com/evilDave/MVC-Music-Store)' da bulunan MvcMusicStore-assets. zip ' in içerik dizinine dahildir. Bunları Windows Gezgini 'nde her ikisini de seçeceğiz ve Visual Web Developer 'daki çözümünüzün Içerik klasörüne aşağıda gösterildiği gibi bırakmalısınız:
 
 ![](mvc-music-store-part-3/_static/image5.png)
 
-Mevcut Site.css dosyanın üzerine yazmak isteyip istemediğinizi onaylamanız istenir. Evet'e tıklayın.
+Mevcut site. css dosyasının üzerine yazmak isteyip istemediğinizi onaylamanız istenecektir. Evet’e tıklayın.
 
 ![](mvc-music-store-part-3/_static/image6.png)
 
-Uygulamanızın içerik klasörünü artık şu şekilde görünür:
+Uygulamanızın Içerik klasörü şu şekilde görünür:
 
 ![](mvc-music-store-part-3/_static/image7.png)
 
-Şimdi uygulamayı çalıştırabilir ve yaptığımız değişiklikleri giriş sayfasında nasıl göründüğünü görmek şimdi.
+Şimdi uygulamayı çalıştıralım ve değişikliklerin giriş sayfasında nasıl görünemizi görelim.
 
 ![](mvc-music-store-part-3/_static/image8.png)
 
-- Nelerin değiştiğini gözden geçirelim: HomeController'ın dizin eylem yöntemi bulunamadı ve bizim görünüm şablonu standart bir adlandırma kuralını izleyen çünkü kodumuz "dönüş View()" adlı olsa bile \Views\Home\Index.cshtmlView şablonu görüntülenir.
-- Giriş sayfası \Views\Home\Index.cshtml görünüm şablonu içinde tanımlanan basit bir Hoş Geldiniz iletisi görüntülüyor.
-- Giriş sayfasını kullanarak bizim \_Layout.cshtml şablonu ve HTML standart site düzenine Hoş Geldiniz iletisi bulunur.
+- Nelerin değiştiğini gözden geçirelim: HomeController 'ın Dizin eylemi yöntemi, "Return View ()" olarak adlandırılsa da, "dönüş görünümü ()" olarak adlandırılsa da, "döndürülen görünüm ()" olarak adlandırılsa da, izleme şablonunuz standart adlandırma kuralına uyduğundan, \ views\home\ındex
+- Giriş sayfası, \Views\home\ındex.cshtml görünüm şablonu içinde tanımlanan basit bir hoş geldiniz iletisi görüntülüyor.
+- Giriş sayfası \_Layout. cshtml şablonumuzu kullanıyor ve bu nedenle hoş geldiniz iletisi standart site HTML düzeni içinde yer alıyor.
 
-## <a name="using-a-model-to-pass-information-to-our-view"></a>Bilgi bizim görünüme iletmek için bir modeli kullanma
+## <a name="using-a-model-to-pass-information-to-our-view"></a>Görünümümüze bilgi geçirmek için bir model kullanma
 
-Sabit kodlanmış HTML yalnızca görüntüleyen bir görünüm şablonu çok ilginç bir web sitesi yapacağını değil. Dinamik bir web sitesi oluşturun, biz bunun yerine görünümü şablonlarımızı denetleyicisi eylemlerimiz bilgi geçirmek isteyebilirsiniz.
+Yalnızca sabit kodlanmış HTML 'yi görüntüleyen bir görünüm şablonu, çok ilgi çekici bir Web sitesi yapamıyor. Dinamik bir Web sitesi oluşturmak için, denetleyici eylemlerimizden görünüm Şablonlarımıza bilgi geçirmek istiyoruz.
 
-Model-View-Controller desende, uygulamadaki verileri temsil modeli başvurduğu terimi nesneleri. Genellikle, model nesneleri, veritabanınızdaki tablolar karşılık gelir, ancak gerek yoktur.
+Model-View-Controller düzeninde model terimi, uygulamadaki verileri temsil eden nesneleri ifade eder. Genellikle, model nesneleri veritabanınızdaki tablolara karşılık gelir, ancak bunlara gerek kalmaz.
 
-ActionResult döndürmesi denetleyici eylem yöntemlerinde görünümü için bir model nesnesi geçirebilirsiniz. Bu, uygun HTML yanıtı oluşturmak için kullanılacak bir yanıt oluşturur ve ardından bir görünüm şablonu için bu bilgileri geçirin için gerekli tüm bilgileri indrebilirsiniz paketi bir denetleyiciye sağlar. Bu eylem görerek anlamak, başlayabiliriz en kolay yöntemdir.
+Bir ActionResult döndüren denetleyici eylemi metotları bir model nesnesini görünüme geçirebilir. Bu, bir denetleyicinin yanıt oluşturmak için gereken tüm bilgileri düzgün bir şekilde paketleyip bu bilgileri uygun HTML yanıtını oluşturmak için kullanılacak bir görünüm şablonuna iletmesini sağlar. Bu işlemin anlaşılması en kolay yöntemdir. bu nedenle kullanmaya başlayın.
 
-Türleri ve albümleri mağazamız içinde temsil etmek için bazı Model sınıfları ilk oluşturacağız. Bir türe sınıfı oluşturarak başlayalım. Projeniz içindeki "Modelleri" klasörü sağ tıklatın, "Sınıf Ekle" seçeneğini belirleyin ve "Genre.cs" dosya adı.
+İlk olarak, mağazamız içindeki tarzları ve albümleri temsil eden bazı model sınıfları oluşturacağız. Bir tarz sınıfı oluşturarak başlayalım. Projenizin içindeki "modeller" klasörüne sağ tıklayın, "Sınıf Ekle" seçeneğini belirleyin ve "Genre.cs" dosyasını adlandırın.
 
 ![](mvc-music-store-part-3/_static/image2.jpg)
 
 ![](mvc-music-store-part-3/_static/image9.png)
 
-Daha sonra oluşturulan sınıfa genel bir dize adı özelliği ekleyin:
+Ardından oluşturulan sınıfa ortak bir dize adı özelliği ekleyin:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample7.cs)]
 
-*Not: Durumunda, merak {alın; ayarlayın;} gösterimi yapmadan kullanım C#otomatik olarak uygulanan özellikleri özelliği. Bu işlem ABD bize destek alanı bildirmek gerek kalmadan özellik avantajlarını sağlar.*
+*Note: merak ediyorsanız, {get; set;} gösterimi, otomatik olarak C#uygulanan özellikler özelliğinin kullanımını yapıyor. Bu, bir destek alanı bildirmek zorunda kalmadan bir özelliğin avantajlarından yararlanmanızı sağlar.*
 
-Ardından, bir başlık ve bir türe özelliğine sahiptir (Album.cs adlı) bir albüm sınıfı oluşturmak için aynı adımları izleyin:
+Ardından, bir başlık ve bir tarz özelliği olan bir albüm sınıfı (Album.cs adlı) oluşturmak için aynı adımları izleyin:
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample8.cs)]
 
-Şimdi biz Modelimizi dinamik bilgileri gösteren görünümleri kullanmayı StoreController değiştirebilirsiniz. İstek Kimliği temel alarak bizim albümleri, biz şu anda - tanıtım amacıyla adlı - varsa, bu bilgileri aşağıdaki görünüm olduğu gibi görüntüleriz.
+Artık, modelinizdeki dinamik bilgileri görüntüleyen görünümleri kullanmak için StoreController 'ı değiştirebiliriz. Daha önce tanıtım amaçlı olarak, istek KIMLIĞINE göre albümlerimizi adlandırdık, bu bilgileri aşağıdaki görünümde olduğu gibi görüntüleyebiliriz.
 
 ![](mvc-music-store-part-3/_static/image10.png)
 
-Store Ayrıntılar eylemi için tek bir albümü bilgileri gösterecek şekilde değiştirerek başlayacağız. En üst kısmına "kullanarak" deyimine **StoreControllers** biz albüm sınıfını kullanmak istediğiniz her seferinde MvcMusicStore.Models.Album yazmak zorunda kalmazsınız MvcMusicStore.Models ad alanı içerecek şekilde sınıfı. Bu sınıfın "kullanımları" bölümü artık görünmesi gereken aşağıdaki gibi.
+Mağaza ayrıntıları eylemini değiştirerek başlayacağız, bu nedenle tek bir albümün bilgilerini gösterir. MvcMusicStore. model ad alanını dahil etmek için **Storecontrollers** sınıfının en üstüne bir "Using" ifadesini ekleyin. bu nedenle, albüm sınıfını kullanmak istediğimiz her seferinde MvcMusicStore. modeller. albümünü yazmanız gerekmez. Bu sınıfın "kullanımlar" bölümü şimdi aşağıda gösterildiği gibi görünmelidir.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample9.cs)]
 
-Böylece bir dize yerine ActionResult döndürür HomeController'ın dizin yöntemiyle yaptığımız gibi ardından, Ayrıntılar denetleyici eylemi güncelleştireceğiz.
+Daha sonra, HomeController 'ın Dizin yöntemiyle yaptığımız gibi, bir dize yerine bir ActionResult döndüren Ayrıntılar denetleyicisi eylemini güncelleştireceğiz.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample10.cs)]
 
-Şimdi biz albüm nesnenin görünümüne dönmek için mantığı değiştirebilirsiniz. Bu öğreticinin ilerleyen bölümlerinde biz veriler bir veritabanından – alınıyor, ancak şu an için "veri kukla" kullanacağız kullanmaya başlamak için.
+Şimdi görünüme bir albüm nesnesi döndürecek mantığı değiştirebiliriz. Bu öğreticide daha sonra verileri bir veritabanından alacak, ancak şu anda başlamak için "kukla verileri" kullanacağız.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample11.cs)]
 
-*Not: İle bilmiyorsanız C#, değişken kullanarak albüm değişkeni geç bağlanan anlamına varsayabilir. Doğru değil-C# derleyici tür çıkarımı ne biz albüm türüdür, albüm belirlemek için bir değişkene atayarak ve derleme zamanı denetimi ve Visual Studio Kod Düzenleyicisi aldığımız için yerel albüm değişkeni albüm türü olarak, derleme göre kullanıyor destekler.*
+*Note: hakkında bilginiz varsa C#, bunu kullanarak, albüm değişkenimizin geç bağlantılı olduğu anlamına gelebilir. Bu doğru değildir: C# derleyici, albümün albüm türünde olduğunu belirlemek ve yerel albüm değişkenini bir albüm türü olarak derlemek için değişkene neleri atadığımızda tür çıkarımı kullanıyor, bu nedenle derleme zamanı denetimi ve Visual Studio kod Düzenleyicisi desteği sunuyoruz.*
 
-Artık bir HTML yanıtı oluşturmak için sunduğumuz albüm kullanan bir görünüm şablonu oluşturalım. Bunu yapmadan önce projeyi derleyin, Görünüm Ekle iletişim kutusunda yeni oluşturulan bizim albüm sınıfı hakkında bilebilmesi gerekir. Proje Debug⇨Build MvcMusicStore seçerek menü öğesi oluşturabileceğinizi (götürmek için Ctrl-Shift-B kısayolu Projeyi derlemek için kullanabileceğiniz).
+Şimdi de HTML yanıtı oluşturmak için albümümüzü kullanan bir görünüm şablonu oluşturalım. Bunu yapmadan önce, görünümü Ekle iletişim kutusu yeni oluşturulan albüm sınıfınızı hakkında bilgi sahibi olacak şekilde projeyi derliyoruz. Projeyi, hata ayıkla ⇨ Build MvcMusicStore menü öğesini seçerek oluşturabilirsiniz (ek kredi için, projeyi derlemek için Ctrl-Shift-B kısayolunu kullanabilirsiniz).
 
 ![](mvc-music-store-part-3/_static/image11.png)
 
-Size sunduğumuz destekleyen sınıfları ayarladınız, bizim görünüm şablonu oluşturmak hazırız. Ayrıntılar yöntemi içinde sağ tıklayın ve bağlam menüsünden "Görünümü Ekle..."'i seçin.
+Artık destekleyici sınıflarınızı ayarladığımıza göre, görünüm şablonumuzu oluşturmaya hazır olduğumuz. Ayrıntılar yöntemine sağ tıklayın ve "Görünüm Ekle..." öğesini seçin. bağlam menüsünden.
 
 ![](mvc-music-store-part-3/_static/image12.png)
 
-Önce HomeController ile yaptığımız gibi yeni bir görünüm şablonu oluşturmak için kullanacağız. StoreController oluşturuyoruz çünkü \Views\Store\Index.cshtml dosyasında varsayılan olarak oluşturulur.
+HomeController 'tan önce yaptığımız gibi yeni bir görünüm şablonu oluşturacağız. Bunu StoreController 'dan oluşturduğumuz için varsayılan olarak \Views\store\ındex.cshtml dosyasında oluşturulacaktır.
 
-Aksine, önce "Oluşturma türü kesin belirlenmiş bir" görünümü onay kullanacağız. Ardından, "Albümü" sınıfı "Görünüm veri class" açılır liste içinde kullanacağız. Bu, bekliyor bir görünüm şablonu kullanmak için nesne geçirilir albüm oluşturmak "Görünüm Ekle" iletişim neden olur.
+Daha önce olduğu gibi, "kesin olarak belirlenmiş bir" görünümü oluşturma onay kutusunu denetleyeceğiz. Daha sonra "veri sınıfı görüntüle" aşağı açılan listesinde "albüm" sınıfınızı seçeceğiz. Bu, "Görünüm Ekle" iletişim kutusunun bir albüm nesnesinin kullanmak üzere geçirilmesini bekleyen bir görünüm şablonu oluşturmasına neden olur.
 
 ![](mvc-music-store-part-3/_static/image13.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, aşağıdaki kodu içeren bizim \Views\Store\Details.cshtml görünüm şablonu oluşturulur.
+\Views\Store\Details.cshtml görünüm şablonumuz "Ekle" düğmesine tıkladığımızda, aşağıdaki kodu içeren oluşturulacak.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample12.cshtml)]
 
-Bu görünüm, bizim albüm sınıfı için kesin olduğunu gösteren ilk satırda dikkat edin. Razor görüntüleme motorunu, biz model özelliklerini kolayca erişin ve hatta Visual Web Developer düzenleyicisindeki IntelliSense avantajı vardır, albüm nesneyi geçirildi olduğunu anlar.
+Bu görünümün, albüm sınıfımızda kesin olarak yazılmış olduğunu gösteren ilk satıra dikkat edin. Razor görünümü altyapısı, bir albüm nesnesi geçtiğini anladığından, model özelliklerine kolayca erişebilmemiz ve hatta Visual Web Developer Editor 'da IntelliSense 'in avantajlarından yararlanabiliyoruz.
 
-Güncelleştirme &lt;h2&gt; bu satırı aşağıdaki gibi görünen değiştirerek albüm başlık özelliğini görüntüleyecek şekilde etiketleyin.
+&lt;H2&gt; etiketini, bu satırı aşağıdaki gibi görünecek şekilde değiştirerek albümün title özelliğini görüntüleyecek şekilde güncelleştirin.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample13.cshtml)]
 
-Sonra nokta girdiğinizde, IntelliSense tetiklenen fark @Model anahtar sözcüğü, özellikleri ve yöntemleri albüm sınıfı desteklediği gösteriliyor.
+@Model anahtar sözcüğünden sonra, albüm sınıfının desteklediği özellikleri ve yöntemleri göstererek, IntelliSense 'in tetiklendiğine dikkat edin.
 
-Şimdi artık Projemizin yeniden çalıştırın ve 5/Ayrıntılar/Store URL'sini ziyaret edin. Gibi bir albümü ayrıntılarını göreceğiz.
+Şimdi projemizi yeniden çalıştırıp/Store/Details/5 URL 'sini ziyaret edin. Aşağıdaki gibi bir albümün ayrıntılarını görebiliriz.
 
 ![](mvc-music-store-part-3/_static/image14.png)
 
-Artık Store Gözat eylem yöntemine benzer bir güncelleştirme oluşturacağız. ActionResult döndürecek şekilde güncelleştirme yöntemi ve yeni bir türe nesnesi oluşturur ve görünümü döndürür yöntemi mantığını değiştirin.
+Şimdi mağaza tarama eylemi yöntemine benzer bir güncelleştirme yapacağız. Yöntemi bir ActionResult döndüren şekilde güncelleştirin ve yöntem mantığını yeni bir tarz nesnesi oluşturacak ve görünüme döndüren şekilde değiştirin.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample14.cs)]
 
-Göz atma yönteminde sağ tıklayın ve bağlam menüsünden "Görünümü Ekle..." türü kesin belirlenmiş bir görünüm eklersiniz türü kesin belirlenmiş Tarz sınıfına ekleyin.
+Tarayıcı yöntemine sağ tıklayın ve "Görünüm Ekle..." seçeneğini belirleyin. bağlam menüsünden, türü kesin belirlenmiş bir görünüm ekleyin ve tarz sınıfına kesin bir tür ekleyin.
 
 ![](mvc-music-store-part-3/_static/image15.png)
 
-Güncelleştirme &lt;h2&gt; öğesi Görünümü'nde (/Views/Store/Browse.cshtml içinde) Tarz bilgileri görüntülemek için kod.
+Görünüm kodundaki &lt;H2&gt; öğesini (/Views/Store/Browse.cshtml 'de), tarz bilgilerini görüntülemek için güncelleştirin.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample15.cshtml)]
 
-Şimdi şimdi Projemizin yeniden çalıştırın ve Gözat / Store/dizinine göz atma? Tarz = DISCO URL. Aşağıda gösterilen gibi göz atma sayfasından göreceğiz.
+Şimdi, projemizi yeniden çalıştırıp/Store/zat mı gözatalim? Tarz = disco URL 'SI. Aşağıda gösterildiği gibi, gözden geçirme sayfasını görüyoruz.
 
 ![](mvc-music-store-part-3/_static/image16.png)
 
-Son olarak, biraz daha karmaşık bir güncelleştirme olalım **Store dizini** eylem yöntemi ve bizim deposunda tüm türleri listesini görüntülemek için görünümü. Biz bu, bir liste türleri yalnızca tek bir türe yerine bizim model nesnesi kullanarak gerçekleştirirsiniz.
+Son olarak, **Depolama dizini** eylem yöntemine biraz daha karmaşık bir güncelleştirme yapalim ve mağazamızda tüm tarzın bir listesini görüntülemek için görünümü. Yalnızca tek bir tarz yerine model nesnemiz olarak bir tarzın listesini kullanarak bunu yapacağız.
 
 [!code-csharp[Main](mvc-music-store-part-3/samples/sample16.cs)]
 
-Store dizini eylem yönteminde sağ tıklatın ve eklemek daha önce tarzı Model sınıfı seçin ve Ekle düğmesine basın görünümü seçin.
+Depolama dizini eylem yöntemine sağ tıklayın ve Görünüm Ekle ' yi seçin, model sınıfı olarak tarz ' ı seçin ve Ekle düğmesine basın.
 
 ![](mvc-music-store-part-3/_static/image17.png)
 
-İlk değiştireceğiz @model görünümü birkaç Tarz bekleniyor belirtmek için bildirimi yerine yalnızca bir tane nesneleri. Şu şekilde okunacak /Store/Index.cshtml ilk satırı değiştirin:
+İlk olarak, görünümün yalnızca bir tane yerine birkaç tarz nesne isteyeceğini göstermek için @model bildirimini değiştireceksiniz. /Store/Index.cshtml adlı ilk satırı aşağıdaki gibi okunacak şekilde değiştirin:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample17.cshtml)]
 
-Bu, birkaç Tarz nesnesi tutabilen bir model nesnesi ile çalışacaksınız Razor görünüm altyapısı bildirir. Bir IEnumerable kullanıyoruz&lt;Tarz&gt; bir listesi yerine&lt;Tarz&gt; daha genel olduğundan, daha sonra model türü IEnumerable arabirimini destekleyen herhangi bir nesne türü değiştirmek bize verme.
+Bu, Razor görünüm altyapısına, çeşitli tarz nesneleri tutabilecek bir model nesnesiyle çalışmayacağını söyler. Daha genel olduğundan, model türümüzü daha sonra IEnumerable arabirimini destekleyen herhangi bir nesne türüne değiştirebilmemiz için, bir liste&lt;tarzı&gt; yerine IEnumerable&lt;tarz&gt; kullanıyoruz.
 
-Ardından, tamamlanmış görünüm kodda gösterildiği gibi modelinde Tarz nesneler aracılığıyla döngüye gireceğiz.
+Daha sonra, aşağıdaki tamamlanan görünüm kodunda gösterildiği gibi modeldeki tarz nesneleri arasında döngü göndereceğiz.
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample18.cshtml)]
 
-Biz bu kodun girerken biz yazdığınızda emin ediyoruz tam IntelliSense desteği olduğunu fark edeceksiniz "@Model." tüm yöntemleri ve özellikleri Tarz türünde bir IEnumerable tarafından desteklenen görüyoruz.
+"@Model" yazdığımızda, bu kodu girdiğimiz için tam IntelliSense desteğine sahip olduğumuz hakkında dikkat edin. tür tarzı IEnumerable tarafından desteklenen tüm yöntemleri ve özellikleri görüyoruz.
 
 ![](mvc-music-store-part-3/_static/image18.png)
 
-Bizim "foreach" döngüsü içinde her biri için IntelliSense işleyip her öğenin tür Tarz, tarz türü olduğundan, Visual Web Developer bilir.
+"Foreach" döngümiz dahilinde, Visual Web Developer her öğenin tarz türünde olduğunu bilir, bu nedenle her tarz türü için IntelliSense 'i görüyoruz.
 
 ![](mvc-music-store-part-3/_static/image19.png)
 
-Ardından, iskele kurma özelliği Tarz nesne incelenir ve aracılığıyla döngüye girer ve bunları yazıyor her bir Name özelliğine sahip olacağını belirler. Ayrıca, her bir öğe Düzenle, Ayrıntılar ve Sil bağlantılarını oluşturur. Biz, daha sonra Depolama Yöneticisi'nde yararlanmak, ancak şu an için basit bir listesi yerine olmasını istiyoruz.
+Daha sonra, yapı iskelesi özelliği tarz nesnesini inceledi ve her birinin bir Name özelliğine sahip olduğunu tespit eder, bu nedenle aralarında geçiş yapın ve yazar. Ayrıca, her bir öğe için düzenleme, Ayrıntılar ve silme bağlantıları da oluşturur. Daha sonra Store Manager 'da bundan sonra faydalanıyoruz, ancak şimdilik basit bir liste kullanmak istiyoruz.
 
-Uygulamayı çalıştırmak ve/Store için Gözat sayısı ve türleri listesi görüntülenir bakın.
+Uygulamayı çalıştırıp/Store 'a gözattığınızda, her iki tür için de sayım listesinin görüntülendiğini görüyoruz.
 
 ![](mvc-music-store-part-3/_static/image20.png)
 
-## <a name="adding-links-between-pages"></a>Sayfaları arasında bağlantılar ekleme
+## <a name="adding-links-between-pages"></a>Sayfalar arasında bağlantı ekleme
 
-Türleri şu anda listeleyen/Store URL'nin yalnızca düz metin olarak Tarz adlarını listeler. Düz metin yerine biz bunun yerine ilgili Store/göz atma URL Tarz adları bağlantısını edinecek olmanızdır bu "Disco" Store/için Gözat gider gibi bir müzik Tarz tıklayarak böylece değiştirelim? Tarz = DISCO URL. Biz aşağıdaki gibi kullanarak bu bağlantıları kod çıktısına bizim \Views\Store\Index.cshtml görünüm şablonu güncelleştirebilir **(Bu tür yok - üzerinde geliştirmek için yapacağız)**:
+Tarzımızı listeleyen/Store URL 'SI Şu anda yalnızca düz metin olarak tarz adlarını listelemektedir. Bunu, düz metin yerine uygun/Store/gözam URL 'sine sahip olacak şekilde değiştirelim. böylece, "Disco" gibi bir müzik tarzında tıklatmak/Store/gözatmaya mi? tarzı = disco URL 'sine gidecektir. Aşağıdaki kodu kullanarak bu bağlantıları çıkarmak için \Views\store\ındex.cshtml görünüm şablonumuzu güncelleştirebiliriz **(bunun üzerinde iyileştireceğiz)** :
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample19.html)]
 
-Çalışan, ancak bunu daha sonra bir sabit kodlanmış dizesine kullandığından sorun neden olabilir. Örneği için denetleyici yeniden adlandırmak istedik, biz güncelleştirilmesi gereken bağlantıları için arayan kodumuz arama gerekecektir.
+Bu, daha sonra, sorunsuz kodlanmış bir dizeye dayandığından sorun oluşmasına neden olabilir. Örneğin, denetleyiciyi yeniden adlandırmak istiyoruz, güncelleştirilebilmemiz gereken bağlantıları arayan kodunuzda arama yapmanız gerekir.
 
-Bir HTML yardımcı yöntem yararlanmak için kullanabiliriz alternatif bir yaklaşım olan. ASP.NET MVC görünüm şablonu kodumuz çeşitli olduğu gibi ortak görevleri gerçekleştirmek için kullanılabilir olan HTML yardımcı yöntemler içerir. Html.ActionLink() yardımcı yöntemi, özellikle yararlı bir ve HTML oluşturmayı kolaylaştırır &lt;bir&gt; bağlar ve URL yolları URL kodlanmış düzgün olduğundan emin olmak gibi rahatsız edici ayrıntılarının üstlenir.
+Bir alternatif yaklaşım, bir HTML yardımcı yönteminden faydalanabilir. ASP.NET MVC, görüntüleme şablonu kodumuzda olduğu gibi çeşitli yaygın görevleri gerçekleştirmek için kullanılabilen HTML Yardımcısı yöntemlerini içerir. HTML. ActionLink () yardımcı yöntemi özellikle yararlıdır ve HTML &lt;&gt; bağlantıları oluşturmayı kolaylaştırır ve URL yollarının düzgün şekilde URL kodlamalı olduğundan emin olmak için bu ayrıntıları ele alır.
 
-Html.ActionLink() bağlantılarınız için gereksinim duyduğunuz kadar çok bilgi belirtilmesine izin verecek şekilde birçok farklı aşırı yüklemeye sahip. En basit durumda, yalnızca bağlantı metni ve istemcide köprü tıklandığında gitmek için bir eylem yönteminin verin. Örneğin, biz "/ Store /" ile bağlantı metni "Gitmek için Store çağrısını kullanarak dizin" Store ayrıntıları sayfasındaki İNDİS() yöntemi bağlayabilirsiniz:
+HTML. ActionLink (), bağlantılarınız için ihtiyaç duyduğunuz kadar çok bilgi belirtilmesine izin veren birkaç farklı aşırı yüklemeye sahiptir. En basit durumda, köprünün istemcide tıklandığı zaman gitmek için yalnızca bağlantı metnini ve eylem yöntemini sağlarsınız. Örneğin, mağaza ayrıntıları sayfasındaki "/Store/" dizinine bağlantı metni "Store dizinine git" bağlantısını, aşağıdaki çağrıyı kullanarak bağlayabiliriz:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample20.cshtml)]
 
-*Not: Bu durumda, biz size yalnızca geçerli görünüm işlemeyle aynı denetleyici içinde başka bir eylem bağlantı kurduğunuz çünkü Denetleyici adı belirtmeniz gerekmediğine.*
+*Note: Bu durumda, yalnızca geçerli görünümü işleyen Denetleyici içindeki başka bir eyleme bağlanmakta olduğumuz için denetleyici adını belirtmemiz gerekmiyordu.*
 
-Başka bir aşırı üç parametre almayan Html.ActionLink yöntemin kullanacağız. Bu nedenle bizim bağlantılar göz atma sayfasından bir parametre, yine de iletmeniz gerekir:
+Tarama sayfasına yönelik bağlantılarımız bir parametre geçirmemiz gerekir, ancak üç parametre alan HTML. ActionLink yönteminin başka bir aşırı yüklemesini kullanacağız:
 
-- 1. Bağlantı metnini, tarzı adı görüntülenir
-- 2. Denetleyici eylem adı (göz atma)
-- 3. Rota parametre değerleri, hem ' % s'adı (Tarz) hem de ' % s'değeri (Tarz adı) belirtme
+- 1. Bağlantı metni, bu tarz adı görüntülenecektir
+- 2. Denetleyici eylem adı (tarama)
+- 3. Ad (tarz) ve değer (tarzı adı) belirterek rota parametre değerleri
 
-Tümünü bir araya burada emin ediyoruz Store dizini görünümü için bu bağlantıları nasıl yazacaksınız sokarak:
+Bunu bir araya getirmek, bu bağlantıları mağaza dizini görünümüne yazdığımızda şöyle olacaktır:
 
 [!code-cshtml[Main](mvc-music-store-part-3/samples/sample21.cshtml)]
 
-Şimdi, projeyi yeniden çalıştırın ve /Store/ URL'sine erişin türleri listesini göreceğiz. Her bir tür – köprü tıklandığında olan bize bizim/Store/dizinine göz atma sürer? Tarz =*[Tarz]* URL'si.
+Şimdi projemizi yeniden çalıştırıp/Store/URL 'ye eriştiğinizde, tarzın bir listesini görürsünüz. Her bir tarz bir köprüdür. tıklandıklarında, bu bir köprü,/Store/gözatmaya mi? tarzı = *[tarz]* URL 'imize götürür.
 
 ![](mvc-music-store-part-3/_static/image3.jpg)
 
-HTML Tarz listesi için şöyle görünür:
+Tarz listesinin HTML 'si şöyle görünür:
 
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
 

@@ -9,11 +9,11 @@ ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 9514142ca50b33470a3f4c033e4f8e319a9ee09b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74636464"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78566684"
 ---
 # <a name="aspnet-error-handling"></a>ASP.NET Hata İşleme
 
@@ -25,7 +25,7 @@ by [Erik Reitan](https://github.com/Erikre)
 
 Bu öğreticide, Wingtip Toys örnek uygulamasını hata işleme ve hata günlüğünü içerecek şekilde değiştirirsiniz. Hata işleme, uygulamanın hataları düzgün bir şekilde işlemesini ve hata iletilerini uygun şekilde görüntülemesini sağlar. Hata günlüğü, oluşan hataları bulup düzeltmenize izin verir. Bu öğreticide, önceki öğreticide "URL yönlendirme" oluşturulur ve Wingtip Toys öğretici serisinin bir parçasıdır.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 - Uygulamanın yapılandırmasına genel hata işleme ekleme.
 - Uygulama, sayfa ve kod düzeylerinde hata işleme ekleme.

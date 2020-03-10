@@ -1,23 +1,23 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/index
-title: AJAX Denetim Araç Seti | Microsoft Docs
+title: AJAX denetim araç seti | Microsoft Docs
 author: rick-anderson
-description: Çok hızlı yanıt veren ASP.NET Web sayfaları Ajax Denetim Araç Seti kullanarak oluşturma
+description: AJAX denetim araç setini kullanarak çok hızlı ASP.NET Web sayfaları oluşturma.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 6f7b1c74-cc73-42f9-8ef0-8b3d058dabfa
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit
 msc.type: chapter
 ms.openlocfilehash: c92d686cdb7883efbb5e5b2997e4a490f83607f0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131517"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78638931"
 ---
 # <a name="ajax-control-toolkit"></a>Ajax Denetim Araç Seti
 
-> Çok hızlı yanıt veren ASP.NET Web sayfaları Ajax Denetim Araç Seti kullanarak oluşturma
+> AJAX denetim araç setini kullanarak çok hızlı ASP.NET Web sayfaları oluşturma.
 
 - [ASP.NET Ajax Denetim Araç Seti ile Çalışmaya Başlama](how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md)
 - [ASP.NET AJAX CascadingDropDown Denetim Genişletici](how-do-i-use-the-aspnet-ajax-cascadingdropdown-control-extender.md)

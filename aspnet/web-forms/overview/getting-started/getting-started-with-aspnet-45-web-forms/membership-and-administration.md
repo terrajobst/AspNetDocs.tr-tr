@@ -9,11 +9,11 @@ ms.assetid: 732a2316-e49f-4f72-becd-0cd72f14457e
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
 ms.openlocfilehash: ab00bc90bfc767d06e747be6dfb973245b5aae88
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615469"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546741"
 ---
 # <a name="membership-and-administration"></a>Üyelik ve Yönetim
 
@@ -29,7 +29,7 @@ Bu öğreticide, özel bir rol eklemek ve ASP.NET Identity kullanmak için Wingt
 
 Bu öğretici, Wingtip Toys öğretici serisi ' nde, "PayPal ile kullanıma alma ve ödeme" başlıklı önceki öğreticide oluşturulur.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 - Uygulamaya özel bir rol ve Kullanıcı eklemek için kod kullanma.
 - Yönetim klasörü ve sayfasına erişimi kısıtlama.
@@ -236,7 +236,7 @@ Alışveriş sepetindeki öğeleri nasıl ekleyebileceğiniz, silebildiğini ve 
    *Login. aspx* sayfası görüntülenir.
 3. Aşağıdaki Kullanıcı adını ve parolayı kullanın:  
    Kullanıcı adı: canEditUser@wingtiptoys.com  
-   Parola: PA $ $word 1 
+   Password: Pa$$word1 
 
     ![Üyelik ve yönetim-oturum açma sayfası](membership-and-administration/_static/image3.png)
 4. Sayfanın alt tarafında **bulunan oturum aç** düğmesine tıklayın.

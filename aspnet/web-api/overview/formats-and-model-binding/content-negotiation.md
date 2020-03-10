@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/content-negotiation
-title: İçerik anlaşması ASP.NET Web API'si - ASP.NET 4.x
+title: ASP.NET Web API-ASP.NET 4. x içinde içerik anlaşması
 author: MikeWasson
-description: ASP.NET Web API HTTP İçerik anlaşması ASP.NET nasıl uyguladığını açıklar 4.x.
+description: ASP.NET Web API 'sinin ASP.NET 4. x için HTTP içerik anlaşmasını nasıl uyguladığını açıklar.
 ms.author: riande
 ms.date: 05/20/2012
 ms.custom: seoapril2019
@@ -10,99 +10,99 @@ ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
 ms.openlocfilehash: cb6668ff6de276d3778ce11f27ce597d8bf1f9c7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59380167"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622271"
 ---
-# <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API'de içerik anlaşması
+# <a name="content-negotiation-in-aspnet-web-api"></a>ASP.NET Web API 'de içerik anlaşması
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-ASP.NET Web API ASP.NET için içerik anlaşması nasıl uyguladığını bu makalede 4.x.
+Bu makalede, ASP.NET Web API 'sinin ASP.NET 4. x için içerik anlaşmasını nasıl uyguladığı açıklanır.
 
-HTTP belirtimini (RFC 2616) "kullanılabilir birden çok temsile olduğunda belirtilen bir yanıt için en iyi gösterimi seçme işleminin." olarak içerik anlaşmasını tanımlar. HTTP İçerik anlaşması için birincil mekanizma olan bu istek üst bilgileri:
+HTTP belirtimi (RFC 2616), "birden fazla temsili varsa belirli bir yanıt için en iyi temsili seçme işlemi" olarak içerik anlaşmasını tanımlar. HTTP 'de içerik anlaşmasına yönelik birincil mekanizma şu istek başlıklardır:
 
-- **Kabul et:** Hangi medya türü "application/json" gibi bir yanıt için kabul edilebilir "application/xml" veya bir özel medya türü gibi &quot;application/vnd.example+xml&quot;
-- **Accept-Charset:** Hangi karakter kümelerini UTF-8 veya ISO 8859-1 gibi kabul edilebilir.
-- **Kabul et-Encoding:** Hangi içerik kodlamaları, gzip gibi kabul edilir.
-- **Kabul dili:** Tercih edilen doğal dili gibi "en-us".
+- **Kabul et:** "Application/JSON," application/xml "gibi yanıt için kabul edilebilir medya türleri veya &quot;application/vnd gibi özel bir medya türü. örnek + XML&quot;
+- **Accept-Charset:** UTF-8 veya ISO 8859-1 gibi hangi karakter kümeleri kabul edilebilir.
+- **Accept-Encoding:** Gzip gibi hangi içerik kodlamaları kabul edilebilir.
+- **Accept-Language:** Tercih edilen doğal dil ("en-US" gibi).
 
-Sunucu HTTP isteği diğer kısımlarını de bakabilirsiniz. İsteğin bir X-Requested-With üst bilgisi içeriyorsa, Accept üst bilgisi yok ise örneğin, bir AJAX isteği belirten JSON için varsayılan sunucu.
+Sunucu ayrıca HTTP isteğinin diğer bölümlerine da bakabilirler. Örneğin, istek bir AJAX isteği gösteren bir X-requested-with üst bilgisi içeriyorsa, Accept üst bilgisi yoksa sunucu JSON olarak varsayılan olabilir.
 
-Bu makalede, Web API'si kabul et ve Accept-Charset üstbilgileri nasıl kullandığını adresindeki inceleyeceğiz. (Şu anda yerleşik desteği yoktur Accept-Encoding veya Accept-Language.)
+Bu makalede, Web API 'sinin Accept ve Accept-Charset üst bilgilerini nasıl kullandığını inceleyeceğiz. (Şu anda, Accept-Encoding veya Accept-Language için yerleşik destek yoktur.)
 
 ## <a name="serialization"></a>Serileştirme
 
-Bir Web API denetleyicisi, bir kaynak olarak CLR türü döndürürse, işlem hattı dönüş değeri serileştirir ve HTTP yanıt gövdesi yazar.
+Bir Web API denetleyicisi bir kaynağı CLR türü olarak döndürürse, işlem hattı döndürülen değeri serileştirir ve HTTP yanıt gövdesine yazar.
 
-Örneğin, aşağıdaki denetleyici eylemi göz önünde bulundurun:
+Örneğin, aşağıdaki denetleyici eylemini göz önünde bulundurun:
 
 [!code-csharp[Main](content-negotiation/samples/sample1.cs)]
 
-Bir istemci, bu HTTP isteği gönderebilir:
+İstemci şu HTTP isteğini gönderebilir:
 
 [!code-console[Main](content-negotiation/samples/sample2.cmd)]
 
-Yanıt olarak, sunucunun gönderebilir:
+Yanıt olarak, sunucunun şunları gönderebileceğini:
 
 [!code-console[Main](content-negotiation/samples/sample3.cmd)]
 
-Bu örnekte, JSON, Javascript veya "şey" istemci istenen (\*/\*). Sunucu yanıtı bir JSON temsili `Product` nesne. Yanıttaki Content-Type üstbilgisi ayarlandığına dikkat edin &quot;application/json&quot;.
+Bu örnekte, istemci JSON, JavaScript veya "her şeyi" (\*/\*) istedi. Sunucu, `Product` nesnesinin JSON temsili ile yanıt verdi. Yanıttaki Içerik türü üstbilgisinin &quot;Application/JSON&quot;olarak ayarlandığını unutmayın.
 
-Bir denetleyici de döndürebilir bir **HttpResponseMessage** nesne. Yanıt gövdesi için bir CLR nesnesi belirtmek için çağrı **CreateResponse** genişletme yöntemi:
+Bir denetleyici, bir **HttpResponseMessage** nesnesi de döndürebilir. Yanıt gövdesi için bir CLR nesnesi belirtmek üzere **Createres,** Extension metodunu çağırın:
 
 [!code-csharp[Main](content-negotiation/samples/sample4.cs)]
 
-Bu seçenek hakkında daha fazla denetime yanıt ayrıntılarını sağlar. Durum kodu ayarlamak, HTTP üst bilgileri ekleyin ve VS.
+Bu seçenek, yanıtın ayrıntıları üzerinde daha fazla denetim sağlar. Durum kodunu ayarlayabilir, HTTP üst bilgileri ekleyebilir ve benzeri bir durumla devam edebilirsiniz.
 
-Kaynak serileştiren nesnesi olarak adlandırılan bir *medya biçimlendiricisi*. Medya biçimlendiricileri türetilen **MediaTypeFormatter** sınıfı. Web API'si, XML ve JSON için medya biçimlendiricileri sağlar ve diğer medya türleri desteklemek için özel biçimlendiriciler oluşturabilirsiniz. Özel bir Biçimlendiricinin yazma hakkında daha fazla bilgi için bkz: [medya Biçimlendiricileri](media-formatters.md).
+Kaynağı serileştiren nesneye *medya biçimlendirici*denir. Medya formatlayıcıları, **MediaTypeFormatter** sınıfından türetilir. Web API 'si, XML ve JSON için medya biçimleri sağlar ve diğer medya türlerini desteklemek için özel biçimleri de oluşturabilirsiniz. Özel bir biçimlendirici yazma hakkında daha fazla bilgi için bkz. [medya biçimleri](media-formatters.md).
 
-## <a name="how-content-negotiation-works"></a>Nasıl içerik anlaşması çalışır
+## <a name="how-content-negotiation-works"></a>Içerik anlaşması nasıl kullanılır?
 
-İlk olarak, işlem hattı alır **IContentNegotiator** hizmetinde **HttpConfiguration** nesne. Ayrıca medya biçimlendiricileri listesi alır **HttpConfiguration.Formatters** koleksiyonu.
+İlk olarak, işlem hattı **HttpConfiguration** nesnesinden **ıtentnegotiator** hizmetini alır. Ayrıca, **HttpConfiguration. biçimlendiricileri** koleksiyonundan medya formatlayıcıları listesini alır.
 
-Ardından, işlem hattını çağıran **IContentNegotiator.Negotiate**, içinde geçen:
+Sonra, işlem hattı **ıditentnegotiator. Negotiate**çağırır, geçirme:
 
-- Serileştirilecek nesnenin türü
-- Medya biçimlendiricileri koleksiyonu
+- Seri hale getirilecek nesnenin türü
+- Medya formatlayıcıları koleksiyonu
 - HTTP isteği
 
-**Anlaş** yöntemi iki bilgi parçasını döndürür:
+**Negotiate** yöntemi iki bilgi parçası döndürür:
 
-- Kullanmak için hangi biçimlendirici
-- Yanıt medya türü
+- Kullanılacak biçimlendirici
+- Yanıt için medya türü
 
-Biçimlendirici bulunamazsa **anlaş** yöntemi döndürür **null**, ve istemci 406 (kabul edilemez) HTTP hatası alır.
+Bir biçimlendirici bulunmazsa, **Negotiate** yöntemi **null**DEĞERINI döndürür ve istemci http hatası 406 (kabul edilemez) alır.
 
-Aşağıdaki kod nasıl bir denetleyici içerik anlaşması doğrudan çağırabilir gösterir:
+Aşağıdaki kod, bir denetleyicinin içerik anlaşmasını doğrudan nasıl çağırabileceği gösterilmektedir:
 
 [!code-csharp[Main](content-negotiation/samples/sample5.cs)]
 
-Bu kod eşdeğerdir için işlem hattı otomatik olarak yapar.
+Bu kod, işlem hattının otomatik olarak ne olduğuna eşdeğerdir.
 
-## <a name="default-content-negotiator"></a>Varsayılan içerik Uzlaştırıcı
+## <a name="default-content-negotiator"></a>Varsayılan Içerik Negotiator
 
-**DefaultContentNegotiator** sınıf varsayılan uygulamasını sağlar **IContentNegotiator**. Bir biçimlendirici seçmek için birden çok ölçüt kullanır.
+**Defaultcontentnegotiator** sınıfı, **ıtenttrnegotiator**'ın varsayılan uygulamasını sağlar. Bir biçimlendirici seçmek için birkaç ölçüt kullanır.
 
-İlk olarak, biçimlendirici türü olmalıdır. Bu çağrı yaparak doğrulanır **MediaTypeFormatter.CanWriteType**.
+İlk olarak, biçimlendirici türü seri hale getirmek için gereklidir. Bu, **MediaTypeFormatter. CanWriteType**çağırarak doğrulanır.
 
-Ardından, içerik uzlaştırıcı her bir Biçimlendiricinin arar ve onu HTTP isteğiyle ne kadar iyi eşleştiğini değerlendirir. Eşleşme değerlendirilecek içerik uzlaştırıcı iki şeyi biçimlendirici üzerinde görünür:
+Ardından, içerik Negotiator her bir biçimlendirici üzerinde bakar ve HTTP isteğiyle ne kadar iyi eşleşme olduğunu değerlendirir. Eşleşmeyi değerlendirmek için, içerik Negotiator, biçimlendirici üzerinde iki şeyi arar:
 
-- **SupportedMediaTypes** desteklenen medya türlerinin bir listesini içeren bir koleksiyon. İçerik uzlaştırıcı Accept üst bilgisi isteğe karşı bu listesi ile eşleşecek şekilde çalışır. Accept üst bilgisi aralıkları dahil edebileceğinizi unutmayın. Örneğin, "text/plain" metin için bir eşleşme olduğundan /\* veya \* / \*.
-- **MediaTypeMappings** listesini içeren bir koleksiyon **MediaTypeMapping** nesneleri. **MediaTypeMapping** sınıfı HTTP isteklerini medya türleriyle eşleşmesi için genel bir yol sağlar. Örneğin, özel bir HTTP üstbilgisi belirli bir ortama eşleyebilirsiniz.
+- Desteklenen medya türlerinin bir listesini içeren **Supportedmediatypes** koleksiyonu. İçerik Negotiator, istek kabul üstbilgisiyle bu listeyi eşleştirmeye çalışır. Accept üst bilgisinin aralıklar içerebileceğini unutmayın. Örneğin, "metin/düz" metin/\* veya \*/\*için bir eşleşmedir.
+- **MediaTypeMapping** nesnelerinin bir listesini Içeren **mediatypemappings** koleksiyonu. **MediaTypeMapping** sınıfı, medya türleriyle http isteklerini eşleştirmek için genel bir yol sağlar. Örneğin, özel bir HTTP üst bilgisini belirli bir medya türüyle eşleyebilir.
 
-Varsa birden çok yüksek kalite faktörü WINS eşleşmeyi eşleşir. Örneğin:
+Birden çok eşleşme varsa, en yüksek kalite faktörüyle eşleşme kazanır. Örneğin:
 
 [!code-console[Main](content-negotiation/samples/sample6.cmd)]
 
-Bu örnekte, uygulama/json 1.0, bir örtük kalite faktörü bulunduğundan application/xml ' tercih edilir.
+Bu örnekte, Application/JSON 'ın kapsanan bir kalite faktörü 1,0, bu nedenle application/xml üzerinden tercih edilir.
 
-Herhangi bir eşleşme bulunursa, içerik uzlaştırıcı istek gövdesinin medya türü üzerinden varsa çalışır. Örneğin, istek JSON veri içeriyorsa, içerik uzlaştırıcı JSON biçimlendirici için görünür.
+Hiçbir eşleşme bulunmazsa, içerik Negotiator, varsa istek gövdesinin medya türüyle eşleştirmeye çalışır. Örneğin, istek JSON verisi içeriyorsa, içerik Negotiator bir JSON biçimlendiricisi arar.
 
-Yine de herhangi bir eşleşme varsa, içerik uzlaştırıcı yalnızca türü serileştirebilen ilk biçimlendiriciyi alır.
+Hala eşleşme yoksa, Negotiator, türü seri hale getirmek için yalnızca ilk biçimlendirici seçer.
 
 ## <a name="selecting-a-character-encoding"></a>Bir karakter kodlaması seçme
 
-Biçimlendiriciyi seçtikten sonra içerik uzlaştırıcı en iyi karakter bakarak kodlamasını seçer **SupportedEncodings** biçimlendirici ve bu istek üstbilgisinde Accept-Charset (varsa) eşleştirme özelliği.
+Bir biçimlendirici seçildikten sonra, içerik Negotiator, biçimlendirici üzerindeki **Supportedencoular** özelliğine bakarak en iyi karakter kodlamasını seçer ve istekteki Accept-Charset üstbilgisine (varsa) karşılık gelir.

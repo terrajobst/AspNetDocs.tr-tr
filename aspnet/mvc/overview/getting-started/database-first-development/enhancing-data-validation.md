@@ -1,7 +1,7 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: 'Öğretici: Veri doğrulama EF veritabanı ilk için ASP.NET MVC uygulaması ile geliştirin'
-description: Bu öğreticide, doğrulama gereksinimlerini belirtin ve biçimlendirme görüntülemek için veri modeline veri ek açıklamaları ekleme odaklanır.
+title: 'Öğretici: ASP.NET MVC uygulamasıyla EF Database First için veri doğrulamayı geliştirin'
+description: Bu öğretici, doğrulama gereksinimlerini belirtmek ve biçimlendirmeyi göstermek için veri modeline veri ek açıklamaları eklenmesine odaklanmaktadır.
 author: Rick-Anderson
 ms.author: riande
 ms.date: 01/28/2019
@@ -10,100 +10,100 @@ ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 897cd7c6a40445e2a4abede50d81e101372d3233
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57070599"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616279"
 ---
-# <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Öğretici: Veri doğrulama EF veritabanı ilk için ASP.NET MVC uygulaması ile geliştirin
+# <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Öğretici: ASP.NET MVC uygulamasıyla EF Database First için veri doğrulamayı geliştirin
 
-MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
+MVC, Entity Framework ve ASP.NET Scafkatı kullanarak var olan bir veritabanına arabirim sağlayan bir Web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, kullanıcıların bir veritabanı tablosunda yer alan verileri görüntülemesini, düzenlemesini, oluşturmasını ve silmesini sağlayan nasıl otomatik olarak kod üretileyeceğiniz gösterilmektedir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 
-Bu öğreticide, doğrulama gereksinimlerini belirtin ve biçimlendirme görüntülemek için veri modeline veri ek açıklamaları ekleme odaklanır. Bu temel kullanıcıların yorumlar bölümünde geri bildirim üzerinde geliştirildi.
+Bu öğretici, doğrulama gereksinimlerini belirtmek ve biçimlendirmeyi göstermek için veri modeline veri ek açıklamaları eklenmesine odaklanmaktadır. Yorumlar bölümünde kullanıcılardan gelen geri bildirimlere göre geliştirilmiştir.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Veri ek açıklama Ekle
-> * Meta veri sınıfları ekleme
+> * Veri ek açıklamaları Ekle
+> * Meta veri sınıfları Ekle
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Bir görünümü özelleştirme](customizing-a-view.md)
+* [Görünümü özelleştirme](customizing-a-view.md)
 
-## <a name="add-data-annotations"></a>Veri ek açıklama Ekle
+## <a name="add-data-annotations"></a>Veri ek açıklamaları Ekle
 
-Bir önceki konu başlığında gördüğünüz gibi bazı veri doğrulama kuralları, kullanıcı girişi için otomatik olarak uygulanır. Örneğin, sınıf özelliği için yalnızca bir sayı sağlayabilir. Daha fazla veri doğrulama kurallarını belirtmek için veri ek açıklamaları model sınıfınızın ekleyebilirsiniz. Bu ek açıklamalar, belirtilen özellik için web uygulamanızda uygulanır. Ayrıca, özelliklerini nasıl görüntüleneceğini Değiştir biçimlendirme öznitelikleri de uygulayabilirsiniz; metin etiketlerini için kullanılan değer gibi değiştiriliyor.
+Daha önceki bir konu başlığında gördüğünüz gibi, bazı veri doğrulama kuralları Kullanıcı girişine otomatik olarak uygulanır. Örneğin, sınıf özelliği için yalnızca bir sayı sağlayabilirsiniz. Daha fazla veri doğrulama kuralı belirtmek için model sınıfınıza veri ek açıklamaları ekleyebilirsiniz. Bu ek açıklamalar, belirtilen özellik için Web uygulamanız genelinde uygulanır. Özelliklerin nasıl görüntülendiğini değiştiren biçimlendirme öznitelikleri de uygulayabilirsiniz. Örneğin, metin etiketleri için kullanılan değeri değiştirme.
 
-Bu öğreticide, FirstName ve LastName MiddleName özellikleri için sağlanan değerler uzunluğunu kısıtlamak için veri ek açıklamalarını ekler. Veritabanında, bu değerleri 50 karakterle sınırlıdır; Ancak, web uygulamanızda bu karakter sınırı şu anda zorlanmaz. Bir kullanıcı bu değerlerden biri 50 karakterden uzun sağlıyorsa sayfası değeri veritabanına kaydedilmeye çalışıldığında kilitlenir. Ayrıca, değerleri 0 ile 4 arasında sınıf kısıtlar.
+Bu öğreticide, FirstName, LastName ve MiddleName özellikleri için belirtilen değerlerin uzunluğunu kısıtlamak üzere veri ek açıklamaları ekleyeceksiniz. Veritabanında, bu değerler 50 karakterle sınırlıdır; Ancak, Web uygulamanızda karakter sınırının Şu anda zorlanmadığını unutmayın. Bir Kullanıcı bu değerlerden biri için 50 ' den fazla karakter sağlıyorsa, bu değer veritabanına kaydedilmeye çalışıldığında sayfa kilitlenir. Ayrıca, 0 ile 4 arasındaki değerleri de sınırlayabilirsiniz.
 
-Seçin **modelleri** > **ContosoModel.edmx** > **ContosoModel.tt** açın *Student.cs* dosya. Sınıfına aşağıdaki vurgulanmış kodu ekleyin.
+ > **Contosomodel. edmx** > **ContosoModel.tt** **modellerini** seçin ve *Student.cs* dosyasını açın. Aşağıdaki Vurgulanan kodu sınıfına ekleyin.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample1.cs?highlight=5,15,17,20)]
 
-Açık *Enrollment.cs* ve aşağıdaki vurgulanmış kodu ekleyin.
+*Enrollment.cs* açın ve aşağıdaki vurgulanmış kodu ekleyin.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample2.cs?highlight=5,10)]
 
-Çözümü oluşturun.
+Çözümü derleyin.
 
-Tıklayın **Öğrenciler listesi** seçip **Düzenle**. 50'den fazla karakter girin çalışırsanız, bir hata iletisi görüntülenir.
+**Öğrenciler listesi** ' ne tıklayın ve **Düzenle**' yi seçin. 50 'den fazla karakter girmeye çalışırsanız bir hata iletisi görüntülenir.
 
-![hata iletisi göster](enhancing-data-validation/_static/image1.png)
+![hata iletisini göster](enhancing-data-validation/_static/image1.png)
 
-Giriş sayfasına geri dönün. Tıklayın **kayıtları listesi** seçip **Düzenle**. Bir sınıf 4 yukarıda sağlamak çalışır. Bu hatayı alırsınız: *Alanı, sınıf 0 ile 4 arasında olması gerekir.*
+Giriş sayfasına geri dönün. Kayıt **listesi** ' ne tıklayın ve **Düzenle**' yi seçin. 4 ' ün üzerinde bir sınıf sağlamayı deneyin. Bu hatayı alırsınız: *alan sınıfı 0 ile 4 arasında olmalıdır.*
 
-## <a name="add-metadata-classes"></a>Meta veri sınıfları ekleme
+## <a name="add-metadata-classes"></a>Meta veri sınıfları Ekle
 
-Değiştirmek üzere veritabanını beklemiyoruz doğrudan model sınıfı için doğrulama öznitelikleri ekleyerek çalışır; Ancak, veritabanı değişikliklerinizi ve model sınıfı yeniden oluşturmanız gerekiyorsa, tüm model sınıfa uygulanmış özniteliklerini kaybedersiniz. Bu yaklaşım çok verimsiz ve önemli doğrulama kuralları kaybetme potansiyeli olabilir.
+Doğrulama özniteliklerini doğrudan model sınıfına eklemek, veritabanının değiştirilmesini beklemediğinde işe yarar; Ancak, veritabanınız değişirse ve model sınıfını yeniden oluşturmanız gerekiyorsa, model sınıfına uyguladığınız tüm öznitelikleri kaybedersiniz. Bu yaklaşım çok verimsiz olabilir ve önemli doğrulama kurallarının kaybolması olabilir.
 
-Bu sorunu önlemek için özniteliklerini içeren bir meta veri sınıfının ekleyebilirsiniz. Model sınıfı için meta veri sınıfının ilişkilendirdiğinizde, bu öznitelikleri modele uygulanır. Bu yaklaşımda, tüm meta verileri sınıfına uygulanan öznitelikleri kaybetmeden model sınıfı üretilebilir.
+Bu sorundan kaçınmak için, özniteliklerini içeren bir meta veri sınıfı ekleyebilirsiniz. Model sınıfını meta veri sınıfıyla ilişkilendirdiğinizde, bu öznitelikler modele uygulanır. Bu yaklaşımda model sınıfı, meta veri sınıfına uygulanan tüm öznitelikleri kaybetmeden yeniden oluşturulabilir.
 
-İçinde **modelleri** klasör adında bir sınıf ekleyin *Metadata.cs*.
+**Modeller** klasöründe, *Metadata.cs*adlı bir sınıf ekleyin.
 
-Değiştirin *Metadata.cs* aşağıdaki kod ile.
+*Metadata.cs* içindeki kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample3.cs)]
 
-Bu meta veri sınıfları tüm model sınıfları, daha önce uyguladığınız doğrulama özniteliklerini içerir. **Görünen** özniteliği metin etiketleri için kullanılan değeri değiştirmek için kullanılır.
+Bu meta veri sınıfları, daha önce model sınıflarına uyguladığınız tüm doğrulama özniteliklerini içerir. **Görüntü** özniteliği, metin etiketleri için kullanılan değeri değiştirmek için kullanılır.
 
-Şimdi, meta veri sınıfları ile model sınıfları ilişkilendirmeniz gerekir.
+Şimdi, model sınıflarını meta veri sınıflarıyla ilişkilendirmeniz gerekir.
 
-İçinde **modelleri** klasör adında bir sınıf ekleyin *PartialClasses.cs*.
+**Modeller** klasöründe, *PartialClasses.cs*adlı bir sınıf ekleyin.
 
 Dosyanın içeriğini aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample4.cs)]
 
-Her sınıf olarak işaretlenmiş olduğuna dikkat edin. bir `partial` sınıfı ve her otomatik olarak oluşturulan sınıf olarak eşleşen ad alanı ve adını. Kısmi sınıfa meta veri özniteliği uygulayarak veri doğrulama özniteliklerinin otomatik olarak oluşturulan sınıfa uygulanan emin olun. Meta veri özniteliği değil yeniden kısmi sınıflar uygulandığından model sınıfları yeniden oluştururken bu öznitelikler kaybolmaz.
+Her sınıfın bir `partial` sınıfı olarak işaretlendiğinden ve her birinin otomatik olarak oluşturulan sınıf ile ad ve ad alanıyla eşleştiğini unutmayın. Meta veri özniteliğini kısmi sınıfa uygulayarak, veri doğrulama özniteliklerinin otomatik olarak oluşturulan sınıfa uygulandığından emin olursunuz. Meta veri özniteliği yeniden üretilmediği kısmi sınıflarda uygulandığından, model sınıflarını yeniden oluşturduğunuzda bu öznitelikler kaybolmaz.
 
-Otomatik olarak oluşturulan sınıflar yeniden oluşturmak için açık *ContosoModel.edmx* dosya. Bir kez daha, tasarım yüzeyi ve select sağ **veritabanından bir güncelleştirme modeli**. Bu işlem, veritabanı değişmemiştir. olsa da, sınıfları yeniden oluşturulacak. İçinde **Yenile** sekmesinde **tabloları** ve **son**.
+Otomatik olarak oluşturulan sınıfları yeniden oluşturmak için *Contosomodel. edmx* dosyasını açın. Bir kez daha, tasarım yüzeyine sağ tıklayın ve **modeli veritabanından Güncelleştir**' i seçin. Veritabanını değiştirmeseniz bile, bu işlem sınıfları yeniden oluşturacak. **Yenile** sekmesinde **Tablolar** ve **son**' u seçin.
 
-Kaydet *ContosoModel.edmx* değişiklikleri uygulamak için dosya.
+Değişiklikleri uygulamak için *Contosomodel. edmx* dosyasını kaydedin.
 
-Açık *Student.cs* dosya veya *Enrollment.cs* dosya ve daha önce uyguladığınız veri doğrulama öznitelikleri artık dosyasındadır dikkat edin. Ancak, uygulamayı çalıştırmak ve veri girdiğinizde doğrulama kuralları hala uygulandığına dikkat edin.
+*Student.cs* dosyasını veya *enrollment.cs* dosyasını açın ve daha önce uyguladığınız veri doğrulama özniteliklerinin artık dosyada bulunmadığından emin olun. Ancak, uygulamayı çalıştırın ve veri girerken doğrulama kurallarının hala uygulanmış olduğuna dikkat edin.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu seri, düzenleyebilir, güncelleştirebilir, oluşturabilir ve verileri silmek kullanıcıların sağlayan varolan bir veritabanından kodu oluşturmak nasıl basit bir örnek sağlanır. Projeyi oluşturmak için ASP.NET MVC 5, Entity Framework ve ASP.NET iskeleti oluşturma kullanılır. 
+Bu seri, kullanıcıların verileri düzenlemesini, güncelleştirmesini, oluşturmasını ve silmesini sağlayan mevcut bir veritabanından kod oluşturmaya yönelik basit bir örnek sağlamıştır. Projeyi oluşturmak için ASP.NET MVC 5, Entity Framework ve ASP.NET Scafkatlesi kullandı. 
 
-Code First geliştirmeye giriş örneği için bkz: [ASP.NET MVC 5 ile çalışmaya başlama](../introduction/getting-started.md). 
+Code First geliştirmenin açıklayıcı bir örneği için bkz. [ASP.NET MVC 5 Ile çalışmaya](../introduction/getting-started.md)başlama. 
 
-Daha gelişmiş bir örnek için bkz: [ASP.NET MVC 4 uygulaması için bir Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Veritabanı ilk verilerle çalışmak için kullandığınız DbContext API Code First verilerle çalışmak için kullandığınız API ile aynı olduğunu unutmayın. Veritabanı ilk kullanmak istediğinize olsa bile, vb. kod ilk öğreticide öğesinden eşzamanlılık çakışmalarını işleme okuma ve ilgili verileri güncelleştirme gibi daha karmaşık senaryolarda işlemek nasıl öğrenebilirsiniz. Tek fark, nasıl veritabanı bağlamı sınıfının ve varlık sınıfları oluşturulur ' dir.
+Daha gelişmiş bir örnek için bkz. [ASP.NET MVC 4 uygulaması için Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Database First verileriyle çalışırken kullandığınız DbContext API 'sinin, Code First verilerle çalışırken kullandığınız API ile aynı olduğunu unutmayın. Database First kullanmayı amaçlasanız bile, ilgili verileri okuma ve güncelleştirme, eşzamanlılık çakışmalarını işleme gibi daha karmaşık senaryoları nasıl işleyeceğinizi ve bir Code First öğreticiden yapmayı öğrenebilirsiniz. Tek fark, veritabanının, bağlam sınıfının ve varlık sınıflarının oluşturulma biçiminde olur.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Veri doğrulama ek özellikleri ve sınıflarına uygulayabilirsiniz tam bir listesi için bkz. [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
+Veri doğrulama ek açıklamalarının tam listesi için, Özellikler ve sınıflar için uygulayabileceğiniz, bkz. [System. ComponentModel. Dataaçıklamalarda](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Eklenen veri ek açıklamaları
-> * Ek meta veri sınıfları
+> * Eklenen veri açıklamaları
+> * Meta veri sınıfları eklendi
 
-Bir web uygulaması ve SQL veritabanı, Azure App Service'e dağıtma konusunda bilgi almak için bu öğreticiye bakın:
+Azure App Service için bir Web uygulaması ve SQL veritabanı dağıtmayı öğrenmek için şu öğreticiye bakın:
 > [!div class="nextstepaction"]
-> [Azure App Service'e .NET uygulaması dağıtma](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)
+> [Azure App Service için bir .NET uygulaması dağıtma](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)

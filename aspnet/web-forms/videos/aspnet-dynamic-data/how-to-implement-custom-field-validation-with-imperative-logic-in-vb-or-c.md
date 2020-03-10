@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c
-title: VB veya C# içinde kesin mantık ile özel alan doğrulama gerçekleştirme | Microsoft Docs
+title: VB veya C# ' de zorunlu mantığa özel alan doğrulaması uygulama | Microsoft Docs
 author: JoeStagner
-description: Bu videoda, biz bizim önceki dinamik veri Video uyguladık bildirim temelli alan doğrulama oluşturmak ve bizim val için özel programlama mantığı ekleyebilirsiniz...
+description: Bu videoda, önceki dinamik veri videonuzda uyguladığımız bildirime dayalı alan doğrulamasında oluşturacağız ve Val 'imize özel programlama mantığı ekleyeceğiz...
 ms.author: riande
 ms.date: 12/11/2008
 ms.assetid: 22fb5270-7685-4f3a-919b-c23e180efe49
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c
 msc.type: video
 ms.openlocfilehash: 32bf9ca36cb4e731d1daeccbc579109f1dcda1b1
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59384740"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78636901"
 ---
-# <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a>VB veya C kesin mantık ile özel alan doğrulama uygulama\#
+# <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a>VB veya C 'de zorunlu mantık ile özel alan doğrulaması uygulama\#
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoda, biz bizim önceki dinamik veri Video uyguladık bildirim temelli alan doğrulama oluşturmak ve bizim doğrulama için özel programlama mantığı ekleyebilirsiniz.
+Bu videoda, önceki dinamik veri videonuzda uyguladığımız bildirime dayalı alan doğrulamasında oluşturacağız ve doğrulamamız için özel programlama mantığı ekleyeceğiz.
 
-[&#9654;Videoyu (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c)
+[&#9654;Videoyu izleyin (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c)
 
 > [!div class="step-by-step"]
 > [Önceki](how-to-use-attribute-validation-in-aspnet-dynamic-data-applications.md)

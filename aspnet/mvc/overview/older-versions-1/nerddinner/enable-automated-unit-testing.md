@@ -1,284 +1,284 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
-title: Otomatik birim testi etkinleştirin | Microsoft Docs
+title: Otomatik birim testini etkinleştir | Microsoft Docs
 author: microsoft
-description: Adım 12 bizim NerdDinner işlevselliğini doğrulayın ve hangi değişiklikleri yapma konusunda bize sunacak otomatik birim testleri paketi geliştirmek nasıl gösterir...
+description: 12. adım, Nerdakşam yemeği işlevselümüzü doğrulayan ve değişiklik yapma güvencesine izin veren bir otomatik birim testleri paketinin nasıl geliştirileceği gösterilmektedir...
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
 ms.openlocfilehash: 09a7aa186605a6cce48ee94028425ded957c00d3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117350"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541680"
 ---
 # <a name="enable-automated-unit-testing"></a>Otomatik Birim Testini Etkinleştirme
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> 12. adım bir ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) 12. adımından oluşur.
 > 
-> Adım 12 bizim NerdDinner işlevselliğini doğrulayın ve hangi bize değişiklikleriniz ve iyileştirmeleriniz uygulamaya gelecekte yapma konusunda sunacak otomatik birim testleri paketi geliştirmek nasıl gösterir.
+> 12. adım, Nerdakşam yemeği işlevselümüzü doğrulayan bir otomatik birim testi paketinin nasıl geliştirileceği ve gelecekte uygulamada değişiklik ve iyileştirmeler yapma güvencesine sahip olduğunu gösterir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-12-unit-testing"></a>NerdDinner 12. adım: Birim Testi
+## <a name="nerddinner-step-12-unit-testing"></a>Nerdakşam yemeği adım 12: birim testi
 
-Şimdi, bizim NerdDinner işlevselliğini doğrulamak ve hangi bize değişiklikleriniz ve iyileştirmeleriniz uygulamaya gelecekte yapma konusunda sunacak otomatik birim testleri paketi geliştirin.
+Nerdakşam yemeği işlevselümüzü doğrulayan ve gelecekte uygulamada değişiklik ve iyileştirmeler yapma güvencesine izin veren bir otomatik birim testleri paketi geliştiriyorum.
 
-### <a name="why-unit-test"></a>Neden birim testi?
+### <a name="why-unit-test"></a>Birim testi neden?
 
-İş bir sabah sürücüsüne üzerinde çalışmakta olduğunuz bir uygulamayla ilgili içeren ani bir flash sahip. Uygulamanın önemli ölçüde daha iyi hale getirecek, uygulayabileceğiniz bir değişiklik farkında olun. Bir kod temizler, yeni bir özellik ekler veya bir hata düzeltmeleri yeniden düzenleme olabilir.
+Sürücüde bir sabah iş üzerinde çalıştığınız bir uygulamayla ilgili ani bir flaş vardır. Uygulamayı önemli ölçüde daha iyi hale getirmek için uygulayabileceğiniz bir değişiklik olduğunu fark edersiniz. Kodu temizliyor, yeni bir özellik ekleyen veya bir hatayı düzelten bir yeniden düzenleme olabilir.
 
-Bilgisayarınızın başında geldiğinde, confronts soru şudur: "Bu geliştirme yapmak üzere ne kadar güvenli?" Ne değişikliği yapmadan bir yan etkisi yok veya bir şey keser? Değişiklik basit ve yalnızca uygulamak için birkaç dakika, ancak ne el ile tüm uygulama senaryolarını test etmek için saat sürer sürer? Ne bir senaryoyu ele unutursanız ve başarısız bir uygulama üretime geçmeden? Bu geliştirme tüm çabaların gerçekten değer kaydediyor mu?
+Bilgisayarınıza ulaşan bir sorun var: "Bu geliştirmeyi yapmak için güvenli hale getirme mi?" Değişikliğin yan etkileri varsa veya bir şeyi bozarsa ne olacak? Değişikliğin uygulanması basit olabilir ve yalnızca birkaç dakika sürer, ancak tüm uygulama senaryolarını el ile test etmek için saat alırsa ne olur? Bir senaryoyu ele almayı unutursanız ve bozuk bir uygulama üretime gidiyor mi? Bu geliştirmeyi tamamen tüm çabalara getirsin mi?
 
-Otomatik birim testleri, uygulamalarınızı sürekli olarak geliştirmenize olanak tanıyan bir güvenlik ağı sağlar ve üzerinde çalıştığınız kod korktuğunuz tükenmesini önlersiniz. Otomatikleştirilmiş işlevselliği – güvenle kod yazın ve, aksi takdirde rahat düşünmüştür değil geliştirmeler yapmak için ihtiyaç duyduğunuz güce sahip sağlayan hızlı bir şekilde doğrulayın testler yapılıyor. Ayrıca daha sürdürülebilir çözümler oluşturmak ve müşteri adaylarını için daha yüksek bir yatırım getirisi uzun yaşam süresi - olmasına yardımcı olur.
+Otomatik birim testleri, uygulamalarınızı sürekli olarak geliştirmenize ve üzerinde çalıştığınız kodun bir RAID 'den kaçınmanızı sağlayan bir güvenlik ağı sağlayabilir. İşlevselliği hızlı bir şekilde doğrulayan otomatikleştirilmiş testlerin olması, güvenle kod sağlamanıza olanak sağlar ve sizin de rahat bir şekilde yapamamanıza izin vermeyebilirsiniz. Ayrıca, daha fazla sürdürülebilir çözüm oluşturmaya yardımcı olur ve daha uzun bir süre boyunca yatırım getirisi daha yüksektir.
 
-ASP.NET MVC çerçevesi, kolay ve birim testi uygulama işlevselliği için doğal getirir. Ayrıca, temel önce test geliştirmesi sağlayan bir Test odaklı geliştirme (TDD) iş akışı sağlar.
+ASP.NET MVC Framework, birim testi uygulaması işlevselliğini kolaylaştırır ve doğal hale getirir. Ayrıca, test ilk tabanlı geliştirmeyi sağlayan test odaklı geliştirme (TDD) iş akışını da mümkün kılar.
 
-### <a name="nerddinnertests-project"></a>NerdDinner.Tests proje
+### <a name="nerddinnertests-project"></a>Nerdakşam yemeği. Tests projesi
 
-Bu öğreticinin başında NerdDinner uygulamamız oluşturduk, biz yanı sıra uygulama projesi gitmek için bir birim test projesi oluşturmak istedik olup olmadığını soran bir iletişim kutusu istenmiş:
+Bu öğreticinin başlangıcında Nerdakşam yemeği uygulamamızı oluşturduğumuzda, uygulama projesiyle birlikte olmak üzere bir birim testi projesi oluşturmak isteyip istemediğinizi soran bir iletişim kutusu sorulduk:
 
 ![](enable-automated-unit-testing/_static/image1.png)
 
-Biz, çözüm eklenen "NerdDinner.Tests" projesinde sonuçlandı: "Evet, birim testi projesi oluşturma" radyo düğmesini seçili tutulur:
+Çözümünüze "Nerdakşam. Tests" projesinin eklenmesinden kaynaklanan "Evet, birim test projesi oluştur" radyo düğmesinin seçili olduğunu tutduk:
 
 ![](enable-automated-unit-testing/_static/image2.png)
 
-NerdDinner.Tests proje NerdDinner uygulama projesi derlemeye başvurur ve otomatik testler uygulama işlevselliğini doğrulamak da kolayca eklemenize olanak sağlıyor.
+Nerdakşam yemeği. Tests projesi, Nerdakşam yemeği uygulaması proje derlemesine başvurur ve uygulama işlevselliğini doğrulayan buna kolayca otomatikleştirilmiş testler ekleyebilmenizi sağlar.
 
-### <a name="creating-unit-tests-for-our-dinner-model-class"></a>Bizim Dinner Model sınıfı için birim testleri oluşturma
+### <a name="creating-unit-tests-for-our-dinner-model-class"></a>Akşam yemeği model sınıfımız için birim testleri oluşturma
 
-Bazı testler oluşturduğumuz bizim modeli katmanı oluşturduk, Şimdi Akşam sınıfı doğrulayın bizim NerdDinner.Tests proje ekleyelim.
+Şimdi, model katmanımızı oluştururken oluşturduğumuz akşam yemeği sınıfını doğrulayan Nerdakşam yemeği. test projemize bazı testler ekleyelim.
 
-Burada şu model ilgili testlerimizin ekleyeceğiniz yeni bir klasör "Modelleri" adlı bizim test projesi içinde oluşturarak başlayacağız. Biz ardından klasörüne sağ tıklayıp seçin **Add -&gt;Yeni Test** menü komutu. Bu, "Yeni Test Ekle" iletişim kutusu getirir.
+Test projemizde, modellerle ilgili testlerinizi yerleştireceğiniz "modeller" adlı yeni bir klasör oluşturarak başlayacağız. Ardından, klasöre sağ tıklayıp **&gt;yeni test Ekle** menü komutunu seçmelisiniz. Bu, "yeni test Ekle" iletişim kutusunu getirir.
 
-"Birim testi" oluşturup "DinnerTest.cs" ad seçersiniz:
+"Birim testi" oluşturup "DinnerTest.cs" olarak adlandırın:
 
 ![](enable-automated-unit-testing/_static/image3.png)
 
-Biz "Tamam" düğmesine tıkladığınızda Visual Studio ekleyin (açın projesine bir DinnerTest.cs dosyasını ve):
+"Tamam" düğmesine tıkladığımızda, Visual Studio projeye bir DinnerTest.cs dosyası ekler (ve açar):
 
 ![](enable-automated-unit-testing/_static/image4.png)
 
-Varsayılan Visual Studio birim testi şablonu kazan blondan kod biraz karmaşık bulabilirim içerdiği bir sürü sahiptir. Şimdi, yalnızca aşağıdaki kodu içerecek şekilde temizleme:
+Varsayılan Visual Studio birim testi şablonu, küçük bir Messy buldum. Yalnızca aşağıdaki kodu içerecek şekilde temizleyelim:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample1.cs)]
 
-[TestClass] özniteliği DinnerTest sınıfında above testleri hem de isteğe bağlı test başlatma ve sökme kodunu içeren bir sınıf olarak tanımlar. Biz bu testlerde [TestMethod] özniteliği olan genel yöntemler ekleyerek tanımlayabilirsiniz.
+Yukarıdaki DinnerTest sınıfındaki [TestClass] özniteliği, testleri içerecek bir sınıf olarak ve isteğe bağlı test başlatma ve tearı kodu tanımlar. Üzerinde [TestMethod] özniteliğine sahip ortak yöntemler ekleyerek, içindeki testleri tanımlayabiliriz.
 
-Bizim Dinner sınıfı alıştırma ekleyeceğiz iki test ilk aşağıdadır. İlk testi, yeni bir Akşam Yemeği doğru olarak ayarlanan tüm özelliklerini olmadan oluşturulduysa, Şimdi Akşam geçersiz olduğunu doğrular. İkinci test tüm özelliklerini geçerli değerleriyle Ayarla bir Akşam Yemeği sahip olduğunda, bizim Dinner geçerli olduğunu doğrular:
+Aşağıda akşam yemeği sınıfınızı sunduğumuz iki testten ilki verilmiştir. İlk test, tüm özellikler doğru şekilde ayarlanmaksızın yeni bir akşam yemeği oluşturulduysa, akşam yemeği 'nin geçersiz olduğunu doğrular. İkinci test, bir akşam yemeği 'nin geçerli değerlerle ayarlanmış tüm özellikleri olduğunda akşam yemeği 'nin geçerli olduğunu doğrular:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample2.cs)]
 
-Bizim test adları çok açık (ve biraz ayrıntılı) yukarıda fark edeceksiniz. Biz çünkü biz yüzlerce veya binlerce küçük testleri oluşturma yukarı son ve hızlı bir şekilde (özellikle de test Çalıştırıcısı'nda hatalarının bir listesi üzerinden arıyoruz zaman) hedefi ve bunların her birini davranışını belirlemek kolaylaştırmak istiyoruz yapıyor. Test adları işlevselliğini test ettiğiniz sonra adlandırılmalıdır. Yukarıdaki kullanıyoruz bir "isim\_gereken\_fiili" adlandırma deseni.
+Test adlarımızın çok açık (ve biraz ayrıntılı) olduğunu fark edeceksiniz. Yüzlerce veya binlerce küçük test oluşturduğumuz için bunu yapıyoruz ve bunların her birinin amacını ve davranışını hızlı bir şekilde belirlemeyi kolaylaştırmak istiyoruz (özellikle bir Test Çalıştırıcısı içindeki hataların bir listesini aradığımızda). Test adları, test ettikleri işlevlerden sonra adlandırılmalıdır. Yukarıdaki bir "ad\_\_fiil" adlandırma deseninin kullanılması gerekir.
 
-Biz, "AAA"Yerleştir Yasası, onay"anlamına gelir deseni-test" kullanarak testleri yapılandırma:
+"Düzenle, davran, onaylama" anlamına gelir ve "AAA" test modelini kullanarak testleri oluşturacağız:
 
-- Düzenleyin: Test edilen birim Kurulumu
-- Eylem: Birim test altındaki uygulamanız ve sonuçları yakalama
-- Assert: Davranışı doğrulama
+- Düzenle: test edilmekte olan birimi ayarla
+- Davran: birimi test ve yakalama sonuçları altında yapın
+- Onaylama: davranışı doğrulama
 
-Biz yazdığınızda bireysel testler zorunda kalmamak istiyoruz testleri çok yapın. Bunun yerine, her test (Bu, hataların nedeni saptamak çok daha kolay bulabilmesini sağlar) bir tek kavramı doğrulamanız gerekir. İyi bir yol, deneyin ve yalnızca tek bir onay deyimi için her test etmektir. Birden çok test yönteminde deyim assert varsa, bunların tümü aynı işlemleri test etmek için kullanılan emin olun. Emin olamadığınız durumlarda, başka bir test yapın.
+Testleri yazarken, bireysel testlerin çok fazla olmasına engel olmak istiyoruz. Bunun yerine her testin yalnızca tek bir kavram doğrulaması gerekir (Bu, hataların nedenlerini saptamak çok daha kolay hale getirir). Her test için, denemek ve yalnızca tek bir onay bildirimine sahip olmak iyi bir uygulamadır. Bir test yönteminde birden fazla onay deyiminiz varsa, bunların aynı kavramı test etmek için kullanıldığından emin olun. Şüpheli olduğunda başka bir test oluşturun.
 
 ### <a name="running-tests"></a>Testleri Çalıştırma
 
-Visual Studio birim testi projelerini IDE içinden çalıştırmak için kullanılan bir yerleşik test Çalıştırıcısı, Visual Studio 2008 Professional (ve üzeri sürümler) içerir. Seçeneğini belirleyebiliriz **Test -&gt;Çalıştır -&gt;Çözümdeki tüm testleri** menü komutu (veya türü Ctrl R, A) tüm müşterilerimizin birim testleri çalıştırmak için. Veya alternatif olarak belirli test sınıfında veya test yöntemi içinde bizim imleci yerleştirin ve kullanırız **Test -&gt;Çalıştır -&gt;geçerli bağlamdaki testlerde** birim testleri kümesini çalıştırmak için menü komutu (veya Ctrl R, T türü).
+Visual Studio 2008 Professional (ve üzeri sürümler), IDE içinde Visual Studio birim testi projelerini çalıştırmak için kullanılabilen yerleşik bir Test Çalıştırıcısı içerir. Tüm birim testlerimizi çalıştırmak için **&gt;test-&gt;tüm testleri çözüm** menü komutunda (veya CTRL R, A) seçebilirsiniz. Ya da alternatif olarak, imleimizi belirli bir test sınıfı veya test yöntemi içinde konumlandırabiliriz ve birim testlerinin bir alt kümesini çalıştırmak için **geçerli bağlam menü komutunda test&gt;Run-&gt;testlerini** (veya CTRL R, t) kullanabilirsiniz.
 
-Şimdi DinnerTest sınıf içindeki bizim imleci yerleştirin ve az önce tanımladığınız iki testleri için "Ctrl R, T" yazın. Visual Studio içinden bunu ne zaman "Test Sonuçları" penceresi görünür ve içinde listelenen çalıştırmak bizim test sonuçları görüyoruz:
+Şimdi, yeni tanımladığımız iki testi çalıştırmak için imlecinizi DinnerTest sınıfı içinde konumlandıralım ve "CTRL R, T" yazın. Bunu yaptığımızda, Visual Studio içinde bir "Test Sonuçları" penceresi görünür ve test çalıştırdığımız sonuçları onun içinde listelenmiş olarak görebiliriz:
 
 ![](enable-automated-unit-testing/_static/image5.png)
 
-*Not: VS test sonuçları penceresi, sınıf Ad sütununda Varsayılan olarak göstermez. Bu, Test Sonuçları penceresi sağ tıklayarak ve sütunları Ekle/Kaldır menü komutunu kullanarak ekleyebilirsiniz.*
+*Not: VS test sonuçları penceresi sınıf adı sütununu varsayılan olarak göstermez. Test Sonuçları penceresinin içine sağ tıklayıp sütunları ekle/kaldır menü komutunu kullanarak bunu ekleyebilirsiniz.*
 
-Yalnızca bir saniyenin çalıştırma – ve gibi iki testlerimizin geçen her ikisi de geçirilen bakın. Biz artık gidin ve iki yardımcı yöntemler - IsUserHost() ve Dinner sınıfa ekledik IsUserRegistered() – kapsayan yanı sıra belirli kuralı doğrulamaları doğrulayın ek testleri oluşturarak kullanmasıdır. Yerde Dinner sınıfı için bu testleri sahip, çok daha kolay ve yeni iş kurallarını ve doğrulamaları gelecekte eklemek üzere daha güvenli hale getirir. Biz Akşam Yemeği için sunduğumuz yeni kural mantığı ekleyin ve bu bizim önceki mantık işlevleri bozuk taşınmadığından, saniyeler içinde doğrulayın.
+İki sınamamız yalnızca saniyenin bir kısmını çalıştırtık ve her ikisini de görebilecekleri gibi. Artık, belirli kural doğrulamaları doğrulayan ek sınamalar oluşturarak bunları artırabilir ve bu, akşam yemeği sınıfına eklediğimiz iki yardımcı yöntemi (ısuserhost () ve ıuserregistered ()) kapsar. Dinner Now sınıfı için tüm bu testlerin yerinde olması, gelecekte buna yeni iş kuralları ve doğrulamalar eklemek çok daha kolay ve güvenli hale getirir. Yeni kural mantığımızı akşam yemeği 'ya ekleyebiliriz ve saniyeler içinde önceki Logic işlevlerinden hiçbirini bozmadığını doğrulıyoruz.
 
-Nasıl bir açıklayıcı test adı kullanarak, her test doğruluyor hızla anlamanız kolaylaştırır dikkat edin. Kullanmanızı öneririz **Araçları -&gt;seçenekleri** menü komutunu Test Araçları - açma,&gt;Test yürütme yapılandırma ekranına ve denetimi "başarısız veya yetersiz Birim testi sonucu çift görüntüler Test hata noktasını"onay kutusu. Bu, test sonuçları penceresinde bir hata durumunda çift tıklayın ve onay hatadan hemen atlamak olanak tanır.
+Açıklayıcı bir test adı kullanmanın, her sınamanın ne olduğunu hızla öğrenmesini nasıl kolaylaştırdığını unutmayın. **Araçlar-&gt;seçenekler** menü komutunu, test araçları-&gt;test yürütme yapılandırma ekranını açmak ve "başarısız veya sonuçlanmamış birim test sonucunu çift tıklatmak, testteki hata noktasını görüntüler" onay kutusunu işaretleyerek. Bu, test sonuçları penceresinde bir hataya çift tıklamasına ve onaylama hatasına hemen geçebilmenizi sağlar.
 
 ### <a name="creating-dinnerscontroller-unit-tests"></a>DinnersController birim testleri oluşturma
 
-Artık bizim DinnersController işlevselliğini doğrulamak için bazı birim testlerinin oluşturalım. Biz bizim Test projesi içinde "Denetleyicileri" klasörüne sağ tıklayarak ve ardından **Add -&gt;Yeni Test** menü komutu. Biz "Birim testi" oluşturacak ve "DinnersControllerTest.cs" olarak adlandırın.
+Şimdi DinnersController işlevselümüzü doğrulayan bazı birim testleri oluşturalım. Test projemizdeki "denetleyiciler" klasörüne sağ tıklayıp ardından **&gt;yeni test Ekle** menü komutunu seçerek başlayacağız. "Birim testi" oluşturacağız ve "DinnersControllerTest.cs" olarak adlandırın.
 
-DinnersController Details() eylem yöntemini doğrulayın iki test yöntemleri oluşturacağız. Mevcut bir Akşam Yemeği istendiğinde bir görünümü döndürülür ilk doğrular. İkinci bir mevcut olmayan Dinner istendiğinde "Bulunamadı" görünümü döndürülür doğrular:
+DinnersController üzerinde details () eylem yöntemini doğrulayan iki test yöntemi oluşturacağız. Birincisi, var olan bir akşam yemeği istendiğinde bir görünümün döndürüleceğini doğrular. İkincisi, var olmayan bir akşam yemeği istendiğinde "NotFound" görünümünün döndürüldüğünü doğrular:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample3.cs)]
 
-Yukarıdaki kod temizleme derler. Ancak, test çalıştırıyoruz, her ikisi de başarısız:
+Yukarıdaki kod, temizlemeyi derler. Testleri çalıştırdığımızda, her ikisi de başarısız olur:
 
 ![](enable-automated-unit-testing/_static/image6.png)
 
-Şu hata iletileri bakarsanız, bir veritabanına bağlanmak sunduğumuz DinnersRepository sınıfı bağlanamadığından dolayı başarısız testleri neden olduğunu göreceğiz. NerdDinner uygulamamız \App altında yer alan bir yerel SQL Server Express dosyasına bir bağlantı dizesi kullanarak\_veri dizini NerdDinner uygulama projesi. NerdDinner.Tests Projemizin derler ve farklı bir dizinde uygulama projesini çalıştırır çünkü, göreli yol konumun bizim bağlantı dizesinin doğru değil.
+Hata iletilerine baktığımızda, DinnersRepository sınıfımız bir veritabanına bağlanamadığı için testin başarısız olmasının nedenini görüyoruz. Nerdakşam yemeği uygulamamız, Nerdakşam yemeği uygulama projesinin \app\_veri dizininde bulunan bir yerel SQL Server Express dosyasına bağlantı dizesi kullanıyor. Nerdakşam yemeği. Tests projesi farklı bir dizinde derlendiğinden ve çalıştırıldığı için, bağlantı dizemizin göreli yol konumu yanlış.
 
-Biz *verebilir* bizim test projesi için SQL Express veritabanı dosyasını kopyalayarak bu sorunu gidermek ve ardından uygun test bağlantı-dizesini test Projemizin App.config dosyasında ekleyin. Bu, yukarıdaki testleri engeli kaldırılmış ve çalıştırma elde edersiniz.
+Bunu, SQL Express veritabanı dosyasını test projemiz olarak kopyalayarak ve ardından test projemizin App. config dosyasında buna uygun bir test bağlantısı dizesi *ekleyerek giderebiliriz* . Bu, yukarıdaki testlerin engeli kaldırılmış ve çalışır durumda olur.
 
-Gerçek bir veritabanı kullanarak kod birim testi, kendisiyle belirli zorluklar getirir. Özellikle:
+Gerçek bir veritabanı kullanan birim testi kodu, bununla birlikte bir dizi zorluk gösterir. Daha ayrıntılı şekilde belirtmek gerekirse:
 
-- Bu, birim testleri yürütme süresini önemli ölçüde yavaşlatır. Uzun olasılığı daha sık yürütüleceğini düşüktür testleri çalıştırmak için alır. İdeal olarak, saniyeler içinde – çalıştırılması ve onu bir şey yapmanız projesi derleme olarak doğal olarak kullanabilmek için Birim testlerinizin istersiniz.
-- Testler Kurulum ve temizleme mantık karmaşık hale getirir. Yalıtılmış ve diğerleri (hiçbir yan etkileri veya bağımlılıklar ile) bağımsız olarak her bir birim testi kullanmanız gerekir. Gerçek bir veritabanıyla çalışırken durumunu dikkatli olmanızı ve testleri arasında sıfırlamak sahip.
+- Birim testlerinin yürütme süresini önemli ölçüde yavaşlatır. Testleri çalıştırmak daha uzun sürer, bu da sık sık yürütülecektir. İdeal olarak, birim testlerinizin Saniyeler içinde çalıştırılmasını ve projeyi derlemek için doğal olarak yaptığınız bir şey olmasını istersiniz.
+- Testler içindeki kurulum ve Temizleme mantığını karmaşıklaştırır. Her birim testinin diğerlerinden (yan etkileri veya bağımlılıklar olmadan) yalıtılmış ve bağımsız olmasını istiyorsunuz. Gerçek bir veritabanına karşı çalışırken, eyalet olması ve testler arasında sıfırlanması gerekir.
 
-"Bizim testlerimiz ile gerçek bir veritabanı kullanmak için gereken önlemek ve bu sorunların çözüm yardımcı olabilecek bağımlılık ekleme" adlı bir tasarım deseni bakalım.
+Bu sorunları çözmek için "bağımlılık ekleme" adlı bir tasarım düzenine göz atalım ve testlerimizde gerçek bir veritabanı kullanma gereksinimini ortadan kaldırabilirsiniz.
 
 ### <a name="dependency-injection"></a>Bağımlılık Ekleme
 
-Şu anda DinnersController "DinnerRepository sınıfa sıkıca". "Eşlenmesiyle" olduğu bir sınıfı açıkça başka bir sınıf üzerinde çalışması için kullanır durumuna başvuruyor:
+Hemen DinnersController, DinnerRepository sınıfına sıkı bir şekilde "bağlanmış". "Kuponu" bir sınıfın çalışması için açıkça başka bir sınıfa bağlı olduğu bir durum anlamına gelir:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample4.cs)]
 
-Sıkıca bağlı bağımlılık DinnersController sınıfın DinnerRepository sınıfı bir veritabanına erişim gerektirdiğinden, test edilecek DinnersController eylem yöntemleri için bir veritabanı olması için bize gerektiren'kurmak DinnerRepository Sonlarda vardır.
+DinnerRepository sınıfı bir veritabanına erişim gerektirdiğinden, DinnersController sınıfının sıkı şekilde bağlanmış bağımlılığı, DinnersController eylem yöntemlerinin test edilmesi için bir veritabanının olmasını gerektirmemizi gerektirir.
 
-Biz bu sorunu "nerede (veri erişimi sağlayan depo sınıflar gibi) bağımlılıklar bunları sınıfları artık örtük olarak oluşturulan bir yaklaşım olan bağımlılık ekleme" – adlı bir tasarım desenini kullanarak elde edebilirsiniz. Bunun yerine, bağımlılıkları açıkça bunları kullanan sınıf geçirilebilir oluşturucu bağımsız değişkenleri kullanarak. Bağımlılıkları arabirimleri kullanarak tanımlanmışsa, biz sonra birim test senaryoları için "sahte" bağımlılık uygulamalarında geçirilecek esnekliğine sahipsiniz. Bu, bir veritabanına erişimi gerçekten istemeyecek teste özgü bağımlılık uygulamaları oluşturmak bize sağlar.
+Bu sorunu çözmek için "bağımlılık ekleme" adlı bir tasarım deseninin kullanıldığı bir yaklaşım olan, bağımlılıklar (veri erişimi sağlayan depo sınıfları gibi) bunları kullanan sınıflarda artık örtük olarak oluşturulmayacak. Bunun yerine, bağımlılıklar, Oluşturucu bağımsız değişkenleri kullanarak bunları kullanan sınıfa açıkça geçirilebilir. Bağımlılıklar arabirimler kullanılarak tanımlanmışsa, birim testi senaryoları için "sahte" bağımlılık uygulamalarında geçiş esnekliği elde ediyoruz. Bu, gerçekte bir veritabanına erişim gerektirmeyen, teste özel bağımlılık uygulamaları oluşturmamızı sağlar.
 
-Bu uygulamada görmek için bağımlılık ekleme bizim DinnersController ile şimdi uygulayın.
+Bunu eylemde görmek için DinnersController ile bağımlılık ekleme işlemi uygulayalim.
 
-#### <a name="extracting-an-idinnerrepository-interface"></a>IDinnerRepository arabirim ayıklanıyor
+#### <a name="extracting-an-idinnerrepository-interface"></a>IDinnerRepository arabirimini ayıklama
 
-İlk adımımız almak ve azalma güncelleştirmek için sunduğumuz denetleyicileri gerektirir depo sözleşme kapsülleyen yeni IDinnerRepository arabirimi oluşturmak olacaktır.
+İlk adımımız, denetleyicilerimizin Dinerleri almak ve güncelleştirmek için gereken depo sözleşmesini kapsülleyen yeni bir IDinnerRepository arabirimi oluşturmaktır.
 
-Biz bu arabirim sözleşmesi el ile \Models klasörü sağ tıklatın ve ardından tanımlayabilirsiniz **Add -&gt;yeni öğe** menü komutu ve IDinnerRepository.cs adlı yeni bir arabirim oluşturma.
+Bu arabirim sözleşmesini \Modeller klasörüne sağ tıklayıp ardından **&gt;yeni öğe Ekle** menü komutunu seçerek ve IDinnerRepository.cs adlı yeni bir arabirim oluşturarak el ile tanımlayabiliriz.
 
-Alternatif olarak biz araçları yerleşik-Visual Studio Professional (ve üzeri sürümleri) için otomatik olarak yeniden düzenleme Ayıkla kullanın ve bir arabirim bizim için sunduğumuz mevcut DinnerRepository sınıftan oluşturun. VS kullanarak bu arabirimi ayıklamak için yalnızca DinnerRepository sınıfı üzerindeki metin düzenleyicisinde imleci getirin ve ardından sağ tıklayın ve seçin **yeniden düzenleme -&gt;Arabirimi Ayıkla** menü komutu:
+Alternatif olarak, var olan DinnerRepository sınıfımızın bir arabirimini otomatik olarak ayıklamak ve oluşturmak için yerleşik Visual Studio Professional (ve sonraki sürümler) yeniden düzenleme araçlarını kullanabiliriz. VS kullanarak bu arabirimi ayıklamak için, imleci DinnerRepository sınıfındaki metin düzenleyicisinde konumlandırın ve sonra sağ tıklayıp yeniden **Düzenle-&gt;ayıklamayı Ayıkla** menü komutunu seçin:
 
 ![](enable-automated-unit-testing/_static/image7.png)
 
-Bu, "Çıkartma arabirimi" iletişim kutusunu başlatın ve bize oluşturmak için arabirim adını ister. Bunu IDinnerRepository için varsayılan ve otomatik olarak eklemek için mevcut DinnerRepository sınıftaki tüm genel yöntemleri seçin:
+Bu, "Arabirimi Ayıkla" iletişim kutusunu başlatacaktır ve oluşturulacak arabirimin adı için bizi ister. IDinnerRepository varsayılan olarak, arabirime eklemek için var olan DinnerRepository sınıfındaki tüm ortak yöntemleri otomatik olarak seçer:
 
 ![](enable-automated-unit-testing/_static/image8.png)
 
-Biz "Tamam" düğmesine tıkladığınızda, Visual Studio yeni IDinnerRepository arabirimi uygulamamıza ekleyin:
+"Tamam" düğmesine tıkladığımızda, Visual Studio uygulamamıza yeni bir IDinnerRepository arabirimi ekleyecek:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample5.cs)]
 
-Ve böylece arabirimi uygulayan mevcut bizim DinnerRepository sınıfı güncelleştirildi:
+Ve var olan DinnerRepository sınıfımız, arabirimini uygulayan şekilde güncelleştirilecektir:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample6.cs)]
 
-#### <a name="updating-dinnerscontroller-to-support-constructor-injection"></a>Yapıcı eklemeyi desteklemek için DinnersController güncelleştiriliyor
+#### <a name="updating-dinnerscontroller-to-support-constructor-injection"></a>DinnersController 'i Oluşturucu ekleme işlemini destekleyecek şekilde güncelleştirme
 
-Şimdi yeni arabirimi kullanmak üzere DinnersController sınıfı güncelleştireceğiz.
+Şimdi, yeni arabirimi kullanmak için DinnersController sınıfını güncelleştireceğiz.
 
-Şu anda DinnersController "dinnerRepository" alanına her zaman DinnerRepository sınıftır, kodlanmış:
+Şu anda DinnersController, "dinnerRepository" alanı her zaman bir DinnerRepository sınıfı olacak şekilde sabit kodludur:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample7.cs)]
 
-Tür IDinnerRepository DinnerRepository yerine "dinnerRepository" alanı olması, değiştireceğiz. İki ortak DinnersController Oluşturucu ardından ekleyeceğiz. Oluşturucular bir bağımsız değişken olarak geçirilecek bir IDinnerRepository sağlar. Diğer mevcut DinnerRepository kararlılığımızın kullanan varsayılan oluşturucu şöyledir:
+Bunu, "dinnerRepository" alanı DinnerRepository yerine IDinnerRepository türünde olacak şekilde değiştireceksiniz. Daha sonra iki genel DinnersController Oluşturucusu ekleyeceğiz. Oluşturuculardan biri, bir IDinnerRepository bağımsız değişken olarak geçirilmesine izin verir. Diğeri, var olan DinnerRepository uygulamamızı kullanan varsayılan bir oluşturucudur:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample8.cs)]
 
-ASP.NET MVC varsayılan olarak, varsayılan oluşturucuları kullanarak denetleyici sınıflarına oluşturduğundan, çalışma zamanında bizim DinnersController veri erişimi gerçekleştirdiği DinnerRepository sınıfı kullanmaya devam eder.
+ASP.NET MVC Varsayılan oluşturucuları kullanarak denetleyici sınıfları oluşturduğundan, çalışma zamanındaki DinnersController, veri erişimi gerçekleştirmek için DinnerRepository sınıfını kullanmaya devam edecektir.
 
-Parametre oluşturucu kullanılarak bir "sahte" Akşam Yemeği depo uygulamasında geçirmek için biz yine de bizim birim testleri artık güncelleştirebilirsiniz. Bu "sahte" Akşam Yemeği depo, gerçek bir veritabanına erişimi gerektirmez ve bunun yerine bellek içi örnek verileri kullanır.
+Artık birim testlerimizi güncelleştirebiliriz, ancak parametre oluşturucusunu kullanarak "sahte" bir akşam yemeği depo uygulamasını geçirmek için. Bu "sahte" akşam yemeği deposu gerçek bir veritabanına erişim gerektirmez ve bunun yerine bellek içi örnek verileri kullanır.
 
 #### <a name="creating-the-fakedinnerrepository-class"></a>FakeDinnerRepository sınıfı oluşturma
 
-FakeDinnerRepository sınıfını oluşturalım.
+Bir FakeDinnerRepository sınıfı oluşturalım.
 
-Biz NerdDinner.Tests Projemizin "Fakes" dizininde oluşturarak başlayın ve yeni bir FakeDinnerRepository sınıf ekleme (klasörü sağ tıklatın ve seçin **Add -&gt;yeni sınıf**):
+Nerdakşam yemeği. Tests projemizdeki bir "Fakes" dizini oluşturup buna yeni bir FakeDinnerRepository sınıfı ekleyerek başlayacağız (klasöre sağ tıklayıp **Add-&gt;New Class**) ' i seçin:
 
 ![](enable-automated-unit-testing/_static/image9.png)
 
-Böylece FakeDinnerRepository sınıfı IDinnerRepository arabirimi uygulayan kod güncelleştireceğiz. Biz sonra sağ tıklayın ve "Arabirim IDinnerRepository uygulama" bağlam menüsü komutu seçin:
+Kodu FakeDinnerRepository sınıfının IDinnerRepository arabirimini uyguladığı şekilde güncelleştireceğiz. Daha sonra, üzerine sağ tıklayıp "arabirim IDinnerRepository Uygula" bağlam menüsü komutunu seçebilirsiniz:
 
 ![](enable-automated-unit-testing/_static/image10.png)
 
-Bu, otomatik olarak tüm IDinnerRepository arabirim üyeleri varsayılan "out saplama" uygulamaları ile bizim FakeDinnerRepository sınıfı eklemek Visual Studio neden olur:
+Bu, Visual Studio 'nun tüm IDinnerRepository arabirimi üyelerini varsayılan "saplama çıkış" uygulamalarıyla FakeDinnerRepository sınıfımızda otomatik olarak eklemesine neden olur:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample9.cs)]
 
-Biz bir bellek içi listesi dışına çalışmaya FakeDinnerRepository uygulama daha sonra güncelleştirebilirsiniz&lt;Dinner&gt; koleksiyonu için bir oluşturucu bağımsız değişkeni olarak geçirilir:
+Daha sonra FakeDinnerRepository uygulamasını, bir Oluşturucu bağımsız değişkeni olarak kendisine geçirilen akşam yemeği&gt; koleksiyonu&lt;bir bellek içi listede çalışmak üzere güncelleştirebiliriz:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample10.cs)]
 
-Artık bir veritabanı gerektirmez ve bunun yerine bir bellek içi listesini Dinner nesnelerin çalışabilir sahte bir IDinnerRepository uygulamanız var.
+Artık bir veritabanı gerektirmeyen sahte bir IDinnerRepository uygulamasıdır ve bunun yerine akşam yemeği nesnelerinin bellek içi bir listesini çalıştırabilirsiniz.
 
 #### <a name="using-the-fakedinnerrepository-with-unit-tests"></a>Birim testleriyle FakeDinnerRepository kullanma
 
-Şimdi veritabanının kullanılabilir olmadığından daha önce başarısız olan DinnersController birim testleri döndürür. Size örnek verilerle bellek içi Akşam Yemeği için aşağıdaki kodu kullanarak DinnersController doldurulmuş bir FakeDinnerRepository kullanmak için test yöntemlerini güncelleştirebilirsiniz:
+Veritabanı kullanılamadığından daha önce başarısız olan DinnersController birim testlerine geri dönelim. Test yöntemlerini aşağıdaki kodu kullanarak örnek bellek içi akşam yemeği verileriyle birlikte DinnersController ile doldurulmuş bir FakeDinnerRepository kullanacak şekilde güncelleştirebiliriz:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample11.cs)]
 
-Ve her ikisi de şimdi Biz bu testleri çalıştırdığınızda geçirin:
+Şimdi de bu testleri çalıştırdığımızda her iki geçiş de yapılır:
 
 ![](enable-automated-unit-testing/_static/image11.png)
 
-Hepsinden önemlisi, bunlar yalnızca bir saniyenin çalıştırılacak yararlanın ve herhangi bir kurulum/temizleme karmaşık mantık gerektirmez. Birim testi şimdi tüm (disk belleği, ayrıntılar dahil olmak üzere liste oluşturma, güncelleştirme ve silme) DinnersController eylem yöntemi Kodumuzun bir veritabanına bağlanmak hiç gerek kalmadan gerçekleştirebiliriz.
+En iyisi, yalnızca saniyenin bir kısmını çalıştırırlar ve karmaşık kurulum/Temizleme mantığı gerektirmez. Artık gerçek bir veritabanına bağlanmak zorunda kalmadan tüm DinnersController eylem yöntemi kodumuzu (listeleme, sayfalama, ayrıntılar, oluşturma, güncelleştirme ve silme dahil) test edebilirsiniz.
 
-| **Yan konu: Bağımlılık ekleme çerçeveleri** |
+| **Kenar konusu: bağımlılık ekleme çerçeveleri** |
 | --- |
-| (Yukarıda duyuyoruz gibi) el ile bir bağımlılık ekleme gerçekleştirme düzgün çalışır, ancak bağımlılık sayısı korumak daha zor hale gelir ve bir uygulamanın bileşenleri artırır. Daha fazla bağımlılık yönetim esnekliği yardımcı olabilecek .NET için birkaç bağımlılık ekleme çerçeve mevcut. Ayrıca bazen "Tersine çevirme denetim" (IOC) kapsayıcı olarak da adlandırılır, bu çerçeveler yapılandırma desteği belirtme ve bağımlılıkları (çoğunlukla Oluşturucu ekleme kullanarak çalışma zamanında nesneleri geçirmek için ek bir düzeyi sağlayan mekanizmalar ). Bazı diğer popüler OSS bağımlılık ekleme / IOC çerçeveleri. NET'te içerir: AutoFac, Ninject, Spring.NET, StructureMap ve Windsor. ASP.NET MVC sunan genişletilebilirlik API'leri geliştiriciler, çözümleme ve denetleyicileri örneğinin katılacak şekilde etkinleştirin ve bağımlılık ekleme sağlayan / IOC çerçeveleri içinde bu işlemin düzgün bir şekilde tümleştirilecek. DI/IOC framework kullanarak da bize DinnerRepository bunun arasında bağ tamamen kaldırmak bizim DinnersController – varsayılan oluşturucu kaldırmak etkinleştirir. Biz bir bağımlılık ekleme kullanılarak olmaz / IOC framework NerdDinner uygulamamız ile. Ancak bir sorun NerdDinner kod tabanı ve yetenekleri büyüdü, biz geleceği düşünebilirsiniz. |
+| El ile bağımlılık ekleme (yukarıda yaptığımız gibi) gerçekleştiriyoruz, ancak bir uygulamadaki bağımlılıkların ve bileşenlerin sayısı arttıkça devam etmek daha zor hale gelir. .NET için birçok bağımlılık ekleme çerçevesi, daha da fazla bağımlılık yönetimi esnekliği sağlamaya yardımcı olabilir. Ayrıca, bazen "Control of Control" (IOC) kapsayıcıları olarak da adlandırılan bu çerçeveler, çalışma zamanında nesnelere bağımlılıklar belirtme ve geçirme için ek yapılandırma desteğinin sağlanmasına olanak tanıyan mekanizmalar sağlar (çoğunlukla Oluşturucu Ekleme kullanarak). ). .NET 'teki daha popüler OSS bağımlılığı ekleme/ıOC çerçevelerinden bazıları şunlardır: AutoFac, Neklemesine, Spring.NET, StructureMap ve Wınossor. ASP.NET MVC, geliştiricilerin çözüme ve örneklemesine katılmasını sağlayan ve bağımlılık ekleme/IOC çerçevelerinin bu işlem dahilinde düzgün bir şekilde tümleştirilebilmesi için genişletilebilirlik API 'Leri sunar. Bir dı/ıOC çerçevesinin kullanılması Ayrıca, DinnersController ' dan varsayılan oluşturucuyu kaldırmamızı sağlar; Bu, ile DinnerRepository arasındaki kuponu tamamen kaldırır. Nerdakşam yemeği uygulamamız ile bir bağımlılık ekleme/ıOC çerçevesi kullanmayacağız. Ancak, Nerdakşam yemeği kod tabanı ve özellikleri grew ise gelecek için göz önünde bulundurduğumuz bir şeydir. |
 
-### <a name="creating-edit-action-unit-tests"></a>Düzenleme eylem birim testleri oluşturma
+### <a name="creating-edit-action-unit-tests"></a>Düzenleme eylemi birim testlerini oluşturma
 
-Artık DinnersController düzenleme işlevselliğini doğrulamak için bazı birim testlerinin oluşturalım. Düzenleme eylemimiz HTTP GET sürümü test ederek alacağız:
+Şimdi, DinnersController 'in düzenleme işlevini doğrulayan bazı birim testleri oluşturalım. Düzenleme eylemimizin HTTP-Al sürümünü test ederek başlayacağız:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample12.cs)]
 
-Geri geçerli dinner istendiğinde DinnerFormViewModel nesnesi tarafından desteklenen bir görünüm işlenir doğrulayan bir test oluşturacağız:
+Geçerli bir akşam yemeği istendiğinde, bir DinnerFormViewModel nesnesi tarafından desteklenen bir görünümün geri işlenip işlenmeyeceğini doğrulayan bir test oluşturacağız:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample13.cs)]
 
-Şu test çalıştırdığınızda, ancak biz düzenleme yöntemi Dinner.IsHostedBy() denetimi gerçekleştirmek için User.Identity.Name özelliğe eriştiğinde bir null başvurusu özel durumu atılır olduğundan işlemin başarısız olduğunu bulabilirsiniz.
+Testi çalıştırdığımızda, düzenleme yöntemi akşam yemeği. ıshostedby () denetimini gerçekleştirmek üzere User.Identity.Name özelliğine eriştiğinde null başvuru özel durumu atıldığı için başarısız olduğunu öğreniyoruz.
 
-Kullanıcı nesnesindeki denetleyici temel sınıfı, oturum açmış kullanıcı hakkındaki ayrıntıları ve çalışma zamanında denetleyici oluşturduğunda, ASP.NET MVC tarafından doldurulur. Kullanıcı nesnesi, biz DinnersController dışında bir web sunucusu ortamı test için ayarlanmamış (Bu nedenle null başvurusu özel durumu).
+Denetleyici temel sınıfındaki Kullanıcı nesnesi, oturum açmış kullanıcıyla ilgili ayrıntıları kapsüller ve çalışma zamanında denetleyici oluşturduğunda ASP.NET MVC tarafından doldurulur. DinnersController 'i bir Web-Server ortamının dışında test ettiğimiz için, Kullanıcı nesnesi ayarlı değil (Bu nedenle, null başvuru özel durumu).
 
-### <a name="mocking-the-useridentityname-property"></a>Sahte işlem User.Identity.Name özelliği
+### <a name="mocking-the-useridentityname-property"></a>User.Identity.Name özelliğini moclama
 
-Sahte işlem çerçeveleri bizim testlerimiz destekleyen bağımlı nesneler sahte sürümlerini dinamik olarak oluşturmak etkinleştirerek testi yapın. Örneğin, sahte bir çerçeve düzenleme eylem testimizde dinamik olarak bizim DinnersController sanal kullanıcı adını aramak için kullanabileceğiniz bir kullanıcı nesnesi oluşturmak için kullanabiliriz. Bu size sunduğumuz testi çalıştırdığınızda oluşturulan gelen bir null başvuru uğraşmasına gerek kalmaz.
+Mocking çerçeveleri, testlerinizi destekleyen bağımlı nesnelerin sahte sürümlerini dinamik olarak oluşturmamızı sağlayarak testi daha kolay hale getirir. Örneğin, DinnersController 'in sanal bir kullanıcı adını aramak için kullanabileceği bir Kullanıcı nesnesini dinamik olarak oluşturmak için düzenleme eylemi testimizde bir sahte işlem çerçevesi kullanabiliriz. Bu, test çalıştırdığımız zaman bir null başvurusunun oluşmasını önler.
 
-ASP.NET MVC ile kullanılabilecek çerçeveleri sahte işlem birçok .NET vardır (listesini bunları burada görebilirsiniz: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). Sahte işlem framework "Moq" adlı bir açık kaynak kullanacağız NerdDinner uygulamamızı test etmek için ücretsiz nden indirilebilir [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
+ASP.NET MVC ile kullanılabilen birçok .net sahte işlem çerçevesi vardır (bunların bir listesini burada görebilirsiniz: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). Nerdakşam yemeği uygulamanızı test etmek için, [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq)ücretsiz olarak indirilebilen, "moq" adlı açık kaynaklı bir sahte işlem çerçevesi kullanacağız.
 
-İndirildikten sonra bir başvuru NerdDinner.Tests Projemizin Moq.dll derlemeye ekleyeceğiz:
+İndirildikten sonra, Nerdakşam. test projemizdeki moq. dll derlemesine bir başvuru ekleyeceğiz:
 
 ![](enable-automated-unit-testing/_static/image12.png)
 
-Ardından "CreateDinnersControllerAs(username)" yardımcı yöntemi, bir kullanıcı adı, parametre ve hangi alır, ardından "DinnersController örneğinde User.Identity.Name özelliği mocks" bizim test sınıfına ekleyeceğiz:
+Daha sonra bir parametre olarak Kullanıcı adı alan ve daha sonra DinnersController örneğindeki User.Identity.Name özelliğini "bir" CreateDinnersControllerAs (username) "yardımcı yöntemi ekleyeceğiz:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample14.cs)]
 
-Moq (ASP.NET MVC denetleyici sınıflarına çalışma zamanı nesneleri gibi kullanıcı, istek, yanıt ve oturumu kullanıma sunmak için başarılı olan) ControllerContext nesne fakes sahte bir nesne oluşturmak için yukarıdaki kullanıyoruz. Biz size yardımcı yöntemine geçirilen kullanıcı adı dizesi ControllerContext HttpContext.User.Identity.Name özelliği döndürme zorunluluğu olduğunu belirtmek için sahte üzerinde "SetupGet" yöntemi arıyoruz.
+Yukarıda, bir ControllerContext nesnesini kullanan bir sahte nesne (ASP.NET MVC 'nin Kullanıcı, Istek, yanıt ve oturum gibi çalışma zamanı nesnelerini kullanıma sunmak için denetleyici sınıflarına ne kadar başarılı olduğunu) oluşturmak için moq kullanıyoruz. ControllerContext üzerinde HttpContext.User.Identity.Name özelliğinin yardımcı metoduna geçirdiğimiz Kullanıcı adı dizesini döndürmesi gerektiğini göstermek için, "SetupGet" yöntemini geliştirdik.
 
-Biz ControllerContext özellikleri ve yöntemleri herhangi bir sayıda sahte. Bunu açıklamak üzere miyim SetupGet() çağrı (hangi aşağıdaki – testleri için gerçekten gerekli değildir, ancak istek özelliklerini nasıl sahte göstermeye yardımcı olan) Request.IsAuthenticated özelliği de ekledik. Biz işiniz bittiğinde size sunduğumuz yardımcı yöntemini döndürür DinnersController ControllerContext sahte bir örneğini atayın.
+Herhangi bir sayıda ControllerContext özelliği ve yöntemi olabilir. Bunu göstermek için, Request. IsAuthenticated özelliği için bir SetupGet () çağrısı ekledik (Bu aslında aşağıdaki testler için gerekli değildir, ancak Istek özelliklerinin nasıl sahte olduğunu göstermeye yardımcı olur). İşiniz bittiğinde, DinnersController yardımcı yöntemimizin döndürdüğü bir ControllerContext 'in bir örneğini atamamız.
 
-Farklı kullanıcılar içeren düzenleme senaryolarını test etmek için bu yardımcı yöntemini kullanan birim testleri artık yazabiliriz:
+Artık, farklı kullanıcılar ile ilgili düzenleme senaryolarını test etmek için bu yardımcı yöntemi kullanan birim testleri yazalım:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample15.cs)]
 
-Ve bunlar artık test çalıştırıyoruz olduğunda Geçir:
+Şimdi, başarılı olan testleri çalıştırdığımızda:
 
 ![](enable-automated-unit-testing/_static/image13.png)
 
-### <a name="testing-updatemodel-scenarios"></a>Test UpdateModel() senaryoları
+### <a name="testing-updatemodel-scenarios"></a>UpdateModel () senaryolarını test etme
 
-Düzenleme işlemini HTTP GET sürümünü kapsayan testleri oluşturduk. Şimdi düzenleme işlemini HTTP POST sürümünü doğrulama bazı testler oluşturalım:
+Düzenleme eyleminin HTTP-Al sürümünü kapsayan testler oluşturduk. Şimdi, düzenleme eyleminin HTTP-POST sürümünü doğrulayan bazı sınamalar oluşturalım:
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample16.cs)]
 
-Bu eylem yöntemine destekleyen ilgi çekici yeni test senaryosu kullanımını UpdateModel() yardımcı yöntemin denetleyicisi temel sınıfında ' dir. Form gönderme değerlerini bizim Dinner nesne örneğine bağlamak için bu yardımcı yöntem kullanıyoruz.
+Bu eylem yöntemiyle desteketmemizi istediğiniz ilginç yeni test senaryosu, denetleyici temel sınıfındaki UpdateModel () yardımcı yönteminin kullanımındır. Bu yardımcı yöntemi, form gönderme değerlerini akşam yemeği nesne örneğimize bağlamak için kullanıyoruz.
 
-Aşağıda şu değerler kullanılacak UpdateModel() yardımcı yöntemi için gönderilen form nasıl sağlayabilirsiniz gösteren iki testlerdir. Biz oluşturuluyor ve dolduruluyor FormCollection nesne Bunu yapıp denetleyicisinde "Valueprovider'ın" özelliğine atayın.
+Aşağıda, kullanılacak UpdateModel () yardımcı yöntemi için postalanan değerleri nasıl sağlayabiliriz gösteren iki test verilmiştir. Bunu bir FormCollection nesnesi oluşturup doldurarak ve sonra denetleyicideki "ValueProvider" özelliğine atayarak yapacağız.
 
-İlk test başarılı bir kaydetme hakkında ayrıntılar eylemi için tarayıcı yönlendirilir doğrular. Geçersiz giriş gönderildiğinde eylemi bir hata iletisi ile yeniden düzenleme görünümü görüntüler, ikinci test doğrular.
+İlk test, tarayıcıyı başarılı bir şekilde Kaydet ' in Ayrıntılar eylemine yeniden yönlendirildiğini doğrular. İkinci test, geçersiz giriş gönderildiğinde, işlem düzenleme görünümünü bir hata iletisiyle yeniden görüntüler.
 
 [!code-csharp[Main](enable-automated-unit-testing/samples/sample17.cs)]
 
-### <a name="testing-wrap-up"></a>Wrap-Up test etme
+### <a name="testing-wrap-up"></a>Kaydırmayı test etme
 
-Birim test denetleyicisi sınıflarda ilgili temel kavramlar ele aldığımız. Uygulamamızı davranışını doğrulamak basit testler yüzlerce kolayca oluşturmak için bu teknikler kullanabiliriz.
+Birim testi denetleyici sınıflarıyla ilgili temel kavramları ele aldık. Uygulamamızın davranışını doğrulayan yüzlerce basit testi kolayca oluşturmak için bu teknikleri kullanabiliriz.
 
-Bizim denetleyici ve model testleri gerçek bir veritabanı gerekmez çünkü son derece hızlı ve kolay çalışır. Otomatikleştirilmiş testleri yüzlerce saniyeler içinde gerçekleştirilir ve hemen bir değişiklik yaptık bir şey mi kesildi dair geri bildirim almak mümkün olacaktır. Bu, uygulamamız sürekli olarak geliştirmek, yeniden düzenleme, ve güvenle sağlayın yardımcı olur.
+Denetleyicimiz ve model testleriniz gerçek bir veritabanı gerektirmediğinden, bunlar son derece hızlı ve kolay bir şekilde çalışır. Saniyeler içinde yüzlerce otomatik test yürütebilecektir ve yaptığımız bir değişikliğin bir şeyi yapıp yapmadığımızda anında geri bildirim alırsınız. Bu, uygulamamızı sürekli iyileştirme, yeniden düzenleme ve iyileştirmenin güvencesi sağlamasına yardımcı olur.
 
-Test kapsamında son konu başlığında Bu bölümde – olarak ancak test bir şey olmadığından bir geliştirme süreci sonunda yapmanız gerekir! Tam, otomatik testler mümkün olduğunca erken geliştirme sürecinizde yazmanız. Bunu yaptığınızda bu nedenle bağlarla uygulamanızın kullanım örneği senaryoları hakkında düşünmek ve uygulamanızla tasarlamak için size yardımcı olur, geliştirme sırasında anında geri bildirim katmanlama ve göz önünde eşlenmesiyle temiz almak sağlar.
+Testi bu bölümün son konusu olarak ele aldık, ancak test bir geliştirme sürecinin sonunda yapmanız gereken bir şeydir! Aksine, geliştirme sürecinizde otomatik testleri mümkün olduğunca erken yazmanız gerekir. Böylece geliştirme sırasında anında geri bildirimde bulunmanızı sağlar, uygulamanızın kullanım örneği senaryolarınız hakkında daha fazla bilgi almanızı düşünmenize yardımcı olur ve uygulamanızı temiz katmanla ve daha sonra göz önünde bulundurarak tasarlamanıza kılavuzluk eder.
 
-Kitap bir sonraki bölümde, Test odaklı geliştirme (TDD) ve ASP.NET MVC ile kullanma işlemini ele alınacaktır. TDD bir yinelemeli kodlama ilk burada elde edilen kodunuzu karşılayan testleri yazmak uygulamadır. TDD ile her özellik yaklaşık uygulamak üzere olduğunuz işlevselliğini doğrular bir testi oluşturarak başlayın. Birim test ilk yardımcı açıkça özellik ve nasıl, çalışması gerekiyor anladığınızdan emin olun yazma. Yalnızca test yazılır (ve başarısız olduğunu doğruladıktan sonra) bunu daha sonra test doğrular gerçek işlevlerini uygular. Zaman düşünmek nasıl özellik çalışması gerekiyor, kullanım örneği zaten çalışmış olduğunuz çünkü gereksinimlerini daha iyi anlamak gerekir ve bunları uygulamak en iyi nasıl. Olup – testi yeniden çalıştırın ve anında geri bildirim olarak almak uygulama ile işiniz bittiğinde özelliği düzgün şekilde çalışır. Biz, Bölüm 10'daki daha TDD ele alacağız.
+Kitapta daha sonraki bir bölümde test odaklı geliştirme (TDD) ve ASP.NET MVC ile nasıl kullanılacağı ele alınacaktır. TDD, sonuçta elde edilen kodunuzun karşılaacağı testleri ilk yazdığınız yinelemeli bir kodlama uygulamasıdır. TDD ile, uygulamak üzere olduğunuz işlevselliği doğrulayan bir test oluşturarak her bir özelliği başlatın. Öncelikle birim testi yazmak, özelliği net bir şekilde anladığınızdan ve çalışmanın nasıl çalıştığınızdan emin olmanıza yardımcı olur. Yalnızca test yazıldıktan sonra (ve başarısız olduğunu doğruladıktan sonra), test tarafından doğrulanan gerçek işlevselliği uygulayın. Özelliğin nasıl çalışacağından ilgili kullanım durumu hakkında daha fazla zaman harcadığınız için, gereksinimlerin ve ne kadar en iyi şekilde faydalanacağınızı daha iyi anlayabilirsiniz. Uygulama ile işiniz bittiğinde, testi yeniden çalıştırabilir ve özelliğin doğru şekilde çalışıp çalışmadığını anında geri bildirimde bulabilirsiniz. Bölüm 10 ' da TDD daha fazla ele alınacaktır.
 
 ### <a name="next-step"></a>Sonraki adım
 
-Yorum son bazı kaydır.
+Bazı son sarmalar açıklamaları.
 
 > [!div class="step-by-step"]
 > [Önceki](use-ajax-to-implement-mapping-scenarios.md)

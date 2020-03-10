@@ -9,11 +9,11 @@ ms.assetid: e3d7028a-7a22-4a4f-babe-d53afc41c0e2
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 5c5ad110ee0836f0a464b02a2b29254e2e06381e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74571346"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78592829"
 ---
 # <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Düzenleme ve Ekleme Arabirimlerine Doğrulama Denetimleri Ekleme (VB)
 
@@ -33,7 +33,7 @@ BoundField ve CheckBoxField için varsayılan Düzenle ve ekleme arabirimleri fa
 
 Bu öğreticide, daha fazla folipop Kullanıcı arabirimi sağlamak üzere TemplateField 'ın `EditItemTemplate` ve `InsertItemTemplate` doğrulama denetimleri eklemenin ne kadar kolay olduğunu inceleyeceğiz. Özellikle bu öğretici, öğreticiyi [ekleme, güncelleştirme ve silme Ile Ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) ve uygun doğrulamayı dahil etmek için Düzenle ve ekleme arabirimlerini genişletirken oluşturulan örneği alır.
 
-## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deletingexamining-the-events-associated-with-inserting-updating-and-deleting-vbmd"></a>Adım 1:[ekleme, güncelleştirme ve silme Ile Ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) Işleminden örnek çoğaltılıyor
+## <a name="step-1-replicating-the-example-fromexamining-the-events-associated-with-inserting-updating-and-deleting"></a>Adım 1:[ekleme, güncelleştirme ve silme Ile Ilişkili olayları İnceleme](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) Işleminden örnek çoğaltılıyor
 
 [Ekleme, güncelleştirme ve silme öğreticisiyle Ilişkili olayları incelerken](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md) , düzenlenebilir bir GridView içindeki ürünlerin adlarını ve fiyatlarını listelenen bir sayfa oluşturduk. Ayrıca, Bu sayfa, `DefaultMode` özelliği `Insert`olarak ayarlanan ve böylece her zaman Insert modunda işlenen bir DetailsView içeriyordu. Bu DetailsView 'da, Kullanıcı yeni bir ürünün adını ve fiyatını girebilir, Ekle ' ye tıklayıp sisteme eklenmesini sağlayabilir (bkz. Şekil 1).
 

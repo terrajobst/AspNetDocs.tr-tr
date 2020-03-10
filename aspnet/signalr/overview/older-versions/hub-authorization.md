@@ -1,113 +1,113 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
-title: Kimlik doğrulama ve SignalR hub'ları için yetkilendirme (SignalR 1.x) | Microsoft Docs
+title: SignalR hub 'Ları için kimlik doğrulaması ve yetkilendirme (SignalR 1. x) | Microsoft Docs
 author: bradygaster
-description: Bu konuda, belirli kullanıcılar ya da rolleri hub yöntemlerini erişebileceği kısıtlaması açıklar.
+description: Bu konuda, hangi kullanıcıların veya rollerin hub yöntemlerine erişebileceğini nasıl kısıtlayabileceği açıklanmaktadır.
 ms.author: bradyg
 ms.date: 10/17/2013
 ms.assetid: 3d2dfc0e-eac2-4076-a468-325d3d01cc7b
 msc.legacyurl: /signalr/overview/older-versions/hub-authorization
 msc.type: authoredcontent
 ms.openlocfilehash: 8182677c8931f060d98d17008b16ad545bee4e69
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112306"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558536"
 ---
 # <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>SignalR Hub’ları için Kimlik Doğrulaması ve Yetkilendirme (SignalR 1.x)
 
-tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+, [Patrick Fleti](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu konuda, belirli kullanıcılar ya da rolleri hub yöntemlerini erişebileceği kısıtlaması açıklar.
+> Bu konuda, hangi kullanıcıların veya rollerin hub yöntemlerine erişebileceğini nasıl kısıtlayabileceği açıklanmaktadır.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
-- [Öznitelik Yetkilendir](#authorizeattribute)
-- [Tüm hub'ları için kimlik doğrulaması gerektir](#requireauth)
-- [Özel yetkilendirme](#custom)
-- [İstemciler için kimlik doğrulama bilgilerini geçirin](#passauth)
+- [Yetkilendir özniteliği](#authorizeattribute)
+- [Tüm Hub 'lar için kimlik doğrulaması gerektir](#requireauth)
+- [Özelleştirilmiş yetkilendirme](#custom)
+- [Kimlik doğrulama bilgilerini istemcilere geçir](#passauth)
 - [.NET istemcileri için kimlik doğrulama seçenekleri](#authoptions)
 
-    - [Forms kimlik doğrulaması ile tanımlama](#cookie)
-    - [Windows kimlik doğrulaması](#windows)
-    - [Bağlantı üstbilgisi](#header)
+    - [Forms kimlik doğrulaması ile tanımlama bilgisi](#cookie)
+    - [Windows Kimlik Doğrulaması](#windows)
+    - [Bağlantı üst bilgisi](#header)
     - [Sertifika](#certificate)
 
 <a id="authorizeattribute"></a>
 
-## <a name="authorize-attribute"></a>Öznitelik Yetkilendir
+## <a name="authorize-attribute"></a>Yetkilendir özniteliği
 
-SignalR sağlar [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) belirli kullanıcılar ya da rolleri bir hub veya yöntem için erişimi belirtmek için özniteliği. Bu öznitelik bulunan `Microsoft.AspNet.SignalR` ad alanı. Uyguladığınız `Authorize` özniteliği bir hub'ı ya da belirli bir hub yöntemleri. Uyguladığınızda `Authorize` özniteliği için belirtilen kimlik doğrulama gereksinimini bir hub sınıfı, tüm hub yöntemleri için uygulanır. Farklı türde uygulayabileceğiniz yetkilendirme gereksinimleri aşağıda gösterilmiştir. Olmadan `Authorize` özniteliği, hub'ında tüm genel yöntemleri hub'ına bağlı bir istemci için kullanılabilir.
+SignalR, bir hub veya yönteme hangi kullanıcıların veya rollerin erişebileceğini belirtmek için [Yetkilendir](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) özniteliği sağlar. Bu öznitelik `Microsoft.AspNet.SignalR` ad alanında bulunur. `Authorize` özniteliğini bir hub 'daki bir hub 'a ya da belirli yöntemlere uygularsınız. `Authorize` özniteliğini bir hub sınıfına uyguladığınızda, belirtilen yetkilendirme gereksinimi, hub 'daki tüm yöntemlere uygulanır. Uygulayabileceğiniz farklı yetkilendirme gereksinimleri türleri aşağıda gösterilmiştir. `Authorize` özniteliği olmadan, hub 'daki tüm ortak Yöntemler hub 'a bağlı bir istemci tarafından kullanılabilir.
 
-Web uygulamanızda "Yönetici" adlı bir rol tanımladıysanız, o roldeki yalnızca kullanıcılar hub'ı aşağıdaki kod ile erişebilmesini belirtebilirsiniz.
+Web uygulamanızda "admin" adlı bir rol tanımladıysanız, yalnızca bu roldeki kullanıcıların aşağıdaki kodla bir hub 'a erişebileceğini belirtebilirsiniz.
 
 [!code-csharp[Main](hub-authorization/samples/sample1.cs)]
 
-Ya da bir hub'ı tüm kullanıcılar için kullanılabilir olan bir yöntem ve aşağıda gösterildiği gibi yalnızca kimliği doğrulanmış kullanıcılar için kullanılabilir olan ikinci bir yöntem içerdiğini belirtin.
+Ya da bir hub 'ın tüm kullanıcılar için kullanılabilir bir yöntem içerdiğini ve yalnızca kimliği doğrulanmış kullanıcılar tarafından kullanılabilen ikinci bir yöntemi aşağıda gösterildiği gibi belirtebilirsiniz.
 
 [!code-csharp[Main](hub-authorization/samples/sample2.cs)]
 
-Aşağıdaki örnekler, farklı yetkilendirme senaryosu:
+Aşağıdaki örneklerde farklı yetkilendirme senaryoları ele verilmiştir:
 
 - `[Authorize]` – yalnızca kimliği doğrulanmış kullanıcılar
-- `[Authorize(Roles = "Admin,Manager")]` – yalnızca belirtilen rollerdeki kullanıcıların kimlik doğrulaması
-- `[Authorize(Users = "user1,user2")]` – Belirtilen kullanıcı adları ile kullanıcıların kimlik doğrulaması yalnızca
-- `[Authorize(RequireOutgoing=false)]` – yalnızca kimliği doğrulanmış kullanıcılar hub çağırma, ancak sunucu çağrılarından istemcilerine sınırı yoktur yetkilendirme tarafından gibi diğer tüm ileti alabilir ancak yalnızca belirli kullanıcılara ileti gönderebilir. RequireOutgoing özelliği, yalnızca kişilere yöntemleri hub'ının içinden değil, tüm hub'ına uygulanabilir. RequireOutgoing false olarak ayarlı değil, yalnızca kimlik doğrulama gereksinimini karşılayan kullanıcılar sunucudan çağrılır.
+- `[Authorize(Roles = "Admin,Manager")]` – yalnızca belirtilen rollerdeki kimliği doğrulanmış kullanıcılar
+- `[Authorize(Users = "user1,user2")]` – yalnızca belirtilen kullanıcı adlarına sahip kimliği doğrulanmış kullanıcılar
+- `[Authorize(RequireOutgoing=false)]` – yalnızca kimliği doğrulanmış kullanıcılar hub 'ı çağırabilir, ancak sunucudan istemcilere geri çağrılar bir ileti gönderebildiği ancak diğerlerinin iletiyi alabileceği gibi yetkilendirme ile sınırlı değildir. Requiregiden özelliği, hub içindeki bireyler yöntemlerine değil, yalnızca tüm Hub 'a uygulanabilir. Requiregiden değeri false olarak ayarlandığında, yalnızca yetkilendirme gereksinimini karşılayan kullanıcılar sunucudan çağırılır.
 
 <a id="requireauth"></a>
 
-## <a name="require-authentication-for-all-hubs"></a>Tüm hub'ları için kimlik doğrulaması gerektir
+## <a name="require-authentication-for-all-hubs"></a>Tüm Hub 'lar için kimlik doğrulaması gerektir
 
-Kimlik doğrulaması tüm hub'lara ve hub yöntemleri için uygulamanızda çağırarak gerektirebilir [RequireAuthentication](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx) uygulama başlatıldığında yöntemi. Birden çok hub'ları vardır ve hepsi için bir kimlik doğrulama gereksinimini zorlamak istediğinizde bu yöntemi kullanabilirsiniz. Bu yöntemde, rol, kullanıcı veya giden yetkilendirme belirtemezsiniz. Yalnızca kimliği doğrulanmış kullanıcılara hub yöntemleri için erişim kısıtlıdır belirtebilirsiniz. Ancak, ancak yine de Authorize özniteliği hubs veya ek gereksinimleri belirtmek için yöntemleri uygulayabilirsiniz. Öznitelikleri belirttiğiniz herhangi bir gereksinim temel kimlik doğrulaması gereksinimi ek olarak uygulanır.
+Uygulama başladığında [requiauthentication](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx) metodunu çağırarak uygulamanızdaki tüm Hub 'lar ve hub yöntemleri için kimlik doğrulaması yapmanız gerekebilir. Birden çok hub olduğunda ve bunların tümü için bir kimlik doğrulama gereksinimini zorlamak istediğinizde bu yöntemi kullanabilirsiniz. Bu yöntemle rol, Kullanıcı veya giden yetkilendirme belirtemezsiniz. Yalnızca hub yöntemlerine erişimin kimliği doğrulanmış kullanıcılarla kısıtlanmasını belirtebilirsiniz. Bununla birlikte, ek gereksinimler belirtmek için yine de, yetkilendirme özniteliğini hub 'lara veya yöntemlere uygulayabilirsiniz. Özniteliklerde belirttiğiniz herhangi bir gereksinim, temel kimlik doğrulaması gereksinimine ek olarak uygulanır.
 
-Aşağıdaki örnek, kimliği doğrulanmış kullanıcılara tüm hub yöntemleri kısıtlayan bir Global.asax dosyası gösterir.
+Aşağıdaki örnek, tüm Hub yöntemlerini kimliği doğrulanmış kullanıcılarla kısıtlayan bir Global. asax dosyası gösterir.
 
 [!code-csharp[Main](hub-authorization/samples/sample3.cs)]
 
-Eğer `RequireAuthentication()` SignalR bir SignalR isteğini işlendikten sonra yöntemi oluşturur bir `InvalidOperationException` özel durum. İşlem hattı çağrıldıktan sonra bir modül için HubPipeline eklenemiyor çünkü bu özel durum oluşturulur. Önceki örnek arama gösterir `RequireAuthentication` yönteminde `Application_Start` yönteminin, ilk isteği işleme önce bir kez yürütülür.
+Bir SignalR isteği işlendikten sonra `RequireAuthentication()` yöntemini çağırırsanız, SignalR bir `InvalidOperationException` özel durumu oluşturur. Bu özel durum, işlem hattı çağrıldıktan sonra HubPipeline 'e modül ekleyemediği için oluşturulur. Önceki örnekte, ilk isteğin işlenmesinden önce bir kez yürütülen `Application_Start` yönteminde `RequireAuthentication` yönteminin çağrılması gösterilmektedir.
 
 <a id="custom"></a>
 
-## <a name="customized-authorization"></a>Özel yetkilendirme
+## <a name="customized-authorization"></a>Özelleştirilmiş yetkilendirme
 
-Yetkilendirme nasıl belirlendiğini özelleştirmek ihtiyacınız varsa, türetilen bir sınıf oluşturabilirsiniz `AuthorizeAttribute` ve geçersiz kılma [UserAuthorized](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx) yöntemi. Bu yöntem, kullanıcı isteği tamamlamak için yetki verilip verilmediğini belirlemek üzere her istek için çağrılır. Geçersiz kılınan yönteminde yetkilendirme senaryonuz için gerekli mantığı sağlar. Aşağıdaki örnek, yetkilendirme aracılığıyla beyana dayalı kimlik uygulamak gösterilmektedir.
+Yetkilendirmenin nasıl belirlendiğini özelleştirmeniz gerekiyorsa, `AuthorizeAttribute` türeten bir sınıf oluşturabilir ve [userauthorization](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx) metodunu geçersiz kılabilirsiniz. Bu yöntem, kullanıcının isteği tamamlamaya yetkili olup olmadığını belirlemede her istek için çağrılır. Geçersiz kılınan yöntemde, yetkilendirme senaryonuz için gerekli mantığı sağlarsınız. Aşağıdaki örnek, talep tabanlı kimlik aracılığıyla yetkilendirmeyi nasıl zorlayacağı gösterilmektedir.
 
 [!code-csharp[Main](hub-authorization/samples/sample4.cs)]
 
 <a id="passauth"></a>
 
-## <a name="pass-authentication-information-to-clients"></a>İstemciler için kimlik doğrulama bilgilerini geçirin
+## <a name="pass-authentication-information-to-clients"></a>Kimlik doğrulama bilgilerini istemcilere geçir
 
-İstemcide çalışan kod, kimlik doğrulama bilgilerini kullanmanız gerekebilir. Gerekli bilgileri, istemcide yöntemleri çağrılırken geçirin. Örneğin, bir sohbet uygulaması yöntem parametre olarak bir ileti gönderen kişinin kullanıcı adı aşağıda gösterildiği gibi geçirebiliriz.
+İstemci üzerinde çalışan koddaki kimlik doğrulama bilgilerini kullanmanız gerekebilir. İstemci üzerindeki yöntemleri çağırırken gerekli bilgileri geçirirsiniz. Örneğin, bir sohbet uygulaması yöntemi, aşağıda gösterildiği gibi bir ileti gönderen kişinin kullanıcı adına bir parametre olarak geçirebilir.
 
 [!code-csharp[Main](hub-authorization/samples/sample5.cs)]
 
-Veya, aşağıda gösterildiği gibi kimlik doğrulama bilgilerini temsil eder ve o nesnenin bir parametre olarak geçirmek için bir nesne oluşturabilirsiniz.
+Ya da, aşağıda gösterildiği gibi, kimlik doğrulama bilgilerini temsil eden bir nesne oluşturabilir ve bu nesneyi bir parametre olarak geçirebilirsiniz.
 
 [!code-csharp[Main](hub-authorization/samples/sample6.cs)]
 
-Kötü niyetli bir kullanıcı bu istemciden gelen istek taklit etmek için kullanabilir gibi diğer istemcilere hiçbir zaman bir istemcinin bağlantı kimliği göndermesi gerekir.
+Kötü niyetli bir Kullanıcı bu istemciden gelen bir isteği taklit etmek için onu kullanabilmesi için, bir istemcinin bağlantı kimliğini asla diğer istemcilere iletmemelisiniz.
 
 <a id="authoptions"></a>
 
 ## <a name="authentication-options-for-net-clients"></a>.NET istemcileri için kimlik doğrulama seçenekleri
 
-Kimliği doğrulanmış kullanıcılara sınırlı bir hub ile etkileşime giren, bir konsol uygulaması gibi bir .NET istemcisi olduğunda, kimlik doğrulama bilgileri bir tanımlama bilgisi, bağlantı üst bilgi veya bir sertifika geçirebilirsiniz. Bu bölümdeki örneklerde, bir kullanıcı kimlik doğrulaması için bu farklı yöntemleri kullanmayı gösterir. SignalR tam işlevsel uygulamaları değiller. SignalR ile .NET istemcileri hakkında daha fazla bilgi için bkz: [Hubs API Kılavuzu - .NET istemcisi](../guide-to-the-api/hubs-api-guide-net-client.md).
+Bir konsol uygulaması gibi, kimliği doğrulanmış kullanıcılarla sınırlı bir hub ile etkileşime geçen bir .NET istemciniz varsa, kimlik doğrulama bilgilerini bir tanımlama bilgisine, bağlantı başlığına veya bir sertifikaya geçirebilirsiniz. Bu bölümdeki örneklerde, kullanıcının kimliğini doğrulamak için bu farklı yöntemlerin nasıl kullanılacağı gösterilmektedir. Bunlar tam işlevli SignalR uygulamaları değildir. SignalR ile .NET istemcileri hakkında daha fazla bilgi için bkz. [hub API Kılavuzu-.NET istemcisi](../guide-to-the-api/hubs-api-guide-net-client.md).
 
 <a id="cookie"></a>
 
-### <a name="cookie"></a>Tanımlama bilgisi
+### <a name="cookie"></a>Tanımlama Bilgisi
 
-.NET istemci ASP.NET formları kimlik doğrulamasını kullanan bir hub ile etkileşim kurduğunda, kimlik doğrulama tanımlama bağlantıda el ile ayarlamanız gerekir. Tanımlama bilgisinin eklediğiniz `CookieContainer` özelliği [HubConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) nesne. Aşağıdaki örnek, bir web sayfasından bir kimlik doğrulama tanımlama bilgisi alır ve bağlantı konusu tanımlama bilgisine ekler bir konsol uygulaması gösterir. URL `https://www.contoso.com/RemoteLogin` örnek işaret oluşturmak için gereken bir web sayfası. Sayfa gönderilen kullanıcı adını ve parolasını almak ve kullanıcı kimlik bilgileriyle oturum dener.
+.NET istemciniz ASP.NET Forms kimlik doğrulaması kullanan bir hub ile etkileşime geçtiğinde, bağlantıda kimlik doğrulama tanımlama bilgisini el ile ayarlamanız gerekir. Tanımlama bilgisini, [Hubconnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) nesnesindeki `CookieContainer` özelliğine eklersiniz. Aşağıdaki örnek, bir Web sayfasından kimlik doğrulama tanımlama bilgisi alan ve bu tanımlama bilgisini bağlantıya ekleyen bir konsol uygulamasını gösterir. Örnekteki URL `https://www.contoso.com/RemoteLogin`, oluşturmanız gereken bir Web sayfasına işaret eder. Sayfa, postalanan Kullanıcı adı ve parolasını alır ve kimlik bilgileriyle kullanıcıya oturum açmaya çalışır.
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-Konsol uygulaması için kimlik bilgilerini, aşağıdaki arka plan kod dosyasını içeren boş bir sayfa başvurabileceğiniz www.contoso.com/RemoteLogin gönderir.
+Konsol uygulaması, aşağıdaki arka plan kod dosyasını içeren boş bir sayfaya başvuruda bulunmak için kimlik bilgilerini www.contoso.com/RemoteLogin adresine gönderir.
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 
@@ -115,24 +115,24 @@ Konsol uygulaması için kimlik bilgilerini, aşağıdaki arka plan kod dosyası
 
 ### <a name="windows-authentication"></a>Windows kimlik doğrulaması
 
-Windows kimlik doğrulaması kullanırken, geçerli kullanıcının kimlik bilgilerini kullanarak geçirebilirsiniz [DefaultCredentials](https://msdn.microsoft.com/library/system.net.credentialcache.defaultcredentials.aspx) özelliği. Bağlantı için kimlik bilgilerini DefaultCredentials değerine ayarlayın.
+Windows kimlik doğrulamasını kullanırken, [DefaultCredentials](https://msdn.microsoft.com/library/system.net.credentialcache.defaultcredentials.aspx) özelliğini kullanarak geçerli kullanıcının kimlik bilgilerini geçirebilirsiniz. DefaultCredentials değeri için bağlantı kimlik bilgilerini ayarlarsınız.
 
 [!code-csharp[Main](hub-authorization/samples/sample9.cs?highlight=6)]
 
 <a id="header"></a>
 
-### <a name="connection-header"></a>Bağlantı üstbilgisi
+### <a name="connection-header"></a>Bağlantı üst bilgisi
 
-Uygulamanızı tanımlama bilgilerini kullanmıyorsa, kullanıcı bilgilerini bağlantı üstbilgisinde geçirebilirsiniz. Örneğin, bir belirteç bağlantı üstbilgisinde geçirebilirsiniz.
+Uygulamanız tanımlama bilgilerini kullanmıyor ise, Kullanıcı bilgilerini bağlantı üst bilgisinde geçirebilirsiniz. Örneğin, bağlantı üst bilgisinde bir belirteç geçirebilirsiniz.
 
 [!code-csharp[Main](hub-authorization/samples/sample10.cs?highlight=6)]
 
-Ardından, hub'ında kullanıcı belirteci doğrulamak.
+Ardından, hub 'da kullanıcının belirtecini doğrularsınız.
 
 <a id="certificate"></a>
 
 ### <a name="certificate"></a>Sertifika
 
-Kullanıcıyı doğrulamak için bir istemci sertifikası geçirebilirsiniz. Sertifika, bağlantı oluştururken ekleyin. Aşağıdaki örnek, bir istemci sertifikası bağlantısı eklemek yalnızca nasıl gösterir; tam bir konsol uygulaması göstermez. Kullandığı [X509Certificate](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate.aspx) sertifikayı oluşturmak için çeşitli yollar sağlar sınıfını.
+Kullanıcıyı doğrulamak için bir istemci sertifikası geçirebilirsiniz. Bağlantıyı oluştururken sertifikayı eklersiniz. Aşağıdaki örnek, bağlantıya yalnızca bir istemci sertifikasının nasıl ekleneceğini gösterir. tam konsol uygulamasını göstermez. Sertifikayı oluşturmak için çeşitli farklı yollar sağlayan [X509Certificate](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate.aspx) sınıfını kullanır.
 
 [!code-csharp[Main](hub-authorization/samples/sample11.cs?highlight=6)]

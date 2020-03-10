@@ -1,164 +1,164 @@
 ---
 uid: signalr/overview/performance/scaleout-with-redis
-title: Redis ile SignalR ölçeğini genişletme | Microsoft Docs
+title: Redsıs ile SignalR ölçeği Microsoft Docs
 author: bradygaster
-description: Yazılım sürümleri, sürüm 2 önceki sürümleri bu konunun önceki sürümleri hakkında bilgi için bu konu Visual Studio 2013 .NET 4.5 SignalR kullanılan...
+description: Bu konuda kullanılan yazılım sürümleri, .NET 4,5 SignalR sürüm 2 ' nin önceki sürümleri hakkında bilgi Için bu konunun önceki sürümlerini Visual Studio 2013...
 ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
 ms.openlocfilehash: 58a7affa1769523955adc76455a1c33be6f49751
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114308"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78579228"
 ---
 # <a name="signalr-scaleout-with-redis"></a>Redis ile SignalR Ölçeğini Genişletme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> ## <a name="software-versions-used-in-this-topic"></a>Bu konu başlığında kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-this-topic"></a>Bu konuda kullanılan yazılım sürümleri
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR sürüm 2.4
+> - SignalR sürüm 2,4
 >
 >
 >
 > ## <a name="previous-versions-of-this-topic"></a>Bu konunun önceki sürümleri
 >
-> SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
+> SignalR 'nin önceki sürümleri hakkında daha fazla bilgi için bkz. [SignalR daha eski sürümleri](../older-versions/index.md).
 >
-> ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
+> ## <a name="questions-and-comments"></a>Sorular ve açıklamalar
 >
-> Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
+> Lütfen bu öğreticiyi nasıl beğentireceğiniz ve sayfanın en altındaki açıklamalarda İyileştiğimiz hakkında geri bildirimde bulunun. Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET SignalR forumuna](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/)'e gönderebilirsiniz.
 
-Bu öğreticide kullanacağınız [Redis](http://redis.io/) iletileri iki ayrı IIS örneklerinde dağıtılan bir SignalR uygulamayı dağıtmak üzere.
+Bu öğreticide, iki ayrı IIS örneğine dağıtılan bir SignalR uygulamasına ileti dağıtmak için [redsıs](http://redis.io/) ' i kullanacaksınız.
 
-Redis bellek içi anahtar-değer deposudur. Ayrıca, bir Mesajlaşma sistemi ile bir yayımlama/abone olma modelini destekler. SignalR Redis devre kartına ileti başka bir sunucuya iletmek için pub/sub özelliğini kullanır.
+Redsıs, bellek içi anahtar-değer deposudur. Ayrıca, Yayımla/abone ol modeliyle bir mesajlaşma sistemini destekler. SignalR redin backdüzlemi, iletileri diğer sunuculara iletmek için pub/Sub özelliğini kullanır.
 
 ![](scaleout-with-redis/_static/image1.png)
 
-Bu öğretici için üç sunucu kullanır:
+Bu öğretici için üç sunucu kullanacaksınız:
 
-- Bir SignalR uygulamayı dağıtmak için kullanacağınız Windows çalıştıran iki sunucu.
-- Redis çalışmaya kullanacağı Linux çalıştıran bir sunucu. Bu öğreticideki ekran görüntüleri için Ubuntu 12.04 TLS kullandım.
+- Bir SignalR uygulamasını dağıtmak için kullanacağınız Windows çalıştıran iki sunucu.
+- Redo 'u çalıştırmak için kullanacağınız Linux çalıştıran bir sunucu. Bu öğreticideki ekran görüntüleri için Ubuntu 12,04 TLS kullandım.
 
-Kullanmak için üç fiziksel sunucu yoksa, Hyper-V VM'ler oluşturabilirsiniz. Azure'da VM'ler oluşturmanızı başka bir seçenektir.
+Kullanabileceğiniz üç fiziksel sunucunuz yoksa, Hyper-V ' d e sanal makineler oluşturabilirsiniz. Diğer bir seçenek de Azure 'da VM oluşturmaktır.
 
-Bu öğreticide resmi Redis uygulama kullansa da, de mevcuttur bir [, Windows bağlantı noktası Redis](https://github.com/MSOpenTech/redis) MSOpenTech öğesinden. Kurulum ve yapılandırma farklıdır, ancak Aksi halde adımlar aynıdır.
+Bu öğretici resmi redin uygulamasını kullanmasına karşın, MSOpenTech ' [ın bir Windows bağlantı noktası](https://github.com/MSOpenTech/redis) da vardır. Kurulum ve yapılandırma farklıdır, ancak başka bir adım aynı şekilde yapılır.
 
 > [!NOTE]
 >
-> Redis ile SignalR ölçeğini genişletme için Redis kümelerini desteklemez.
+> Redsıs ile SignalR ölçeği, Redsıs kümelerini desteklemez.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Ayrıntılı Öğreticisine aldığımız önce ne yapacağını, hızlı bir genel bakış aşağıda verilmiştir.
+Ayrıntılı öğreticiye girmeden önce, ne yapabileceğinize ilişkin hızlı bir genel bakış sunulmaktadır.
 
-1. Redis yükleyin ve Redis sunucuyu başlatın.
+1. Redsıs 'i yükleyip Redsıs sunucusunu başlatın.
 2. Bu NuGet paketlerini uygulamanıza ekleyin:
 
-    - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.StackExchangeRedis)
+    - [Microsoft. AspNet. SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
+    - [Microsoft. AspNet. SignalR. StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.StackExchangeRedis)
     
 3. Bir SignalR uygulaması oluşturun.
-4. Devre kartına yapılandırmak için Startup.cs için aşağıdaki kodu ekleyin:
+4. Geri düzlemi yapılandırmak için Startup.cs 'e aşağıdaki kodu ekleyin:
 
     [!code-csharp[Main](scaleout-with-redis/samples/sample1.cs)]
 
-## <a name="ubuntu-on-hyper-v"></a>Ubuntu üzerinde Hyper-V
+## <a name="ubuntu-on-hyper-v"></a>Hyper-V üzerinde Ubuntu
 
-Windows Hyper-V kullanarak, Windows Server üzerinde bir Ubuntu VM kolayca oluşturabilirsiniz.
+Windows Hyper-V ' d i kullanarak Windows Server 'da kolayca bir Ubuntu VM oluşturabilirsiniz.
 
-Ubuntu ISO'dan indirme [ http://www.ubuntu.com ](http://www.ubuntu.com/).
+[http://www.ubuntu.com](http://www.ubuntu.com/)'Den Ubuntu ISO dosyasını indirin.
 
-Hyper-V, yeni bir sanal makine ekleyin. İçinde **Sanal Sabit Disk Bağla** adım, select **sanal sabit disk oluşturma**.
+Hyper-V ' d a yeni bir VM ekleyin. **Sanal sabit diski bağla** adımında, **sanal sabit disk oluştur**' u seçin.
 
 ![](scaleout-with-redis/_static/image2.png)
 
-İçinde **yükleme seçenekleri** adım seçin **görüntü dosyası (.iso)**, tıklayın **Gözat**, Ubuntu yükleme ISO göz atın.
+**Yükleme seçenekleri** adımında, **görüntü dosyası (. iso)** seçeneğini belirleyin, **Araştır**' a tıklayın ve Ubuntu yükleme ISO dosyasına gidin.
 
 ![](scaleout-with-redis/_static/image3.png)
 
-## <a name="install-redis"></a>Redis'i yükleme
+## <a name="install-redis"></a>Redsıs 'yi Install
 
-Bölümündeki adımları [ http://redis.io/download ](http://redis.io/download) indirip Redis oluşturun.
+Redsıs 'yi indirmek ve derlemek için [http://redis.io/download](http://redis.io/download) bölümündeki adımları izleyin.
 
 [!code-console[Main](scaleout-with-redis/samples/sample2.cmd)]
 
-Bu Redis ikili değerlerini oluşturur `src` dizin.
+Bu, `src` dizininde Redsıs ikililerini oluşturur.
 
-Varsayılan olarak, Redis, parola gerektirmez. Bir parola ayarlamak için Düzenle `redis.conf` kaynak kodunun kök dizininde bulunan dosya. (Düzenlemeden önce dosyasının yedek bir kopyasını olun!) Eklemek için aşağıdaki yönerge `redis.conf`:
+Varsayılan olarak redin parola gerektirmez. Bir parola ayarlamak için, kaynak kodun kök dizininde bulunan `redis.conf` dosyasını düzenleyin. (Düzenlemeden önce dosyanın yedek kopyasını oluşturun!) `redis.conf`için aşağıdaki yönergeyi ekleyin:
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample3.ps1)]
 
-Redis Sunucu Şimdi Başlat:
+Şimdi Redsıs sunucusunu başlatın:
 
 [!code-css[Main](scaleout-with-redis/samples/sample4.css)]
 
 ![](scaleout-with-redis/_static/image4.png)
 
-Redis varsayılan bağlantı noktası olan açık 6379 bağlantı noktasının, üzerinde dinler. (Yapılandırma dosyasındaki bağlantı noktası numarasını değiştirebilirsiniz.)
+Redin dinlediği varsayılan bağlantı noktası olan 6379 numaralı bağlantı noktasını açın. (Yapılandırma dosyasındaki bağlantı noktası numarasını değiştirebilirsiniz.)
 
-## <a name="create-the-signalr-application"></a>SignalR uygulaması oluşturma
+## <a name="create-the-signalr-application"></a>SignalR uygulamasını oluşturma
 
-Bir SignalR uygulaması ya da bu öğreticileri izleyerek oluşturun:
+Bu öğreticilerden birini izleyerek bir SignalR uygulaması oluşturun:
 
-- [SignalR 2.0 ile çalışmaya başlama](../getting-started/tutorial-getting-started-with-signalr.md)
-- [SignalR 2.0 ve MVC 5 kullanmaya başlama](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
+- [SignalR 2,0 ile çalışmaya başlama](../getting-started/tutorial-getting-started-with-signalr.md)
+- [SignalR 2,0 ve MVC 5 ile çalışmaya başlama](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-Ardından, biz sohbet uygulaması, Redis ile ölçeğini genişletme destekleyecek şekilde değiştireceksiniz. İlk olarak, ekleme `Microsoft.AspNet.SignalR.StackExchangeRedis` NuGet paketini projenize. Visual Studio'da gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Daha sonra, sohbet uygulamasını Redsıs ile ölçeği destekleyecek şekilde değiştireceksiniz. İlk olarak, `Microsoft.AspNet.SignalR.StackExchangeRedis` NuGet paketini projenize ekleyin. Visual Studio 'da, **Araçlar** menüsünden **NuGet Paket Yöneticisi**' ni ve ardından **Paket Yöneticisi konsolu**' nu seçin. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 
-Ardından, Startup.cs dosyasını açın. Aşağıdaki kodu ekleyin **yapılandırma** yöntemi:
+Sonra, Startup.cs dosyasını açın. **Yapılandırma** yöntemine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](scaleout-with-redis/samples/sample6.cs)]
 
-- "server" Redis'ı çalıştıran sunucunun adıdır.
-- *bağlantı noktası* bağlantı noktası numarası
-- "password" redis.conf dosyasında tanımlanan bir paroladır.
-- "AppName" herhangi bir dizedir. SignalR bu ada sahip bir Redis pub/sub kanalı oluşturur.
+- "sunucu" Reddir çalıştıran sunucunun adıdır.
+- *bağlantı* noktası numarası bağlantı noktasıdır
+- "Password" redsıs. conf dosyasında tanımladığınız paroladır.
+- "AppName" herhangi bir dizedir. SignalR, bu adla bir Redsıs pub/Sub kanalı oluşturur.
 
 Örneğin:
 
 [!code-csharp[Main](scaleout-with-redis/samples/sample7.cs)]
 
-## <a name="deploy-and-run-the-application"></a>Dağıtma ve uygulama çalıştırma
+## <a name="deploy-and-run-the-application"></a>Uygulamayı dağıtma ve çalıştırma
 
-SignalR uygulamayı dağıtmak için Windows Server örneklerinizin hazırlayın.
+SignalR uygulamasını dağıtmak için Windows Server örneklerinizi hazırlayın.
 
-IIS rolünü ekleyin. WebSocket Protokolü dahil olmak üzere "Uygulama geliştirme" özellikleri içerir.
+IIS rolünü ekleyin. WebSocket protokolü de dahil olmak üzere "uygulama geliştirme" özellikleri ekleyin.
 
 ![](scaleout-with-redis/_static/image5.png)
 
-Yönetim Hizmeti ("Yönetim Araçları" altında listelenen) de içerir.
+Ayrıca yönetim hizmetini de ("Yönetim Araçları" altında listelenmiştir) içerir.
 
 ![](scaleout-with-redis/_static/image6.png)
 
-**Yükleme Web dağıtımı 3.0.** IIS Yöneticisi'ni çalıştırın, Microsoft Web Platformu'nu yüklemenizi ister veya yapabilecekleriniz [yükleyiciyi indirin](https://go.microsoft.com/fwlink/?LinkId=255386). Platform Yükleyicisi'nde, Web dağıtımı için arama ve Web dağıtımı 3.0 yükleyin
+**Web Dağıtımı 3,0 ' ü yükler.** IIS Yöneticisi 'Ni çalıştırdığınızda, Microsoft Web platformu yüklemenizi ister veya [yükleyiciyi indirebilirsiniz](https://go.microsoft.com/fwlink/?LinkId=255386). Platform yükleyicisinde Web Dağıtımı arayın ve Web Dağıtımı 3,0 ' i yükleme
 
 ![](scaleout-with-redis/_static/image7.png)
 
-Web yönetimi hizmeti çalışıp çalışmadığını denetleyin. Aksi durumda, hizmeti başlatın. (Web yönetimi hizmeti Windows Hizmetleri listede görmüyorsanız, IIS rolü eklendiğinde yönetim Hizmeti'nin yüklü emin olun.)
+Web yönetimi hizmetinin çalıştığından emin olun. Aksi takdirde, hizmeti başlatın. (Windows hizmetleri listesinde Web yönetimi hizmetini görmüyorsanız, IIS rolünü eklediğinizde Yönetim hizmetini yüklediğinizden emin olun.)
 
-Varsayılan olarak, Web yönetimi hizmeti 8172 numaralı TCP bağlantı noktasını dinler. Windows Güvenlik Duvarı'nda 8172 numaralı bağlantı noktasındaki TCP trafiğine izin veren yeni bir gelen kuralı oluşturun. Daha fazla bilgi için [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (Azure Vm'lerinde barındırıyorsanız, doğrudan Azure Portalı'nda bunu yapabilirsiniz. Bkz: [bir sanal makineye uç noktaları ayarlama](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
+Varsayılan olarak, Web yönetimi hizmeti TCP bağlantı noktası 8172 ' i dinler. Windows Güvenlik Duvarı 'nda 8172 numaralı bağlantı noktasında TCP trafiğine izin vermek için yeni bir gelen kuralı oluşturun. Daha fazla bilgi için bkz. [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (VM 'Leri Azure 'da barındırıyorsanız, bunu doğrudan Azure portal yapabilirsiniz. Bkz. [sanal makineye uç noktaları ayarlama](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
 
-Geliştirme makinenizde Visual Studio projesinden sunucusuna dağıtmak hazırsınız. Çözüm Gezgini'nde çözüme sağ tıklayın ve **Yayımla**.
+Artık Visual Studio projesini geliştirme makinenizden sunucuya dağıtmaya hazırsınız. Çözüm Gezgini, çözüme sağ tıklayın ve **Yayımla**' ya tıklayın.
 
-Belgeler web dağıtımı hakkında daha fazla ayrıntılı için bkz [Visual Studio ve ASP.NET için Web dağıtımı içerik haritası](../../../whitepapers/aspnet-web-deployment-content-map.md).
+Web dağıtımı hakkında daha ayrıntılı belgeler için bkz. [Visual Studio Için Web dağıtımı Içerik Haritası ve ASP.net](../../../whitepapers/aspnet-web-deployment-content-map.md).
 
-İki sunucu için uygulama dağıtıyorsanız, her örnek bir ayrı bir tarayıcı penceresi açın ve her SignalR iletileri diğer aldığınız bakın. (Kuşkusuz, bir üretim ortamında, iki sunucu bir yük dengeleyicinin arkasına sit.)
+Uygulamayı iki sunucuya dağıtırsanız, her bir örneği ayrı bir tarayıcı penceresinde açabilir ve bunların her birinin birinden SignalR iletileri aldıklarından emin olabilirsiniz. (Kuşkusuz, bir üretim ortamında, iki sunucu bir yük dengeleyicinin arkasına ait olacaktır.)
 
 ![](scaleout-with-redis/_static/image8.png)
 
-Redis için kullanabileceğiniz gönderilen iletileri görmek merak ediyorsanız **redis-cli** istemcisi, Redis ile yükler.
+Redsıs 'e gönderilen iletileri görmeyi merak ediyorsanız redsıs ile yüklenen **redsıs-CLI** istemcisini kullanabilirsiniz.
 
 [!code-xml[Main](scaleout-with-redis/samples/sample8.xml)]
 

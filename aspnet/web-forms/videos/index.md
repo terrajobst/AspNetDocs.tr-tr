@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/index
-title: Videoları | Microsoft Docs
+title: Videolar | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,11 +9,11 @@ ms.assetid: f215d6b9-8a84-4bd8-8881-e9527d814950
 msc.legacyurl: /web-forms/videos
 msc.type: book
 ms.openlocfilehash: 0082330e75a905469c66b04277d70416555c30c3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397220"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633639"
 ---
 # <a name="videos"></a>Videolar
 
@@ -73,7 +73,7 @@ ms.locfileid: "59397220"
     - [ASP.NET Web Sayfalarında Tarayıcı Özelliklerini Algılama](how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
     - [Bir ASP.NET Sunucu Denetimini, Denetimi İşlemek İçin Kullanılan Bağdaştırıcıyla Eşleştirme](how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
     - [Sorgu Dizesi Kullanarak Bir Sayfadan Diğerine Bilgi Geçirme](how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-    - [ASP.NET kullanmak\_merge.exe birleştirme derlemelerine yardımcı programı](how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+    - [Derlemeleri birleştirmek için ASPNET\_Merge. exe yardımcı programını kullanın](how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
     - [ASP.NET’te Sayfalar Arası Geri Gönderim Uygulama](how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet.md)
     - [Bir ASP.NET Web sayfasına Programlı Olarak Denetim Ekleme](how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
     - [Gizli Alan Kullanarak İstemci Tarafı Bilgileri Depolama ve Düzenleme](how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)
@@ -221,16 +221,16 @@ ms.locfileid: "59397220"
     - [[ASP.NET 2.0’a Giriş:] ASP.NET 2.0 Temelleri](migrating/intro-to-aspnet-20-aspnet-20-fundamentals.md)
     - [[ASP.NET 2.0’a Giriş:] Kullanıcı Arabirimi Öğeleri](migrating/intro-to-aspnet-20-user-interface-elements.md)
     - [Klasik ASP’den ASP.NET’e [Geçiş]](migrating/migrating-from-classic-asp-to-aspnet.md)
-    - [JSP geliştiricileri için ASP.NET'e giriş: ASP.NET 2.0 Hoş Geldiniz](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
-    - [JSP geliştiricileri için ASP.NET'e giriş: Uygulamaları oluşturma](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
-    - [ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET için topluluğunun ekleme](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-    - [ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET uygulaması oluşturma](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+    - [JSP Geliştiricileri için ASP.NET’e Giriş: ASP.NET 2.0’a Hoş Geldiniz](migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
+    - [JSP Geliştiricileri için ASP.NET’e Giriş: Uygulama Oluşturma](migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
+    - [ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET’i Repertuarınıza Ekleme](migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+    - [ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET Uygulaması Oluşturma](migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
     - [PHP ile Windows Platform arasında birlikte çalışma](migrating/interop-between-php-and-the-windows-platform.md)
 - [2.0 Uygulamaları Oluşturma](building-20-applications/index.md)
 
     - [[1. Ders:] Visual Web Developer Express ile Çalışmaya Başlama](building-20-applications/lesson-1-getting-started-with-visual-web-developer-express.md)
     - [[2. Ders:] Web Forms Kullanıcı Arabirimi Oluşturma](building-20-applications/lesson-2-creating-a-web-forms-user-interface.md)
-    - [[3. Ders:] Olayları ve geri gönderme hakkında daha fazla anlama](building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
+    - [[3. ders:] Olaylar ve geri gönderme hakkında daha fazla bilgi](building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
     - [[4. Ders:] Web Uygulamasının Durumunu Anlama](building-20-applications/lesson-4-understanding-web-application-state.md)
     - [[5. Ders:] Web Sitenizin Hatalarını Ayıklama ve Web Sitenizi İzleme](building-20-applications/lesson-5-debugging-and-tracing-your-website.md)
     - [[6. Ders:] Stil Sayfaları ve Ana Sayfalar ile Çalışma](building-20-applications/lesson-6-working-with-stylesheets-and-master-pages.md)
@@ -354,14 +354,14 @@ ms.locfileid: "59397220"
     - [LINQ ile Nasıl Yapılır](data-access/how-do-i-with-linq/index.md)
 
         - [LINQ to SQL: Genel Bakış](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-        - [LINQ to SQL: Veri modeli](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-        - [LINQ to SQL: Veritabanını sorgulama](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-        - [LINQ to SQL: Veritabanı güncelleştiriliyor](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+        - [LINQ to SQL: Veri Modeli](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+        - [LINQ to SQL: Veritabanını Sorgulama](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+        - [LINQ to SQL: Veritabanını Güncelleştirme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
         - [LINQ to SQL: LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
         - [LINQ to SQL: Özel LinqDataSource](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-        - [LINQ to SQL: Saklı yordamları kullanma](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-        - [LINQ to SQL: Saklı yordamlarla güncelleştirme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-        - [LINQ to SQL: Rastgele SQL yürütme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+        - [LINQ to SQL: Saklı Yordamlar Kullanma](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+        - [LINQ to SQL: Saklı Yordamlarla Güncelleştirme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+        - [LINQ to SQL: Rastgele SQL Yürütme](data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
     - [VB Ekibinden LINQ Videoları](data-access/linq-videos-from-the-vb-team/index.md)
 
         - [LINQ ile Çalışmaya Başlama](data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
@@ -410,7 +410,7 @@ ms.locfileid: "59397220"
         - [Visual Studio 2008'de ASP.NET AJAX Desteği](aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
         - [Mevcut Bir ASP.NET Sayfasına AJAX İşlevsellik Ekleme](aspnet-35/aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
         - [Bir Web Sitesinde AJAX Özellikli Bir Web Hizmeti Oluşturma ve Kullanma](aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-        - [ASP.NET AJAX: ASP.NET AJAX gösterimi](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
+        - [ASP.NET AJAX: Bir ASP.NET AJAX gösterimi](aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
         - [ASP.NET AJAX Desteğiyle ADO.NET Veri Hizmetleri](aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
         - [ASP.NET AJAX Geçmişine Giriş](aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history.md)
         - [AJAX performansını geliştirmek için Komut Dosyası Birleştirme kullanma](aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)

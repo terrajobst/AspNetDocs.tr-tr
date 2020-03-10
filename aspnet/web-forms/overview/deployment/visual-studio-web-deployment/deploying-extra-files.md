@@ -9,11 +9,11 @@ ms.assetid: 1cd91055-84bc-42c6-9d80-646f41429d4d
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
 ms.openlocfilehash: eaa3141c22980f0c816e2f33b5597ac9fe69c23c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74594901"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78548414"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Visual Studio kullanarak Web dağıtımı ASP.NET: ek dosya dağıtma
 

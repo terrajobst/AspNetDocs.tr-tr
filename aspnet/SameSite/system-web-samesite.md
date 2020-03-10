@@ -5,12 +5,12 @@ description: ASP.NET içindeki site tanımlama bilgilerini nasıl kullanacağın
 ms.author: riande
 ms.date: 2/15/2019
 uid: samesite/system-web-samesite
-ms.openlocfilehash: edb368910b24be2d042afe3c19ffa1fb23245443
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.openlocfilehash: 7987a5d6c9b3a82679d42a2d381d471d56f495c2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77455717"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546748"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet"></a>ASP.NET içinde SameSite tanımlama bilgileriyle çalışma
 
@@ -177,7 +177,7 @@ Bu algılamalar, 2016 standardını desteklediğimiz ve özniteliği tamamen kal
 * Uygulamanız, test sitemizdeki tarayıcıları görebilir.
 * Ortamınız için gereken algılamaları eklemeye hazır olmanız gerekir.
 
-Algılama işleminin nasıl yapılacağı, .NET ve kullanmakta olduğunuz Web çerçevesinin sürümüne göre farklılık gösterir. Aşağıdaki kod <xref:HTTP.HttpCookie> çağrı sitesinde çağrılabilir:
+Algılama işleminin nasıl yapılacağı, .NET ve kullanmakta olduğunuz Web çerçevesinin sürümüne göre farklılık gösterir. Aşağıdaki kod [HttpCookie](/dotnet/api/system.web.httpcookie) çağrı sitesinde çağrılabilir:
 
 [!code-csharp[](sample/SameSiteCheck.cs?name=snippet)]
 
@@ -248,6 +248,8 @@ Google, eski Chrome sürümlerini kullanılabilir hale getirir. Chrome 'un eski 
 * [Kmıum 74 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/638880/)
 * Windows 'un 64 bit sürümünü kullanmıyorsanız, [Kmahaproxy görüntüleyicisini](https://omahaproxy.appspot.com/) kullanarak kmıum dalının, [küzum tarafından sunulan yönergeleri](https://www.chromium.org/getting-involved/download-chromium)kullanarak Chrome 74 ' e (v 74.0.3729.108) karşılık geldiğini arayabilirsiniz.
 
+Canary sürüm `80.0.3975.0`başlayarak, LAX + geçici SONRASı hafifletme, devre dışı bırakılan özelliğin son bitiş durumunda siteler ve hizmetlerin test edilmesine izin vermek için yeni bayrak `--enable-features=SameSiteDefaultChecksMethodRigorously` kullanılarak test amacıyla etkinleştirilebilir. Daha fazla bilgi için, bkz. Kmıum projeleri [SameSite Updates](https://www.chromium.org/updates/same-site)
+
 #### <a name="test-with-chrome-80"></a>Chrome ile test 80 +
 
 Yeni özniteliğini destekleyen Chrome 'un bir sürümünü [indirin](https://www.google.com/chrome/) . Yazma sırasında, geçerli sürüm Chrome 80 ' dir. Chrome 80 ' in yeni davranışı kullanması için etkin `chrome://flags/#same-site-by-default-cookies` bayrağı gerekir. Aynı zamanda, bir sameSite özniteliği etkin olmayan tanımlama bilgileri için yaklaşan davranışı test etmek üzere (`chrome://flags/#cookies-without-same-site-must-be-secure`) öğesini etkinleştirmeniz gerekir. Chrome 80, anahtarın tanımlama bilgilerini öznitelik olmadan `SameSite=Lax`, belirli istekler için zaman aşımına uğramış bir yetkisiz kullanım süresi ile birlikte kabul etmek için hedefdir. Her zaman yetkisiz kullanım süresini devre dışı bırakmak için Chrome 80 aşağıdaki komut satırı bağımsız değişkeniyle başlatılabilir:
@@ -302,6 +304,7 @@ Elektron sürümleri, daha eski bir Kmıum sürümlerini içerir. Örneğin, tak
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [ASP.NET ve ASP.NET Core yaklaşan SameSite tanımlama bilgisi değişiklikleri](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
+* [Aynı-varsayılan ve "SameSite = none;. Güvenli "tanımlama bilgileri](https://www.chromium.org/updates/same-site/test-debug)
 * [Kmıum blogu: geliştiriciler: yeni SameSite için hazırlanın = yok; Güvenli tanımlama bilgisi ayarları](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Aynı şekilde açıklanan SameSite tanımlama bilgileri](https://web.dev/samesite-cookies-explained/)
 * [Chrome güncelleştirmeleri](https://www.chromium.org/updates/same-site)

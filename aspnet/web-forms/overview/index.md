@@ -9,11 +9,11 @@ ms.assetid: b3fb4480-0f41-495b-add6-163ca92dc8a3
 msc.legacyurl: /web-forms/overview
 msc.type: book
 ms.openlocfilehash: 4b38d6b54f53508f7b568207fe7f1a624a7af5f3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402277"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639449"
 ---
 # <a name="aspnet-web-forms-guidance"></a>ASP.NET Web Forms Kılavuzu
 
@@ -75,8 +75,8 @@ ms.locfileid: "59402277"
     - [ASP.NET 4 - Kurumsal Dağıtıma Giriş](deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
         - [Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma](deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-        - [Kurumsal Web Dağıtımı: Senaryoya genel bakış](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-        - [Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+        - [Kurumsal Web Dağıtımı: Senaryoya Genel Bakış](deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+        - [Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime](deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
     - [ASP.NET 4 - Kurumsal Dağıtım Serisi 1](deployment/web-deployment-in-the-enterprise/index.md)
 
         - [Kurumda Web Dağıtımı](deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -94,9 +94,9 @@ ms.locfileid: "59402277"
 
         - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
         - [Web Dağıtımı için Doğru Yaklaşımı Seçme](deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-        - [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-        - [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-        - [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+        - [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+        - [Senaryo: Web Dağıtımı için Hazırlama Ortamı Yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+        - [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
         - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
         - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
         - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
@@ -130,14 +130,14 @@ ms.locfileid: "59402277"
 
     - [ASP.NET 4 - Tailspin Spyworks](older-versions-getting-started/tailspin-spyworks/index.md)
 
-        - [Bölüm 1: Dosya -> Yeni Proje](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
-        - [Bölüm 2: Veri erişim katmanı](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-        - [3. Bölüm: Düzen ve kategori menüsü](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
-        - [4. Bölüm: Ürünleri listeleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
-        - [5. Bölüm: Business Logic](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-        - [6. Bölüm: ASP.NET üyelik](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
-        - [7. Bölüm: Özellik ekleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-        - [8. Bölüm: Son sayfalar, özel durum işleme ve sonuç](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+        - [1. Bölüm: Dosya -> Yeni Proje](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
+        - [2. Bölüm: Veri Erişim Katmanı](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
+        - [3. Bölüm: Düzen ve Kategori Menüsü](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+        - [4. Bölüm: Ürünleri Listeleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
+        - [5. Bölüm: İş Mantığı](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
+        - [6. Bölüm: ASP.NET Üyeliği](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+        - [7. Bölüm: Özellik Ekleme](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
+        - [8. Bölüm: Son Sayfalar, Özel Durum İşleme ve Sonuç](older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
     - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Çalışmaya Başlama](older-versions-getting-started/getting-started-with-ef/index.md)
 
         - [Entity Framework 4.0 Database First ile Çalışmaya Başlama](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -150,9 +150,9 @@ ms.locfileid: "59402277"
         - [Entity Framework 4.0 Database First ile Çalışmaya Başlama - 8. Bölüm](older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
     - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Devam Etme](older-versions-getting-started/continuing-with-ef/index.md)
 
-        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Çalışmaya başlama](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş mantığı katmanı ve birim testleri ekleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve filtreleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+        - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve Filtreleme](older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
         - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Eş Zamanlılığı İşleme](older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Performansı En Üst Düzeye Çıkarma](older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
         - [Entity Framework 4.0 Sürümündeki Yenilikler](older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: OData v4 istemci uygulaması (C#) oluşturma | Microsoft Docs
+title: OData v4 Istemci uygulaması oluşturma (C#) | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
@@ -9,78 +9,78 @@ ms.assetid: 47202362-3808-4add-9a69-c9d1f91d5e4e
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
 msc.type: authoredcontent
 ms.openlocfilehash: a0016cf2cc7bffe6268664395ccb38e140090310
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126132"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556296"
 ---
 # <a name="create-an-odata-v4-client-app-c"></a>OData v4 İstemci Uygulaması Oluşturma (C#)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Önceki öğreticide, temel CRUD işlemleri destekleyen bir OData hizmeti oluşturuldu. Artık bir istemci hizmeti için oluşturalım.
+Önceki öğreticide CRUD işlemlerini destekleyen temel bir OData hizmeti oluşturdunuz. Şimdi hizmet için bir istemci oluşturalım.
 
-Yeni bir Visual Studio örneği başlatın ve yeni bir konsol uygulama projesi oluşturun. İçinde **yeni proje** iletişim kutusunda **yüklü** &gt; **şablonları** &gt; **Visual C#** &gt; **Windows Masaüstü**seçip **konsol uygulaması** şablonu. Projeyi adlandırın &quot;ProductsApp&quot;.
+Visual Studio 'nun yeni bir örneğini başlatın ve yeni bir konsol uygulaması projesi oluşturun. **Yeni proje** iletişim kutusunda,  **C# Visual** &gt; **Windows Masaüstü**&gt; **yüklü** &gt; **şablonları** ' nı seçin ve **konsol uygulaması** şablonunu seçin. Projeyi &quot;ProductsApp&quot;olarak adlandırın.
 
 ![](create-an-odata-v4-client-app/_static/image1.png)
 
 > [!NOTE]
-> Ayrıca, OData hizmeti içeren aynı Visual Studio çözümünü konsol uygulaması ekleyebilirsiniz.
+> Ayrıca, konsol uygulamasını OData hizmetini içeren aynı Visual Studio çözümüne ekleyebilirsiniz.
 
-## <a name="install-the-odata-client-code-generator"></a>OData istemci kodu oluşturucuyu yükleme
+## <a name="install-the-odata-client-code-generator"></a>OData Istemci kod oluşturucuyu yükler
 
-Gelen **Araçları** menüsünde **Uzantılar ve güncelleştirmeler**. Seçin **çevrimiçi** &gt; **Visual Studio Galerisi**. Arama kutusuna arama &quot;OData istemci kodu Oluşturucu&quot;. Tıklayın **indirme** VSIX'i yüklemek. Visual Studio'yu yeniden başlatmanız istenebilir.
+**Araçlar** menüsünde **Uzantılar ve güncelleştirmeler**' i seçin. **Çevrimiçi** &gt; **Visual Studio Galerisi**' ni seçin. Arama kutusuna &quot;OData Istemci kodu Oluşturucu&quot;aratın. VSıX 'i yüklemek için **İndir** 'e tıklayın. Visual Studio 'Yu yeniden başlatmanız istenebilir.
 
 [![](create-an-odata-v4-client-app/_static/image3.png)](create-an-odata-v4-client-app/_static/image2.png)
 
-## <a name="run-the-odata-service-locally"></a>OData hizmeti yerel olarak çalıştırma
+## <a name="run-the-odata-service-locally"></a>OData hizmetini yerel olarak çalıştırma
 
-Visual Studio'dan ProductService projeyi çalıştırın. Varsayılan olarak, Visual Studio uygulama kökü için bir tarayıcı başlatır. URI dikkat edin. Bu sonraki adımda gerekir. Uygulamasını çalışır durumda bırakın.
+Visual Studio 'dan ProductService projesini çalıştırın. Varsayılan olarak, Visual Studio uygulama köküne bir tarayıcı başlatır. URI 'yi aklınızda bulunan Bu, bir sonraki adımda gerekli olacaktır. Uygulamayı çalışır durumda bırakın.
 
 ![](create-an-odata-v4-client-app/_static/image4.png)
 
 > [!NOTE]
-> Aynı çözüm içinde her iki proje yerleştirdiğinizde ProductService projeyi hata ayıklama olmadan çalıştırmak emin olun. Sonraki adımda, konsol uygulama projesi değiştirme sırasında çalışan hizmeti tutmanız gerekir.
+> Her iki projeyi de aynı çözüme yerleştirirseniz, ProductService projesini hata ayıklama olmadan çalıştırdığınızdan emin olun. Bir sonraki adımda, konsol uygulama projesini değiştirirken hizmeti çalışır durumda tutmanız gerekecektir.
 
-## <a name="generate-the-service-proxy"></a>Hizmet proxy'si oluştur
+## <a name="generate-the-service-proxy"></a>Hizmet proxy 'Si oluşturma
 
-Hizmet proxy'si OData hizmetine erişim yöntemleri tanımlayan bir .NET sınıfıdır. Ara sunucu HTTP isteklerinin yöntemi çağrılarını çevirir. Proxy sınıfı çalıştırarak oluşturacağınız bir [T4 şablonu](https://msdn.microsoft.com/library/bb126445.aspx).
+Hizmet proxy 'si OData hizmetine erişim yöntemlerini tanımlayan bir .NET sınıfıdır. Proxy, Yöntem çağrılarını HTTP isteklerine çevirir. Bir [T4 şablonu](https://msdn.microsoft.com/library/bb126445.aspx)çalıştırarak proxy sınıfını oluşturacaksınız.
 
-Projeye sağ tıklayın. Seçin **ekleme** &gt; **yeni öğe**.
+Projeye sağ tıklayın. &gt; **Yeni öğe** **Ekle** ' yi seçin.
 
 ![](create-an-odata-v4-client-app/_static/image5.png)
 
-İçinde **Yeni Öğe Ekle** iletişim kutusunda **Visual C# öğeleri** &gt; **kod** &gt; **OData istemcisi**. Şablon adı &quot;ProductClient.tt&quot;. Tıklayın **Ekle** aracılığıyla güvenlik uyarısı tıklayın.
+**Yeni öğe Ekle** iletişim kutusunda,  **C# Visual Items** &gt; **Code** &gt; **OData Client**' ı seçin. Şablonu &quot;ProductClient.tt&quot;olarak adlandırın. **Ekle** ' ye tıklayın ve Güvenlik Uyarısı ' na tıklayın.
 
 [![](create-an-odata-v4-client-app/_static/image7.png)](create-an-odata-v4-client-app/_static/image6.png)
 
-Bu noktada, siz görmezden gelmenizde bir hata alırsınız. Visual Studio, şablonu otomatik olarak çalışır, ancak bazı yapılandırma ayarları şablonun gerekir ilk.
+Bu noktada, yoksayabilirsiniz bir hata alırsınız. Visual Studio şablonu otomatik olarak çalıştırır, ancak şablonda önce bazı yapılandırma ayarları gerekir.
 
 [![](create-an-odata-v4-client-app/_static/image9.png)](create-an-odata-v4-client-app/_static/image8.png)
 
-ProductClient.odata.config dosyasını açın. İçinde `Parameter` öğesini ProductService projesi (önceki adımda) URI'SİNDEN yapıştırın. Örneğin:
+ProductClient. OData. config dosyasını açın. `Parameter` öğesinde, ProductService projesinden URI 'yi (önceki adımda) yapıştırın. Örneğin:
 
 [!code-xml[Main](create-an-odata-v4-client-app/samples/sample1.xml)]
 
 [![](create-an-odata-v4-client-app/_static/image11.png)](create-an-odata-v4-client-app/_static/image10.png)
 
-Şablonu yeniden çalıştırın. Çözüm Gezgini'nde ProductClient.tt dosyasını sağ tıklatın ve seçin **özel aracı Çalıştır**.
+Şablonu yeniden çalıştırın. Çözüm Gezgini ' de, ProductClient.tt dosyasına sağ tıklayın ve **özel araç Çalıştır**' ı seçin.
 
-Şablon proxy tanımlayan ProductClient.cs adlı bir kod dosyası oluşturur. OData uç noktasını değiştirirseniz, uygulamanızı geliştirirken, şablonun proxy güncelleştirmeyi yeniden çalıştırın.
+Şablon, proxy 'yi tanımlayan ProductClient.cs adlı bir kod dosyası oluşturur. Uygulamanızı geliştirirken, OData uç noktasını değiştirirseniz, proxy 'yi güncelleştirmek için şablonu yeniden çalıştırın.
 
 ![](create-an-odata-v4-client-app/_static/image12.png)
 
-## <a name="use-the-service-proxy-to-call-the-odata-service"></a>OData hizmeti çağırmak amacıyla hizmet proxy'si kullanın
+## <a name="use-the-service-proxy-to-call-the-odata-service"></a>OData hizmetini çağırmak için hizmet proxy 'sini kullanma
 
-Program.cs dosyasını açın ve ortak kod aşağıdakiyle değiştirin.
+Program.cs dosyasını açın ve ortak kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample2.cs)]
 
-Değiştirin *serviceUri* hizmet URI'si ile daha önce.
+*Serviceurı* değerini daha önce gelen hizmet URI 'siyle değiştirin.
 
 [!code-csharp[Main](create-an-odata-v4-client-app/samples/sample3.cs)]
 
-Uygulamayı çalıştırdığınızda, aşağıdaki çıkışı oluşturmalıdır:
+Uygulamayı çalıştırdığınızda, aşağıdakilerden çıkış yapmanız gerekir:
 
 [!code-console[Main](create-an-odata-v4-client-app/samples/sample4.cmd)]

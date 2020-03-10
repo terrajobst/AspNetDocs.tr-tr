@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post
-title: '[Bunu nasıl yaparım:] HTTP GET ve POST kullanarak artımlı sayfa görüntüleme desenini uygulansın mı? | Microsoft Docs'
+title: '[Nasıl yapılır:] HTTP GET ve POST kullanarak artımlı sayfa görüntüleme modelini uygulayın mi? | Microsoft Docs'
 author: JoeStagner
-description: Bu videoyu başka bir AJAX artımlı sayfa görüntüleme Web sayfası alınır ve artımlı olarak görüntülenen desenini inceler. Bu videoda...
+description: Bu videoda, Web sayfasının alındığı ve artımlı olarak görüntülendiği AJAX artımlı sayfa görüntüleme düzenine bir göz atalım. Bu videoda...
 ms.author: riande
 ms.date: 03/13/2007
 ms.assetid: 28d5bb59-9aad-4cdd-8088-1e9d3d230ac5
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post
 msc.type: video
 ms.openlocfilehash: e4766f6d20c17cf99c11fc634cf15743ef839716
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59413717"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78545264"
 ---
-# <a name="how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post"></a>[Bunu nasıl yaparım:] HTTP GET ve POST kullanarak artımlı sayfa görüntüleme desenini uygulansın mı?
+# <a name="how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post"></a>[Nasıl yapılır:] HTTP GET ve POST kullanarak artımlı sayfa görüntüleme modelini uygulayın mi?
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoyu başka bir AJAX artımlı sayfa görüntüleme Web sayfası alınır ve artımlı olarak görüntülenen desenini inceler. Bu videoda, Web hizmeti çağrıları kullanarak önceki gösterimi yerine HTTP GET ve POST istekleri kullanarak sunucudan verileri alınır.
+Bu videoda, Web sayfasının alındığı ve artımlı olarak görüntülendiği AJAX artımlı sayfa görüntüleme düzenine bir göz atalım. Bu videoda, veriler, Web hizmeti çağrılarını kullanmanın önceki gösterimi yerine HTTP GET ve POST istekleri kullanılarak sunucudan alınır.
 
-[&#9654;Videoyu (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post)
+[&#9654;Videoyu izleyin (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-implement-the-ajax-incremental-page-display-pattern.md)

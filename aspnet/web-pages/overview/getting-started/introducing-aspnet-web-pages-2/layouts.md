@@ -1,185 +1,185 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: Tutarlı bir düzen oluşturma - ASP.NET Web sayfaları ile tanışın | Microsoft Docs
+title: ASP.NET Web sayfalarına giriş-tutarlı bir düzen oluşturma | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, ASP.NET Web sayfaları kullanan bir site sayfalar için tutarlı bir görünüm oluşturmak için düzenlerini kullanmayı gösterir. Tamamladığınızdan varsayar...
+description: Bu öğreticide, ASP.NET Web sayfaları kullanan bir sitedeki Sayfalar için tutarlı bir görünüm oluşturmak üzere mizanpajları nasıl kullanabileceğiniz gösterilmektedir. Bunu tamamladığınızı varsaymaktadır...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
 ms.openlocfilehash: 678eb7089e95e3d221d6b2d82034a62aefa75757
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131832"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78526693"
 ---
-# <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web sayfalarına giriş - tutarlı bir düzen oluşturma
+# <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web sayfalarına giriş-tutarlı bir düzen oluşturma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğreticide nasıl kullanılacağını gösterir *düzenleri* kullanan ASP.NET Web sayfaları sitesinde sayfalar için tutarlı bir görünüm oluşturmak için. Bu seriyi aracılığıyla bitirdiğinizi [veritabanı verilerini silme ASP.NET Web Pages'de](https://go.microsoft.com/fwlink/?LinkId=251584).
+> Bu öğreticide, ASP.NET Web sayfaları kullanan bir sitedeki Sayfalar için tutarlı bir görünüm oluşturmak üzere *mizanpajları* nasıl kullanabileceğiniz gösterilmektedir. [ASP.NET Web sayfalarındaki veritabanı verilerini silerek](https://go.microsoft.com/fwlink/?LinkId=251584)seriyi tamamladığınız varsayılır.
 > 
 > Öğrenecekleriniz:
 > 
-> - Bir düzen sayfası ' dir.
-> - Yerleşim sayfaları dinamik içerik ile bir araya getirilebileceğini öğrenin.
-> - Bir düzen sayfasına değerleri geçirmek nasıl.
+> - Düzen sayfası ne olur?
+> - Düzen sayfalarını dinamik içerikle birleştirme.
+> - Değerleri bir düzen sayfasına geçirme.
 
 ## <a name="about-layouts"></a>Düzenler hakkında
 
-Şu ana kadar oluşturduğunuz sayfaları tüm tam tek başına sayfa. Bunların tümü aynı siteye ait, ancak ortak öğeleri veya standart bir görünüm yok.
+Şimdiye kadar oluşturduğunuz sayfaların hepsi, tek başına sayfaları tamamlanmıştır. Hepsi aynı siteye aittir, ancak ortak bir öğe veya standart görünüm içermez.
 
-Çoğu siteleri bir tutarlı bir görünüm ve Düzen sahip. Örneğin, Git, [Microsoft.com/web](https://www.microsoft.com/web/) site ve araştırın, tüm sayfaların genel bir düzeni ve görsel temasını uygun olacağını göreceksiniz:
+Çoğu sitede tutarlı bir görünüm ve düzen vardır. Örneğin, [Microsoft.com/Web](https://www.microsoft.com/web/) sitesine giderseniz ve sonra da sayfaların tümünün bir genel düzene ve görsel temaya bağlı olduğunu görürsünüz:
 
-![Üst bilgi, gezinti alanına, içerik alanı ve alt bilgi düzenini gösteren Microsoft.com/web site sayfası](layouts/_static/image1.png)
+![Üstbilginin, gezinti alanının, içerik alanının ve altbilginin yerleşimini gösteren Microsoft.com/web site sayfası](layouts/_static/image1.png)
 
-Bir *verimsiz* üst bilgi, gezinti çubuğunda ve altbilgi her sayfalarınızın ayrı olarak tanımlamak için bu düzeni oluşturmak için bir yol olur. Her zaman aynı biçimlendirme çoğaltma. Bir şeyle değiştirmek istiyorsanız (örneğin, alt bilgi güncelleştirme) her sayfaya ayrı olarak değiştirmeniz gerekecektir.
+Bu düzeni oluşturmanın *verimsiz* bir yolu, sayfalarınızın her birinde ayrı bir üst bilgi, gezinti çubuğu ve alt bilgi tanımlamak olacaktır. Her seferinde aynı biçimlendirmeyi çoğaltmaktan olursunuz. Bir şeyi değiştirmek isterseniz (örneğin, alt bilgiyi güncelleştirmek), her bir sayfayı ayrı olarak değiştirmeniz gerekir.
 
-Olduğu yer *Düzen sayfaları* vardır. ASP.NET Web sayfaları'nda, sitenizdeki sayfaları için genel bir kapsayıcı sağlayan bir düzen sayfası tanımlayabilirsiniz. Örneğin, düzen sayfası, üst bilgi, gezinti alanı ve alt bilgi içerebilir. Düzen sayfası ana içeriğin nereye gideceğini yer tutucu içerir.
+Bu, *Düzen sayfalarının* geldiği yerdir. ASP.NET Web sayfalarında, sitenizdeki sayfalar için genel bir kapsayıcı sağlayan bir düzen sayfası tanımlayabilirsiniz. Örneğin, Düzen sayfası üstbilgiyi, gezinti alanını ve altbilgiyi içerebilir. Düzen sayfası, ana içeriğin gittiği bir yer tutucu içerir.
 
-Ardından, biçimlendirme ve yalnızca o sayfanın kodu içeren her bir içerik sayfayı tanımlayabilirsiniz. İçerik sayfaları tam HTML sayfalarını olmak zorunda değildir; Bunlar bile sahip olmak zorunda değildir bir `<body>` öğesi. Ayrıca bir ASP hangi düzen sayfası içeriği görüntülemek istediğiniz kod satırının sahiptirler. Kabaca bu ilişkiyi nasıl çalıştığını gösteren resim şu şekildedir:
+Daha sonra, yalnızca bu sayfa için biçimlendirmeyi ve kodu içeren bireysel içerik sayfalarını tanımlayabilirsiniz. İçerik sayfalarının HTML sayfalarının tamamı olması gerekmez; `<body>` bir öğesi olması bile gerekmez. Ayrıca, ASP.NET içeriğini hangi düzen sayfasına göstermek istediğinizi söyleyen bir kod satırı da vardır. Bu ilişkinin nasıl çalıştığını kabaca gösteren bir resim aşağıdadır:
 
-![İki içerik sayfaları ve içine sığması bir düzen sayfası gösteren kavramsal diyagram](layouts/_static/image2.png)
+![İki içerik sayfası ve bu sayfaların sığması için bir düzen sayfası gösteren kavramsal diyagram](layouts/_static/image2.png)
 
-Bu etkileşimi nasıl çalıştığını görün anlamak kolaydır. Bu öğreticide, bir düzeni kullanmak için filmler sayfalarınızı değiştireceksiniz.
+Bu etkileşim, işlem sırasında gördüğünüz zaman anlaşılması kolay bir işlemdir. Bu öğreticide, film sayfalarınızı bir düzen kullanacak şekilde değiştireceksiniz.
 
-## <a name="adding-a-layout-page"></a>Bir düzen sayfası ekleme
+## <a name="adding-a-layout-page"></a>Düzen sayfası ekleme
 
-Bir üstbilgi, altbilgi ve ana içerik için bir alan tipik sayfa düzeniyle tanımlayan bir düzen sayfası oluşturarak başlayacağız. WebPagesMovies sitede adlı CSHTML sayfa ekleme  *\_Layout.cshtml*.
+Ana içerik için bir üst bilgi, alt bilgi ve bir alanı olan tipik bir sayfa düzeni tanımlayan bir düzen sayfası oluşturarak başlayacaksınız. Webpagesfilmlerini sitesinde, *\_Layout. cshtml*ADLı bir cshtml sayfası ekleyin.
 
-Başındaki altçizgiyi ( `_` ) karakteri önemlidir. Bir sayfanın adı bir alt çizgiyle başlıyorsa ASP.NET bu sayfayı doğrudan tarayıcıya göndermez. Bu kural, ancak bu kullanıcıları doğrudan istek işleyememelidir siteniz için gerekli olan sayfa tanımlamanıza olanak sağlar.
+Önde gelen alt çizgi (`_`) karakteri önemlidir. Bir sayfanın adı alt çizgiyle başlıyorsa, ASP.NET bu sayfayı tarayıcıya doğrudan göndermez. Bu kural, siteniz için gerekli olan, ancak kullanıcıların doğrudan isteyememesi gereken sayfaları tanımlamanızı sağlar.
 
-Sayfa içeriğini aşağıdakiyle değiştirin:
+Sayfadaki içeriği aşağıdaki gibi değiştirin:
 
 [!code-html[Main](layouts/samples/sample1.html)]
 
-Gördüğünüz gibi bu işaretleme kullanan yalnızca HTML'dir `<div>` sayfa ayrıca bir üç bölüm daha tanımlamak için öğeleri `<div>` üç bölüm tutmak için öğesi. Altbilgi Razor kodunun bir bit içerir: `@DateTime.Now.Year`, hangi işleme geçerli yıl sayfasında bu konumdaki.
+Görebileceğiniz gibi, bu biçimlendirme yalnızca, sayfada üç bölümü ve üç bölümü tutacak bir `<div>` öğesini tanımlamak için `<div>` öğelerini kullanan HTML 'dir. Alt bilgi, sayfada bu konumdaki geçerli yılı işleyecek Razor kodu: `@DateTime.Now.Year`bir bit içerir.
 
-Adlı bir stil sayfası bağlantısı olduğunu fark *Movies.css*. Öğeleri fiziksel düzenini ayrıntılarını tanımlanacağı stil sayfası alınır. Bir dakika içinde oluşturacaksınız.
+*Filmler. css*adlı bir stil sayfasının bağlantısı olduğuna dikkat edin. Stil sayfası, öğelerin fiziksel düzeninin ayrıntılarının tanımlanacaktır. Bunu bir süre içinde oluşturacaksınız.
 
-Bu yalnızca olağan dışı özellik  *\_Layout.cshtml* sayfasıdır `@Render.Body()` satır. Bu düzen, başka bir sayfa ile birleştirildiğinde içeriği gidecekleri yer tutucu olmasıdır.
+Bu *\_Layout. cshtml* sayfasındaki tek olağan dışı özellik `@Render.Body()` satırdır. Bu düzen başka bir sayfayla birleştirildiğinde içeriğin gideceleceği yer tutucudur.
 
-## <a name="adding-a-css-file"></a>.Css dosyasını ekleme
+## <a name="adding-a-css-file"></a>. Css dosyası ekleme
 
-Sayfada öğeleri gerçek yerleşimini (diğer bir deyişle, Görünüm) tanımlamak için tercih edilen yoludur, geçişli stil sayfası (CSS) kurallarını kullanmaktır. Oluşturacağınız şekilde bir *.css* kuralları, yeni düzene sahip bir dosya.
+Sayfadaki öğelerin gerçek düzenlemesini (görünüm) tanımlamanın tercih edilen yolu, geçişli stil sayfası (CSS) kuralları kullanmaktır. Bu nedenle, yeni düzeniniz için kurallara sahip bir *. css* dosyası oluşturacaksınız.
 
-Webmatrix'te, sitenizin kök seçin. Ardından **dosyaları** sekmesi altında Şerit, oku **yeni** düğmesine ve ardından **yeni klasör**.
+WebMatrix 'te sitenizin kökünü seçin. Ardından şeridin **dosyalar** sekmesinde, **Yeni** düğmesinin altındaki oka ve ardından **Yeni klasör**' e tıklayın.
 
-![Şeritteki yeni 'Yeni Klasör' seçeneği.](layouts/_static/image3.png)
+![Şeritte Yeni ' yeni klasör ' seçeneği.](layouts/_static/image3.png)
 
-Yeni klasör adı *stilleri*.
+Yeni klasör *stillerini*adlandırın.
 
-![Yeni Klasör 'Stilleri' adlandırma](layouts/_static/image4.png)
+![' Styles ' yeni klasörünü adlandırma](layouts/_static/image4.png)
 
-İçinde yeni *stilleri* klasöründe adlı bir dosya oluşturun *Movies.css*.
+Yeni *Stiller* klasörünün Içinde, *filmler. css*adlı bir dosya oluşturun.
 
-![Yeni bir Movies.css dosyası oluşturma](layouts/_static/image5.png)
+![Yeni bir filmler. css dosyası oluşturma](layouts/_static/image5.png)
 
-Yeni içeriklerini *.css* aşağıdaki dosya:
+Yeni *. css* dosyasının içeriğini aşağıdakiler ile değiştirin:
 
 [!code-css[Main](layouts/samples/sample2.css)]
 
-İki şey not üzere dışında bu CSS kurallarını hakkında pek fazla dediğimiz olmaz. Yazı tiplerine ve boyutlarına ayarlamanın yanı sıra kuralları mutlak konumlandırma üstbilgi, altbilgi ve ana içerik alanı konumu'kurmak için kullandığınız paroladır. Edinebilirsiniz, CSS konumlandırma yeni tanışıyorsanız, [CSS konumlandırma](http://www.w3schools.com/css/css_positioning.asp) W3Schools sitesindeki öğretici.
+İki şeyi aklınızda bulundurmanız dışında bu CSS kuralları hakkında çok daha fazla bilgi vermeyiz. Bir tane, yazı tiplerinin ve boyutların ayarlanmasına ek olarak, kuralların üst bilgi, alt bilgi ve ana içerik alanının konumunu oluşturmak için mutlak konumlandırmayı kullanmasına de olanak sağlar. CSS 'ye konumlandırmayı yeni başladıysanız W3Schools sitesinde [CSS konumlandırma](http://www.w3schools.com/css/css_positioning.asp) öğreticisini okuyabilirsiniz.
 
-En altında ki özgün olarak olan Stil kurallarının kopyalamış olduğunuz tanımlanmış tek tek de dikkat edilecek diğer şey *Movies.cshtml* dosya. Bu kurallar de kullanılan [veri görüntüleme ile ASP.NET Web sayfaları kullanarak giriş](https://go.microsoft.com/fwlink/?LinkId=251580) yapmak için öğreticiyi `WebGrid` yardımcı işleme şeritler tabloya eklenen biçimlendirme. (Kullanmak için kullanacaksanız bir *.css* dosya Stil tanımları için de Stil kurallarının tüm sitenin içinde yerleştirdiğiniz.)
+Diğer bir deyişle, en altta, *filmler. cshtml* dosyasında ilk olarak tanımlanmış stil kurallarını kopyaladık. Bu kurallar, tabloya şeritler ekleyen biçimlendirme `WebGrid` Yardımcısı oluşturmak için [ASP.NET Web Pages öğreticisi kullanılarak verileri görüntüleme](https://go.microsoft.com/fwlink/?LinkId=251580) öğreticisinde kullanılmıştır. (Stil tanımları için bir *. css* dosyası kullanacaksanız, içindeki tüm site için stil kurallarını da koyabilirsiniz.)
 
-## <a name="updating-the-movies-file-to-use-the-layout"></a>Bu düzeni kullanmak için filmler dosyası güncelleştiriliyor
+## <a name="updating-the-movies-file-to-use-the-layout"></a>Film dosyasını düzeni kullanmak üzere güncelleştirme
 
-Artık sitenizin yeni düzeni kullanmak için mevcut dosyaları güncelleştirebilirsiniz. Açık *Movies.cshtml* dosya. En üstünde, kodun ilk satırı aşağıdakileri ekleyin:
+Artık yeni düzeni kullanmak için sitenizdeki mevcut dosyaları güncelleştirebilirsiniz. *Filmler. cshtml* dosyasını açın. En üstte, kodun ilk satırı olarak aşağıdakileri ekleyin:
 
 [!code-csharp[Main](layouts/samples/sample3.cs)]
 
-Sayfa artık şu şekilde başlar:
+Sayfa artık bu şekilde başlatılır:
 
 [!code-cshtml[Main](layouts/samples/sample4.cshtml?highlight=2)]
 
-Bu tek satırlık bir kod ASP olduğunda *filmler* sayfa çalıştırılırsa ile birleştirilmesini  *\_Layout.cshtml* dosya.
+Bu bir kod satırı, *film* sayfası çalıştırıldığında, onun *\_Layout. cshtml* dosyası ile birleştirildiğini ASP.net söyler.
 
-Bu yana *Movies.cshtml* dosyası, bir yerleşim sayfası artık kullanır, biçimlendirmeden kaldırabilirsiniz *Movies.cshtml* tarafından dikkate sayfa  *\_Layout.cshtml*dosya. Çıkın `<!DOCTYPE>`, `<html>`, ve `<body>` açılış ve kapanış etiketlerinin. Tüm Al `<head>` öğesi ve artık bu kurallar kendinizi ComUnregisterFunction kılavuz stili kurallarını içerir, içeriğinin bir *.css* dosya. Mevcut olduğundan iken değiştirmek `<h1>` öğesine bir `<h2>` öğesi; olan bir `<h1>` düzen sayfası zaten öğesinde. Değişiklik `<h2>` "Listesi filmler" metni.
+*Filmler. cshtml* dosyası artık bir düzen sayfası kullandığından, *\_Layout. cshtml* dosyası tarafından ele alınan *filmler. cshtml* sayfasından biçimlendirmeyi kaldırabilirsiniz. `<!DOCTYPE>`, `<html>`ve `<body>` etiketleri açıp kapatmak için yararlanın. Artık bir *. css* dosyasında bu kurallara sahip olduğunuz için kılavuzun stil kurallarını içeren tüm `<head>` öğesi ve içeriğini alın. Bu sırada, var olan `<h1>` öğesini bir `<h2>` öğesiyle değiştirin; Düzen sayfasında zaten bir `<h1>` öğesidir. `<h2>` metni "filmleri Listele" olarak değiştirin.
 
-Normalde bir içerik sayfasında bu tür değişiklikler yapmak zorunda mıydı. Olan düzen sayfası başlattığınız siteniz olduğunda, bu öğeler olmadan içerik sayfalarını başlangıç olarak oluşturun. Bu durumda, yine de, bir tek başına sayfa biraz temizlik, bu nedenle, bir düzeni kullanan bir dönüştürüyoruz.
+Normalde, bu tür değişiklikleri içerik sayfasında yapmanız gerekmez. Sitenizi bir düzen sayfasıyla başlattığınızda, ile başlamak için bu öğeler olmadan içerik sayfaları oluşturursunuz. Bu durumda, tek başına bir sayfayı düzen kullanan bir sayfaya dönüştürüyorsunuz, bu yüzden Temizleme biraz daha vardır.
 
-İşiniz bittiğinde, *Movies.cshtml* sayfasında, aşağıdaki gibi görünür:
+İşiniz bittiğinde, *filmler. cshtml* sayfası aşağıdakine benzer şekilde görünür:
 
 [!code-cshtml[Main](layouts/samples/sample5.cshtml)]
 
-### <a name="testing-the-layout"></a>Test düzeni
+### <a name="testing-the-layout"></a>Düzeni test etme
 
-Artık düzenini nasıl göründüğünü görebilirsiniz. Webmatrix'te, sağ *Movies.cshtml* sayfasından seçim yapıp **tarayıcıda Başlat**. Tarayıcı sayfası görüntülendiğinde, bu sayfada gibi görünür:
+Artık düzenin neye benzediklerine bakabilirsiniz. WebMatrix 'te, *filmler. cshtml* sayfasına sağ tıklayın ve **tarayıcıda Başlat**' ı seçin. Tarayıcı sayfayı görüntülediğinde bu sayfada şöyle görünür:
 
-![Bir düzen kullanılarak oluşturulması filmler sayfası](layouts/_static/image6.png)
+![Düzen kullanılarak işlenen filmler sayfası](layouts/_static/image6.png)
 
-ASP.NET Movies.cshtml sayfanın içeriğini birleştirildi  *\_Layout.cshtml* sayfasında doğru nerede `RenderBody` yöntemidir. Ve Elbette  *\_Layout.cshtml* sayfasında başvurular bir *.css* sayfa görünümünü tanımlayan dosya.
+ASP.NET, filmler. cshtml sayfasının içeriğini `RenderBody` yönteminin olduğu *\_Layout. cshtml* sayfasına birleştirmiştir. Kuşkusuz *\_Layout. cshtml* sayfası, sayfanın görünümünü tanımlayan bir *. css* dosyasına başvurur.
 
-## <a name="updating-the-addmovie-page-to-use-the-layout"></a>AddMovie sayfa düzeni kullanmak için güncelleştiriliyor
+## <a name="updating-the-addmovie-page-to-use-the-layout"></a>Düzen kullanmak için AddMovie sayfasını güncelleştirme
 
-Düzenleri gerçek avantajı, bunları tüm sayfalar için sitenizde sağlamasıdır. Açık *AddMovie.cshtml* sayfası.
+Düzenlerinizin gerçek avantajı, bunları sitenizdeki tüm sayfalar için kullanabilmeniz olabilir. *Addmovie. cshtml* sayfasını açın.
 
-Unutmayın *AddMovie.cshtml* sayfası ilk olan bazı CSS kurallarını doğrulama hatası iletilerinin görünümünü tanımlamak için bunu. Elinizde bu yana bir *.css* dosya sitenizin artık bu kuralları taşıyabilirsiniz *.css* dosya. Kaldırabilir *AddMovie.cshtml* dosya ve alt kısmına ekleyin *Movies.css* dosya. Aşağıdaki kurallar taşıdığınız:
+*Addmovie. cshtml* sayfasının, doğrulama hata iletilerinin görünümünü tanımlamak için BAŞLANGıÇTA bazı CSS kurallarına sahip olduğunu unutmayın. Siteniz için artık bir *. css* dosyanız olduğundan, bu kuralları *. css* dosyasına taşıyabilirsiniz. Bunları *Addmovie. cshtml* dosyasından kaldırın ve bunları *filmle. css* dosyasının altına ekleyin. Aşağıdaki kuralları taşııyorsunuz:
 
 [!code-css[Main](layouts/samples/sample6.css)]
 
-Şimdi değişiklikleri aynı tür hale *AddMovie.cshtml* yaptığınız *Movies.cshtml* — ekleme `Layout="~/_Layout.cshtml;` ve artık fazlalık HTML biçimlendirmeyi kaldırın. Değişiklik `<h1>` öğesine `<h2>`. İşiniz bittiğinde, sayfa şu örnekteki gibi görünür:
+Şimdi de,. cshtml için yaptığınız *Addmovie. cshtml* dosyasında aynı değişiklik türlerini yapın. *cshtml* — `Layout="~/_Layout.cshtml;` ekleyin ve artık gereksiz olan HTML işaretlemesini kaldırın. `<h1>` öğesini `<h2>`olarak değiştirin. İşiniz bittiğinde, sayfa şu örneğe benzer şekilde görünür:
 
 [!code-cshtml[Main](layouts/samples/sample7.cshtml)]
 
-Sayfayı çalıştırın. Artık bu çizim gibi görünür:
+Sayfayı çalıştırın. Şimdi şu şekilde görünür:
 
-![Bir düzen kullanılarak oluşturulması Sayfası 'Filmler Ekle'](layouts/_static/image7.png)
+![' Film ekleme ' sayfası düzen kullanılarak işlendi](layouts/_static/image7.png)
 
-Site sayfaları benzer değişiklikler yapmak istediğiniz — *EditMovie.cshtml* ve *DeleteMovie.cshtml*. Ancak, bunu yapmadan önce biraz daha esnek yapan düzene başka bir değişiklik yapabilirsiniz.
+Sitedeki sayfalarda benzer değişiklikler yapmak istiyorsunuz — *Editmovie. cshtml* ve *deletemovie. cshtml*. Ancak, bunu yapmadan önce mizanpajda çok daha esnek hale getiren başka bir değişiklik yapabilirsiniz.
 
-## <a name="passing-title-information-to-the-layout-page"></a>Düzen Sayfası başlık bilgilerini geçirme
+## <a name="passing-title-information-to-the-layout-page"></a>Başlık bilgilerini düzen sayfasına geçirme
 
-*\_Layout.cshtml* oluşturduğunuz sayfasına sahip bir `<title>` "My film sitesine" öğesi. Çoğu tarayıcısı bu öğenin içeriğini bir sekme üzerindeki metin olarak görüntüle:
+Oluşturduğunuz *\_Layout. cshtml* sayfasının "film Sitem" olarak ayarlanmış bir `<title>` öğesi vardır. Çoğu tarayıcı bu öğenin içeriğini bir sekmede metin olarak görüntüler:
 
-![Sayfanın &lt;başlık&gt; bir tarayıcı sekmesinde görüntülenen öğe](layouts/_static/image8.png)
+![Bir tarayıcı sekmesinde görünen sayfanın &lt;başlığı&gt; öğesi](layouts/_static/image8.png)
 
-Bu başlık bilgilerini geneldir. Başlık metni geçerli sayfa için ayrıntılı olmasını istediğinizi varsayalım. (Başlık metni arama motorları tarafından da sayfanızı ne hakkında olduğunu belirlemek için kullanılır.) İçerik sayfasından gibi bilgileri geçirebilirsiniz *Movies.cshtml* veya *AddMovie.cshtml* Düzen sayfasını ve ardından Düzen sayfası özelleştirmek için bu bilgileri işler.
+Bu başlık bilgileri geneldir. Başlık metninin geçerli sayfaya daha özgü olmasını istediğinizi varsayalım. (Başlık metni, sayfanızın hakkında ne olduğunu belirlemek için arama motorları tarafından da kullanılır.) *Film. cshtml* veya *addmovie. cshtml* gibi bir içerik sayfasından düzen sayfasına bilgi geçirebilir ve sonra bu bilgileri, düzen sayfasının ne yaptığını özelleştirmek için kullanabilirsiniz.
 
-Açık *Movies.cshtml* yeniden sayfa. Üst kod içinde aşağıdaki satırı ekleyin:
+*Filmler. cshtml* sayfasını yeniden açın. Üstteki kodda aşağıdaki satırı ekleyin:
 
 [!code-csharp[Main](layouts/samples/sample8.cs)]
 
-`Page` Nesnedir tüm kullanılabilir *.cshtml* sayfaları ve bu amaçla, yani ise bir sayfa ve powerapps'in düzen arasında bilgi paylaşımı için.
+`Page` nesnesi tüm *. cshtml* sayfalarında kullanılabilir ve bu amaçla, yani bir sayfa ile düzeni arasında bilgi paylaşmak için kullanılır.
 
-Açık  *\_Layout.cshtml* sayfası. Değişiklik `<title>` öğesi olan bu biçimlendirme gibi görünür:
+*\_Layout. cshtml* sayfasını açın. `<title>` öğesini şu biçimlendirme gibi görünecek şekilde değiştirin:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
-Bu kod içinde ne olursa olsun işler `Page.Title` özelliği sayfasında bu konumdaki sağ.
+Bu kod, sayfada bu konumda `Page.Title` özelliğindeki her şeyi işler.
 
-Çalıştırma *Movies.cshtml* sayfası. Bu süre tarayıcı sekmesini gösteren değeri olarak geçirilen `Page.Title`:
+*Filmler. cshtml* sayfasını çalıştırın. Bu kez tarayıcı sekmesi `Page.Title`değeri olarak ne geçtiğini gösterir:
 
-![Dinamik olarak oluşturulan bir başlık gösteren bir tarayıcı sekmesi](layouts/_static/image9.png)
+![Dinamik olarak oluşturulan başlığı gösteren bir tarayıcı sekmesi](layouts/_static/image9.png)
 
-İsterseniz, sayfa kaynağı tarayıcıda görüntüleme. Gördüğünüz gibi `<title>` öğesi olarak işlenen `<title>List Movies</title>`.
+İsterseniz, sayfa kaynağını tarayıcıda görüntüleyin. `<title>` öğesinin `<title>List Movies</title>`olarak işlendiğine bakabilirsiniz.
 
 > [!TIP] 
 > 
 > **Sayfa nesnesi**
 > 
-> Kullanışlı bir özelliği `Page` dinamik Nesne olmasıdır; `Title` özellik sabit veya ayrılmış bir ad değil. Kullanabileceğiniz *herhangi* değerini adı `Page` nesne. Örneğin, kolayca başlık adlı bir özellik kullanarak başarılı `Page.CurrentName` veya `Page.MyPage`. Tek kısıtlama adı için hangi özelliklerin adlı normal kurallara uymak sahip olur. (Örneğin, ad boşluk içeremez.)
+> `Page` yararlı bir özelliği dinamik bir nesne — `Title` özelliği sabit veya ayrılmış bir ad değildir. `Page` nesnesinin bir değeri için *herhangi* bir ad kullanabilirsiniz. Örneğin, `Page.CurrentName` veya `Page.MyPage`adlı bir özellik kullanarak başlığı kolayca geçirtiniz. Tek kısıtlama, adının özelliklerin adlandırılması için normal kurallara uymalıdır. (Örneğin, ad bir boşluk içeremez.)
 > 
-> Herhangi bir sayıda değerleri kullanarak geçirebilirsiniz `Page` nesne. Düzen sayfasına film bilgi geçirmek istiyorsanız, aşağıdaki gibi kullanarak değerleri geçirebiliriz `Page.MovieTitle` ve `Page.Genre` ve `Page.MovieYear`. (Veya bilgileri depolamak için geliştirilen diğer adlar.) Tek gereksinim — büyük olasılıkla açık olduğu — içerik sayfası ve düzen sayfası aynı adları kullanılacak olmasıdır.
+> `Page` nesnesini kullanarak istediğiniz sayıda değeri geçirebilirsiniz. Film bilgilerini düzen sayfasına geçirmek isterseniz, `Page.MovieTitle` ve `Page.Genre` ve `Page.MovieYear`gibi bir değer kullanarak değerleri geçirebilirsiniz. (Veya bilgileri depolamak için oluşturduğunuz diğer adlar.) Tek gereksinim — büyük olasılıkla açık olan — içerik sayfasında ve Düzen sayfasında aynı adları kullanmanız gerekir.
 > 
-> Geçirdiğiniz kullanarak bilgi `Page` nesne düzeni sayfasında görüntülenecek yalnızca metin sınırlı değildir. Düzen sayfası için bir değer geçirebilirsiniz ve düzen sayfası kod sayfası bir bölümünü görüntülemek karar vermek için değeri ardından kullanabilirsiniz ne *.css* kullanılacak dosya ve benzeri. Geçirdiğiniz değerleri `Page` nesne olan diğer değerleri gibi kullandığınız kod. Yalnızca değerleri içerik sayfasındaki kaynaklanan ve Düzen sayfasına geçirilir olduğu.
+> `Page` nesnesini kullanarak geçirdiğiniz bilgiler, yalnızca Düzen sayfasında görüntülenecek metinle sınırlı değildir. Düzen sayfasına bir değer geçirebilir ve ardından Düzen sayfasındaki kod, sayfanın bir bölümünün görüntülenip görüntülenmeyeceğini, hangi *CSS* dosyasının kullanılacağını vb. karar vermek için bu değeri kullanabilir. `Page` nesnesinde geçirdiğiniz değerler, kodda kullandığınız diğer değerler gibidir. Yalnızca değerler içerik sayfasında olur ve düzen sayfasına geçirilir.
 
-Açık *AddMovie.cshtml* sayfa ve bir satır için bir başlık sağladığı kodunu en üstüne ekleyin *AddMovie.cshtml* sayfası:
+*Addmovie. cshtml* sayfasını açın ve *addmovie. cshtml* sayfası için bir başlık sağlayan kodun en üstüne bir satır ekleyin:
 
 [!code-csharp[Main](layouts/samples/sample10.cs)]
 
-Çalıştırma *AddMovie.cshtml* sayfası. Yeni başlık görürsünüz:
+*Addmovie. cshtml* sayfasını çalıştırın. Yeni başlığı burada görebilirsiniz:
 
-![Dinamik olarak oluşturulan Ekle'filmler ' başlık gösteren bir tarayıcı sekmesi](layouts/_static/image10.png)
+![Dinamik olarak oluşturulan ' film ekleme ' başlığını gösteren bir tarayıcı sekmesi](layouts/_static/image10.png)
 
-## <a name="updating-the-remaining-pages-to-use-the-layout"></a>Bu düzeni kullanmak için geri kalan sayfalarını güncelleştirme
+## <a name="updating-the-remaining-pages-to-use-the-layout"></a>Yerleşimi kullanmak için kalan sayfaları güncelleştirme
 
-Şimdi yeni düzene kullanmasını sağlayarak sitenizdeki kalan sayfalarını tamamlayabilir. Açık *EditMovie.cshtml* ve *DeleteMovie.cshtml* içinde açın ve her aynı değişiklikleri yapın.
+Artık sitenizdeki diğer sayfaları, yeni düzeni kullanacak şekilde tamamlayabilmeniz gerekir. Sırasıyla *Editmovie. cshtml* ve *deletemovie. cshtml* dosyasını açın ve her birinde aynı değişiklikleri yapın.
 
-Düzen sayfasına bağlayan bir kod satırı ekleyin:
+Düzen sayfasına bağlanan kod satırını ekleyin:
 
 [!code-csharp[Main](layouts/samples/sample11.cs)]
 
@@ -191,46 +191,46 @@ veya:
 
 [!code-csharp[Main](layouts/samples/sample13.cs)]
 
-Tüm gereksiz HTML biçimlendirmeyi kaldırmak — aslında içinde olan BITS bırakın `<body>` öğesi (Ayrıca üst kod bloğu).
+Tüm gereksiz HTML işaretlemesini kaldır — temel olarak yalnızca `<body>` öğesi içindeki bitleri bırakın (artı en üstteki kod bloğu).
 
-Değişiklik `<h1>` olarak öğeyi bir `<h2>` öğesi.
+`<h1>` öğesini bir `<h2>` öğesi olacak şekilde değiştirin.
 
-Bu değişiklikler yaptınız, her test edin ve düzgün şekilde görüntülenmesini ve başlık doğru olduğundan emin olun.
+Bu değişiklikleri yaptığınızda, her birini test edin ve doğru şekilde görüntülendiğinden ve başlığın doğru olduğundan emin olun.
 
-## <a name="parting-thoughts-about-layout-pages"></a>Yerleşim sayfaları hakkında fikirlerinizi herhangi
+## <a name="parting-thoughts-about-layout-pages"></a>Düzen sayfaları hakkında düşünce
 
-Bu öğreticide oluşturduğunuz bir  *\_Layout.cshtml* sayfasında ve kullanılan `RenderBody` içeriği başka bir sayfadan birleştirmek için yöntemi. Düzenleri kullanarak Web sayfaları için temel düzeni olmasıdır.
+Bu öğreticide, bir *\_Layout. cshtml* sayfası oluşturdunuz ve içeriği başka bir sayfadan birleştirmek için `RenderBody` metodunu kullandınız. Bu, Web sayfalarında düzenleri kullanmaya yönelik temel bir modeldir.
 
-Yerleşim sayfaları, burada ele yaramadı ek özellikleri vardır. Örneğin, Düzen sayfaları yuvalayabilirsiniz; bir düzen sayfası sırayla başvurabilir başka. İç içe geçmiş düzenleri alan farklı düzenler gerektiren bir site bölümlerini ile çalışıyorsanız yararlı olabilir. Ek yöntemleri de kullanabilirsiniz (örneğin, `RenderSection`) adlı düzen sayfası olarak bölümlerde ayarlamak için.
+Düzen sayfalarında burada kapsamadığımız ek özellikler vardır. Örneğin, düzen sayfalarını iç içe geçirebilirsiniz — bir düzen sayfası başka bir başvuruya başvurabilir. İç içe yerleştirilmiş düzenler, farklı düzenleri gerektiren bir sitenin alt bölümleri ile çalışıyorsanız yararlı olabilir. Ayrıca, Düzen sayfasında adlandırılmış bölümleri ayarlamak için ek Yöntemler (örneğin, `RenderSection`) kullanabilirsiniz.
 
-Birleşimi, Düzen sayfaları ve *.css* dosyaları güçlü. Webmatrix'te sonraki öğretici serisinde anlatıldığı gibi temel bir site oluşturabilirsiniz bir *şablon*, size sağlayan olan bir siteyi önceden oluşturulmuş işlevindeki. Şablonlar, Düzen sayfaları ve CSS, harika görünen ve menüler gibi özellikleri olan siteleri oluşturmak için iyi kullanılmasını sağlamak. Düzen sayfaları ve CSS özelliklerini gösteren bir şablonu temel alan bir siteden giriş sayfasının ekran görüntüsü aşağıda verilmiştir:
+Düzen sayfaları ve *. css* dosyalarının birleşimi güçlüdür. Sonraki öğretici serisinde gördüğünüz gibi, WebMatrix 'te önceden oluşturulmuş işlevselliğe sahip bir site sağlayan bir *şablonu*temel alan bir site oluşturabilirsiniz. Şablonlar, harika görünen ve menüler gibi özelliklere sahip siteler oluşturmak için Düzen sayfalarının ve CSS 'nin iyi bir şekilde kullanılmasını sağlar. Aşağıda, düzen sayfaları ve CSS kullanan özellikleri gösteren bir şablonu temel alan bir sitedeki giriş sayfasının ekran görüntüsü verilmiştir:
 
-![Üst bilgi, gezinti alanına, içerik alanının, isteğe bağlı bir bölüm ve oturum açma bağlantılar gösteren WebMatrix site şablonu tarafından oluşturulan düzeni](layouts/_static/image11.png)
+![Üst bilgi, gezinti alanı, içerik alanı, isteğe bağlı bölüm ve oturum açma bağlantıları gösteren WebMatrix site şablonu tarafından oluşturulan düzen](layouts/_static/image11.png)
 
-## <a name="complete-listing-for-movie-page-updated-to-use-a-layout-page"></a>Tam listesi için (bir düzen sayfası kullanmak için güncelleştirilmiş) film sayfası
+## <a name="complete-listing-for-movie-page-updated-to-use-a-layout-page"></a>Film sayfası için komple liste (Düzen sayfası kullanmak üzere güncelleştirildi)
 
 [!code-cshtml[Main](layouts/samples/sample14.cshtml)]
 
-## <a name="complete-page-listing-for-add-movie-page-updated-for-layout"></a>Tam sayfa için listeleme (düzeni için güncelleştirilmiş) film sayfaya ekleyin
+## <a name="complete-page-listing-for-add-movie-page-updated-for-layout"></a>Film Ekle sayfası için sayfa listesini tamamlar (düzen için güncelleştirildi)
 
 [!code-cshtml[Main](layouts/samples/sample15.cshtml)]
 
-## <a name="complete-page-listing-for-delete-movie-page-updated-for-layout"></a>Tam silme film sayfası (düzeni için güncelleştirilmiş) için sayfa listesi
+## <a name="complete-page-listing-for-delete-movie-page-updated-for-layout"></a>Filmi Sil sayfasının sayfa listesini tamamlar (düzen için güncelleştirildi)
 
 [!code-cshtml[Main](layouts/samples/sample16.cshtml)]
 
-## <a name="complete-page-listing-for-edit-movie-page-updated-for-layout"></a>Tam sayfa listesi için düzenleme film sayfası (düzeni için güncelleştirilmiş)
+## <a name="complete-page-listing-for-edit-movie-page-updated-for-layout"></a>Filmi Düzenle sayfasının sayfa listesini tamamlar (düzen için güncelleştirildi)
 
 [!code-cshtml[Main](layouts/samples/sample17.cshtml)]
 
-## <a name="coming-up-next"></a>Sıradaki gelen
+## <a name="coming-up-next"></a>Sonraki adımda
 
-Sonraki öğreticide, herkesin görebileceği şekilde Internet'e sitenizi yayımlama öğreneceksiniz.
+Bir sonraki öğreticide, herkesin görebilmesi için sitenizi Internet 'Te nasıl yayımlayacağınızı öğreneceksiniz.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Tutarlı bir ara oluşturma](https://go.microsoft.com/fwlink/?LinkID=202891) — düzeni ile çalışma hakkında daha fazla ayrıntı sağlayan bir makale. Ayrıca, görüntüleyen veya gizleyen İçeriklerinden bazılarını bir düzen sayfası için bir değer geçirmek nasıl açıklar.
-- [Razor sayfalarıyla Düzen iç içe geçmiş](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) — Mike Brind blogları Düzen sayfaları iç içe ilişkin bir örnek. (Bir indirme sayfaları içerir.)
+- [Tutarlı bir görünüm oluşturma](https://go.microsoft.com/fwlink/?LinkID=202891) — mizanpajlarla çalışma hakkında daha ayrıntılı bilgi sağlayan bir makale. Ayrıca, içeriğin bazılarını gösteren veya gizleyen bir düzen sayfasına bir değer geçme işlemini açıklar.
+- [Razor Ile Iç Içe yerleştirilmiş düzen sayfaları](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) — Mike brind blogları, düzen sayfalarının iç içe geçme bir örneğidir. (Sayfaların indirilmesini içerir.)
 
 > [!div class="step-by-step"]
 > [Önceki](deleting-data.md)

@@ -1,23 +1,23 @@
 ---
 uid: web-api/overview/security/index
-title: Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web API'de | Microsoft Docs
+title: ASP.NET Web API 'sinde güvenlik, kimlik doğrulaması ve yetkilendirme | Microsoft Docs
 author: rick-anderson
-description: Web API'si için güvenlik sorunları.
+description: Web API 'SI için güvenlik sorunları.
 ms.author: riande
 ms.date: 12/11/2012
 ms.assetid: bb38add0-5223-4b04-9b12-245911af865a
 msc.legacyurl: /web-api/overview/security
 msc.type: chapter
 ms.openlocfilehash: a8fa905e86d76c1c846418d32d4c390d41ecc9b4
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134340"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555211"
 ---
-# <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web API
+# <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>ASP.NET Web API 'sinde güvenlik, kimlik doğrulaması ve yetkilendirme
 
-> Web API'si için güvenlik sorunları.
+> Web API 'SI için güvenlik sorunları.
 
 - [Web API’de Kimlik Doğrulaması ve Yetkilendirme](authentication-and-authorization-in-aspnet-web-api.md)
 - [Web API 2.2 Sürümünde Bireysel Hesaplarla Web API’nin Güvenliğini Sağlama](individual-accounts-in-web-api.md)

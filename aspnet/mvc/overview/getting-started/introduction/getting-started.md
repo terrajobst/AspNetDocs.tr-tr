@@ -7,12 +7,12 @@ ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: c74daa37f68dda641cae97d3b0c19718f62d474d
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.openlocfilehash: ca39bc37c757c0452cf56624c8e37c04df4b41f2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456393"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78602769"
 ---
 # <a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 ile çalışmaya başlama
 
@@ -20,7 +20,7 @@ ms.locfileid: "77456393"
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
-Bu öğretici, [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)kullanarak ASP.NET MVC 5 Web uygulaması oluşturma hakkında temel bilgileri öğretir. Öğreticinin son kaynak kodu [GitHub](https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)' da bulunur.
+Bu öğretici, [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)kullanarak ASP.NET MVC 5 Web uygulaması oluşturma hakkında temel bilgileri öğretir. Öğreticinin son kaynak kodu [GitHub](https://github.com/dotnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)' da bulunur.
 
 Bu öğretici [Scott Guthrie](https://weblogs.asp.net/scottgu/) (Twitter[@scottgu](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (Twitter: [@shanselman](https://twitter.com/shanselman) ) ve [Rick Anderson](https://twitter.com/RickAndMSFT) ( [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT) ) tarafından yazılmıştır
 
@@ -29,7 +29,7 @@ Bu uygulamayı Azure 'a dağıtmak için bir Azure hesabınızın olması gereki
 - Ücretli Azure hizmetlerini denemek için kullanabileceğiniz ücretsiz krediler [için bir Azure hesabı açabilir](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) ve hatta bunları kullandıktan sonra da hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
 - [MSDN abone avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) . MSDN aboneliğiniz, ücretli Azure hizmetleri için kullanabileceğiniz her ay krediler sunar.
 
-## <a name="get-started"></a>başlarken
+## <a name="get-started"></a>Başlangıç
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)' i yükleyerek başlayın. Ardından, Visual Studio 'Yu açın.
 
@@ -67,7 +67,7 @@ Geçerli öğreticilerin bir listesi için bkz. [MVC Önerilen makaleler](../mvc
 
 Canlı bir Web uygulaması olarak çalışan tamamlanmış siteyi görmek istiyor musunuz? Aşağıdaki düğmeye tıklayarak uygulamanın tüm sürümünü Azure hesabınıza dağıtabilirsiniz.
 
-[![](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/aspnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie&amp;WT.mc_id=deploy_azure_aspnet)
+[![](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/dotnet/AspNetDocs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie&amp;WT.mc_id=deploy_azure_aspnet)
 
 Bu çözümü Azure 'a dağıtmak için bir Azure hesabınızın olması gerekir. Henüz bir hesabınız yoksa, bir hesap oluşturmak için aşağıdaki seçeneklerden birini kullanın:
 

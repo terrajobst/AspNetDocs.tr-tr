@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/sending-html-form-data-part-2
-title: "ASP.NET Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME - ASP.NET 4.x"
+title: "ASP.NET Web API 'sinde HTML form verileri gönderme: dosya yükleme ve çok parçalı MIME-ASP.NET 4. x"
 author: MikeWasson
-description: Bu öğreticide, bir web API'sine dosyaları karşıya yükleme işlemi gösterilmektedir. Ayrıca, çok parçalı MIME verilerin nasıl işleneceğini açıklar.
+description: Bu öğreticide, bir Web API 'sine dosya yükleme işleminin nasıl yapılacağı gösterilmektedir. Ayrıca, çok parçalı MIME verilerinin nasıl işlenmesi açıklanmaktadır.
 ms.author: riande
 ms.date: 06/21/2012
 ms.custom: seoapril2019
@@ -10,93 +10,93 @@ ms.assetid: a7f3c1b5-69d9-4261-b082-19ffafa5f16a
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: f5aaebb96f631dfb6b0da1fbca96cd93a6a7fe2d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65126236"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557570"
 ---
-# <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>ASP.NET Web API'de HTML Form verileri gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME
+# <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>ASP.NET Web API 'sinde HTML form verileri gönderme: dosya yükleme ve çok parçalı MIME
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-## <a name="part-2-file-upload-and-multipart-mime"></a>Bölüm 2: Karşıya Dosya Yükleme ve Çok Parçalı MIME
+## <a name="part-2-file-upload-and-multipart-mime"></a>Bölüm 2: dosya yükleme ve çok parçalı MIME
 
-Bu öğreticide, bir web API'sine dosyaları karşıya yükleme işlemi gösterilmektedir. Ayrıca, çok parçalı MIME verilerin nasıl işleneceğini açıklar.
+Bu öğreticide, bir Web API 'sine dosya yükleme işleminin nasıl yapılacağı gösterilmektedir. Ayrıca, çok parçalı MIME verilerinin nasıl işlenmesi açıklanmaktadır.
 
 > [!NOTE]
-> [Tamamlanmış projeyi indirmek](https://code.msdn.microsoft.com/ASPNET-Web-API-File-Upload-a8c0fb0d).
+> [Tamamlanmış projeyi indirin](https://code.msdn.microsoft.com/ASPNET-Web-API-File-Upload-a8c0fb0d).
 
-Bir dosyayı yüklemek için bir HTML formuna bir örneği aşağıda verilmiştir:
+Bir dosyayı karşıya yüklemek için bir HTML formu örneği aşağıda verilmiştir:
 
 [!code-html[Main](sending-html-form-data-part-2/samples/sample1.html)]
 
 ![](sending-html-form-data-part-2/_static/image1.png)
 
-Bu form, metin girişi denetimi ve dosya giriş denetimi içerir. Bir formu bir dosya giriş denetimini içerdiğinde **Notenctype** özniteliği uymanız gereken &quot;multipart/form-data&quot;, belirten form çok parçalı MIME ileti gönderilir.
+Bu form bir metin girişi denetimi ve bir dosya girişi denetimi içerir. Form bir dosya girişi denetimi içerdiğinde, **Enctype** özniteliği her zaman &quot;multipart/form-Data&quot;olmalıdır ve bu, formun çok PARÇALı bir MIME iletisi olarak gönderileceğini belirtir.
 
-Çok parçalı MIME ileti biçimi bir örnek isteğiyle bakarak anlamak oldukça kolaydır:
+Bir çok parçalı MIME iletisinin biçimi, örnek bir isteğe bakarak anlaşılması en kolay yoldur:
 
 [!code-console[Main](sending-html-form-data-part-2/samples/sample2.cmd)]
 
-Bu ileti ikiye bölünür *bölümleri*, her form denetimi için bir tane. Bölüm sınırları, kısa çizgi ile başlayan satırları tarafından belirtilir.
+Bu ileti, her form denetimi için bir tane olmak üzere iki *parçaya*bölünür. Bölüm sınırları, tireler ile başlayan satırlar ile belirtilir.
 
 > [!NOTE]
-> Bölüm sınırının rastgele bir bileşeni içerir (&quot;41184676334&quot;) sınır dize yanlışlıkla bir ileti bölümü içinde görünmüyor emin olmak için.
+> Bölüm sınırı, sınır dizesinin yanlışlıkla bir ileti bölümü içinde görünmemesini sağlamak için rastgele bir bileşen (&quot;41184676334&quot;) içerir.
 
-Bölüm içeriğine göre ve ardından bir veya daha fazla üst bilgileri, her ileti bölümü içerir.
+Her ileti parçası bir veya daha fazla üst bilgi içerir ve ardından bölüm içerikleri gelir.
 
-- İçerik düzeni üstbilgisini denetimin adını içerir. Dosyalar için dosya adı da içerir.
-- Content-Type üstbilgisi veri bölümünde açıklanır. Bu üst bilgisi çıkarılırsa, metin/düz varsayılandır.
+- Content-Disposition üst bilgisi, denetimin adını içerir. Dosyalar için dosya adını da içerir.
+- Content-Type üst bilgisi, bölümündeki verileri tanımlar. Bu üst bilgi atlanırsa, varsayılan metin/düz ' dır.
 
-Önceki örnekte, kullanıcı GrandCanyon.jpg, içerik türü görüntü/jpeg ile adlı bir dosya karşıya; ve metin girişi değerini &quot;Yaz tatil&quot;.
+Önceki örnekte, Kullanıcı, Type Image/JPEG; içerik türü ile birlikte bir dosya olarak belirtilen bir dosyayı karşıya yükledi. ve metin girişinin değeri &quot;yaz tatili&quot;.
 
 ## <a name="file-upload"></a>Karşıya dosya yükleme
 
-Artık dosyaları çok parçalı MIME iletiden okuyan bir Web API denetleyicisi göz atalım. Denetleyici dosyaları zaman uyumsuz olarak okur. Web API'si kullanarak zaman uyumsuz eylemleri destekleyen [görev-tabanlı programlama modeli](https://msdn.microsoft.com/library/dd460693.aspx). İlk olarak, kod aşağıdaki gibidir destekleyen .NET Framework 4.5 hedefliyorsanız **zaman uyumsuz** ve **await** anahtar sözcükleri.
+Şimdi çok parçalı bir MIME iletisinden dosyaları okuyan bir Web API denetleyicisine göz atalım. Denetleyici dosyaları zaman uyumsuz olarak okur. Web API 'SI, [görev tabanlı programlama modelini](https://msdn.microsoft.com/library/dd460693.aspx)kullanarak zaman uyumsuz eylemleri destekler. İlk olarak, **Async** ve **await** anahtar sözcüklerini destekleyen .NET Framework 4,5 ' i hedefliyorsanız, bu kod aşağıda verilmiştir.
 
 [!code-csharp[Main](sending-html-form-data-part-2/samples/sample3.cs)]
 
-Denetleyici eylemini herhangi bir parametre almaz dikkat edin. Medya türü biçimlendiricisi çağırmadan biz eylem içinde istek gövdesini işlemek olmasıdır.
+Denetleyici eyleminin hiçbir parametre almaz. Bunun nedeni, bir medya türü biçimlendirici çağırmadan, işlem içindeki istek gövdesini işletireceğiz.
 
-**IsMultipartContent** yöntemi isteği çok parçalı MIME ileti içerip içermediğini denetler. Aksi durumda, denetleyici, HTTP durum kodu 415 (desteklenmeyen medya türü) döndürür.
+**Imultipartcontent** yöntemi, isteğin çok PARÇALı bir MIME iletisi içerip içermediğini denetler. Aksi takdirde, denetleyici HTTP durum kodu 415 (desteklenmeyen medya türü) döndürür.
 
-**MultipartFormDataStreamProvider** sınıfı, karşıya yüklenen dosyalar için dosya akışları ayıran bir yardımcı nesnesi. MIME çok bölümlü iletinin okumak için çağrı **ReadAsMultipartAsync** yöntemi. Bu yöntem tüm ileti parçalarını ayıklar ve bunları tarafından sağlanan akışları Yazar **MultipartFormDataStreamProvider**.
+**Multipartformdatastreamprovider** sınıfı, karşıya yüklenen dosyalar için dosya akışlarını ayıran bir yardımcı nesnedir. Çok parçalı MIME iletisini okumak için, **Readasmultipartasync** yöntemini çağırın. Bu yöntem, tüm ileti parçalarını ayıklar ve bunları **Multipartformdatastreamprovider**tarafından sunulan akışlara yazar.
 
-Yöntemi tamamlandığında, dosyaları hakkında bilgi edinebilirsiniz **FileData** koleksiyonu özelliğinin, **MultipartFileData** nesneleri.
+Yöntem tamamlandığında, **çok partfiledata** nesnelerinin bir koleksiyonu olan **Filedata** özelliğinden dosyalar hakkında bilgi alabilirsiniz.
 
-- **MultipartFileData.FileName** dosyanın kaydedildiği sunucusunda, yerel dosya adı.
-- **MultipartFileData.Headers** bölüm başlığı içerir (*değil* istek üst bilgisi). Bu içeriğe erişmek için kullanabileceğiniz\_değerlendirme ve Content-Type üst bilgileri.
+- **Multipartfiledata. FileName** , sunucuda dosyanın kaydedildiği yerel dosya adıdır.
+- **Multipartfiledata. Headers** , bölüm üst bilgisini (istek üst bilgisini*değil* ) içerir. Bunu, Içerik\_eğilimi ve Içerik türü üst bilgilerine erişmek için kullanabilirsiniz.
 
-Adından da anlaşılacağı gibi **ReadAsMultipartAsync** zaman uyumsuz bir yöntemdir. Yöntemi tamamlandığında iş gerçekleştirmek için bir [devamlılık görevi](https://msdn.microsoft.com/library/ee372288.aspx) (.NET 4.0) veya **await** anahtar sözcüğü (.NET 4.5).
+Adından da anlaşılacağı gibi, **Readasmultipartasync** zaman uyumsuz bir yöntemdir. Yöntem tamamlandıktan sonra iş gerçekleştirmek için bir [devamlılık görevi](https://msdn.microsoft.com/library/ee372288.aspx) (.NET 4,0) veya **await** anahtar sözcüğünü (.NET 4,5) kullanın.
 
-Önceki kod .NET Framework 4.0 sürümünü şu şekildedir:
+Önceki kodun .NET Framework 4,0 sürümü aşağıda verilmiştir:
 
 [!code-csharp[Main](sending-html-form-data-part-2/samples/sample4.cs)]
 
-## <a name="reading-form-control-data"></a>Form denetimi verileri okuma
+## <a name="reading-form-control-data"></a>Form denetimi verilerini okuma
 
-Daha önce gösterilen HTML formu, bir metin girişi denetimi vardı.
+Daha önce gösterilen HTML formu metin girişi denetimine sahipti.
 
 [!code-html[Main](sending-html-form-data-part-2/samples/sample5.html)]
 
-Denetim değer elde edebileceği **çıkışlardan form verisi** özelliği **MultipartFormDataStreamProvider**.
+**Multipartformdatastreamprovider**'ın **FormData** özelliğinden denetimin değerini alabilirsiniz.
 
 [!code-csharp[Main](sending-html-form-data-part-2/samples/sample6.cs?highlight=15)]
 
-**Çıkışlardan form verisi** olduğu bir **NameValueCollection** , form denetimleri için ad/değer çiftleri içerir. Koleksiyonda yinelenen anahtarlar içerebilir. Bu formu göz önünde bulundurun:
+**FormData** , form denetimleri için ad/değer çiftlerini Içeren bir **NameValueCollection** . Koleksiyonda yinelenen anahtarlar bulunabilir. Şu formu göz önünde bulundurun:
 
 [!code-html[Main](sending-html-form-data-part-2/samples/sample7.html)]
 
 ![](sending-html-form-data-part-2/_static/image2.png)
 
-İstek gövdesi şuna benzeyebilir:
+İstek gövdesi şöyle görünebilir:
 
 [!code-console[Main](sending-html-form-data-part-2/samples/sample8.cmd)]
 
-Bu durumda, **çıkışlardan form verisi** aşağıdaki anahtar/değer çiftleri koleksiyonu içerebilir:
+Bu durumda, **FormData** koleksiyonu aşağıdaki anahtar/değer çiftlerini içerir:
 
-- Seyahat: gidiş dönüş
+- seyahat: gidiş dönüş
 - Seçenekler: nonstop
-- Seçenekler: tarih
-- Lisans: penceresi
+- Seçenekler: tarihler
+- koltuk: pencere

@@ -9,11 +9,11 @@ ms.assetid: 128fdb5f-4c5e-42b5-b485-f3aee90a8e38
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 5c87386e4fe2c53b39162071689f2522dcc6c7ac
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74602770"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78549646"
 ---
 # <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>GridView’a Düğme Ekleme ve Bunları Yanıtlama (C#)
 

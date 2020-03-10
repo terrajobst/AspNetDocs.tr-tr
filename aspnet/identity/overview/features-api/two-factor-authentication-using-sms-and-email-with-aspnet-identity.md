@@ -10,11 +10,11 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 527b4392846e60dae0b216fdeabf21fd6618e4d7
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456744"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616685"
 ---
 # <a name="two-factorauthentication-using-sms-and-email-with-aspnet-identity"></a>ASP.NET Identity ile SMS ve e-posta kullanarak iki öğeli kimlik doğrulama
 
@@ -80,7 +80,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
    Adrestir  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
-   {1&gt;Ad Alanı:&lt;1}  
+   Ad alanı:  
     `ASPSMSX2`
 3. **SMS sağlayıcısı Kullanıcı kimlik bilgileri alınıyor**  
   
@@ -119,7 +119,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
 8. `Manage` denetleyicisindeki `Index` Action metodunu etkinleştiren Kullanıcı KIMLIĞINIZ ' ne tıklayın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image2.png)
-9. Ekle'yi tıklatın.  
+9. Ekle’ye tıklayın.  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image3.png)
 10. Birkaç saniye içinde doğrulama koduna sahip bir kısa mesaj alacaksınız. Girin ve **Gönder**' e basın.  

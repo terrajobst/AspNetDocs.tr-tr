@@ -1,101 +1,101 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
-title: HTML düzenleyicisi denetimi nasıl kullanabilirim? (VB) | Microsoft Docs
+title: Nasıl yaparım? HTML düzenleyici denetimini mi kullanıyorsunuz? (VB) | Microsoft Docs
 author: microsoft
-description: HTMLEditor bir ASP.NET AJAX kolayca oluşturun ve bir araç çubuğu düğmeleri üzerinden HTML içerik Düzenle olanak tanıyan denetimidir.
+description: Htmtaditor, bir araç çubuğundaki düğmeler aracılığıyla HTML içeriğini kolayca oluşturmanıza ve düzenlemenize olanak tanıyan bir ASP.NET AJAX denetimidir.
 ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 32ec9321-7c8c-4b0f-8234-99acb56df6b5
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 20f8a2f8148bc658370ba1a939ebf1b62d376bc0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65115484"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554154"
 ---
-# <a name="how-do-i-use-the-html-editor-control-vb"></a>HTML düzenleyicisi denetimi nasıl kullanabilirim? (VB)
+# <a name="how-do-i-use-the-html-editor-control-vb"></a>Nasıl yaparım? HTML düzenleyici denetimini mi kullanıyorsunuz? VB
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> HTMLEditor bir ASP.NET AJAX kolayca oluşturun ve bir araç çubuğu düğmeleri üzerinden HTML içerik Düzenle olanak tanıyan denetimidir.
+> Htmtaditor, bir araç çubuğundaki düğmeler aracılığıyla HTML içeriğini kolayca oluşturmanıza ve düzenlemenize olanak tanıyan bir ASP.NET AJAX denetimidir.
 
-Bu öğreticinin amacı, dahil edilen AJAX Denetim Araç Seti ile HTML düzenleyicisi denetimi genel bir bakış ile sağlamaktır. Bağlantılar, görüntüler, metin hizalamasını değiştirme ekleme ekleme yazı tipi boyutunu değiştirme, bir yazı tipi seçerek, arka plan rengini değiştirme, ön plan rengini değiştirmek için seçenekler HTML düzenleyicisi içerir ve kesme gerçekleştiriyorsa, kopyalama ve yapıştırma işlemleri (bkz. Şekil 1).
+Bu öğreticinin amacı, AJAX denetim araç seti 'ne dahil edilen HTML düzenleyici denetimine genel bir bakış sunmaktır. HTML Düzenleyicisi, yazı tipi boyutunu değiştirme, yazı tipi seçme, arka plan rengini değiştirme, ön plan rengini değiştirme, bağlantılar ekleme, görüntü ekleme, metin hizalamasını değiştirme ve kesme, kopyalama ve yapıştırma işlemleri gerçekleştirme seçeneklerini içerir (bkz. Şekil 1).
 
-[![HTML düzenleyicisi](how-do-i-use-the-html-editor-control-vb/_static/image1.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image1.png)
+[HTML düzenleyicisini ![](how-do-i-use-the-html-editor-control-vb/_static/image1.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image1.png)
 
-**Şekil 01**: HTML Düzenleyicisi'ni ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-vb/_static/image2.png))
+**Şekil 01**: HTML Düzenleyicisi ([tam boyutlu görüntüyü görüntülemek için tıklayın](how-do-i-use-the-html-editor-control-vb/_static/image2.png))
 
-HTML düzenleyicisi tasarım modu kullanarak içerik girmenizi sağlar veya HTML doğrudan girebilirsiniz. HTML içerik Önizleme seçeneği de sağlanır (bkz: Şekil 2).
+HTML Düzenleyicisi, Tasarım modunu kullanarak içerik girmenizi sağlar veya doğrudan HTML girebilirsiniz. Ayrıca, HTML içeriğinizi Önizleme seçeneği sunulur (bkz. Şekil 2).
 
-[![Tasarım, HTML ve önizleme düğmeleri](how-do-i-use-the-html-editor-control-vb/_static/image2.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image3.png)
+[![tasarım, HTML ve önizleme düğmeleri](how-do-i-use-the-html-editor-control-vb/_static/image2.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image3.png)
 
-**Şekil 02**: Tasarım, HTML ve önizleme düğmeler ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-vb/_static/image4.png))
+**Şekil 02**: TASARıM, HTML ve önizleme düğmeleri ([tam boyutlu görüntüyü görüntülemek için tıklayın](how-do-i-use-the-html-editor-control-vb/_static/image4.png))
 
-Bu öğreticide, HTML Düzenleyicisi'ni görüntüleme, HTML Düzenleyicisi'nde görünen araç çubuğu düğmeleri özelleştirme ve siteler arası betik saldırıları önlemek nasıl öğrenin.
+Bu öğreticide, HTML düzenleyicisini görüntülemeyi, HTML düzenleyicisinde görünen araç çubuğu düğmelerini özelleştirmeyi ve siteler arası betik saldırılarının nasıl önleneceğini öğreneceksiniz.
 
-## <a name="displaying-the-html-editor"></a>HTML düzenleyicisi görüntülenirken
+## <a name="displaying-the-html-editor"></a>HTML düzenleyicisini görüntüleme
 
-Bir ASP.NET sayfasında HTML Düzenleyicisi'ni kullanmadan önce öncelikle bir ScriptManager denetimi sayfasına eklemeniz gerekir. ScriptManager denetimini, Visual Studio/Visual Web Developer Express araç kutusunda AJAX uzantılar sekmesi altında bulunur.
+HTML düzenleyicisini bir ASP.NET sayfasında kullanabilmeniz için önce sayfaya bir ScriptManager denetimi eklemeniz gerekir. ScriptManager denetimi, Visual Studio/Visual Web Developer Express araç kutusundaki AJAX Uzantıları sekmesinin altında bulunur.
 
-Sayfadaki diğer denetimleri önce sayfanın üst kısmındaki ScriptManager denetimini yerleştirmeniz gerekir. Örneğin, bunu hemen açılış sunucu-tarafı yerleştirebilirsiniz &lt;form&gt; etiketi.
+Sayfadaki diğer denetimlerden önce, ScriptManager denetimini sayfanın en üstüne yerleştirmeniz gerekir. Örneğin, bunu açılan sunucu tarafı &lt;formu&gt; etiketinin hemen altına yerleştirebilirsiniz.
 
-HTML düzenleyicisi denetimi araç AJAX Denetim Araç Seti denetimlerini geri kalanı ile birlikte bulunur. Düzenleyici denetimi olarak adlandırılır (bkz: Şekil 3).
+HTML Düzenleyicisi denetimi, geri kalan AJAX denetim araç seti denetimleriyle birlikte araç kutusunda bulunur. Düzenleyici denetimi olarak adlandırılır (bkz. Şekil 3).
 
-[![HTML düzenleyicisi denetimi](how-do-i-use-the-html-editor-control-vb/_static/image3.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image5.png)
+[HTML Düzenleyicisi denetimini ![](how-do-i-use-the-html-editor-control-vb/_static/image3.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image5.png)
 
-**Şekil 03**: HTML düzenleyicisi denetimi ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-vb/_static/image6.png))
+**Şekil 03**: HTML düzenleyici denetimi ([tam boyutlu görüntüyü görüntülemek için tıklayın](how-do-i-use-the-html-editor-control-vb/_static/image6.png))
 
-HTML düzenleyicisi bir sayfaya sürükleyin sonra özellik sayfasında özelliklerini ayarlayabilirsiniz. Örneğin, normal genişlik ve yükseklik özelliklerini ayarlamak istiyorsunuz. 1 listeleyen bir HTML düzenleyici içeren bir ASP.NET sayfası için kaynak içerir.
+HTML düzenleyicisini bir sayfaya sürükledikten sonra özellik sayfasında özelliklerini ayarlayabilirsiniz. Örneğin, normalde genişlik ve yükseklik özelliklerini ayarlamak istersiniz. Listeleme 1, HTML Düzenleyicisi içeren bir ASP.NET sayfasının kaynağını içerir.
 
-**Listing 1 - SimpleEditor.aspx**
+**Listeleme 1-SimpleEditor. aspx**
 
 [!code-aspx[Main](how-do-i-use-the-html-editor-control-vb/samples/sample1.aspx)]
 
-1 listesi sayfasında bir HTML düzenleyicisi denetimi, bir düğme denetimi ve bir değişmez değer denetimi içerir. Düğmeye tıkladığınızda, HTML Düzenleyicisi'nin içeriği değişmez değer denetiminde görünür (bkz: Şekil 4).
+Listeleme 1 ' deki sayfa bir HTML düzenleyici denetimi, bir düğme denetimi ve bir değişmez değer denetimi içerir. Düğmeye tıkladığınızda, HTML düzenleyicisinin içeriği değişmez denetimde görünür (bkz. Şekil 4).
 
-[![Bir HTML düzenleyicisi ile form gönderme](how-do-i-use-the-html-editor-control-vb/_static/image4.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image7.png)
+[HTML Düzenleyicisi ile form gönderme ![](how-do-i-use-the-html-editor-control-vb/_static/image4.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image7.png)
 
-**Şekil 04**: Bir HTML düzenleyicisi ile form gönderme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-vb/_static/image8.png))
+**Şekil 04**: HTML düzenleyiciyle form gönderme ([tam boyutlu görüntüyü görüntülemek için tıklayın](how-do-i-use-the-html-editor-control-vb/_static/image8.png))
 
-HTML düzenleyici içeriği özelliği HTML düzenleyicide yerleşik girilen HTML içeriği almak için kullanılır. Bu HTML içeriğini JavaScript içerebileceğini unutmayın. Sonraki bölümde, JavaScript ekleme saldırılarını nasıl engelleyebilirsiniz ele alır.
+HTML düzenleyici Içerik özelliği, HTML düzenleyicisine girilen HTML içeriğini almak için kullanılır. Bu HTML içeriğinin JavaScript içeremeyeceğini unutmayın. Sonraki bölümde, JavaScript ekleme saldırılarını nasıl önleyebiliriz.
 
-## <a name="customizing-the-html-editor-toolbar"></a>HTML Düzenleyicisi araç çubuğunu özelleştirme
+## <a name="customizing-the-html-editor-toolbar"></a>HTML Düzenleyici araç çubuğunu özelleştirme
 
-Tam olarak hangi düğmeleri özelleştirebilirsiniz Düzenleyicisi'nde görünür. Örneğin, kullanıcıların HTML düzenleyicisi HTML moduna geçiş yapmasını önlemek için HTML sekmesi kaldırmak isteyebilirsiniz. Veya kullanıcılar bir forumda aşırı büyük metin oluşturmasını önlemek için yazı tipi boyutu açılır listeden kaldırmak isteyebilirsiniz (bkz: Şekil 5) posta iletisi.
+Düzenleyicide görüntülenecek düğmeleri tam olarak özelleştirebilirsiniz. Örneğin, kullanıcıların HTML düzenleyicisini HTML moduna geçişini engellemek için HTML sekmesini kaldırmak isteyebilirsiniz. Ya da kullanıcıların bir forum iletisi gönderisini çok büyük metin oluşturmasını engellemek için yazı tipi boyutu açılır listesini kaldırmak isteyebilirsiniz (bkz. Şekil 5).
 
-[![Özelleştirilmiş bir HTML düzenleyicisi](how-do-i-use-the-html-editor-control-vb/_static/image5.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image9.png)
+[özelleştirilmiş bir HTML Düzenleyicisi ![](how-do-i-use-the-html-editor-control-vb/_static/image5.jpg)](how-do-i-use-the-html-editor-control-vb/_static/image9.png)
 
-**Şekil 05**: Bir HTML düzenleyicisi özelleştirilmiş ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-html-editor-control-vb/_static/image10.png))
+**Şekil 05**: ÖZELLEŞTIRILMIŞ bir HTML Düzenleyicisi ([tam boyutlu görüntüyü görüntülemek için tıklayın](how-do-i-use-the-html-editor-control-vb/_static/image10.png))
 
-Araç çubuğu düğmeleri, temel Düzenleyici sınıfından yeni bir HTML düzenleyici türetilerek özelleştirin. Örneğin, özel Düzenleyicisi'nde listeleme 2 yalnızca kalın ve italik araç çubuğu düğmeleri içerir. Diğer araç çubuğu düğmeleri kaldırıldı. Ayrıca, HTML sekmesi düzenleyicisinin alt kaldırıldı (ancak tasarım ve önizleme sekmelerini hala vardır).
+Araç çubuğu düğmelerini, temel düzenleyici sınıfından yeni bir HTML Düzenleyicisi türeterek özelleştirebilirsiniz. Örneğin, liste 2 ' deki özel düzenleyici yalnızca kalın ve italik için araç çubuğu düğmelerini içerir. Diğer tüm araç çubuğu düğmeleri kaldırılmıştır. Ayrıca, HTML sekmesi düzenleyicinin altından kaldırılmıştır (ancak tasarım ve önizleme sekmeleri hala orada bulunur).
 
-**2 - uygulama listeleme\_Code\CustomEditor.vb**
+**Listeleme 2-uygulama\_Code\customeditor.exe**
 
 [!code-vb[Main](how-do-i-use-the-html-editor-control-vb/samples/sample2.vb)]
 
-Uygulamanıza listeleme 2'de sınıf eklemelisiniz\_böylece sınıf otomatik olarak derlenmiş kod klasörü. Uygulama\_kod klasörü siteniz yok sonra klasör eklemeniz yeterlidir.
+Sınıfın otomatik olarak derlenmesi için liste 2 ' deki sınıfı App\_Code klasörünüze eklemeniz gerekir. Uygulama\_kodu klasörü Web sitenizde yoksa, klasörü eklemeniz yeterlidir.
 
-Özel bir düzenleyici oluşturduktan sonra normal HTML düzenleyicisi (3 listeleme bakın) ekledikçe, bunu bir ASP.NET sayfasına yolla ekleyebilirsiniz.
+Özel bir düzenleyici oluşturduktan sonra, normal HTML düzenleyicisini eklerken aynı şekilde bir ASP.NET sayfasına ekleyebilirsiniz (bkz. Listeleme 3).
 
-**3 - ShowCustomEditor.aspx listeleme**
+**Listeleme 3-ShowCustomEditor. aspx**
 
 [!code-aspx[Main](how-do-i-use-the-html-editor-control-vb/samples/sample3.aspx)]
 
-## <a name="avoiding-cross-site-scripting-xss-attacks"></a>Kaçınarak siteler arası betik (XSS) saldırıları
+## <a name="avoiding-cross-site-scripting-xss-attacks"></a>Siteler arası komut dosyası (XSS) saldırılarını önleme
 
-Bir kullanıcıdan giriş kabul edin ve sitenizde, giriş yeniden her olası siteler arası betik (XSS) saldırılarını Web sitenize açın. Teorik olarak, kötü amaçlı bir korsana giriş görüntülendiğinde yürütülen JavaScript kodu göndermek. JavaScript, kullanıcı parolalarını veya diğer hassas bilgileri çalan için kullanılabilir.
+Bir kullanıcıdan girişi kabul ettiğinizde ve bu girişi Web sitenizde yeniden görüntülerseniz, Web sitenizi siteler arası betik oluşturma (XSS) saldırılarına açık olarak açabilirsiniz. Teorik olarak, kötü niyetli bir korsan, giriş yeniden görüntülendiğinde yürütülen JavaScript kodunu gönderebilir. JavaScript, Kullanıcı parolalarını veya diğer gizli bilgileri çalmak için kullanılabilir.
 
-Normalde, HTML bir web sayfasında görüntülemeden önce kullanıcıdan almak istediğiniz giriş kodlama XSS saldırılarını yemektir. Ancak HTML çıktısını HTML Düzenleyicisi'nin kodlama değil yalnızca kodlamak &lt;betik&gt; etiketleri, ayrıca tüm HTML etiketleri kodlama. Diğer bir deyişle, tüm yazı tipini, yazı tipi boyutu ve arka plan rengi gibi biçimlendirme kaybeder.
+Normalde, bir kullanıcıdan bir Web sayfasında görüntülemeden önce aldığınız herhangi bir girişi HTML kodlaması ile, XSS saldırılarını erteleyerek bu işlemi gerçekleştirebilirsiniz. Bununla birlikte, HTML düzenleyicisinin çıkışı yalnızca &lt;betiği&gt; etiketlerini kodlayıp, tüm HTML etiketlerini de kodlayacağından HTML kodlaması. Diğer bir deyişle, yazı tipi türü, yazı tipi boyutu ve arka plan rengi gibi tüm biçimlendirmeyi kaybedersiniz.
 
---Kullanıcılarınızın parolaları, kredi kartı numaraları ve sosyal güvenlik numaraları - gibi hassas bilgileri topluyorsanız, ardından, bir kullanıcı ile HTML düzenleyicisi almak beklemediğiniz kodlanmış içeriği görüntülemelidir değil. HTML düzenleyicisi tarafından güvenilen bir taraf Web sitenize HTML içeriği yeniden görüntüleme değil veya HTML içeriğini gönderilen yalnızca durumlarda kullanmanız gerekir.
+Kullanıcılarınızın gizli bilgilerini (parolalar, kredi kartı numaraları ve sosyal güvenlik numaraları gibi) topluyorsanız, bir kullanıcıdan HTML düzenleyiciyle aldığınız, kodlanmamış içeriği görüntülememelisiniz. HTML düzenleyicisini yalnızca, HTML içeriğini yeniden görüntülemediğiniz durumlarda veya HTML içeriğinin güvenilen bir taraf tarafından Web sitenize gönderilme durumunda kullanmanız gerekir.
 
-Örneğin, bir blog uygulaması oluşturma düşünün. Bu durumda, HTML düzenleyicisi blog gönderilerini oluştururken kullanılacak mantıklıdır. Bir blog gönderisi gönderen tek olduğunuz ve kendinize kötü amaçlı JavaScript gönderilmemesini muhtemelen, güvenebileceğiniz. Ancak, anonim kullanıcıların yorumlarınızı izin verirken HTML Düzenleyicisi'ni kullanmak için mantıklı değildir. Hangi kullanıcıların parolalar gibi hassas bilgiler göndermek durumlarda özellikle dikkatli olmanız gerekir. Potansiyel olarak, kötü niyetli bir kullanıcı için bir parola hırsızlığı doğru JavaScript içeren yorum göndermek.
+Örneğin, bir blog uygulaması oluşturduğunuzu düşünün. Bu durumda, blog gönderilerini oluştururken HTML düzenleyicisini kullanmak mantıklı olur. Yalnızca bir blog gönderisi gönderen ve bu, kötü amaçlı JavaScript gönderebilme konusunda kendinize güvenmediğiniz tek bir Web siz olursunuz. Ancak, anonim kullanıcıların yorum gönderenlere izin verirken HTML düzenleyicisini kullanmak mantıklı değildir. Özellikle kullanıcıların parolalar gibi hassas bilgileri göndermesi durumunda dikkatli olmanız gerekir. Kötü niyetli bir Kullanıcı, bir parolayı çalmak için doğru JavaScript içeren bir yorum gönderebilir.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, AJAX Denetim Araç Seti dahil HTML düzenleyicisi denetimi kısa bir genel bakış sağlanmıştır. Bir kullanıcı Zengin içerikten kabul etmek ve içerik sunucusuna göndermek için HTML Düzenleyicisi'ni kullanmayı öğrendiniz. HTML düzenleyicisi tarafından görüntülenen araç çubuğu düğmeleri nasıl özelleştirebileceğiniz da bahsedilmiştir. Son olarak, kötü amaçlı olabilecek giriş kabul etmek için HTML düzenleyici kullanırken, siteler arası betik saldırıları önlemek yapma hakkında bilgi edindiniz.
+Bu öğreticide, AJAX denetim araç seti 'ne dahil edilen HTML düzenleyici denetimine ilişkin kısa bir genel bakış sunulmaktadır. Bir kullanıcının zengin içeriğini kabul etmek ve içeriği sunucuya göndermek için HTML Düzenleyicisi 'ni nasıl kullanacağınızı öğrendiniz. Ayrıca, HTML Düzenleyicisi tarafından görüntülenen araç çubuğu düğmelerini nasıl özelleştirebileceğinizi de tartıştık. Son olarak, olası kötü amaçlı girişi kabul etmek için HTML düzenleyicisini kullanırken siteler arası betik saldırılarının nasıl önleneceğini öğrendiniz.
 
 > [!div class="step-by-step"]
-> [Önceki](how-do-i-use-the-html-editor-control-cs.md)
+> [Öncekini](how-do-i-use-the-html-editor-control-cs.md)

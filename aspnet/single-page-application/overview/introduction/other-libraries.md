@@ -9,60 +9,60 @@ ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
 ms.openlocfilehash: 64a4ad1fb411f7291a5cba634afdf4d2fdb16d55
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65116075"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578549"
 ---
 # <a name="know-a-library-other-than-knockout"></a>Knockout dışında bir kitaplık biliyor musunuz?
 
-tarafından [Mads Kristensen](https://github.com/madskristensen)
+[Mads Kristensen](https://github.com/madskristensen) tarafından
 
-[Tek sayfa uygulama (SPA) şablonu](knockoutjs-template.md) tek sayfa uygulamaları yazmaya başlamak için harika bir yoludur. Şablonu kullanan [KnockoutJS](http://knockoutjs.com/) uygulama verileri için DOM öğeleri bağlamak için.
+[Tek sayfalı uygulama (Spa) şablonu](knockoutjs-template.md) , tek sayfalı uygulamalar yazmaya başlamak için harika bir yoldur. Şablon, uygulama verilerini DOM öğelerine bağlamak için [altını gizleme Koutjs](http://knockoutjs.com/) kullanır.
 
-Ancak, Knockout zengin istemci uygulamaları oluşturmak için yalnızca JavaScript kitaplığı değil. Diğer kitaplıkları benzer zorlukları farklı yollar sunar. Çeşitli topluluk tarafından oluşturulan şablonlarını indirilebilir yaptık şekilde başka bir kitaplık tercih edebilirsiniz. Bu şablonlarının her biri, istemci JavaScript kitaplıklarını farklı bir karışımını kullanır.
+Ancak altını gizleme, zengin istemci uygulamaları oluşturmak için tek JavaScript kitaplığı değildir. Diğer Kitaplıklar benzer zorlukları farklı yollarla çözecektir. Bir kitaplığı başka bir şekilde tercih edebilirsiniz. bu nedenle, birçok topluluk tarafından oluşturulan şablonu indirilebilir hale sunuyoruz. Bu şablonların her biri, istemci JavaScript kitaplıklarının farklı bir karışımını kullanır.
 
-Topluluk tarafından oluşturulan bir şablon yüklemek için bir şablonun sayfaları, aşağıda listelenen ve indir düğmesine tıklayın ziyaret edin. Şablonlar, VSIX dosyası olarak sağlanır.
+Topluluk tarafından oluşturulan bir şablon yüklemek için, aşağıda listelenen şablon sayfalarından birini ziyaret edin ve Indir düğmesine tıklayın. Şablonlar VSıX dosyaları olarak sağlanır.
 
 ## <a name="backbonejs"></a>BackboneJS
 
-[Backbone.js SPA şablon](../templates/backbonejs-template.md). Bu şablon geliştirmeye yönelik bir başlangıç skeleton sağlar. bir [Backbone.js](http://backbonejs.org/) ASP.NET MVC uygulaması. Kullanıma hazır, kullanıcı oturum açma, kaydolma, parola sıfırlama ve kullanıcı onayı ile temel bir e-posta şablonları da dahil olmak üzere temel kullanıcı oturum açma işlevselliği sağlar.
+[Omurga. js Spa şablonu](../templates/backbonejs-template.md). Bu şablon, ASP.NET MVC 'de bir [omurga. js](http://backbonejs.org/) uygulaması geliştirmek için bir başlangıç iskelet sağlar. Bu, temel e-posta şablonlarıyla Kullanıcı kaydolma, oturum açma, parola sıfırlama ve kullanıcı onayı dahil olmak üzere temel Kullanıcı oturum açma işlevlerini sağlar.
 
 ## <a name="breezejs"></a>BreezeJS
 
-[BreezeJS](http://www.breezejs.com/?utm_source=ms-spa) zengin bir JavaScript istemci verileri yönetmek için bir açık kaynak kitaplığı. Meltem sorgulama, önbelleğe alma, değişiklik izleme, doğrulama ve daha fazla işler. İki şablon Breeze özelliği:
+[Breezejs](http://www.breezejs.com/?utm_source=ms-spa) , bir JavaScript istemcisinde zengin verilerin yönetilmesi için açık kaynak bir kitaplıktır. Breeze, sorgulama, önbelleğe alma, değişiklik izleme, doğrulama ve daha fazlasını gerçekleştirir. İki şablon özelliği Breeze:
 
-- [Breeze/Knockout](../templates/breezeknockout-template.md) şablonu, bir tek sayfalı uygulama Breeze ile veri yönetimi ve KnockoutJS için veri bağlama için ne kadar kolay oluşturabileceğinizi gösteren SPA Knockout şablonu genişletir.
-- [Breeze/Angular](../templates/breezeangular-template.md) şablonu da Meltem, ancak kullanarak Knockout SPA şablonla genişletir [AngularJS](http://angularjs.org) veri bağlama, bağımlılık ekleme ve ekranı Yönetim kitaplığı.
+- [Breeze/altını gizleme](../templates/breezeknockout-template.md) şablonu, veri yönetimi Için Breeze ve veri bağlama için altını gizleme ile tek sayfalı bir uygulama oluşturmanın ne kadar kolay olduğunu gösteren ALTıNı gizleme Spa şablonunu genişletir.
+- [Breeze/angular](../templates/breezeangular-template.md) şablonu Ayrıca Breeze Ile ALTıNı gizleme Spa şablonunu genişletir, ancak veri bağlama, bağımlılık ekleme ve ekran yönetimi için [AngularJS](http://angularjs.org) kitaplığını kullanmaktır.
 
-Ayrıca, [Hot Towel SPA şablon](../templates/hottowel-template.md) BreezeJS kullanır.
+Buna ek olarak, [sık ERIŞIMLI Spa](../templates/hottowel-template.md) , BreezeJS ' yi kullanır.
 
 ## <a name="emberjs"></a>EmberJS
 
-[SPA EmberJS şablonu](../templates/emberjs-template.md). Bu şablonu kullanan [Ember](http://emberjs.com/), zengin istemci uygulamaları oluşturmak için zorlukları çeşit çözer güçlü bir MVC JavaScript kitaplığı.
+[Emberjs Spa şablonu](../templates/emberjs-template.md). Bu şablon, zengin istemci uygulamaları oluşturmak için çok sayıda zorluk çözen güçlü bir MVC JavaScript kitaplığı olan [Ember](http://emberjs.com/)'yi kullanır.
 
-Ember SPA şablon EmberJS ve Gidon şablonu kullanarak SPA Knockout şablonu yeniden bir uygulamasıdır.
+Ember SPA şablonu, EmberJS ve Handleçubuklarının şablon oluşturma kullanılarak altını gizleme SPA şablonunun yeniden uygulanmasıdır.
 
-## <a name="hot-towel"></a>Hot Towel
+## <a name="hot-towel"></a>Etkin simgesi
 
-[Hot Towel SPA şablon](../templates/hottowel-template.md). Bu şablon Meltem, Knockout RequireJS ve Twitter Bootstrap dahil olmak üzere çeşitli JavaScript kitaplıkları, getirir.
+[Sık ERIŞIMLI Spa şablonu](../templates/hottowel-template.md). Bu şablon, Breeze, altını gizleme, RequireJS ve Twitter önyüklemesi dahil olmak üzere birkaç JavaScript kitaplığı sunar.
 
-Burada listelenen diğer şablonlar ile karşılaştırıldığında, Hot Towel şablonu, kendi oluşturabileceğiniz daha eksiksiz bir uygulama sağlar. Dikkat edilmesi gereken daha fazla kavram vardır, ancak bunları anladığınızda, bu şablonun yalnızca aradığınız ne olabilir. Üzerinde uygulama oluşturmanızı sağlayacak bir SPA oluşturmak istiyorsunuz, ancak Hot Towel kullanın nerede karar veremez ve saniyeler içinde bir SPA ve tüm araçlar gerekir.
+Burada listelenen diğer şablonlar ile karşılaştırıldığında, sık erişimli şablon, kendi kendinize oluşturabileceğiniz daha kapsamlı bir uygulama sağlar. Bilinmesi gereken daha fazla kavram vardır, ancak bunları anladığınızda, bu şablon yalnızca sizin aradığınıza ait olabilir. Bir SPA oluşturmak ve nereden başlayacağınıza karar vermek istiyorsanız, sık e-başnu kullanın ve saniyeler içinde, üzerinde oluşturmanız gereken bir SPA ve tüm araçlara sahip olacaksınız.
 
 ## <a name="feature-table"></a>Özellik tablosu
 
-Her SPA şablon tarafından sağlanan özellikleri şunlardır:
+Her SPA şablonu tarafından sunulan özellikler şunlardır:
 
-|                        | ASP.NET SPA | Omurga | BREEZE/Angular | Breeze/KO |  Ember   | Hot Towel |
+|                        | ASP.NET SPA | Yönlendiricide | Breeze/angular | Breeze/KO |  Ember   | Etkin simgesi |
 |------------------------|-------------|----------|----------------|-----------|----------|-----------|
-|      Yapılacaklar örneği       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
-|     Tam şablon      |             | &#10003; |                |           |          | &#10003;  |
-| Gezinti ve geçmişi |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
+|      ToDo örneği       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
+|     Çıplak şablon      |             | &#10003; |                |           |          | &#10003;  |
+| Gezinti ve geçmiş |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
 |        Kitaplıklar       |             |          |                |           |          |           |
 |        Angular         |             |          |    &#10003;    |           |          |           |
-|    &#8195;Omurga     |             | &#10003; |                |           |          |           |
-|         Meltem         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
+|    &#8195;Yönlendiricide     |             | &#10003; |                |           |          |           |
+|         Breeze         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
 |        Durandal        |             |          |                |           |          | &#10003;  |
 |         Ember          |             |          |                |           | &#10003; |           |
-|        Knockout        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
+|        Renkleri        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |

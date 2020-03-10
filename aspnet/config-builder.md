@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 10/29/2018
 msc.type: content
 ms.openlocfilehash: 5299d9ab057c3096773955a7461e77a80673ebfe
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74586759"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584513"
 ---
 # <a name="configuration-builders-for-aspnet"></a>ASP.NET için yapılandırma oluşturucuları
 
@@ -139,8 +139,8 @@ Yukarıdaki kod, özellik değerlerini şu şekilde ayarlar:
 |  Anahtar              | Değer |
 | ----------------- | ------------ |
 |     ServiceId           | Env değişkenlerinden AppSetting_ServiceID|
-|    {1&gt;default&lt;1}            | Env 'dan değer AppSetting_default |
-|    {1&gt;default&lt;1}         | Env ConnStr_default Val|
+|    default            | Env 'dan değer AppSetting_default |
+|    default         | Env ConnStr_default Val|
 
 ### <a name="tokenpattern"></a>Tokenmodel
 
@@ -277,7 +277,7 @@ Gizli dizileri dosyası aşağıdaki biçimdedir:
 
 * `jsonFile`-gerekli. Okunacak JSON dosyasını belirtir. `~` karakteri uygulama köküne başvurmak için başlangıçta kullanılabilir.
 * `optional`-Boolean, varsayılan değer `true`. JSON dosyası bulunamazsa özel durum üretilmesini önler.
-* `jsonMode` - `[Flat|Sectional]`. `Flat` varsayılandır. `jsonMode` `Flat`, JSON dosyası tek bir düz anahtar/değer kaynağıdır. `EnvironmentConfigBuilder` ve `AzureKeyVaultConfigBuilder` aynı zamanda tek düz anahtar/değer kaynaklarıdır. `SimpleJsonConfigBuilder` `Sectional` modunda yapılandırıldığında:
+* `jsonMode` - `[Flat|Sectional]`. `Flat` varsayılan değerdir. `jsonMode` `Flat`, JSON dosyası tek bir düz anahtar/değer kaynağıdır. `EnvironmentConfigBuilder` ve `AzureKeyVaultConfigBuilder` aynı zamanda tek düz anahtar/değer kaynaklarıdır. `SimpleJsonConfigBuilder` `Sectional` modunda yapılandırıldığında:
 
   * JSON dosyası kavramsal olarak yalnızca en üst düzeyde birden fazla sözlüklere bölünmüştür.
   * Sözlüklerin her biri yalnızca, bunlara iliştirilmiş en üst düzey Özellik adıyla eşleşen yapılandırma bölümüne uygulanır. Örneğin:

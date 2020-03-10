@@ -1,33 +1,33 @@
 ---
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
-title: Sahte Entity Framework, birim testi ASP.NET Web API 2 | Microsoft Docs
+title: Birim testi ASP.NET Web API 2 ' de Entity Framework Mocking | Microsoft Docs
 author: Rick-Anderson
-description: Bu kılavuzu ve uygulama Entity Framework kullanan, Web API 2 uygulaması için birim testleri oluşturma işlemini göstermektedir. Nasıl değiştirileceğini gösterir...
+description: Bu kılavuz ve uygulama, Entity Framework kullanan Web API 2 uygulamanız için birim testlerinin nasıl oluşturulacağını göstermektedir. Nasıl değiştirileceği gösterilmektedir...
 ms.author: riande
 ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 258450107ee7443c4efd43a3b8e4851249745227
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108172"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555092"
 ---
-# <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Sahte Entity Framework, birim testi ASP.NET Web API 2
+# <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Birim testi ASP.NET Web API 2 ' de Entity Framework Mocking
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-[Projeyi yükle](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
+[Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
-> Bu kılavuzu ve uygulama Entity Framework kullanan, Web API 2 uygulaması için birim testleri oluşturma işlemini göstermektedir. Bu, Entity Framework ile çalışma testi nesneleri oluşturma ve test etmek için bir bağlam nesnesi geçirerek etkinleştirmek için iskele kurulmuş denetleyicisini değiştirmek nasıl gösterir.
+> Bu kılavuz ve uygulama, Entity Framework kullanan Web API 2 uygulamanız için birim testlerinin nasıl oluşturulacağını göstermektedir. Bağlam nesnesinin test için geçirilmesini ve Entity Framework birlikte çalışan test nesnelerinin nasıl oluşturulacağını etkinleştirmek için, yapı iskelesi denetleyicisinin nasıl değiştirileceğini gösterir.
 >
-> Birim testi ile ASP.NET Web API'si için bir giriş için bkz [ASP.NET Web API 2 birim testiyle](unit-testing-with-aspnet-web-api.md).
+> ASP.NET Web API 'SI ile birim teste giriş için bkz. [ASP.NET Web API 2 Ile birim testi](unit-testing-with-aspnet-web-api.md).
 >
-> Bu öğreticide, ASP.NET Web API ile ilgili temel kavramlar hakkında bilgi sahibi olduğunuz varsayılır. Giriş niteliğindeki bir eğitim için bkz. [ASP.NET Web API 2 ile çalışmaya başlama](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
+> Bu öğreticide, ASP.NET Web API 'sinin temel kavramları hakkında bilgi sahibi olduğunuz varsayılır. Tanıtım öğreticisi için bkz. [ASP.NET Web API 2 Ile çalışmaya](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)başlama.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 >
 > - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web API 2
@@ -38,152 +38,152 @@ Bu konu aşağıdaki bölümleri içermektedir:
 
 - [Önkoşullar](#prereqs)
 - [Kodu indir](#download)
-- [Uygulama ile birim testi projesi oluşturma](#appwithunittest)
+- [Birim testi projesiyle uygulama oluştur](#appwithunittest)
 - [Model sınıfı oluşturma](#modelclass)
 - [Denetleyiciyi ekleme](#controller)
-- [Bağımlılık ekleme Ekle](#dependency)
-- [Test projesinde NuGet paketlerini yükleme](#testpackages)
-- [Bu testin oluşturma](#testcontext)
-- [Testleri oluşturma](#tests)
-- [Testleri çalıştırın](#runtests)
+- [Bağımlılık ekleme ekleme](#dependency)
+- [NuGet paketlerini test projesine yükler](#testpackages)
+- [Test bağlamı oluştur](#testcontext)
+- [Test oluştur](#tests)
+- [Testleri Çalıştır](#runtests)
 
-' Ndaki adımları zaten tamamladıysanız [ASP.NET Web API 2 birim testiyle](unit-testing-with-aspnet-web-api.md), bölümüne atlayabilirsiniz [denetleyiciyi ekleme](#controller).
+[ASP.NET Web API 2 Ile birim testinde](unit-testing-with-aspnet-web-api.md)adımları zaten tamamladıysanız, [denetleyiciyi ekleme](#controller)bölümüne atlayabilirsiniz.
 
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Önkoşullar
 
-Visual Studio 2017 Community, Professional veya Enterprise edition
+Visual Studio 2017 Community, Professional veya Enterprise Edition
 
 <a id="download"></a>
-## <a name="download-code"></a>Kodu indir
+## <a name="download-code"></a>Kodu indirin
 
-İndirme [projeyi](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11). Birim testi kodu ve için bu konunun indirilebilir proje içerir [birim testi ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md) konu.
+[Tamamlanmış projeyi](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)indirin. İndirilebilir proje, bu konu için birim test kodu ve [birim testi ASP.NET Web API 2](unit-testing-with-aspnet-web-api.md) konusu için içerir.
 
 <a id="appwithunittest"></a>
-## <a name="create-application-with-unit-test-project"></a>Uygulama ile birim testi projesi oluşturma
+## <a name="create-application-with-unit-test-project"></a>Birim testi projesiyle uygulama oluştur
 
-Uygulamanızı oluştururken bir birim test projesi oluşturun veya mevcut bir uygulamaya bir birim test projesi ekleyin. Bu öğreticide, uygulama oluştururken bir birim testi projesi oluşturma gösterilmektedir.
+Uygulamanızı oluştururken bir birim testi projesi oluşturabilir veya var olan bir uygulamaya bir birim testi projesi ekleyebilirsiniz. Bu öğretici, uygulamayı oluştururken bir birim testi projesi oluşturmayı gösterir.
 
-Adlı yeni bir ASP.NET Web uygulaması oluşturma **StoreApp**.
+**Storeapp**adlı yeni bir ASP.NET Web uygulaması oluşturun.
 
-Yeni ASP.NET projesi Windows'da seçin **boş** şablon klasörleri ekleyin ve Web API'si için başvuru çekirdek. Seçin **birim testleri ekleme** seçeneği. Birim test projesi otomatik olarak adlandırılır **StoreApp.Tests**. Bu ad tutabilirsiniz.
+Yeni ASP.NET proje penceresinde **boş** şablonu seçin ve Web API 'si için klasörler ve çekirdek başvurular ekleyin. **Birim testleri Ekle** seçeneğini belirleyin. Birim testi projesi, otomatik olarak **Storeapp. Tests**olarak adlandırılır. Bu adı koruyabilirsiniz.
 
-![Birim testi projesi oluşturma](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image1.png)
+![birim testi projesi oluştur](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image1.png)
 
-Uygulamayı oluşturduktan sonra iki proje - içerdiği görürsünüz **StoreApp** ve **StoreApp.Tests**.
+Uygulamayı oluşturduktan sonra, bunu iki proje- **Storeapp** ve **Storeapp. Tests**içerdiğini görürsünüz.
 
 <a id="modelclass"></a>
 ## <a name="create-the-model-class"></a>Model sınıfı oluşturma
 
-StoreApp projeniz için sınıf dosyası ekleyin **modelleri** adlı klasöre **Product.cs**. Dosyanın içeriğini aşağıdaki kodla değiştirin.
+StoreApp projenizde, **Product.cs**adlı **modeller** klasörüne bir sınıf dosyası ekleyin. Dosyanın içeriğini aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample1.cs)]
 
-Çözümü oluşturun.
+Çözümü derleyin.
 
 <a id="controller"></a>
 ## <a name="add-the-controller"></a>Denetleyiciyi ekleme
 
-Denetleyicileri klasörüne sağ tıklayıp **Ekle** ve **yeni iskele kurulmuş öğe**. Entity Framework kullanarak Eylemler ile Web API 2 denetleyicisi seçin.
+Denetleyiciler klasörüne sağ tıklayın ve **Ekle** ve **yeni yapı iskelesi öğesi**' ni seçin. Entity Framework kullanarak, eylemlerle Web API 2 denetleyicisi ' ni seçin.
 
-![Yeni denetleyici ekleyin](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image2.png)
+![Yeni denetleyici Ekle](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image2.png)
 
 Aşağıdaki değerleri ayarlayın:
 
 - Denetleyici adı: **ProductController**
-- Model sınıfı: **Ürün**
-- Veri bağlamı sınıfı: [seçin **yeni veri bağlamı** aşağıda görüldüğü değerleri doldurur düğme]
+- Model Sınıfı: **ürün**
+- Veri bağlamı sınıfı: [aşağıda görülen değerleri dolduran **Yeni veri bağlam** düğmesini seçin]
 
-![Denetleyici belirtin](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image3.png)
+![denetleyiciyi belirtin](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image3.png)
 
-Tıklayın **Ekle** denetleyicisi otomatik olarak oluşturulan kod oluşturmak için. Kod oluşturma, alma, güncelleştirme ve ürün sınıfının örneklerini silme yöntemlerini içerir. Yöntemi aşağıdaki kodda gösterildiği bir ürün eklemek için. Yöntem örneği döndürdüğüne dikkat edin **Ihttpactionresult**.
+Denetleyiciyi otomatik olarak oluşturulan kodla oluşturmak için **Ekle** ' ye tıklayın. Kod, ürün sınıfının örneklerini oluşturma, alma, güncelleştirme ve silme yöntemlerini içerir. Aşağıdaki kod, ürün ekleme yöntemini gösterir. Metodun bir **ıhttpactionresult**örneği döndürtiğine dikkat edin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample2.cs)]
 
-Web API 2'deki yeni özelliklerin Ihttpactionresult biridir ve birim testi geliştirmenin kolaylaştırır.
+Ihttpactionresult, Web API 2 ' deki yeni özelliklerden biridir ve birim testi geliştirmeyi basitleştirir.
 
-Sonraki bölümde kolaylaştırmak için oluşturulan kodu özelleştireceğim denetleyiciye test nesneleri geçirme.
+Bir sonraki bölümde, test nesnelerini denetleyiciye geçirmeyi kolaylaştırmak için oluşturulan kodu özelleştirecek olursunuz.
 
 <a id="dependency"></a>
-## <a name="add-dependency-injection"></a>Bağımlılık ekleme Ekle
+## <a name="add-dependency-injection"></a>Bağımlılık ekleme ekleme
 
-Şu anda ProductController StoreAppContext sınıfının bir örneğini kullanmak için kodlanmış sınıftır. Uygulamanızı değiştirmeniz ve bu sabit kodlanmış bir bağımlılığı kaldırmak için bağımlılık ekleme adlı bir desen kullanır. Bu bağımlılık ayırarak, test ederken sahte bir nesne geçirebilirsiniz.
+Şu anda, ProductController sınıfı StoreAppContext sınıfının bir örneğini kullanmak için sabit olarak kodlanmıştır. Uygulamanızı değiştirmek ve bu sabit kodlanmış bağımlılığı kaldırmak için bağımlılık ekleme adlı bir model kullanacaksınız. Bu bağımlılığı bozarak, test ederken bir sahte nesne geçirebilirsiniz.
 
-Sağ **modelleri** klasöründe ve adlı yeni bir arabirim ekleme **IStoreAppContext**.
+**Modeller** klasörüne sağ tıklayın ve **Istoreappcontext**adlı yeni bir arabirim ekleyin.
 
 Kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample3.cs)]
 
-StoreAppContext.cs dosyasını açın ve aşağıdaki vurgulanmış değişiklikleri yapın. Dikkat edilecek önemli değişiklikler şunlardır:
+StoreAppContext.cs dosyasını açın ve aşağıdaki vurgulanan değişiklikleri yapın. Nottaki önemli değişiklikler şunlardır:
 
-- StoreAppContext sınıfı IStoreAppContext arabirimini uygular.
-- Uygulanan MarkAsModified yöntemi
+- StoreAppContext sınıfı ıtoreappcontext arabirimini uygular
+- MarkAsModified yöntemi uygulandı
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample4.cs?highlight=6,14-17)]
 
-ProductController.cs dosyasını açın. Varolan kodu vurgulanmış kodu eşleşecek şekilde değiştirin. Bu değişiklikler, bağımlılık StoreAppContext üzerinde kesme ve diğer sınıflar farklı bir nesne için bağlam sınıfını geçirmek etkinleştirin. Bu değişiklik sırasında birim testleri bir test bağlamında geçirmenize olanak tanır.
+ProductController.cs dosyasını açın. Mevcut kodu vurgulanan kodla eşleşecek şekilde değiştirin. Bu değişiklikler StoreAppContext üzerindeki bağımlılığı keser ve diğer sınıfların bağlam sınıfı için farklı bir nesneye geçmesini sağlar. Bu değişiklik, birim testleri sırasında bir test bağlamı geçirmenize olanak sağlar.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample5.cs?highlight=4,7-12)]
 
-ProductController yapmanız gereken daha fazla değişiklik yoktur. İçinde **PutProduct** yöntemi, varlık durumu ayarlar satır değiştiren MarkAsModified yöntemi çağrısı ile değiştirin.
+ProductController 'da yapmanız gereken bir değişiklik daha vardır. **Putproduct** yönteminde, varlık durumunu ayarlayan satırı, MarkAsModified yöntemine yapılan bir çağrı ile değiştirin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample6.cs?highlight=14-15)]
 
-Çözümü oluşturun.
+Çözümü derleyin.
 
-Şimdi test projesini ayarlarsınız hazırsınız.
+Şimdi test projesi ayarlamaya hazırsınız.
 
 <a id="testpackages"></a>
-## <a name="install-nuget-packages-in-test-project"></a>Test projesinde NuGet paketlerini yükleme
+## <a name="install-nuget-packages-in-test-project"></a>NuGet paketlerini test projesine yükler
 
-Bir uygulama oluşturmak için boş şablonu kullandığınızda, birim testi projesi (StoreApp.Tests) yüklü herhangi bir NuGet paketinin içermez. Web API şablonu gibi diğer şablonları, birim test projesinde NuGet paketlerinden bazıları içerir. Bu öğreticide, Entity Framework paketini ve Microsoft ASP.NET Web API 2 Çekirdek paketini test projesine eklemeniz gerekir.
+Bir uygulama oluşturmak için boş şablonu kullandığınızda, birim testi projesi (StoreApp. Tests) yüklü herhangi bir NuGet paketini içermez. Web API şablonu gibi diğer şablonlar, birim testi projesine bazı NuGet paketleri içerir. Bu öğreticide, Entity Framework paketini ve Microsoft ASP.NET Web API 2 Core paketini test projesine eklemeniz gerekir.
 
-StoreApp.Tests projeye sağ tıklayıp **NuGet paketlerini Yönet**. Paketler bu projeye eklemek için StoreApp.Tests proje seçmeniz gerekir.
+StoreApp. Tests projesine sağ tıklayın ve **NuGet Paketlerini Yönet**' i seçin. Paketleri bu projeye eklemek için StoreApp. Tests projesini seçmelisiniz.
 
-![paketlerini yönetme](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
+![Paketleri yönetme](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
 
-Çevrimiçi paketlerinden bulun ve EntityFramework paketi (sürüm 6.0 veya üzeri) yükleyin. EntityFramework paket zaten yüklü olduğunu görüntüleniyorsa, StoreApp.Tests proje yerine StoreApp proje seçmiş olabilirsiniz.
+Çevrimiçi paketlerden EntityFramework paketini bulun ve (sürüm 6,0 veya üzeri) yükler. EntityFramework paketinin zaten yüklü olduğu görüntülenirse StoreApp. Tests projesi yerine StoreApp projesini seçmiş olabilirsiniz.
 
 ![Entity Framework Ekle](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image5.png)
 
-Bulun ve Microsoft ASP.NET Web API 2 Çekirdek paketini yükleyin.
+Microsoft ASP.NET Web API 2 çekirdek paketini bulun ve yükler.
 
-![Web API çekirdek paketini yükle](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image6.png)
+![Web API Core paketini yükler](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image6.png)
 
-NuGet paketlerini Yönet penceresini kapatın.
+NuGet Paketlerini Yönet penceresini kapatın.
 
 <a id="testcontext"></a>
-## <a name="create-test-context"></a>Bu testin oluşturma
+## <a name="create-test-context"></a>Test bağlamı oluştur
 
-Adlı bir sınıf ekleyin **TestDbSet** test projesi için. Bu sınıf, test veri kümeniz için temel sınıf olarak görev yapar. Kodu aşağıdaki kodla değiştirin.
+Test projesine **Testdbset** adlı bir sınıf ekleyin. Bu sınıf, test veri kümesi için temel sınıf olarak hizmet verir. Kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample7.cs)]
 
-Adlı bir sınıf ekleyin **TestProductDbSet** aşağıdaki kodu içeren bir test projesi için.
+Aşağıdaki kodu içeren test projesine **Testproductdbset** adlı bir sınıf ekleyin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample8.cs)]
 
-Adlı bir sınıf ekleyin **TestStoreAppContext** ve varolan kodu aşağıdaki kodla değiştirin.
+**Teststoreappcontext** adlı bir sınıf ekleyin ve mevcut kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample9.cs)]
 
 <a id="tests"></a>
-## <a name="create-tests"></a>Testleri oluşturma
+## <a name="create-tests"></a>Test oluştur
 
-Varsayılan olarak, adlı boş bir test dosyası test projenize içerir **UnitTest1.cs**. Bu dosya, test yöntemleri oluşturduğunuzda kullandığınız öznitelikleri gösterir. Bu öğretici için yeni bir test sınıfı ekleyeceksiniz çünkü bu dosyayı silebilirsiniz.
+Varsayılan olarak, test projeniz **UnitTest1.cs**adlı boş bir test dosyası içerir. Bu dosya, test yöntemleri oluşturmak için kullandığınız öznitelikleri gösterir. Bu öğreticide, yeni bir test sınıfı ekleyeceğiniz için bu dosyayı silebilirsiniz.
 
-Adlı bir sınıf ekleyin **TestProductController** test projesi için. Kodu aşağıdaki kodla değiştirin.
+Test projesine **Testproductcontroller** adlı bir sınıf ekleyin. Kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/samples/sample10.cs)]
 
 <a id="runtests"></a>
 ## <a name="run-tests"></a>Testleri çalıştırma
 
-Testleri çalıştırmak artık hazırsınız. Tüm ile işaretlenmiş yöntem **TestMethod** özniteliği test edilmiş. Gelen **Test** menü öğesi, testleri çalıştırın.
+Şimdi testleri çalıştırmaya hazırsınız. **TestMethod** özniteliğiyle işaretlenen tüm yöntem test edilecek. **Test** menü öğesinden testleri çalıştırın.
 
 ![testleri çalıştırma](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image7.png)
 
-Açık **Test Gezgini** penceresinde ve test sonuçlarını dikkat edin.
+**Test Gezgini** penceresini açın ve testlerin sonuçlarına dikkat edin.
 
 ![test sonuçları](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image8.png)

@@ -1,140 +1,140 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
-title: 'Bölüm 2: Denetleyicileri | Microsoft Docs'
+title: '2\. Bölüm: denetleyiciler | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 2 denetleyicileri kapsar.
+description: Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 2\. Bölüm denetleyicileri içerir.
 ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
 ms.openlocfilehash: 9dc2226f4951d4bed122df37d35bbb94730a00ad
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65112409"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559880"
 ---
-# <a name="part-2-controllers"></a>Bölüm 2: Denetleyiciler
+# <a name="part-2-controllers"></a>2\. Bölüm: Denetleyiciler
 
-tarafından [Jon Galloway](https://github.com/jongalloway)
+[Jon Galloway](https://github.com/jongalloway) tarafından
 
-> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
+> MVC müzik deposu, Web geliştirme için ASP.NET MVC ve Visual Studio 'nun nasıl kullanılacağını anlatan bir öğretici uygulamadır.  
 >   
-> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik deposu, çevrimiçi olarak müzik albümlerini satan ve temel site yönetimi, Kullanıcı oturum açma ve alışveriş sepeti işlevlerini uygulayan basit bir örnek depolama uygulamasıdır.  
 >   
-> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 2 denetleyicileri kapsar.
+> Bu öğretici serisi, ASP.NET MVC müzik deposu örnek uygulamasını oluşturmak için kullanılan adımların tümünü ayrıntılarıyla ayrıntılardır. 2\. Bölüm denetleyicileri içerir.
 
-Geleneksel web çerçeveleri ile gelen URL'ler diskteki dosyaları genellikle eşlenir. Örneğin: bir URL isteği ister "/ Products.aspx" veya "/ Products.php" bir "Products.aspx" veya "Products.php" dosyası tarafından işlenir.
+Geleneksel Web çerçeveleri ile gelen URL 'Ler genellikle disk üzerindeki dosyalarla eşleştirilir. Örneğin: "/Products.aspx" veya "/Products.php" gibi bir URL isteği bir "Products. aspx" veya "Products. php" dosyası tarafından işlenebilir.
 
-Web tabanlı MVC çerçeveleri URL'leri için sunucu kodu biraz farklı bir şekilde eşleştirin. Gelen URL'ler için dosya eşleme yerine bunların yerine URL'leri sınıfları yöntemlerde eşleyin. Bu sınıfların "Denetleyicileri" olarak adlandırılır ve kullanıcı girişini işleme gelen HTTP isteklerini işlemekten sorumlu oldukları, alma ve verilerini kaydetme ve gönderilecek yanıt belirleyen yedekleme istemciye (HTML görüntülemek, dosya indirme, farklı bir'yeniden yönlendirme URL, vb.).
+Web tabanlı MVC çerçeveleri, URL 'Leri sunucu koduna biraz farklı bir şekilde eşler. Gelen URL 'Leri dosyalara eşlemek yerine, URL 'Leri sınıfların yöntemlerine eşleyin. Bu sınıflar "denetleyiciler" olarak adlandırılır ve gelen HTTP isteklerini işlemekten, Kullanıcı girişi işleme, verileri alma ve kaydetme ve istemciye geri gönderme yanıtını belirleme (HTML görüntüleme, bir dosyayı indirme, farklı bir şekilde yeniden yönlendirme) URL, vb.).
 
-## <a name="adding-a-homecontroller"></a>Bir HomeController ekleme
+## <a name="adding-a-homecontroller"></a>HomeController ekleme
 
-Biz, MVC müzik Store uygulamamız URL'leri sitemizi giriş sayfasına işleyecek bir denetleyici sınıfı ekleyerek başlarsınız. Biz, ASP.NET MVC varsayılan adlandırma kurallarına uygun ve HomeController çağırın.
+Sitemizin ana sayfasında URL 'Leri işleyecek bir denetleyici sınıfı ekleyerek MVC müzik deposu uygulamamıza başlayacağız. ASP.NET MVC 'nin varsayılan adlandırma kurallarını takip edeceğiz ve HomeController ' a çağrı yapacağız.
 
-Çözüm Gezgini içinde "Denetleyicileri" klasörü sağ tıklatın ve "Ekle" ve "Denetleyici..." komutunu seçin:
+Çözüm Gezgini içindeki "denetleyiciler" klasörüne sağ tıklayın ve "Ekle" yi ve ardından "denetleyici..." öğesini seçin. komutundaki
 
 ![](mvc-music-store-part-2/_static/image1.jpg)
 
-Bu, "Denetleyici Ekle" iletişim kutusu getirir. Denetleyici "HomeController" olarak adlandırın ve Ekle düğmesine basın.
+Bu, "denetleyici Ekle" iletişim kutusunu getirir. Denetleyiciyi "HomeController" olarak adlandırın ve Ekle düğmesine basın.
 
 ![](mvc-music-store-part-2/_static/image1.png)
 
-Bu, aşağıdaki kod ile HomeController.cs, yeni bir dosya oluşturur:
+Bu, aşağıdaki kodla yeni bir HomeController.cs dosyası oluşturur:
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample1.cs)]
 
-Olabildiğince basit bir şekilde başlamak için şimdi dizin yöntemi yalnızca bir dize döndüren basit bir yöntem ile değiştirin. İki değişiklik oluşturacağız:
+Mümkün olduğunca basit bir şekilde başlamak için Dizin metodunu yalnızca bir dize döndüren basit bir yöntemle değiştirin. İki değişiklik yapacağız:
 
-- ActionResult yerine bir dize döndürecek şekilde yöntemini değiştirme
-- "Hello gelen giriş" döndürülecek dönüş deyimi değiştirin
+- Yöntemi eylem sonucu yerine bir dize döndürecek şekilde değiştirin
+- Return ifadesini "from evden" döndürecek şekilde değiştirin
 
-Yöntemi gibi görünmelidir:
+Yöntemi şu şekilde görünmelidir:
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample2.cs)]
 
 ## <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Artık site çalıştıralım. Biz de bizim web sunucusunu başlatmak ve aşağıdakilerden birini kullanarak site deneyin:
+Şimdi siteyi çalıştıralım. Web-Server ' i başlatabiliriz ve aşağıdakilerden birini kullanarak siteyi deneyebiliriz::
 
-- Hata ayıklama ⇨ hata ayıklamayı Başlat menü öğesini seçin
+- Debug ⇨ start hata ayıklamayı Başlat menü öğesini seçin
 - Araç çubuğundaki yeşil ok düğmesine tıklayın ![](mvc-music-store-part-2/_static/image2.jpg)
 - F5 klavye kısayolunu kullanın.
 
-Yukarıdaki adımları kullanarak projemizdeki derleyin ve ardından yerleşik-görsel Web başlatmak için geliştiricinin ASP.NET Geliştirme Sunucusu neden. Bir bildirim ASP.NET Geliştirme Sunucusu başlatıldıktan belirtmek için ekranın alt köşesinde görünür ve bağlantı noktası numarasını altında çalışır olduğunu gösterir.
+Yukarıdaki adımlardan herhangi birini kullanmak, projemizi derler ve Visual Web Developer 'ın yerleşik ASP.NET geliştirme sunucusunun başlatılmasına neden olur. ASP.NET Development Server 'ın başlatıldığını göstermek için ekranın alt köşesinde bir bildirim görünür ve altında çalıştığı bağlantı noktası numarasını gösterir.
 
 ![](mvc-music-store-part-2/_static/image2.png)
 
-Visual Web Developer, bizim web sunucusu URL'si gösteren bir tarayıcı penceresi otomatik olarak açılır. Bu web uygulamamıza'ı hızlıca denemeniz bize izin verir:
+Visual Web Developer, URL 'SI Web-Server ' ı işaret eden bir tarayıcı penceresini otomatik olarak açar. Bu, Web uygulamamızı hızlıca denememize olanak sağlayacak:
 
 ![](mvc-music-store-part-2/_static/image3.png)
 
-Yeni bir Web sitesi oluşturduğumuz oldukça hızlı –, Tamam, bir üç satır içi işlev eklendi ve metin bir tarayıcıda yapılandırdığımıza göre. Bilimi Doğum değil, ancak bir başlangıçtır.
+Neredeyse hızlı bir şekilde, yeni bir Web sitesi oluşturdunuz, üç satırlık bir işlev ekledik ve bir tarayıcıda metin aldık. Roket bilimi değil, ancak bir başlangıç.
 
-*Not: Visual Web Developer sitenizi rastgele ücretsiz "bağlantı" noktalarında çalışır ASP.NET Geliştirme Sunucusu içerir. Yukarıdaki ekran görüntüsünde, sitesinin çalışır durumda `http://localhost:26641/`, bağlantı noktası 26641 kullanıyor. Bağlantı noktası numaranızı farklı olacaktır. Biz bu öğreticide URL'leri gibi /Store/Browse hakkında konuşurken, bağlantı noktası numarasından sonra geçer. Bir bağlantı noktası numarasını 26641 varsayıldığında, tarama/Store/dizinine göz atma göz anlamına gelir `http://localhost:26641/Store/Browse`.*
+*Note: Visual Web Developer, Web sitenizi rastgele boş bir "bağlantı noktası" numarası üzerinde çalıştıracak ASP.NET geliştirme sunucusunu içerir. Yukarıdaki ekran görüntüsünde, site `http://localhost:26641/`çalışıyor, bu nedenle 26641 numaralı bağlantı noktasını kullanıyor. Bağlantı noktası numaranız farklı olacaktır. Bu öğreticide, URL 'ler gibi/Store/gözatım gibi bir iletişim kurduğumuz zaman, bağlantı noktası numarasından sonra da devam edecektir. 26641 numaralı bağlantı noktası,/Store/gözatma 'ya göz atarak `http://localhost:26641/Store/Browse`göz atacaktır.*
 
-## <a name="adding-a-storecontroller"></a>Bir StoreController ekleme
+## <a name="adding-a-storecontroller"></a>StoreController ekleme
 
-Sitemizi ana sayfası uygulayan bir basit HomeController ekledik. Artık bizim müzik deposu gözatma işlevselliğini uygulamak için kullanacağız başka bir denetleyici ekleyelim. Deposu denetleyicimizin üç senaryoları destekler:
+Sitemizin ana sayfasını uygulayan basit bir HomeController ekledik. Şimdi, müzik mağazamız için göz atma işlevini uygulamak üzere kullanacağımız başka bir denetleyici ekleyelim. Mağaza denetleyicimiz üç senaryoyu destekleyecektir:
 
-- Bizim müzik deposu içinde müzik türleri listesi sayfası
-- Tüm müzik albümleri, belirli bir türe listeleyen bir göz atma sayfasından
-- Belirli bir müzik Albüm hakkında bilgi gösteren Ayrıntılar sayfası
+- Müzik mağazamız içindeki müzik tarzlarımızın bir listeleme sayfası
+- Belirli bir tarz tüm müzik albümlerini listeleyen bir tarayıcı sayfası
+- Belirli bir müzik albümünden ilgili bilgileri gösteren Ayrıntılar sayfası
 
-Yeni bir StoreController sınıf ekleyerek başlayacağız.. Henüz yapmadıysanız, uygulama tarayıcının kapanması veya hata ayıklama ⇨ hata ayıklamayı Durdur menü öğesi seçilerek çalışmıyor.
+Yeni bir StoreController sınıfı ekleyerek başlayacağız. Henüz yapmadıysanız, tarayıcıyı kapatarak veya Debug ⇨ Stop Debugging menü öğesini seçerek uygulamayı çalıştırmayı durdurun.
 
-Şimdi yeni StoreController ekleyin. İle HomeController yaptığımız gibi Çözüm Gezgini içinde "Denetleyicileri" klasöre sağ tıklayarak ve Add - seçerek bunu&gt;denetleyicisi menü öğesi
+Şimdi yeni bir StoreController ekleyin. HomeController ile yaptığımız gibi, bunu, Çözüm Gezgini içinde "denetleyiciler" klasörüne sağ tıklayıp, Add-&gt;Controller menü öğesini seçerek yapacağız.
 
 ![](mvc-music-store-part-2/_static/image4.png)
 
-Yeni sunduğumuz StoreController, "Index" yöntemi zaten var. Bizim müzik deposu içindeki tüm türleri listeler listeleme sayfamızı uygulamak için bu "Index" yöntem kullanacağız. İşlemek için sunduğumuz StoreController istiyoruz iki diğer senaryolar uygulamak için iki ek yöntem de ekleyeceğiz: Göz atma ve ayrıntıları.
+Yeni StoreController bir "Dizin" metoduna zaten sahip. Bu "Dizin" yöntemini, müzik Deponuzdaki tüm tarzları listeleyen listeleme sayfamızı uygulamak için kullanacağız. Ayrıca, StoreController 'ın işlemesini istediğimiz iki senaryoyu uygulamak için iki ek yöntem de ekleyeceğiz: tarama ve ayrıntılar.
 
-Bu yöntemler (dizin, göz atma ve ayrıntıları) Denetleyicimizin içinde "Denetleyici eylemlerini" olarak adlandırılır ve HomeController.Index () eylem yöntemine önceden gördüğünüz gibi kendi URL taleplerine yanıt vereceğini ve içeriği (genel olarak bakıldığında) belirlemek için iş Tarayıcı veya URL çağrılan kullanıcı geri gönderilmesi.
+Denetleyicimiz içindeki bu yöntemlere (Dizin, gözatmayı ve ayrıntıları) "denetleyici eylemleri" adı verilir ve HomeController. Index () eylem yöntemiyle zaten gördüğünüz gibi, işleri URL isteklerine yanıt verebiliyor ve (genel olarak konuşulur) hangi içeriğin olduğunu belirleme URL 'YI çağıran tarayıcıya veya kullanıcıya geri gönderilmelidir.
 
-StoreController kararlılığımızın theIndex() yöntemi "Hello gelen Store.Index()" dize döndürecek şekilde değiştirerek başlayacağız ve Browse() ve Details() için benzer yöntemler ekleyeceğiz:
+Dizin () yöntemini "Hello. Index ()" dizesini döndürecek şekilde değiştirerek StoreController uygulamamıza başlayacağız ve gözatıp () ve ayrıntılar () için benzer yöntemler ekleyeceğiz:
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample3.cs)]
 
-Projeyi yeniden çalıştırın ve aşağıdaki URL'ler göz atın:
+Projeyi yeniden çalıştırın ve aşağıdaki URL 'Lere gözatamazsınız:
 
-- / Store
-- / Store/Gözat
-- / Store/ayrıntıları
+- /Store
+- /Store/zat
+- /Store/Details
 
-Bu URL'lerine erişme denetleyici eylem yöntemlerinde çağırmak ve dize yanıtlarını döndürmek:
+Bu URL 'Lere erişim, denetleyicimiz içindeki eylem yöntemlerini çağırır ve dize yanıtlarını döndürür:
 
 ![](mvc-music-store-part-2/_static/image5.png)
 
-Bu harika bir deneyimdir ancak bunlar yalnızca sabit dizelerdir. URL'den bilgi alın ve içinde sayfa çıktısını görüntülemek için bunları dinamik olalım.
+Bu harika, ancak bunlar yalnızca sabit dizelerdir. Böylece, URL 'den bilgi alıp sayfa çıktısında görüntülenecek şekilde dinamik hale olalım.
 
-URL bir sorgu dizesi değerini almak için göz atma eylem yönteminin ilk değiştireceğiz. "Tarzı" parametresi bizim eylem yöntemine ekleyerek bunu. Bunu, ASP.NET MVC çağrıldığında bizim eylem yöntemine "tarzı" adlı bir sorgu dizesi veya form gönderi parametresi otomatik olarak geçer.
+İlk olarak, URL 'den bir QueryString değeri almak için, gezinme eylemi yöntemini değiştireceksiniz. Bunu, eylem yönteimize bir "tarz" parametresi ekleyerek yapabiliriz. Bu ASP.NET MVC, çağrıldığında otomatik olarak herhangi bir QueryString veya "tarz" adlı form gönderme parametrelerini eylem yönteimize iletir.
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*Not: Kullanıcı girişini temizleyin için HttpUtility.HtmlEncode yardımcı yöntem kullanıyoruz. Bizim görünüme Javascript ekleme /Store/Browse gibi bir bağlantı içeren gelen engel olur? Tarz =&lt;betik&gt;window.location='http://hackersite.com'&lt;/SCRIPT&gt;.*
+*Note: Kullanıcı girişini silmek için HttpUtility. HtmlEncode yardımcı programı yöntemini kullanıyoruz. Bu, kullanıcıların JavaScript 'i/Store/gözatmaya benzer bir bağlantıyla ekleme değiştirmesini engeller. Tarz =&lt;betiği&gt;Window. Location = 'http://hackersite.com'&lt;/SCRIPT&gt;.*
 
-Şimdi Şimdi Gözat/Store/dizinine göz atma? Tarz DISCO =
+Şimdi/Store/gözatmaya gözatmaya izin veriyor musunuz? Tarz = disco
 
 ![](mvc-music-store-part-2/_static/image6.png)
 
-Sonraki okuma ve kimliğine adlı giriş parametresi görüntülemek için Ayrıntılar eylemi değiştirelim Bizim önceki yöntem, biz kimlik değerini bir sorgu dizesi parametresi olarak ekleme gerekmez. Bunun yerine biz bunu doğrudan URL içinde kendisi ekleyeceğiz. Örneğin: /Store/Details/5.
+Daha sonra Ayrıntılar eylemini, ID adlı bir giriş parametresi okumak ve görüntülenecek şekilde değiştirelim. Önceki yönteminizin aksine ID değerini bir QueryString parametresi olarak gömeceğiz. Bunun yerine, bunu doğrudan URL 'nin içine ekleyeceğiz. Örneğin:/Store/Details/5.
 
-ASP.NET MVC herhangi bir şey yapılandırmak zorunda kalmadan kolayca bunun olanak tanır. ASP.NET MVC'nin varsayılan yönlendirme bir URL kesimi eylem yöntem adından sonra "ID" adlı bir parametre olarak değerlendirilecek kuralıdır. Eylem yönteminizi kimliği adlı bir parametreye sahipse sonra ASP.NET MVC otomatik olarak URL kesimi, parametre olarak geçirir.
+ASP.NET MVC bunu, herhangi bir şeyi yapılandırmak zorunda kalmadan kolayca yapabilmenizi sağlar. ASP.NET MVC 'nin varsayılan yönlendirme kuralı, eylem yöntemi adından sonra bir URL 'nin segmentini "ID" adlı bir parametre olarak değerlendirmek için kullanılır. Eylem yönteminizin ID adlı bir parametresi varsa ASP.NET MVC, URL segmentini otomatik olarak bir parametre olarak size iletir.
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample5.cs)]
 
-Uygulamayı çalıştırmak ve /Store/Details/5 için göz atın:
+Uygulamayı çalıştırın ve/Store/Details/5 adresine gidin:
 
 ![](mvc-music-store-part-2/_static/image7.png)
 
-Şimdi şu ana kadar yaptıklarımızı özeti:
+Şimdiye kadar yaptığımız şeyleri de en üst sınıra bakalım:
 
-- Visual Web Developer ile yeni bir ASP.NET MVC projesi oluşturduk
-- Bir ASP.NET MVC uygulaması temel bir klasör yapısını Bahsettiğimiz
-- ASP.NET geliştirme sunucusu kullanarak sitemizin çalıştırma öğrendik.
-- İki denetleyici sınıflarına oluşturduk: bir HomeController ve bir StoreController
-- Eylem yöntemleri için URL taleplerine yanıt vereceğini ve tarayıcıya dönüş metni bizim denetleyicileri ekledik
+- Visual Web Developer 'da yeni bir ASP.NET MVC projesi oluşturduk
+- Bir ASP.NET MVC uygulamasının temel klasör yapısını tartıştık.
+- ASP.NET geliştirme sunucusunu kullanarak Web sitemizi nasıl çalıştıracağınızı öğrendiniz
+- İki denetleyici sınıfı oluşturduk: bir HomeController ve StoreController
+- URL isteklerine yanıt veren ve tarayıcıya metin döndüren denetleyicilerimize eylem yöntemleri ekledik
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-1.md)

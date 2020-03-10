@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: ASP.NET Web API'si - ASP.NET için Yardım sayfaları oluşturma 4.x
+title: ASP.NET Web API 'SI için yardım sayfaları oluşturma-ASP.NET 4. x
 author: MikeWasson
-description: Bu öğreticiyle kod ASP.NET'te ASP.NET Web API Yardım sayfaları oluşturma işlemini gösterir 4.x.
+description: Bu kod ile bu öğretici, ASP.NET 4. x içinde ASP.NET Web API 'SI için yardım sayfaları oluşturmayı gösterir.
 ms.author: riande
 ms.date: 04/01/2013
 ms.custom: seoapril2019
@@ -10,120 +10,120 @@ ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 8308dab8bd66aa8f5a3c5fb4133fc7a3df78f671
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125238"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556877"
 ---
-# <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API Yardım sayfaları oluşturma
+# <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API 'SI için yardım sayfaları oluşturma
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Bu öğreticiyle kod ASP.NET'te ASP.NET Web API Yardım sayfaları oluşturma işlemini gösterir 4.x.
+Bu kod ile bu öğretici, ASP.NET 4. x içinde ASP.NET Web API 'SI için yardım sayfaları oluşturmayı gösterir.
 
-Web API'si oluşturma, böylece diğer geliştiriciler, API'nin nasıl çağrılacağını bilir, genellikle bir Yardım sayfasını oluşturmak kullanışlıdır. Tüm belgelerini el ile oluşturabilirsiniz, ancak mümkün olduğunca otomatik iyidir. Bu görevi kolaylaştırmak için ASP.NET Web API kitaplık çalışma zamanında otomatik olarak oluşturmak için Yardım sayfaları sağlar.
+Bir Web API 'SI oluşturduğunuzda, diğer geliştiricilerin API 'nizi nasıl çağırabileceğini bilmesi için, genellikle bir yardım sayfası oluşturmak yararlı olur. Tüm belgeleri el ile oluşturabilirsiniz, ancak mümkün olduğunca yeniden oluşturulması daha iyidir. Bu görevi daha kolay hale getirmek için ASP.NET Web API 'SI, çalışma zamanında otomatik olarak yardım sayfaları oluşturmak için bir kitaplık sağlar.
 
 ![](creating-api-help-pages/_static/image1.png)
 
 ## <a name="creating-api-help-pages"></a>API Yardım sayfaları oluşturma
 
-Yükleme [ASP.NET ve Web Araçları 2012.2 güncelleştirme](https://go.microsoft.com/fwlink/?LinkId=282650). Bu güncelleştirme ile Web API proje şablonunu yardım sayfalarına tümleştirir.
+[ASP.NET and Web Tools 2012,2 güncelleştirmesini](https://go.microsoft.com/fwlink/?LinkId=282650)yükler. Bu güncelleştirme yardım sayfalarını Web API 'SI proje şablonuyla tümleştirir.
 
-Ardından, yeni bir ASP.NET MVC 4 projesi oluşturun ve Web API proje şablonunu seçin. Proje şablonu adlı bir örnek API denetleyicisi oluşturur `ValuesController`. Şablon API Yardım sayfaları da oluşturur. Tüm kod dosyaları Yardım sayfası proje alanlarını klasöründe yerleştirilir.
+Sonra, yeni bir ASP.NET MVC 4 projesi oluşturun ve Web API 'SI proje şablonunu seçin. Proje şablonu, `ValuesController`adlı örnek bir API denetleyicisi oluşturur. Şablon, API yardım sayfalarını da oluşturur. Yardım sayfası için tüm kod dosyaları projenin Areas klasörüne yerleştirilir.
 
 ![](creating-api-help-pages/_static/image2.png)
 
-Uygulamayı çalıştırdığınızda giriş sayfasının API Yardım sayfası için bir bağlantı içerir. Giriş sayfasından, göreli yol/Help ' dir.
+Uygulamayı çalıştırdığınızda, giriş sayfası API yardım sayfasına bir bağlantı içerir. Giriş sayfasından göreli yol/Help' dir.
 
 ![](creating-api-help-pages/_static/image3.png)
 
-Bu bağlantı için bir API Özet sayfasında getirir.
+Bu bağlantı sizi bir API özet sayfasına getirir.
 
 ![](creating-api-help-pages/_static/image4.png)
 
-Bu sayfa için MVC görünümü Areas/HelpPage/Views/Help/Index.cshtml içinde tanımlanır. Düzen, giriş, başlık, stillerini ve benzeri değiştirmek için bu sayfayı düzenleyebilirsiniz.
+Bu sayfanın MVC görünümü alanlarda/HelpPage/views/Help/Index. cshtml içinde tanımlanmıştır. Bu sayfayı düzen, giriş, başlık, stiller vb. değiştirmek için düzenleyebilirsiniz.
 
-Ana sayfanın parçası, API, denetleyici tarafından gruplandırılmış bir tablodur. Tablo girişleri kullanarak dinamik olarak oluşturulan **IApiExplorer** arabirimi. (Ben daha sonra bu arabirimi hakkında daha fazla konuşacağız.) Yeni bir API denetleyicisi eklerseniz, tablo, çalışma zamanında otomatik olarak güncelleştirilir.
+Sayfanın ana bölümü, denetleyiciye göre gruplandırılan bir API tablosudur. Tablo girdileri, **IApiExplorer** arabirimi kullanılarak dinamik olarak oluşturulur. (Bu arabirim hakkında daha sonra daha fazla konuşacak.) Yeni bir API denetleyicisi eklerseniz, tablo çalışma zamanında otomatik olarak güncelleştirilir.
 
-Göreli URI ve HTTP yöntemi "API" sütunu listeler. "Description" sütunu, her API belgelerini içerir. Başlangıçta, yer tutucu metnini belgelerdir. Sonraki bölümde, ı, belgeleri XML açıklamalarını ekleme göstereceğiz.
+"API" sütunu, HTTP yöntemini ve göreli URI 'yi listeler. "Açıklama" sütunu her API için belgeler içerir. Başlangıçta, belgeler yalnızca yer tutucu metindir. Sonraki bölümde, XML açıklamalarından nasıl belge ekleneceğini göstereceğiz.
 
-Her API, örnek istek ve yanıt gövdeleri dahil olmak üzere daha ayrıntılı bilgi içeren bir sayfa için bir bağlantı içerir.
+Her API, örnek istek ve yanıt gövdeleri dahil olmak üzere daha ayrıntılı bilgiler içeren bir sayfanın bağlantısını içerir.
 
 ![](creating-api-help-pages/_static/image5.png)
 
-## <a name="adding-help-pages-to-an-existing-project"></a>Mevcut bir projeyi yardım sayfalarına ekleme
+## <a name="adding-help-pages-to-an-existing-project"></a>Mevcut bir projeye yardım sayfaları ekleme
 
-NuGet Paket Yöneticisi'ni kullanarak yardım sayfalarına varolan bir Web API projesine ekleyebilirsiniz. Bu seçenek, bir "Web API" şablonu değerinden farklı proje şablonundan başlattığınız yararlıdır.
+NuGet Paket Yöneticisi 'Ni kullanarak var olan bir Web API projesine yardım sayfaları ekleyebilirsiniz. Bu seçenek, "Web API" şablonundan farklı bir proje şablonundan başlayabilmeniz için faydalıdır.
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**. İçinde [Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde, aşağıdaki komutlardan birini yazın:
+**Araçlar** menüsünde, **NuGet Paket Yöneticisi**' ni seçin ve ardından **Paket Yöneticisi konsolu**' nu seçin. [Paket Yöneticisi konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde, aşağıdaki komutlardan birini yazın:
 
-İçin bir **C#** uygulama: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
+Bir **C#** uygulama için: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-İçin bir **Visual Basic** uygulama: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+**Visual Basic** bir uygulama için: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
-İki paket, bir C# ve Visual Basic için bir tane vardır. Projenizi eşleşen bir kullandığınızdan emin olun.
+Biri için C# bir diğeri Visual Basic olmak üzere iki paket vardır. Projenizle eşleşen birini kullandığınızdan emin olun.
 
-Bu komut, gerekli bütünleştirilmiş kodları yükler ve MVC görünümleri (alanlar/HelpPage klasöründe bulunur) Yardım sayfaları için ekler. Yardım sayfasına bir bağlantıyı el ile eklemeniz gerekir. / Help URI'dir. Razor Görünümü'nde bir bağlantı oluşturmak için aşağıdakileri ekleyin:
+Bu komut, gerekli derlemeleri yükleyip yardım sayfaları (Areas/HelpPage klasöründe bulunur) için MVC görünümlerini ekler. Yardım sayfasına el ile bir bağlantı eklemeniz gerekir. URI,/Help. Razor görünümünde bir bağlantı oluşturmak için aşağıdakileri ekleyin:
 
 [!code-cshtml[Main](creating-api-help-pages/samples/sample1.cshtml)]
 
-Ayrıca, alanları kaydedilecek emin olun. Global.asax dosyasında aşağıdaki kodu ekleyin **uygulama\_Başlat** orada değilse yöntemi:
+Ayrıca, alanların kaydettirildiğinizden emin olun. Global. asax dosyasında, zaten mevcut değilse, **uygulama\_start** yöntemine aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample2.cs?highlight=4)]
 
-## <a name="adding-api-documentation"></a>API belgelerine ekleme
+## <a name="adding-api-documentation"></a>API belgeleri ekleme
 
-Varsayılan olarak, Yardım sayfaları, belgeler için yer tutucu dizeleri vardır. Kullanabileceğiniz [XML belgeleri yorumları](https://msdn.microsoft.com/library/b2s063f7.aspx) belgeleri oluşturmak için. Bu özelliği etkinleştirmek için ' % s'dosyasını HelpPage/alanlar/uygulama açın\_Start/HelpPageConfig.cs ve aşağıdaki satırı açıklamadan çıkarın:
+Varsayılan olarak, yardım sayfalarında belgeler için yer tutucu dizeleri vardır. Belgeleri oluşturmak için [XML belge açıklamalarını](https://msdn.microsoft.com/library/b2s063f7.aspx) kullanabilirsiniz. Bu özelliği etkinleştirmek için, Start/HelpPageConfig. cs\_dosya bölgelerini/HelpPage/App açın ve aşağıdaki satırın açıklamasını kaldırın:
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample3.cs)]
 
-XML belgeleri artık etkinleştirin. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**. Seçin **derleme** sayfası.
+Şimdi XML belgelerini etkinleştirin. Çözüm Gezgini, projeye sağ tıklayın ve **Özellikler**' i seçin. **Yapı** sayfasını seçin.
 
 ![](creating-api-help-pages/_static/image6.png)
 
-Altında **çıkış**, kontrol **XML belge dosyası**. Düzenleme kutusuna "uygulama\_Data/XmlDocument.xml".
+**Çıkış**' ın altında, **XML belge dosyasını**denetleyin. Düzenleme kutusuna "App\_Data/XmlDocument. xml" yazın.
 
 ![](creating-api-help-pages/_static/image7.png)
 
-Ardından, kodunu açmak `ValuesController` /Controllers/ValuesController.cs içinde tanımlanan API denetleyicisi. Bazı belge açıklamaları için denetleyici yöntemleri ekleyin. Örneğin:
+Daha sonra,/Controllers/valuescontroller.exe. csv dosyasında tanımlanan `ValuesController` API denetleyicisi için kodu açın. Denetleyici yöntemlerine bazı belge açıklamalarını ekleyin. Örneğin:
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample4.cs)]
 
 > [!NOTE]
-> İpucu: Giriş işaretini satırın yöntem yukarıda getirin ve üç eğik çizgi yazın, Visual Studio XML öğeleri otomatik olarak ekler. Ardından, boşlukları doldurabilirsiniz.
+> İpucu: giriş işaretini yöntemin üzerindeki satıra konumlandırır ve üç eğik çizgi yazarsanız, Visual Studio otomatik olarak XML öğelerini ekler. Daha sonra boşlukları doldurabilirsiniz.
 
-Artık derleme ve uygulamayı yeniden çalıştırın ve Yardım sayfalarına gidin. Belge dizeleri API tabloda görüntülenmesi gerekir.
+Şimdi uygulamayı yeniden derleyin ve çalıştırın ve yardım sayfalarına gidin. Belge dizeleri API tablosunda görünmelidir.
 
 ![](creating-api-help-pages/_static/image8.png)
 
-Yardım sayfasına dizeleri çalışma zamanında XML dosyasından okur. (Uygulama dağıttığınızda, XML dosyasını dağıtmak emin olun.)
+Yardım sayfası, XML dosyasındaki dizeleri çalışma zamanında okur. (Uygulamayı dağıtırken, XML dosyasını dağıttığınızdan emin olun.)
 
-## <a name="under-the-hood"></a>Başlık altında
+## <a name="under-the-hood"></a>Üzerinde
 
-Üst kısmındaki yardım sayfalarına yerleşik **ApiExplorer** Web API çerçevesi parçası olan sınıf. **ApiExplorer** sınıfı, bir Yardım sayfasını oluşturmak için ham madde sağlar. Her API için **ApiExplorer** içeren bir **ApiDescription** API'sini açıklayan. Bu amaç için bir "API" HTTP yöntemi ile göreli URL birleşimi tanımlanır. Örneğin, bazı ayrı API şunlardır:
+Yardım sayfaları, Web API çerçevesinin bir parçası olan **Apiexplorer** sınıfının üzerine kurulmuştur. **Apiexplorer** sınıfı, yardım sayfası oluşturmak için ham malzeme sağlar. Her API için **Apiexplorer** , API 'yi açıklayan bir **apidescription** içerir. Bu amaçla, bir "API" HTTP yönteminin ve göreli URI 'nin birleşimi olarak tanımlanmıştır. Örneğin, bazı farklı API 'Ler şunlardır:
 
-- /Api/Products Al
-- Alma/API'si/ürünler / {id}
-- / Api/ürünleri gönderin
+- /Api/Products al
+- /Api/Products/{ID} Al
+- GÖNDERI/api/Products
 
-Bir denetleyici eylemi birden çok HTTP yöntemleri destekliyorsa **ApiExplorer** her yöntem farklı bir API olarak değerlendirir.
+Bir denetleyici eylemi birden çok HTTP yöntemini destekliyorsa, **Apiexplorer** her bir yöntemi ayrı bir API olarak değerlendirir.
 
-API'den gizlemek için **ApiExplorer**, ekleme **ApiExplorerSettings** öznitelik kümesi ve eylem *IgnoreApi* true.
+**Apiexplorer**'DAN bir API 'yi gizlemek için, eyleme **Apiexplorersettings** özniteliğini ekleyin ve *ıgnoreapı* değerini doğru olarak ayarlayın.
 
 [!code-csharp[Main](creating-api-help-pages/samples/sample5.cs)]
 
-Ayrıca, bu özniteliği denetleyiciye tüm denetleyicinin hariç tutmak için ekleyebilirsiniz.
+Denetleyicinin tamamını hariç tutmak için bu özniteliği denetleyiciye de ekleyebilirsiniz.
 
-Belgeleri dizelerden ApiExplorer sınıfı alır **IDocumentationProvider** arabirimi. Daha önce bahsettiğim gibi Yardım sayfaları kitaplığı sağlayan bir **IDocumentationProvider** XML belgeleri dizelerden belgeleri alır. Kod içinde /Areas/HelpPage/XmlDocumentationProvider.cs bulunur. Belge başka bir kaynaktan yazarak kendi alabileceğiniz **IDocumentationProvider**. Yukarı wire çağrısı **SetDocumentationProvider** genişletme yöntemi, tanımlanan **HelpPageConfigurationExtensions**
+ApiExplorer sınıfı, **ıbelgelertationprovider** arabiriminden belge dizelerini alır. Daha önce gördüğünüz gibi yardım sayfaları kitaplığı, XML belge dizelerinden belgeler alan bir **ıbelgelertationprovider** sağlar. Kod/Areas/helppage/xmlbelgetationprovider.exe konumunda bulunur. Kendi **ıbelgeleribelgelerinizi**yazarak başka bir kaynaktan belge alabilirsiniz. Bunu yapmak için, **Helppageconfigurationextensions** Içinde tanımlanan **Setbelgetationprovider** uzantı yöntemini çağırın.
 
-**ApiExplorer** otomatik olarak içine yapılan çağrılar **IDocumentationProvider** her bir API için belgeler dizelerini almak için arabirim. Bu depolar **belgeleri** özelliği **ApiDescription** ve **ApiParameterDescription** nesneleri.
+**Apiexplorer** , her API için belge dizelerini almak üzere otomatik olarak **ıbelgelertationprovider** arabirimine çağırır. Bunları **Apidescription** ve **apiparameterdescription** nesnelerinin **documentation** özelliğinde depolar.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Burada gösterilen yardım sayfalarına sınırlı değildir. Aslında, **ApiExplorer** Yardım sayfaları oluşturma için sınırlı değildir. Kullanıma hazır düşünmek başlamanızı sağlayacak bazı harika blog yazılarını yazılmış yao Huang Bağla:
+Burada gösterilen yardım sayfalarıyla sınırlı değilsiniz. Aslında, **Apiexplorer** yardım sayfaları oluşturmak için sınırlı değildir. Yao Huang Lin, daha fazla bilgi edinmek için harika blog gönderileri yazmıştır:
 
-- [ASP.NET Web API Yardım sayfası için basit bir Test istemcisi ekleme](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/02/adding-a-simple-test-client-to-asp-net-web-api-help-page.aspx)
-- [ASP.NET Web API Yardım şirket içinde barındırılan hizmetleri üzerinde çalışma sayfası yapma](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/20/making-asp-net-web-api-help-page-work-on-self-hosted-services.aspx)
-- [Yardım sayfası (veya istemci) ASP.NET Web API'si için tasarım zamanı oluşturma](https://blogs.msdn.com/b/yaohuang1/archive/2013/01/20/design-time-generation-of-help-page-or-proxy-for-asp-net-web-api.aspx)
-- [Gelişmiş Yardım sayfası özelleştirmeleri](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/10/asp-net-web-api-help-page-part-3-advanced-help-page-customizations.aspx)
+- [ASP.NET Web API 'SI yardım sayfasına basit bir test Istemcisi ekleme](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/02/adding-a-simple-test-client-to-asp-net-web-api-help-page.aspx)
+- [ASP.NET Web API Yardım sayfası, şirket içinde barındırılan hizmetler üzerinde çalışır hale getirme](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/20/making-asp-net-web-api-help-page-work-on-self-hosted-services.aspx)
+- [ASP.NET Web API 'SI için tasarım zamanı oluşturma Yardım sayfası (veya istemcisi)](https://blogs.msdn.com/b/yaohuang1/archive/2013/01/20/design-time-generation-of-help-page-or-proxy-for-asp-net-web-api.aspx)
+- [Gelişmiş yardım sayfası özelleştirmeleri](https://blogs.msdn.com/b/yaohuang1/archive/2012/12/10/asp-net-web-api-help-page-part-3-advanced-help-page-customizations.aspx)

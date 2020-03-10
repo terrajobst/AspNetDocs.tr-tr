@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 228194a7b35e116cabae6d819e7a3a8060a3ef6a
-ms.sourcegitcommit: e365196c75ce93cd8967412b1cfdc27121816110
+ms.openlocfilehash: 92fa428608d4ac2bf56d3c6dc9c50f1449295869
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074923"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544515"
 ---
 # <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 
@@ -22,7 +22,7 @@ ms.locfileid: "77074923"
 >
 > Microsoft Ajax CDN 'nin, bir Azure CDN kullanarak yukarıdaki ve sonraki bir SLA 'sı yoktur.
 >
-> Microsoft Ajax CDN ile ilgili sorunları bildirmek için [Bu GitHub sorununu](https://github.com/aspnet/AspNetDocs/issues/116) kullanın.
+> Microsoft Ajax CDN ile ilgili sorunları bildirmek için [Bu GitHub sorununu](https://github.com/dotnet/AspNetDocs/issues/116) kullanın.
 
 ## <a name="table-of-contents"></a>İçindekiler
 

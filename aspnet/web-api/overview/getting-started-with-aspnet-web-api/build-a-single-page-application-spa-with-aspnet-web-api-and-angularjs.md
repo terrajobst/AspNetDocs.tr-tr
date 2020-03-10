@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: 'Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js - ASP.NET ile tek sayfalı uygulama (SPA) derleme 4.x'
+title: "Uygulamalı laboratuvar: ASP.NET Web API 'SI ile tek sayfalı uygulama (SPA), angular. js-ASP.NET 4. x oluşturun"
 author: rick-anderson
-description: 'Adım adım kod: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturmak için ASP.NET 4.x.'
+description: "Adım adım kodu: ASP.NET 4. x için ASP.NET Web API 'SI ve angular. js ile tek sayfalı uygulama (SPA) oluşturun."
 ms.author: riande
 ms.date: 09/30/2015
 ms.custom: seoapril2019
@@ -10,437 +10,437 @@ ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 86833a890da759e489dd11dc9afb128a9b7a75e3
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125251"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557045"
 ---
-# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma
+# <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
+[Web Camps eğitim setini indirin](https://aka.ms/webcamps-training-kit)
 
-Bu uygulamalı Laboratuvar göstermektedir tek sayfa uygulama (SPA) ASP.NET Web API ve Angular.js ile oluşturmak için ASP.NET 4.x.
+Bu uygulamalı laboratuvar, ASP.NET 4. x için ASP.NET Web API 'SI ve angular. js ile tek sayfalı uygulama (SPA) oluşturmayı gösterir.
 
-Bu uygulamalı laboratuvarda Geek test, SPA kavramını temel Meraklısına Notlar Web sitesi uygulamak için bu teknolojilerden sürer. Hizmet katmanı almak test sorularını ve yanıtlarını depolamak için gerekli uç noktaları kullanıma sunmak için ASP.NET Web API ile ilk uygular. Ardından, AngularJS ve CSS3 dönüştürme efektleri kullanarak zengin ve esnek bir kullanıcı Arabirimi oluşturacaksınız.
+Bu yandan laboratuvarda, Spa kavramını temel alan bir bilgi web sitesi olan Geek sınavını uygulamak için bu teknolojilerden yararlanabilirsiniz. İlk olarak, test sorularını almak ve yanıtları depolamak üzere gerekli uç noktaları kullanıma sunmak için ASP.NET Web API 'SI ile hizmet katmanını uygulayacaksınız. Daha sonra, AngularJS ve CSS3 dönüştürme efektlerini kullanarak zengin ve duyarlı bir kullanıcı arabirimi oluşturacaksınız.
 
-Geleneksel web uygulamaları, bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu isteği işler ve sayfanın HTML istemciye gönderir. Sonraki sayfanın – örneğin kullanıcı bağlantısı gezinir veya verileri içeren formu gönderdiğinde – etkileşim içinde yeni bir istek sunucuya gönderilir ve akışı yeniden başlatır: sunucu isteği işler ve yeni bir sayfa tarayıcıya yeni eylem isteğine yanıt olarak gönderir Ed istemci tarafından.
+Geleneksel Web uygulamalarında, istemci (tarayıcı) bir sayfa isteyerek sunucu ile iletişimi başlatır. Sunucu daha sonra isteği işler ve sayfanın HTML 'sini istemciye gönderir. Sayfayla sonraki etkileşimlerde – örn. Kullanıcı bir bağlantıya gider veya veri içeren bir form gönderir. sunucuya yeni bir istek gönderilir ve akış yeniden başlatılır: sunucu isteği işler ve yeni eylem isteğine yanıt olarak tarayıcıya yeni bir sayfa gönderir istemci tarafından yapılır.
 > 
-> Tek sayfa uygulamaları (Spa'lar) sayfanın tamamını ilk istek tarayıcıda yüklendi ancak etkileşiminde Ajax istekleri aracılığıyla gerçekleşir. Bu tarayıcı yalnızca değişen sayfa bölümü güncelleştirilecek olduğu anlamına gelir; Tüm sayfayı yeniden yüklemek için gerek yoktur. SPA yaklaşım daha akıcı bir deneyim, kullanıcı eylemlerini yanıt vermek için uygulama tarafından kullanılan süreyi azaltır.
+> Tek sayfalı uygulamalarda (maça) ilk istekten sonra tüm sayfa tarayıcıya yüklenir, ancak sonraki etkileşimler Ajax istekleri aracılığıyla gerçekleştirilir. Bu, tarayıcının yalnızca sayfanın değiştiği kısmını güncelleştirmesi gerektiği anlamına gelir; sayfanın tamamını yeniden yüklemeniz gerekmez. SPA yaklaşımı, uygulamanın kullanıcı eylemlerine yanıt vermesi için geçen süreyi azaltır ve bu da daha akıcı bir deneyimle sonuçlanır.
 > 
-> Bir SPA mimarisi, geleneksel web uygulamaları mevcut olmayan bazı zorluklar içerir. Ancak, ASP.NET Web API gibi teknolojileri Gelişmekte olan, AngularJS JavaScript çerçevelerinin ister ve CSS3 tarafından sağlanan yeni stil özellikleri gerçekten Spa'lar tasarlayıp kolaylaştırır.
+> SPA 'nın mimarisi geleneksel Web uygulamalarında mevcut olmayan bazı güçlükleri içerir. Ancak, ASP.NET Web API gibi gelişen teknolojiler, AngularJS gibi JavaScript çerçeveleri ve CSS3 tarafından sunulan yeni stil özellikleri, maça tasarımını ve derlemesini gerçekten kolaylaştırır.
 > 
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve kod parçacıkları [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)adresinden erişilebilen Web Camps eğitim seti ' ne dahildir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- JSON veri göndermek ve almak için bir ASP.NET Web API'si hizmetini oluşturma
-- AngularJS kullanarak duyarlı bir kullanıcı Arabirimi oluşturma
-- CSS3 dönüştürmeleri kullanıcı Arabirimi deneyimini geliştirin
+- JSON verilerini göndermek ve almak için bir ASP.NET Web API hizmeti oluşturun
+- AngularJS kullanarak yanıt veren kullanıcı arabirimi oluşturma
+- CSS3 dönüşümlerle Kullanıcı arabirimi deneyimini geliştirin
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-Aşağıda bu uygulamalı laboratuvarı tamamlamak için gereklidir:
+Bu uygulamalı laboratuvarın tamamlanabilmesi için aşağıdakiler gereklidir:
 
-- [Visual Studio Express 2013 Web](https://www.microsoft.com/visualstudio/) veya üzeri
+- Web veya daha büyük [için Visual Studio Express 2013](https://www.microsoft.com/visualstudio/)
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum
 
-Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı oluşturmanız gerekir.
+Bu uygulamalı laboratuvarda alýþtýrmalarý çalıştırmak için öncelikle ortamınızı ayarlamanız gerekecektir.
 
-1. Açık Windows Gezgini ve Laboratuvar göz atın **kaynak** klasör.
-2. Sağ **Setup.cmd** seçip **yönetici olarak çalıştır** ortamınızı yapılandırın ve bu Laboratuvar için Visual Studio kod parçacıkları yükleme kurulum işlemini başlatmak için.
-3. Kullanıcı Hesabı Denetimi iletişim kutusunu gösteriliyorsa, devam etmek için eylemi onaylayın.
+1. Windows Gezgini 'ni açın ve laboratuvarın **kaynak** klasörüne gidin.
+2. Ortamınızı yapılandıracak ve bu laboratuvar için Visual Studio kod parçacıklarını yükleyecek kurulum işlemini başlatmak için **Setup. cmd** ' ye sağ tıklayın ve **yönetici olarak çalıştır** ' ı seçin.
+3. Kullanıcı hesabı denetimi iletişim kutusu gösterilirse, devam etmek için eylemi onaylayın.
 
 > [!NOTE]
-> Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
+> Kurulumu çalıştırmadan önce bu laboratuvarın tüm bağımlılıklarını denetlediğinizden emin olun.
 
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
-Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık olması için bu kodu çoğunu, Visual Studio el ile eklemek zorunda kalmamak için 2013 içinde erişebileceğiniz Visual Studio kod parçacıkları, olarak sağlanır.
+Laboratuvar belgesi boyunca kod blokları eklemeniz istenir. Kolaylık olması için, bu kodun çoğu Visual Studio Code kod parçacığı olarak sağlanır ve bu, el ile ekleme zorunluluğunu ortadan kaldırmak için Visual Studio 2013 içinden erişebilirsiniz.
 
 > [!NOTE]
-> Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
+> Her alıştırma, her alıştırmanın bağımsız olarak her birini takip etmenizi sağlayan alıştırmanın **BEGIN** klasöründe bulunan bir başlangıç çözümüdür. Lütfen bir alıştırma sırasında eklenen kod parçacıklarının bu başlangıç çözümlerinde eksik olduğunu ve Alıştırmayı tamamlayana kadar çalışmadığının farkında olun. Bir alıştırmada kaynak kodun içinde, ilgili alıştırmada adımların tamamlanmasına neden olan koda sahip bir Visual Studio çözümü içeren bir **son** klasör de bulacaksınız. Bu uygulamalı laboratuvarda çalışırken daha fazla yardıma ihtiyacınız varsa bu çözümleri kılavuz olarak kullanabilirsiniz.
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
+## <a name="exercises"></a>Alıştırmalarda
 
-Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
+Bu uygulamalı laboratuvar aşağıdaki alıştırmaları içerir:
 
-1. [Web API'si oluşturma](#Exercise1)
+1. [Web API 'SI oluşturma](#Exercise1)
 2. [SPA arabirimi oluşturma](#Exercise2)
 
-Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **60 dakika**
 
 > [!NOTE]
-> Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
+> Visual Studio 'Yu ilk kez başlattığınızda, önceden tanımlanmış ayarlar koleksiyonundan birini seçmeniz gerekir. Her önceden tanımlı koleksiyon, belirli bir geliştirme stiliyle eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışını, IntelliSense kod parçacıklarını ve iletişim kutusu seçeneklerini belirler. Bu laboratuvardaki yordamlarda, **genel geliştirme ayarları** koleksiyonu kullanılırken, Visual Studio 'da belirli bir görevi gerçekleştirmek için gereken eylemler açıklanır. Geliştirme ortamınız için farklı bir ayarlar koleksiyonu seçerseniz, adımlarda dikkate almanız gereken adımlarda farklılıklar olabilir.
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-creating-a-web-api"></a>Alıştırma 1: Web API'si oluşturma
+### <a name="exercise-1-creating-a-web-api"></a>Alıştırma 1: Web API 'SI oluşturma
 
-Anahtar bölümlerini bir SPA Hizmet katmanını biridir. Kullanıcı Arabirimi ve veri döndürmeyi yanıt olarak bu çağrı tarafından gönderilen Ajax çağrıları işlemekten sorumludur. Alınan verileri ayrıştırılması ve istemci tarafından tüketilen için makine tarafından okunabilir bir biçimde sunulmalıdır.
+SPA 'nın önemli parçalarından biri hizmet katmanıdır. Kullanıcı arabirimi tarafından gönderilen Ajax çağrılarını işlemeden ve bu çağrıya yanıt olarak veri döndürmekten sorumludur. Alınan veriler, istemci tarafından ayrıştırılıp tüketilmesi için makine tarafından okunabilen bir biçimde sunulmalıdır.
 
-Web API çerçevesi ASP.NET yığınının bir parçasıdır ve genel veri gönderme ve JSON veya XML biçimli bir RESTful API'si aracılığıyla alma HTTP hizmetlerini uygulamak amacıyla kolaylaştırmak için tasarlanmıştır. Bu alıştırmada, Geek test uygulamasını barındırmak ve ardından göstermek ve ASP.NET Web API kullanarak test verileri kalıcı hale getirmek için arka uç hizmeti uygulamak için bu Web sitesi oluşturacaksınız.
+Web API çerçevesi, ASP.NET yığınının bir parçasıdır ve HTTP hizmetlerinin uygulanmasını kolaylaştırmak için tasarlanmıştır. Bu, genel bir API aracılığıyla JSON veya XML biçimli veriler gönderip alabilir. Bu alıştırmada, Geek test uygulamasını barındıracak Web sitesini oluşturacak ve ardından ASP.NET Web API 'sini kullanarak test verilerini kullanıma sunmak ve kalıcı hale getirmek için arka uç hizmetini uygulamanız gerekir.
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>Görev 1 – Geek sınavı için ilk proje oluşturma
+#### <a name="task-1--creating-the-initial-project-for-geek-quiz"></a>Görev 1 – Geek sınavından Ilk projeyi oluşturma
 
-Bu görevde, ASP.NET Web API tabanlı yeni bir ASP.NET MVC projesi desteğiyle oluşturmaya başlayacağını **tek ASP.NET** proje Visual Studio ile birlikte gelen türü. **Bir ASP.NET** tüm ASP.NET teknolojileri birleştirir ve karıştırın ve bunları istediğiniz gibi eşleşen seçeneği sunar. Ardından, Entity Framework'ün model sınıfları ve test sorularını eklemek için veritabanı Başlatıcı ekleyeceksiniz.
+Bu görevde, Visual Studio ile birlikte gelen **bir ASP.net** proje türüne göre ASP.NET Web API 'si desteğiyle yeni BIR ASP.NET MVC projesi oluşturmaya başlayacaksınız. **Bir ASP.net** tüm ASP.NET teknolojilerini birleştirir ve bunları istediğiniz gibi karıştırma ve eşleştirme seçeneği sunar. Ardından, test sorularını eklemek için Entity Framework model sınıflarını ve veritabanı başlatıcısı 'nı ekleyeceksiniz.
 
-1. Açık **Visual Studio Express 2013 Web** seçip **dosya | Yeni proje...**  yeni bir çözüm başlatmak için.
+1. **Web için Visual Studio Express 2013** ' i açın ve dosya ' yı seçin **| Yeni proje...** Yeni bir çözüm başlatmak için.
 
-    ![Yeni proje oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image1.png "yeni proje oluşturma")
+    ![Yeni bir proje oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image1.png "Yeni proje oluşturma")
 
-    *Yeni proje oluşturma*
-2. İçinde **yeni proje** iletişim kutusunda **ASP.NET Web uygulaması** altında **Visual C# | Web** sekmesi. Emin olun **.NET Framework 4.5** olduğu belirlenirse, ad *GeekQuiz*, seçin bir **konumu** tıklatıp **Tamam**.
+    *Yeni bir proje oluşturma*
+2. **Yeni proje** iletişim kutusunda, görsel  **C# altında ASP.NET Web uygulaması ' nı seçin | Web** sekmesi. **.NET Framework 4,5** ' nin seçildiğinden emin olun, *geektest*olarak adlandırın, bir **konum** seçin ve **Tamam**' a tıklayın.
 
-    ![Yeni bir ASP.NET Web uygulaması projesi oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image2.png "yeni bir ASP.NET Web uygulaması projesi oluşturma")
+    ![Yeni bir ASP.NET Web uygulaması projesi oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image2.png "Yeni bir ASP.NET Web uygulaması projesi oluşturma")
 
     *Yeni bir ASP.NET Web uygulaması projesi oluşturma*
-3. İçinde **yeni ASP.NET projesi** iletişim kutusunda **MVC** şablonu seçip alt **Web API** seçeneği. Ayrıca, emin **kimlik doğrulaması** seçeneği **bireysel kullanıcı hesapları**. Devam etmek için **Tamam** 'a tıklayın.
+3. **Yeni ASP.NET projesi** Iletişim kutusunda **MVC** ŞABLONUNU seçin ve **Web API** seçeneğini belirleyin. Ayrıca, **kimlik doğrulama** seçeneğinin **bireysel kullanıcı hesapları**olarak ayarlandığından emin olun. Devam etmek için **Tamam** 'a tıklayın.
 
-    ![Web API bileşenler dahil olmak üzere MVC şablonuyla yeni proje oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image3.png)
+    ![Web API bileşenleri dahil olmak üzere MVC şablonuyla yeni bir proje oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image3.png)
 
-    *Web API bileşenler dahil olmak üzere MVC şablonuyla yeni proje oluşturma*
-4. İçinde **Çözüm Gezgini**, sağ **modelleri** klasörü **GeekQuiz** seçin ve proje **Ekle | Mevcut öğe...** .
+    *Web API bileşenleri dahil olmak üzere MVC şablonuyla yeni bir proje oluşturma*
+4. **Çözüm Gezgini**' de, **geektest** projesinin **modeller** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Mevcut öğe...** .
 
-    ![Var olan bir öğe eklemeye](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image4.png "var olan öğe ekleme")
+    ![Varolan bir öğe ekleniyor](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image4.png "Varolan bir öğe ekleniyor")
 
-    *Var olan öğe ekleme*
-5. İçinde **varolan öğeyi Ekle** iletişim kutusunda, gitmek **varlıklar/kaynak/modelleri** klasörünü ve tüm dosyaları seçin. **Ekle**'yi tıklatın.
+    *Varolan bir öğe ekleniyor*
+5. **Varolan öğe Ekle** Iletişim kutusunda **kaynak/varlıklar/modeller** klasörüne gidin ve tüm dosyalar ' ı seçin. **Ekle**'yi tıklatın.
 
-    ![Model varlıklar ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image5.png "modeli varlıklar ekleme")
+    ![Model varlıklarını ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image5.png "Model varlıklarını ekleme")
 
-    *Model varlıklar ekleme*
+    *Model varlıklarını ekleme*
 
     > [!NOTE]
-    > Bu dosyaları ekleyerek, veri modeli, Entity Framework'ün veritabanı bağlamı ve Geek test uygulaması için veritabanı Başlatıcı ekliyoruz.
+    > Bu dosyaları ekleyerek, veri modeli, Entity Framework veritabanı bağlamı ve Geek test uygulaması için veritabanı başlatıcısı ekleniyor.
     > 
-    > **Entity Framework (EF)** olan programlama ilişkisel depolama şeması kullanarak doğrudan programlama yerine kavramsal bir uygulama modeli tarafından veri erişimi uygulamaları oluşturmanızı sağlayan bir nesne ilişkisel eşleyicidir (ORM). Entity Framework hakkında daha fazla bilgi [burada](../../../entity-framework.md).
+    > **Entity Framework (EF)** , ilişkisel bir depolama şemasını kullanarak doğrudan programlama yerine kavramsal bir uygulama modeliyle programlama yoluyla veri erişimi uygulamaları oluşturmanıza olanak sağlayan bir nesne ilişkisel Eşleyici 'DIR (ORM). [Buradan](../../../entity-framework.md)Entity Framework hakkında daha fazla bilgi edinebilirsiniz.
     > 
-    > Yeni eklediğiniz sınıfları açıklaması verilmiştir:
+    > Aşağıda, az önce eklediğiniz sınıfların bir açıklaması verilmiştir:
     > 
-    > - **TriviaOption:** test soruyla ilişkili tek bir seçenek temsil eder
-    > - **TriviaQuestion:** test soru temsil eder ve ilişkili çalışma seçeneklerde ortaya çıkaran **seçenekleri** özelliği
-    > - **TriviaAnswer:** test sorusuna yanıt kullanıcı tarafından seçilen seçeneğini temsil eder
-    > - **TriviaContext:** Geek test uygulama Entity Framework'ün veritabanı bağlamını temsil eder. Bu sınıfın türetildiği **DContext** ve ortaya çıkaran **olan DB** yukarıda açıklanan varlık koleksiyonları temsil eden özellikler.
-    > - **TriviaDatabaseInitializer:** uygulaması için Entity Framework Başlatıcı **TriviaContext** öğesinden devralan sınıf **Createdatabaseıfnotexists**. Bu sınıfın varsayılan davranış, yoksa yalnızca, veritabanı oluşturma, varlıklar ekleme belirtilen **çekirdek** yöntemi.
-6. Açık **Global.asax.cs** dosya ve aşağıdaki deyimi kullanarak.
+    > - **Triviaoption:** bir test sorusu ile ilişkili tek bir seçeneği temsil eder
+    > - **Üçlü soru:** bir test sorusunu temsil eder ve **Options** özelliği aracılığıyla ilişkili seçenekleri kullanıma sunar
+    > - **Triviaanswer:** bir test sorusuna yanıt olarak Kullanıcı tarafından seçilen seçeneği temsil eder
+    > - **Triviacontext:** Entity Framework, Geek test uygulamasının veritabanı bağlamını temsil eder. Bu sınıf **Dcontext** 'ten türetilir ve yukarıda açıklanan varlıkların koleksiyonlarını temsil eden **dbset** özelliklerini gösterir.
+    > - **Triviadatabasebaşlatıcısı:** **Createdatabaseifnotexists**öğesinden devralan **triviacontext** sınıfı için Entity Framework başlatıcısı 'nın uygulanması. Bu sınıfın varsayılan davranışı, yalnızca yoksa, **çekirdek** yönteminde belirtilen varlıkları ekleyerek veritabanını oluşturmaktır.
+6. **Global.asax.cs** dosyasını açın ve aşağıdaki using ifadesini ekleyin.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample1.cs)]
-7. Başında aşağıdaki kodu ekleyin **uygulama\_Başlat** ayarlanacak yöntemi **TriviaDatabaseInitializer** veritabanı başlatıcı olarak.
+7. Aşağıdaki kodu, **uygulama\_start** yönteminin başına ekleyerek, veritabanı başlatıcısı olarak **Triviadatabasebaşlatıcısı** 'nı ayarlayın.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample2.cs)]
-8. Değiştirme **giriş** kimliği doğrulanmış kullanıcılara erişimi kısıtlamak için denetleyici. Bunu yapmak için açık **HomeController.cs** içinde dosya **denetleyicileri** klasör ve eklemek **Authorize** özniteliğini **HomeController**sınıf tanımını.
+8. Kimliği doğrulanmış kullanıcılara erişimi kısıtlamak için **ana** denetleyiciyi değiştirin. Bunu yapmak için, **HomeController.cs** dosyasını **denetleyiciler** klasörünün içinde açın ve **Yetkilendir** özniteliğini **HomeController** sınıf tanımına ekleyin.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample3.cs)]
 
     > [!NOTE]
-    > **Authorize** filtre kullanıcının kimliği doğrulanır, denetler. Kullanıcının kimliği doğrulanmazsa, HTTP durum kodunu 401 (yetkisiz) eylemi çağırma olmadan döndürür. Genel olarak, denetleyici düzeyinde veya bireysel eylemleri düzeyini filtre uygulayabilirsiniz.
-9. Artık web sayfaları ve markalama düzenini özelleştireceksiniz. Bunu yapmak için açık  **\_Layout.cshtml** içinde dosya **görünümleri | Paylaşılan** klasörü ve içeriğini güncelleştirme **&lt;başlık&gt;** değiştirerek öğesi *My ASP.NET Application* ile *Geek test* .
+    > **Yetkilendirme** filtresi, kullanıcının kimliğinin doğrulandığını denetler. Kullanıcının kimliği doğrulanmıyorsa, eylemi çağırmadan HTTP durum kodu 401 (yetkisiz) döndürür. Filtreyi denetleyici düzeyinde küresel olarak veya tek tek eylemler düzeyinde uygulayabilirsiniz.
+9. Artık Web sayfalarının ve markasının yerleşimini özelleştirecektir. Bunu yapmak için, görünümler içinde **\_Layout. cshtml** dosyasını açın **|**  *ASP.net uygulamamı* *Geek sınavından*değiştirerek, paylaşılan klasör ve **&lt;title&gt;** öğesi içeriğini güncelleştirin.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
-10. Aynı dosyada, gezinti çubuğunda kaldırarak güncelleştirme *hakkında* ve *kişi* bağlantılar ve yeniden adlandırma *giriş* bağlantı *Play*. Ayrıca, yeniden adlandırma *uygulama adı* bağlantı *Geek test*. HTML gezinti çubuğu için şu kod gibi görünmelidir.
+10. Aynı dosyada, *hakkında* ve *iletişim kurulacak* bağlantıları kaldırarak ve *ana* bağlantı bağlantısını *çalmak*üzere yeniden adlandırarak gezinti çubuğunu güncelleştirin. Ayrıca, *uygulama adı* bağlantısını *Geek test*olarak yeniden adlandırın. Gezinti çubuğu için HTML aşağıdaki kod gibi görünmelidir.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. Düzen sayfasının alt değiştirerek güncelleştirin *My ASP.NET Application* ile *Geek test*. Bunu yapmak için içeriğinin yerine geçecek **&lt;altbilgi&gt;** aşağıdaki vurgulanmış kodu olan öğe.
+11. *ASP.net uygulamamı* *Geek sınavıyla*değiştirerek düzen sayfasının altbilgisini güncelleştirin. Bunu yapmak için **&lt;footer&gt;** öğesinin içeriğini aşağıdaki vurgulanmış kodla değiştirin.
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
 <a id="Ex1Task2"></a>
-#### <a name="task-2--creating-the-triviacontroller-web-api"></a>Görev 2 – TriviaController Web API'si oluşturma
+#### <a name="task-2--creating-the-triviacontroller-web-api"></a>Görev 2 – TriviaController Web API 'sini oluşturma
 
-Önceki görevde başlangıç yapısını Geek test web uygulaması oluşturdunuz. Şimdi, test veri modeli ile etkileşime geçer ve aşağıdaki eylemleri gösteren basit bir Web API'si hizmeti oluşturacaksınız:
+Önceki görevde, Geek test Web uygulamasının ilk yapısını oluşturdunuz. Şimdi, test veri modeliyle etkileşen ve aşağıdaki eylemleri sunan basit bir Web API hizmeti oluşturacaksınız:
 
-- **GET/api/trivia**: Sonraki soruya kimliği doğrulanmış kullanıcı tarafından yanıtlanması için test listesini alır.
-- **POST/api/trivia**: Kimliği doğrulanmış kullanıcı tarafından belirtilen test yanıt depolar.
+- **/Api/trivia al**: kimliği doğrulanmış kullanıcı tarafından yanıtlanabilmesi için, test listesinden sonraki soruyu alır.
+- **Post/api/trivia**: kimliği doğrulanmış kullanıcı tarafından belirtilen test yanıtını depolar.
 
-Web API denetleyici sınıfı için taban çizgisi oluşturmak için Visual Studio tarafından sağlanan ASP.NET yapı İskelesi araçları kullanır.
+Web API denetleyici sınıfının temelini oluşturmak için Visual Studio tarafından sunulan ASP.NET Scafkatlama Araçları ' nı kullanacaksınız.
 
-1. Açık **WebApiConfig.cs** içinde dosya **uygulama\_Başlat** klasör. Bu dosya yolları Web API denetleyici eylemleri için nasıl eşleştirildiğini gibi Web API hizmetinin yapılandırmasını tanımlar.
-2. Aşağıdaki using deyimini dosyanın başında.
+1. **WebApiConfig.cs** dosyasını **uygulama\_başlangıç** klasörü içinde açın. Bu dosya, yolların Web API denetleyici eylemlerine nasıl eşlendiğine benzer şekilde Web API hizmetinin yapılandırmasını tanımlar.
+2. Aşağıdaki using ifadesini dosyanın başına ekleyin.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample7.cs)]
-3. Aşağıdaki vurgulanmış kodu ekleyin **kaydetme** Genel Web API eylem yöntemleri tarafından alınan JSON verileri için biçimlendiriciyi yapılandırmak için yöntem.
+3. Web API 'SI eylem yöntemleri tarafından alınan JSON verileri için biçimlendiricisi küresel olarak yapılandırmak üzere aşağıdaki vurgulanmış kodu **register** yöntemine ekleyin.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample8.cs)]
 
     > [!NOTE]
-    > **CamelCasePropertyNamesContractResolver** özellik adlarını otomatik olarak dönüştürür *camel* JavaScript özellik adları için genel kuralı durumda.
-4. İçinde **Çözüm Gezgini**, sağ **denetleyicileri** klasörü **GeekQuiz** seçin ve proje **Ekle | Yeni İskeleli öğe...** .
+    > **Camelcasepropertynamescontractresolver** , özellik adlarını JavaScript 'teki Özellik adları için genel kural olan *ortası* örneğine otomatik olarak dönüştürür.
+4. **Çözüm Gezgini**' de, **geektest** projesinin **denetleyiciler** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Yeni yapı Iskelesi öğesi...** .
 
-    ![Yeni iskele kurulmuş öğe oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image6.png "yeni iskele kurulmuş öğe oluşturma")
+    ![Yeni bir yapı iskelesi öğesi oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image6.png "Yeni bir yapı iskelesi öğesi oluşturma")
 
-    *Yeni iskele kurulmuş öğe oluşturma*
-5. İçinde **İskele Ekle** iletişim kutusunda, emin **ortak** düğümü sol bölmede seçili. Ardından, **Web API 2 denetleyici - boş** tıklatın ve Orta bölmede şablonunda **Ekle**.
+    *Yeni bir yapı iskelesi öğesi oluşturma*
+5. **Yapı Iskelesi Ekle** iletişim kutusunda, sol bölmede **ortak** düğümün seçili olduğundan emin olun. Ardından, orta bölmedeki **Web API 2 denetleyici-boş** şablonunu seçin ve **Ekle**' ye tıklayın.
 
-    ![Web API 2 denetleyicisi boş şablonu seçip](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image7.png "Web API 2 denetleyicisi boş şablonu seçme")
+    ![Web API 2 denetleyici boş şablonu seçme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image7.png "Web API 2 denetleyici boş şablonu seçme")
 
-    *Web API 2 denetleyicisi boş şablonu seçme*
+    *Web API 2 denetleyici boş şablonu seçme*
 
     > [!NOTE]
-    > **ASP.NET iskeleti oluşturma** bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Visual Studio 2013, MVC ve Web API projeleri için önceden yüklenmiş kod oluşturucuları içerir. Standart veri işlemlerini geliştirmek için süre miktarını azaltmak için veri modelleri ile etkileşime giren kodu gerekli hızlı bir şekilde eklemek istediğiniz zaman, projenize yapı iskelesi kullanmanız gerekir.
+    > **ASP.net Scafkatlama** , ASP.NET Web uygulamaları için bir kod oluşturma çerçevesidir. Visual Studio 2013, MVC ve Web API projeleri için önceden yüklenmiş kod oluşturucuları içerir. Standart veri işlemlerini geliştirmek için gereken süreyi azaltmak üzere veri modelleriyle etkileşime geçen kodu hızlıca eklemek istediğinizde, projenizde scafkatlamayı kullanmanız gerekir.
     > 
-    > İskele kurma işlemi ayrıca, tüm gerekli bağımlılıkları projede yüklendiğini sağlar. Boş ASP.NET projesi ile başlayın ve ardından bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, gerekli Web API NuGet paketleri ve başvuruları projenize otomatik olarak eklenir.
-6. İçinde **denetleyici Ekle** iletişim kutusuna *TriviaController* içinde **Denetleyici adı** metin kutusu ve tıklatın **Ekle**.
+    > Yapı iskelesi işlemi, gerekli tüm bağımlılıkların projeye yüklenmesini de sağlar. Örneğin, boş bir ASP.NET projesi ile başlayıp bir Web API denetleyicisi eklemek için scafkatlamayı kullanırsanız, gerekli Web API NuGet paketleri ve başvuruları projenize otomatik olarak eklenir.
+6. **Denetleyici Ekle** iletişim kutusunda, **Denetleyici adı** metin kutusuna *Triviacontroller* yazın ve **Ekle**' ye tıklayın.
 
-    ![Meraklısına Notlar denetleyicisi ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image8.png "Trivia denetleyici ekleme")
+    ![Trivia denetleyiciyi ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image8.png "Trivia denetleyiciyi ekleme")
 
-    *Meraklısına Notlar denetleyici ekleme*
-7. **TriviaController.cs** dosya eklenen ardından **denetleyicileri** klasörü **GeekQuiz** içeren boş bir proje, **TriviaController** sınıfı. Aşağıdaki using deyimlerini dosyanın başında.
+    *Trivia denetleyiciyi ekleme*
+7. **TriviaController.cs** dosyası daha sonra, boş bir **triviacontroller** sınıfı içeren **geektest** projesinin **Controllers** klasörüne eklenir. Aşağıdaki using deyimlerini dosyanın başına ekleyin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex1 - TriviaControllerUsings*)
+    (Kod parçacığı- *AspNetWebApiSpa-Ex1-Triviacontrollerusler*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample9.cs)]
-8. Başında aşağıdaki kodu ekleyin **TriviaController** tanımlayın, başlatmak ve silmek için sınıf **TriviaContext** denetleyici örneği.
+8. Denetleyici içindeki **Triviacontext** örneğini tanımlamak, başlatmak ve atmak Için **triviacontroller** sınıfının başına aşağıdaki kodu ekleyin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex1 - TriviaControllerContext*)
+    (Kod parçacığı- *AspNetWebApiSpa-Ex1-TriviaControllerContext*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample10.cs)]
 
     > [!NOTE]
-    > **Dispose** yöntemi **TriviaController** çağırır **Dispose** yöntemi **TriviaContext** sağlar örneği, tüm bağlam nesnesi tarafından kullanılan kaynakları serbest olduğunda **TriviaContext** örneği atıldı veya atık olarak toplanmış. Bu, Entity Framework tarafından açılmış olan tüm veritabanı bağlantıları kapatarak içerir.
-9. Aşağıdaki yardımcı yöntemini sonuna ekleyin **TriviaController** sınıfı. Bu yöntem aşağıdaki test soru belirtilen kullanıcı tarafından yanıtlanması gereken veritabanından alır.
+    > **Triviacontroller** 'ın **Dispose** yöntemi **, triviacontext örneğinin** **Dispose** yöntemini çağırır, bu da bağlam nesnesi tarafından kullanılan tüm kaynakların **triviacontext** örneği atıldığında veya atık olarak toplandığında serbest bırakılacağını sağlar. Bu, Entity Framework tarafından açılan tüm veritabanı bağlantılarını kapatmayı içerir.
+9. **Triviacontroller** sınıfının sonuna aşağıdaki yardımcı yöntemi ekleyin. Bu yöntem, belirtilen kullanıcı tarafından yanıtlanabilmesi için aşağıdaki test sorularını veritabanından alır.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex1 - TriviaControllerNextQuestion*)
+    (Kod parçacığı- *AspNetWebApiSpa-Ex1-Triviacontrollernextsoru*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample11.cs)]
-10. Aşağıdaki **alma** eylem yöntemine **TriviaController** sınıfı. Bu eylem yöntemini çağırır **NextQuestionAsync** kimliği doğrulanmış kullanıcı için bir sonraki soruya almak için önceki adımda tanımlanan yardımcı yöntemi.
+10. Aşağıdaki **Get** ACTION yöntemini **triviacontroller** sınıfına ekleyin. Bu eylem yöntemi, kimliği doğrulanmış kullanıcı için bir sonraki soruyu almak üzere önceki adımda tanımlanan **NextQuestionAsync** Helper yöntemini çağırır.
 
-    (Code Snippet - *AspNetWebApiSpa - Ex1 - TriviaControllerGetAction*)
+    (Kod parçacığı- *AspNetWebApiSpa-Ex1-TriviaControllerGetAction*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample12.cs)]
-11. Aşağıdaki yardımcı yöntemini sonuna ekleyin **TriviaController** sınıfı. Bu yöntem, belirtilen yanıt veritabanında depolar ve yanıt doğru olup olmadığını belirten bir Boole değeri döndürür.
+11. **Triviacontroller** sınıfının sonuna aşağıdaki yardımcı yöntemi ekleyin. Bu yöntem, belirtilen yanıtı veritabanında depolar ve yanıtın doğru olup olmadığını gösteren bir Boole değeri döndürür.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex1 - TriviaControllerStoreAsync*)
+    (Kod parçacığı- *AspNetWebApiSpa-Ex1-TriviaControllerStoreAsync*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample13.cs)]
-12. Aşağıdaki **Post** eylem yöntemine **TriviaController** sınıfı. Bu eylem yöntemini çağırır ve kimliği doğrulanmış kullanıcı yanıtı ilişkilendirir **StoreAsync** yardımcı yöntemi. Ardından, yardımcı yöntemi tarafından döndürülen bir Boole değeri ile bir yanıt gönderir.
+12. Aşağıdaki **Post** eylemi yöntemini **triviacontroller** sınıfına ekleyin. Bu eylem yöntemi, yanıtı kimliği doğrulanmış kullanıcıyla ilişkilendirir ve **Storeasync** yardımcı yöntemini çağırır. Ardından, yardımcı yöntem tarafından döndürülen Boole değeriyle bir yanıt gönderir.
 
-    (Code Snippet - *AspNetWebApiSpa - Ex1 - TriviaControllerPostAction*)
+    (Kod parçacığı- *AspNetWebApiSpa-Ex1-Triviacontrollerpostaeylemi*)
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample14.cs)]
-13. Web API denetleyicisi ekleyerek, kimliği doğrulanmış kullanıcılara erişimi kısıtlamak için değiştirme **Authorize** özniteliğini **TriviaController** sınıf tanımını.
+13. **Triviacontroller** sınıf tanımına **Yetkilendir** özniteliğini ekleyerek kimliği doğrulanmış kullanıcılara ERIŞIMI kısıtlamak için Web API denetleyicisi ' ni değiştirin.
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample15.cs)]
 
 <a id="Ex1Task3"></a>
-#### <a name="task-3--running-the-solution"></a>Görev 3: çözümü çalıştırma
+#### <a name="task-3--running-the-solution"></a>Görev 3 – çözümü çalıştırma
 
-Bu görevde, önceki görevde oluşturduğunuz Web API'si hizmeti beklendiği gibi çalıştığını doğrulayın. Internet Explorer'ı kullanacağı **F12 Geliştirici araçlarıyla** ağ trafiğini yakalamak ve Web API'si hizmeti gelen tam yanıtı inceleyin.
+Bu görevde, önceki görevde oluşturduğunuz Web API hizmetinin beklendiği gibi çalıştığını doğrulayacaksınız. Ağ trafiğini yakalamak ve Web API hizmetinden tam yanıtı incelemek için Internet Explorer **F12 geliştirici araçları** kullanacaksınız.
 
 > [!NOTE]
-> Emin olun **Internet Explorer** seçili **Başlat** düğmesi Visual Studio araç çubuğunda yer alan.
+> Visual Studio araç çubuğunda bulunan **Başlat** düğmesinde **Internet Explorer** 'ın seçili olduğundan emin olun.
 > 
 > ![Internet Explorer seçeneği](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image9.png)
 
-1. Tuşuna **F5** çözümü çalıştırın. **Oturum** sayfası, tarayıcıda görüntülenmelidir.
+1. Çözümü çalıştırmak için **F5** tuşuna basın. **Oturum açma** sayfası tarayıcıda görünmelidir.
 
     > [!NOTE]
-    > Uygulama başladığında, varsayılan MVC yönlendirme, varsayılan olarak eşleştirilir tetiklenir **dizin** eylemi **HomeController** sınıfı. Bu yana **HomeController** kimliği doğrulanmış kullanıcılara kısıtlıdır (Bu sınıf ile donatılmış unutmayın **Authorize** alıştırma 1'özniteliği) ve kimliği doğrulanmış bir kullanıcı henüz uygulama yok özgün istek oturum açma sayfasında yönlendirir.
+    > Uygulama başlatıldığında varsayılan MVC yolu tetiklenir. Bu, varsayılan olarak **HomeController** sınıfının **Dizin** eylemine eşlenir. **HomeController** , kimliği doğrulanmış kullanıcılarla kısıtlandığı için (Bu sınıfı alıştırma 1 ' deki **Yetkilendir** özniteliğiyle süslediğinizden ve henüz kimlik doğrulamasının olmadığı unutulmamalıdır), uygulama ilk isteği bir oturum açma sayfasına yönlendirir.
 
-    ![Çözüm çalıştırılmadan](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image10.png "çözümü çalıştırma")
+    ![Çözümü çalıştırma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image10.png "Çözümü çalıştırma")
 
-    *Çözüm çalıştırma*
-2. Tıklayın **kaydetme** yeni bir kullanıcı oluşturun.
+    *Çözümü çalıştırma*
+2. Yeni bir kullanıcı oluşturmak için **Kaydet** ' e tıklayın.
 
-    ![Yeni bir kullanıcı kaydetme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image11.png "yeni bir kullanıcı kaydetme")
+    ![Yeni Kullanıcı kaydetme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image11.png "Yeni Kullanıcı kaydetme")
 
-    *Yeni bir kullanıcı kaydetme*
-3. İçinde **kaydetme** want bir **kullanıcı adı** ve **parola**ve ardından **kaydetme**.
+    *Yeni Kullanıcı kaydetme*
+3. **Kaydet** sayfasında, bir **Kullanıcı adı** ve **parola**girin ve ardından **Kaydet**' e tıklayın.
 
-    ![Kayıt sayfası](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image12.png "kayıt sayfası")
+    ![Kayıt sayfası](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image12.png "Kayıt sayfası")
 
     *Kayıt sayfası*
-4. Uygulama, yeni hesabı kaydeder ve kullanıcı kimlik doğrulaması ve giriş sayfasına yönlendirilirsiniz.
+4. Uygulama yeni hesabı kaydeder ve kullanıcının kimliği doğrulanır ve giriş sayfasına yeniden yönlendirilir.
 
-    ![Kullanıcının kimliği doğrulanır](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image13.png "kimliği doğrulanmış kullanıcı")
+    ![Kullanıcının kimliği doğrulandı](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image13.png "Kullanıcının kimliği doğrulandı")
 
-    *Kullanıcının kimliği doğrulanır*
-5. Tarayıcıda basın **F12** açmak için **Geliştirici Araçları** paneli. Tuşuna **CTRL + 4** veya **ağ** simgesine ve ardından ağ trafiğini yakalamaktan başlamak için yeşil ok düğmesi.
+    *Kullanıcının kimliği doğrulandı*
+5. Tarayıcıda, **Geliştirici Araçları** panelini açmak için **F12** tuşuna basın. **Ctrl + 4** tuşlarına basın veya **ağ** simgesine tıklayın ve ardından, ağ trafiğini yakalamaya başlamak için yeşil ok düğmesine tıklayın.
 
-    ![Web API ağ yakalama başlatma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image14.png "başlatma Web API ağ yakalama")
+    ![Web API ağı yakalama başlatılıyor](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image14.png "Web API ağı yakalama başlatılıyor")
 
-    *Web API ağ yakalama başlatılıyor*
-6. Append **API/trivia** tarayıcının adres çubuğundaki URL. Şimdi gelen yanıt ayrıntılarını inceleyeceksiniz **alma** eylem yönteminde **TriviaController**.
+    *Web API ağı yakalama başlatılıyor*
+6. Tarayıcının adres çubuğundaki URL 'ye yönelik **API/trivia** ekleyin. Şimdi, **Triviacontroller**'daki **Get** ACTION yönteminden Yanıtın ayrıntılarını inceleyebilirsiniz.
 
-    ![Web API aracılığıyla bir sonraki soruya veri alma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image15.png "Web API aracılığıyla bir sonraki soruya veri alma")
+    ![Web API aracılığıyla sonraki soru verilerini alma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image15.png "Web API aracılığıyla sonraki soru verilerini alma")
 
-    *Web API aracılığıyla bir sonraki soruya veri alma*
+    *Web API aracılığıyla sonraki soru verilerini alma*
 
     > [!NOTE]
-    > İndirme tamamlandıktan sonra indirilen dosya ile bir eylem yapmanız istenir. İletişim kutusu, yanıt içeriği geliştiriciler araç penceresi aracılığıyla izlemek için açık bırakın.
-7. Artık yanıt gövdesinin inceleyeceksiniz. Bunu yapmak için tıklatın **ayrıntıları** sekmesine ve ardından **yanıt gövdesi**. İndirilen verilerin özelliklerini içeren bir nesne olup olmadığını kontrol edebilirsiniz **seçenekleri** (listesi olduğu **TriviaOption** nesneleri), **kimliği** ve **başlığı** karşılık gelen için **TriviaQuestion** sınıfı.
+    > İndirme işlemi tamamlandıktan sonra indirilen dosyayla bir eylem yapmanız istenir. Geliştirici araç penceresi aracılığıyla yanıt içeriğini izleyebilmek için iletişim kutusunu açık bırakın.
+7. Şimdi yanıtın gövdesini inceleyeceksiniz. Bunu yapmak için **Ayrıntılar** sekmesine tıklayın ve ardından **yanıt gövdesi**' ne tıklayın. İndirilen verilerin Özellikler **seçeneklerine** sahip bir nesne olup olmadığını kontrol edebilirsiniz ( **triviaoption** nesnelerinin bir listesi), **kimlik** ve **başlık** **triviasoru** sınıfına karşılık gelir.
 
-    ![Web API yanıt gövdesi görüntüleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image16.png "Web API yanıt gövdesi görüntüleme")
+    ![Web API yanıt gövdesini görüntüleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image16.png "Web API yanıt gövdesini görüntüleme")
 
-    *Web API yanıt gövdesi görüntüleme*
-8. Geri Git Visual Studio ve ENTER tuşuna **SHIFT + F5 tuşlarına basarak** hata ayıklamayı durdurmak için.
+    *Web API yanıt gövdesini görüntüleme*
+8. Visual Studio 'ya geri dönün ve hata ayıklamayı durdurmak için **SHIFT + F5** tuşlarına basın.
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-creating-the-spa-interface"></a>Alıştırma 2: SPA arabirimi oluşturma
+### <a name="exercise-2-creating-the-spa-interface"></a>Alıştırma 2: SPA arabirimini oluşturma
 
-Bu alıştırmada, ilk web ön uç kısmı Geek test, kullanarak tek sayfalı uygulama etkileşimi odaklanarak oluşturacağınız **AngularJS**. Ardından, bir soru diğerine geçiş yaparken geçiş içeriğinin bir görsel efekt zengin animasyonlar gerçekleştirmek ve CSS3 ile kullanıcı deneyimi de ekleyeceksiniz.
+Bu alıştırmada, ilk olarak, **AngularJS**kullanarak tek sayfalı uygulama etkileşimine odaklanarak Geek sınavından oluşan Web ön uç bölümünü derleyebilirsiniz. Daha sonra, CSS3 ile Kullanıcı deneyimini geliştirerek zengin animasyonlar gerçekleştirir ve bir sorudan sonrakine geçerken bağlam geçişinin görsel bir etkisini sağlayabilirsiniz.
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1--creating-the-spa-interface-using-angularjs"></a>Görev 1 – kullanılarak AngularJS SPA arabirimi oluşturma
+#### <a name="task-1--creating-the-spa-interface-using-angularjs"></a>Görev 1 – AngularJS kullanarak SPA arabirimi oluşturma
 
-Bu görevde kullanacağınız **AngularJS** Geek test uygulama istemci tarafında uygulamak için. **AngularJS** tarayıcı tabanlı uygulamalar ile çoğaltan bir açık kaynak JavaScript çerçevesi *Model-View-Controller* etkinleştirme hem geliştirme ve test etme (MVC) özelliği.
+Bu görevde, Geek test uygulamasının istemci tarafını uygulamak için **AngularJS** kullanacaksınız. **AngularJS** , tarayıcı tabanlı uygulamaları *Model-View-Controller* (MVC) özelliğiyle genişleterek hem geliştirme hem de sınamayı kolaylaştıran açık kaynaklı bir JavaScript çerçevesidir.
 
-Visual Studio Paket Yöneticisi konsolundan AngularJS yükleyerek başlar. Ardından, Geek test uygulama sınav sorularını ve yanıtlarını AngularJS şablon altyapısı kullanılarak işlenecek görünümü ve davranışı sağlamak için denetleyici oluşturur.
+Visual Studio 'nun paket yöneticisi konsolundan AngularJS yükleyerek başlayacaksınız. Daha sonra, AngularJS şablon altyapısını kullanarak test sorularını ve yanıtlarını işlemek için Geek test uygulamasının davranışını ve görünümünü sağlamak üzere denetleyiciyi oluşturacaksınız.
 
 > [!NOTE]
-> AngularJS hakkında daha fazla bilgi için [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
+> AngularJS hakkında daha fazla bilgi için [[http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/)bakın.
 
-1. Açık **Visual Studio Express 2013 Web** açın **GeekQuiz.sln** çözüm bulunan **kaynak/Ex2-CreatingASPAInterface/başlangıcı** klasör. Alternatif olarak, önceki alıştırmada aldığınız çözümüyle devam edebilirsiniz.
-2. Açık **Paket Yöneticisi Konsolu** gelen **Araçları** > **NuGet Paket Yöneticisi**. Yüklemek için aşağıdaki komutu yazın **AngularJS.Core** NuGet paketi.
+1. **Web için Visual Studio Express 2013** ' i açın ve **kaynak/EX2-Creatingaspaınterface/Begin** klasöründe bulunan **geektest. sln** çözümünü açın. Alternatif olarak, önceki alıştırmada elde ettiğiniz çözüme devam edebilirsiniz.
+2. **NuGet paket yöneticisi** > **Araçlar** ' dan **Paket Yöneticisi konsolunu** açın. **AngularJS. Core** NuGet paketini yüklemek için aşağıdaki komutu yazın.
 
     [!code-powershell[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample16.ps1)]
-3. İçinde **Çözüm Gezgini**, sağ **betikleri** klasörü **GeekQuiz** seçin ve proje **Ekle | Yeni klasör**. Klasör adı **uygulama** basın **Enter**.
-4. Sağ **uygulama** az önce oluşturduğunuz ve seçin klasör **Ekle | JavaScript dosyası**.
+3. **Çözüm Gezgini**' de, **geektest** projesinin **betikler** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Yeni klasör**. Klasör **uygulamasını** adlandırın ve **ENTER**'a basın.
+4. Yeni oluşturduğunuz **uygulama** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **JavaScript dosyası**.
 
     ![Yeni bir JavaScript dosyası oluşturma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image17.png)
 
     *Yeni bir JavaScript dosyası oluşturma*
-5. İçinde **öğe için ad belirtmek** iletişim kutusuna *test denetleyicisi* içinde **öğe adı** metin kutusu ve tıklatın **Tamam**.
+5. **Öğe Için ad belirtin** iletişim kutusunda, **öğe adı** metin kutusuna *Test-Controller* yazın ve **Tamam**' ı tıklatın.
 
-    ![Yeni bir JavaScript dosyası adlandırma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image18.png)
+    ![Yeni JavaScript dosyasını adlandırma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image18.png)
 
-    *Yeni bir JavaScript dosyası adlandırma*
-6. İçinde **test controller.js** bildirmek ve AngularJS başlatmak için aşağıdaki kodu ekleyin **QuizCtrl** denetleyicisi.
+    *Yeni JavaScript dosyasını adlandırma*
+6. **Quiz-Controller. js** dosyasında, AngularJS **QuizCtrl** denetleyiciyi bildirmek ve başlatmak için aşağıdaki kodu ekleyin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex2 - AngularQuizController*)
+    (Kod parçacığı- *AspNetWebApiSpa-EX2-AngularQuizController*)
 
     [!code-javascript[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample17.js)]
 
     > [!NOTE]
-    > Oluşturucu işlevi **QuizCtrl** denetleyicisi adlı injectable bir parametre bekliyor **$scope**. Kapsamı yapının başlangıç durumunun Oluşturucusu işlev özellikleri ekleyerek ayarlanması gereken **$scope** nesne. Özellikleri içeren **görünüm modeli**ve denetleyiciye kaydedildiğinde şablona erişilebilir olacaktır.
+    > **QuizCtrl** denetleyicisinin Oluşturucu işlevi, **$scope**adlı bir Injectable parametresi bekliyor. **$Scope** nesnesine Özellikler iliştirerek, kapsamın başlangıç durumu Oluşturucu işlevinde ayarlanmalıdır. Özellikler **Görünüm modelini**içerir ve denetleyici kaydedildiğinde şablon tarafından erişilebilecektir.
     > 
-    > **QuizCtrl** denetleyicisi adlı bir modül içinde tanımlanan **QuizApp**. Olanak tanıyan iş birimleri, uygulamanızın ayrı bileşenlere ayırmak modüllerdir. Modüller kullanmanın başlıca avantajlarından kod anlamak daha kolay olur ve birim testi, kullanılabilirlik ve bakımı kolaylaştıran olur.
-7. Görünümden tetiklenen olaylara tepki vermek için kapsama davranış artık ekleyeceksiniz. Sonuna aşağıdaki kodu ekleyin **QuizCtrl** tanımlamak için denetleyici **nextQuestion** işlevi **$scope** nesne.
+    > **QuizCtrl** denetleyicisi, **QuizApp**adlı bir modül içinde tanımlanır. Modüller, uygulamanızı ayrı bileşenlere ayırmanıza olanak sağlayan iş birimleridir. Modül kullanmanın başlıca avantajları, kodun anlaşılması daha kolay ve birim testi, yeniden kullanılabilirlik ve bakım yapma işlemlerini kolaylaştırır.
+7. Artık, görünümden tetiklenen olaylara tepki vermek için kapsama davranış ekleyeceksiniz. **$Scope** nesnesinde **nextsoru** işlevini tanımlamak için **QuizCtrl** denetleyicisinin sonuna aşağıdaki kodu ekleyin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex2 - AngularQuizControllerNextQuestion*)
+    (Kod parçacığı- *AspNetWebApiSpa-EX2-AngularQuizControllerNextQuestion*)
 
     [!code-javascript[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample18.js)]
 
     > [!NOTE]
-    > Bu işlev öğesinden sonraki soruya alır **Meraklısına Notlar** Web API'si önceki alıştırmada oluşturulan ve soru veri ekler **$scope** nesne.
-8. Sonuna aşağıdaki kodu ekleyin **QuizCtrl** tanımlamak için denetleyici **sendAnswer** işlevi **$scope** nesne.
+    > Bu işlev, önceki alıştırmada oluşturulan **trivia** Web API 'sindeki bir sonraki soruyu alır ve soru verilerini **$scope** nesnesine iliştirir.
+8. **$Scope** nesnesinde **sendanswer** işlevini tanımlamak için **QuizCtrl** denetleyicisinin sonuna aşağıdaki kodu ekleyin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex2 - AngularQuizControllerSendAnswer*)
+    (Kod parçacığı- *AspNetWebApiSpa-EX2-AngularQuizControllerSendAnswer*)
 
     [!code-javascript[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample19.js)]
 
     > [!NOTE]
-    > Bu işlev için kullanıcı tarafından seçilen bir yanıt gönderir **Meraklısına Notlar** Web API ve sonucu – örneğin yanıt doğru değilse veya – depolar **$scope** nesne.
+    > Bu işlev, Kullanıcı tarafından seçilen **yanıtı Web API** 'sine gönderir ve sonucu depolar; Örneğin, yanıt doğruysa veya değilse, **$scope** nesnesinde.
     > 
-    > **NextQuestion** ve **sendAnswer** yukarıdaki işlevlerini AngularJS kullanan **$http** XMLHttpRequest aracılığıyla Web API'si ile iletişimi soyutlamak için nesne Tarayıcıda JavaScript nesnesi. AngularJS soyutlama RESTful API'ler aracılığıyla bir kaynağa karşı bir CRUD işlemleri gerçekleştirmek için yüksek seviyede getiren başka bir hizmete destekler. AngularJS **$resource** nesne ile etkileşime gerek kalmadan üst düzey davranışları sağlayan eylem yöntemlerine sahip **$http** nesne. Kullanmayı göz önünde bulundurun **$resource** CRUD modelin gerektirdiği nesne senaryolarda (fore bilgi bkz [$resource belgeleri](https://docs.angularjs.org/api/ngResource/service/$resource)).
-9. Sonraki adım, sınavı görünümünü tanımlayan AngularJS şablonu oluşturmaktır. Bunu yapmak için açık **Index.cshtml** içinde dosya **görünümleri | Giriş** klasörü ve içeriğini aşağıdaki kodla değiştirin.
+    > Yukarıdaki **Nextsoru** ve **Sendanswer** işlevleri, AngularJS **$http** nesnesini kullanarak Web API 'Si ile iletişimi tarayıcıdan XMLHttpRequest JavaScript nesnesi üzerinden soyutlar. AngularJS, diğer API 'Ler aracılığıyla bir kaynağa yönelik CRUD işlemleri gerçekleştirmeye yönelik daha yüksek bir soyutlama düzeyi getiren başka bir hizmeti destekler. AngularJS **$Resource** nesnesi, **$http** nesnesiyle etkileşim kurma gereksinimi olmadan üst düzey davranışları sağlayan eylem yöntemlerine sahiptir. CRUD modeli gerektiren senaryolarda **$Resource** nesnesini kullanmayı düşünün (ön bilgi, [$Resource belgelerine](https://docs.angularjs.org/api/ngResource/service/$resource)bakın).
+9. Sonraki adım, test için görünümü tanımlayan AngularJS şablonunu oluşturmaktır. Bunu yapmak için, görünümler içindeki **Index. cshtml** dosyasını açın **| Giriş** klasörü ve içeriği aşağıdaki kodla değiştirin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex2 - GeekQuizView*)
+    (Kod parçacığı- *AspNetWebApiSpa-EX2-GeekQuizView*)
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample20.cshtml)]
 
     > [!NOTE]
-    > AngularJS, model ve denetleyici bilgilerinden tarayıcıda kullanıcının gördüğü dinamik görünüm static işaretleme dönüştürmek için kullandığı bir bildirim temelli belirtimi şablonudur. AngularJS öğeleri ve şablonda kullanılabilir öğesi özniteliklerinin örnekleri aşağıda verilmiştir:
+    > AngularJS şablonu, modelden ve kullanıcının tarayıcıda gördüğü dinamik görünüme statik biçimlendirme dönüştürmek için, modelden ve denetleyicideki bilgileri kullanan bildirime dayalı bir belirtimdir. Aşağıda, bir şablonda kullanılabilecek AngularJS öğelerinin ve öğe özniteliklerinin örnekleri verilmiştir:
     > 
-    > - **Ng-app** yönergesi, uygulama kök öğesini temsil eden DOM öğesi AngularJS söyler.
-    > - **Ng-controller** yönergesi bir denetleyici burada yönergesi bildirilmiş bir noktada DOM ekler.
-    > - Küme ayracı gösterimi **{{}}** denetleyicide tanımlanan kapsam özellikleri için bağlamaları belirtir.
-    > - **Ng tıklamayla** yönergesi kullanıcı tıklamalara yanıt kapsamında tanımlanan işlevleri çağırmak için kullanılır.
-10. Açık **Site.css** içinde dosya **içerik** klasörü ve aşağıdaki vurgulanan stilleri test görünümü için bir görünüm sağlamak için dosyanın sonuna ekleyin.
+    > - **Ng-App** yönergesi, uygulamanın kök öğesini temsıl eden Dom öğesini AngularJS söyler.
+    > - **Ng-Controller** yönergesi, bir denetleyiciyi, yönergenin BILDIRILDIĞI noktada Dom 'a iliştirir.
+    > - **{{}}** Küme ayracı gösterimi, denetleyicide tanımlanan kapsam özelliklerine yönelik bağlamaları gösterir.
+    > - **Ng-Click** yönergesi, Kullanıcı tıklamasına yanıt olarak kapsamda tanımlanan işlevleri çağırmak için kullanılır.
+10. **İçerik** klasörünün içindeki **site. css** dosyasını açın ve test görünümü için bir görünüm sağlamak üzere dosyanın sonuna aşağıdaki vurgulanmış stilleri ekleyin.
 
-    (Kod parçacığını - *AspNetWebApiSpa - Ex2 - GeekQuizStyles*)
+    (Kod parçacığı- *AspNetWebApiSpa-EX2-GeekQuizStyles*)
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample21.css)]
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2--running-the-solution"></a>Görev 2 – çözümü çalıştırma
 
-Bu görevde, yürütecek çözümü kullanarak yeni kullanıcı arabirimi test sorulara yanıt AngularJS derlediğiniz.
+Bu görevde, test sorularından bazılarını yanıtlamak için AngularJS ile oluşturduğunuz yeni kullanıcı arabirimini kullanarak çözümü yürütecaksınız.
 
-1. Tuşuna **F5** çözümü çalıştırın.
-2. Yeni bir kullanıcı hesabına kaydolun. Bunu yapmak için görev 3 alıştırma 1'de açıklanan kayıt adımları izleyin.
+1. Çözümü çalıştırmak için **F5** tuşuna basın.
+2. Yeni bir kullanıcı hesabı kaydedin. Bunu yapmak için alıştırma 1, görev 3 ' te açıklanan kayıt adımlarını izleyin.
 
     > [!NOTE]
-    > Önceki alıştırmada çözümü kullanıyorsanız, daha önce oluşturduğunuz kullanıcı hesabıyla oturum açabilir.
-3. **Giriş** sayfası görüntülenmelidir, test ilk soru gösteriliyor. Seçeneklerden birini tıklatarak soruyu yanıtlayın. Bu tetikleyecek **sendAnswer** gönderen seçili seçeneği, daha önce tanımlanan işlevi **Meraklısına Notlar** Web API'si.
+    > Çözümü önceki alıştırmada kullanıyorsanız, daha önce oluşturduğunuz kullanıcı hesabıyla oturum açabilirsiniz.
+3. **Giriş** sayfası, test ilk sorusunun gösterildiği gibi görünmelidir. Seçeneklerden birine tıklayarak soruyu yanıtlayın. Bu, daha önce tanımlanan **Sendanswer** işlevini tetikler, bu da seçili seçeneği, **TRIVIA** Web API 'sine gönderir.
 
-    ![Bir soruyu yanıtlarken](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image19.png "soru yanıtlama")
+    ![Soru yanıt verme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image19.png "Soru yanıt verme")
 
-    *Bir soru yanıtlama*
-4. Düğmelerden birine tıklandıktan sonra yanıt görüntülenmesi gerekir. Tıklayın **sonraki soruya** aşağıdaki soru gösterilecek. Bu tetikleyecek **nextQuestion** denetleyicide tanımlanan işlevi.
+    *Soru yanıt verme*
+4. Düğmelerden birine tıkladıktan sonra yanıt görüntülenmelidir. Aşağıdaki soruyu göstermek için **sonraki soru** ' ya tıklayın. Bu, denetleyicide tanımlanan **Nextsoru** işlevini tetikler.
 
-    ![Sonraki soruya isteyen](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image20.png "sonraki soruya isteme")
+    ![Sonraki soruyu isteme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image20.png "Sonraki soruyu isteme")
 
-    *Sonraki soruya isteme*
-5. Sonraki soruya görüntülenmesi gerekir. İstediğiniz gibi birçok kez soru yanıtlama devam edin. Tüm soruları tamamladıktan sonra ilk yanıtını döndürmesi gerekir.
+    *Sonraki soruyu isteme*
+5. Sonraki soru görünmelidir. İstediğiniz kadar çok kez soruları cevaplayın. Tüm soruları tamamladıktan sonra ilk soruya dönmeniz gerekir.
 
-    ![Başka bir soru](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image21.png "başka bir soru")
+    ![Başka bir soru](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image21.png "Başka bir soru")
 
-    *Sonraki Soru*
-6. Geri Git Visual Studio ve ENTER tuşuna **SHIFT + F5 tuşlarına basarak** hata ayıklamayı durdurmak için.
+    *Sonraki soru*
+6. Visual Studio 'ya geri dönün ve hata ayıklamayı durdurmak için **SHIFT + F5** tuşlarına basın.
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--creating-a-flip-animation-using-css3"></a>Görev 3 – CSS3 kullanarak çevir bir animasyon oluşturma
+#### <a name="task-3--creating-a-flip-animation-using-css3"></a>Görev 3 – CSS3 kullanarak bir ters animasyon oluşturma
 
-Bu görevde CSS3 özellikleri zengin animasyonlar Çevir etkili bir soru yanıtlandığında ve sonraki soruya alındığında ekleyerek gerçekleştirmek için kullanın.
+Bu görevde, bir soru yanıtlanarak bir sonraki soru alındığında bir çevir efekti ekleyerek zengin animasyonlar gerçekleştirmek için CSS3 özelliklerini kullanacaksınız.
 
-1. İçinde **Çözüm Gezgini**, sağ **içerik** klasörü **GeekQuiz** seçin ve proje **Ekle | Mevcut öğe...** .
+1. **Çözüm Gezgini**, **geektest** projesinin **Içerik** klasörüne sağ tıklayın ve Ekle ' yi seçin **| Mevcut öğe...** .
 
-    ![Var olan bir öğe için içerik klasörünü ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image22.png "içerik klasörüne var olan öğe ekleme")
+    ![Içerik klasörüne varolan bir öğe ekleniyor](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image22.png "Içerik klasörüne varolan bir öğe ekleniyor")
 
-    *İçerik klasörüne var olan öğe ekleme*
-2. İçinde **Varolan Öğe Ekle** iletişim kutusunda, gitmek **kaynak/varlıklar** klasörü ve select **Flip.css**. **Ekle**'yi tıklatın.
+    *Içerik klasörüne varolan bir öğe ekleniyor*
+2. **Varolan öğe Ekle** Iletişim kutusunda **kaynak/varlıklar** klasörüne gidin ve **. css 'yi çevir**' i seçin. **Ekle**'yi tıklatın.
 
-    ![Varlıklarından Flip.css dosya ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image23.png "varlıklarından Flip.css dosya ekleme")
+    ![Varlıklardan. css dosyasını ekleme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image23.png "Varlıklardan. css dosyasını ekleme")
 
-    *Varlıklarından Flip.css dosya ekleme*
-3. Açık **Flip.css** eklemiş dosya ve içeriğini inceleyin.
-4. Bulun **ters çevirmek, dönüşümü** açıklaması. CSS stilleri açıklamanın aşağıda kullanan **perspektif** ve **rotateY** dönüşümler oluşturmak için bir &quot;kartı çevir&quot; efekt.
+    *Varlıklardan. css dosyasını ekleme*
+3. Yeni eklediğiniz **çevir. css** dosyasını açın ve içeriğini inceleyin.
+4. **Çevirme dönüşümü** açıklamasını bulun. Bu açıklamanın altındaki stiller, bir &quot;kartı oluşturmak için CSS **perspektifini** ve **rotatey** dönüşümlerini kullanır&quot; efekti çevir.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample22.css)]
-5. Bulun **Çevir sırasında arkasına Bölmesini Gizle** açıklaması. Ayarlayarak uzağa Görüntüleyicisi karşılaşıyorsanız, açıklamanın aşağıda stili dikdörtgenlerini arka tarafı gizler **arkayüz görünürlük** CSS özelliği *gizli*.
+5. Yorumu **ters çevir sırasında bölmenin geri gizlemeyi** bulun. Bu açıklamanın altındaki stil, **arka yüz görünürlüğü** CSS özelliği *gizli*olarak ayarlanarak, yüzlerin arka tarafını gizleyerek görüntüleyicisinden gizler.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. Açık **BundleConfig.cs** içinde dosya **uygulama\_Başlat** klasörü ve referansı eklemek **Flip.css** dosyası **&quot;~/Content/css&quot;** stil paket
+6. **BundleConfig.cs** dosyasını **uygulama\_başlangıç** klasörü içinde açın ve başvuruyu **&quot;~/Content/CSS&quot;** Style demeti içindeki **Flip. css** dosyasına ekleyin
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
-7. Tuşuna **F5** çözüm ve kimlik bilgilerinizle oturum çalıştırılacak.
-8. Seçeneklerden birine tıklayarak soru yanıtlayın. Çevirme etkisi görünümler arasında geçiş yaparken dikkat edin.
+7. **F5** tuşuna basarak çözümü çalıştırın ve kimlik bilgilerinizle oturum açın.
+8. Seçeneklerden birine tıklayarak bir soruyu yanıtlayın. Görünümler arasında geçiş yaparken çevirme efektinin olduğuna dikkat edin.
 
-    ![Çevirme etkisi olan bir soruyu yanıtlarken](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image24.png "Çevir etkisi olan soru yanıtlama")
+    ![Çevirme efektiyle soru yanıt verme](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image24.png "Çevirme efektiyle soru yanıt verme")
 
-    *Çevirme etkisi olan soru yanıtlama*
-9. Tıklayın **sonraki soruya** aşağıdaki soru alınacak. Çevirme etkisi yeniden görüntülenmesi gerekir.
+    *Çevirme efektiyle soru yanıt verme*
+9. Aşağıdaki soruyu almak için **sonraki soru** ' ya tıklayın. Çevirme efekti yeniden görünmelidir.
 
-    ![Aşağıdaki soru Çevir etkisi olan alınırken](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image25.png "Çevir etkisi olan aşağıdaki soru alınıyor")
+    ![Aşağıdaki soruyu çevirme efektiyle alma](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/_static/image25.png "Aşağıdaki soruyu çevirme efektiyle alma")
 
-    *Aşağıdaki soru Çevir etkisi olan alınıyor*
+    *Aşağıdaki soruyu çevirme efektiyle alma*
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Öğrendiğiniz Bu uygulamalı laboratuvarı tamamlayarak nasıl yapılır:
+Bu uygulamalı Laboratuvarı tamamlayarak şu şekilde nasıl yapılacağını öğrendiniz:
 
-- ASP.NET iskeleti oluşturma kullanarak bir ASP.NET Web API denetleyicisi oluşturma
-- Sonraki test soruya almak için bir Web API'sini kullanmaya başlamak eylemi gerçekleştir
-- Sınav yanıtlarını depolamak için bir Web API sonrası eylemi gerçekleştir
-- AngularJS Visual Studio Paket Yöneticisi konsolundan yükleme
-- AngularJS şablonları uygulamak ve denetleyiciler
-- CSS3 geçişleri animasyon efektleri gerçekleştirmek için kullanın
+- ASP.NET Scafkatlaması kullanarak bir ASP.NET Web API denetleyicisi oluşturma
+- Sonraki test sorusunu almak için bir Web API alma eylemi uygulayın
+- Test yanıtlarını depolamak için bir Web API 'SI gönderme eylemi uygulayın
+- Visual Studio paket yöneticisi konsolundan AngularJS 'i yükler
+- AngularJS şablonlarını ve denetleyicilerini uygulama
+- Animasyon efektlerini gerçekleştirmek için CSS3 geçişlerini kullanma

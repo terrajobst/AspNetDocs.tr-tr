@@ -9,11 +9,11 @@ ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
 ms.openlocfilehash: 1b47f1ade3619cfd010260352f6a96985ab3598b
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445707"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555022"
 ---
 # <a name="troubleshoot-web-api2-apps-that-work-in-visual-studio-and-fail-on-a-production-iis-server"></a>Visual Studio 'da çalışan ve üretim IIS sunucusunda başarısız olan Web API2 uygulamalarının sorunlarını giderme
 
@@ -29,17 +29,17 @@ Web API Apps genellikle birkaç HTTP fiillerini kullanır: GET, POST, PUT, DELET
 
 ## <a name="what-causes-http-405-errors"></a>HTTP 405 hatalarına neden olur?
 
-HTTP 405 hatalarına nasıl sorun gidermeyi öğrenmekte olan ilk adım, bir HTTP 405 hatasının gerçekten ne anlama geldiğini anlamaktır. HTTP için birincil yöneten belge, HTTP 405 durum kodunu ***Metoda Izin verilmeyen***şekilde tanımlayan [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt)' dir ve bu durum kodunu, istek satırında belirtilen yöntemin &quot;için izin verilmediği durumlar olarak tanımlar. Istek URI 'SI tarafından tanımlanan kaynak. diğer bir deyişle&quot;, http fiiline bir HTTP istemcisinin istediği özel URL için izin verilmez.
+HTTP 405 hatalarına nasıl sorun gidermeyi öğrenmekte olan ilk adım, bir HTTP 405 hatasının gerçekten ne anlama geldiğini anlamaktır. HTTP için birincil yöneten belge, HTTP 405 durum kodunu ***metodun Izin verilmeyen***şekilde tanımlayan [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt)' dir ve bu durum kodunu, istek-satırında belirtilen yöntemin istek URI 'si tarafından tanımlanan kaynak için izin verilmeyen &quot;bir durum olarak açıklar. diğer bir deyişle&quot;, http fiiline bir HTTP istemcisinin istediği özel URL için izin verilmez.
 
 Kısa bir inceleme olarak, RFC 2616, RFC 4918 ve RFC 5789 ' de tanımlanan en çok kullanılan HTTP yöntemlerinden birkaçı aşağıda verilmiştir:
 
 | HTTP yöntemi | Açıklama |
 | --- | --- |
-| **Al** | Bu yöntem, bir URI 'den veri almak için kullanılır ve büyük olasılıkla en çok kullanılan HTTP yöntemidir. |
+| **GET** | Bu yöntem, bir URI 'den veri almak için kullanılır ve büyük olasılıkla en çok kullanılan HTTP yöntemidir. |
 | **BAŞLı** | Bu yöntem GET yöntemine çok benzer, ancak gerçekte istek URI 'sinden veri almamaktır; yalnızca HTTP durumunu alır. |
-| **Yayınla** | Bu yöntem genellikle URI 'ye yeni veri göndermek için kullanılır; GÖNDERI genellikle form verileri göndermek için kullanılır. |
-| **KONUR** | Bu yöntem genellikle, URI 'ye ham veri göndermek için kullanılır; PUT, genellikle JSON veya XML verilerini Web API uygulamalarına göndermek için kullanılır. |
-| **SILMELI** | Bu yöntem, bir URI 'den verileri kaldırmak için kullanılır. |
+| **POST** | Bu yöntem genellikle URI 'ye yeni veri göndermek için kullanılır; GÖNDERI genellikle form verileri göndermek için kullanılır. |
+| **PUT** | Bu yöntem genellikle, URI 'ye ham veri göndermek için kullanılır; PUT, genellikle JSON veya XML verilerini Web API uygulamalarına göndermek için kullanılır. |
+| **DELETE** | Bu yöntem, bir URI 'den verileri kaldırmak için kullanılır. |
 | **Seçenekler** | Bu yöntem, genellikle bir URI için desteklenen HTTP yöntemlerinin listesini almak için kullanılır. |
 | **TAŞıMA KOPYALA** | Bu iki yöntem WebDAV ile kullanılır ve kendi amacı kendi kendine açıklayıcıdır. |
 | **MKCOL** | Bu yöntem, WebDAV ile kullanılır ve belirtilen URI 'de bir koleksiyon (ör. bir dizin) oluşturmak için kullanılır. |
@@ -69,7 +69,7 @@ Bu örnekte, HTTP istemcisi Web sunucusundaki bir Web API uygulaması URL 'sine 
 
 ## <a name="resolve-http-405-errors"></a>HTTP 405 hatalarını çözümleme
 
-Belirli bir HTTP fiiline izin verilmemesine neden olan bazı nedenler vardır ancak IIS 'de bu hatanın önde gelen nedeni olan bir birincil senaryo vardır: aynı fiil/Yöntem için birden çok işleyici tanımlanmıştır ve işleyicilerden biri beklenen işleyiciyi engelliyor İstek işleniyor. Açıklama yoluyla, IIS, ilk eşleşen yol, fiil, kaynak, vb. birleşiminin, *ApplicationHost. config* ve *Web. config* dosyalarındaki sipariş işleyici girişlerine göre başa ve en son yerine işleyicileri işler. istek.
+Belirli bir HTTP fiiline izin verilmemesine neden olan bazı nedenler vardır, ancak IIS 'de bu hatanın önde gelen nedeni olan bir birincil senaryo vardır: aynı fiil/Yöntem için birden çok işleyici tanımlanmıştır ve işleyicilerden biri beklenen İşleyicinin isteği işlemesini engelliyor. Açıklama yoluyla IIS,, isteği işlemek için ilk eşleşen yol, fiil, kaynak, vb. bileşiminin, *ApplicationHost. config* ve *Web. config* dosyalarındaki Order Handler girişlerine göre ilk olarak işleyicileri işler.
 
 Aşağıdaki örnek, bir Web API uygulamasına veri göndermek için PUT yöntemi kullanılırken HTTP 405 hatası döndüren bir IIS sunucusu için bir *ApplicationHost. config* dosyasından alıntıdır. Bu alıntıda, bazı HTTP işleyicileri tanımlanmıştır ve her işleyicinin yapılandırıldığı farklı bir HTTP yöntemi kümesi vardır; listedeki son giriş, diğer işleyiciler bir chanc olduktan sonra kullanılan varsayılan işleyici olan statik içerik işleyicisidir. e-isteği incelemek için:
 

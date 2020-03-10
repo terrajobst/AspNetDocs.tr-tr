@@ -2,18 +2,18 @@
 uid: web-forms/index
 title: ASP.NET Web Forms | Microsoft Docs
 author: rick-anderson
-description: Visual Web Developer Express indirme ve hızla web uç anlaşılması kolay bir görsel tasarım ASP.NET Web Forms'da denetimleri kullanarak uygulamaları oluşturmayı öğrenin...
+description: Visual Web Developer Express 'ı indirin & Visual Design Environ 'de ASP.NET Web Forms üzerinde kolay anlaşılır denetimleri kullanarak nasıl hızlı bir şekilde Web uygulamaları oluşturabileceğinizi öğrenin...
 ms.author: riande
 ms.date: 08/08/2011
 ms.assetid: 7e4ce5d2-ab22-44f0-9825-c12eed7b8fcb
 msc.legacyurl: /web-forms
 msc.type: categoryindex
 ms.openlocfilehash: 623df5d3ffe357f42d72ee0a33bc50aa60a8c4d0
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397012"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554861"
 ---
 # <a name="aspnet-web-forms"></a>ASP.NET Web Forms
 
@@ -77,8 +77,8 @@ ms.locfileid: "59397012"
         - [ASP.NET 4 - Kurumsal Dağıtıma Giriş](overview/deployment/deploying-web-applications-in-enterprise-scenarios/index.md)
 
             - [Visual Studio 2010 kullanarak Kurumsal Senaryolarda Web Uygulamaları dağıtma](overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md)
-            - [Kurumsal Web Dağıtımı: Senaryoya genel bakış](overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
-            - [Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme](overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
+            - [Kurumsal Web Dağıtımı: Senaryoya Genel Bakış](overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md)
+            - [Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime](overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production.md)
         - [ASP.NET 4 - Kurumsal Dağıtım Serisi 1](overview/deployment/web-deployment-in-the-enterprise/index.md)
 
             - [Kurumda Web Dağıtımı](overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)
@@ -96,9 +96,9 @@ ms.locfileid: "59397012"
 
             - [Sunucu Ortamlarını Web Dağıtımı için Yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)
             - [Web Dağıtımı için Doğru Yaklaşımı Seçme](overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md)
-            - [Senaryo: Web dağıtımı için bir Test Ortamı yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
-            - [Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
-            - [Senaryo: Web dağıtımı için bir üretim ortamı yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
+            - [Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md)
+            - [Senaryo: Web Dağıtımı için Hazırlama Ortamı Yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md)
+            - [Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma](overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md)
             - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Uzak Aracı)](overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
             - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)](overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
             - [Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Çevrimdışı Dağıtım)](overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
@@ -132,14 +132,14 @@ ms.locfileid: "59397012"
 
         - [ASP.NET 4 - Tailspin Spyworks](overview/older-versions-getting-started/tailspin-spyworks/index.md)
 
-            - [Bölüm 1: Dosya -> Yeni Proje](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
-            - [Bölüm 2: Veri erişim katmanı](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
-            - [3. Bölüm: Düzen ve kategori menüsü](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
-            - [4. Bölüm: Ürünleri listeleme](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
-            - [5. Bölüm: Business Logic](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
-            - [6. Bölüm: ASP.NET üyelik](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
-            - [7. Bölüm: Özellik ekleme](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
-            - [8. Bölüm: Son sayfalar, özel durum işleme ve sonuç](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
+            - [1. Bölüm: Dosya -> Yeni Proje](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md)
+            - [2. Bölüm: Veri Erişim Katmanı](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md)
+            - [3. Bölüm: Düzen ve Kategori Menüsü](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md)
+            - [4. Bölüm: Ürünleri Listeleme](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md)
+            - [5. Bölüm: İş Mantığı](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md)
+            - [6. Bölüm: ASP.NET Üyeliği](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md)
+            - [7. Bölüm: Özellik Ekleme](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md)
+            - [8. Bölüm: Son Sayfalar, Özel Durum İşleme ve Sonuç](overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md)
         - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Çalışmaya Başlama](overview/older-versions-getting-started/getting-started-with-ef/index.md)
 
             - [Entity Framework 4.0 Database First ile Çalışmaya Başlama](overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -152,9 +152,9 @@ ms.locfileid: "59397012"
             - [Entity Framework 4.0 Database First ile Çalışmaya Başlama - 8. Bölüm](overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
         - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Devam Etme](overview/older-versions-getting-started/continuing-with-ef/index.md)
 
-            - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Çalışmaya başlama](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-            - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş mantığı katmanı ve birim testleri ekleme](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-            - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve filtreleme](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+            - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+            - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+            - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve Filtreleme](overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
             - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Eş Zamanlılığı İşleme](overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
             - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Performansı En Üst Düzeye Çıkarma](overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
             - [Entity Framework 4.0 Sürümündeki Yenilikler](overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4.md)
@@ -680,7 +680,7 @@ ms.locfileid: "59397012"
         - [ASP.NET Web Sayfalarında Tarayıcı Özelliklerini Algılama](videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
         - [Bir ASP.NET Sunucu Denetimini, Denetimi İşlemek İçin Kullanılan Bağdaştırıcıyla Eşleştirme](videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
         - [Sorgu Dizesi Kullanarak Bir Sayfadan Diğerine Bilgi Geçirme](videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-        - [ASP.NET kullanmak\_merge.exe birleştirme derlemelerine yardımcı programı](videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+        - [Derlemeleri birleştirmek için ASPNET\_Merge. exe yardımcı programını kullanın](videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
         - [ASP.NET’te Sayfalar Arası Geri Gönderim Uygulama](videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet.md)
         - [Bir ASP.NET Web sayfasına Programlı Olarak Denetim Ekleme](videos/how-do-i/how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
         - [Gizli Alan Kullanarak İstemci Tarafı Bilgileri Depolama ve Düzenleme](videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)
@@ -828,16 +828,16 @@ ms.locfileid: "59397012"
         - [[ASP.NET 2.0’a Giriş:] ASP.NET 2.0 Temelleri](videos/migrating/intro-to-aspnet-20-aspnet-20-fundamentals.md)
         - [[ASP.NET 2.0’a Giriş:] Kullanıcı Arabirimi Öğeleri](videos/migrating/intro-to-aspnet-20-user-interface-elements.md)
         - [Klasik ASP’den ASP.NET’e [Geçiş]](videos/migrating/migrating-from-classic-asp-to-aspnet.md)
-        - [JSP geliştiricileri için ASP.NET'e giriş: ASP.NET 2.0 Hoş Geldiniz](videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
-        - [JSP geliştiricileri için ASP.NET'e giriş: Uygulamaları oluşturma](videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
-        - [ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET için topluluğunun ekleme](videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
-        - [ColdFusion geliştiricileri için ASP.NET'e giriş: ASP.NET uygulaması oluşturma](videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
+        - [JSP Geliştiricileri için ASP.NET’e Giriş: ASP.NET 2.0’a Hoş Geldiniz](videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md)
+        - [JSP Geliştiricileri için ASP.NET’e Giriş: Uygulama Oluşturma](videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications.md)
+        - [ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET’i Repertuarınıza Ekleme](videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md)
+        - [ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET Uygulaması Oluşturma](videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md)
         - [PHP ile Windows Platform arasında birlikte çalışma](videos/migrating/interop-between-php-and-the-windows-platform.md)
     - [2.0 Uygulamaları Oluşturma](videos/building-20-applications/index.md)
 
         - [[1. Ders:] Visual Web Developer Express ile Çalışmaya Başlama](videos/building-20-applications/lesson-1-getting-started-with-visual-web-developer-express.md)
         - [[2. Ders:] Web Forms Kullanıcı Arabirimi Oluşturma](videos/building-20-applications/lesson-2-creating-a-web-forms-user-interface.md)
-        - [[3. Ders:] Olayları ve geri gönderme hakkında daha fazla anlama](videos/building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
+        - [[3. ders:] Olaylar ve geri gönderme hakkında daha fazla bilgi](videos/building-20-applications/lesson-3-understanding-more-about-events-and-postback.md)
         - [[4. Ders:] Web Uygulamasının Durumunu Anlama](videos/building-20-applications/lesson-4-understanding-web-application-state.md)
         - [[5. Ders:] Web Sitenizin Hatalarını Ayıklama ve Web Sitenizi İzleme](videos/building-20-applications/lesson-5-debugging-and-tracing-your-website.md)
         - [[6. Ders:] Stil Sayfaları ve Ana Sayfalar ile Çalışma](videos/building-20-applications/lesson-6-working-with-stylesheets-and-master-pages.md)
@@ -961,14 +961,14 @@ ms.locfileid: "59397012"
         - [LINQ ile Nasıl Yapılır](videos/data-access/how-do-i-with-linq/index.md)
 
             - [LINQ to SQL: Genel Bakış](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview.md)
-            - [LINQ to SQL: Veri modeli](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
-            - [LINQ to SQL: Veritabanını sorgulama](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
-            - [LINQ to SQL: Veritabanı güncelleştiriliyor](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
+            - [LINQ to SQL: Veri Modeli](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-data-model.md)
+            - [LINQ to SQL: Veritabanını Sorgulama](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database.md)
+            - [LINQ to SQL: Veritabanını Güncelleştirme](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database.md)
             - [LINQ to SQL: LinqDataSource](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md)
             - [LINQ to SQL: Özel LinqDataSource](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md)
-            - [LINQ to SQL: Saklı yordamları kullanma](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
-            - [LINQ to SQL: Saklı yordamlarla güncelleştirme](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
-            - [LINQ to SQL: Rastgele SQL yürütme](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+            - [LINQ to SQL: Saklı Yordamlar Kullanma](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md)
+            - [LINQ to SQL: Saklı Yordamlarla Güncelleştirme](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md)
+            - [LINQ to SQL: Rastgele SQL Yürütme](videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql.md)
         - [VB Ekibinden LINQ Videoları](videos/data-access/linq-videos-from-the-vb-team/index.md)
 
             - [LINQ ile Çalışmaya Başlama](videos/data-access/linq-videos-from-the-vb-team/how-do-i-get-started-with-linq.md)
@@ -1017,7 +1017,7 @@ ms.locfileid: "59397012"
             - [Visual Studio 2008'de ASP.NET AJAX Desteği](videos/aspnet-35/aspnet-ajax/aspnet-ajax-support-in-visual-studio-2008.md)
             - [Mevcut Bir ASP.NET Sayfasına AJAX İşlevsellik Ekleme](videos/aspnet-35/aspnet-ajax/adding-ajax-functionality-to-an-existing-aspnet-page.md)
             - [Bir Web Sitesinde AJAX Özellikli Bir Web Hizmeti Oluşturma ve Kullanma](videos/aspnet-35/aspnet-ajax/creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-            - [ASP.NET AJAX: ASP.NET AJAX gösterimi](videos/aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
+            - [ASP.NET AJAX: Bir ASP.NET AJAX gösterimi](videos/aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax.md)
             - [ASP.NET AJAX Desteğiyle ADO.NET Veri Hizmetleri](videos/aspnet-35/aspnet-ajax/adonet-data-services-with-aspnet-ajax-support.md)
             - [ASP.NET AJAX Geçmişine Giriş](videos/aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history.md)
             - [AJAX performansını geliştirmek için Komut Dosyası Birleştirme kullanma](videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance.md)

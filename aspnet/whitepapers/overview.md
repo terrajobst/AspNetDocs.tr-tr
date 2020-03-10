@@ -2,326 +2,326 @@
 uid: whitepapers/overview
 title: Teknik incelemeler | Microsoft Docs
 author: rick-anderson
-description: Bu sayfada yükleyip ASP.NET yapılandırmanıza yardımcı olması için ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmanıza yardımcı olmak amacıyla teknik incelemeler bulabilirsiniz.
+description: Bu sayfada, ASP.NET yükleyip yapılandırmanıza ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmanıza yardımcı olacak teknik incelemeler bulacaksınız.
 ms.author: riande
 ms.date: 11/15/2011
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
 msc.legacyurl: /whitepapers
 msc.type: content
 ms.openlocfilehash: 1a3a9fe5d685d4b38efe666fc88ff57016482ada
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114514"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640856"
 ---
 # <a name="whitepapers"></a>Teknik İncelemeler
 
-> Bu sayfada yükleyip ASP.NET yapılandırmanıza yardımcı olması için ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmanıza yardımcı olmak amacıyla teknik incelemeler bulabilirsiniz.
+> Bu sayfada, ASP.NET yükleyip yapılandırmanıza ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmanıza yardımcı olacak teknik incelemeler bulacaksınız.
 > 
 > - [ASP.NET 4](#aspnet4)
-> - [ASP.NET güvenlik teknik incelemeler](#security)
-> - [Yükleme ve Kurulum teknik incelemeler](#setup)
-> - [SQL Server teknik incelemeler](#sql)
-> - [Genel teknik incelemeler](#general)
+> - [ASP.NET güvenlik teknik Incelemeleri](#security)
+> - [Yükleme ve kurulum teknik Incelemeleri](#setup)
+> - [SQL Server Teknik Incelemeler](#sql)
+> - [Genel Teknik Incelemeler](#general)
 
 <a id="aspnet4"></a>
 ## <a name="aspnet-4"></a>ASP.NET 4
 
-ASP.NET 4 ile Visual Studio 2010 için ilgili bilgiler.
+ASP.NET 4 ve Visual Studio 2010 ile ilgili bilgiler.
 
-[ASP.NET MVC 4 sürüm notları](mvc4-beta-release-notes.md "mvc4 sürüm notları")
+[ASP.NET MVC 4 sürüm notları](mvc4-beta-release-notes.md "MVC4-Release-notlar")
 
-Bu belgede, yeni özellikler ve geliştirmeler, ASP.NET MVC 4 Developer Preview'da Visual Studio 2010 hem de yükleme notları ve bilinen sorunlar için sunulan açıklanmaktadır.
+Bu belgede, Visual Studio 2010 için ASP.NET MVC 4 geliştirici önizlemesinde sunulan yeni özellikler ve geliştirmeler ve yükleme notları ve bilinen sorunlar açıklanmaktadır.
 
-[ASP.NET MVC 3 Sürüm Notları](mvc3-release-notes.md "mvc3 sürüm notları")
+[ASP.NET MVC 3 sürüm notları](mvc3-release-notes.md "mvc3-Release-notlar")
 
-Bu belge, yeni özellikler ve geliştirmeler, ASP.NET MVC 3'te sunulan açıklar yükleme notları ve bilinen sorunların yanı sıra.
+Bu belgede, ASP.NET MVC 3 ' te sunulan yeni özellikler ve geliştirmeler ve yükleme notları ve bilinen sorunlar açıklanmaktadır.
 
-[ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış](aspnet4/index.md "aspnet4")
+[ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış](aspnet4/index.md "aspnet4")
 
-.NET Framework sürüm 4 ASP.NET için çok heyecan verici değişiklikler yapılacaktır. Bu belge, gelecek sürümde eklenen yeni özelliklerin çoğunu bir genel bakış sağlar.
+ASP.NET için pek çok heyecan verici değişiklik .NET Framework sürüm 4 ' te geliyor. Bu belge, yaklaşan sürüme dahil edilen yeni özelliklerin birçoğu için bir genel bakış sunar.
 
-[ASP.NET 4 Beta 2 bozucu değişiklikler](aspnet4/breaking-changes.md "bozucu değişiklikler")
+[ASP.NET 4 Beta 2 Son değişiklik](aspnet4/breaking-changes.md "Son değişiklikler")
 
-Bu belge potansiyel olarak ASP.NET 4 Beta 1 sürümü dahil olmak üzere önceki sürümleri kullanılarak oluşturulan uygulamaları etkileyebilir 4 Beta 2 sürümünü (diğer bir deyişle, ASP.NET 4 Beta 2 sürümü) için .NET Framework sürümü yapılan değişiklikleri açıklar.
+Bu belgede, ASP.NET 4 Beta 1 sürümü de dahil olmak üzere önceki sürümler kullanılarak oluşturulan uygulamaları etkileyebilecek .NET Framework sürüm 4 Beta 2 sürümü (yani, ASP.NET 4 Beta 2 sürümü) için yapılmış değişiklikler açıklanmaktadır.
 
-[ASP.NET MVC 2'deki yenilikler](what-is-new-in-aspnet-mvc.md "ASP.NET mvc sürümündeki yenilikler")
+[ASP.NET MVC 2 Sürümündeki Yenilikler](what-is-new-in-aspnet-mvc.md "ASPNET MVC 'deki yenilikler")
 
-Bu belgede, yeni özellikler ve geliştirmeler, ASP.NET MVC 2'de sunulmuştur açıklanmaktadır.
+Bu belge, ASP.NET MVC 2 ' de tanıtılan yeni özellikleri ve geliştirmeleri açıklamaktadır.
 
-[Bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme](aspnet-mvc2-upgrade-notes.md "aspnet mvc2 yükseltme notları")
+[Bir ASP.NET MVC 1.0 Uygulamasını ASP.NET MVC 2 Sürümüne Yükseltme](aspnet-mvc2-upgrade-notes.md "ASPNET-mvc2-Upgrade-notlar")
 
-ASP.NET MVC 2 aynı sunucuda ASP.NET MVC 1.0 ile yan yana yüklenebilir. Bu ne zaman bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme seçme içinde uygulama geliştiricilerin esnekliği sağlar. Hem bu belge descibes el ile ve görselde sihirbazıyla yükseltme...
+ASP.NET MVC 2 aynı sunucuda ASP.NET MVC 1,0 ile yan yana yüklenebilir. Bu, ASP.NET MVC 1,0 uygulamasının ASP.NET MVC 2 ' ye ne zaman yükseltileceğini seçerken uygulama geliştiricileri esnekliği sağlar. Bu belge, hem el ile nasıl yükselteceğiniz, ister Visual 'teki bir sihirbazla birlikte...
 
 <a id="security"></a>
-## <a name="aspnet-security-whitepapers"></a>ASP.NET güvenlik teknik incelemeler
+## <a name="aspnet-security-whitepapers"></a>ASP.NET güvenlik teknik Incelemeleri
 
-Bu teknik incelemeler güvenli bir ASP.NET uygulamaları tasarlayıp uygulamasına nasıl tartışmak ve güvenlik Internet uygulamaları, önemli bir yönüdür.
+Güvenlik, internet uygulamalarının önemli bir yönüdür ve bu teknik incelemeler, güvenli ASP.NET uygulamalarının nasıl tasarlanacağını ve uygulanacağını tartışır.
 
-[ASP.NET 2.0 izleme güvenlik uygulamaları](https://msdn.microsoft.com/library/ms998325.aspx)
+[Güvenlik için ASP.NET 2,0 uygulamalarını işaretleme](https://msdn.microsoft.com/library/ms998325.aspx)
 
-Bu nasıl yapılır özel sistem durumu izleme olayları ile ilgili olaylar ve işlemleri izlemek için bir ASP.NET uygulamasın izleme için nasıl kullanılacağını gösterir. Verze technologie ASP.NET 2.0 Araçları için birçok standart sistem durumu izlemesi içerir sağlar...
+Bu, güvenlikle ilgili olayları ve işlemleri izlemek üzere ASP.NET uygulamanızı işaretlemek için özel durum izleme olaylarını nasıl kullanacağınızı gösterir. ASP.NET sürüm 2,0, birçok standart için izleme içeren sistem durumu izleme sağlar...
 
-[ASP.NET 2.0 dağıtım güvenlik incelemesi gerçekleştirme](https://msdn.microsoft.com/library/ms998367.aspx)
+[ASP.NET 2,0 için bir güvenlik dağıtımı Incelemesi gerçekleştirme](https://msdn.microsoft.com/library/ms998367.aspx)
 
-Bu nasıl yapılır, uygunsuz yapılandırma ayarları tarafından sunulan, olası güvenlik açıklarını tanımlamak bir ASP.NET 2.0 uygulama için dağıtım güvenlik incelemesi gerçekleştirme işlemini göstermektedir. Gözden geçirme işleminin çoğunu yapma gerektirir...
+Bu, uygunsuz yapılandırma ayarları tarafından tanıtılan olası güvenlik açıklarını belirlemek için bir ASP.NET 2,0 uygulaması için nasıl güvenlik dağıtımı incelemesinin gerçekleştirileceğini gösterir. İnceleme işleminin çoğunluğu şunları içerir...
 
-[ASP.NET 2.0 rolü için ADEM kullanın](https://msdn.microsoft.com/library/ms998331.aspx)
+[ASP.NET 2,0 ' de roller için ADAM kullanma](https://msdn.microsoft.com/library/ms998331.aspx)
 
-Bu nasıl yapılır? ASP.NET rol depolamak için Active Directory uygulama modu (ADAM) kullanan ASP.NET Web sitesi nasıl geliştirebileceğinizi gösterir. ADAM ve Yetkilendirme Yöneticisi (AzMan) ilke deposu nasıl yapılandırılacağını gösteren yeni rol oluşturma ve...
+Bu, ASP.NET rollerini depolamak için Active Directory uygulama modu (ADAM) kullanan bir ASP.NET Web sitesini nasıl geliştirebileceğinizi gösterir. ADAM ve Yetkilendirme Yöneticisi (AzMan) ilke deposunu yapılandırmayı, yeni roller oluşturmayı ve...
 
-[Yetkilendirme Yöneticisi (AzMan) ile ASP.NET 2.0 kullanma](https://msdn.microsoft.com/library/ms998336.aspx)
+[ASP.NET 2,0 ile Yetkilendirme Yöneticisi 'Ni (AzMan) kullanma](https://msdn.microsoft.com/library/ms998336.aspx)
 
-Bu nasıl yapılır bir AzMan ilke deposu ile karşılaştırarak belirli işlemleri gerçekleştirmek için ASP.NET rol yöneticisi rollerini yönetin, kullanıcı rolü üyeliğini denetleyin ve rolleri yetkilendirmek için API ile birlikte Yetkilendirme Yöneticisi'ni (AzMan) kullanmayı gösterir. Nasıl yapılır...
+Bu şekilde, Yetkilendirme Yöneticisi 'ni (AzMan) rolleri yönetmek, Kullanıcı rolü üyeliğini denetlemek ve bir AzMan ilke deposuna yönelik belirli işlemleri gerçekleştirmek için rol yetkilendirmek üzere ASP.NET Rol Yöneticisi API 'siyle birlikte nasıl kullanacağınız gösterilmektedir. Nasıl yapılır...
 
-[Üyelik ASP.NET 2.0 kullanma](https://msdn.microsoft.com/library/ms998347.aspx)
+[ASP.NET 2,0 ' de üyelik kullanma](https://msdn.microsoft.com/library/ms998347.aspx)
 
-Bu nasıl üyelik özelliğinin ASP.NET sürüm 2.0 uygulamalarında nasıl kullanılacağı gösterilmektedir. İki farklı üyelik sağlayıcılarının nasıl kullanılacağını size gösterir: ActiveDirectoryMembershipProvider ve SqlMembershipProvider. Üyelik özellik...
+Bu, ASP.NET sürüm 2,0 uygulamalarında üyelik özelliğinin nasıl kullanılacağını gösterir. İki farklı üyelik sağlayıcısını nasıl kullanacağınızı gösterir: ActiveDirectoryMembershipProvider ve SqlMembershipProvider. Üyelik özelliği...
 
-[ASP.NET 2.0 Rol Yöneticisi'ni kullanın](https://msdn.microsoft.com/library/ms998314.aspx)
+[ASP.NET 2,0 ' de rol yöneticisini kullanma](https://msdn.microsoft.com/library/ms998314.aspx)
 
-Bu nasıl yapılır? ASP.NET 2.0 rol manager'nin nasıl kullanılacağını gösterir. Rol Yöneticisi, uygulamanızda yönetme rolleri ve rol tabanlı yetkilendirme gerçekleştirme görevini kolaylaştırır. Çeşitli rol sağlayıcıları ile kullanım için yapılandırma gösterilir...
+Bu, ASP.NET 2,0 rol yöneticisini nasıl kullanacağınızı gösterir. Rol Yöneticisi, rolleri yönetme ve uygulamanızda rol tabanlı yetkilendirme gerçekleştirme görevini kolaylaştırır. Çeşitli rol sağlayıcılarının ile kullanılmak üzere nasıl yapılandırılacağını gösterir...
 
-[ASP.NET 2.0 Windows kimlik doğrulaması kullan](https://msdn.microsoft.com/library/ms998358.aspx)
+[ASP.NET 2,0 ' de Windows kimlik doğrulamasını kullanma](https://msdn.microsoft.com/library/ms998358.aspx)
 
-Bu nasıl yapılır, yapılandırma ve bir ASP.NET Web uygulamasında Windows kimlik doğrulaması kullanma işlemini göstermektedir. Kullanıcılar, Windows etki alanının parçası olduğunda Windows kimlik doğrulaması için tercih edilen yaklaşımdır. Bu yaklaşım, mevcut kimlik deposunu kullanmanıza olanak tanır...
+Bu şekilde, Windows kimlik doğrulamasının bir ASP.NET Web uygulamasında nasıl yapılandırılacağı ve kullanılacağı gösterilmektedir. Windows kimlik doğrulaması, kullanıcılar Windows etki alanının bir parçası olduğunda tercih edilen yaklaşımdır. Bu yaklaşım, mevcut bir kimlik deposunu kullanmanıza olanak sağlar...
 
-[(Temel etkinliği) yönetilen kod için güvenlik kod incelemesi gerçekleştirme](https://msdn.microsoft.com/library/ms998364.aspx)
+[Yönetilen kod için bir güvenlik kodu Incelemesi gerçekleştirin (temel etkinlik)](https://msdn.microsoft.com/library/ms998364.aspx)
 
-Bu nasıl yapılır nasıl gerçekleştirileceğini güvenlik kod incelemelerini gösterir. Bu modül, etkinlik ve çözümleme sonuçlarınızı teknikleri adımlarını gösterir. Bu nasıl yapılır kullanma "Güvenlik sorusu listesi: Yönetilen kodu (.NET Framework 2.0) "...
+Bu, güvenlik kodu incelemelerinin nasıl gerçekleştirileceğini gösterir. Bu modül, etkinliğin içinde yer alan adımları ve sonuçlarınızı analiz eden teknikleri gösterir. "Güvenlik sorusu listesi: yönetilen kod (.NET Framework 2,0)" ile bu yöntemi kullanın...
 
-[ASP.NET 2.0 dağıtım güvenlik incelemesi gerçekleştirme](https://msdn.microsoft.com/library/ms998367.aspx)
+[ASP.NET 2,0 için bir güvenlik dağıtımı Incelemesi gerçekleştirme](https://msdn.microsoft.com/library/ms998367.aspx)
 
-Bu nasıl yapılır, uygunsuz yapılandırma ayarları tarafından sunulan, olası güvenlik açıklarını tanımlamak bir ASP.NET 2.0 uygulama için dağıtım güvenlik incelemesi gerçekleştirme işlemini göstermektedir. Gözden geçirme işleminin çoğunu yapma gerektirir...
+Bu, uygunsuz yapılandırma ayarları tarafından tanıtılan olası güvenlik açıklarını belirlemek için bir ASP.NET 2,0 uygulaması için nasıl güvenlik dağıtımı incelemesinin gerçekleştirileceğini gösterir. İnceleme işleminin çoğunluğu şunları içerir...
 
-[Windows 2000 Kerberos temsilcisi uygulama](https://msdn.microsoft.com/library/aa302400.aspx)
+[Windows 2000 için Kerberos temsilcisini uygulama](https://msdn.microsoft.com/library/aa302400.aspx)
 
-Kerberos temsilcisi seçme, kimliği doğrulanmış bir aşağı akış kimlik doğrulaması ve yetkilendirme desteklemek için bir uygulamanın birden çok fiziksel Katmanlar arası akış olanak tanır. Bu nasıl yapılır Bunun çalışmasını sağlamak için yapılandırma adımları gerekli gösterir.
+Kerberos temsili, bir uygulamanın birden fazla fiziksel katmanında kimlik doğrulamalı bir kimliği, aşağı akış kimlik doğrulamasını ve yetkilendirmeyi desteklemek için Flow olanağı sağlar. Bu, bu işi yapmak için gereken yapılandırma adımlarını gösterir.
 
-[Kimliğe bürünme ve temsilci ASP.NET 2. 0'ı kullanın](https://msdn.microsoft.com/library/ms998351.aspx)
+[ASP.NET 2,0 'de kimliğe bürünme ve temsili kullanma](https://msdn.microsoft.com/library/ms998351.aspx)
 
-Bu nasıl yapılır? ASP.NET 2.0 uygulamaları nasıl ve ne zaman kimliğe bürünme kullanmalısınız gösterir. Varsayılan olarak, kimliğe bürünme devre dışıdır ve ASP.NET Web uygulamasının işlem kimliği'ni kullanarak kaynaklara erişebilir. Ancak, kullanabileceğiniz...
+Bu, ASP.NET 2,0 uygulamalarında kimliğe bürünme özelliğini nasıl ve ne zaman kullanacağınızı gösterir. Varsayılan olarak, kimliğe bürünme devre dışıdır ve ASP.NET Web uygulamasının işlem kimliğini kullanarak kaynaklara erişebilirsiniz. Ancak, kullanabilirsiniz...
 
-[Tasarım zamanında bir Web uygulaması için bir tehdit modeli oluşturma](https://msdn.microsoft.com/library/ms978527.aspx)
+[Tasarım zamanında bir Web uygulaması için tehdit modeli oluşturma](https://msdn.microsoft.com/library/ms978527.aspx)
 
-Bu nasıl yapılır bir Web uygulaması için bir tehdit modeli oluşturmak için bir yaklaşım açıklanmaktadır. Etkinlik modelleme tehdit yardımcı olur böylece olası güvenlik tasarım açıkları ve güvenlik açıkları, yatırım önce getirebilir güvenlik tasarımınızı modellemek için...
+Bu, bir Web uygulaması için tehdit modeli oluşturma yaklaşımını açıklar. Tehdit modelleme etkinliği, yatırım yapmadan önce olası güvenlik tasarımı kusurını ve güvenlik açıklarını açığa çıkarmak için güvenlik tasarımınızı modellemenize yardımcı olur...
 
-### <a name="forms-authentication"></a>Form kimlik doğrulaması
+### <a name="forms-authentication"></a>Forms Kimlik Doğrulaması
 
-[Form kimlik doğrulaması ASP.NET 2.0 koruyun](https://msdn.microsoft.com/library/ms998310.aspx)
+[ASP.NET 2,0 'de form kimlik doğrulamasını koruma](https://msdn.microsoft.com/library/ms998310.aspx)
 
-Bu nasıl yapılır nasıl güvenli bir şekilde yapılandırılır ve forms kimlik doğrulaması ile ASP.NET 2.0 uygulamaları gösterir. Dikkate alınması gereken önemli faktörler, düzgün bir şekilde kimlik doğrulaması bileti güvenliğini sağlama ve kullanıcı kimlik deposu ve bu deposuna erişimi güvenli hale getirme içerir. ...
+Bu, ASP.NET 2,0 uygulamalarıyla Forms kimlik doğrulamasını nasıl güvenli bir şekilde yapılandıracağınızı ve kullanacağınızı gösterir. Göz önünde bulundurulması gereken önemli etkenler, kimlik doğrulama biletinin güvenli bir şekilde güvenliğini sağlar ve Kullanıcı kimlik deposunun ve bu depoya erişimin güvenliğini sağlar. ...
 
-[ASP.NET 2.0 Active Directory ile Forms kimlik doğrulaması kullan](https://msdn.microsoft.com/library/ms998360.aspx)
+[ASP.NET 2,0 ' de Active Directory ile Forms kimlik doğrulaması kullanma](https://msdn.microsoft.com/library/ms998360.aspx)
 
-Bu nasıl yapılır ActiveDirectoryMembershipProvider kullanarak form kimlik doğrulaması ile Microsoft® Active Directory dizin hizmeti kullanma işlemini gösterir. Nasıl yapılır sağlayıcıyı yapılandırmak, oluşturmak ve kullanıcıların kimliğini doğrulamak nasıl gösterir...
+Bu, ActiveDirectoryMembershipProvider kullanarak Forms kimlik doğrulamasının Microsoft® Active Directory® dizin hizmeti ile nasıl kullanılacağını gösterir. Sağlayıcıyı nasıl yapılandıracağınızı ve Kullanıcı oluşturma ve kimlik doğrulama işlemlerinin nasıl yapılacağı gösterilmektedir....
 
-[ASP.NET 2.0 birden çok etki alanlarında Active Directory ile Forms kimlik doğrulaması kullan](https://msdn.microsoft.com/library/ms998345.aspx)
+[ASP.NET 2,0 ' de birden çok etki alanında Active Directory ile form kimlik doğrulaması kullanma](https://msdn.microsoft.com/library/ms998345.aspx)
 
-Bu nasıl yapılır ActiveDirectoryMembershipProvider kullanarak form kimlik doğrulaması ile Microsoft® Active Directory dizin hizmeti kullanma işlemini gösterir. Nasıl yapılır sağlayıcıyı yapılandırmak, oluşturmak ve kullanıcıların kimliğini doğrulamak nasıl gösterir...
+Bu, ActiveDirectoryMembershipProvider kullanarak Forms kimlik doğrulamasının Microsoft® Active Directory® dizin hizmeti ile nasıl kullanılacağını gösterir. Sağlayıcıyı nasıl yapılandıracağınızı ve Kullanıcı oluşturma ve kimlik doğrulama işlemlerinin nasıl yapılacağı gösterilmektedir....
 
-[SQL Server ASP.NET 2.0 ile Forms kimlik doğrulaması kullan](https://msdn.microsoft.com/library/ms998317.aspx)
+[ASP.NET 2,0 ' de SQL Server ile Forms kimlik doğrulaması kullanma](https://msdn.microsoft.com/library/ms998317.aspx)
 
-Bu nasıl yapılır, form kimlik doğrulaması ile SQL Server üyelik sağlayıcısının nasıl kullanabileceğinizi gösterir. Uygulamanızın kullanıcılarının olduğu değil, Windows etki alanının parçası durumlarda en uygun SQL Server ile Forms kimlik doğrulaması ve sonuç olarak,...
+Bu, SQL Server üyelik sağlayıcısıyla Forms kimlik doğrulamasını nasıl kullanabileceğinizi gösterir. SQL Server ile form kimlik doğrulaması, uygulamanızın kullanıcılarının Windows etki alanının bir parçası olmadığı ve sonuç olarak,...
 
-[Forms kimlik doğrulaması ASP.NET 1.1 ile GenericPrincipal nesneleri oluşturma](https://msdn.microsoft.com/library/aa302399.aspx)
+[ASP.NET 1,1 'de Forms kimlik doğrulamasıyla GenericPrincipal nesneleri oluşturma](https://msdn.microsoft.com/library/aa302399.aspx)
 
-Bu nasıl yapılır oluşturmak ve Forms kimlik doğrulaması kullanırken GenericPrincipal ve FormsIdentity nesneleri işlemek nasıl gösterir.
+Bu, Forms kimlik doğrulaması kullanılırken GenericPrincipal ve FormsIdentity nesnelerinin nasıl oluşturulduğunu ve işleneceğini gösterir.
 
-[ASP.NET 1.1 Active Directory ile Forms kimlik doğrulaması kullan](https://msdn.microsoft.com/library/aa302397.aspx)
+[ASP.NET 1,1 ' de Active Directory ile Forms kimlik doğrulaması kullanma](https://msdn.microsoft.com/library/aa302397.aspx)
 
-Bu nasıl yapılır makalesi, nasıl bir Active Directory kimlik bilgisi deposu ile karşılaştırarak form kimlik doğrulaması uygulanacağı gösterilmektedir.
+Bu nasıl yapılır makalesi, Active Directory kimlik bilgileri deposuna göre form kimlik doğrulamasının nasıl uygulanacağını gösterir.
 
-[SQL Server ASP.NET 1.1 ile Forms kimlik doğrulaması kullan](https://msdn.microsoft.com/library/aa302398.aspx)
+[ASP.NET 1,1 ' de SQL Server ile Forms kimlik doğrulaması kullanma](https://msdn.microsoft.com/library/aa302398.aspx)
 
-Bu nasıl yapılır, bir SQL Server kimlik bilgisi deposu formlar kimlik doğrulamasını uygulama işlemini göstermektedir. Ayrıca, parola özetler veritabanında depolamak nasıl gösterir.
+Bu, SQL Server kimlik bilgileri deposuna göre Forms kimlik doğrulamasının nasıl uygulanacağını gösterir. Ayrıca, veritabanında parola dallarını nasıl depolayabileceği de gösterilmektedir.
 
-### <a name="user-input-data-validation"></a>Kullanıcı giriş verileri doğrulama
+### <a name="user-input-data-validation"></a>Kullanıcı girişi veri doğrulaması
 
-[İstek doğrulama - betik saldırılarını önleme](request-validation.md "isteği doğrulama")
+[İstek Doğrulama - Betik Saldırılarını Önleme](request-validation.md "istek doğrulama")
 
-Bu incelemede, sunucuya gönderilen kodlanmamış HTML içeriğini işlemesini varsayılan olarak, uygulama, engellenir ASP.NET isteği doğrulama özelliği anlatılmaktadır. Uygulama olduğunda bu isteği doğrulama özelliği devre dışı bırakılabilir...
+Bu sayfa, varsayılan olarak uygulamanın sunucuya gönderilen kodlanmamış HTML içeriğini işlemesini engellediği ASP.NET 'in istek doğrulama özelliğini açıklar. Bu istek doğrulama özelliği uygulama olduğunda devre dışı bırakılabilir...
 
-[ASP.NET'te siteler arası betik kullanmayı önleme](https://msdn.microsoft.com/library/ms998274.aspx)
+[ASP.NET 'de siteler arası betik oluşturmayı engelle](https://msdn.microsoft.com/library/ms998274.aspx)
 
-Bu nasıl yapılır? ASP.NET uygulamalarınızın uygun giriş doğrulama teknikleri kullanarak ve çıktı kodlaması siteler arası komut dosyası saldırılarından korumanıza nasıl yardımcı olabileceğini gösterir. Ayrıca, birkaç kullanabileceğiniz diğer koruma mekanizmalarını açıklar...
+Bu, uygun giriş doğrulama tekniklerini kullanarak ve çıktıyı kodlayarak ASP.NET uygulamalarınızı siteler arası betik saldırılarından korumanıza nasıl yardımcı olduğunu gösterir. Ayrıca, içinde kullanabileceğiniz çeşitli koruma mekanizmalarını da açıklar...
 
-[SQL ekleme ASP.NET koruyun](https://msdn.microsoft.com/library/ms998271.aspx)
+[ASP.NET 'de SQL ekleme 'Den koruma](https://msdn.microsoft.com/library/ms998271.aspx)
 
-Bu nasıl yapılır? ASP.NET uygulamanızı SQL ekleme saldırılarına karşı korumaya yardımcı olmak için çeşitli yollarla gösterir. SQL ekleme, bir uygulama, dinamik SQL deyimlerini oluşturmak için giriş kullandığında veya saklı yordamları bağlanmak için kullandığı gerçekleşebilir...
+Bu, ASP.NET uygulamanızı SQL ekleme saldırılarına karşı korumaya yardımcı olmak için çeşitli yollar gösterir. Bir uygulama dinamik SQL deyimlerini oluşturmak için giriş kullandığında veya ' ye bağlanmak için saklı yordamları kullandığında SQL ekleme gerçekleşebilir...
 
-[ASP.NET'te giriş sınırlamak için normal ifadeleri kullanma](https://msdn.microsoft.com/library/ms998267.aspx)
+[ASP.NET 'de girişi kısıtlamak için normal Ifadeleri kullanma](https://msdn.microsoft.com/library/ms998267.aspx)
 
-Bu nasıl güvenilmeyen girişini kısıtlayan ASP.NET uygulamaları içinde normal ifadeler nasıl kullanabileceğinizi gösterir. Normal ifadeler, metin alanları gibi adları, adres, telefon numaraları ve diğer kullanıcı bilgilerini doğrulamak için iyi bir yoludur. Kullanabileceğiniz...
+Bu, güvenilmeyen girişi kısıtlamak için ASP.NET uygulamalarında normal ifadeleri nasıl kullanabileceğinizi gösterir. Normal ifadeler ad, adres, telefon numarası ve diğer Kullanıcı bilgileri gibi metin alanlarını doğrulamak için iyi bir yoldur. Kullanabilirsiniz...
 
 ### <a name="code-access-security"></a>Kod Erişimi Güvenliği
 
-[Kod erişimi güvenliği ASP.NET 2.0 kullanma](https://msdn.microsoft.com/library/ms998326.aspx)
+[ASP.NET 2,0 ' de kod erişim güvenliğini kullanma](https://msdn.microsoft.com/library/ms998326.aspx)
 
-Bu nasıl yapılır, uygulamanız için uygun güven düzeyi nasıl gösterir ve gerektiğinde özel bir tanımlamak için bir özel ASP.NET kodu erişim güvenliği ilkesi dosyasını oluşturmak için güven nasıl düzeyi. Farklı kod erişim güvenlik güven kullanabileceğiniz...
+Bu şekilde, uygulamanız için uygun bir güven düzeyini seçme ve gerektiğinde özel bir güven düzeyi tanımlamak için özel bir ASP.NET kod erişim güvenlik ilkesi dosyası oluşturma işlemlerinin nasıl yapılacağı gösterilmektedir. Farklı kod erişimi güvenlik güveni kullanabilirsiniz...
 
-[Özel şifreleme izin oluşturma](https://msdn.microsoft.com/library/aa302362.aspx)
+[Özel şifreleme Izni oluşturma](https://msdn.microsoft.com/library/aa302362.aspx)
 
-Bu nasıl yapılır Win32® veri koruma API'si (DPAPI) sağlayan yönetilmeyen şifreleme işlevlerine programlama erişimi denetlemek için özel kod erişim güvenlik izni nasıl oluşturulacağını açıklar. Bu özel izin yönetilen DPAPI sarmalayıcı kullan...
+Bu, Win32® veri koruma API 'sinin (DPAPI) sağladığı yönetilmeyen şifreleme işlevlerine programlı erişimi denetlemek için özel bir kod erişim güvenlik izninin nasıl oluşturulacağını açıklar. Bu özel izni yönetilen DPAPI sarmalayıcısı ile kullan...
 
-[Bir derlemeyi kısıtlamak için kod erişimi Güvenlik İlkesi'ni kullanın](https://msdn.microsoft.com/library/aa302361.aspx)
+[Bir derlemeyi kısıtlamak için kod erişimi güvenlik Ilkesi kullanma](https://msdn.microsoft.com/library/aa302361.aspx)
 
-Bir yönetici, .NET Framework kodu (bütünleştirilmiş kodları) işlemlerini kısıtlamak için kod erişimi güvenlik ilkesi yapılandırabilirsiniz. Bu nasıl için dosya g/ç gerçekleştirmek ve kısıtlamak için bir derleme yeteneğini kısıtlamak için kod erişimi güvenlik ilkesi Yapılandır...
+Yönetici, .NET Framework kodun (derlemelerin) işlemlerini kısıtlamak için kod erişimi güvenlik ilkesini yapılandırabilir. Bu şekilde, bir derlemenin dosya g/ç gerçekleştirme ve kısıtlama yeteneğini kısıtlamak için kod erişimi güvenlik ilkesi 'ni yapılandırırsınız...
 
 ### <a name="communications-security"></a>İletişim güvenliği
 
-[Bir Web sunucusunda SSL ayarlama](https://msdn.microsoft.com/library/aa302411.aspx)
+[Web sunucusunda SSL ayarlama](https://msdn.microsoft.com/library/aa302411.aspx)
 
-Bir Web sunucusu için SSL istemci uygulamalardan gelen https bağlantıları desteklemek için yapılandırılması gerekir. Bu nasıl yapılır, bir Web sunucusunda SSL yapılandırma işlemini göstermektedir.
+İstemci uygulamalarından gelen HTTPS bağlantılarını desteklemek için bir Web sunucusunun SSL için yapılandırılmış olması gerekir. Bu, bir Web sunucusunda SSL 'nin nasıl yapılandırılacağını gösterir.
 
-[İstemci sertifikaları ayarlama](https://msdn.microsoft.com/library/aa302412.aspx)
+[Istemci sertifikaları ayarlama](https://msdn.microsoft.com/library/aa302412.aspx)
 
-IIS istemci sertifikası kimlik doğrulamasını destekler. Bu nasıl yapılır istemci sertifikaları gerektirmek için bir Web uygulamasının nasıl yapılandırılacağını gösterir. Ayrıca, bir sertifika bir istemci bilgisayara yükleyin ve Web uygulaması ararken kullanmak nasıl gösterir.
+IIS, istemci sertifikası kimlik doğrulamasını destekler. Bu, bir Web uygulamasının istemci sertifikaları gerektirecek şekilde nasıl yapılandırılacağını gösterir. Ayrıca, bir sertifikayı istemci bilgisayara yüklemeyi ve Web uygulamasını çağırırken nasıl kullanacağınızı gösterir.
 
-[Bağlantı noktaları ve kimlik doğrulaması filtreleme için IPSec kullanın.](https://msdn.microsoft.com/library/aa302366.aspx)
+[Bağlantı noktalarını ve kimlik doğrulamasını filtrelemek için IPSec kullanma](https://msdn.microsoft.com/library/aa302366.aspx)
 
-Internet Protokolü güvenliği (IPSec) değil şifreleme, bütünlük ve IP tabanlı ağ trafiği için kimlik doğrulama hizmetleri sağlayan bir hizmet, bir protokol ' dir. IPSec, sunucudan sunucuya koruma sağladığından, sayaç iç tehditleri IPSec kullanabilirsiniz...
+Internet Protokolü güvenliği (IPSec), IP tabanlı ağ trafiği için şifreleme, bütünlük ve kimlik doğrulama hizmetleri sağlayan bir hizmet değil, bir protokoldür. IPSec sunucudan sunucuya koruma sağladığından, iç tehditleri sayaca yönelik IPSec kullanabilirsiniz...
 
-[İki sunucu arasında güvenli iletişim sağlamak için IPSec'i kullanın](https://msdn.microsoft.com/library/aa302413.aspx)
+[Iki sunucu arasında güvenli Iletişim sağlamak için IPSec kullanın](https://msdn.microsoft.com/library/aa302413.aspx)
 
-IPSec, iki sunucu arasında şifrelenmiş bir kanal oluşturma izni veren bir Windows 2000 tarafından sağlanan bir teknolojidir. IPSec, IP trafiğini filtrelemek ve sunucu kimlik doğrulaması için kullanılabilir. Bu nasıl yapılır güvenli (şifrelenmiş) sağlamak için IPSec'i yapılandırmak nasıl gösterir...
+IPSec, iki sunucu arasında şifrelenmiş kanallar oluşturmanıza olanak tanıyan Windows 2000 tarafından sunulan bir teknolojidir. IPSec, IP trafiğini filtrelemek ve sunucuların kimliğini doğrulamak için kullanılabilir. Bu, IPSec 'i güvenli (şifreli) sağlayacak şekilde nasıl yapılandıracağınızı gösterir...
 
-[SQL Server ile iletişimin güvenliğini sağlamak için SSL kullan](https://msdn.microsoft.com/library/aa302414.aspx)
+[SQL Server ile Iletişimi güvenli hale getirmek için SSL kullanma](https://msdn.microsoft.com/library/aa302414.aspx)
 
-Genellikle uygulamaların ve bir SQL Server veritabanı sunucusundan veri güvenliğini sağlamak önemlidir. SQL Server ile SSL şifreli kanal oluşturmak için kullanabilirsiniz. Bu nasıl yapılır, veritabanı sunucusunda bir sertifikayı yüklemek gösterilir...
+Uygulamaların bir SQL Server veritabanı sunucusuna ve bu sunucudan geçirilen verilerin güvenliğini sağlayabilmesi genellikle önemlidir. SQL Server ile, şifreli bir kanal oluşturmak için SSL kullanabilirsiniz. Bu, bir sertifikanın veritabanı sunucusuna nasıl yükleneceğini gösterir,...
 
-[ASP.NET 1.1 istemci sertifikaları'nı kullanarak bir Web hizmetini çağırın](https://msdn.microsoft.com/library/aa302408.aspx)
+[ASP.NET 1,1 ' den Istemci sertifikaları kullanarak bir Web hizmeti çağırma](https://msdn.microsoft.com/library/aa302408.aspx)
 
-Bu nasıl yapılır nasıl bir istemci sertifikası kimlik doğrulaması için bir Web hizmeti için bir ASP.NET Web uygulaması veya bir Windows Forms uygulamasından geçirebilirsiniz açıklar. İstemci sertifikasını yerel makine deposuna ya da kullanıcı deposunda yükleyebilirsiniz. If...
+Bu, bir ASP.NET Web uygulamasından veya Windows Forms uygulamasından kimlik doğrulaması için bir istemci sertifikasını bir Web hizmetine nasıl geçirebileceğinizi açıklar. İstemci sertifikasını yerel makine deposuna veya Kullanıcı deposuna yükleyebilirsiniz. If...
 
-[ASP.NET 1.1 SSL'den kullanarak bir Web hizmetini çağırın](https://msdn.microsoft.com/library/aa302409.aspx)
+[ASP.NET 1,1 adresinden SSL kullanarak Web hizmeti çağırma](https://msdn.microsoft.com/library/aa302409.aspx)
 
-Güvenli Yuva Katmanı (SSL) şifreleme, bütünlük ve ve bir Web hizmetinden iletilerin gizliliğini garanti etmek için kullanılabilir. Bu nasıl yapılır Web Hizmetleri ile SSL kullanmayı gösterir.
+Güvenli Yuva Katmanı (SSL) şifreleme, bir Web hizmetinden gelen ve bir Web hizmetine geçirilen iletilerin bütünlüğünü ve gizliliğini güvence altına almak için kullanılabilir. Bu, Web hizmetleriyle SSL 'yi nasıl kullanacağınızı gösterir.
 
 ### <a name="cryptography"></a>Şifreleme
 
-[1.1. NET'te DPAPI kitaplığı oluşturma](https://msdn.microsoft.com/library/aa302402.aspx)
+[.NET 1,1 'de DPAPI kitaplığı oluşturma](https://msdn.microsoft.com/library/aa302402.aspx)
 
-Bu nasıl yapılır, örneğin, verileri şifrelemek istediğiniz uygulamalara veritabanı bağlantı dizelerini ve hesap kimlik bilgilerini DPAPI işlevsellik sunduğu bir yönetilen sınıf kitaplığı oluşturma işlemini göstermektedir.
+Bu şekilde, verileri şifrelemek isteyen uygulamalara (örneğin, veritabanı bağlantı dizeleri ve hesap kimlik bilgileri) DPAPI işlevselliği sunan bir yönetilen sınıf kitaplığı oluşturma işlemlerinin nasıl yapılacağı gösterilmektedir.
 
-[1.1. NET'te bir şifreleme kitaplığı oluşturma](https://msdn.microsoft.com/library/aa302405.aspx)
+[.NET 1,1 'de şifreleme kitaplığı oluşturma](https://msdn.microsoft.com/library/aa302405.aspx)
 
-Bu nasıl yapılır, uygulamalar için şifreleme işlevi sağlamak için bir yönetilen sınıf kitaplığı oluşturma işlemini göstermektedir. Şifreleme algoritmasını seçmek bir uygulama sağlar. Desteklenen algoritmalar, DES, Üçlü DES, RC2 ve Rijndael içerir.
+Bu, uygulamalar için şifreleme işlevi sağlamak üzere yönetilen bir sınıf kitaplığı oluşturmayı gösterir. Bir uygulamanın şifreleme algoritmasını seçmesine izin verir. Desteklenen algoritmalar DES, Üçlü DES, RC2 ve Rijnbael ' yi içerir.
 
-[ASP.NET 1.1 kayıt defterinde şifreli bir bağlantı dizesi Store](https://msdn.microsoft.com/library/aa302406.aspx)
+[ASP.NET 1,1 ' de kayıt defterine şifreli bir bağlantı dizesi depolayın](https://msdn.microsoft.com/library/aa302406.aspx)
 
-Bağlantı dizeleri ve hesap kimlik bilgileri gibi şifrelenmiş veriler Windows kayıt defterine depolamak uygulamaları seçebilirsiniz. Bu nasıl yapılır, depolama ve kayıt defterindeki şifrelenmiş dizeleri alma işlemini göstermektedir.
+Uygulamalar, Windows kayıt defterinde bağlantı dizeleri ve hesap kimlik bilgileri gibi şifrelenmiş verileri depolamayı seçebilir. Bu, kayıt defterinde şifrelenmiş dizelerin nasıl depolanacağını ve alınacağını gösterir.
 
-[ASP.NET 1.1 tarafından DPAPI (makine Store) kullanın](https://msdn.microsoft.com/library/aa302403.aspx)
+[ASP.NET 1,1 'ten DPAPI (makine deposu) kullanma](https://msdn.microsoft.com/library/aa302403.aspx)
 
-Bu nasıl yapılır DPAPI hassas verileri şifrelemek için bir ASP.NET Web uygulaması veya Web hizmeti kullanma işlemini gösterir.
+Bu, hassas verileri şifrelemek için bir ASP.NET Web uygulamasından veya Web hizmetinden DPAPI 'yi nasıl kullanacağınızı gösterir.
 
-[Kurumsal Hizmetler ile ASP.NET 1.1 DPAPI (kullanıcı Store) kullanın](https://msdn.microsoft.com/library/aa302404.aspx)
+[Enterprise Services ile ASP.NET 1,1 'ten DPAPI (Kullanıcı Mağazası) kullanın](https://msdn.microsoft.com/library/aa302404.aspx)
 
-Bu nasıl yapılır DPAPI hassas verileri şifrelemek için bir ASP.NET Web uygulaması ya da hizmet kullanma işlemini gösterir. Bu nasıl yapılır Enterprise hizmetleri bileşeni işlem dışı kullanımı gerektiren kullanıcı deposu ile DPAPI kullanır.
+Bu, hassas verileri şifrelemek için bir ASP.NET Web uygulamasından veya hizmetinden DPAPI 'yi nasıl kullanacağınızı gösterir. Bu, bir işlem dışı Enterprise Services bileşeni kullanılmasını gerektiren Kullanıcı deposuyla DPAPI 'yı nasıl kullanır.
 
 <a id="setup"></a>
-## <a name="installation-and-setup-whitepapers"></a>Yükleme ve Kurulum teknik incelemeler
+## <a name="installation-and-setup-whitepapers"></a>Yükleme ve kurulum teknik Incelemeleri
 
-Bu teknik incelemeler yükleyip ASP.NET sunucunuzda yapılandırmaya yönelik adım adım yönergeler sağlar.
+Bu teknik incelemeler, sunucunuza ASP.NET yükleme ve yapılandırmaya yönelik adım adım yönergeler sağlar.
 
-[Bir ASP.NET 2.0 için bir hizmet hesabı oluşturma uygulama](https://msdn.microsoft.com/library/ms998297.aspx)
+[ASP.NET 2,0 uygulaması için bir hizmet hesabı oluşturma](https://msdn.microsoft.com/library/ms998297.aspx)
 
-Bu nasıl yapılır, bir ASP.NET Web uygulamasını çalıştırmak için bir özel en az ayrıcalıklı hizmet hesabını oluşturma ve yapılandırma işlemini göstermektedir. Varsayılan olarak, yerleşik ağ hizmeti kullanarak bir ASP.NET uygulamasını Microsoft Windows Server 2003 ve IIS 6.0 çalıştıran...
+Bu, ASP.NET Web uygulaması çalıştırmak için özel bir en düşük ayrıcalıklı hizmet hesabı oluşturmayı ve yapılandırmayı gösterir. Varsayılan olarak, Microsoft Windows Server 2003 ve IIS 6,0 ' deki bir ASP.NET uygulaması yerleşik ağ hizmeti kullanılarak çalışır...
 
-[Birden çok uygulamada ASP.NET 2.0 barındırırken güvenliğini artırın](https://msdn.microsoft.com/library/aa480478.aspx)
+[ASP.NET 2,0 ' de birden çok uygulamayı barındırırken güvenliği geliştirme](https://msdn.microsoft.com/library/aa480478.aspx)
 
-Bu nasıl birden çok uygulama birbirleriyle ve bir Web paylaşılan sistem kaynaklarının nasıl yalıtmak barındırma ortamı gösterilmektedir. Barındırma ortamı, bir Internet servis sağlayıcısı (birden çok barındıran ISS) tarafından sağlanan bir Web sunucusu olabilir...
+Bu, birden çok uygulamayı bir Web barındırma ortamındaki paylaşılan sistem kaynaklarından farklı bir şekilde nasıl ayırakullanabileceğinizi gösterir. Barındırma ortamı, birden çok barındıran bir Internet servis sağlayıcısı (ISS) tarafından sağlanmış bir Web sunucusu olabilir...
 
-[Orta güven ASP.NET 2.0 kullanma](https://msdn.microsoft.com/library/ms998341.aspx)
+[ASP.NET 2,0 ' de orta düzey güveni kullanma](https://msdn.microsoft.com/library/ms998341.aspx)
 
-Bu nasıl yapılır? ASP.NET Web uygulamalarının orta güvende çalışacak şekilde nasıl yapılandırılacağını gösterir. Birden çok uygulama ile aynı sunucuda barındırıyorsanız, uygulama yalıtımı sağlamak için kod erişimi güvenliği ve orta güven düzeyinde kullanabilirsiniz. Ayarlayarak...
+Bu, ASP.NET Web uygulamalarının orta güvende çalışacak şekilde nasıl yapılandırılacağını gösterir. Aynı sunucuda birden çok uygulama barındırdıysanız, uygulama yalıtımı sağlamak için kod erişimi güvenliği ve Orta güven düzeyini kullanabilirsiniz. Ayarla...
 
-[ASP.NET 2.0 kaynaklara erişmek için ağ hizmeti hesabı kullan](https://msdn.microsoft.com/library/ms998320.aspx)
+[ASP.NET 2,0 ' deki kaynaklara erişmek için ağ hizmeti hesabını kullanın](https://msdn.microsoft.com/library/ms998320.aspx)
 
-Bu nasıl yapılır, yerel olarak erişmek için NT AUTHORITY\NETWORK SERVICE makine hesabını nasıl kullanabileceğiniz ve ağ kaynaklarını gösterir. Windows Server 2003'te varsayılan olarak, bu hesabın kimliğini kullanarak ASP.NET uygulamalarını çalıştırın. En az ayrıcalıklı olduğu...
+Bu, yerel ve ağ kaynaklarına erişmek için NT AUTHORITY\Network Service makine hesabını nasıl kullanabileceğinizi gösterir. Windows Server 2003 ' de varsayılan olarak, ASP.NET uygulamalar bu hesabın kimliğini kullanarak çalışır. En az ayrıcalıklı...
 
-[Protokol geçişi ve kısıtlanmış temsil, ASP.NET 2.0 kullanma](https://msdn.microsoft.com/library/ms998355.aspx)
+[ASP.NET 2,0 'de protokol geçişini ve kısıtlanmış temsilciyi kullanma](https://msdn.microsoft.com/library/ms998355.aspx)
 
-Bu nasıl yapılır, yapılandırma ve ASP.NET uygulamanızı özgün çağıranın kimliğine bürünme sırasında ağ kaynaklarına erişmesine izin vermek için protokol geçişi ve Kısıtlanmış temsilci kullanma işlemini göstermektedir. Microsoft® Windows® 2000 işletim sistemi...
+Bu, ASP.NET uygulamanızın özgün çağıran kimliğe bürünme sırasında ağ kaynaklarına erişmesine izin vermek için protokol geçişini ve kısıtlanmış temsilciyi nasıl yapılandıracağınızı ve kullanacağınızı gösterir. Microsoft® Windows® 2000 işletim sistemi...
 
-[.NET Framework 1.0 ve 1.1 ASP.NET yan yana yürütülmesi](side-by-side-with-10.md "1.0 ile yan yana")
+[ASP.NET .NET Framework 1.0 ve 1.1 Sürümlerini Yan Yana Yürütme](side-by-side-with-10.md "1,0 ile yan yana")
 
-Bu teknik incelemeyi ve .NET 1.0 ve 1.1 .NET framework'ün her iki sürümde de çalıştırmak bir ASP.NET Web uygulamasına izin verme makinenize yükleyin açıklar.
+Bu Teknik İnceleme, makinenizde hem .NET 1,0 hem de .NET 1,1 ' nin nasıl yükleneceğini ve bir ASP.NET Web uygulamasının Framework 'ün herhangi bir sürümünde çalışmasına izin verir.
 
-[IIS dizinlerine erişim reddedildi ASP.NET](denied-access-to-iis-directories.md "IIS dizinlerine erişim reddedildi")
+[ASP.NET IIS Dizinlerine Erişim Reddedildi](denied-access-to-iis-directories.md "IIS dizinlerine erişim reddedildi")
 
-Bu teknik incelemede, ASP.NET uygulamanız için bir istek hata verirse ne yapmalısınız açıklar "erişim izni verilmeyen *DirectoryName* dizin. Dizin değişikliklerini izleme başlatılamadı."
+Bu teknik incelemede, ASP.NET uygulamanıza yönelik bir istek, " *DirectoryName* dizinine erişim engellendi" hatasını döndürürse ne yapmanız gerektiğini açıklar. Dizin değişikliklerini izleme işlemi başlatılamadı. "
 
-[ASP.NET 1.1 ile IIS 6.0 çalıştıran](aspnet-and-iis6.md "aspnet ve IIS6")
+[IIS 6.0 ile Çalışan ASP.NET 1.1](aspnet-and-iis6.md "ASPNET ve IIS6")
 
-Bu bileşenler, Windows Server 2003 hem IIS 6.0 hem de ASP.NET 1.1 içerse de, varsayılan olarak devre dışıdır. Bu teknik incelemede, IIS 6.0 ve ASP.NET 1.1 etkinleştirmeyi açıklar ve en iyi almak için çeşitli yapılandırma ayarlarını önerir...
+Windows Server 2003 hem IIS 6,0 hem de ASP.NET 1,1 içerdiğinde, bu bileşenler varsayılan olarak devre dışıdır. Bu teknik incelemede IIS 6,0 ve ASP.NET 1,1 ' nin nasıl etkinleştirileceği açıklanır ve en iyi şekilde yararlanmak için çeşitli yapılandırma ayarları önerilmektedir...
 
-[IE için güvenlik güncelleştirmesi uygulandıktan sonra 'Sunucu uygulaması kullanılamıyor' hatası için düzeltme](ms03-32-issue.md "ms03 32 sorunu")
+[IE için güvenlik güncelleştirmesi uygulandıktan sonra ' sunucu uygulaması kullanılamıyor ' hatası için düzeltme](ms03-32-issue.md "MS03-32-sorun")
 
-Bu yazıda, Internet Explorer, Windows XP Professional üzerinde çalışan ASP.NET 1.0 uygulamaları etkiler MS03 32 güvenlik güncelleştirmesiyle bir sorunu giderir düzeltme açıklar.
+Bu raporda, Windows XP Professional üzerinde çalışan ASP.NET 1,0 uygulamalarını etkileyen Internet Explorer için MS03-32 güvenlik güncelleştirmesiyle ilgili bir sorunu gideren düzeltme eki açıklanmaktadır.
 
-[ASP.NET 1.1 çalıştırmak için özel bir hesap oluşturun](https://msdn.microsoft.com/library/aa302396.aspx)
+[ASP.NET 1,1 çalıştırmak Için özel bir hesap oluşturma](https://msdn.microsoft.com/library/aa302396.aspx)
 
-ASP.NET Web uygulamaları, genellikle yerleşik ASP.NET hesabı kullanarak çalıştırın. Bazı durumlarda, bunun yerine özel bir hesap kullanmak isteyebilirsiniz. Bu nasıl yapılır makalesi ASP.NET Web uygulamaları çalıştırmak için en az ayrıcalıklı bir yerel hesabının nasıl oluşturulacağını gösterir. ...
+ASP.NET Web uygulamaları, genellikle yerleşik ASPNET hesabını kullanarak çalışır. Bazen bunun yerine özel bir hesap kullanmak isteyebilirsiniz. Bu nasıl yapılır makalesi, ASP.NET Web uygulamalarını çalıştırmak için en az ayrıcalıklı yerel hesap oluşturmayı gösterir. ...
 
 ### <a name="configuration"></a>Yapılandırma
 
-[ASP.NET 2.0 makine anahtarı yapılandırma](https://msdn.microsoft.com/library/ms998288.aspx)
+[ASP.NET 2,0 ' de makine anahtarını yapılandırma](https://msdn.microsoft.com/library/ms998288.aspx)
 
-Bu nasıl yapılır açıklar &lt;machineKey&gt; Web.config dosyasında öğesi ve yapılandırma işlemi gösterilmektedir &lt;machineKey&gt; öğesi kurcalamaya denetim sağlama ve şifreleme görünüm durumu, forms kimlik doğrulaması biletleri ve rol tanımlama bilgileri. Görünüm durumu imzalanır...
+Bu, Web. config dosyasında &lt;machineKey&gt; öğesini açıklar ve ViewState, form kimlik doğrulama biletlerinin ve rol tanımlama bilgilerinin üzerinde oynanmaya ve şifrelenmesini denetlemek için &lt;machineKey&gt; öğesinin nasıl yapılandırılacağını gösterir. Görünüm durumu imzalandı...
 
-[ASP.NET 2.0 yapılandırma bölümleri şifrelemek DPAPI kullanma](https://msdn.microsoft.com/library/ms998280.aspx)
+[DPAPI kullanarak ASP.NET 2,0 içindeki yapılandırma bölümlerini şifreleme](https://msdn.microsoft.com/library/ms998280.aspx)
 
-Bu nasıl yapılır Windows veri koruma uygulama programlama arabirimi (DPAPI) korumalı yapılandırma sağlayıcısı ve ASP.NET kullanmayı gösterir.\_regiis.exe aracı yapılandırma dosyalarınızın bölümlerini şifreler. ASP.NET kullanabileceğiniz\_regiis.exe aracı...
+Bu, yapılandırma dosyalarınızın bölümlerini şifrelemek için Windows Data Protection uygulama programlama arabirimi (DPAPI) ile korunan yapılandırma sağlayıcısı ve ASPNET\_regııs. exe aracının nasıl kullanılacağını gösterir. ASPNET\_regııs. exe aracını şu şekilde kullanabilirsiniz...
 
-[ASP.NET 2.0 yapılandırma bölümleri şifrelemek RSA kullanarak](https://msdn.microsoft.com/library/ms998283.aspx)
+[ASP.NET 2,0 içindeki yapılandırma bölümlerini RSA kullanarak şifreleme](https://msdn.microsoft.com/library/ms998283.aspx)
 
-Bu nasıl yapılır RSA korumalı yapılandırma sağlayıcısı ve Aspnet nasıl kullanılacağını gösterir.\_regiis.exe aracı yapılandırma dosyalarınızın bölümlerini şifreler. ASP.NET kullanabileceğiniz\_regiis.exe aracı bağlantı dizeleri gibi hassas verileri şifrelemek için tutulan içinde...
+Bu, yapılandırma dosyalarınızın bölümlerini şifrelemek için RSA korumalı yapılandırma sağlayıcısı ve ASPNET\_regııs. exe aracının nasıl kullanılacağını gösterir. ASPNET\_regııs. exe aracını kullanarak, bağlantı dizeleri gibi hassas verileri şifreleyebilirsiniz...
 
-[Kimliğe bürünme ve temsilci ASP.NET 2. 0'ı kullanın](https://msdn.microsoft.com/library/ms998351.aspx)
+[ASP.NET 2,0 'de kimliğe bürünme ve temsili kullanma](https://msdn.microsoft.com/library/ms998351.aspx)
 
-Bu nasıl yapılır? ASP.NET 2.0 uygulamaları nasıl ve ne zaman kimliğe bürünme kullanmalısınız gösterir. Varsayılan olarak, kimliğe bürünme devre dışıdır ve ASP.NET Web uygulamasının işlem kimliği'ni kullanarak kaynaklara erişebilir. Ancak, kullanabileceğiniz...
+Bu, ASP.NET 2,0 uygulamalarında kimliğe bürünme özelliğini nasıl ve ne zaman kullanacağınızı gösterir. Varsayılan olarak, kimliğe bürünme devre dışıdır ve ASP.NET Web uygulamasının işlem kimliğini kullanarak kaynaklara erişebilirsiniz. Ancak, kullanabilirsiniz...
 
 <a id="sql"></a>
-## <a name="sql-server-whitepapers"></a>SQL Server teknik incelemeler
+## <a name="sql-server-whitepapers"></a>SQL Server Teknik Incelemeler
 
-ASP.NET çeşitli veritabanları ile çalışırken, bu teknik incelemeler, ASP.NET uygulamaları için SQL Server özel olarak bağlanma sırasında arayın.
+ASP.NET, çeşitli veritabanlarıyla çalışırken, bu teknik incelemeler özellikle ASP.NET uygulamalarını SQL Server 'e bağlamayı de göz atalım.
 
-[ASP.NET 2.0 SQL kimlik doğrulaması kullanarak SQL sunucusuna bağlanın](https://msdn.microsoft.com/library/ms998300.aspx)
+[ASP.NET 2,0 ' de SQL kimlik doğrulaması kullanarak SQL Server bağlanma](https://msdn.microsoft.com/library/ms998300.aspx)
 
-Bu nasıl yapılır, yerel SQL kimlik doğrulaması veritabanı erişimi kimlik doğrulaması kullanıyorsa, Microsoft® SQL Server™ güvenli bir şekilde bir ASP.NET uygulaması bağlama işlemi gösterilmektedir. Windows kimlik doğrulaması kullanılır çünkü SQL Server'a bağlanmak için önerilen yöntem...
+Bu, veritabanı erişimi kimlik doğrulaması yerel SQL kimlik doğrulaması kullandığında bir ASP.NET uygulamasının Microsoft®™ SQL Server güvenli bir şekilde nasıl bağlanacağını gösterir. Windows kimlik doğrulaması, SQL Server bağlanmak için önerilen yoldur...
 
-[ASP.NET 2.0 Windows kimlik doğrulaması kullanarak SQL sunucusuna bağlanın](https://msdn.microsoft.com/library/ms998292.aspx)
+[ASP.NET 2,0 ' de Windows kimlik doğrulaması kullanarak SQL Server bağlanma](https://msdn.microsoft.com/library/ms998292.aspx)
 
-Bu nasıl yapılır? ASP.NET sürüm 2.0 uygulamanın bir Windows hizmet hesabını kullanarak SQL Server 2000'e bağlanmak nasıl gösterir. Kimlik bilgilerini saklamak kaçınmak için mümkün olduğunda yerine SQL kimlik Windows kimlik doğrulaması kullanmanız gerekir...
+Bu, ASP.NET sürüm 2,0 uygulamasından bir Windows hizmet hesabı kullanarak 2000 SQL Server nasıl bağlanagösterdiğini gösterir. ' De kimlik bilgilerini depolamayı önlemenize olanak sağladığından, mümkün olduğunda SQL kimlik doğrulaması yerine Windows kimlik doğrulaması kullanmanız gerekir...
 
-[SQL Server 2000 ile iletişimin güvenliğini sağlamak için SSL kullan](https://msdn.microsoft.com/library/aa302414.aspx)
+[SQL Server 2000 ile Iletişimi güvenli hale getirmek için SSL kullanma](https://msdn.microsoft.com/library/aa302414.aspx)
 
-Genellikle uygulamaların ve bir SQL Server veritabanı sunucusundan veri güvenliğini sağlamak önemlidir. SQL Server ile SSL şifreli kanal oluşturmak için kullanabilirsiniz. Bu nasıl yapılır, veritabanı sunucusunda bir sertifikayı yüklemek gösterilir...
+Uygulamaların bir SQL Server veritabanı sunucusuna ve bu sunucudan geçirilen verilerin güvenliğini sağlayabilmesi genellikle önemlidir. SQL Server ile, şifreli bir kanal oluşturmak için SSL kullanabilirsiniz. Bu, nasıl bir sertifikanın veritabanı sunucusuna yükleneceğini gösterir,...
 
 <a id="general"></a>
-## <a name="general-whitepapers"></a>Genel teknik incelemeler
+## <a name="general-whitepapers"></a>Genel Teknik Incelemeler
 
-Aşağıdaki örnek olay incelemesi, Microsoft'un .NET topluluk Web sitelerini geleneksel barındırma ortamından Microsoft Azure'a geçirmek için kullanılan işlem açıklanır.
+Aşağıdaki örnek durum incelemesi, Microsoft 'un .NET Community Web sitelerini geleneksel bir barındırma ortamından Microsoft Azure geçirmek için kullanılan süreci açıklar.
 
-[Geçirme Microsoft ASP.NET ve Microsoft Azure Web Siteleri'ne IIS.NET topluluk](https://go.microsoft.com/fwlink/?LinkId=400656)
+[Microsoft 'un ASP.NET ve IIS.NET Community Web sitelerini Microsoft Azure 'e geçirme](https://go.microsoft.com/fwlink/?LinkId=400656)
 
-Bu teknik incelemeler, ASP.NET ile ilgili konular çeşitli kapsar.
+Bu teknik incelemeler, ASP.NET ile ilgili çeşitli konuları kapsar.
 
-[Sistem durumu izleme ASP.NET 2. 0'ı kullanın](https://msdn.microsoft.com/library/ms998306.aspx)
+[ASP.NET 2,0 'de sistem durumu Izlemeyi kullanma](https://msdn.microsoft.com/library/ms998306.aspx)
 
-Bu nasıl yapılır sistem durumu, uygulamanız özel olay için araç haline getirmek için izleme kullanma işlemini gösterir. Bir özel durum olayı izleme oluşturmak için System.Web.Management.WebBaseEvent türeyen bir sınıf oluşturma, yapılandırma &lt;ögesi&gt; ...
+Bu, uygulamanızı özel bir olay için işaretlemek üzere durum izlemeyi nasıl kullanacağınızı gösterir. Özel bir sistem durumu izleme olayı oluşturmak için, System. Web. Management. WebBaseEvent öğesinden türeten bir sınıf oluşturun, &lt;healthMonitoring&gt; yapılandırın...
 
-[Uygulama düzeltme eki yönetimi](https://msdn.microsoft.com/library/aa302364.aspx)
+[Yama yönetimini Uygula](https://msdn.microsoft.com/library/aa302364.aspx)
 
-Bu nasıl yapılır nasıl tek veya birden çok sunucuyu güncel dahil olmak üzere, düzeltme eki yönetimi açıklanmaktadır. Ek yazılım Microsoft'tan kullanılabilen araçları dışında gerekli değildir. Operations ve güvenlik ilkesi, bir düzeltme eki yönetimi benimsemeniz...
+Bu, tek veya birden çok sunucuyu güncel tutma dahil olmak üzere düzeltme eki yönetimi açıklanmaktadır. Microsoft 'tan yüklenebilecek araçlar dışında ek yazılımlar gerekli değildir. İşlemler ve güvenlik ilkesi bir yama yönetimini benimsemelidir...
 
-[Silverlight'ta Silverlight için 3 SDK'sını ASP.NET sunucu denetimleri](https://go.microsoft.com/fwlink/?LinkId=153377)
+[Silverlight 3 SDK 'da Silverlight için ASP.NET Server denetimleri](https://go.microsoft.com/fwlink/?LinkId=153377)
 
-ASP.NET sunucu ASP.NET MediaPlayer ve Silverlight denetimleri, denetimleri Silverlight ("ASP.NET Silverlight denetimleri") için Silverlight sürüm 3 için Silverlight SDK'sı kaldırılmış olan. Bu belge, bu ASP.NET ile çalışan geliştiriciler için kılavuz sağlar...
+ASP.NET MediaPlayer ve Silverlight denetimleri olan Silverlight için ASP.NET sunucu denetimleri ("ASP.NET Silverlight denetimleri"), Silverlight sürüm 3 için Silverlight SDK 'dan kaldırılmıştır. Bu belge, bu ASP.NET ile çalışan geliştiriciler için rehberlik sağlar...
 
-[Yüksek performanslı Web uygulamaları oluşturma](https://devexpress.com/act)
+[Yüksek performanslı web uygulamaları oluşturma](https://devexpress.com/act)
 
-Yüksek performanslı Web uygulamaları oluşturmak için ASP.NET Ajax Kitaplığı'nda yeni özelliklerini kullanmayı öğrenin
+Yüksek performanslı web uygulamaları oluşturmak için ASP.NET Ajax Kitaplığı 'ndaki yeni özellikleri nasıl kullanacağınızı öğrenin

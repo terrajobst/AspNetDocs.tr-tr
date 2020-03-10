@@ -1,253 +1,253 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
-title: 'Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken | Microsoft Docs'
+title: 'Entity Framework 4,0 ve ObjectDataSource denetimini kullanma, 1. Bölüm: başlangıç | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici serisinde Contoso University web uygulaması ile çalışmaya başlama Öğreticisi dizisinin Entity Framework tarafından oluşturulan geliştirir. Yo varsa...
+description: Bu öğretici serisi, Entity Framework öğretici serisi ile çalışmaya başlama tarafından oluşturulan Contoso University Web uygulamasında oluşturulur. Yo yo...
 ms.author: riande
 ms.date: 01/26/2011
 ms.assetid: 244278c1-fec8-4255-8a8a-13bde491c4f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
 ms.openlocfilehash: 2f14707eb058d438495dd2bc4c17b976c471fc97
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131336"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78547294"
 ---
-# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Kullanarak Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken
+# <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4,0 ve ObjectDataSource denetimini kullanma, 1. Bölüm: Başlarken
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+[Tom Dykstra](https://github.com/tdykstra) tarafından
 
-> Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur.
+> Bu öğretici serisi, [Entity Framework 4,0 öğretici serisi Ile çalışmaya](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) başlama tarafından oluşturulan Contoso University Web uygulamasında oluşturulur. Önceki öğreticileri tamamlamadıysanız, bu öğretici için bir başlangıç noktası olarak, oluşturduğunuz [uygulamayı indirebilirsiniz](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) . Ayrıca, tüm öğretici serileri tarafından oluşturulan [uygulamayı da indirebilirsiniz](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) .
 > 
-> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek, kurgusal Contoso üniversite için bir Web uygulamasıdır. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir.
+> Contoso Üniversitesi örnek Web uygulaması, 4,0 ve Visual Studio 2010 Entity Framework kullanarak nasıl ASP.NET Web Forms uygulamalar oluşturacağınızı gösterir. Örnek uygulama, kurgusal bir Contoso Üniversitesi için bir Web sitesidir. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir.
 > 
-> Öğreticide örnekler C# ' de gösterilmektedir. [İndirilebilir örnek](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) hem C# ve Visual Basic kodunu içerir.
+> Öğreticide örnekleri gösterilir C#. [İndirilebilir örnek](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) hem C# hem de Visual Basic kod içerir.
 > 
-> ## <a name="database-first"></a>İlk veritabanı
+> ## <a name="database-first"></a>Database First
 > 
-> Varlık çerçevesi verilerle çalışabilirsiniz üç yolu vardır: *İlk veritabanı*, *Model ilk*, ve *Code First*. Bu öğretici için veritabanı ilk bölümüdür. Senaryonuz için en uygun olanı seçin konusunda bu iş akışları ve rehberlik arasındaki farklar hakkında bilgi için bkz. [Entity Framework geliştirme iş akışlarının](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
+> Entity Framework verilerle çalışmak için üç yol vardır: *Database First*, *model First*ve *Code First*. Bu öğretici Database First içindir. Bu iş akışları arasındaki farklar ve senaryonuz için en uygun olanı seçme hakkında daha fazla bilgi için bkz. [Entity Framework geliştirme Iş akışları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Web Forms
 > 
-> Bu öğretici serisinin Başlarken serisinin gibi ASP.NET Web Forms modeli kullanır ve Visual Studio'da ASP.NET Web Forms ile nasıl çalışılacağını bildiğiniz varsayılır. Görmüyorsanız [ASP.NET 4.5 Web Forms ile çalışmaya başlama](../../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md). ASP.NET MVC çerçevesiyle çalışmak istiyorsanız, bkz. [ASP.NET MVC kullanarak Entity Framework ile çalışmaya başlama](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Başlarken serisi gibi, bu öğretici serisi ASP.NET Web Forms modelini kullanır ve Visual Studio 'da ASP.NET Web Forms ile nasıl çalışabildiğinizi varsayar. Bunu yapmazsanız, bkz. [ASP.NET 4,5 Ile çalışmaya başlama Web Forms](../../getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview.md). ASP.NET MVC çerçevesiyle çalışmayı tercih ediyorsanız, bkz. [ASP.NET MVC kullanarak Entity Framework](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)kullanmaya başlama.
 > 
 > ## <a name="software-versions"></a>Yazılım sürümleri
 > 
-> | **Öğreticide gösterilen** | **İle de çalışır.** |
+> | **Öğreticide gösterilen** | **İle de birlikte çalışarak** |
 > | --- | --- |
-> | Windows 7 | Windows 8 |
-> | Visual Studio 2010 | Web için Visual Studio 2010 Express. Öğretici Visual Studio'nun daha yeni sürümlerini test edilmemiştir. Menü seçimleri, iletişim kutuları ve şablonları pek çok fark vardır. |
-> | .NET 4 | .NET 4.5 .NET 4 ile geriye dönük uyumludur, ancak öğreticide .NET 4.5 ile test edilmemiştir. |
-> | Entity Framework 4 | Öğreticinin sonraki sürümlerinde Entity Framework ile test edilmemiştir. Entity Framework 5 ile başlayarak, varsayılan olarak EF kullanan `DbContext API` ile EF 4.1 tanıtılmıştır. EntityDataSource denetimi kullanmak için tasarlanmış `ObjectContext` API. EntityDataSource kullanma hakkında daha fazla bilgi için denetimini `DbContext` API bakın [bu blog gönderisini](https://blogs.msdn.com/b/webdev/archive/2012/09/13/how-to-use-the-entitydatasource-control-with-entity-framework-code-first.aspx). |
+> | Windows 7 | Windows 8 |
+> | Visual Studio 2010 | Web için Visual Studio 2010 Express. Öğretici, Visual Studio 'nun sonraki sürümleriyle test edilmemiştir. Menü seçimleri, iletişim kutuları ve şablonlarda birçok fark vardır. |
+> | .NET 4 | .NET 4,5, .NET 4 ile geriye dönük olarak uyumludur, ancak öğretici .NET 4,5 ile sınanmamıştır. |
+> | Entity Framework 4 | Öğretici, daha sonraki Entity Framework sürümleriyle sınanmamıştır. Entity Framework 5 ' den başlayarak EF, EF 4,1 ile tanıtılan `DbContext API` varsayılan olarak kullanır. EntityDataSource denetimi, `ObjectContext` API 'sini kullanacak şekilde tasarlandı. EntityDataSource denetimini `DbContext` API ile kullanma hakkında daha fazla bilgi için [Bu blog gönderisine](https://blogs.msdn.com/b/webdev/archive/2012/09/13/how-to-use-the-entitydatasource-control-with-entity-framework-code-first.aspx)bakın. |
 > 
-> ## <a name="questions"></a>Sorular
+> ## <a name="questions"></a>UL
 > 
-> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
+> Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET Entity Framework forumuna](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities forumuna](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/)veya [StackOverflow.com](http://stackoverflow.com/)'e gönderebilirsiniz.
 
-`EntityDataSource` Denetimi çok hızlı bir şekilde uygulama oluşturmanıza olanak sağlar, ancak genellikle önemli miktarda iş mantığı ve veri erişim mantığı tutmanızı gerektirir, *.aspx* sayfaları. Uygulamanız karmaşık hale gelmesi ve devam eden bakım gerektirecek şekilde bekliyorsanız, daha fazla geliştirme süresini Önden oluşturmak için yatırım yapabilir bir *n katmanlı* veya *katmanlı* uygulama yapısı daha sürdürülebilir olmasıdır. Bu mimariyi uygulamak için sunu katmanı (BLL) iş mantığı katmanı ve veri erişim katmanı (DAL) ayırın. Bu yapı uygulamak için bir tek yolu `ObjectDataSource` denetimi yerine `EntityDataSource` denetimi. Kullanırken `ObjectDataSource` denetimi, kendi veri erişim kodunu uygulamak ve onu çağırmak *.aspx* sayfalarını kullanarak aynı çoğunu içeren bir denetim özellikleri gibi diğer veri kaynağı denetimleri. Bu, veri erişimi için bir Web Forms denetimi kullanmanın avantajları bir n katmanlı yaklaşımın avantajları birlikte sağlar.
+`EntityDataSource` denetimi, uygulamayı çok hızlı bir şekilde oluşturmanıza olanak tanıyor, ancak genellikle *. aspx* sayfalarınızda önemli miktarda iş mantığı ve veri erişim mantığı tutmanızı gerektirir. Uygulamanızın karmaşıklığa büyümesini ve devam eden bakım gerektirmesini beklemeniz durumunda daha fazla sürdürülebilir bir *n katmanlı* veya *katmanlı* uygulama yapısı oluşturmak için daha fazla geliştirme süresi yatırmaya yatırım yapabilirsiniz. Bu mimariyi uygulamak için, sunu katmanını iş mantığı katmanından (BLL) ve veri erişim katmanından (DAL) ayırın. Bu yapıyı uygulamak için bir yol, `EntityDataSource` denetimi yerine `ObjectDataSource` denetimini kullanmaktır. `ObjectDataSource` denetimini kullandığınızda, kendi veri erişim kodunuzu uygular ve daha sonra diğer veri kaynağı denetimleriyle aynı özelliklerin birçoğunu içeren bir denetimi kullanarak *. aspx* sayfalarında bu kodu çağırabilirsiniz. Bu, bir n katmanlı yaklaşımın avantajlarını, veri erişimi için Web Forms denetimi kullanmanın avantajlarından yararlanmanızı sağlar.
 
-`ObjectDataSource` Denetimi, size daha fazla esneklik başka yöntemlerle de. Kendi veri erişim kodu yazmak, görevleri olan daha fazlasını okuyun, eklemek, güncelleştirmek veya bir özel varlık türünü silmek daha kolay olmasıdır, `EntityDataSource` denetimi gerçekleştirmek için tasarlanmıştır. Örneğin, varlığın her güncelleştirildiğinde günlüğe kaydetme gerçekleştirmek, veri varlığı silme veya otomatik olarak denetleyin ve güncelleştirmeyi yabancı anahtar değere sahip bir satır eklendiğinde gerektiği gibi ilgili verileri arşivleme.
+`ObjectDataSource` denetimi, diğer yollarla da daha fazla esneklik sağlar. Kendi veri erişim kodunuzu yazarken, `EntityDataSource` denetiminin gerçekleştirmek üzere tasarlandığı görevler olan belirli bir varlık türünü okuma, ekleme, güncelleştirme veya silme işlemleri daha kolay olur. Örneğin, bir varlık her güncelleştirildiğinde günlük kaydı gerçekleştirebilir, bir varlık her silindiğinde verileri arşivleyebilir veya yabancı anahtar değeri olan bir satır eklerken gerektiğinde ilgili verileri otomatik olarak denetleyip güncelleştirebilirsiniz.
 
 ## <a name="business-logic-and-repository-classes"></a>İş mantığı ve depo sınıfları
 
-Bir `ObjectDataSource` denetim çalışır, oluşturduğunuz bir sınıfı çağırarak. Sınıfı, almak ve veri güncelleştirme yöntemleri içerir ve bu yöntemlere adlarını sağlamanız `ObjectDataSource` denetiminde biçimlendirme. İşleme veya geri gönderme işlemi sırasında `ObjectDataSource` belirlediğiniz yöntemleri çağırır.
+`ObjectDataSource` denetim, oluşturduğunuz bir sınıfı çağırarak işe yarar. Sınıfı, verileri alan ve güncelleştiren yöntemler içerir ve bu yöntemlerin adlarını biçimlendirme içindeki `ObjectDataSource` denetimine sağlarsınız. İşleme veya geri gönderme işlemi sırasında, `ObjectDataSource` belirttiğiniz yöntemleri çağırır.
 
-Temel CRUD işlemleri ile kullanılacak oluşturma sınıfı yanı sıra `ObjectDataSource` denetimi, iş mantığı yürütmek gerekebilir, `ObjectDataSource` okur veya verileri güncelleştirir. Örneğin, bir departman güncelleştirdiğinizde, birden fazla bölüm Yöneticisi bir kişinin olamayacağı için hiçbir diğer bölümler aynı yönetici olduğunu doğrulamak gerekebilir.
+Temel CRUD işlemlerinin yanı sıra, `ObjectDataSource` denetimi ile kullanmak için oluşturduğunuz sınıfın, `ObjectDataSource` verileri okurken veya güncelleştirtığında iş mantığını yürütmesi gerekebilir. Örneğin, bir departmanı güncelleştirdiğinizde, bir kişi birden fazla departmanın yöneticisi olmadığından başka hiçbir departmanın aynı yöneticiye sahip olmadığını doğrulamanız gerekebilir.
 
-Bazı `ObjectDataSource` belgeleri, gibi [ObjectDataSource sınıfına genel bakış](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx), bir sınıf olarak adlandırılan Denetim çağrıları bir *iş nesnesi* hem iş mantığı ve veri erişim mantığı içerir . Bu öğreticide, veri erişim mantığını ve iş mantığı için ayrı sınıfları oluşturacaksınız. Veri erişim mantığı kapsülleyen sınıftır adlı bir *depo*. İş mantığı sınıfı, hem iş mantığı ve veri erişim yöntemleri içerir, ancak veri erişim görevleri gerçekleştirmek için depo veri erişim yöntemlerine çağırın.
+[ObjectDataSource sınıfına genel bakış](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx)gibi bazı `ObjectDataSource` belgelerde, Denetim hem iş mantığı hem de veri erişim mantığını içeren bir *iş nesnesi* olarak adlandırılan bir sınıfı çağırır. Bu öğreticide, iş mantığı ve veri erişim mantığı için ayrı sınıflar oluşturacaksınız. Veri erişim mantığını kapsülleyen sınıfına bir *Depo*denir. İş mantığı sınıfı hem iş mantığı yöntemlerini hem de veri erişim yöntemlerini içerir, ancak veri erişim yöntemleri, veri erişim görevlerini gerçekleştirmek için depoyu çağırır.
 
-BLL ve DAL otomatik birim kolaylaştıran arasında bir soyutlama katmanı da oluşturacağınız BLL test etme. Bu Soyutlama Katmanı, bir arabirim oluşturma ve iş mantığı sınıfı depoda başlattığınızda arabirimi kullanılarak uygulanır. Depo arabirimi uygulayan herhangi bir nesneye bir başvuru ile iş mantığı sınıfı sağlamanızı mümkün kılar. Normal işlem için Entity Framework ile birlikte çalışan bir depo nesnesi sağlayın. Test etmek için kolayca, koleksiyon olarak tanımlanan sınıfı değişkenleri gibi işleyebileceğiniz şekilde depolanan verilerle çalışan bir depo nesnesi sağlayın.
+BLL ve DAL arasında BLL 'nin otomatik birim testlerini kolaylaştıran bir soyutlama katmanı da oluşturacaksınız. Bu soyutlama katmanı, bir arabirim oluşturup iş mantığı sınıfında depoyu örneklediğinizde arabirim kullanılarak uygulanır. Bu, iş mantığı sınıfını depo arabirimini uygulayan herhangi bir nesneye başvuru ile sağlamanızı mümkün kılar. Normal işlem için Entity Framework birlikte çalışarak bir depo nesnesi sağlarsınız. Test için, Koleksiyonlar olarak tanımlanan sınıf değişkenleri gibi kolayca işleyebileceğiniz bir şekilde depolanan verilerle birlikte çalışarak bir depo nesnesi sağlarsınız.
 
-Aşağıdaki çizimde, bir depo veri erişim mantığını içeren bir iş mantığı sınıf ve bir depo kullanan bir arasındaki farkı gösterir.
+Aşağıdaki çizimde, bir depo olmadan ve bir depoyu kullanan veri erişim mantığını içeren bir iş mantığı sınıfı arasındaki fark gösterilmektedir.
 
 [![Image05](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image1.png)
 
-Web sayfaları, oluşturarak başlar `ObjectDataSource` denetim yalnızca temel veri erişim görevleri gerçekleştirdiğinden doğrudan bir depoya bağlı. Sonraki öğreticide Doğrulama mantığı ile iş mantığı sınıfı oluşturacak ve bağlama `ObjectDataSource` yerine bu sınıf bir depo sınıfına denetimi. Doğrulama mantığı için birim testleri de oluşturur. Bu serideki üçüncü öğreticide sıralama ve filtreleme işlevselliği uygulamaya ekleyeceksiniz.
+Yalnızca temel veri erişim görevlerini gerçekleştirdiğinden, `ObjectDataSource` denetiminin doğrudan bir depoya bağlandığı Web sayfaları oluşturarak başlarsınız. Sonraki öğreticide, doğrulama mantığı ile bir iş mantığı sınıfı oluşturacak ve `ObjectDataSource` denetimini depo sınıfı yerine bu sınıfa bağlayacaksınız. Ayrıca doğrulama mantığı için birim testleri de oluşturacaksınız. Bu serideki üçüncü öğreticide, uygulamaya sıralama ve filtreleme işlevlerini ekleyeceksiniz.
 
-Bu öğreticide oluşturduğunuz sayfaları çalışın `Departments` , oluşturduğunuz veri modeli varlık kümesini [başlangıç öğretici serisinin](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md).
+Bu öğreticide oluşturduğunuz sayfalar, [Başlarken öğretici serisinde](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)oluşturduğunuz veri modeli `Departments` varlık kümesiyle çalışır.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image3.png)
 
 [![Image02](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image5.png)
 
-## <a name="updating-the-database-and-the-data-model"></a>Veritabanı ve veri modelini güncelleştirme
+## <a name="updating-the-database-and-the-data-model"></a>Veritabanını ve veri modelini güncelleştirme
 
-İkisi de gerektiren oluşturduğunuz veri modeline karşılık gelen değişiklikleri veritabanına iki değişiklik yaparak Bu öğretici başlayacak [Entity Framework ve Web Forms ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) öğreticiler. Bu öğreticiler her birinde, veri modeli veritabanı ile bir veritabanı değişiklikten sonra el ile eşitlemek için tasarımcıda yapılan değişiklikler. Bu öğreticide tasarımcının kullanacağınız **veritabanından modeli güncelleştirme** veri modeli otomatik olarak güncelleştirmek için aracı.
+Bu öğreticide, her ikisi de [Entity Framework ve Web Forms öğreticileri Ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) bölümünde oluşturduğunuz veri modelinde ilgili değişiklikler gerektiren veritabanında iki değişiklik yaparak başlayacaksınız. Bu öğreticilerden birinde, bir veritabanı değişikliğinden sonra tasarımcıda veri modelini veritabanı ile senkronize etmek için el ile değişiklikler yaptınız. Bu öğreticide, veri modelini otomatik olarak güncelleştirmek için tasarımcı 'nın **veritabanı aracından güncelleştirme modelini** kullanacaksınız.
 
-### <a name="adding-a-relationship-to-the-database"></a>Veritabanına ilişki ekleme
+### <a name="adding-a-relationship-to-the-database"></a>Veritabanına Ilişki ekleme
 
-Visual Studio'da oluşturduğunuz Contoso University web uygulamasını açın [Entity Framework ve Web Forms ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) açın ve öğretici serisinin `SchoolDiagram` veritabanı diyagramı.
+Visual Studio 'da, [Entity Framework ve Web Forms](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) öğretici serisini kullanmaya Başlarken bölümünde oluşturduğunuz Contoso University Web uygulamasını açın ve ardından `SchoolDiagram` veritabanı diyagramını açın.
 
-Bakarsanız `Department` tablo veritabanı diyagramında sahip olduğunu göreceksiniz bir `Administrator` sütun. Bu sütun olduğundan yabancı anahtar `Person` tablosu, ancak herhangi bir yabancı anahtar ilişkisi veritabanında tanımlanır. İlişki oluşturma ve veri modelini güncelleştirme, Entity Framework otomatik olarak bu ilişkiyi işleyebilmesi gerekir.
+Veritabanı diyagramında `Department` tabloya bakarsanız, bir `Administrator` sütunu olduğunu görürsünüz. Bu sütun `Person` tablo için bir yabancı anahtardır, ancak veritabanında yabancı anahtar ilişkisi tanımlanmamıştır. Entity Framework ilişkiyi oluşturmanız ve veri modelini güncelleştirmeniz gerekir. böylece, bu ilişkiyi otomatik olarak işleyebilir.
 
-Veritabanı diyagramında, sağ `Department` tablosuna sağ tıklayıp seçin **ilişkileri**.
+Veritabanı diyagramında `Department` tablosuna sağ tıklayıp **ilişkiler**' i seçin.
 
 [![Image80](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image8.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image7.png)
 
-İçinde **yabancı anahtar ilişkilerini** kutusunu tıklatıp **Ekle**, sonra üç nokta simgesine tıklayın **tablolar ve sütunlar belirtimi**.
+**Yabancı anahtar ilişkileri** kutusunda **Ekle**' ye tıklayın **ve ardından tablolar ve sütunlar belirtimi**için üç nokta simgesine tıklayın.
 
 [![Image81](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image9.png)
 
-İçinde **tablolar ve sütunlar** iletişim kutusunda, birincil anahtar tablosu ayarlama ve alan `Person` ve `PersonID`, yabancı anahtar tablosu ayarlama ve alan `Department` ve `Administrator`. (Bunu yaptığınızda, ilişki adı çıkacak `FK_Department_Department` için `FK_Department_Person`.)
+**Tablolar ve sütunlar** iletişim kutusunda, birincil anahtar tablo ve alanı `Person` ve `PersonID`olarak ayarlayın ve yabancı anahtar tablosunu ve alanını `Department` ve `Administrator`olarak ayarlayın. (Bunu yaptığınızda, ilişki adı `FK_Department_Department` `FK_Department_Person`olarak değişir.)
 
 [![Image82](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image11.png)
 
-Tıklayın **Tamam** içinde **tablolar ve sütunlar** kutusunun **Kapat** içinde **yabancı anahtar ilişkilerini** kutusunda ve değişiklikleri kaydedin. Kaydetmek isteyip istemediğiniz sorulursa `Person` ve `Department` tablolar tıklayın **Evet**.
+**Tablolar ve sütunlar** kutusunda **Tamam** ' a tıklayın, **yabancı anahtar ilişkileri** kutusunda **Kapat** ' a tıklayın ve değişiklikleri kaydedin. `Person` ve `Department` tabloları kaydetmek isteyip istemediğiniz sorulursa **Evet**' e tıklayın.
 
 > [!NOTE]
-> Silmiş olduğunuz varsa `Person` kullanılmakta olan verilere karşılık gelen satır `Administrator` sütun olmayacaktır bu değişikliği kaydetmek kullanabilirsiniz. Bu durumda, tablo Düzenleyicisi'nde kullanmak **Sunucu Gezgini** emin olmak için `Administrator` değerini her `Department` satır gerçekten var olan bir kayıt Kimliğini içeren `Person` tablo.
+> Zaten `Administrator` sütununda bulunan verilere karşılık gelen `Person` satırları sildiyseniz, bu değişikliği kaydedemezsiniz. Bu durumda, her `Department` satırdaki `Administrator` değerin `Person` tablosunda gerçekten mevcut olan bir kaydın KIMLIĞINI içerdiğinden emin olmak için **Sunucu Gezgini** ' deki tablo düzenleyicisini kullanın.
 > 
-> Değişiklikleri kaydettikten sonra bir satırdan silmek mümkün olmayacaktır `Person` söz konusu kişinin bir departman Yöneticisi ise tablo. Bir üretim uygulamasında belirli bir hata iletisi sağlandığından veritabanı kısıtlaması bir silme işlemi engeller ya da art arda silineceğini belirtmeniz gerekir. Art arda silineceğini belirtin ilişkin bir örnek için bkz: [Entity Framework ve ASP.NET – bölüm 2 kullanmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md).
+> Değişikliği kaydettikten sonra, bu kişi bir Departman Yöneticisi ise `Person` tablosundan bir satırı silemezsiniz. Bir üretim uygulamasında, bir veritabanı kısıtlaması silmeyi engellediğinde veya bir geçişli silme belirttiğinizde belirli bir hata iletisi sağlarsınız. Basamaklı silme Işlemi belirtmeye ilişkin bir örnek için, [Entity Framework ve ASP.net – Başlarken Bölüm 2](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2.md)' ye bakın.
 
-### <a name="adding-a-view-to-the-database"></a>Veritabanına bir görünüm ekleme
+### <a name="adding-a-view-to-the-database"></a>Veritabanına görünüm ekleme
 
-Yeni *Departments.aspx* oluşturacağınız sayfasında, istediğiniz kullanıcıları departman yöneticilerinin seçebilmeniz için "Soyadı" biçiminde adlara sahip eğitmenler, aşağı açılan listesini sağlar. Bunu daha kolay hale getirmek için veritabanında bir görünüm oluşturur. Görünüm açılır listeyi gerekli verileri oluşur: (doğru şekilde biçimlendirildiğini) tam adı ve kayıt anahtarı.
+Oluşturmakta olduğunuz yeni *Departmanlar. aspx* sayfasında, kullanıcıların departman yöneticileri seçmesini sağlamak için "son, birinci" biçimdeki adlara sahip bir-aşağı açılan liste sağlamak istiyorsunuz. Bunu daha kolay hale getirmek için veritabanında bir görünüm oluşturacaksınız. Görünüm yalnızca açılan liste için gereken verilerden oluşur: tam ad (düzgün şekilde biçimlendirildi) ve kayıt anahtarı.
 
-İçinde **Sunucu Gezgini**, genişletin *School.mdf*, sağ **görünümleri** klasörü ve select **Yeni Görünüm Ekle**.
+**Sunucu Gezgini**, *okul. mdf*' yi genişletin, **Görünümler** klasörüne sağ tıklayın ve **Yeni Görünüm Ekle**' yi seçin.
 
 [![Image06](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image13.png)
 
-Tıklayın **Kapat** olduğunda **Tablo Ekle** iletişim kutusu görünür ve aşağıdaki SQL deyimini SQL bölmesine yapıştırın:
+**Tablo Ekle** iletişim kutusu göründüğünde **Kapat** ' a tıklayın ve aşağıdaki SQL ifadesini SQL bölmesine yapıştırın:
 
 [!code-sql[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample1.sql)]
 
-Görünüm olarak kaydedebilirsiniz `vInstructorName`.
+Görünümü `vInstructorName`olarak kaydedin.
 
 ### <a name="updating-the-data-model"></a>Veri modeli güncelleştiriliyor
 
-İçinde *DAL* açık klasör *SchoolModel.edmx* dosya, tasarım yüzeyine sağ tıklayın ve seçin **veritabanından bir güncelleştirme modeli**.
+*Dal* klasöründe *SchoolModel. edmx* dosyasını açın, tasarım yüzeyine sağ tıklayın ve **modeli Güncelleştir**' i seçin.
 
 [![Image07](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image16.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image15.png)
 
-İçinde **veritabanı nesnelerinizi seçin** iletişim kutusunda **Ekle** sekme ve yeni oluşturduğunuz görünümü seçin.
+**Veritabanı nesnelerinizi seçin** Iletişim kutusunda **Ekle** sekmesini seçin ve yeni oluşturduğunuz görünümü seçin.
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image17.png)
 
 **Son**'a tıklayın.
 
-Tasarımcısı'nda, araç oluşturulan görürsünüz. bir `vInstructorName` varlık ve arasında yeni bir ilişki `Department` ve `Person` varlıklar.
+Tasarımcıda, aracın bir `vInstructorName` varlık oluşturduğunu ve `Department` ile `Person` varlıkları arasında yeni bir ilişki oluşturduğunu görürsünüz.
 
 [![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image19.png)
 
 > [!NOTE]
-> İçinde **çıkış** ve **hata listesi** windows araç birincil otomatik olarak oluşturulan bildiren bir uyarı iletisi görebilirsiniz ve yeni anahtar `vInstructorName` görünümü. Bu beklenen bir davranıştır.
+> **Çıkış** ve **hata listesi** Windows 'ta, aracın yeni `vInstructorName` görünümü için otomatik olarak bir birincil anahtar oluşturduğunu bildiren bir uyarı iletisi görebilirsiniz. Bu beklenen bir davranıştır.
 
-Ne zaman başvuru yeni `vInstructorName` varlık kodda istemediğiniz bir küçük harf "v", önek, veritabanı kuralını kullanır. Bu nedenle, varlık ve varlık kümesi modelde adlandırır.
+Koddaki yeni `vInstructorName` varlığına başvurduğunuzda, daha düşük bir "v" örneğine önek olarak eklemek istemediğiniz veritabanı kuralını kullanmak istemezsiniz. Bu nedenle, modeldeki varlık ve varlık kümesini yeniden adlandırmanız gerekir.
 
-Açık **Model tarayıcı**. Gördüğünüz `vInstructorName` bir varlık türü ve bir görünüm listelenir.
+**Model tarayıcısını**açın. Bir varlık türü ve görünüm olarak listelenmiş `vInstructorName` görürsünüz.
 
-[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image21.png)
+[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image21.png)
 
-Altında **SchoolModel** (değil **SchoolModel.Store**), sağ **vInstructorName** seçip **özellikleri**. İçinde **özellikleri** penceresinde değişiklik **adı** özelliğini "InstructorName" ve değişiklik **varlık kümesi adı** "InstructorNames" özelliği.
+**SchoolModel** ( **SchoolModel. Store**değil) altında **vkomutctorname** öğesine sağ tıklayın ve **Özellikler**' i seçin. **Özellikler** penceresinde, **ad** özelliğini "komutadı" olarak değiştirin ve **varlık kümesi adı** özelliğini "komutctornames" olarak değiştirin.
 
 [![Image15](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image24.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image23.png)
 
-Kaydet ve veri modelini kapatın ve ardından projeyi yeniden derleyin.
+Veri modelini kaydedip kapatın ve ardından projeyi yeniden derleyin.
 
-## <a name="using-a-repository-class-and-an-objectdatasource-control"></a>Bir depo sınıfına ve ObjectDataSource Denetimi kullanma
+## <a name="using-a-repository-class-and-an-objectdatasource-control"></a>Bir depo sınıfı ve ObjectDataSource denetimi kullanma
 
-Yeni bir sınıf dosyası oluşturma *DAL* klasörünü adlandırın *SchoolRepository.cs*, mevcut kodu şu kodla değiştirin:
+*Dal* klasöründe yeni bir sınıf dosyası oluşturun, *SchoolRepository.cs*olarak adlandırın ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample2.cs)]
 
-Bu kod bir tek sağlar `GetDepartments` tüm varlık döndüren yöntem `Departments` varlık kümesi. Erişecek olduğunu bildiğiniz `Person` her satır için gezinme özelliği döndürdü, belirttiğiniz için bu özelliği kullanarak yükleme istekli `Include` yöntemi. Sınıfı ayrıca uygulayan `IDisposable` nesne çıkarıldığından, veritabanı bağlantısını yayımlanan emin olmak için arabirim.
+Bu kod, `Departments` varlık kümesindeki tüm varlıkları döndüren tek bir `GetDepartments` yöntemi sağlar. Döndürülen her satır için `Person` gezinti özelliğine erişeceğimizi bildiğiniz için, bu özellik için `Include` metodunu kullanarak Eager yükleme belirtirsiniz. Sınıfı, nesne atıldığı zaman veritabanı bağlantısının serbest olduğundan emin olmak için `IDisposable` arabirimini de uygular.
 
 > [!NOTE]
-> Her varlık türü için bir depo sınıfına oluşturma yaygın bir uygulamadır. Bu öğreticide, bir depo sınıfına birden çok varlık türleri için kullanılır. Gönderi depo düzeni hakkında daha fazla bilgi için bkz. [Entity Framework ekip blogu](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) ve [Julie Lerman'ın blog](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/).
+> Ortak bir uygulama, her varlık türü için bir depo sınıfı oluşturmaktır. Bu öğreticide, birden çok varlık türü için bir depo sınıfı kullanılır. Depo deseninin hakkında daha fazla bilgi için, [Entity Framework ekibin blogundan](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) ve [Julie Lerman 'ın blogdaki](http://thedatafarm.com/blog/data-access/agile-ef4-repository-part-3-fine-tuning-the-repository/)gönderilere bakın.
 
-`GetDepartments` Yöntemi döndürür bir `IEnumerable` nesne yerine `IQueryable` bile depo nesne bırakıldıktan sonra döndürülen koleksiyon kullanılabilir olmasını sağlamak için nesne. Bir `IQueryable` nesne, erişilen, ancak veri bağlama denetimi çalışır verileri işlemek için zaman deposu nesnesi atıldı her veritabanı erişimi neden olabilir. Başka bir koleksiyon türü gibi döndürebilir bir `IList` yerine Nesne bir `IEnumerable` nesne. Ancak, döndüren bir `IEnumerable` nesne sağlar tipik salt okunur listesi işleme görevlerini gibi gerçekleştirebilirsiniz `foreach` döngüler ve LINQ sorguları ancak ekleyemez veya bu tür değişiklikleri İmparatoru olduğunu ima edecek koleksiyondaki öğeleri Kaldır veritabanına kalıcı.
+`GetDepartments` yöntemi, döndürülen koleksiyonun depo nesnesinin kendisi atıldıktan sonra bile kullanılabilir olduğundan emin olmak için bir `IQueryable` nesnesi yerine bir `IEnumerable` nesnesi döndürür. Bir `IQueryable` nesnesi, her erişildiğinde veritabanı erişimine neden olabilir, ancak depo nesnesi veri bağlama denetiminin verileri işlemeye çalıştığı zamana göre atılabilir. `IEnumerable` nesnesi yerine `IList` nesnesi gibi başka bir koleksiyon türü döndürebilirsiniz. Ancak, bir `IEnumerable` nesnesi döndürmek, `foreach` döngüleri ve LINQ sorguları gibi tipik salt okuma listesi işleme görevlerini gerçekleştirmenize olanak sağlar, ancak bu tür değişikliklerin veritabanına kalıcı olabileceğini belirten, koleksiyonda öğe ekleyemez veya kaldırabilirsiniz.
 
-Oluşturma bir *Departments.aspx* kullanan sayfa *Site.Master* ana sayfa ve ekleme aşağıdaki biçimlendirmede `Content` adlı Denetim `Content2`:
+*Site. Master* ana sayfasını kullanan bir *Departmanlar. aspx* sayfası oluşturun ve `Content2`adlı `Content` denetimine aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample3.aspx)]
 
-Bu biçimlendirme oluşturur bir `ObjectDataSource` az önce oluşturduğunuz depo sınıfını kullanan denetimi ve bir `GridView` verileri görüntülemek için denetim. `GridView` Denetimi belirtir **Düzenle** ve **Sil** komutları, ancak henüz eklediğiniz henüz desteklemek için kod.
+Bu biçimlendirme, az önce oluşturduğunuz depo sınıfını ve verileri görüntüleyen bir `GridView` denetimini kullanan bir `ObjectDataSource` denetimi oluşturur. `GridView` denetimi **Düzenle** ve **Sil** komutlarını belirtir, ancak henüz desteklemek için kod eklemediniz.
 
-Çeşitli sütunları kullanın `DynamicField` otomatik veri biçimlendirme ve doğrulama işlevini yararlanabilir, böylece denetler. Bu iş çağrı gerekecektir `EnableDynamicData` yönteminde `Page_Init` olay işleyicisi. (`DynamicControl` denetimleri içinde kullanılmaz `Administrator` bunlar Gezinti özellikleri ile çalışmaz çünkü alan.)
+Çeşitli sütunlarda `DynamicField` denetimleri kullanılarak otomatik veri biçimlendirme ve doğrulama işlevlerinin avantajlarından yararlanabilirsiniz. Bunların çalışması için, `Page_Init` olay işleyicisinde `EnableDynamicData` yöntemini çağırmanız gerekir. (`DynamicControl` denetimleri, gezinti özellikleriyle çalışmadıklarından `Administrator` alanında kullanılmaz.)
 
-`Vertical-Align="Top"` Öznitelikleri olacak önemli daha sonra iç içe bir sahip bir sütunu eklediğinizde `GridView` kılavuz denetimi.
+Kılavuza iç içe `GridView` denetimine sahip bir sütun eklediğinizde `Vertical-Align="Top"` öznitelikleri daha sonra önemli hale gelir.
 
-Açık *Departments.aspx.cs* dosyasını açıp aşağıdaki `using` deyimi:
+*Departments.aspx.cs* dosyasını açın ve aşağıdaki `using` ifadesini ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample4.cs)]
 
-Sayfanın aşağıdaki işleyicisi eklersiniz `Init` olay:
+Ardından sayfanın `Init` olayı için aşağıdaki işleyiciyi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample5.cs)]
 
-İçinde *DAL* klasöründe adlı yeni bir sınıf dosyası oluşturma *Department.cs* ve varolan kodu aşağıdaki kodla değiştirin:
+*Dal* klasöründe, *Department.cs* adlı yeni bir sınıf dosyası oluşturun ve mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample6.cs)]
 
-Bu kod, meta verileri veri modeline ekler. Belirtir `Budget` özelliği `Department` varlık temsil para veri türü olmasına rağmen `Decimal`, ve değeri 0 ile $1,000,000.00 arasında olması gerektiğini belirtir. Ayrıca, belirtir `StartDate` özelliği bir tarih biçimini aa/gg/yyyy olarak biçimlendirilmelidir.
+Bu kod, veri modeline meta veri ekler. `Department` varlığının `Budget` özelliğinin, veri türü `Decimal`olsa da para birimini temsil ettiğini belirtir ve değerin 0 ile $1.000.000,00 arasında olması gerektiğini belirtir. Ayrıca, `StartDate` özelliğinin aa/gg/yyyy biçiminde bir tarih olarak biçimlendirilmesi gerektiğini belirtir.
 
-Çalıştırma *Departments.aspx* sayfası.
+*Departmanlar. aspx* sayfasını çalıştırın.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image26.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image25.png)
 
-Bir biçim dizesinde belirtmedi rağmen dikkat *Departments.aspx* sayfa biçimlendirmesi için **bütçe** veya **başlangıç tarihi** sütunlar varsayılan para birimi ve tarih bunlara göre biçimlendirme uygulanmış `DynamicField` denetimleri içinde sağlanan meta verileri kullanarak *Department.cs* dosya.
+*Departmanlar. aspx* veya **Başlangıç tarihi** sütunları için bir biçim dizesi belirtmemenizin yanı sıra, *Department.cs* dosyasında sağladığınız meta veriler kullanılarak bunlara `DynamicField` denetimleri tarafından varsayılan para birimi ve Tarih biçimlendirme uygulanmış olmasına dikkat edin.
 
-## <a name="adding-insert-and-delete-functionality"></a>Ekleme INSERT ve Delete işlevleri
+## <a name="adding-insert-and-delete-functionality"></a>INSERT ve DELETE Işlevleri ekleme
 
-Açık *SchoolRepository.cs*, oluşturmak için aşağıdaki kodu ekleyin. bir `Insert` yöntemi ve bir `Delete` yöntemi. Kod ayrıca adlı bir yöntem içerir `GenerateDepartmentID` tarafından kullanılmak üzere sonraki kullanılabilir kayıt anahtar değerini hesaplar `Insert` yöntemi. Veritabanı bu otomatik olarak hesaplamak için yapılandırılmadığından bu gereklidir `Department` tablo.
+*SchoolRepository.cs*'i açın, bir `Insert` yöntemi ve bir `Delete` yöntemi oluşturmak için aşağıdaki kodu ekleyin. Kod ayrıca, `Insert` yöntemi tarafından kullanılmak üzere bir sonraki kullanılabilir kayıt anahtarı değerini hesaplayan `GenerateDepartmentID` adlı bir yöntemi içerir. Bu, veritabanı `Department` tablosu için otomatik olarak hesaplanacak şekilde yapılandırılmadığı için gereklidir.
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample7.cs)]
 
 ### <a name="the-attach-method"></a>Attach yöntemi
 
-`DeleteDepartment` Yöntem çağrılarını `Attach` korunur bağlantıyı varlık bellek içinde ve veritabanı arasında nesne bağlamı'nın nesne durum Yöneticisi'nde yeniden oluşturmak için gereken yöntemini satır, temsil eder. Bu yöntem çağrıları önce gerçekleşmelidir `SaveChanges` yöntemi.
+`DeleteDepartment` yöntemi, bellekteki varlık ve temsil ettiği veritabanı satırı arasındaki nesne bağlamının nesne durumu yöneticisinde tutulan bağlantıyı yeniden oluşturmak için `Attach` yöntemini çağırır. Bu, yöntem `SaveChanges` yöntemini çağırmadan önce oluşmalıdır.
 
-Terim *nesne bağlamı* türetildiği Entity Framework sınıfı başvurduğu `ObjectContext` varlık setleri ve varlıkları erişmek için kullandığınız sınıfı. Bu proje için kod içinde sınıf adlı `SchoolEntities`, ve her zaman bir örneğini adlı `context`. Nesne bağlamı'nın *nesne durum Yöneticisi* türetildiği bir sınıf olan `ObjectStateManager` sınıfı. Nesne kişi varlığı nesneleri depolamak için ve her birini karşılık gelen bir tablo satır veya veritabanındaki satırları eşit olup olmadığını izlemek için Nesne Durum Yöneticisi'ni kullanır.
+*Nesne bağlamı* terimi, varlık kümelerinize ve varlıklarınızı erişmek için kullandığınız `ObjectContext` sınıfından türetilen Entity Framework sınıfına başvurur. Bu projenin kodunda, sınıfı `SchoolEntities`olarak adlandırılır ve bir örneği her zaman `context`olarak adlandırılır. Nesne bağlamının *nesne durumu Yöneticisi* , `ObjectStateManager` sınıfından türetilen bir sınıftır. Nesne kişisi, varlık nesnelerini depolamak ve her birinin veritabanındaki karşılık gelen tablo satırı veya satırlarıyla uyumlu olup olmadığını izlemek için nesne durumu yöneticisini kullanır.
 
-Bir varlık okuduğunuzda nesne bağlamı nesne durum Yöneticisi'nde depolar ve o nesnenin gösterimini veritabanı ile eşitlenmiş olup olmadığını izler. Örneğin, bir özellik değeri değiştirirseniz, değiştirdiğiniz özelliği artık veritabanı ile eşit olduğunu belirtmek için bir bayrağı ayarlanır. Ardından çağırdığınızda `SaveChanges` yöntemi, nesne bağlamı bilen veritabanında nesne durum Yöneticisi tam olarak ne varlığın geçerli durumu ve veritabanının durumu arasında farklı olduğunu bildiğinden yapmanız gerekenler.
+Bir varlığı okuduğunuzda, nesne bağlamı nesneyi nesne durumu yöneticisinde depolar ve nesnenin gösteriminin veritabanıyla eşitlenmiş olup olmadığını izler. Örneğin, bir özellik değerini değiştirirseniz, değiştirdiğiniz özelliğin artık veritabanıyla eşitlenmeyeceğini belirten bir bayrak ayarlanır. Sonra, `SaveChanges` yöntemini çağırdığınızda nesne bağlamı, varlığın geçerli durumu ve veritabanının durumu arasında tam olarak nelerin farklı olduğunu bildiğinden, nesne bağlamı veritabanında ne yapılacağını bilir.
 
-Ancak, kendi nesne durum Yöneticisi her şeyi birlikte bir varlığını okur nesne bağlam örneği bir sayfa oluşturulduğunda elden çünkü bu işlem bir web uygulamasında, genellikle çalışmaz. Bu değişiklikleri uygulamalısınız nesne bağlamı geri gönderme işlemi için oluşturulan yeni bir örneğidir. Durumunda, `DeleteDepartment` yöntemi `ObjectDataSource` denetimi yeniden oluşturur varlığın özgün sürümle sizin için değerleri görünüm durumu, ancak bu yeniden oluşturulan `Department` varlık nesnesi durum Yöneticisi'nde mevcut değil. Aradığınız varsa `DeleteObject` bu yeniden oluşturulan varlık yönteminde, çağrı nesne bağlamı varlık veritabanı ile eşitlenmiş olup olmadığını bilmediğinden gösterilebilir. Ancak, çağırma `Attach` yöntemi yeniden kurar yeniden oluşturulan varlığın ve değerleri arasında aynı izleme varlık nesne bağlamı bir önceki örnekte okuduğunuzda başlangıçta otomatik olarak yapıldığı veritabanında.
+Ancak, bu işlem genellikle bir Web uygulamasında çalışmaz, çünkü bir varlığı okuyan nesne bağlamı örneği, nesne durum Yöneticisi 'ndeki her şeyi içeren bir sayfa işlendikten sonra atılmış olur. Değişiklikleri uygulamak gereken nesne bağlamı örneği, geri gönderme işlemi için oluşturulan yeni bir nesnedir. `DeleteDepartment` yöntemi söz konusu olduğunda, `ObjectDataSource` denetimi, varlığın özgün sürümünü görünüm durumundaki değerlerden yeniden oluşturur, ancak bu `Department` varlık nesne durumu yöneticisinde yok. Bu yeniden oluşturulan varlıkta `DeleteObject` yöntemini çağırdıysanız, nesne bağlamı varlığın veritabanıyla eşitlenmiş olup olmadığını bilmez, çağrı başarısız olur. Ancak `Attach` yöntemini çağırmak, yeniden oluşturulan varlık ve veritabanındaki değerler nesne bağlamının daha önceki bir örneğinde Okunmuşsa otomatik olarak gerçekleştirilen değerlerle aynı izlemeyi yeniden oluşturur.
 
-Ne zaman nesne durum Yöneticisi'nde varlıkları izlemek için nesne bağlamı istemediğiniz ve bayrakları, bunu önlemek için ayarlayabileceğiniz zamanlar vardır. Bu serideki sonraki öğreticilerde Bu örnekler gösterilmektedir.
+Nesne bağlamının nesne durumu yöneticisinde varlıkları izlemesini istemediğiniz zamanlar vardır ve bunu yapmasını engellemek için bayraklar ayarlayabilirsiniz. Bunun örnekleri, bu serideki sonraki öğreticilerde gösterilmiştir.
 
 ### <a name="the-savechanges-method"></a>SaveChanges yöntemi
 
-Bu basit bir depo sınıfına temel ilkelerini CRUD işlemlerini nasıl gerçekleştireceğinizi gösterir. Bu örnekte, `SaveChanges` yöntemi her güncelleştirmeden hemen sonra çağrılır. Bir üretim uygulamasında çağırmak isteyebilirsiniz `SaveChanges` veritabanı güncelleştirildiğinde üzerinde daha fazla denetim sağlamak için ayrı bir yöntem yöntemi. (Sonraki öğreticinin sonunda bir ilgili güncelleştirmeleri koordine bir yaklaşım olan çalışma deseni birimi incelemeyi bağlantısını bulabilirsiniz.) Örnekte ayrıca dikkat `DeleteDepartment` yöntemi eşzamanlılık çakışmalarını işleme kodunu içermez; bunun için kodu, bir sonraki Öğreticide bu serideki eklenir.
+Bu basit depo sınıfı, CRUD işlemlerinin nasıl gerçekleştirileceğininin temel ilkelerini gösterir. Bu örnekte, `SaveChanges` yöntemi her güncelleştirmeden hemen sonra çağrılır. Bir üretim uygulamasında, veritabanının güncelleştirildiği zaman üzerinde daha fazla denetim sağlamak için `SaveChanges` yöntemini ayrı bir yöntemden çağırmak isteyebilirsiniz. (Sonraki öğreticinin sonunda, ilgili güncelleştirmeleri koordine eden bir yaklaşım olan iş deseninin birimini açıklayan bir teknik incelemeye bağlantı bulacaksınız.) Ayrıca, `DeleteDepartment` yönteminin eşzamanlılık çakışmalarını işlemek için kod içermediğinden de dikkat edin; Bunu yapılacak kod, bu serinin sonraki bir öğreticiye eklenecektir.
 
-### <a name="retrieving-instructor-names-to-select-when-inserting"></a>Eklerken seçilecek Eğitmen adları alınıyor
+### <a name="retrieving-instructor-names-to-select-when-inserting"></a>Ekleme sırasında seçilecek eğitmen adlarını alma
 
-Yeni bölümler oluşturulurken Eğitmenler aşağı açılan listesinde listesinden bir yönetici seçin olması gerekir. Bu nedenle, aşağıdaki kodu ekleyin *SchoolRepository.cs* daha önce oluşturduğunuz görünümünü kullanarak Eğitmenler listesini almak için bir yöntem oluşturmak için:
+Kullanıcılar, yeni departmanlar oluştururken açılan listede bir eğitmenler listesinden yönetici seçebilmelidir. Bu nedenle, daha önce oluşturduğunuz görünümü kullanarak eğitmenler listesini almak üzere bir yöntem oluşturmak için *SchoolRepository.cs* 'e aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample8.cs)]
 
 ### <a name="creating-a-page-for-inserting-departments"></a>Departmanlar eklemek için bir sayfa oluşturma
 
-Oluşturma bir *DepartmentsAdd.aspx* kullanan sayfa *Site.Master* sayfa ve ekleme aşağıdaki biçimlendirmede `Content` adlı Denetim `Content2`:
+*Site. Master* sayfasını kullanan bir *DepartmentsAdd. aspx* sayfası oluşturun ve `Content2`adlı `Content` denetimine aşağıdaki biçimlendirmeyi ekleyin:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample9.aspx)]
 
-Bu işaretleme iki oluşturur `ObjectDataSource` denetleyen yeni eklemek için bir tane `Department` varlıkları ve bir eğitmen adlarını almak için `DropDownList` departman yöneticilerinin seçmek için kullanılan bir denetim. Biçimlendirme oluşturur bir `DetailsView` yeni bölümler ve denetim için bir işleyici belirtir denetimi `ItemInserting` olay ayarlayabilirsiniz böylece `Administrator` yabancı anahtar değeri. Sonunda olduğu bir `ValidationSummary` hata iletileri görüntülemek için denetimi.
+Bu biçimlendirme, biri yeni `Department` varlıkları eklemek için bir diğeri ve bölüm yöneticileri seçmek için kullanılan `DropDownList` denetimine yönelik eğitmen adlarını almak için bir tane olmak üzere iki `ObjectDataSource` denetimi oluşturur. Biçimlendirme, yeni departmanlar girmeye yönelik bir `DetailsView` denetimi oluşturur ve `Administrator` yabancı anahtar değerini ayarlayabilmeniz için denetimin `ItemInserting` olayı için bir işleyici belirtir. Sonda, hata iletilerini göstermek için bir `ValidationSummary` denetimidir.
 
-Açık *DepartmentsAdd.aspx.cs* ve aşağıdakileri ekleyin `using` deyimi:
+*DepartmentsAdd.aspx.cs* açın ve aşağıdaki `using` ifadesini ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample10.cs)]
 
-Aşağıdaki sınıf değişkeni ve yöntemleri ekleyin:
+Aşağıdaki sınıf değişkenini ve yöntemleri ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample11.cs)]
 
-`Page_Init` Yöntemi dinamik veri işlevini etkinleştirir. İşleyici için `DropDownList` denetimin `Init` olayı kaydeder denetim ve işleyici için bir başvuru `DetailsView` denetimin `Inserting` olay almak için bu başvuru kullanır `PersonID` değerini seçilen Eğitmen ve güncelleştirme `Administrator` yabancı anahtar özelliğine `Department` varlık.
+`Page_Init` yöntemi dinamik veri işlevlerini etkin bir şekilde sunar. `DropDownList` denetiminin `Init` olayının işleyicisi denetime bir başvuru kaydeder ve `DetailsView` denetiminin `Inserting` olayı için bu başvuruyu, seçilen eğitmenin `PersonID` değerini almak ve `Administrator` varlığının `Department` yabancı anahtar özelliğini güncelleştirmek için kullanır.
 
-Çalıştırırsanız, yeni bir bölüm bilgilerini ekleyin ve ardından **Ekle** bağlantı.
+Sayfayı çalıştırın, yeni bir departman için bilgi ekleyin ve sonra **Ekle** bağlantısına tıklayın.
 
 [![Image04](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image28.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image27.png)
 
-Başka bir yeni bölümü için değerleri girin. İçinde 1,000,000.00'den büyük bir sayı girin **bütçe** alan ve sonraki alana için sekmesinde. Alanında bir yıldız işareti görünür ve üzerine fare işaretçisini tutarsanız, meta verilerde Bu alan için girdiğiniz hata iletisini görebilirsiniz.
+Başka bir yeni departman için değerler girin. **Bütçe** alanına 1.000.000,00 'den büyük bir sayı girin ve sonraki alana sekmeye geçin. Alanda bir yıldız işareti görünür ve fare işaretçisini onun üzerine tutarsanız, bu alanın meta verilerinde girdiğiniz hata iletisini görebilirsiniz.
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image30.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image29.png)
 
-Tıklayın **Ekle**, ve tarafından görüntülenen hata iletisini gördüğünüz `ValidationSummary` sayfanın alt kısmındaki denetim.
+**Ekle**' ye tıklayın ve sayfanın alt kısmındaki `ValidationSummary` denetimi tarafından görüntülendiğini görürsünüz.
 
-[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image32.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image31.png)
+[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image32.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image31.png)
 
-Ardından, tarayıcıyı kapatın ve açın *Departments.aspx* sayfası. Silme yeteneği ekleme *Departments.aspx* sayfası ekleyerek bir `DeleteMethod` özniteliğini `ObjectDataSource` denetimi ve bir `DataKeyNames` özniteliğini `GridView` denetimi. Bu denetimler için açılış etiketleri, artık aşağıdaki örneğe benzer:
+Sonra, tarayıcıyı kapatın ve *Departmanlar. aspx* sayfasını açın. `ObjectDataSource` denetimine bir `DeleteMethod` özniteliği ve `GridView` denetimine `DataKeyNames` özniteliğini ekleyerek *Departmanlar. aspx* sayfasına Delete özelliği ekleyin. Bu denetimlerin açılış etiketleri artık aşağıdaki örneğe benzeyecektir:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample12.aspx)]
 
@@ -255,66 +255,66 @@ Sayfayı çalıştırın.
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image34.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image33.png)
 
-Çalıştırdığınızda eklediğiniz bölüm silme *DepartmentsAdd.aspx* sayfası.
+*DepartmentsAdd. aspx* sayfasını çalıştırdığınızda eklediğiniz departmanı silin.
 
-## <a name="adding-update-functionality"></a>Güncelleştirme işlevsellik ekleme
+## <a name="adding-update-functionality"></a>Güncelleştirme Işlevselliği ekleniyor
 
-Açık *SchoolRepository.cs* ve aşağıdakileri ekleyin `Update` yöntemi:
+*SchoolRepository.cs* 'i açın ve aşağıdaki `Update` yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample13.cs)]
 
-Tıkladığınızda **güncelleştirme** içinde *Departments.aspx* sayfasında `ObjectDataSource` denetimi oluşturur iki `Department` geçirmek için varlıklar `UpdateDepartment` yöntemi. Görünüm durumuna depolanan özgün değerleri içerir ve diğeri içindeki girilen yeni değerleri içeren `GridView` denetimi. Kodda `UpdateDepartment` yöntemi geçişleri `Department` özgün değerlerine olan varlık `Attach` varlık arasındaki veritabanında nedir izleme kurabilmek için yöntemi. Kod geçirmeden sonra `Department` için yeni değerleri olan varlık `ApplyCurrentValues` yöntemi. Nesne bağlamı, eski ve yeni değerlerini karşılaştırır. Yeni bir değer eski bir değerden farklı ise, nesne bağlamı özellik değerini değiştirir. `SaveChanges` Yöntemi ardından yalnızca değiştirilen sütun veritabanında güncelleştirir. (Güncelleştirme işlevi bu varlık için bir saklı yordam için eşleştirilmiş, ancak tüm bir satırda bağımsız olarak, sütunların değiştirildi güncelleştirilecek.)
+*Departmanlar. aspx* sayfasında **Güncelleştir** ' e tıkladığınızda, `ObjectDataSource` denetimi `UpdateDepartment` yöntemine geçirilecek iki `Department` varlık oluşturur. Biri, Görünüm durumunda depolanan özgün değerleri içerir ve diğeri `GridView` denetimine girilen yeni değerleri içerir. `UpdateDepartment` yöntemindeki kod, varlık ve veritabanında neler olduğunu izlemek için özgün değerleri olan `Department` varlığını `Attach` yöntemine geçirir. Ardından kod, yeni değerleri olan `Department` varlığını `ApplyCurrentValues` yöntemine geçirir. Nesne bağlamı eski ve yeni değerleri karşılaştırır. Yeni bir değer eski bir değerden farklıysa, nesne bağlamı özellik değerini değiştirir. `SaveChanges` yöntemi daha sonra yalnızca veritabanında değiştirilen sütunları güncelleştirir. (Ancak, bu varlık için güncelleştirme işlevi bir saklı yordamla eşlendiyse, hangi sütunların değiştirildiğine bakılmaksızın tüm satır güncelleştirilir.)
 
-Açık *Departments.aspx* dosyasını açıp aşağıdaki öznitelikleri eklemek `DepartmentsObjectDataSource` denetimi:
+*Departmanlar. aspx* dosyasını açın ve aşağıdaki öznitelikleri `DepartmentsObjectDataSource` denetimine ekleyin:
 
 - `UpdateMethod="UpdateDepartment"`
 - `ConflictDetection="CompareAllValues"`   
- Böylece yeni değerleri karşılaştırılabilir olması için bu neden eski değerleri görünüm durumu depolanan `Update` yöntemi.
+ Bu, eski değerlerin `Update` yöntemindeki yeni değerlerle karşılaştırılabilmesi için Görünüm durumunda depolanmasına neden olur.
 - `OldValuesParameterFormatString="orig{0}"`   
- Bu özgün değer parametresi adını denetimi bildirir `origDepartment` .
+ Bu, denetimi özgün değerler parametresinin adının `origDepartment` olduğunu bildirir.
 
-Öğesinin açılış etiketinde için biçimlendirme `ObjectDataSource` denetimi artık aşağıdaki örnekte benzer:
+`ObjectDataSource` denetiminin açılış etiketi için olan biçimlendirme artık aşağıdaki örneğe benzer:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample14.aspx)]
 
-Ekleme bir `OnRowUpdating="DepartmentsGridView_RowUpdating"` özniteliğini `GridView` denetimi. Bunu ayarlamak için kullanacağınız `Administrator` aşağı açılan listede kullanıcının seçtiği satır temel özellik değeri. `GridView` Etiketiyle artık, aşağıdaki örnekte benzer şekilde görünür:
+`GridView` denetimine bir `OnRowUpdating="DepartmentsGridView_RowUpdating"` özniteliği ekleyin. Bunu, kullanıcının açılan listede seçtiği satıra göre `Administrator` özellik değerini ayarlamak için kullanacaksınız. `GridView` açma etiketi artık aşağıdaki örneğe benzer:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample15.aspx)]
 
-Ekleme bir `EditItemTemplate` için Denetim `Administrator` sütuna `GridView` hemen sonra Denetim `ItemTemplate` denetim söz konusu sütun için:
+`GridView` denetimine, bu sütun için `ItemTemplate` denetiminden hemen sonra `Administrator` sütunu için bir `EditItemTemplate` denetimi ekleyin:
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample16.aspx)]
 
-Bu `EditItemTemplate` denetim benzer `InsertItemTemplate` denetim *DepartmentsAdd.aspx* sayfası. Denetimin ilk değerini kullanarak ayarlandığını fark `SelectedValue` özniteliği.
+Bu `EditItemTemplate` denetim, *DepartmentsAdd. aspx* sayfasındaki `InsertItemTemplate` denetimine benzer. Fark, denetimin başlangıç değerinin `SelectedValue` özniteliği kullanılarak ayarlanmanızdır.
 
-Önce `GridView` ekleyin, denetimi bir `ValidationSummary` denetim yaptığınız gibi *DepartmentsAdd.aspx* sayfası.
+`GridView` denetiminden önce, *DepartmentsAdd. aspx* sayfasında yaptığınız gibi bir `ValidationSummary` denetimi ekleyin.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample17.aspx)]
 
-Açık *Departments.aspx.cs* ve parçalı sınıf bildiriminden hemen sonra başvurmak için özel bir alan oluşturmak için aşağıdaki kodu ekleyin `DropDownList` denetimi:
+*Departments.aspx.cs* açın ve kısmi sınıf bildiriminden hemen sonra, `DropDownList` denetimine başvurmak üzere özel bir alan oluşturmak için aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample18.cs)]
 
-Ardından işleyicileri ekleyin `DropDownList` denetimin `Init` olay ve `GridView` denetimin `RowUpdating` olay:
+Sonra `DropDownList` denetimin `Init` olayı ve `GridView` denetiminin `RowUpdating` olayı için işleyiciler ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/samples/sample19.cs)]
 
-İşleyici için `Init` olay başvuru kaydeder `DropDownList` sınıf alanı denetimi. İşleyici için `RowUpdating` olay başvurusu kullanıcının girdiği değer almak ve uygulamak için kullandığı `Administrator` özelliği `Department` varlık.
+`Init` olayının işleyicisi, sınıf alanındaki `DropDownList` denetimine bir başvuru kaydeder. `RowUpdating` olayının işleyicisi, kullanıcının girdiği değeri almak için başvurusunu kullanır ve `Department` varlığının `Administrator` özelliğine uygular.
 
-Kullanım *DepartmentsAdd.aspx* sayfasında yeni bir bölüm eklemek ve ardından çalıştırın *Departments.aspx* sayfasında ve tıklayın **Düzenle** eklediğiniz satırda.
+Yeni bir departman eklemek için *DepartmentsAdd. aspx* sayfasını kullanın, sonra *Departmanlar. aspx* sayfasını çalıştırın ve eklediğiniz satırda **Düzenle** ' ye tıklayın.
 
 > [!NOTE]
-> Eklemediğiniz satırları düzenlemeniz mümkün olmayacak (diğer bir deyişle, olduğunu zaten veritabanında), veritabanında geçersiz veriler nedeniyle Öğrenciler veritabanı ile oluşturulmuş olan satırlar için yöneticilerdir. Bunlardan biri düzenlemeye çalışırsanız, bir hata sayfası gibi bir hata raporları alırsınız. `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> Veritabanında geçersiz veriler nedeniyle, eklememiş olduğunuz satırları (yani veritabanında zaten var olan) düzenleyemeyeceksiniz; veritabanıyla oluşturulan satırların yöneticileri öğrencilerdir. Bunlardan birini düzenlemeye çalışırsanız, `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.` gibi bir hata raporlayan bir hata sayfası alacaksınız
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
 
-Geçersiz bir girerseniz **bütçe** tutar ve ardından **güncelleştirme**, aynı yıldız ve gördüğünüz hata iletisi görürsünüz *Departments.aspx* sayfası.
+Geçersiz bir **Bütçe** miktarı girip **Güncelleştir**' e tıklarsanız, *Departmanlar. aspx* sayfasında gördüğünüz yıldız ve hata iletisinin aynısını görürsünüz.
 
-Bir alanın değerini değiştirin veya farklı bir yönetici seçip tıklayın **güncelleştirme**. Değişiklik görüntülenir.
+Bir alan değerini değiştirin veya farklı bir yönetici seçip **Güncelleştir**' e tıklayın. Değişiklik görüntülenir.
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image38.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image37.png)
 
-Bu kullanmaya giriş tamamlar `ObjectDataSource` denetimi için temel CRUD (oluşturma, okuma, güncelleştirme ve silme) Entity Framework ile işlemleri. Bir basit n katmanlı uygulama derlediğinize göre ancak iş mantığı katmanı otomatik birim testi karmaşıklaştırır veri erişim katmanına hala sıkı bir şekilde bağlı. Aşağıdaki öğreticide birim testi kolaylaştırmak için depo düzeni nasıl uygulayacağınıza karar görürsünüz.
+Bu, Entity Framework ile temel CRUD (oluşturma, okuma, güncelleştirme, silme) işlemleri için `ObjectDataSource` denetimini kullanmaya giriş işlemini tamamlar. Basit n katmanlı bir uygulama oluşturdunuz, ancak iş mantığı katmanı, otomatik birim testini karmaşıklaştırır ve veri erişim katmanına sıkı bir şekilde bağlanmış. Aşağıdaki öğreticide, birim testini kolaylaştırmak için depo deseninin nasıl uygulanacağını göreceksiniz.
 
 > [!div class="step-by-step"]
 > [Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

@@ -9,11 +9,11 @@ ms.assetid: dd1be137-91c5-47a8-8137-fecf0789c7f5
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 1be5d135a44feb27626dd26a544b64cfb57b18a9
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74596077"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541995"
 ---
 # <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>ASP.NET MVC ile 15 Dakika İçinde Bir Film Veritabanı Uygulaması Oluşturma (C#)
 
@@ -49,7 +49,7 @@ Uygulamamızı oluşturmak için aşağıdaki adımlardan her birini tamamlamam�
 4. ASP.NET MVC denetleyicisini oluşturma
 5. ASP.NET MVC görünümlerini oluşturma
 
-## <a name="preliminaries"></a>Başlangıç kuralları
+## <a name="preliminaries"></a>Başlangıç bilgileri
 
 ASP.NET MVC uygulaması derlemek için Visual Studio 2008 ya da Visual Web Developer 2008 Express gerekir. Ayrıca, ASP.NET MVC çerçevesini de indirmeniz gerekir.
 
@@ -122,9 +122,9 @@ Sonra, yeni bir veritabanı tablosu oluşturuyoruz. Sunucu Gezgini penceresinin 
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Numarasını | int | False |
+| Kimlik | int | False |
 | Başlık | Nvarchar (100) | False |
-| Ktörü | Nvarchar (100) | False |
+| Direktörü | Nvarchar (100) | False |
 | Davterekiralık | DateTime | False |
 
 İlk sütunda, kimlik sütununda iki özel özellik bulunur. İlk olarak, ID sütununu birincil anahtar sütunu olarak işaretlemeniz gerekir. Kimlik sütununu seçtikten sonra, **birincil anahtar ayarla** düğmesine tıklayın (anahtar gibi görünen simgedir). İkinci olarak, kimlik sütununu kimlik sütunu olarak işaretlemeniz gerekir. Özellikler penceresi sütununda, kimlik belirtimi bölümüne gidin ve genişletin. **Identity Identity** özelliğini **Yes**değerine değiştirin. İşiniz bittiğinde tablo şekil 4 gibi görünmelidir.

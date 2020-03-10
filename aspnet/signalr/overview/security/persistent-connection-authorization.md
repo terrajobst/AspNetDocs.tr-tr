@@ -1,29 +1,29 @@
 ---
 uid: signalr/overview/security/persistent-connection-authorization
-title: Kimlik doğrulama ve yetkilendirme kalıcı SignalR bağlantıları için | Microsoft Docs
+title: SignalR kalıcı bağlantıları için kimlik doğrulaması ve yetkilendirme | Microsoft Docs
 author: bradygaster
-description: Bu konu, kalıcı bir bağlantı üzerinde Yetkilendirme zorlamak açıklar. Bir SignalR uygulamasına güvenlik tümleştirme hakkında genel bilgi...
+description: Bu konu, kalıcı bir bağlantıda yetkilendirmeyi nasıl zorlayabileceğinizi açıklamaktadır. Güvenliği bir SignalR uygulamasıyla tümleştirme hakkında genel bilgi için,...
 ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: e264677b-9c01-47ec-94f9-3cd8f08f94af
 msc.legacyurl: /signalr/overview/security/persistent-connection-authorization
 msc.type: authoredcontent
 ms.openlocfilehash: 7e69d3c1a18f1239142891734ba58cd2b0078f84
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113535"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578878"
 ---
 # <a name="authentication-and-authorization-for-signalr-persistent-connections"></a>Kalıcı SignalR Bağlantıları için Kimlik Doğrulaması ve Yetkilendirme
 
-tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
+, [Patrick Fleti](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-> Bu konu, kalıcı bir bağlantı üzerinde Yetkilendirme zorlamak açıklar. Bir SignalR uygulamasına güvenlik tümleştirme hakkında genel bilgi için bkz. [güvenliğine giriş](introduction-to-security.md).
+> Bu konu, kalıcı bir bağlantıda yetkilendirmeyi nasıl zorlayabileceğinizi açıklamaktadır. Güvenliği bir SignalR uygulamasıyla tümleştirme hakkında genel bilgi için bkz. [güvenliğe giriş](introduction-to-security.md).
 >
-> ## <a name="software-versions-used-in-this-topic"></a>Bu konu başlığında kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-this-topic"></a>Bu konuda kullanılan yazılım sürümleri
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
@@ -34,18 +34,18 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](h
 >
 > ## <a name="previous-versions-of-this-topic"></a>Bu konunun önceki sürümleri
 >
-> SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
+> SignalR 'nin önceki sürümleri hakkında daha fazla bilgi için bkz. [SignalR daha eski sürümleri](../older-versions/index.md).
 >
-> ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
+> ## <a name="questions-and-comments"></a>Sorular ve açıklamalar
 >
-> Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
+> Lütfen bu öğreticiyi nasıl beğentireceğiniz ve sayfanın en altındaki açıklamalarda İyileştiğimiz hakkında geri bildirimde bulunun. Öğreticiyle doğrudan ilgili olmayan sorularınız varsa, bunları [ASP.NET SignalR forumuna](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/)'e gönderebilirsiniz.
 
-## <a name="enforce-authorization"></a>Yetkilendirme zorla
+## <a name="enforce-authorization"></a>Yetkilendirmeyi zorla
 
-Kullanırken yetkilendirme kurallarını zorunlu tutmak için bir [PersistentConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.persistentconnection(v=vs.111).aspx) geçersiz kılmanız gerekir `AuthorizeRequest` yöntemi. Kullanamazsınız `Authorize` özniteliği ile kalıcı bağlantılar. `AuthorizeRequest` Yöntemi, kullanıcının istenen eylemi gerçekleştirmek için yetkili olup olmadığını doğrulamak için her istek öncesinde SignalR Framework tarafından çağırılır. `AuthorizeRequest` Yöntemi istemci tarafından çağrılmaz; bunun yerine, uygulamanızın standart kimlik doğrulama mekanizması kullanıcının kimliğini.
+Bir [Persistentconnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.persistentconnection(v=vs.111).aspx) kullanırken yetkilendirme kurallarını zorlamak için `AuthorizeRequest` yöntemini geçersiz kılmanız gerekir. `Authorize` özniteliğini kalıcı bağlantılarla kullanamazsınız. `AuthorizeRequest` yöntemi, kullanıcının istenen eylemi gerçekleştirme yetkisine sahip olduğunu doğrulamak için her istekten önce SignalR çerçevesi tarafından çağırılır. `AuthorizeRequest` yöntemi istemciden çağrılmaz; Bunun yerine, uygulamanızın standart kimlik doğrulama mekanizmasıyla kullanıcının kimliğini doğrulamanız gerekir.
 
-Aşağıdaki örnekte, istekleri kimlik doğrulaması yapılan kullanıcılara sınırlamak gösterilmektedir.
+Aşağıdaki örnekte isteklerin kimliği doğrulanmış kullanıcılarla nasıl sınırlandıralınacağını gösterilmektedir.
 
 [!code-csharp[Main](persistent-connection-authorization/samples/sample1.cs)]
 
-Tüm özelleştirilmiş yetkilendirme mantığının AuthorizeRequest yöntemi ekleyebilirsiniz; gibi bir kullanıcının belirli bir role ait olup olmadığı denetleniyor.
+AuthorizeRequest yönteminde özelleştirilmiş herhangi bir yetkilendirme mantığını ekleyebilirsiniz; Örneğin, bir kullanıcının belirli bir role ait olup olmadığını denetleme.

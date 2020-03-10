@@ -2,92 +2,92 @@
 uid: mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 title: IDataErrorInfo arabirimi ile doğrulama (C#) | Microsoft Docs
 author: StephenWalther
-description: Stephen Walther nasıl bir model sınıfında IDataErrorInfo arabirimi uygulayarak özel doğrulama hatası iletilerinin görüntüleneceğini gösterir.
+description: Stephen Walther, bir model sınıfında IDataErrorInfo arabirimini uygulayarak özel doğrulama hata iletilerinin nasıl görüntüleneceğini gösterir.
 ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 4733b9f1-9999-48fb-8b73-6038fbcc5ecb
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 938b180da02b1963acffd021d18621d75d1d0447
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117564"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78542562"
 ---
 # <a name="validating-with-the-idataerrorinfo-interface-c"></a>IDataErrorInfo Arabirimi ile Doğrulama (C#)
 
-tarafından [Stephen Walther](https://github.com/StephenWalther)
+ile [Stephen Walther](https://github.com/StephenWalther)
 
-> Stephen Walther nasıl bir model sınıfında IDataErrorInfo arabirimi uygulayarak özel doğrulama hatası iletilerinin görüntüleneceğini gösterir.
+> Stephen Walther, bir model sınıfında IDataErrorInfo arabirimini uygulayarak özel doğrulama hata iletilerinin nasıl görüntüleneceğini gösterir.
 
-Bu öğreticide bir ASP.NET MVC uygulamasındaki doğrulama gerçekleştirmek için bir yaklaşım açıklamak için hedefidir. Birisi bir HTML formuna gerekli form alanları için değerler sağlamadan göndermesinin önlenmesine öğrenin. Bu öğreticide, IErrorDataInfo arabirimini kullanarak doğrulama gerçekleştirme konusunda bilgi edinin.
+Bu öğreticinin amacı, bir ASP.NET MVC uygulamasında doğrulama gerçekleştirmeye yönelik bir yaklaşımı açıklamaktır. Bir kişinin gerekli form alanları için değer sağlamadan bir HTML formu göndermesini nasıl önleyeceğinizi öğrenirsiniz. Bu öğreticide, ıerrordataınfo arabirimini kullanarak doğrulamanın nasıl gerçekleştirileceğini öğreneceksiniz.
 
 ## <a name="assumptions"></a>Varsayımlar
 
-Bu öğreticide, MoviesDB veritabanı ile film veritabanı tablosu kullanacağım. Bu tabloda aşağıdaki sütunları içerir:
+Bu öğreticide, MoviesDB veritabanı ve filmler veritabanı tablosunu kullanacağız. Bu tabloda aşağıdaki sütunlar bulunur:
 
 <a id="0.5_table01"></a>
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Kimliği | int | False |
-| Başlık | nvarchar(100) | False |
-| Direktörü | nvarchar(100) | False |
-| DateReleased | DateTime | False |
+| Kimlik | int | False |
+| Başlık | Nvarchar (100) | False |
+| Direktörü | Nvarchar (100) | False |
+| Davterekiralık | DateTime | False |
 
-Bu öğreticide, Microsoft Entity Framework my veritabanı modeli sınıfları oluşturmak için kullanıyorum. Entity Framework tarafından oluşturulan film sınıfı, Şekil 1'de görüntülenir.
+Bu öğreticide, veritabanı modeli sınıflarımı oluşturmak için Microsoft Entity Framework kullanıyorum. Entity Framework tarafından üretilen film sınıfı Şekil 1 ' de görüntülenir.
 
-[![Film varlık](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
+[Film varlığını ![](validating-with-the-idataerrorinfo-interface-cs/_static/image1.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image1.png)
 
-**Şekil 01**: Film varlık ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-cs/_static/image2.png))
+**Şekil 01**: film varlığı ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-with-the-idataerrorinfo-interface-cs/_static/image2.png))
 
 > [!NOTE] 
 > 
-> Veritabanı modeli sınıfları oluşturmak için Entity Framework kullanma hakkında daha fazla bilgi için Entity Framework ile Model sınıfları oluşturma my öğretici başlıklı bakın.
+> Veritabanı modeli sınıflarınızı oluşturmak için Entity Framework kullanma hakkında daha fazla bilgi edinmek için, Entity Framework ile model sınıfları oluşturma adlı öğreticiye bakın.
 
 ## <a name="the-controller-class"></a>Denetleyici sınıfı
 
-Biz listesi filmler giriş denetleyicisine kullanın ve yeni filmler oluşturun. Bu sınıfın kodu, listeleme 1'de yer alır.
+Filmleri listelemek ve yeni filmler oluşturmak için giriş denetleyicisini kullanıyoruz. Bu sınıfın kodu, liste 1 ' de yer alır.
 
-**1 - Controllers\HomeController.cs listeleme**
+**Listeleme 1-Controllers\HomeController.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample1.cs)]
 
-Listeleme 1 giriş controller sınıfında iki Create() eylemleri içerir. İlk eylem yeni bir film oluşturmak için HTML form görüntüler. İkinci Create() eylemi, veritabanına yeni filmin gerçek ekleme gerçekleştirir. İkinci Create() eylemi sunucuya ilk Create() eylemi tarafından görüntülenen form gönderildiğinde çağrılır.
+Liste 1 ' deki giriş denetleyicisi sınıfı iki oluşturma () eylemi içerir. İlk eylem, yeni bir filmi oluşturmak için HTML formunu görüntüler. İkinci Create () eylemi, yeni filmin gerçek ekleme işlemini veritabanına uygular. İkinci Create () eylemi, ilk oluşturma () eylemi tarafından görüntülenecek form sunucuya gönderildiğinde çağrılır.
 
-İkinci Create() eylem aşağıdaki kod satırlarını içerdiğine dikkat edin:
+İkinci oluşturma () eyleminin aşağıdaki kod satırlarını içerdiğine dikkat edin:
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample2.cs)]
 
-IsValid özelliği, bir doğrulama hatası olduğunda false döndürür. Bu durumda, bir filmi oluşturmaya HTML formu içeren Oluştur görünümünün görünürler.
+IsValid özelliği bir doğrulama hatası olduğunda false döndürür. Bu durumda, bir filmi oluşturmak için HTML formunu içeren oluştur görünümü yeniden görüntülenir.
 
-## <a name="creating-a-partial-class"></a>Kısmi bir sınıf oluşturma
+## <a name="creating-a-partial-class"></a>Kısmi sınıf oluşturma
 
-Film sınıfı, Entity Framework tarafından oluşturulur. Çözüm Gezgini penceresinde MoviesDBModel.edmx dosyasını genişletin ve MoviesDBModel.Designer.cs dosyasını Kod düzenleyicisinde açın, film sınıfın kodu görebilirsiniz (bkz: Şekil 2).
+Film sınıfı Entity Framework tarafından oluşturulur. Çözüm Gezgini penceresinde MoviesDBModel. edmx dosyasını genişlettikten sonra MoviesDBModel.Designer.cs dosyasını kod düzenleyicisinde açarsanız film sınıfının kodunu görebilirsiniz (bkz. Şekil 2).
 
-[![Film varlık için kod](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
+[Film varlığı için kodu ![](validating-with-the-idataerrorinfo-interface-cs/_static/image2.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image3.png)
 
-**Şekil 02**: Film varlık kodunu ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-cs/_static/image4.png))
+**Şekil 02**: film varlığının kodu ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-with-the-idataerrorinfo-interface-cs/_static/image4.png))
 
-Kısmi bir sınıf film sınıftır. Film sınıf işlevlerini genişletmek için aynı ada sahip başka bir kısmi sınıf ekleyebiliriz anlamına gelir. Yeni kısmi sınıfa bizim Doğrulama mantığı ekleyeceğiz.
+Film sınıfı, kısmi bir sınıftır. Diğer bir deyişle, film sınıfının işlevlerini genişletmek için aynı ada sahip başka bir kısmi sınıf ekleyebiliriz. Yeni kısmi sınıfa doğrulama mantığımızı ekleyeceğiz.
 
-Sınıf listesi 2'de modelleri klasöre ekleyin.
+Liste 2 ' deki sınıfı modeller klasörüne ekleyin.
 
-**2 - Models\Movie.cs listeleme**
+**Listeleme 2-Models\Movie.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample3.cs)]
 
-Listeleme 2 sınıfı içeren bildirim *kısmi* değiştiricisi. Herhangi bir yöntem ya da bu sınıfa eklediğiniz özellikleri Entity Framework tarafından oluşturulan film sınıfı bir parçası haline gelir.
+Kod 2 ' deki sınıfın *kısmi* değiştirici içerdiğine dikkat edin. Bu sınıfa eklediğiniz tüm yöntemler veya özellikler, Entity Framework tarafından oluşturulan film sınıfının bir parçası haline gelir.
 
-## <a name="adding-onchanging-and-onchanged-partial-methods"></a>OnChanging ve OnChanged kısmi yöntemler ekleme
+## <a name="adding-onchanging-and-onchanged-partial-methods"></a>OnChanging ve OnChanged kısmi yöntemleri ekleme
 
-Entity Framework kısmi yöntemler sınıf için Entity Framework bir varlık sınıfı oluşturduğunda, otomatik olarak ekler. Entity Framework sınıfının her özelliği için karşılık gelen OnChanging ve OnChanged kısmi yöntemler oluşturur.
+Entity Framework bir varlık sınıfı oluşturduğunda Entity Framework otomatik olarak sınıfa kısmi Yöntemler ekler. Entity Framework, sınıfın her özelliğine karşılık gelen OnChanging ve OnChanged kısmi yöntemleri oluşturur.
 
-Film sınıfı söz konusu olduğunda, Entity Framework, aşağıdaki yöntemlerden oluşturur:
+Film sınıfı söz konusu olduğunda Entity Framework aşağıdaki yöntemleri oluşturur:
 
-- OnIdChanging
-- OnIdChanged
+- Onıdchanging
+- Onıdchanged
 - OnTitleChanging
 - OnTitleChanged
 - OnDirectorChanging
@@ -95,57 +95,57 @@ Film sınıfı söz konusu olduğunda, Entity Framework, aşağıdaki yöntemler
 - OnDateReleasedChanging
 - OnDateReleasedChanged
 
-Karşılık gelen özelliği değiştirilmeden önce doğru OnChanging yöntemi de çağrılır. Özellik değiştirildikten sonra doğru OnChanged yöntemi de çağrılır.
+OnChanging yöntemi, ilgili özellik değiştirilmeden önce hemen çağrılır. OnChanged yöntemi, özellik değiştirildikten hemen sonra çağrılır.
 
-Doğrulama mantığını film sınıfa eklemek için bu kısmi yöntemlerin yararlanabilirsiniz. Güncelleştirme 3 listeleme film sınıfta, başlık ve Direktörü özellikleri boş olmayan değerler atanır doğrular.
+Film sınıfına doğrulama mantığı eklemek için bu kısmi yöntemlerin avantajlarından yararlanabilirsiniz. Listeleme 3 ' teki filmi Güncelleştir sınıfı, başlık ve yönetmen özelliklerinin boş olmayan değerler atandığını doğrular.
 
 > [!NOTE] 
 > 
-> Kısmi bir yöntem uygulamak için gerekli olmayan bir sınıf içinde tanımlanan bir yöntemdir. Kısmi bir yöntemin uygulamayıp varsa derleyici metot imzasını kaldırır ve burada yöntemine yönelik tüm çağrılar kısmi yöntemiyle ilişkili hiçbir çalışma zamanı maliyetleri aşağıda sunulmuştur. Visual Studio Kod Düzenleyicisi'nde, anahtar sözcüğü yazarak kısmi bir yöntemin ekleyebilirsiniz *kısmi* uygulamak için kısmi bir listesini görüntülemek için bir boşluk.
+> Kısmi Yöntem, uygulamanız için gerekli olmayan bir sınıfta tanımlanan bir yöntemdir. Kısmi bir yöntem gerçekleştirmezseniz, derleyici yöntem imzasını ve yönteme tüm çağrıları kaldırır, böylece kısmi yöntemle ilişkili bir çalışma zamanı maliyeti yoktur. Visual Studio Code düzenleyicide, *bir kısmı, sonra da* uygulanacak partileri bir listesini görüntülemek için bir boşluk gelen anahtar sözcüğünü yazarak kısmen bir yöntem ekleyebilirsiniz.
 
-**3 - Models\Movie.cs listeleme**
+**Listeleme 3-Models\Movie.cs**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample4.cs)]
 
-Boş bir dize başlık özelliğini atamayı denerseniz, örneğin, daha sonra bir hata iletisi adlı bir sözlük atanır \_hataları.
+Örneğin, title özelliğine boş bir dize atamayı denerseniz, \_hatalar adlı bir sözlüğe bir hata mesajı atanır.
 
-Bu noktada, hiçbir şey gerçekten boş bir dize başlık özelliğine atayın ve özel bir hata eklendiğinde gerçekleşir \_hataları alan. IDataErrorInfo arabirimi, ASP.NET MVC çerçevesi şu doğrulama hataları ortaya çıkarmak için uygulanması gerekir.
+Bu noktada, başlık özelliğine boş bir dize atadığınızda ve özel \_hataları alanına bir hata eklendiğinde hiçbir şey olmaz. Bu doğrulama hatalarını ASP.NET MVC çerçevesine göstermek için IDataErrorInfo arabirimini uygulamamız gerekir.
 
-## <a name="implementing-the-idataerrorinfo-interface"></a>IDataErrorInfo arabirimi uygulama
+## <a name="implementing-the-idataerrorinfo-interface"></a>IDataErrorInfo arabirimini uygulama
 
-IDataErrorInfo arabirimi ilk sürümünden bu yana .NET framework'ün bir parçası olmuştur. Bu arabirim çok basit bir arabirimdir:
+IDataErrorInfo arabirimi, .NET Framework 'ün ilk sürümden bu yana bir parçasıdır. Bu arabirim çok basit bir arabirimdir:
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample5.cs)]
 
-IDataErrorInfo arabirimi arabirimini uygulayan bir sınıf, ASP.NET MVC çerçevesi sınıfının bir örneğini oluştururken bu arabirimini kullanır. Örneğin, giriş denetleyicisine Create() eylem film sınıfının bir örneği kabul eder:
+Bir sınıf, IDataErrorInfo arabirimini uyguluyorsa, sınıfın bir örneğini oluştururken ASP.NET MVC çerçevesi bu arabirimi kullanır. Örneğin, giriş denetleyicisi oluşturma () eylemi, film sınıfının bir örneğini kabul eder:
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample6.cs)]
 
-ASP.NET MVC çerçevesi model bağlayıcı (DefaultModelBinder) kullanarak Create() eyleme geçirilen film örneğini oluşturur. Model bağlayıcı film nesne örneğine HTML form alanlarını bağlayarak film nesnesinin bir örneğini oluşturmak için sorumludur.
+ASP.NET MVC Framework, bir model Ciltçi (Defaultmodelciltçi) kullanarak Create () eylemine geçirilen filmin örneğini oluşturur. Model Ciltçi, HTML form alanlarını bir film nesnesinin örneğine bağlayarak film nesnesinin bir örneğini oluşturmaktan sorumludur.
 
-IDataErrorInfo arabirimi arabirimini uygulayan bir sınıf olup olmadığını DefaultModelBinder algılar. Bir sınıf bu arabirim uygularsa model bağlayıcı sınıfın her bir özellik için IDataErrorInfo.this dizin oluşturucuyu çağırır. Dizin Oluşturucu bir hata mesajı döndürür, model bağlayıcı durumu otomatik olarak model oluşturmak için bu hata iletisi ekler.
+Defaultmodelciltçi, bir sınıfın IDataErrorInfo arabirimini uygulayıp uygulamadığını algılar. Bir sınıf bu arabirimi uyguluyorsa model Bağlayıcısı, sınıfının her özelliği için IDataErrorInfo. bu dizin oluşturucuyu çağırır. Dizin Oluşturucu bir hata iletisi döndürürse, model Ciltçi bu hata iletisini model durumuna otomatik olarak ekler.
 
-DefaultModelBinder IDataErrorInfo.Error özelliğini de denetler. Bu özellik, sınıf ile ilişkili özel doğrulama özelliği olmayan hataları temsil etmek üzere tasarlanmıştır. Örneğin, film sınıfın birden çok özellik değerlerine bağlı bir doğrulama kuralını uygulamak isteyebilirsiniz. Bu durumda, bir doğrulama hatası hata özelliğinden döndürecektir.
+Defaultmodelciltçi, IDataErrorInfo. Error özelliğini de denetler. Bu özellik, sınıfla ilişkili, özelliğe özgü olmayan doğrulama hatalarını temsil etmek için tasarlanmıştır. Örneğin, film sınıfının birden çok özelliklerinin değerlerine bağlı olan bir doğrulama kuralını zorlamak isteyebilirsiniz. Bu durumda, hata özelliğinden bir doğrulama hatası döndürürsınız.
 
-Güncelleştirilmiş film sınıfı listeleme 4'te IDataErrorInfo arabirimi uygular.
+Liste 4 ' teki güncelleştirilmiş film sınıfı, IDataErrorInfo arabirimini uygular.
 
-**4 - Models\Movie.cs (IDataErrorInfo uygular) listeleme**
+**Listeleme 4-Models\Movie.cs (IDataErrorInfo uygular)**
 
 [!code-csharp[Main](validating-with-the-idataerrorinfo-interface-cs/samples/sample7.cs)]
 
-Dizin Oluşturucu özelliği listeleme 4'te denetler \_özellik adına karşılık gelen bir anahtarı içerip içermediğini görmek için hatalar koleksiyonuna Dizin oluşturucuya geçirilen. Özellikle ilişkili hiçbir doğrulama hatası varsa, daha sonra boş bir dize döndürülür.
+4\. listede, Indexer özelliği, dizin oluşturucuya geçirilen özellik adına karşılık gelen bir anahtar içerip içermediğini görmek için \_hataları koleksiyonunu denetler. Özelliği ile ilişkili doğrulama hatası yoksa boş bir dize döndürülür.
 
-Giriş denetleyicisine değiştirilmiş film sınıfını kullanmak için herhangi bir şekilde değiştirmeniz gerekmez. Şekil 3'te görüntülenen sayfa başlığı veya yönetmenin form alanları için hiçbir değer girildiğinde ne olacağını gösterir.
+Değiştirilen film sınıfını kullanmak için giriş denetleyicisini herhangi bir şekilde değiştirmeniz gerekmez. Şekil 3 ' te görünen sayfa, başlık veya yönetmen formu alanları için hiçbir değer girilmediğinde ne olacağını gösterir.
 
-[![Eylem yöntemlerine otomatik olarak oluşturma](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
+[eylem yöntemlerini otomatik olarak oluşturma ![](validating-with-the-idataerrorinfo-interface-cs/_static/image3.jpg)](validating-with-the-idataerrorinfo-interface-cs/_static/image5.png)
 
-**Şekil 03**: Bir formla eksik değerleri ([tam boyutlu görüntüyü görmek için tıklatın](validating-with-the-idataerrorinfo-interface-cs/_static/image6.png))
+**Şekil 03**: eksik değerlere sahip bir form ([tam boyutlu görüntüyü görüntülemek için tıklayın](validating-with-the-idataerrorinfo-interface-cs/_static/image6.png))
 
-DateReleased değeri otomatik olarak doğrulanır dikkat edin. Bir değer olmadığında DefaultModelBinder, bu özellik için bir doğrulama hatası DateReleased özelliği NULL değer kabul etmez olduğundan, otomatik olarak oluşturur. Ardından DateReleased özelliği için hata iletisini değiştirmek istiyorsanız, özel bir model bağlayıcı oluşturmanız gerekir.
+Dadlanmış değerin otomatik olarak doğrulanacağını unutmayın. Dadterekiralık özelliği NULL değerleri kabul etmediğinden, Defaultmodelciltçi bir değere sahip olmadığında bu özellik için otomatik olarak bir doğrulama hatası oluşturur. Bu özellik için bir hata iletisi değiştirmek istiyorsanız, özel bir model Bağlayıcısı oluşturmanız gerekir.
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, doğrulama hatası iletilerini oluşturmak için IDataErrorInfo arabirimi kullanmayı öğrendiniz. İlk olarak, Entity Framework tarafından üretilen kısmi film sınıf işlevlerini genişleten bir kısmi film sınıfı oluşturduk. Ardından, doğrulama mantığı film sınıfı OnTitleChanging() ve OnDirectorChanging() kısmi yöntemlere ekledik. Son olarak, IDataErrorInfo arabirimi ASP.NET MVC çerçevesi bu doğrulama iletileri kullanıma sunmak için uyguladık.
+Bu öğreticide, IDataErrorInfo arabirimini kullanarak doğrulama hata iletileri oluşturma hakkında bilgi edindiniz. İlk olarak, Entity Framework tarafından oluşturulan kısmi film sınıfının işlevselliğini genişleten kısmi bir film sınıfı oluşturduk. Daha sonra, OnTitleChanging () ve OnDirectorChanging () kısmi yöntemlerine yönelik olarak doğrulama mantığı ekledik. Son olarak, bu doğrulama iletilerini ASP.NET MVC çerçevesine göstermek için IDataErrorInfo arabirimini uyguladık.
 
 > [!div class="step-by-step"]
 > [Önceki](performing-simple-validation-cs.md)

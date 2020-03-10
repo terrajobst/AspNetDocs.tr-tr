@@ -9,11 +9,11 @@ ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
 ms.openlocfilehash: 8dbc31a5c8d59fa55dc5b513c1a51d24d18a685f
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519407"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78536437"
 ---
 # <a name="introduction-to-signalr"></a>SignalR’a Giriş
 
@@ -39,7 +39,7 @@ SignalR, sunucu tarafı .NET kodundan istemci tarayıcılarındaki JavaScript i�
 
 ![SignalR ile yöntemleri çağırma](introduction-to-signalr/_static/image1.png)
 
-SignalR, bağlantı yönetimini otomatik olarak işler ve bir sohbet odasında olduğu gibi, iletileri bağlı tüm istemcilere yayınlamanıza olanak tanır. İletileri belirli istemcilere de gönderebilirsiniz. Bağlantının her iletişimde tekrar kurulduğu klasik bir HTTP bağlantısının aksine, istemci ve sunucu arasındaki bağlantı kalıcıdır.
+SignalR bağlantı yönetimini otomatik olarak işler ve aynı anda tüm bağlı istemcilere bir sohbet odası gibi iletiler yayınlamanızı sağlar. Ayrıca, belirli istemcilere iletiler gönderebilirsiniz. İstemci ve sunucu arasındaki bağlantı, her iletişim için yeniden kurulan klasik bir HTTP bağlantısının aksine kalıcıdır.
 
 SignalR, bugün web 'de ortak olan istek-yanıt modeli yerine uzak yordam çağrılarını (RPC) kullanarak sunucu kodunun tarayıcıda istemci koduna çağırabileceği "sunucu gönderme" işlevini destekler.
 

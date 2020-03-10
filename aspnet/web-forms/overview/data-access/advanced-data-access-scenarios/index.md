@@ -2,22 +2,22 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
 title: Gelişmiş veri erişimi senaryoları | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticiler saklı yordamlar ve hesaplanan sütunlar ile çalışma konusunda, veritabanı tabloları ile birleştirme kullanma ve veri bağlantı bilgileri şifrelemek nasıl ele...
+description: Bu öğreticiler, saklı yordamlar ve hesaplanmış sütunlarla çalışmayı, veritabanı tablolarıyla birleştirmeleri kullanmayı ve veri bağlantı bilgilerini şifrelemeyi kapsar...
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 00d198ed-fddc-4fd3-a86e-3f29c5f707cc
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
 ms.openlocfilehash: 25041560b9e8ff0a8c944572dad344e655100b0d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108542"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78533056"
 ---
 # <a name="advanced-data-access-scenarios"></a>Gelişmiş Veri Erişimi Senaryoları
 
-> Bu öğretici, saklı yordamlar ve hesaplanan sütunlar ile çalışma konusunda, veritabanı tabloları ile birleştirme kullanma ve veri bağlantı bilgilerini şifrelemek nasıl kapsar.
+> Bu öğreticiler, saklı yordamlar ve hesaplanmış sütunlarla çalışmayı, veritabanı tablolarıyla birleştirmeleri kullanmayı ve veri bağlantı bilgilerini şifrelemeyi kapsar.
 
 - [Türü Belirtilmiş DataSet'in TableAdapter’ları için Yeni Saklı Yordam Oluşturma (C#)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
 - [Türü Belirtilmiş DataSet'in TableAdapter’ları için Mevcut Saklı Yordamları Kullanma (C#)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)

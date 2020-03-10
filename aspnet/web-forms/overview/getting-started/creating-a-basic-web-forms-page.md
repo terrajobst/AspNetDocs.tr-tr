@@ -9,11 +9,11 @@ ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
 ms.openlocfilehash: 5d13a51128eecd92a82cfd06054448582a348e11
-ms.sourcegitcommit: 84b1681d4e6253e30468c8df8a09fe03beea9309
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2019
-ms.locfileid: "73445678"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78629761"
 ---
 # <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Temel ASP.NET 4,5 Web Forms sayfası oluşturmak için Visual Studio 2013 kullanma
 
@@ -32,7 +32,7 @@ Bu izlenecek yolda gösterilen görevler şunlardır:
 - Olay işleyicileri ekleme.
 - Visual Studio 'dan bir sayfa çalıştırma ve test etme.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu izlenecek yolu tamamlamak için şunlar gerekir:
 
@@ -56,7 +56,7 @@ Bu izlenecek yolu tamamlamak için şunlar gerekir:
 2. **Dosya** menüsünde **Yeni proje**' yi seçin.  
     ![Dosya menüsü](creating-a-basic-web-forms-page/_static/image1.png)
 
-    **Yeni proje** iletişim kutusu görüntülenir.
+    **Yeni Proje** iletişim kutusu görünür.
 3. Soldaki -**Şablonlar** &gt; **Visual C#**  -&gt; **Web** şablonları grubunu seçin.
 4. Orta sütundaki **ASP.NET Web uygulaması** şablonunu seçin.
 5. Projeyi ***Basicwebapp*** olarak adlandırın ve **Tamam** düğmesine tıklayın.   
@@ -180,7 +180,7 @@ Visual Studio, sayfadaki denetimlerin özelliklerini ayarlamanıza yönelik çe�
 
     > [!NOTE] 
     > 
-    > Tüm denetimler, **runat =&quot;server&quot;** özniteliği de olan bir **form** öğesi içindedir. **Runat =&quot;server&quot;** özniteliği ve **ASP:** bir denetim etiketleri için önek, sayfa çalışırken sunucuda ASP.NET tarafından işlenmek üzere denetimleri işaretler. **&lt;&quot;form&quot;&gt;** ve **&lt;betiği runat =&quot;Server&quot;&gt;** öğelerinin dışındaki kod, tarayıcıya değiştirilmeden gönderilir, bu neden ASP.net kodunun bir öğe içinde olması gerekir açılış etiketi **runat =&quot;server&quot;** özniteliğini içeriyor.
+    > Tüm denetimler, **runat =&quot;server&quot;** özniteliği de olan bir **form** öğesi içindedir. **Runat =&quot;server&quot;** özniteliği ve **ASP:** bir denetim etiketleri için önek, sayfa çalışırken sunucuda ASP.NET tarafından işlenmek üzere denetimleri işaretler. **&lt;&quot;form&quot;&gt;** ve **&lt;betiği runat =&quot;Server&quot;&gt;** öğelerinin dışındaki kod, tarayıcıya değiştirilmeden gönderilir. bu nedenle, ASP.net kodunun, açılış etiketi **runat =&quot;Server&quot;** özniteliğini içeren bir öğe içinde olması gerekir.
 4. Ardından, [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimine ek bir özellik ekleyeceksiniz. **&lt;ASP: label&gt;** etiketindeki **ASP: Label** öğesinden hemen sonra ekleme noktasını yerleştirin ve ardından **boşluk**tuşuna basın.
 
     Bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi için ayarlayabileceğiniz kullanılabilir özelliklerin listesini görüntüleyen bir açılan liste görüntülenir. **IntelliSense**olarak anılan bu özellik, sayfadaki sunucu DENETIMLERININ, HTML öğelerinin ve diğer öğelerin sözdizimi ile **kaynak** görünümde size yardımcı olur. Aşağıdaki çizimde, [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetimi için **IntelliSense** açılan listesi gösterilmektedir.

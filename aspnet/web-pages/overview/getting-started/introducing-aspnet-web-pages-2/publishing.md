@@ -9,17 +9,17 @@ ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
 ms.openlocfilehash: 49a841dbda183bf1d59153b83f694c9f517e0b94
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65127758"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633618"
 ---
 # <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>WebMatrix kullanarak Site yayımlama - ASP.NET Web sayfalarına giriş
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici, ASP.NET Web sayfaları ve Microsoft WebMatrix tanıtan öğretici kümesi son bölümünde bölümüdür. Bu, diğerleri ile çalışabilmeniz için Internet'e sitenizi yayımlama açıklanır. Bu seriyi aracılığıyla bitirdiğinizi [tutarlı bir konum oluşturmak için ASP.NET Web sayfaları sitelerinde](https://go.microsoft.com/fwlink/?LinkId=251585).
+> Bu öğretici, ASP.NET Web sayfaları ve Microsoft WebMatrix tanıtan öğretici kümesi son bölümünde bölümüdür. Bu, diğerleri ile çalışabilmeniz için Internet'e sitenizi yayımlama açıklanır. [ASP.NET Web sayfaları siteleri Için tutarlı bir görünüm oluşturarak](https://go.microsoft.com/fwlink/?LinkId=251585)seriyi tamamladığınız varsayılır.
 > 
 > Kullanarak site yayımlama öğreneceksiniz:
 > 
@@ -28,9 +28,9 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="about-publishing-your-site"></a>Sitenizi yayımlama hakkında
 
-Şimdiye kadar test sayfalarınıza dahil olmak üzere yerel bir bilgisayardaki tüm iş yaptık. Çalıştırmak için<em>.cshtml</em> sayfaları, kullandığınız Webmatrix'e aktarın, yani IIS Express yerleşik web sunucusu. Ancak Elbette hiç dışında oluşturduğunuz site görebilirsiniz. Başkalarının siteniz ile çalışmak için Internet'te yayımlamak zorunda.
+Şimdiye kadar test sayfalarınıza dahil olmak üzere yerel bir bilgisayardaki tüm iş yaptık. <em>. Cshtml</em> sayfalarınızı çalıştırmak Için, WebMatrix içinde yerleşik olan Web sunucusunu kullandınız, yani IIS Express. Ancak Elbette hiç dışında oluşturduğunuz site görebilirsiniz. Başkalarının siteniz ile çalışmak için Internet'te yayımlamak zorunda.
 
-Genel web sunucusuna erişiminiz zaten yoksa, bir hesabınız zorunda yayımlama anlamına gelir bir *bulut platformu* veya *barındırma sağlayıcısı*. Microsoft Azure gibi bir bulut platformu, uygulamalarınız için isteğe bağlı altyapı sağlar. Bir barındırma sağlayıcısı, kiraya ve genel olarak erişilebilir web sunucuları sahip olan bir şirket alanı siteniz için ' dir. Barındırma planları aylık birkaç lira karşılığında dosyasından çalıştırın (veya hatta ücretsiz) ABD Doları aylık yüksek hacimli ticari Web siteleri için yüzlerce küçük sitelere için.
+Zaten bir genel Web sunucusuna erişiminiz yoksa, yayımlama, *bulut platformu* veya *barındırma sağlayıcısı*içeren bir hesabınız olması gerektiği anlamına gelir. Microsoft Azure gibi bir bulut platformu, uygulamalarınız için isteğe bağlı altyapı sağlar. Bir barındırma sağlayıcısı, kiraya ve genel olarak erişilebilir web sunucuları sahip olan bir şirket alanı siteniz için ' dir. Barındırma planları aylık birkaç lira karşılığında dosyasından çalıştırın (veya hatta ücretsiz) ABD Doları aylık yüksek hacimli ticari Web siteleri için yüzlerce küçük sitelere için.
 
 > [!NOTE]
 > Bir genel web sunucusuna internet hizmet evde almak için kullandığınız internet hizmet sağlayıcısı (ISS) aracılığıyla erişimi olabilir. Ancak, barındırma sağlayıcınızda ASP.NET Web Pages desteklemesi gerekir. Birçok ISS yoktur, ancak bu her zaman denetimi değerindedir.
@@ -41,16 +41,16 @@ Bu öğreticide, dört bölüm içerir:
 
 1. [Varsayılan sayfayı ayarlama](#defaultpage)
 2. Yayımlama (aşağıdakilerden birini seçin)  
- a. [Sitenizi Microsoft Azure'a yayımlama](#azure)  
- b. [Barındırma şirketi bir Web sitenizi yayımlama](#host)
-3. [Canlı Site güncelleştiriliyor: Yeniden yayımlama](#update)
+ a. [Sitenizi Microsoft Azure yayımlama](#azure)  
+ b. [Sitenizi bir Web barındırma şirketine yayımlama](#host)
+3. [Canlı siteyi güncelleştirme: yeniden yayımlama](#update)
 
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Varsayılan sayfayı ayarlama
 
-Bir kullanıcının web siteniz için temel adresi gittiğinde, siteniz için varsayılan sayfa kullanıcıya görüntülenir. Örneğin, *Default.htm* sitede için varsayılan sayfa olarak ayarla `www.contoso.com`, ardından giderek `www.contoso.com` giderek aynı `www.contoso.com/Default.htm`.
+Bir kullanıcının web siteniz için temel adresi gittiğinde, siteniz için varsayılan sayfa kullanıcıya görüntülenir. Örneğin, *default. htm* , `www.contoso.com`site için varsayılan sayfa olarak ayarlandığında, `www.contoso.com` 'ye gidildiğinde `www.contoso.com/Default.htm`gezinme ile aynı olur.
 
-Siteniz şu anda kullandığı **Default.cshtml** varsayılan sayfa olarak. Bu sayfada varsayılan sayfanız için uygundur, ancak boş bir sayfa görüntülemek için Bu öğreticide, herhangi bir içerik söz konusu sayfaya eklemediniz. Default.cshtml açın ve içeriğini aşağıdaki kodla değiştirin.
+Şu anda siteniz varsayılan sayfa olarak **default. cshtml** kullanır. Bu sayfada varsayılan sayfanız için uygundur, ancak boş bir sayfa görüntülemek için Bu öğreticide, herhangi bir içerik söz konusu sayfaya eklemediniz. Default.cshtml açın ve içeriğini aşağıdaki kodla değiştirin.
 
 [!code-cshtml[Main](publishing/samples/sample1.cshtml)]
 
@@ -59,27 +59,27 @@ Artık sitenizin yayın için hazırdır. İlk olarak, sitesinin Azure'a nasıl 
 <a id="azure"></a>
 ## <a name="publishing-your-site-to-microsoft-azure"></a>Sitenizi Microsoft Azure'a yayımlama
 
-Bu öğreticide ilk sitenizi Microsoft Azure'a dağıtmak nasıl gösterilecek. Bir Microsoft hesabıyla oturum açarak, Azure'da en fazla 10 ücretsiz siteleri oluşturabilirsiniz. Bu ücretsiz siteleri sitelerinizi test etmek için kullanışlı bir yol sağlar. Bu örnek site daha sonra tüm ücretsiz sitelerinizden kullanarak önlemek için her zaman silebilirsiniz. Yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Bu öğreticide ilk sitenizi Microsoft Azure'a dağıtmak nasıl gösterilecek. Bir Microsoft hesabıyla oturum açarak, Azure'da en fazla 10 ücretsiz siteleri oluşturabilirsiniz. Bu ücretsiz siteleri sitelerinizi test etmek için kullanışlı bir yol sağlar. Bu örnek site daha sonra tüm ücretsiz sitelerinizden kullanarak önlemek için her zaman silebilirsiniz. Yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-WebMatrix Şeritte tıklayın **Yayımla** düğmesi.
+WebMatrix şeridinde **Yayımla** düğmesine tıklayın.
 
 ![WebMatrix şeridinde 'Publish' düğmesi](publishing/_static/image1.png)
 
-**Sitenizin yayımlama** iletişim kutusu görüntülenir. Microsoft hesabınızda oturum açmanızdan değil, iletişim kutusu içerecek bir **Azure ile çalışmaya başlama** bağlantı. Bu bağlantıya tıklayın.
+**Sitenizi Yayımla** iletişim kutusu görüntülenir. Microsoft hesabı oturumunuzu açmadıysanız, iletişim kutusunda **Azure ile çalışmaya başlama** bağlantısı bulunur. Bu bağlantıya tıklayın.
 
 ![Sitenizi yayımlayın](publishing/_static/image2.png)
 
 Bir Microsoft hesabı ile oturum açmanızdan değil ise, yeniden oturum açmak için bir fırsat sunulur. Bir Microsoft hesabına sitenizi azure'da yayımlamak için oturum açmanız gerekir.
 
-![Oturum Aç](publishing/_static/image3.png)
+![Oturum Açma](publishing/_static/image3.png)
 
 Microsoft hesabınızda oturum açtıktan sonra iletişim kutusu, Azure'da yeni bir site oluşturmak veya mevcut sitelerinizi azure'da birine bağlanmak için bağlantılar içerir.
 
 ![Yeni Site oluşturma](publishing/_static/image4.png)
 
-Seçin **yeni site oluşturma**.
+**Yeni site oluştur**' u seçin.
 
-Projenizi adlı **WebPagesMovies**, siteniz için varsayılan adı **webpagesmovies.azurewebsites.net**. Büyük olasılıkla bu varsayılan adı kullanılamıyor, kırmızı bir ünlem işareti tarafından belirtildiği şekilde.
+Projenizi **Webpagesfilmlerini**olarak adlandırdıysanız sitenizin varsayılan adı **webpagesmovies.azurewebsites.net**olacaktır. Büyük olasılıkla bu varsayılan adı kullanılamıyor, kırmızı bir ünlem işareti tarafından belirtildiği şekilde.
 
 ![Varsayılan Web sitesi adı](publishing/_static/image5.png)
 
@@ -87,25 +87,25 @@ Kullanılabilir olan bir site adı değiştirin ve konumunuz yakın bir konum se
 
 ![Değiştirilen site adı](publishing/_static/image6.png)
 
-**Tamam**'ı tıklatın.
+**Tamam**’a tıklayın.
 
 WebMatrix performss sunucu siteniz ile uyumlu olup olmadığını belirlemek için bir test.
 
 ![Uyumluluk testi](publishing/_static/image7.png)
 
-Seçin **devam**.
+**Devam**'ı seçin.
 
 Uyumluluk testinin sonuçları görüntülenir.
 
 ![Uyumluluk sonucu](publishing/_static/image8.png)
 
-Seçin **devam**.
+**Devam**'ı seçin.
 
-WebMatrix sitede yayınlanan veritabanları ve dosyaları görüntüler. Bu sitenin yayımladığınız ilk kez olduğundan, tüm dosyalar listelenmektedir. Yayımlanmaya hazır olmayan bir dosya işaretini kaldırabilirsiniz. Sonraki yayınlarda yalnızca değişen dosyaları görüntülenir. Bkz: [Canlı Site güncelleştiriliyor: Yeniden yayımlanması](#update).
+WebMatrix sitede yayınlanan veritabanları ve dosyaları görüntüler. Bu sitenin yayımladığınız ilk kez olduğundan, tüm dosyalar listelenmektedir. Yayımlanmaya hazır olmayan bir dosya işaretini kaldırabilirsiniz. Sonraki yayınlarda yalnızca değişen dosyaları görüntülenir. Bkz. [canlı siteyi güncelleştirme: yeniden yayımlama](#update).
 
 ![Yayımlama önizlemesi](publishing/_static/image9.png)
 
-Seçin **devam**.
+**Devam**'ı seçin.
 
 Site Azure'a dağıtıldıktan sonra dağıtımın tamamlandığını bir ileti görüntülenir.
 
@@ -120,7 +120,7 @@ Sitenizi ve veritabanınızı Azure'a yayımlandı ve genel kullanıma sunulmuş
 
 Azure'a yayımlama değil karar verirseniz, bunun yerine bir web barındırma şirketi, sitenizi yayımlayabilirsiniz.
 
-Tıklayın **web barındırma Bul** bağlantı.
+**Web barındırma 'Yı bul** bağlantısına tıklayın.
 
 ![Yayımlama Ayarları iletişim kutusunda 'web barındırma Bul' düğmesi](publishing/_static/image12.png)
 
@@ -142,13 +142,13 @@ Bazı siteler ücretsiz deneme süresi sunar. Ücretsiz deneme yayımlama deneme
 
 Genellikle, bir barındırma sağlayıcısında açtıktan sonra şirket, bir kullanıcı adı ve parola, web sunucusu ve benzeri URL'sini içeren bir e-posta gönderir. Barındırma şirketinin Web dağıtımı protokolünü destekliyorsa, içeren bir dosya yayımlama ayarları veya bir indirme izin gönderebilir. Yayımlama ayarları dosyası işlemi sizin için basitleştirir.
 
-Oturumu açmadıysanız ve yayımlamaya hazır olduğunuzda tıklayın **Yayımla** WebMatrix Şerit düğmesi. **Yayımlama ayarları** iletişim kutusu görüntülenir.
+Kaydolup yayımlamaya hazırsanız, WebMatrix şeridinde **Yayımla** düğmesine tıklayın. **Ayarları Yayımla** iletişim kutusu görüntülenir.
 
-Barındırma sağlayıcısı yayımlama ayarları dosyası gönderirse tıklayın **yayımlama ayarlarını içeri aktarma** bağlamak ve dosyayı içeri aktarın. Yayımlama ayarları dosyası yoksa, barındırma şirket e-posta ile gönderilen değerler kullanılarak alanları doldurun. İşte **yayımlama ayarları** iletişim kutusu, tamamladığınızda gibi görünebilir:
+Barındırma sağlayıcısı size bir yayımlama ayarları dosyası gönderdiyse, **Yayımlama ayarlarını Içeri aktar** bağlantısına tıklayın ve dosyayı içeri aktarın. Yayımlama ayarları dosyası yoksa, barındırma şirket e-posta ile gönderilen değerler kullanılarak alanları doldurun. İşte **yayınlama ayarları** iletişim kutusu işiniz bittiğinde şöyle görünebilir:
 
 ![Yayımlama ayarlarını 'Yayımlama Ayarları' iletişim kutusunda doldurulur](publishing/_static/image14.png)
 
-Tıklayın **bağlantısını doğrulama**. Her şey Tamam ise, iletişim kutusu rapor **başarıyla bağlandı**, barındırma sağlayıcısının sunucusuyla iletişim anlamına gelir.
+**Bağlantıyı doğrula**' ya tıklayın. Her şey tamam ise, iletişim kutusu **başarıyla bağlanır**, bu da barındırma sağlayıcısının sunucusuyla iletişim kurabildiği anlamına gelir.
 
 ![Başarılı iletisi, yayımlama ayarları doğru](publishing/_static/image15.png)
 
@@ -156,7 +156,7 @@ Bir sorun varsa, WebMatrix sorunun ne olduğunu söylemek için en iyi şekilde 
 
 ![Yayımlama ayarları ile ilgili bir sorun varsa hata iletisi](publishing/_static/image16.png)
 
-Tıklayın **Kaydet** ayarlarınızı kaydetmek için. WebMatrix, onu doğru barındırma siteyle iletişim kurabildiğinden emin olmak için bir test gerçekleştirmek sunar:
+Ayarlarınızı kaydetmek için **Kaydet** ' e tıklayın. WebMatrix, onu doğru barındırma siteyle iletişim kurabildiğinden emin olmak için bir test gerçekleştirmek sunar:
 
 ![İleti yayımlama işleminin bir test gerçekleştirmek teklifi](publishing/_static/image17.png)
 
@@ -164,34 +164,34 @@ Tıklayın **Kaydet** ayarlarınızı kaydetmek için. WebMatrix, onu doğru bar
 
 ![Yayımlama test sonuçları](publishing/_static/image18.png)
 
-Kullanıma hazır, devam edin ve tıklatın **devam** efektif yayımlama işlemini başlatmak için. WebMatrix, hangi dosyalar sitenizdeki ve ana bilgisayar sunucusunda (şu anda hiçbiri) durumda ve yayımlama işlemi, bir önizleme sunar kullanıma rakamları:
+Çalışmaya hazırsanız, **devam** ' a tıklayarak yayımlama işlemini gerçek için başlatın. WebMatrix, hangi dosyalar sitenizdeki ve ana bilgisayar sunucusunda (şu anda hiçbiri) durumda ve yayımlama işlemi, bir önizleme sunar kullanıma rakamları:
 
 ![Yayımlama işlemi yükleyeceği hangi dosyaların önizlemesini](publishing/_static/image19.png)
 
-Yayımlamak için dosyaların listesi gibi oluşturduğunuz web sayfaları içerir *Movies.cshtml*. Bu liste, dosyaları, yüklemiş olduğunuz için Yardımcıları veritabanınız için SQL Server Compact Edition'ı çalıştırın ve benzeri için dosyaları da içerir. Sonuç olarak, ilk yayımlama işlemi olabilmektedir.
+Yayımlanacak dosyaların listesi, *filmler. cshtml*gibi oluşturduğunuz Web sayfalarını içerir. Bu liste, dosyaları, yüklemiş olduğunuz için Yardımcıları veritabanınız için SQL Server Compact Edition'ı çalıştırın ve benzeri için dosyaları da içerir. Sonuç olarak, ilk yayımlama işlemi olabilmektedir.
 
 **Devam**'a tıklayın. WebMatrix, dosyalar, barındırma sağlayıcısının sunucusuna kopyalar. İşlem tamamlandığında, sonuçları durum çubuğunda bildirilir:
 
 ![Yayımlama işlemi başarıyla tamamlandığında durum çubuğu iletisi](publishing/_static/image20.png)
 
-Sitenizin Canlı görmek için durum çubuğundaki bağlantıya tıklayın. Ekleme *filmler* URL'ye göreceksiniz *Movies.cshtml* oluşturduğunuz dosyası:
+Sitenizin Canlı görmek için durum çubuğundaki bağlantıya tıklayın. URL 'ye *film* ekleyin ve oluşturduğunuz *filmler. cshtml* dosyasını görürsünüz:
 
 ![Filmler sayfasını gösteren Canlı site](publishing/_static/image21.png)
 
 <a id="update"></a>
-## <a name="updating-the-live-site-republishing"></a>Canlı Site güncelleştiriliyor: Yeniden yayımlama
+## <a name="updating-the-live-site-republishing"></a>Canlı siteyi güncelleştirmeden: yeniden yayımlama
 
-(Azure veya bir web barındırma şirketi için), sitenizin yayımladıktan sonra iki kopyasını vardır &mdash; sürümünde, bilgisayar ve hizmet sağlayıcısı sürümü. Site geliştirmeye devam isteyebilirsiniz (başka bir şey varsa sonraki öğretici kümesinin bir parçası olarak). Bunu yaptığınızda, değişiklikler hizmet sağlayıcısına bilgisayarınızdan kopyalanması için sitenizi yeniden yayımlamanız gerekir. WebMatrix yayımlama işleminde, sitenizde hangi dosyaların değiştiğini belirlemek ve yalnızca bu dosyaları yayımlayın.
+Sitenizi yayımladıktan sonra (Azure 'a veya bir Web barındırma şirketine), bilgisayarınızın sürümü ve Hizmet sağlayıcısındaki sürüm &mdash; iki kopyası vardır. Site geliştirmeye devam isteyebilirsiniz (başka bir şey varsa sonraki öğretici kümesinin bir parçası olarak). Bunu yaptığınızda, değişiklikler hizmet sağlayıcısına bilgisayarınızdan kopyalanması için sitenizi yeniden yayımlamanız gerekir. WebMatrix yayımlama işleminde, sitenizde hangi dosyaların değiştiğini belirlemek ve yalnızca bu dosyaları yayımlayın.
 
-Yeniden yayımlanması nasıl çalıştığını görmek için *Movies.cshtml* site, bazı küçük değişiklik yapın ve ardından dosyayı kaydedin. Örneğin, başlığı değiştirebilirsiniz `Movies - Updated`.
+Yeniden yayımmadan nasıl çalıştığını görmek için, *filmler. cshtml* sitesini açın, küçük bir değişiklik yapın ve dosyayı kaydedin. Örneğin, başlığı `Movies - Updated`olarak değiştirin.
 
-Tıklayın **Yayımla** Şerit düğmesi. WebMatrix, neyin değiştirilir ve bu yayımlayacak dosyaların önizlemesini belirler.
+Şeritteki **Yayımla** düğmesine tıklayın. WebMatrix, neyin değiştirilir ve bu yayımlayacak dosyaların önizlemesini belirler.
 
 ![Yeniden yayımlanması için hazır dosyalar değiştirilmiş gösteren 'Yayımla' iletişim kutusu](publishing/_static/image22.png)
 
 > [!IMPORTANT] 
 > 
-> Varsayılan olarak, WebMatrix veritabanınızı yayımlar (*.sdf* dosyası) yalnızca ilk kez site yayımlama. Sitenizi yayımlanır ve kişiler ile Web sitesi etkileşim sonra canlı site veritabanında sitenin gerçek veriler genellikle vardır. Canlı veritabanıyla üzerine çok dikkatli olmak zorunda *.sdf* , bilgisayarınızda, genellikle yalnızca test verilerini içeren dosya. İşte bu uyarıyı görmek **yayımlama herhangi bir uzak veritabanına üzerine yazılacak**, ve neden, onay kutusunu *WebPagesMovies.sdf* varsayılan olarak işaretli değildir.
+> Varsayılan olarak, WebMatrix veritabanını ( *. sdf* dosyası) yalnızca siteyi ilk kez yayımladığınızda yayımlar. Sitenizi yayımlanır ve kişiler ile Web sitesi etkileşim sonra canlı site veritabanında sitenin gerçek veriler genellikle vardır. Bilgisayarınızda genellikle test verilerini içeren *. sdf* dosyası ile canlı veritabanının üzerine yazılmamaya dikkat etmeniz gerekir. Uyarı **yayımlamanın her türlü uzak veritabanının üzerine yazılmasına**neden olduğunu ve *webpagesfilmlerini. sdf* onay kutusunun neden varsayılan olarak temizlendiğinizi görürsünüz.
 
 **Devam**'a tıklayın. WebMatrix, değiştirilmiş dosyalar yayımlar ve yayımladığınız ilk kez yaptığınız gibi bir başarı iletisi gösterilir.
 
@@ -199,17 +199,17 @@ Canlı site (tıklayabilirsiniz başarılı iletisi bağlantıdaki hala gösteri
 
 > [!TIP] 
 > 
-> **Uzaktan dosya düzenleme**
+> **Dosyaları uzaktan Düzenle**
 > 
 > Sitenizi değiştirme ve ardından yeniden yayımlanması için alternatif olarak, WebMatrix uzak dosyaları doğrudan düzenleyebilirsiniz. Bu senaryoda, hizmet sağlayıcısına bir dosya açın ve bir kopyasını düzenlemek, Webmatrix'i yükler. Her dosyayı kaydettiğinizde, WebMatrix değişiklikleri siteye gönderir.
 > 
 > Uzaktan düzenleme, Canlı sitenize değişiklik yapmak için kolay bir yoludur. Ancak, böylece yaptığınız değişiklikler sitenizde yerel dosyalarla eşitlenmedi. Yerel dosyaları uzak siteyle eşitlemek için Uzak dosyaları indirebilirsiniz. Bu işlem, yayımlama gibi dışında tersten çalışır.
 > 
-> Uzaktan düzenleme ve Uzaktan Yükleme özelliklerine WebMatrix hakkında burada fazla açıklanmaktadır olmaz. Bunlar birden çok kişinin aynı sitede farklı bilgisayarlarda çalışması varsa oldukça kullanışlıdır. Daha fazla bilgi için [yayımlayın ve WebMatrix 2 Beta ile bir uzak Site Düzenle](https://go.microsoft.com/fwlink/?LinkId=251591).
+> Uzaktan düzenleme ve Uzaktan Yükleme özelliklerine WebMatrix hakkında burada fazla açıklanmaktadır olmaz. Bunlar birden çok kişinin aynı sitede farklı bilgisayarlarda çalışması varsa oldukça kullanışlıdır. Daha fazla bilgi için bkz. [WebMatrix 2 Beta Ile uzak site yayımlama ve düzenleme](https://go.microsoft.com/fwlink/?LinkId=251591).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET WebMatrix ASP.NET Web sayfaları Forumu](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages)göndermek için harika bir yer sorularını ve yanıtlarını alın.
+- [ASP.net WebMatrix ASP.NET Web sayfaları Forumu](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), sorularınızı göndermek ve yanıt almak için harika bir yerdir.
 
 > [!div class="step-by-step"]
-> [Önceki](layouts.md)
+> [Öncekini](layouts.md)

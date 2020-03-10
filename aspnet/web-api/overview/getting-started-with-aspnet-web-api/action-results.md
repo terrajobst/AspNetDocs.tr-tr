@@ -10,11 +10,11 @@ ms.assetid: 2fc4797c-38ef-4cc7-926c-ca431c4739e8
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
 ms.openlocfilehash: f00ac0db453053e53d6d6942dd1557b409f4167b
-ms.sourcegitcommit: 4b324a11131e38f920126066b94ff478aa9927f8
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985846"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557059"
 ---
 # <a name="action-results-in-web-api-2"></a>Web API 2’de Eylem Sonuçları
 
@@ -26,7 +26,7 @@ Bir Web API denetleyicisi eylemi aşağıdakilerden herhangi birini döndürebil
 
 1. void
 2. **HttpResponseMessage**
-3. **IHttpActionResult**
+3. **Ihttpactionresult**
 4. Diğer bir tür
 
 Bunların ne olduğuna bağlı olarak, Web API 'SI, HTTP yanıtı oluşturmak için farklı bir mekanizma kullanır.
@@ -35,14 +35,14 @@ Bunların ne olduğuna bağlı olarak, Web API 'SI, HTTP yanıtı oluşturmak i�
 | --- | --- |
 | void | Boş 204 döndürün (Içerik yok) |
 | **HttpResponseMessage** | Doğrudan bir HTTP yanıt iletisine dönüştürün. |
-| **IHttpActionResult** | Bir **HttpResponseMessage**oluşturmak Için **ExecuteAsync** çağrısı YAPıN ve ardından bir http yanıt iletisine dönüştürün. |
+| **Ihttpactionresult** | Bir **HttpResponseMessage**oluşturmak Için **ExecuteAsync** çağrısı YAPıN ve ardından bir http yanıt iletisine dönüştürün. |
 | Diğer tür | Serileştirilmiş dönüş değerini yanıt gövdesine yazın; 200 döndürün (Tamam). |
 
 Bu konunun geri kalanında her bir seçenek daha ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="void"></a>void
 
-Dönüş türü ise `void`, Web API 'si yalnızca 204 (içerik yok) durum koduna sahip bir boş http yanıtı döndürür.
+Dönüş türü `void`ise, Web API 'SI yalnızca 204 (Içerik yok) durum koduna sahip bir boş HTTP yanıtı döndürür.
 
 Örnek denetleyici:
 
@@ -60,7 +60,7 @@ Bu seçenek, yanıt iletisi üzerinde çok fazla denetim sağlar. Örneğin, aş
 
 [!code-csharp[Main](action-results/samples/sample3.cs)]
 
-Yanıtıyla
+Yanıt:
 
 [!code-console[Main](action-results/samples/sample4.cmd?highlight=2)]
 
@@ -92,7 +92,7 @@ Bir düz metin yanıtı oluşturan **ıhttpactionresult** öğesinin basit bir u
 
 [!code-csharp[Main](action-results/samples/sample8.cs)]
 
-Yanıtıyla
+Yanıt:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 

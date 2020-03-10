@@ -9,11 +9,11 @@ ms.date: 08/10/2019
 msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: aa4f627bca99f0a7ffbbb53ea45ebdcf0850fd89
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519368"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537347"
 ---
 # <a name="aspnet-overview"></a>ASP.NET’e genel bakış
 
@@ -21,7 +21,7 @@ ASP.NET, HTML, CSS ve JavaScript kullanarak harika web siteleri ve Web uygulamal
 
 [ASP.NET Core](https://docs.microsoft.com/aspnet/core/) , ASP.NET için bir alternatiftir.  [ASP.net ve ASP.NET Core arasından nasıl seçim yapılacağı hakkındaki kılavuza](https://docs.microsoft.com/aspnet/core/choose-aspnet-framework)bakın.
 
-## <a name="get-started"></a>Kullanmaya başlayın
+## <a name="get-started"></a>Başlangıç
 
 Windows üzerinde ASP.NET için ücretsiz bir IDE olan [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2019) Community Edition 'ı yükleyin.
 
@@ -47,7 +47,7 @@ ASP.NET Web Forms ile, tanıdık bir sürükle ve bırak, olay odaklı model kul
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC, ilgilenilecek alanların temiz bir biçimde ayrılmasını sağlayan ve keyifli, kıvrak bir geliştirme deneyimi için size işaretleme üzerinde tam denetim imkanı sağlayan dinamik web siteler oluşturmak için kullanabileceğiniz güçlü, alışkanlık tabanlı bir yöntem sunar. ASP.NET MVC, en son web standartlarını kullanan gelişmiş uygulamalar oluşturmak için hızlı, TDD kullanımı kolay geliştirmeyi etkinleştiren birçok özellik içerir.
+ASP.NET MVC, kaygıların temiz bir şekilde ayrılmasını sağlayan ve keyifli, çevik geliştirme için biçimlendirme üzerinde tam denetim sağlayan dinamik Web siteleri oluşturmaya yönelik güçlü ve desenlere dayalı bir yol sunar. ASP.NET MVC, en son web standartlarını kullanan gelişmiş uygulamalar oluşturmak için hızlı, TDD kullanımı kolay geliştirmeyi etkinleştiren birçok özellik içerir.
 
 [MVC hakkında daha fazla bilgi edinin](mvc/index.md)
 

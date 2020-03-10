@@ -9,11 +9,11 @@ ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
 ms.openlocfilehash: 9357ed5aef39bed501cdac9ac26d46c884d4fae0
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457186"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78617805"
 ---
 # <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure ile gerçek dünyada bulut uygulamaları oluşturma)
 

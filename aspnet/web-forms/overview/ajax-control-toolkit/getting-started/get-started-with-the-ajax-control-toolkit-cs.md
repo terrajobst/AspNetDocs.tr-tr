@@ -1,79 +1,79 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
-title: AJAX Denetim Araç Seti ile (C#) başlayın | Microsoft Docs
+title: AJAX denetim araç seti (C#) Ile çalışmaya başlama | Microsoft Docs
 author: microsoft
-description: AJAX Denetim Araç Seti ile çalışmaya başlamak için bilmeniz gereken her şeyi öğrenin.
+description: AJAX denetim araç setini kullanmaya başlamak için bilmeniz gereken her şey hakkında bilgi edinin.
 ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 16dc5c11-65be-4eae-a818-9fad7f8259c6
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 7478b090ec52778572d70065983de6be8bdb4e6b
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128177"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78621606"
 ---
 # <a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX Denetim Araç Seti ile Çalışmaya Başlama (C#)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> AJAX Denetim Araç Seti ile çalışmaya başlamak için bilmeniz gereken her şeyi öğrenin.
+> AJAX denetim araç setini kullanmaya başlamak için bilmeniz gereken her şey hakkında bilgi edinin.
 
-AJAX Denetim Araç Seti, ASP.NET uygulamalarınızda kullanabileceğiniz 30'dan fazla ücretsiz denetimleri içerir. Bu öğreticide, AJAX Denetim Araç Seti indirme ve araç seti denetimlerini, Visual Studio/Visual Web Developer Express araç kutusuna ekleme hakkında bilgi edinin.
+AJAX denetim araç seti, ASP.NET uygulamalarınızda kullanabileceğiniz 30 ' dan fazla ücretsiz denetim içerir. Bu öğreticide, AJAX denetim araç setini indirme ve araç seti denetimlerini Visual Studio/Visual Web Developer Express araç kutusu 'na ekleme hakkında bilgi edineceksiniz.
 
-## <a name="downloading-the-ajax-control-toolkit"></a>AJAX Denetim Araç Seti yükleniyor
+## <a name="downloading-the-ajax-control-toolkit"></a>AJAX denetim araç seti indiriliyor
 
-[AJAX Denetim Araç Seti](http://devexpress.com/act) ASP.NET topluluğu ve ASP.NET takım üyeleri tarafından geliştirilen bir açık kaynak projesi. 
+[AJAX denetim araç seti](http://devexpress.com/act) , ASP.net community ve ASP.net ekibinin üyeleri tarafından geliştirilen açık kaynaklı bir projem. 
 
-[![AJAX Denetim Araç Seti yükleniyor](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
+[AJAX denetim araç setini Indirmek ![](get-started-with-the-ajax-control-toolkit-cs/_static/image1.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image1.png)
 
-**Şekil 01**: AJAX Denetim Araç Seti indiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](get-started-with-the-ajax-control-toolkit-cs/_static/image2.png))
+**Şekil 01**: AJAX denetim araç seti indiriliyor ([tam boyutlu görüntüyü görüntülemek için tıklayın](get-started-with-the-ajax-control-toolkit-cs/_static/image2.png))
 
-Dosyayı indirdikten sonra dosyayı engelini kaldırmak gerekir. Dosyaya sağ tıklayın, Özellikler'i seçin ve tıklayın **Engellemeyi Kaldır** (bkz: Şekil 2) düğmesi.
+Dosyayı indirdikten sonra dosyanın engellemesini kaldırmanız gerekir. Dosyaya sağ tıklayın, Özellikler ' i seçin ve **Engellemeyi kaldır** düğmesine tıklayın (bkz. Şekil 2).
 
-[![AJAX Denetim Araç Seti ZIP dosyası kaldırma](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
+[AJAX denetim araç seti ZIP dosyasının engellemesini kaldırma ![](get-started-with-the-ajax-control-toolkit-cs/_static/image2.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image3.png)
 
-**Şekil 02**: AJAX Denetim Araç Seti ZIP dosyası kaldırma ([tam boyutlu görüntüyü görmek için tıklatın](get-started-with-the-ajax-control-toolkit-cs/_static/image4.png))
+**Şekil 02**: AJAX denetim araç seti ZIP dosyasının engellemesini kaldırma ([tam boyutlu görüntüyü görüntülemek için tıklayın](get-started-with-the-ajax-control-toolkit-cs/_static/image4.png))
 
-Dosya engelini kaldırdıktan sonra dosyanın sıkıştırmasını açın: Dosyaya sağ tıklayıp **tümünü Ayıkla** menü seçeneği. Şimdi, araç seti Visual Studio/Visual Web Developer araç kutusuna ekleme hazırız.
+Dosyanın engellemesini kaldırdıktan sonra, dosyayı açabilir: dosyaya sağ tıklayıp **Tümünü Ayıkla** menü seçeneğini belirleyin. Şimdi, araç takımını Visual Studio/Visual Web Developer araç kutusu 'na eklemeye hazırız.
 
-## <a name="adding-the-ajax-control-toolkit-to-the-toolbox"></a>AJAX Denetim Araç Seti araç kutusuna ekleme
+## <a name="adding-the-ajax-control-toolkit-to-the-toolbox"></a>Araç kutusuna AJAX denetim araç seti ekleme
 
-AJAX Denetim Araç Seti kullanmanın en kolay yolu, Visual Studio/Visual Web Developer araç için araç seti eklemektir (bkz: Şekil 3). Bunu kullanmak istediğinizde bu şekilde, yalnızca bir araç seti denetim bir sayfaya sürükleyebilirsiniz.
+AJAX denetim araç takımını kullanmanın en kolay yolu, araç takımını Visual Studio/Visual Web Developer araç kutusu 'na eklemektir (bkz. Şekil 3). Bu şekilde, yalnızca bir araç seti denetimini kullanmak istediğinizde bir sayfaya sürükleyebilirsiniz.
 
-[![AJAX Denetim Araç Seti araç kutusunda görünür.](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
+[Araç kutusu 'nda ![AJAX denetim araç seti görüntülenir](get-started-with-the-ajax-control-toolkit-cs/_static/image3.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image5.png)
 
-**Şekil 03**: AJAX Denetim Araç Seti araç kutusunda görünür ([tam boyutlu görüntüyü görmek için tıklatın](get-started-with-the-ajax-control-toolkit-cs/_static/image6.png))
+**Şekil 03**: araç kutusu 'Nda AJAX denetim araç seti görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklayın](get-started-with-the-ajax-control-toolkit-cs/_static/image6.png))
 
-İlk olarak, bir AJAX Denetim Araç Seti sekmesi, araç kutusuna ekleme gerekir. Bu adımları izleyin.
+İlk olarak, araç kutusu 'na bir AJAX denetim araç seti sekmesi eklemeniz gerekir. Şu adımları izleyin.
 
-1. Dosya, yeni Web sitesi menü seçeneğini seçerek yeni bir ASP.NET Web sitesi oluşturun. Çözüm Gezgini penceresinde Default.aspx Düzenleyicisi'nde dosyayı açmak için çift tıklayın.
-2. Genel sekmesi altında araç kutusunu sağ tıklatın ve menü seçeneğini **Sekme Ekle** (bkz: Şekil 4).
-3. AJAX Denetim Araç Seti adlı yeni bir sekme girin.
+1. Yeni Web sitesi olan menü seçenek dosyasını seçerek yeni bir ASP.NET Web sitesi oluşturun. Dosyayı düzenleyicide açmak için Çözüm Gezgini penceresindeki default. aspx dosyasına çift tıklayın.
+2. Genel sekmesinin altındaki araç kutusu ' na sağ tıklayın ve **Sekme Ekle** menü seçeneğini belirleyin (bkz. Şekil 4).
+3. AJAX denetim araç seti adlı yeni bir sekme girin.
 
-[![Yeni bir sekme ekleme](get-started-with-the-ajax-control-toolkit-cs/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image7.png)
+[Yeni sekme ekleme ![](get-started-with-the-ajax-control-toolkit-cs/_static/image4.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image7.png)
 
-**Şekil 04**: Yeni bir sekme ekleme ([tam boyutlu görüntüyü görmek için tıklatın](get-started-with-the-ajax-control-toolkit-cs/_static/image8.png))
+**Şekil 04**: yeni sekme ekleme ([tam boyutlu görüntüyü görüntülemek için tıklayın](get-started-with-the-ajax-control-toolkit-cs/_static/image8.png))
 
-Ardından, yeni bir sekmeye AJAX Denetim Araç Seti denetim eklemek gerekir. Aşağıdaki adımları uygulayın:
+Ardından, AJAX denetim araç seti denetimlerini yeni sekmeye eklemeniz gerekir. şu adımları Izleyin:
 
-- AJAX Denetim Araç Seti sekmesi sağ tıklayın ve menü seçeneğini **seçin (bkz: Şekil 5) öğeleri**.
-- Burada AJAX Denetim Araç Seti sıkıştırması açılan ve AjaxControlToolkit.dll derlemeyi seçin konumuna göz atın.
+- AJAX denetim araç seti sekmesinin altına sağ tıklayın ve öğe seçin menü seçeneğini belirleyin **(bkz. Şekil 5)** .
+- AJAX denetim araç takımını sıkıştırmışın ve AjaxControlToolkit. dll derlemesini seçebileceğiniz konuma göz atın.
 
-[![Araç kutusuna eklenecek öğeleri seçin](get-started-with-the-ajax-control-toolkit-cs/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image9.png)
+[araç kutusuna eklenecek öğeleri seçin ![](get-started-with-the-ajax-control-toolkit-cs/_static/image5.jpg)](get-started-with-the-ajax-control-toolkit-cs/_static/image9.png)
 
-**Şekil 05**: Araç kutusuna eklenecek öğeleri seçin ([tam boyutlu görüntüyü görmek için tıklatın](get-started-with-the-ajax-control-toolkit-cs/_static/image10.png))
+**Şekil 05**: araç kutusuna eklenecek öğeleri seçin ([tam boyutlu görüntüyü görüntülemek için tıklayın](get-started-with-the-ajax-control-toolkit-cs/_static/image10.png))
 
-Bu adımları tamamladıktan sonra tüm araç seti denetimlerini, araç kutusunda görünür.
+Bu adımları tamamladıktan sonra araç kutusu denetimleri araç kutusunda görünür.
 
-## <a name="upgrading-to-a-new-version-of-the-toolkit"></a>Araç Seti yeni bir sürüme yükseltme
+## <a name="upgrading-to-a-new-version-of-the-toolkit"></a>Araç setinin yeni bir sürümüne yükseltme
 
-Araç Seti eski bir sürümünü kullanıyor ve taşımak artık gereksinim burada sonraki bir sürümü önerilen adımlar şunlardır:
+Araç setinin eski bir sürümünü kullanıyorsanız ve şu anda daha sonraki bir sürüme geçiş yapmanız gerekiyorsa önerilen adımlar şunlardır:
 
-- İkili - AjaxControlToolkit.dll derlemenin eski sürümü, Web sitesi Bin klasöründen silin.
-- Araç kutusu öğeleri - AJAX Denetim Araç Seti sekmesini silme ve AjaxControlToolkit.dll derlemenin yeni sürümünü içeren sekmeye yeniden oluşturmak için yukarıdaki adımları izleyin.
+- İkili dosyalar-Web sitesi bin klasörünüzdeki AjaxControlToolkit. dll derlemesinin eski sürümünü silin.
+- Araç kutusu öğeleri-AJAX denetim araç seti sekmesini silin ve aşağıdaki adımları izleyerek, bu sekmeyi, AjaxControlToolkit. dll derlemesinin yeni sürümü ile yeniden oluşturun.
 
 > [!div class="step-by-step"]
 > [Next](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)

@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/getting-started/index
-title: ASP.NET MVC'yi kullanmaya başlama | Microsoft Docs
+title: ASP.NET MVC Başlarken | Microsoft Docs
 author: rick-anderson
-description: Bilgi hakkında ASP.NET MVC ASP.NET MVC ayrılması ve bu g NET bir ayrım sağlar dinamik Web siteleri oluşturmak için güçlü, desen tabanlı bir yöntem sağlar...
+description: ASP.NET MVC ASP.NET MVC hakkında bilgi edinmek için bkz. MVC, sorunların temiz bir şekilde ayrılmasını sağlayan dinamik Web siteleri oluşturmaya yönelik güçlü ve desen tabanlı bir yol sunar.
 ms.author: riande
 ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 8e25c3a01634df6c3d9c81df8ab1738cc079d341
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65121121"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583015"
 ---
-# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC'yi kullanmaya başlama
+# <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC Başlarken
 
-> Aşağıdaki yönergeler, ne ASP.NET MVC olduğunu ve nasıl başlayacağınızı gösterir açıklar.
+> Aşağıdaki kılavuzda, ASP.NET MVC 'nin ne olduğu açıklanmakta ve nasıl başlatılacağınız gösterilmektedir.
 
 - [ASP.NET MVC 5 ile çalışmaya başlama](introduction/index.md)
 

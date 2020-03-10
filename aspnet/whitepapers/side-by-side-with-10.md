@@ -1,123 +1,123 @@
 ---
 uid: whitepapers/side-by-side-with-10
-title: .NET Framework 1.0 ve 1.1 ASP.NET yan yana yürütülmesi | Microsoft Docs
+title: ASP.NET .NET Framework 1,0 ve 1,1 ' nin yan yana yürütülmesi | Microsoft Docs
 author: rick-anderson
-description: Bu teknik incelemede, makinenizde ya da çerçeve sürümünde çalıştırmak bir ASP.NET Web uygulamasına izin verme ve .NET 1.0 ve 1.1 .NET yüklemek açıklar...
+description: Bu Teknik İnceleme, makinenizde hem .NET 1,0 hem de .NET 1,1 ' nin nasıl yükleneceğini ve bir ASP.NET Web uygulamasının her iki sürümünde de çalışmasına izin verir...
 ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
 ms.openlocfilehash: c123545099013af71569bce4707f2b3eb732c344
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67411220"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632974"
 ---
 # <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>ASP.NET .NET Framework 1.0 ve 1.1 Sürümlerini Yan Yana Yürütme
 
-> Bu teknik incelemeyi ve .NET 1.0 ve 1.1 .NET framework'ün her iki sürümde de çalıştırmak bir ASP.NET Web uygulamasına izin verme makinenize yükleyin açıklar.
+> Bu Teknik İnceleme, makinenizde hem .NET 1,0 hem de .NET 1,1 ' nin nasıl yükleneceğini ve bir ASP.NET Web uygulamasının Framework 'ün herhangi bir sürümünde çalışmasına izin verir.
 > 
-> ASP.NET 1.0 ve 1.1 ASP.NET için geçerlidir.
+> ASP.NET 1,0 ve ASP.NET 1,1 için geçerlidir.
 
-ASP.NET'te, uygulamaları aynı bilgisayarda yüklü ancak .NET Framework'ün farklı sürümlerini kullanan yan yana çalıştırılması söylenir. Aşağıdaki konuda yan yana yürütme için ASP.NET uygulamalarının nasıl yapılandırılacağını açıklar ve için ayrıntılı adımlar verilmektedir:
+ASP.NET ' de, uygulamalar aynı bilgisayara yüklendiklerinde yan yana çalışıyor olarak kabul edilir, ancak .NET Framework farklı sürümlerini kullanır. Aşağıdaki konu, yan yana yürütme için ASP.NET uygulamalarının nasıl yapılandırılacağını açıklar ve aşağıdakiler için ayrıntılı adımlar sağlar:
 
-- [Yükleme sırasında .NET Framework sürüm 1.0, Web uygulamanızın eşlemesini koru](#1)
-- [.NET Framework'ün belirli bir sürümünü bir Web uygulamasına eşleme](#2)
-- [Bir Web sitesini kullanarak .NET Framework sürümünü bulun](#3)
+- [Yükleme sırasında Web uygulamanızın .NET Framework sürüm 1,0 ' e eşlenmesini koruyun](#1)
+- [Bir Web uygulamasını .NET Framework belirli bir sürümüne eşleyin](#2)
+- [Bir Web sitesinin kullandığı .NET Framework sürümünü bulma](#3)
 
-Geleneksel olarak, bir bilgisayar üzerinde bir bileşen ya da uygulama güncelleştirildiğinde, eski sürüm kaldırılır ve yeni sürümle değiştirilir. Yeni sürümü önceki sürümüyle uyumlu değilse, bu genellikle bileşen veya uygulama kullanan diğer uygulamalar keser. .NET Framework sağlayan bir derleme veya aynı anda aynı bilgisayara yüklenecek uygulama birden çok sürümünü yan yana yürütme için destek sağlar. Birden çok sürümü aynı anda yüklenebildiğinden, yönetilen uygulamaların hangi sürümün farklı bir sürümünü kullanan uygulamaları etkilemeden kullanılacağını seçebilirsiniz.
+Geleneksel olarak, bir bilgisayarda bir bileşen veya uygulama güncelleştirildiği zaman, eski sürüm kaldırılır ve daha yeni bir sürümle değiştirilmiştir. Yeni sürüm önceki sürümle uyumlu değilse, bu genellikle bileşeni veya uygulamayı kullanan diğer uygulamaları keser. .NET Framework, bir derleme veya uygulamanın birden çok sürümünün aynı anda aynı bilgisayara yüklenmesine izin veren yan yana yürütme desteği sağlar. Aynı anda birden çok sürüm yüklenebildiğinden, yönetilen uygulamalar farklı bir sürüm kullanan uygulamaları etkilemeden hangi sürümün kullanılacağını seçebilir.
 
-Varsayılan olarak, .NET Framework sürüm 1.1, yükleme sırasında tüm ASP.NET uygulamalarının otomatik olarak .NET Framework'ün en son sürümünü kullanacak şekilde yapılandırılır. .NET Framework 1. 1'için varsayılan olarak, ASP.NET uygulamaları istemiyorsanız tıklayın [burada](#1) yükleme sırasında bunu önlemek öğrenin.
+Varsayılan olarak, .NET Framework sürüm 1,1 yüklemesi sırasında, tüm mevcut ASP.NET uygulamaları .NET Framework en son sürümünü kullanacak şekilde otomatik olarak yeniden yapılandırılır. ASP.NET uygulamalarınızın varsayılan .NET Framework 1,1 ' i kullanmasını istemiyorsanız, yükleme sırasında bunu nasıl önleyeceğinizi öğrenmek için [buraya](#1) tıklayın.
 
-Web sunucunuzu güncelleştirmek için .NET Framework 1.1 ve istediğiniz .NET Framework 1.0 çalıştırılacak bir veya daha fazla Web uygulamaları, Internet Information Services (IIS) betik eşlemesi güncelleştirmeniz gerekiyor. Betik eşlemesi, .NET Framework sürümü için belirli bir Web uygulaması dosya uzantısı .aspx eşlemek için yönelik mekanizmadır. Tıklayın [burada](#2) .NET Framework'ün belirli bir sürüme bir Web uygulaması eşlemeyle ilgili bilgi edinmek için.
+Web sunucunuzu 1,1 .NET Framework ve bir veya daha fazla Web uygulamasının .NET Framework 1,0 ' i çalıştırmak istiyorsanız, Internet Information Services (IIS) betik eşlemesini güncelleştirmeniz gerekir. Betik eşleme, belirli bir Web uygulaması için. aspx dosya uzantısını .NET Framework bir sürümüne eşlemek için bir mekanizmadır. Bir Web uygulamasını .NET Framework belirli bir sürümüne nasıl eşleyeceğinizi öğrenmek için [buraya](#2) tıklayın.
 
-Internet Bilgi Yöneticisi'ni veya ASP.NET IIS Kayıt aracını kullanın (Aspnet\_regiis.exe) hangi .NET Framework sürümünü çalıştıran belirli bir Web uygulaması bulunamadı. Tıklayın [burada](#3) bir Web sitesini kullanarak .NET Framework sürümünü bulmak öğrenin.
+Belirli bir Web uygulamasını hangi .NET Framework sürümünün çalıştırmakta olduğunu bulmak için Internet Information Manager veya ASP.NET IIS kayıt aracı 'nı (ASPNET\_regııs. exe) kullanabilirsiniz. Bir Web sitesinin kullandığı .NET Framework sürümünü bulma hakkında bilgi edinmek için [buraya](#3) tıklayın.
 
-.NET Framework 1.1 olarak geçiş sırasında bir içeri aktarma göz önünde bulundurarak her .NET Framework sürümü kendi Machine.config dosyasının kullanmasıdır. Sonuç olarak, bir Web Yöneticisi Machine.config dosyasına değişiklikler yaptı, bu değişiklikleri .NET Framework 1.1 Machine.config dosyasına geçirilmesi gerekir.
+.NET Framework 1,1 ' e geçiş yaparken bir içeri aktarma işlemi, .NET Framework her bir sürümünün kendi Machine. config dosyasını kullanmalarından biridir. Sonuç olarak, bir Web Yöneticisi Machine. config dosyasında değişiklik yaptıysanız, bu değişikliklerin .NET Framework 1,1 Machine. config dosyasına geçirilmesi gerekir.
 
 <a id="1"></a>
 
-## <a name="maintaining-your-web-applications-mapping-to-net-framework-10-during-installation"></a>Yükleme sırasında .NET Framework 1.0 için Web uygulamanızın eşlemesini bakımını yapma
+## <a name="maintaining-your-web-applications-mapping-to-net-framework-10-during-installation"></a>Web uygulamanızın yükleme sırasında .NET Framework 1,0 ' e eşlenmesini koruma
 
-Varsayılan olarak, tüm mevcut ASP.NET uygulamaları, .NET Framework'ün daha yeni sürümü kullanmak için yükleme sırasında otomatik olarak yapılandırılır. .NET Framework'ün daha yeni sürümünü kullanarak, uygulamaları geliştirmeleri ve yeni sürümde sunulan yeni özelliklerle tam avantajlarından yararlanabilirsiniz. Aynı anda kimin hangi uygulamaları üzerinde ayrıntılı denetim isteyebilirsiniz Web Yöneticisi güncelleştirilir, otomatik tüm ASP.NET uygulamalarına .NET Framework'ün bir yükleme sırasında yeniden eşleme engelleyebilirsiniz.
+Varsayılan olarak, tüm mevcut ASP.NET uygulamaları yükleme sırasında .NET Framework 'in daha yeni bir sürümünü kullanmak üzere otomatik olarak yeniden yapılandırılır. .NET Framework daha yeni sürümünü kullanarak uygulamalar, yeni sürümde sunulan geliştirmelerden ve yeni özelliklerden tam olarak faydalanabilir. Aynı zamanda, hangi uygulamaların güncelleştirildiği üzerinde ayrıntılı denetim yapmak isteyebileceğiniz Web Yöneticisi, .NET Framework yüklemesi sırasında var olan tüm ASP.NET uygulamalarının otomatik yeniden eşleştirmasını önleyebilir.
 
-Otomatik tüm ASP.NET uygulamasının .NET Framework'ün daha yeni sürüme yeniden eşleme önlemek için Web Yöneticisi Dotnetfx.exe Kurulum programını/noaspupgrade komut satırı seçeneğini kullanabilirsiniz.
+Tüm ASP.NET uygulamasının .NET Framework yeni sürümüne otomatik olarak yeniden eşleştirmeyi engellemek için Web Yöneticisi, Dotnetfx. exe Kurulum programı ile/noaspupgrade komut satırı seçeneğini kullanabilir.
 
-**ASP.NET uygulamasının daha yeni sürüme toplam yeniden eşleme önlemek için**
+**ASP.NET uygulamasının toplam yeniden eşleştirmasını daha yeni bir sürüme engellemek için**
 
-1. Git **Başlat**.
-2. Tıklayarak **çalıştırma**.
-3. Tür **cmd**.
-4. **Tamam**'ı tıklatın.  
+1. **Başlat**'a gidin.
+2. **Çalıştır**' a tıklayın.
+3. **Cmd**yazın.
+4. **Tamam**’a tıklayın.  
   
     ![](side-by-side-with-10/_static/image1.gif)
-5. Komut İstemi'nden .NET Framework'ün yüklemesini başlatmak için şu satırı girin: **Dotnetfx.exe/c: "/ noaspupgrade yüklensin mi?** .  
+5. Komut isteminde, .NET Framework: **Dotnetfx. exe/c: "/noaspupgrade yüklensin mi?** . yüklemesini başlatmak için aşağıdaki satırı yazın.  
   
     ![](side-by-side-with-10/_static/image2.gif)
-6. Tıklayın **Evet** Microsoft .NET Framework 1.1 kurulumunda. Bu, .NET Framework 1.1 Kurulum işlemi başlatır.  
+6. Microsoft .NET Framework 1,1 kurulumunda **Evet** ' e tıklayın. Bu işlem 1,1 .NET Framework kurulum işlemini başlatacak.  
   
     ![](side-by-side-with-10/_static/image3.gif)
 
 <a id="2"></a>
 
-## <a name="map-a-web-application-to-a-specific-version-of-the-net-framework"></a>.NET Framework'ün belirli bir sürümünü bir Web uygulamasına eşleme
+## <a name="map-a-web-application-to-a-specific-version-of-the-net-framework"></a>Bir Web uygulamasını .NET Framework belirli bir sürümüne eşleyin
 
-ASP.NET IIS Kayıt Aracı sürümü .NET Framework'ün her sürümü içerir (Aspnet\_regiis.exe). Bu araç, bir Web uygulaması belirli bir .NET Framework sürümünün altında çalıştırılması yöneticilerin sağlar. Bu .NET Framework sürümü için bir Web uygulaması eşleme olarak adlandırılır. Yöneticiler, ASP.NET seçmelisiniz\_Web uygulaması ile ilişkilendirilecek olan .NET Framework sürümüne karşılık gelen regiis.exe. Örneğin, bir Web sitesi .NET Framework 1.1 kullandığını belirtmek için isteyen bir yönetici Aspnet kullanmalısınız\_.NET Framework 1.1 ile birlikte gelen regiis.exe.
+.NET Framework her sürümü, ASP.NET IIS kayıt aracı 'nın (ASPNET\_regııs. exe) bir sürümünü içerir. Bu araç, yöneticilerin bir Web uygulamasının .NET Framework belirli bir sürümü altında çalıştırıldığını belirtmesini sağlar. Bu, bir Web uygulamasını .NET Framework bir sürümüne eşleme olarak adlandırılır. Yöneticiler, Web uygulamasıyla ilişkilendirilecek .NET Framework sürümüne karşılık gelen ASPNET\_regııs. exe ' yi seçmelidir. Örneğin, bir Web sitesinin 1,1 .NET Framework kullanmasını belirtmek isteyen bir yöneticinin .NET Framework 1,1 ile birlikte gelen ASPNET\_regııs. exe ' yi kullanması gerekir.
 
-ASP.NET\_regiis.exe sürüm 1.0 için konumu:
+Sürüm 1,0 için ASPNET\_regııs. exe şu konumda bulunur:
 
-- C:\WINDOWS\Microsoft.NET\Framework\\**v1.0.3705**\aspnet\_regiis
+- C:\WINDOWS\Microsoft.NET\Framework\\**v 1.0.3705**\aspnet\_regııs
 
-ASP.NET\_regiis.exe sürümünün 1,1 yer:
+Sürüm 1 için regııs. exe\_ASPNET, şu konumda bulunur:
 
-- C:\WINDOWS\Microsoft.NET\Framework\\**v1.1.4322**\aspnet\_regiis
+- C:\WINDOWS\Microsoft.NET\Framework\\**v 1.1.4322**\aspnet\_regııs
 
-ASP.NET\_regiis.exe betik eşlemesi bir Web uygulaması için iki seçenek sağlar:
+ASPNET\_regııs. exe, bir Web uygulamasını betik eşleme için iki seçenek sunar:
 
-- **-s** ayarlar betik eşlemesi yolundaki ve alt dizinleri.
-- **-sn** yolda yalnızca betik eşlemesi ayarlar.
+- **-s** , yol içindeki ve alt dizinlerinde betik eşlemesini ayarlar.
+- **-sn** yalnızca yoldaki betik eşlemesini ayarlar.
 
-W3SVC/ROOT biçiminde tanımlanan Web uygulamasını IIS meta veri yolu yolunu tanımlar / {WebSiteNumber} / {uygulama\_adı}. Örneğin, bir Web uygulaması için varsayılan Web sitesi altında bulunan portalı adlı metataban yolu W3SVC/1/kök/Portal ' dir.
+Yol, W3SVC/ROOT/{WebSiteNumber}/{Application\_Name} biçiminde tanımlanan Web uygulaması IIS meta veri yolunu tanımlar. Örneğin, varsayılan Web sitesi altında bulunan Portal adlı bir Web uygulaması için, metatabanı yolu W3SVC/1/ROOT/Portal olur.
 
 ![](side-by-side-with-10/_static/image4.gif)
 
-Metatabanı yolu metatabanı düzenleyici olarak adlandırılan bir araç kullanabilirsiniz unutmayın. Bu araç Microsoft Support sitesini yükleyebilir [ https://support.microsoft.com/default.aspx?scid=kb; en-us; 232068.](https://support.microsoft.com/default.aspx?scid=kb;en-us;232068)
+Ayrıca, metatabanı yolunu almak için metatabanı düzenleyicisi olarak adlandırılan bir araç da kullanabilirsiniz. Bu aracı, [https://support.microsoft.com/default.aspx?scid=kb, en-US; 232068](https://support.microsoft.com/default.aspx?scid=kb;en-us;232068) konumundaki Microsoft desteği sitesinden indirebilirsiniz.
 
-- ASP.NET çalıştırma\_Haritası ve kendi subapplication regiis.exe -s W3SVC/1/kök/IIS portalı güncelleştirmek için Portal komut dosyası.  
+- Portal IIS betik eşlemesini ve alt öğesini güncelleştirmek için ASPNET\_regııs. exe-s W3SVC/1/ROOT/Portal çalıştırın.  
   
     ![](side-by-side-with-10/_static/image5.gif)
 
-- ASP.NET çalıştırma\_regiis.exe -sn W3SVC/1/kök/portal IIS betik güncelleştirmek için Portal harita, portal uygulamaları etkilemeden? s alt dizinleri.  
+- Portaldaki uygulamaları etkilemeden Portal IIS betik eşlemesini güncelleştirmek için ASPNET\_regııs. exe-sn W3SVC/1/ROOT/Portal çalıştırın.  
   
     ![](side-by-side-with-10/_static/image6.gif)
 
 <a id="3"></a>
 
-## <a name="find-the-net-framework-version-that-a-web-application-is-using"></a>Bir Web uygulaması kullanarak .NET Framework sürümünü bulun
+## <a name="find-the-net-framework-version-that-a-web-application-is-using"></a>Bir Web uygulamasının kullandığı .NET Framework sürümünü bulma
 
-Yönetici, hangi .NET Framework sürümünü çalıştıran bir Web sitesi bulmak için Internet Hizmet Yöneticisi'ni kullanabilirsiniz. Farklı işletim sistemi sürümleri, farklı Internet Hizmet Yöneticisi'ni başlatın. Hizmet Yöneticisi'ni başlatmak için aşağıda listelenen adımları izleyin.
+Yönetici, .NET Framework bir Web sitesi hangi sürümünün çalıştığını bulmak için Internet Service Manager kullanabilir. Farklı işletim sistemi sürümleri Internet Service Manager farklı şekilde başlatır. Service Manager 'ı başlatmak için aşağıda listelenen adımları izleyin.
 
-**Internet Hizmet Yöneticisi'ni başlatmak için**
+**Internet Service Manager başlatmak için**
 
-1. Git **Başlat**.
-2. Tıklayarak **çalıştırma**.
-3. Tür **inetmgr**.  
+1. **Başlat**'a gidin.
+2. **Çalıştır**' a tıklayın.
+3. **İnetmgr**yazın.  
   
     ![](side-by-side-with-10/_static/image7.gif)
-4. Internet Hizmet Yöneticisi'nden, .NET Framework sürümü bilmek istediğiniz Web uygulamasını seçin.  
+4. Internet Service Manager, .NET Framework sürümünü kullanmak istediğiniz Web uygulamasını seçin.  
   
     ![](side-by-side-with-10/_static/image8.gif)
-5. Web uygulamasına sağ tıklayın ve tıklayarak **özellikleri.**  
+5. Web uygulamasına sağ tıklayın ve Özellikler ' e tıklayın **.**  
   
     ![](side-by-side-with-10/_static/image9.gif)
-6. Özellik penceresinden seçmek **yapılandırma.**  
+6. Özellik penceresinde yapılandırma ' yı seçin **.**  
   
     ![](side-by-side-with-10/_static/image10.gif)
-7. Uygulama eşlemesi tablosundan seçin **.aspx**, tıklatıp **Düzenle**.  
+7. Uygulama eşleme tablosundan **. aspx**' i seçin ve **Düzenle**' ye tıklayın.  
   
     ![](side-by-side-with-10/_static/image11.gif)
-8. Gelen **yürütülebilir** metin kutusuna kaydırarak sürümü dizininden bakın. Sürüm dizini v.1.1.4322 ise, uygulama için .NET Framework 1.1 eşleştirilir. Buna karşılık, sürüm dizini v1.0.3705 ise, uygulama için .NET Framework 1.0 eşleştirilir.  
+8. **Yürütülebilir** metin kutusundan, kaydırma yoluyla sürüm dizinine bakın. Sürüm dizini v. 1.1.4322 ise, uygulama .NET Framework 1,1 ile eşleştirilir. Buna karşılık, sürüm dizini v 1.0.3705 ise, uygulama .NET Framework 1,0 ile eşleştirilir.  
   
     ![](side-by-side-with-10/_static/image12.gif)

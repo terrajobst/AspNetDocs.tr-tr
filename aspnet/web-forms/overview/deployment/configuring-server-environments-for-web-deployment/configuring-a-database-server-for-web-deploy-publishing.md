@@ -1,225 +1,225 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: Web için bir veritabanı sunucusunu yapılandırma dağıtımı yayımlama | Microsoft Docs
+title: Web Dağıtımı yayımlama için bir veritabanı sunucusunu yapılandırma | Microsoft Docs
 author: jrjlee
-description: Bu konuda, web dağıtımı ve yayımlama desteklemek için SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır. Bu konuda açıklanan görevler ortak olan...
+description: Bu konuda, Web dağıtımı ve yayımlamayı desteklemek üzere SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır. Bu konuda açıklanan görevler Co...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
 ms.openlocfilehash: ade3c1ba1c470092f512436f39b8831458408c2c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131571"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634619"
 ---
 # <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Bir Veritabanı Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, web dağıtımı ve yayımlama desteklemek için SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır.
+> Bu konuda, Web dağıtımı ve yayımlamayı desteklemek üzere SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır.
 > 
-> Bu konuda açıklanan görevlerin her dağıtım senaryosu için ortak olan&#x2014;IIS Web Dağıtım Aracı (Web dağıtımı) Uzak Aracı hizmeti, Web dağıtımı işleyicisi ya da çevrimdışı dağıtımı kullanmak için uygulamanızı web sunucularınızdan yapılandırılıp yapılandırılmadığını önemli değildir veya Uygulama, tek bir web sunucusu veya sunucu grubunda çalışıyor. Veritabanı dağıtma şeklinizi güvenlik gereksinimleri ve diğer konular göre değişebilir. Örneğin, veritabanı veya örnek verileri kaydetmeden dağıtabileceğinizi ve kullanıcı rolü eşlemeleri dağıtma veya dağıtımdan sonra bunları el ile yapılandırmanız. Ancak, veritabanı sunucusunu yapılandırma şekliniz aynı kalır.
+> Bu konuda açıklanan görevler her dağıtım senaryosunda&#x2014;ortaktır, Web sunucularınızın IIS Web Dağıtım aracı (Web dağıtımı) uzak Aracı hizmeti, Web dağıtımı işleyicisi veya çevrimdışı dağıtım ya da uygulamanızın tek bir Web sunucusunda veya bir sunucu grubunda çalışıyor olması için yapılandırılmış olup olmadığı önemi yoktur. Veritabanını dağıtmanın yolu, güvenlik gereksinimlerine ve diğer noktalara göre değişebilir. Örneğin, veritabanını örnek verilerle veya olmayan bir şekilde dağıtabilir ve Kullanıcı rolü eşlemelerini dağıtabilir veya dağıtımdan sonra el ile yapılandırabilirsiniz. Ancak, veritabanı sunucusunu yapılandırdığınız Yöntem aynı kalır.
 
-Web dağıtımını destekleyen bir veritabanı sunucusunu yapılandırma için ek ürün veya araçları yüklemeniz gerekmez. Veritabanı sunucunuz ve web sunucunuz farklı makinelerde çalıştırın varsayılarak, yalnızca yapmanız gerekir:
+Web dağıtımını desteklemek üzere bir veritabanı sunucusunu yapılandırmak için ek ürün veya araç yüklemenize gerek yoktur. Veritabanı sunucunuzun ve Web sunucunuzun farklı makinelerde çalıştığı kabul edildiğinde, şunları yapmanız yeterlidir:
 
-- SQL Server'ı kullanarak TCP/IP iletişim kurmasına izin verir.
-- Herhangi bir güvenlik duvarı üzerinden SQL Server trafiğine izin verin.
-- Web sunucusu makine hesabının SQL Server oturum açma sağlar.
-- Makine hesabı oturum açma, tüm gerekli veritabanı rolleriyle eşleyebileceğinizi.
-- Dağıtım bir SQL Server oturum açma ve veritabanı oluşturan izinleri çalıştıracak hesabı verin.
-- Yineleme dağıtımlarını desteklemek üzere dağıtım hesabı oturum açma harita **db\_sahibi** veritabanı rolü.
+- SQL Server TCP/IP kullanarak iletişim kurmasına izin verme.
+- Tüm güvenlik duvarları üzerinden SQL Server trafiğe izin verin.
+- Web sunucusu makine hesabına SQL Server bir oturum açma hakkı verin.
+- Makine hesabı oturum açma bilgilerini gerekli veritabanı rolleriyle eşleyin.
+- SQL Server bir oturum açma ve veritabanı Oluşturucu izinleri için dağıtımı çalıştıracak hesaba izin verin.
+- Yineleme dağıtımlarını desteklemek için, dağıtım hesabı oturum açma bilgilerini **db\_Owner** veritabanı rolüyle eşleyin.
 
-Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Görevler ve bu konudaki yönergeler Windows Server 2008 R2 üzerinde çalışan SQL Server 2008 R2 varsayılan bir örnek ile başlatıyorsanız varsayılır. Devam etmeden önce şunlardan emin olun:
+Bu konu, bu yordamların her birini nasıl gerçekleştirekullanacağınızı gösterir. Bu konudaki görevler ve izlenecek yollar, Windows Server 2008 R2 üzerinde çalışan bir SQL Server 2008 R2 varsayılan örneğiyle başladığınızı varsayar. Devam etmeden önce aşağıdakileri doğrulayın:
 
-- Windows Server 2008 R2 Service Pack 1 ve tüm kullanılabilir güncelleştirmeler yüklenir.
-- Etki alanına katılmış sunucusudur.
-- Sunucuda bir statik IP adresi var.
-- SQL Server 2008 R2 Service Pack 1 ve tüm kullanılabilir güncelleştirmeler yüklenir.
+- Windows Server 2008 R2 Service Pack 1 ve tüm kullanılabilir güncelleştirmeler yüklendi.
+- Sunucu etki alanına katılmış.
+- Sunucunun statik bir IP adresi vardır.
+- SQL Server 2008 R2 Service Pack 1 ve tüm kullanılabilir güncelleştirmeler yüklendi.
 
-SQL Server örneği yalnızca eklemis **veritabanı altyapısı Hizmetleri** rol, tüm SQL Server yüklemesinde otomatik olarak eklenir. Ancak, için yapılandırma ve Bakım kolaylığı, eklediğinizden öneririz **Yönetim Araçları – temel** ve **Yönetim Araçları – tam** sunucu rolleri.
+SQL Server örneği yalnızca, herhangi bir SQL Server yüklemesinde otomatik olarak dahil edilen **Database Engine Services** rolünü içermelidir. Ancak, yapılandırma ve bakım kolaylığı için **Yönetim Araçları – temel** ve **Yönetim Araçları – tüm** sunucu rolleri dahil etmenizi öneririz.
 
 > [!NOTE]
-> Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). SQL Server'ı yükleme hakkında daha fazla bilgi için bkz. [SQL Server 2008 R2'yi yükleme](https://technet.microsoft.com/library/bb500395.aspx).
+> Bilgisayarları etki alanına katma hakkında daha fazla bilgi için bkz. [bilgisayarları etki alanına katma ve oturum açma](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [STATIK IP adresi yapılandırma](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). SQL Server yükleme hakkında daha fazla bilgi için bkz. [SQL Server 2008 R2 'Yi yükleme](https://technet.microsoft.com/library/bb500395.aspx).
 
-## <a name="enable-remote-access-to-sql-server"></a>SQL Server'a uzaktan erişimi etkinleştirin
+## <a name="enable-remote-access-to-sql-server"></a>SQL Server uzaktan erişimi etkinleştir
 
-SQL Server uzak bilgisayarlarla iletişim kurmak için TCP/IP'yi kullanır. Farklı makinelerde veritabanı sunucunuz ve web sunucunuz varsa, için gerekir:
+SQL Server uzak bilgisayarlarla iletişim kurmak için TCP/IP kullanır. Veritabanı sunucunuz ve Web sunucunuz farklı makinelerinizde şunları yapmanız gerekir:
 
-- TCP/IP üzerinden iletişime izin vermek üzere SQL sunucu ağ ayarlarını yapılandırın.
-- TCP trafiğine izin ver (ve bazı durumlarda kullanıcı veri birimi Protokolü (UDP) trafiği için) SQL Server örneği tarafından kullanılan bağlantı noktaları üzerinde bir donanım veya yazılım güvenlik duvarlarını yapılandırın.
+- TCP/IP üzerinden iletişime izin vermek için SQL Server ağ ayarlarını yapılandırın.
+- SQL Server örneğinin kullandığı bağlantı noktalarında TCP trafiğine (ve bazı durumlarda Kullanıcı Datagram Protokolü (UDP) trafiğine) izin vermek için herhangi bir donanım veya yazılım güvenlik duvarı yapılandırın.
 
-TCP/IP üzerinden iletişim kurmak SQL Server'ı etkinleştirmek için SQL Server örneği için ağ yapılandırmasını değiştirmek için SQL Server Yapılandırma Yöneticisi'ni kullanın.
+SQL Server TCP/IP üzerinden iletişim kurmak üzere etkinleştirmek için SQL Server Yapılandırma Yöneticisi kullanarak SQL Server örneğinizin ağ yapılandırmasını değiştirin.
 
-**TCP/IP'yi kullanarak iletişim kurmak SQL Server'ı etkinleştirmek için**
+**SQL Server TCP/IP kullanarak iletişim kurmak üzere etkinleştirmek için**
 
-1. Üzerinde **Başlat** menüsünde **tüm programlar**, tıklayın **Microsoft SQL Server 2008 R2**, tıklayın **yapılandırma araçları**ve ardından **SQL Server Yapılandırma Yöneticisi**.
-2. Ağaç görünümü bölmesinde **SQL Server Ağ Yapılandırması**ve ardından **MSSQLSERVER protokolleri**.
+1. **Başlat** menüsünde **tüm programlar**' ın üzerine gelin, **Microsoft SQL Server 2008 R2**' ye tıklayın, **yapılandırma araçları**' a ve ardından **SQL Server Yapılandırma Yöneticisi**' ye tıklayın.
+2. Ağaç görünümü bölmesinde **SQL Server ağ yapılandırması**' nı genişletin ve ardından **MSSQLSERVER protokolleri**' ne tıklayın.
 
    > [!NOTE]
-   > Birden çok SQL Server örneğini yüklediyseniz, gördüğünüz bir <strong>için protokoller</strong><em>[örnek adı]</em> her örneği için öğesi. Bir örnek tarafından örneği bazında ağ ayarlarını yapılandırmak gerekir.
-3. Ayrıntılar bölmesinde, **TCP/IP'yi** satır ve ardından **etkinleştirme**.
+   > Birden çok SQL Server örneği yüklediyseniz, her örnek için<em>[örnek adı]</em> öğesi <strong>için bir protokoller</strong>görürsünüz. Örnek temelinde ağ ayarlarını yapılandırmanız gerekir.
+3. Ayrıntılar bölmesinde **TCP/IP** satırına sağ tıklayın ve ardından **Etkinleştir**' e tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
-4. İçinde **uyarı** iletişim kutusu, tıklayın **Tamam**.
+4. **Uyarı** Iletişim kutusunda **Tamam**' a tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image2.png)
-5. MSSQLSERVER hizmetinin yeni ağ yapılandırmanızı geçerlilik kazanmasından önce yeniden başlatmanız gerekir. Bunu bir komut isteminde, Hizmetler konsolunu veya SQL Server Management Studio yapabilirsiniz. Bu yordamda, SQL Server Management Studio kullanacaksınız.
-6. SQL Server Yapılandırma Yöneticisi'ni kapatın.
-7. Üzerinde **Başlat** menüsünde **tüm programlar**, tıklayın **Microsoft SQL Server 2008 R2**ve ardından **SQL Server Management Studio**.
-8. İçinde **sunucuya Bağlan** iletişim kutusundaki **sunucu adı** kutusunda, veritabanı sunucusunun adını yazın ve ardından **Connect**.
+5. Yeni ağ yapılandırmanızın etkili olabilmesi için MSSQLSERVER hizmetini yeniden başlatmanız gerekir. Bunu, bir komut isteminde, hizmetler konsolundan veya SQL Server Management Studio ' den yapabilirsiniz. Bu yordamda SQL Server Management Studio kullanacaksınız.
+6. SQL Server Yapılandırma Yöneticisi’ni kapatın.
+7. **Başlat** menüsünde **tüm programlar**' ın üzerine gelin, **Microsoft SQL Server 2008 R2**' ye ve ardından **SQL Server Management Studio**' e tıklayın.
+8. **Sunucuya Bağlan** iletişim kutusunda, **sunucu adı** kutusuna veritabanı sunucusunun adını yazın ve ardından **Bağlan**' a tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image3.png)
-9. İçinde **Nesne Gezgini** bölmesinde ana sunucu düğümüne sağ tıklayın (örneğin, **TESTDB1**) ve ardından **yeniden**.
+9. **Nesne Gezgini** bölmesinde, üst sunucu düğümüne (örneğin, **TESTDB1**) sağ tıklayın ve ardından **Yeniden Başlat**' a tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image4.png)
-10. İçinde **Microsoft SQL Server Management Studio** iletişim kutusu, tıklayın **Evet**.
+10. **Microsoft SQL Server Management Studio** Iletişim kutusunda **Evet**' e tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image5.png)
-11. Hizmet yeniden başlatıldığında SQL Server Management Studio'yu kapatın.
+11. Hizmet yeniden başlatıldığında SQL Server Management Studio kapatın.
 
-SQL Server trafiğinin bir güvenlik duvarı üzerinden izin vermek için önce SQL Server örneği kullanarak hangi bağlantı noktalarının bilmeniz gerekir. Bu, nasıl SQL Server örneği oluşturulan yapılandırılmış ve şirket bağlıdır:
+Bir güvenlik duvarı üzerinden SQL Server trafiğe izin vermek için, önce SQL Server örneğinizin kullandığı bağlantı noktalarını bilmeniz gerekir. Bu, SQL Server örneğinin nasıl oluşturulduğuna ve yapılandırıldığına bağlıdır:
 
-- A *varsayılan örnek* SQL Server'ın dinlediği için (ve yanıtlar) 1433 numaralı TCP bağlantı noktasını istekleri.
-- A *adlandırılmış örnek* SQL Server'ın dinlediği için (ve yanıtlar) dinamik olarak atanan bir TCP bağlantı noktası isteklerini.
-- SQL Server Browser hizmetini etkinleştirilirse, istemciler UDP bağlantı noktası 1434'ü belirli bir SQL Server örneği için kullanılacak TCP bağlantı noktasını bulmak için hizmette sorgulayabilir. Ancak, bu hizmet güvenlik nedenleriyle genellikle devre dışıdır.
+- SQL Server *varsayılan örneği* , TCP bağlantı noktası 1433 ' deki istekleri dinler (ve yanıt verir).
+- Adlandırılmış bir SQL Server *örneği* , dinamik olarak atanan TCP bağlantı noktasındaki istekleri dinler (ve yanıt verir).
+- SQL Server Browser hizmeti etkinleştirilmişse istemciler, belirli bir SQL Server örneği için hangi TCP bağlantı noktasının kullanılacağını öğrenmek üzere UDP bağlantı noktası 1434 ' de hizmeti sorgulayabilir. Ancak, bu hizmet genellikle güvenlik nedenleriyle devre dışıdır.
 
-SQL Server'ın varsayılan örneğinin kullanmakta olduğunuz varsayılarak, trafiğe izin vermek için güvenlik duvarını yapılandırmanız gerekir.
+SQL Server varsayılan bir örneğini kullandığınızı varsayarsak, güvenlik duvarınızı trafiğe izin verecek şekilde yapılandırmanız gerekir.
 
 | Yön | Bağlantı noktasından | Bağlantı noktası | Bağlantı noktası türü |
 | --- | --- | --- | --- |
-| Gelen | Tüm | 1433 | TCP |
-| Giden | 1433 | Tüm | TCP |
+| Gelen | Herhangi biri | 1433 | TCP |
+| Giden | 1433 | Herhangi biri | TCP |
 
 > [!NOTE]
-> Teknik olarak, bir istemci bilgisayar SQL Server ile iletişim kurmak için 1024 ile 5000 arasında rastgele atanan bir TCP bağlantı noktası kullanır ve güvenlik duvarı kurallarınıza uygun şekilde kısıtlayabilirsiniz. SQL Server bağlantı noktaları ve güvenlik duvarları hakkında daha fazla bilgi için bkz. [SQL için bir güvenlik duvarı iletişim kurmak için gereken TCP/IP bağlantı noktası numaralarını](https://go.microsoft.com/?linkid=9805125) ve [nasıl yapılır: Bir özel TCP bağlantı noktasını (SQL Server Yapılandırma Yöneticisi) dinlemek üzere yapılandırılması](https://msdn.microsoft.com/library/ms177440.aspx).
+> Teknik olarak, bir istemci bilgisayar SQL Server ile iletişim kurmak için 1024 ile 5000 arasında rastgele atanan bir TCP bağlantı noktası kullanır ve güvenlik duvarı kurallarınızı uygun şekilde kısıtlayabilirsiniz. SQL Server bağlantı noktaları ve güvenlik duvarları hakkında daha fazla bilgi için bkz. [bir güvenlik duvarı ÜZERINDEN SQL ile iletişim kurmak için gereken TCP/IP bağlantı noktası numaraları](https://go.microsoft.com/?linkid=9805125) ve [nasıl yapılır: belirli bir TCP bağlantı noktasını dinlemek üzere sunucu yapılandırma (SQL Server Yapılandırma Yöneticisi)](https://msdn.microsoft.com/library/ms177440.aspx).
 
-Çoğu Windows Server ortamlarda, büyük olasılıkla veritabanı sunucusunda Windows Güvenlik Duvarı'nı yapılandırmanız gerekecektir. Bir kural özellikle engellemediği sürece varsayılan olarak, Windows Güvenlik Duvarı tüm giden trafiği sağlar. Web sunucunuzun, veritabanınızın ulaşmak etkinleştirmek için SQL Server örneğinin kullandığı bağlantı noktası numarası TCP trafiğine izin veren bir gelen kuralı yapılandırmanız gerekir. SQL Server varsayılan örneğini kullanıyorsanız, bu kuralı yapılandırmak için sonraki yordamı kullanabilirsiniz.
+Çoğu Windows Server ortamında, büyük olasılıkla veritabanı sunucusunda Windows Güvenlik Duvarı 'nı yapılandırmanız gerekecektir. Varsayılan olarak, bir kural özel olarak yasaklamadığı takdirde Windows Güvenlik Duvarı tüm giden trafiğe izin verir. Web sunucunuzun veritabanınıza ulaşmasını sağlamak için, SQL Server örneğinin kullandığı bağlantı noktası numarasında TCP trafiğine izin veren bir gelen kuralı yapılandırmanız gerekir. SQL Server varsayılan bir örneğini kullanıyorsanız, bu kuralı yapılandırmak için sonraki yordamı kullanabilirsiniz.
 
-**Windows Güvenlik Duvarı'nı varsayılan bir SQL Server örneği ile iletişime izin verecek şekilde yapılandırmak için**
+**Windows güvenlik duvarını varsayılan bir SQL Server örneğiyle iletişime izin verecek şekilde yapılandırmak için**
 
-1. Veritabanı sunucusunda bulunan **Başlat** menüsünde **Yönetimsel Araçlar**ve ardından **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**.
-2. Ağaç görünümü bölmesinde **gelen kuralları**.
+1. Veritabanı sunucusunda, **Başlat** menüsünde, **Yönetim Araçları**' nın üzerine gelin ve ardından **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**' na tıklayın.
+2. Ağaç görünümü bölmesinde **gelen kuralları**' na tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image6.png)
-3. İçinde **eylemleri** bölmesi altında **gelen kuralları**, tıklayın **yeni kural**.
-4. Yeni gelen kuralı sihirbazında, üzerinde **kural türü** sayfasında **bağlantı noktası**ve ardından **sonraki**.
+3. **Eylemler** bölmesinde, **gelen kuralları**altında **Yeni kural**' a tıklayın.
+4. Yeni gelen kuralı sihirbazında, **kural türü** sayfasında, **bağlantı noktası**' nı seçin ve ardından **İleri**' ye tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image7.png)
-5. Üzerinde **protokol ve bağlantı noktaları** sayfasında **TCP** seçildiğinde ve **belirli yerel bağlantı noktaları** kutusuna **1433**ve ardından **Sonraki**.
+5. **Protokol ve bağlantı noktaları** sayfasında, **TCP** ' nin seçili olduğundan emin olun ve **belirli yerel bağlantı noktaları** kutusunda **1433**yazın ve ardından **İleri**' ye tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image8.png)
-6. Üzerinde **eylem** sayfasında **bağlantıya izin** tıklatın ve seçili **sonraki**.
-7. Üzerinde **profili** sayfasında **etki alanı** seçili Temizle **özel** ve **genel** onay kutularını işaretleyin ve ardından  **Sonraki**.
+6. **Eylem** sayfasında, **bağlantıya izin ver** ' i seçili bırakın ve **İleri**' ye tıklayın.
+7. **Profil** sayfasında, **etki alanını** seçili bırakın, **özel** ve **genel** onay kutularını temizleyin ve ardından **İleri**' ye tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
-8. Üzerinde **adı** sayfasında, kural uygun şekilde açıklayıcı bir ad verin (örneğin, **SQL Server varsayılan örneğini – ağ erişimi**) ve ardından **son**.
+8. **Ad** sayfasında, kurala uygun şekilde açıklayıcı bir ad verin (örneğin, **varsayılan örnek SQL Server: ağ erişimi**) ve ardından **son**' a tıklayın.
 
-Özellikle ihtiyacınız varsa SQL Server ile standart veya dinamik bağlantı noktaları üzerinden iletişim kurmak için bkz: SQL Server için Windows Güvenlik Duvarı yapılandırma hakkında daha fazla bilgi için [nasıl yapılır: Veritabanı altyapısı erişimi için Windows Güvenlik duvarını yapılandırma](https://technet.microsoft.com/library/ms175043.aspx).
+SQL Server için Windows Güvenlik Duvarı 'nı yapılandırma hakkında daha fazla bilgi için, özellikle standart olmayan veya dinamik bağlantı noktaları üzerinden SQL Server ile iletişim oluşturmanız gerekiyorsa, bkz. [nasıl yapılır: veritabanı altyapısı Için Windows güvenlik duvarını yapılandırma](https://technet.microsoft.com/library/ms175043.aspx).
 
-## <a name="configure-logins-and-database-permissions"></a>Oturumu yapılandırmak ve veritabanı izinleri
+## <a name="configure-logins-and-database-permissions"></a>Oturum açmaları ve veritabanı Izinlerini yapılandırma
 
-Internet Information Services (IIS) web uygulaması dağıttığınızda, uygulama havuzu kimliğini kullanarak uygulama çalışır. Bir etki alanı ortamında, uygulama havuzu kimlikleri ağ kaynaklarına erişmek için çalıştıkları sunucusunun makine hesabını kullanın. Makine hesapları şu yapıda <em>[etki alanı adı]</em><strong>\</ strong ><em>[makine adı]</em><strong>$</strong>&#x2014;Örneğin, <strong>FABRIKAM\TESTWEB1$</strong>. Web uygulamanızı bir veritabanına ağ üzerinden erişmek izin vermek için gerekir:
+Bir Web uygulamasını Internet Information Services (IIS) uygulamasına dağıttığınızda, uygulama uygulama havuzunun kimliğini kullanarak çalışır. Bir etki alanı ortamında, uygulama havuzu kimlikleri ağ kaynaklarına erişmek için çalıştıkları sunucunun makine hesabını kullanır. Makine hesapları <em>[etki alanı adı]</em><strong>\</strong ><em>[makine adı]</em> <strong>$</strong> &#x2014;Örneğin, <strong>FABRIKAM\TESTWEB1 $</strong>. Web uygulamanızın bir veritabanına ağ üzerinden erişmesine izin vermek için şunları yapmanız gerekir:
 
-- Bir oturum açma web sunucusu makine hesabının SQL Server örneğine ekleyin.
-- Makine hesabı oturum açma tüm gerekli veritabanı rolleriyle eşleyebileceğinizi (genellikle **db\_datareader** ve **db\_datawriter**).
+- SQL Server örneğine Web sunucusu makine hesabı için bir oturum açma ekleyin.
+- Makine hesabı oturum açma bilgilerini gerekli veritabanı rolleriyle eşleyin (genellikle **db\_DataReader** ve **DB\_DataWriter**).
 
-Web uygulamanızın tek bir sunucu yerine bir sunucu grubu üzerinde çalışıyorsa, sunucu grubundaki her bir web sunucusu için bu yordamları yineleyin gerekecektir.
+Web uygulamanız tek bir sunucu yerine bir sunucu grubu üzerinde çalışıyorsa, sunucu grubundaki her Web sunucusu için bu yordamları tekrarlamanız gerekir.
 
 > [!NOTE]
-> Uygulama havuzu kimlikleri ve ağ kaynaklarına erişimini hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
+> Uygulama havuzu kimlikleri ve ağ kaynaklarına erişme hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
 
-Bu görevler çeşitli şekillerde yaklaşımını. Oturum açma için şunlardan birini yapabilirsiniz:
+Bu görevlere çeşitli şekillerde yaklaşıtırabilirsiniz. Oturum açma bilgilerini oluşturmak için şunlardan birini yapabilirsiniz:
 
-- Oturum açma, Transact-SQL veya SQL Server Management Studio kullanarak veritabanı sunucusunda el ile oluşturun.
-- Bir SQL Server 2008 sunucu projesi oluşturma ve oturum açma dağıtmak için Visual Studio kullanın.
+- Transact-SQL veya SQL Server Management Studio kullanarak veritabanı sunucusunda oturum açmayı el ile oluşturun.
+- Oturum açma oluşturmak ve dağıtmak için Visual Studio 'da bir SQL Server 2008 sunucu projesi kullanın.
 
-Dağıtmak istediğiniz veritabanına bağımlı olmayan bir SQL Server oturum açma veritabanı düzeyinde bir nesne yerine, sunucu düzeyinde bir nesne olduğundan. Bu nedenle, herhangi bir noktada oturumu oluşturabilirsiniz ve en kolay yaklaşım genellikle, veritabanları dağıtmaya başlamadan önce oturum açma el ile veritabanı sunucusunda oluşturmaktır. Sonraki yordamda SQL Server Management Studio'da bir oturumu oluşturmak için kullanabilirsiniz.
+SQL Server oturum açma, veritabanı düzeyindeki bir nesne yerine sunucu düzeyindeki bir nesnedir, bu nedenle dağıtmak istediğiniz veritabanına bağlı değildir. Bu nedenle, oturum açmayı dilediğiniz zaman oluşturabilirsiniz ve en kolay yaklaşım, veritabanlarını dağıtmaya başlamadan önce oturum açma bilgilerini veritabanı sunucusunda el ile oluşturmak için kullanılır. SQL Server Management Studio bir oturum açma oluşturmak için sonraki yordamı kullanabilirsiniz.
 
-**Bir web sunucusu makine hesabının SQL Server oturumu oluşturmak için**
+**Web sunucusu makine hesabı için SQL Server oturum açma oluşturmak için**
 
-1. Veritabanı sunucusunda üzerinde **Başlat** menüsünde **tüm programlar**, tıklayın **Microsoft SQL Server 2008 R2**ve ardından **SQL Server Management Studio** .
-2. İçinde **sunucuya Bağlan** iletişim kutusundaki **sunucu adı** kutusunda, veritabanı sunucusunun adını yazın ve ardından **Connect**.
+1. Veritabanı sunucusunda, **Başlat** menüsünde **tüm programlar**' ın üzerine gelin, **Microsoft SQL Server 2008 R2**' ye ve ardından **SQL Server Management Studio**' e tıklayın.
+2. **Sunucuya Bağlan** iletişim kutusunda, **sunucu adı** kutusuna veritabanı sunucusunun adını yazın ve ardından **Bağlan**' a tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image10.png)
-3. İçinde **Nesne Gezgini** bölmesinde sağ **güvenlik**, işaret **yeni**ve ardından **oturum açma**.
-4. İçinde **oturum açma – yeni** iletişim kutusundaki **oturum açma adı** , web sunucusu makine hesabının adını yazın (örneğin, **FABRIKAM\TESTWEB1$**).
+3. **Nesne Gezgini** bölmesinde, **güvenlik**' e sağ tıklayın, **Yeni**' nin üzerine gelin ve ardından **oturum aç**' a tıklayın.
+4. **Oturum açma – yeni** iletişim kutusunda, **oturum açma adı** kutusuna Web sunucusu makine hesabınızın adını yazın (örneğin, **FABRIKAM\TESTWEB1 $** ).
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image11.png)
-5. **Tamam**'ı tıklatın.
+5. **Tamam**’a tıklayın.
 
-Bu noktada, veritabanı sunucunuza Web dağıtımı yayımlama için hazırdır. Ancak, makine hesabı oturum açma gerekli veritabanı rolleriyle eşleyebileceğinizi kadar dağıttığınız herhangi bir çözüm işe yaramaz. Düşündüğünüz daha çok veritabanı rollerine oturum açma eşlemesi gerektirir, siz kadar harita rolleri, sonra veritabanını dağıttınız olamaz. Makine hesabı oturum açma gerekli veritabanı rolleriyle eşleyebileceğinizi için şunlardan birini yapabilirsiniz:
+Bu noktada, veritabanı sunucunuz Web Dağıtımı yayımlama için hazırlayın. Ancak, dağıttığınız tüm çözümler, makine hesabı oturum açma bilgilerini gerekli veritabanı rolleriyle eşleştirene kadar çalışmayacaktır. Veritabanını dağıtana kadar rolleri eşleyene kadar, oturum açmayı veritabanı rolleriyle eşlemek çok daha fazla düşünmelidir. Makine hesabı oturum açma bilgilerini gerekli veritabanı rolleriyle eşlemek için şunlardan birini yapabilirsiniz:
 
-- İlk kez veritabanını dağıttıktan sonra veritabanı rolleri için oturum açma el ile atayın.
-- Oturum açma veritabanı rolleri atamak için bir dağıtım sonrası betiği kullanın.
+- Veritabanını ilk kez dağıttıktan sonra, veritabanı rollerini el ile oturum açmaya atayın.
+- Veritabanı rollerini oturum açmaya atamak için dağıtım sonrası bir betik kullanın.
 
-Oturum açma bilgileri ve veritabanı rolü eşlemeleri oluşturulmasını otomatik hale getirme konusunda daha fazla bilgi için bkz. [Test ortamlarına veritabanı rol üyelikleri dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Alternatif olarak, makine hesap oturum açma bilgilerini el ile gerekli veritabanı rolleriyle eşleyebileceğinizi sonraki yordamı kullanın. Unutmayın, bu yordamı kadar gerçekleştiremezsiniz *sonra* veritabanı dağıttınız.
+Oturum açma ve veritabanı rol eşlemelerinin oluşturulmasını otomatikleştirme hakkında daha fazla bilgi için bkz. [test ortamlarına veritabanı rolü üyelikleri dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Alternatif olarak, makine hesabı oturum açma bilgilerini gerekli veritabanı rolleriyle el ile eşlemek için bir sonraki yordamı kullanabilirsiniz. Veritabanını *dağıtana kadar* bu yordamı gerçekleştireemiyorum unutmayın.
 
-**Veritabanı rolleri için web sunucusu makine hesabı oturum açma eşlemek için**
+**Veritabanı rollerini Web sunucusu makine hesabı oturum açmayla eşlemek için**
 
-1. Önceki gibi SQL Server Management Studio'yu açın.
-2. İçinde **Nesne Gezgini** bölmesinde, genişletin **güvenlik** düğümünü genişletin **oturumları** düğümünü ve ardından makine hesabı oturum açma çift tıklayın (örneğin,  **FABRIKAM\TESTWEB1$**).
+1. SQL Server Management Studio önceki olarak açın.
+2. **Nesne Gezgini** bölmesinde, **güvenlik** düğümünü genişletin, **oturum açmalar** düğümünü genişletin ve ardından makine hesabı oturum açma bilgilerini (örneğin, **FABRIKAM\TESTWEB1 $** ) çift tıklatın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image12.png)
-3. İçinde **oturum açma özellikleri** iletişim kutusu, tıklayın **kullanıcı eşleme**.
-4. İçinde **bu oturum açmaya eşlenen kullanıcılar** tablo, veritabanınızın adını seçin (örneğin, **ContactManager**).
-5. İçinde **için veritabanı rolü üyeliği:** *[veritabanı adı]* listesinde, gerekli izinleri seçin. Kişi Yöneticisi örnek çözüm söz konusu olduğunda, seçmelisiniz **db\_datareader** ve **db\_datawriter** rolleri.
+3. **Oturum açma özellikleri** Iletişim kutusunda **Kullanıcı eşleme**' ye tıklayın.
+4. **Bu oturum açmaya eşlenen kullanıcılar** tablosuna veritabanınızın adını (örneğin, **ContactManager**) seçin.
+5. **Veritabanı rolü üyeliği:** *[veritabanı adı]* listesinde, gerekli izinleri seçin. Contact Manager örnek çözümü söz konusu olduğunda, **db\_DataReader** ve **DB\_DataWriter** rollerini seçmeniz gerekir.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image13.png)
-6. **Tamam**'ı tıklatın.
+6. **Tamam**’a tıklayın.
 
-Veritabanı rolleri el ile eşleme genellikle birden fazla test ortamları için yeterli olmakla birlikte, hazırlama veya üretim ortamları için otomatik olarak veya tek tıklamayla dağıtımlar için daha az istenen bir durumdur. Bu tür bir dağıtım sonrası betiklerini kullanarak görevi otomatik hale getirme konusunda daha fazla bilgi bulabilirsiniz [Test ortamlarına veritabanı rol üyelikleri dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
+Veritabanı rollerini el ile eşleme, genellikle test ortamları için yeterli olduğundan, hazırlama veya üretim ortamlarında otomatik veya tek tıklamayla dağıtımlar için daha az tercih edilir. Bu tür bir görevi otomatikleştirme hakkında daha fazla bilgiyi, [veritabanı rolü üyeliklerini test ortamlarına dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md)bölümünde dağıtım sonrası betikleri kullanarak bulabilirsiniz.
 
 > [!NOTE]
 > Sunucu projeleri ve veritabanı projeleri hakkında daha fazla bilgi için bkz. [Visual Studio 2010 SQL Server veritabanı projeleri](https://msdn.microsoft.com/library/ff678491.aspx).
 
-## <a name="configure-permissions-for-the-deployment-account"></a>Dağıtım hesabının izinlerini yapılandırma
+## <a name="configure-permissions-for-the-deployment-account"></a>Dağıtım hesabı için Izinleri yapılandırma
 
-Dağıtım çalıştırmak için kullanacağınız hesabı SQL Server Yöneticisi değilse, bu hesap için bir oturum oluşturmanız gerekir. Veritabanını oluşturmak için hesabın üyesi olması gerekir **dbcreator** sunucu rolü veya eşdeğer izinlere sahip.
+Dağıtımı çalıştırmak için kullanacağınız hesap SQL Server yönetici değilse, bu hesap için de bir oturum açma oluşturmanız gerekir. Veritabanını oluşturmak için, hesabın **dbcreator** sunucu rolünün bir üyesi olması veya eşdeğer izinlere sahip olması gerekir.
 
 > [!NOTE]
-> Bir veritabanını dağıtmak için Web dağıtımı veya VSDBCMD kullandığınızda (SQL Server Örneğinize karma mod kimlik doğrulamasını desteklemek üzere yapılandırılmışsa), Windows kimlik bilgileri veya SQL Server kimlik bilgilerini kullanabilirsiniz. Sonraki yordam, Windows kimlik bilgilerini kullanmak istediğiniz, ancak şey dağıtım yapılandırdığınızda, bir SQL Server kullanıcı adı ve parola bağlantı dizenizi belirtmelerini durdurma varsayar.
+> Bir veritabanını dağıtmak için Web Dağıtımı veya VSDBCMD kullandığınızda, Windows kimlik bilgilerini veya SQL Server kimlik bilgilerini (SQL Server Örneğiniz karma mod kimlik doğrulamasını destekleyecek şekilde yapılandırıldıysa) kullanabilirsiniz. Sonraki yordamda, Windows kimlik bilgilerini kullanmak istediğiniz varsayılır, ancak dağıtımı yapılandırırken bağlantı dizeniz SQL Server Kullanıcı adı ve parola belirtmekten dolayı hiçbir şey yapılmadı.
 
-**Dağıtım hesabının izinlerini ayarlamak için**
+**Dağıtım hesabı için izinleri ayarlamak için**
 
-1. Önceki gibi SQL Server Management Studio'yu açın.
-2. İçinde **Nesne Gezgini** bölmesinde sağ **güvenlik**, işaret **yeni**ve ardından **oturum açma**.
-3. İçinde **oturum açma – yeni** iletişim kutusundaki **oturum açma adı** dağıtım hesabınızın adını yazın (örneğin, **FABRIKAM\matt**).
-4. İçinde **sayfa Seç** bölmesinde tıklayın **sunucu rolleri**.
-5. Seçin **dbcreator**ve ardından **Tamam**.
+1. SQL Server Management Studio önceki olarak açın.
+2. **Nesne Gezgini** bölmesinde, **güvenlik**' e sağ tıklayın, **Yeni**' nin üzerine gelin ve ardından **oturum aç**' a tıklayın.
+3. **Oturum açma – yeni** iletişim kutusunda, **oturum açma adı** kutusuna dağıtım hesabınızın adını yazın (örneğin, **FABRIKAM\matt**).
+4. **Sayfa seç** bölmesinde, **sunucu rolleri**' ne tıklayın.
+5. **Dbcreator**öğesini seçin ve ardından **Tamam**' a tıklayın.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image14.png)
 
-Sonraki dağıtımlarını desteklemek üzere, ayrıca dağıtma eklemeniz gerekecektir **db\_sahibi** ilk dağıtımdan sonra veritabanı rolü. Sonraki dağıtımlarda var olan bir veritabanının şemasını değiştirme yerine, yeni bir veritabanı oluşturma olmasıdır. Veritabanı bariz nedenlerle oluşturuncaya kadar önceki bölümde açıklandığı gibi bir veritabanı rolüne bir kullanıcı ekleyemezsiniz.
+Sonraki dağıtımları desteklemek için, ilk dağıtımdan sonra veritabanı **\_sahibi** rolüne dağıtım hesabını da eklemeniz gerekir. Bunun nedeni, sonraki dağıtımlarda yeni bir veritabanı oluşturmak yerine var olan bir veritabanının şemasını değiştirmekte olursunuz. Önceki bölümde açıklandığı gibi, bir veritabanı rolüne, daha belirgin nedenlerle veritabanını oluşturana kadar bir kullanıcı ekleyemezsiniz.
 
-**Veritabanına dağıtım hesap oturum açma bilgilerini eşlemek için\_sahip veritabanı rolü**
+**Dağıtım hesabı oturum açma bilgilerini DB\_Owner veritabanı rolüyle eşlemek için**
 
-1. Önceki gibi SQL Server Management Studio'yu açın.
-2. İçinde **Nesne Gezgini** penceresinde genişletin **güvenlik** düğümünü genişletin **oturumları** düğümünü ve ardından makine hesabı oturum açma çift tıklayın (örneğin,  **FABRIKAM\matt**).
-3. İçinde **oturum açma özellikleri** iletişim kutusu, tıklayın **kullanıcı eşleme**.
-4. İçinde **bu oturum açmaya eşlenen kullanıcılar** tablo, veritabanınızın adını seçin (örneğin, **ContactManager**).
-5. İçinde **için veritabanı rolü üyeliği:** *[veritabanı adı]* listesinden **db\_sahibi** rol.
+1. SQL Server Management Studio önceki olarak açın.
+2. **Nesne Gezgini** penceresinde **güvenlik** düğümünü genişletin, **oturum açmalar** düğümünü genişletin ve ardından makine hesabı oturum açma bilgilerini (örneğin, **FABRIKAM\matt**) çift tıklatın.
+3. **Oturum açma özellikleri** Iletişim kutusunda **Kullanıcı eşleme**' ye tıklayın.
+4. **Bu oturum açmaya eşlenen kullanıcılar** tablosuna veritabanınızın adını (örneğin, **ContactManager**) seçin.
+5. **Veritabanı rolü üyeliği:** *[veritabanı adı]* listesinde, **DB\_Owner** rolünü seçin.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image15.png)
-6. **Tamam**'ı tıklatın.
+6. **Tamam**’a tıklayın.
 
 ## <a name="conclusion"></a>Sonuç
 
-Veritabanı sunucunuz artık uzak veritabanı dağıtımlarını kabul etmek ve Uzak IIS web sunucularının veritabanlarına izin vermek için hazır olmanız gerekir. Dağıtma ve veritabanlarını kullanma girişiminde bulunmadan önce aşağıdaki önemli noktalara denetlemek isteyebilirsiniz:
+Veritabanı sunucunuz artık uzak veritabanı dağıtımlarını kabul etmeye ve uzak IIS Web sunucularının veritabanlarınıza erişmesine izin verecek şekilde hazır olmalıdır. Veritabanlarını dağıtmayı ve kullanmayı denemeden önce şu anahtar noktalarını denetlemek isteyebilirsiniz:
 
-- SQL Server'ın Uzak TCP/IP bağlantılarını kabul edecek şekilde yapılandırdığınız?
-- SQL Server trafiğe izin vermek için herhangi bir güvenlik duvarı yapılandırdığınız?
-- SQL Server erişen her web sunucusunun makine hesap oturum açma bilgilerini oluşturdunuz mu?
-- Kullanıcı rolü eşlemeleri oluşturmak için bir betik, veritabanı dağıtımı içermez veya ilk kez veritabanını dağıttıktan sonra bu el ile oluşturmanız gerekir?
-- Sahip dağıtım hesabı için bir oturum açma oluşturduğunuz ve kendisine eklenmiş **dbcreator** sunucu rolü?
+- Uzak TCP/IP bağlantılarını kabul etmek için SQL Server yapılandırdınız mı?
+- SQL Server trafiğe izin vermek için herhangi bir güvenlik duvarı yapılandırdınız mı?
+- SQL Server erişecek her Web sunucusu için bir makine hesabı oturum açma oluşturmuş musunuz?
+- Veritabanı dağıtımınız, Kullanıcı rolü eşlemeleri oluşturmak için bir komut dosyası içerir veya veritabanını ilk kez dağıttıktan sonra bunları el ile oluşturmanız gerekir mi?
+- Dağıtım hesabı için bir oturum açma oluşturdunuz ve **dbcreator** sunucu rolüne eklediniz mi?
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Veritabanı projeleri dağıtma hakkında yönergeler için bkz. [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md). Bir dağıtım sonrası betiği çalıştırarak veritabanı rol üyelikleri oluşturma ile ilgili yönergeler için bkz. [Test ortamlarına veritabanı rol üyelikleri dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Üyelik veritabanları konusunda sizi uyarmayı benzersiz dağıtım zorluklarını karşılayacak şekilde nasıl ile ilgili yönergeler için bkz. [Kurumsal ortamlara üyelik veritabanları dağıtma](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
+Veritabanı projelerini dağıtma hakkında yönergeler için bkz. [veritabanı projelerini dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md). Dağıtım sonrası betiği çalıştırarak veritabanı rolü üyelikleri oluşturma konusunda rehberlik için bkz. [test ortamlarına veritabanı rolü üyelikleri dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Veritabanlarının üyesi olduğu benzersiz dağıtım zorluklarının nasıl ele alınacağını gösteren yönergeler için bkz. [Üyelik veritabanlarını kurumsal ortamlara dağıtma](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
 > [!div class="step-by-step"]
 > [Önceki](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

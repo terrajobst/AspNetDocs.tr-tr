@@ -2,51 +2,51 @@
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
 title: Ana sayfalar | Microsoft Docs
 author: microsoft
-description: Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET'te 1.x, geliştiricilerin kullanıcı denetimleri ortak sayfası elem. çoğaltmak için kullanılan...
+description: Önemli bileşenlerden biri, başarılı bir Web sitesi için tutarlı bir görünüm ve kullanım açısından. ASP.NET 1. x içinde, geliştiriciler ortak sayfa eled 'yi çoğaltmak için Kullanıcı denetimleri kullandı...
 ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 36f2caf7c2c9bcafd22c8f6681c1d6b19fe5078a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65131065"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567335"
 ---
 # <a name="master-pages"></a>Ana Sayfalar
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET'te 1.x, geliştiricilerin kullanıcı denetimleri ortak sayfa öğelerinin bir Web uygulaması arasında çoğaltmak için kullanılır. Kullanıcı denetimleri kullanarak, kesinlikle çalışılabilir bir çözüm olsa da, bazı dezavantajları vardır. Örneğin, bir kullanıcı denetimi konumu bir değişiklik, bir sitede birden çok sayfada değişiklik gerektirir. Kullanıcı denetimleri Tasarım görünümünde bir sayfaya eklenen sonra da işlenmez.
+> Önemli bileşenlerden biri, başarılı bir Web sitesi için tutarlı bir görünüm ve kullanım açısından. ASP.NET 1. x içinde, geliştiriciler bir Web uygulaması genelinde ortak sayfa öğelerini çoğaltmak için Kullanıcı denetimleri kullandı. Bu, çok daha fazla bir çözüm olsa da, Kullanıcı denetimlerinin kullanılması bazı dezavantajları vardır. Örneğin, bir kullanıcı denetiminin konumundaki bir değişiklik, bir sitede birden çok sayfada değişiklik yapılmasını gerektirir. Kullanıcı denetimleri, bir sayfaya eklendikten sonra Tasarım görünümü de işlenmez.
 
-Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET'te 1.x, geliştiricilerin kullanıcı denetimleri ortak sayfa öğelerinin bir Web uygulaması arasında çoğaltmak için kullanılır. Kullanıcı denetimleri kullanarak, kesinlikle çalışılabilir bir çözüm olsa da, bazı dezavantajları vardır. Örneğin, bir kullanıcı denetimi konumu bir değişiklik, bir sitede birden çok sayfada değişiklik gerektirir. Kullanıcı denetimleri Tasarım görünümünde bir sayfaya eklenen sonra da işlenmez.
+Önemli bileşenlerden biri, başarılı bir Web sitesi için tutarlı bir görünüm ve kullanım açısından. ASP.NET 1. x içinde, geliştiriciler bir Web uygulaması genelinde ortak sayfa öğelerini çoğaltmak için Kullanıcı denetimleri kullandı. Bu, çok daha fazla bir çözüm olsa da, Kullanıcı denetimlerinin kullanılması bazı dezavantajları vardır. Örneğin, bir kullanıcı denetiminin konumundaki bir değişiklik, bir sitede birden çok sayfada değişiklik yapılmasını gerektirir. Kullanıcı denetimleri, bir sayfaya eklendikten sonra Tasarım görünümü de işlenmez.
 
-ASP.NET 2.0 tanıtır ana sayfaları yazarken ve tutarlı bir görünüm sağlamanın bir yolu olarak hemen görürsünüz, ana sayfalar önemli bir iyileştirme üzerinde kullanıcı denetimi yöntemi temsil eder.
+ASP.NET 2,0, tutarlı bir görünüm tutmanın bir yolu olarak ana sayfaları tanıtır ve yakında göreceğiniz gibi, ana sayfalar Kullanıcı denetimi yöntemi üzerinde önemli bir gelişimi temsil eder.
 
-## <a name="why-master-pages"></a>Neden sayfaları ana?
+## <a name="why-master-pages"></a>Ana sayfalar neden?
 
-Ana sayfaları ASP.NET 2.0 neden gerekiyordu merak ediyor olabilirsiniz. Sonuçta, Web sitesi geliştiricileri zaten kullanıcı denetimleri ASP.NET kullanıyorsanız 1.x alanlara sayfalar arasında paylaşılacak. Kullanıcı denetimleri yaygın bir düzen oluşturmak için bir daha az-en iyi çözümü neden, aslında birkaç nedeni vardır.
+ASP.NET 2,0 ' de ana sayfaların neden gerekli olduğunu merak ediyor olabilirsiniz. Tüm Web sitesi geliştiricileri, sayfalar arasında içerik alanı paylaşmak için ASP.NET 1. x içindeki kullanıcı denetimlerini zaten kullanıyor. Kullanıcı denetimlerinin ortak bir düzen oluşturmak için en iyi bir çözüm olmasının bazı nedenleri vardır.
 
-Kullanıcı denetimleri, aslında Sayfa düzeni tanımlamak yok. Bunun yerine, düzeninde ve işlevlerinde sayfasının bir bölümü için tanımlarlar. Bu ikisi arasındaki fark önemlidir, çünkü bir kullanıcı denetimi çözümü yönetilebilirliğini çok daha zor kolaylaştırır. Örneğin, bir kullanıcı denetimi sayfanızda konumunu değiştirmek istediğinizde, kullanıcı denetimi göründüğü gerçek sayfa düzenlemeniz gerekir. Yalnızca birkaç sayfaları varsa, ancak büyük siteler hızla site yönetimi onarımı kabus olur thats ince!
+Kullanıcı denetimleri sayfa düzeni gerçekten tanımlamaz. Bunun yerine, sayfanın bir bölümünün düzen ve işlevini tanımlar. Bir kullanıcı denetimi çözümünün yönetilebilirlik düzeyini çok daha zor hale getiren bu ikisi arasındaki ayrım önemlidir. Örneğin, sayfanızdaki bir kullanıcı denetiminin konumunu değiştirmek istediğinizde, Kullanıcı denetiminin göründüğü gerçek sayfayı düzenlemeniz gerekir. Yalnızca birkaç sayfanız varsa, ancak büyük sitelerde hızlı bir şekilde site yönetimi haline gelir.
 
-Yaygın bir düzen tanımlamak için kullanıcı denetimleri kullanarak başka bir dezavantajı, ASP.NET kendisini mimaride kökü belirtilmemiş. Bir kullanıcı denetiminin ortak üye değiştirilirse, tüm kullanıcı denetimi kullanan sayfaları yeniden derleyin gerektirir. Sayfalarınızı ilk olduklarında yeniden JIT erişilen sonra sırasıyla ASP.NET olur. Bu, bir kez daha, ölçeklenebilir olmayan bir mimari ve daha büyük bir site için site yönetimi sorun oluşturur.
+Ortak bir düzen tanımlamak için kullanıcı denetimlerini kullanmanın başka bir dezavantajı, ASP.NET 'in mimarisindeki bir mimaridir. Bir kullanıcı denetiminin ortak bir üyesi değiştirilirse, Kullanıcı denetimini kullanan tüm sayfaları yeniden derlemeniz gerekir. Bu durumda, ASP.NET ilk kez erişildiğinde sayfalarınıza yeniden JıT. Bu, bir kez daha büyük siteler için ölçeklenemeyen bir mimari ve bir site yönetimi sorunu üretir.
 
-Bu sorunları (ve çok daha fazlası) hem de düzgün şekilde ana sayfaları, ASP.NET 2.0 tarafından ele alınır.
+Bu sorunların her ikisi de (ve çok daha fazlası) ASP.NET 2,0 ' deki ana sayfalarla sorunsuz bir şekilde karşılanır.
 
-## <a name="how-master-pages-work"></a>Nasıl iş ana sayfa
+## <a name="how-master-pages-work"></a>Ana sayfaların çalışması
 
-Ana sayfayı, diğer sayfaları için bir şablon benzer. (Yani, menüler, kenarlık, vb.) diğer sayfalar arasında paylaşılan sayfa öğeleri ana sayfasına eklenir. Yeni sayfa sitesine eklendiğinde, bir ana sayfa ile ilişkilendirebilirsiniz. Bir ana sayfayla ilişkili bir sayfa olarak adlandırılan bir **içerik sayfası**. Varsayılan olarak, görünüm ana sayfadan içerik sayfası alır. Ancak, bir ana sayfa oluşturduğunuzda, içerik sayfası ile kendi içerik değiştirebilirsiniz sayfasının bölümlerini tanımlayabilirsiniz. Bu bölümleri, ASP.NET 2.0 sürümünde tanıtılan yeni bir denetimi kullanılarak tanımlanır; **ContentPlaceHolder** denetimi.
+Ana sayfa, diğer sayfaların şablonuna benzer. Diğer sayfalar arasında paylaşılması gereken sayfa öğeleri (örn. menüler, kenarlıklar vb.) ana sayfaya eklenir. Siteye yeni sayfa eklendiğinde, bunları bir ana sayfayla ilişkilendirebilirsiniz. Ana sayfayla ilişkili bir sayfaya **içerik sayfası**denir. Varsayılan olarak, bir içerik sayfası ana sayfadan görünümü alır. Ancak, bir ana sayfa oluşturduğunuzda, sayfanın içerik sayfasının kendi içeriğiyle yerine geçecek kısımlarını tanımlayabilirsiniz. Bu bölümler ASP.NET 2,0 ' de tanıtılan yeni bir denetim kullanılarak tanımlanır; **ContentPlaceHolder** denetimi.
 
-Ana sayfa ContentPlaceHolder denetimleri (veya hiç yok) herhangi bir sayıda içerebilir İçerik sayfasında ContentPlaceHolder denetimleri içeriği içinde göründüğü **içeriği** denetimleri, ASP.NET 2.0 başka bir yeni denetim. Varsayılan olarak, kendi içeriğinizi sağlayabilmesi içerik denetimlerini içerik sayfalarını boştur. İçerik denetimleri içinde bir ana sayfadan içerik kullanmak istiyorsanız, yapabileceğiniz gibi daha sonra bu modülde görürsünüz. İçerik denetimi, içerik denetiminin ContentPlaceHolderID özniteliği aracılığıyla ContentPlaceHolder denetimine eşlenir. Kod haritaları aşağıda içerik denetimine bir ana sayfada mainBody adlı ContentPlaceHolder denetimine.
+Ana sayfa, herhangi bir sayıda ContentPlaceHolder denetimini içerebilir (veya hiç hiçbirini içermez.) İçerik sayfasında, ContentPlaceHolder denetimlerinin içeriği **içerik** denetimlerinin içinde, ASP.NET 2,0 ' deki başka bir yeni denetim de görüntülenir. Varsayılan olarak, kendi içeriğinizi sağlayabilmeniz için içerik sayfaları Içerik denetimleri boştur. İçerik denetimlerinin içindeki ana sayfadaki içeriği kullanmak istiyorsanız, bu modülde daha sonra göreceğiniz şekilde bunu yapabilirsiniz. Içerik denetimi, Içerik denetiminin ContentPlaceHolderID özniteliği aracılığıyla ContentPlaceHolder denetimiyle eşleştirilir. Aşağıdaki kod bir Içerik denetimini ana sayfada mainBody adlı bir ContentPlaceHolder denetimiyle eşler.
 
 [!code-aspx[Main](master-pages/samples/sample1.aspx)]
 
 > [!NOTE]
-> Genellikle, diğer sayfalar için temel sınıf olarak ana sayfalar açıklayan kişiler duyacaktır. Thats gerçekten doğru değil. Ana sayfalar ve içerik sayfalarındaki arasındaki ilişki devralma biri değil.
+> Genellikle, diğer sayfalar için ana sayfaları temel sınıf olarak tanıtın. Aslında doğru değil. Ana sayfalar ve içerik sayfaları arasındaki ilişki Devralınanlar değildir.
 
-**Şekil 1** Visual Studio 2005'te göründükleri gibi bir ana sayfa ve ilişkili içerik sayfası gösterilir. Ana sayfa ve karşılık gelen ContentPlaceHolder denetiminde gördüğünüz içerik sayfası denetiminde içerik. Ana sayfalar içeriği ContentPlaceHolder dışında görünür, ancak içerik sayfasındaki kullanıma gri olduğuna dikkat edin. Yalnızca ContentPlaceHolder içinde içeriği, içerik sayfası tarafından supplanted. Ana sayfadan gelen tüm içeriği sabittir.
+**Şekil 1** ' de, Visual Studio 2005 ' de göründükleri gibi bir ana sayfa ve ilişkili içerik sayfası gösterilmektedir. ContentPlaceHolder denetimini ana sayfada ve ilgili Içerik denetiminde içerik sayfasında görebilirsiniz. ContentPlaceHolder 'ın dışındaki ana sayfa içeriğinin görünür olduğunu ancak içerik sayfasında gri renkte olduğunu unutmayın. İçerik sayfası tarafından yalnızca ContentPlaceHolder 'ın içindeki içerik etkinleştirilebilir. Ana sayfadan gelen diğer tüm içerikler sabittir.
 
 ![Ana sayfa ve ilişkili içerik sayfası](master-pages/_static/image1.jpg)
 
@@ -56,122 +56,122 @@ Ana sayfa ContentPlaceHolder denetimleri (veya hiç yok) herhangi bir sayıda i�
 
 Yeni bir ana sayfa oluşturmak için:
 
-1. Visual Studio 2005'i açın ve yeni bir Web sitesi oluşturun.
-2. Dosya, dosya, yeni'ı tıklatın.
-3. Yeni Öğe Ekle iletişim kutusundan, gösterildiği gibi ana dosyası seçin **Şekil 2**.
-4. Ekle'ye tıklayın.
+1. Visual Studio 2005 ' i açın ve yeni bir Web sitesi oluşturun.
+2. Dosya, yeni, dosya ' ya tıklayın.
+3. **Şekil 2**' de gösterildiği gibi yeni öğe Ekle Iletişim kutusundan asıl dosya ' yı seçin.
+4. Ekle’ye tıklayın.
 
-![Yeni bir ana sayfa oluşturma](master-pages/_static/image2.jpg)
+![Yeni Ana sayfa oluşturma](master-pages/_static/image2.jpg)
 
-**Şekil 2**: Yeni bir ana sayfa oluşturma
+**Şekil 2**: yeni bir ana sayfa oluşturma
 
-Ana sayfa dosya uzantısı olduğuna dikkat edin *.master*. Bu, normal bir sayfasından ana sayfa farklı yollardan biridir. Diğer birincil fark yerine olan bir @Page yönergesi ana sayfasını içeren bir @Master yönergesi. Kaynak şablonu oluşturduğunuz ve kodları gözden geçirme sayfasını görünümüne.
+Ana sayfa için dosya uzantısının *. Master*olduğunu unutmayın. Bu, ana sayfanın sıradan bir sayfadan farklı olan yöntemlerinden biridir. Diğer birincil fark, bir @Page yönergesinin yerine, ana sayfa bir @Master yönergesi içerir. Yeni oluşturduğunuz ana sayfa için kaynak görünümüne geçin ve kodu gözden geçirin.
 
-Yeni bir ana sayfa ContentPlaceHolder denetimi varsayılan olarak bulunur. Çoğu durumda, ilk genel sayfa öğeleri oluşturun ve ardından ContentPlaceHolder denetimler eklemek için daha fazla özel içerik nerede isteniyorsa mantıklıdır. Bu gibi durumlarda, geliştiricilerin varsayılan ContentPlaceHolder denetimini silin ve sayfa geliştirilen yenilerini eklemek isteyebilirsiniz. ContentPlaceHolder denetimleri boyutlandırma tutamaçlarını görüntüleyin olgu rağmen yeniden boyutlandırılabilir değildir. Bir özel durumla içeren içeriği otomatik olarak bağlı ContentPlaceHolder denetim boyutları; gibi bir tablo hücresi içinde bir blok öğede ContentPlaceHolder denetim yerleştirirseniz, öğe boyutuna göre boyutlandırır.
+Yeni bir ana sayfa varsayılan olarak bir ContentPlaceHolder denetimine sahip olur. Çoğu durumda, önce ortak sayfa öğelerini oluşturmak ve ardından özel içeriğin istendiği ContentPlaceHolder denetimlerini eklemek daha anlamlı hale gelir. Bu durumlarda, geliştiriciler varsayılan ContentPlaceHolder denetimini silmek ve sayfa geliştirildikleri sürece yenilerini eklemek isteyeceksiniz. ContentPlaceHolder denetimleri, boyutlandırma tutamaçlarını görüntüleyen bir olgusuna rağmen yeniden boyutlandırılabilir. ContentPlaceHolder denetim boyutları, içerdiği içeriğe göre otomatik olarak bir özel durumla belirlenir; Tablo hücresi gibi bir blok öğesinin içine ContentPlaceHolder denetimini yerleştirirseniz, öğe boyutuna göre boyut olur.
 
-## <a name="lab-1-working-with-master-pages"></a>Laboratuvar 1 ana sayfalar ile çalışma
+## <a name="lab-1-working-with-master-pages"></a>Laboratuvar 1 ana sayfalarla çalışma
 
-Bu laboratuvarda, yeni bir ana sayfa oluşturma ve üç ContentPlaceHolder denetimleri tanımlar. Ardından yeni bir içerik sayfası oluşturacak ve içeriği ContentPlaceHolder denetimleri en az birinden değiştirin.
+Bu laboratuvarda yeni bir ana sayfa oluşturacak ve üç ContentPlaceHolder denetimi tanımlayacaksınız. Daha sonra yeni bir Içerik sayfası oluşturacak ve içeriği en az bir ContentPlaceHolder denetimleriyle değiştirecek.
 
-1. Ana sayfa oluşturma ve ContentPlaceHolder denetimler ekleme. 
+1. Ana sayfa oluşturun ve ContentPlaceHolder denetimleri ekleyin. 
 
-    1. Yeni bir ana sayfa, yukarıda açıklandığı gibi oluşturun.
+    1. Yukarıda açıklandığı gibi yeni bir ana sayfa oluşturun.
     2. Varsayılan ContentPlaceHolder denetimini silin.
-    3. Denetim gölgeli üst kenarına tıklayarak ContentPlaceHolder denetimini seçin ve ardından klavyenizde DEL tuşu tuşlarına basarak silin.
-    4. Kullanarak yeni bir tablo Ekle *üstbilgi ve yan* Şekil 3'te gösterildiği gibi bir şablon. Tüm Tablo Tasarımcısı'nda görülebilir şekilde genişlik ve yükseklik % 90 olarak her değiştirin.
+    3. Denetimin gölgeli üst kenarlığına tıklayarak ContentPlaceHolder denetimini seçin ve ardından klavyenizdeki DEL tuşuna basarak silin.
+    4. Şekil 3 ' te gösterildiği gibi *üstbilgiyi ve yan* şablonu kullanarak yeni bir tablo ekleyin. Tüm tablonun tasarımcıda görünmesi için Genişlik ve yükseklik değerlerini %90 olarak değiştirin.
 
 ![](master-pages/_static/image3.jpg)
 
 **Şekil 3**
 
-1. Tablonun her hücreye imleci yerleştirin ve ayarlama *VALIGN* özelliğini *üst*.
-2. Araç kutusundan (üst bilgi hücresini.) tablo üst hücresinde ContentPlaceHolder denetimi Ekle
-3. Bu ContentPlaceHolder denetimi eklediğinizde, satır yüksekliğini 4 gösterildiği gibi neredeyse tüm page up geçmesi gerektiğini fark edeceksiniz. Bu noktada, hakkında endişelenmeyin.
+1. İmleci tablonun her bir hücresine yerleştirin ve *valıgn* özelliğini *top*olarak ayarlayın.
+2. Araç kutusundan tablonun üst hücresine (başlık hücresi) bir ContentPlaceHolder denetimi ekleyin.
+3. Bu ContentPlaceHolder denetimini eklediğinizde, Şekil 4 ' te gösterildiği gibi satır yüksekliğinin neredeyse sayfanın tamamını gösterdiğine dikkat edin. Bu noktada bundan endişe etmeyin.
 
-![Aynı hücreyi ContentPlaceHolder olarak boş alandır](master-pages/_static/image1.gif)
+![Boş alan, ContentPlaceHolder ile aynı hücrede](master-pages/_static/image1.gif)
 
-**Şekil 4**: Aynı hücreyi ContentPlaceHolder olarak boş alandır
+**Şekil 4**: boş alan ContentPlaceHolder ile aynı hücrede
 
-1. Diğer iki hücrelerde ContentPlaceHolder denetiminin yerleştirin. Başka ContentPlaceHolder eklendikten sonra beklediğiniz gibi tablo hücrelerini boyutu olmalıdır. Sayfa artık sayfanın gösterildiği gibi görünmelidir **Şekil 5**.
+1. Bir ContentPlaceHolder denetimini diğer iki hücreye yerleştirin. Diğer ContentPlaceHolder denetimleri eklendikten sonra, tablo hücrelerinin boyutu beklenen şekilde olmalıdır. Sayfa artık **Şekil 5**' te gösterilen sayfa gibi görünmelidir.
 
-![Tüm ContentPlaceHolder denetimleri ana. Hücre yüksekliği için üst bilgi hücresini şimdi neler olması gerektiğini olduğuna dikkat edin](master-pages/_static/image2.gif)
+![Tüm ContentPlaceHolder denetimleriyle ana öğe. Başlık hücresi için hücre yüksekliğinin artık ne olması gerektiğine dikkat edin](master-pages/_static/image2.gif)
 
-**Şekil 5**: Tüm ContentPlaceHolder denetimleri ana. Hücre yüksekliği için üst bilgi hücresini şimdi neler olması gerektiğini olduğuna dikkat edin
+**Şekil 5**: tüm ContentPlaceHolder denetimleriyle ana öğe. Başlık hücresi için hücre yüksekliğinin artık ne olması gerektiğine dikkat edin
 
-1. Her üç ContentPlaceHolder denetimleri, tercih ettiğiniz metin girin.
-2. Ana sayfayı exercise1.master kaydedin.
-3. Yeni bir Web formu oluşturun ve exercise1.master ana sayfası ile ilişkilendirin.
-4. Visual Studio 2005'te dosya, dosya, yeni'ı seçin.
-5. Seçin **Web formu** Yeni Öğe Ekle iletişim kutusunda.
-6. Select ana sayfa onay kutusunu, 6 gösterildiği gibi işaretli olduğundan emin olun.
+1. Üç ContentPlaceHolder denetiminin her birine istediğiniz metin girin.
+2. Ana sayfayı exercise1. Master olarak kaydedin.
+3. Yeni bir Web formu oluşturun ve exercise1. Master ana sayfası ile ilişkilendirin.
+4. Visual Studio 2005 'de dosya, yeni, dosya ' yı seçin.
+5. Yeni öğe Ekle iletişim kutusunda **Web formu** ' nu seçin.
+6. Şekil 6 ' da gösterildiği gibi ana sayfa seç onay kutusunun işaretli olduğundan emin olun.
 
-![Yeni bir içerik sayfası ekleme](master-pages/_static/image3.gif)
+![Yeni Içerik sayfası ekleme](master-pages/_static/image3.gif)
 
-**Şekil 6**: Yeni bir içerik sayfası ekleme
+**Şekil 6**: yeni içerik sayfası ekleme
 
-1. Ekle'ye tıklayın.
-2. Exercise1.master Seç Şekil 7 ' gösterildiği gibi bir ana sayfa iletişim seçin.
-3. Yeni içerik sayfası eklemek için Tamam'a tıklayın.
+1. Ekle’ye tıklayın.
+2. Şekil 7 ' de gösterildiği gibi ana sayfa Seç iletişim kutusunda exercise1. Master öğesini seçin.
+3. Yeni içerik sayfasını eklemek için Tamam ' ı tıklatın.
 
-Yeni içerik sayfası ana sayfadaki her ContentPlaceHolder denetimi için bir içerik denetimi Visual Studio'da görünür. Varsayılan olarak, kendi içerik ekleyebilirsiniz. böylece içerik denetimlerini boştur. Ana sayfada ContentPlaceHolder denetiminden içeriği kullanmak bunları isterseniz, yalnızca akıllı etiket sembolü (denetimin sağ üst köşesinde küçük siyah oku) tıklatın ve seçin *varsayılan ana içerik* gösterildiği gibi akıllı etiketinde **Şekil 8**. Bunu yaptığınızda, menü öğesi için değişiklikleri *özel içerik oluşturma*. Bu noktada tıklandığında, içerik ana sayfaya özel içeriği belirli içerik denetimin tanımlamanızı sağlar kaldırır.
+Yeni içerik sayfası, Visual Studio 'da, ana sayfada bulunan her bir ContentPlaceHolder denetimi için bir Içerik denetimiyle görüntülenir. Varsayılan olarak, kendi içeriğinizi ekleyebilmeniz için Içerik denetimleri boştur. Ana sayfada bulunan ContentPlaceHolder denetimindeki içeriği kullanmak istiyorsanız, akıllı etiket simgesine (denetimin sağ üst köşesindeki küçük siyah ok) tıklayın ve **Şekil 8**' de gösterildiği gibi akıllı etiketin *Içeriğini Yöneticiler için varsayılan* öğesini seçin. Bunu yaptığınızda, menü öğesi *özel Içerik oluşturmak*için değişir. Bu noktada tıklanması, içeriği ana sayfadan kaldırarak söz konusu Içerik denetimi için özel içerik tanımlamanıza olanak sağlar.
 
-![Ana sayfa içeriği varsayılan olarak bir içerik denetimi ayarlama](master-pages/_static/image4.gif)
+![Içerik denetimini varsayılan olarak ana sayfa Içeriğine ayarlama](master-pages/_static/image4.gif)
 
-**Şekil 7**: Ana sayfa içeriği varsayılan olarak bir içerik denetimi ayarlama
+**Şekil 7**: Içerik denetimini varsayılan olarak ana sayfa içeriğine ayarlama
 
-## <a name="connecting-master-page-and-content-pages"></a>Ana sayfa ve içerik sayfalarını bağlama
+## <a name="connecting-master-page-and-content-pages"></a>Ana sayfa ve Içerik sayfalarını bağlama
 
-Ana sayfa ve içerik sayfası arasındaki ilişkiyi dört farklı şekilde yapılandırılabilir:
+Ana sayfa ile içerik sayfası arasındaki ilişki dört farklı şekilde yapılandırılabilir:
 
-- <strong>MasterPageFile</strong> özniteliği @Page yönergesi
-- Ayarı **Page.MasterPageFile** kodda özelliği.
-- **&lt;Sayfaları&gt;** uygulamaları yapılandırma dosyasında (web.config uygulamanın kök klasöründe) öğesi
-- **&lt;Sayfaları&gt;** öğesi bir alt yapılandırma dosyasında (web.config bir alt klasör)
+- @Page yönergesinin <strong>MasterPageFile</strong> özniteliği
+- Kodda **Page. MasterPageFile** özelliği ayarlanıyor.
+- **&lt;sayfaları** , uygulamalar yapılandırma dosyasında (uygulamanın kök klasöründeki Web. config)&gt;öğesi
+- **&lt;sayfaları** alt klasörler yapılandırma dosyasında (bir alt klasördeki Web. config)&gt;öğesi
 
 ## <a name="masterpagefile-attribute"></a>MasterPageFile özniteliği
 
-MasterPageFile özniteliği, belirli bir ASP.NET sayfasına bir ana sayfa uygulanmasını kolaylaştırır. Ayrıca, iade ettiğinizde ana sayfaya uygulamak için kullanılan yöntemi olan **ana sayfa seçin** onay kutusu yazarken alıştırma 1'de yaptığınız.
+MasterPageFile özniteliği, bir ana sayfanın belirli bir ASP.NET sayfasına uygulanmasını kolaylaştırır. Ayrıca, alıştırma 1 ' de yaptığınız gibi **Ana sayfa seç** onay kutusunu işaretlediğinizde ana sayfayı uygulamak için de kullanılan yöntemdir.
 
-## <a name="setting-pagemasterpagefile-in-code"></a>Kodda yer Page.MasterPageFile ayarlama
+## <a name="setting-pagemasterpagefile-in-code"></a>Kodda Page. MasterPageFile ayarlanıyor
 
-Kodda MasterPageFile özelliğini ayarlayarak, belirli bir ana sayfa içeriğinizin zamanında uygulayabilirsiniz. Bu, bir kullanıcı rolü veya başka ölçütlere göre belirli bir ana sayfa uygulamak için gerek duyduğunuz durumlarda kullanışlıdır. PreInit yöntemi MasterPageFile özelliğini ayarlamanız gerekir. Sonra PreInit yöntemi olarak ayarlanırsa, bir InvalidOperationException oluşturulur. İçerik sayfası üzerinde bu özelliği ayarlanır de gerekir sayfasının en üst düzey denetim denetimi. Aksi takdirde bir HttpException MasterPageFile özelliğini ayarladığınızda oluşturulur.
+Kodda MasterPageFile özelliğini ayarlayarak, çalışma zamanında içeriğinize belirli bir ana sayfa uygulayabilirsiniz. Bu, bir kullanıcı rolüne veya diğer ölçütlere göre belirli bir ana sayfanın uygulanması gerekebilecek durumlarda faydalıdır. MasterPageFile özelliğinin PreInit yönteminde ayarlanması gerekir. PreInit yönteminden sonra ayarlandıysa, bir InvalidOperationException atılır. Bu özelliğin ayarlandığı sayfanın, sayfanın en üst düzey denetimi olarak bir Içerik denetimine sahip olması gerekir. Aksi takdirde, MasterPageFile özelliği ayarlandığında bir HttpException oluşturulur.
 
-## <a name="using-the-ltpagesgt-element"></a>Kullanarak &lt;sayfaları&gt; öğesi
+## <a name="using-the-ltpagesgt-element"></a>&lt;Pages&gt; öğesi kullanma
 
-Bir ana sayfa sayfalarınız için masterPageFile özniteliğini ayarlayarak yapılandırabilirsiniz &lt;sayfaları&gt; web.config dosyasının sonuna öğe. Bu yöntemi kullanırken, uygulama yapısındaki alt web.config dosyalarını bu ayarı geçersiz kılabilirsiniz aklınızda bulundurun. Herhangi bir MasterPageFile öznitelik kümesinde bir @Page yönergesi Ayrıca bu ayarı geçersiz. Kullanarak &lt;sayfaları&gt; öğesi kolaylaştırır oluşturmak bir *ana* gerekirse, belirli klasörleri veya dosyaları kılınabilir ana sayfa.
+Web. config dosyasının &lt;Pages&gt; öğesinde masterPageFile özniteliğini ayarlayarak sayfalarınız için bir ana sayfa yapılandırabilirsiniz. Bu yöntemi kullanırken, uygulama yapısında daha düşük olan Web. config dosyalarının bu ayarı geçersiz kılabileceğini aklınızda bulundurun. @Page yönergesinde ayarlanan herhangi bir MasterPageFile özniteliği de bu ayarı geçersiz kılar. &lt;Pages&gt; öğesi kullanmak, belirli klasörlerde veya dosyalarda gerektiğinde geçersiz kılınabilen bir *ana* ana sayfa oluşturmayı kolaylaştırır.
 
-## <a name="properties-in-master-pages"></a>Ana sayfalardaki özellikleri
+## <a name="properties-in-master-pages"></a>Ana sayfalardaki Özellikler
 
-Ana sayfa özelliği yalnızca bu özellikleri ana sayfa içinde genel hale getirerek kullanıma sunabilirsiniz. Örneğin, aşağıdaki kod SomeProperty adlı bir özellik tanımlar:
+Ana sayfa, bu özellikleri ana sayfa içinde ortak hale getirerek özellikleri açığa çıkarır. Örneğin, aşağıdaki kod SomeProperty adlı bir özelliği tanımlar:
 
 [!code-csharp[Main](master-pages/samples/sample2.cs)]
 
-İçerik sayfasından SomeProperty özelliğine erişmek için ana kullanmanız gerekecektir özelliği şu şekilde:
+Içerik sayfasından SomeProperty özelliğine erişmek için şu şekilde ana özelliği kullanmanız gerekir:
 
 [!code-csharp[Main](master-pages/samples/sample3.cs)]
 
-## <a name="nesting-master-pages"></a>İç içe geçme ana sayfalar
+## <a name="nesting-master-pages"></a>Ana sayfaları iç içe geçirme
 
-Ana sayfalar, büyük bir Web uygulaması arasında ortak bir görünüm sağlamak için mükemmel bir çözümdür. Ancak, diğer bölümlerini farklı bir arabirim paylaşabilir ancak bazı kısımlarını büyük site paylaşımı ortak bir arabirim sağlamak için seyrek değil. Bu ihtiyacı karşılamak için birden çok ana sayfa için mükemmel çözümdür. Ancak, bu hala büyük bir uygulamanın tüm sayfalar arasında paylaşılan belirli bileşenler (örneğin, örneğin bir menüsü) ve yalnızca site belirli bölümleri arasında paylaşılan diğer bileşenler olabilir olgu ele almaz. Bu tür bir durum için iç içe geçmiş ana sayfalar gereksinimini düzgün şekilde doldurun. Gördüğünüz gibi normal bir ana sayfa bir ana sayfa ve içerik sayfası oluşur. İç içe geçmiş ana sayfa durumda, iki ana sayfa vardır. bir ana ve alt asıl. Alt ana sayfası aynı zamanda içerik sayfası ve ana üst ana sayfa.
+Ana sayfalar, büyük bir Web uygulaması genelinde ortak bir görünüm sağlamaya yönelik mükemmel bir çözümdür. Bununla birlikte, büyük bir sitenin belirli bölümlerinin ortak bir arabirim paylaştığından, diğer parçalar farklı bir arabirim paylaştığından yaygın olmayan bir durumdur. Bu ihtiyacı karşılamak için, çok sayıda ana sayfa kusursuz çözümdür. Bununla birlikte, büyük bir uygulamanın belirli bileşenleri (örneğin, bir menü gibi), tüm sayfalar ve yalnızca sitenin belirli bölümleri arasında paylaşılan diğer bileşenler arasında paylaşılan bazı bileşenlere sahip olabileceğini de ele almamıştır. Bu tür bir durum için, iç içe geçmiş ana sayfalar, gereksinimi tamamen doldurur. Gördüğünüz gibi, normal ana sayfa bir ana sayfadan ve bir içerik sayfasından oluşur. İç içe yerleştirilmiş ana sayfa durumunda iki ana sayfa vardır; üst ana öğe ve alt ana öğe. Alt ana sayfa aynı zamanda bir içerik sayfasıdır ve ana ana sayfa üst sayfasıdır.
 
-Tipik bir ana sayfa için kod aşağıdaki gibidir:
+Tipik bir ana sayfanın kodu aşağıda verilmiştir:
 
 [!code-aspx[Main](master-pages/samples/sample4.aspx)]
 
-İç içe geçmiş ana senaryosunda, bu ana olacaktır. Başka bir ana sayfa, kendi ana sayfa olarak bu sayfayı kullanırsınız ve bu kodu şuna benzer:
+İç içe geçmiş bir ana senaryoda bu, üst ana öğe olur. Bu sayfayı, ana sayfası olarak başka bir ana sayfa kullanır ve bu kod şöyle görünür:
 
 [!code-aspx[Main](master-pages/samples/sample5.aspx)]
 
-Bu senaryoda, alt asıl ayrıca ana için içerik sayfası olduğunu unutmayın. Tüm alt Yöneticisi'nin içeriği görünür üst öğenin ContentPlaceHolder denetiminden içeriğini alır bir içerik denetimi içinde.
+Bu senaryoda, alt ana ana ana öğe için de bir içerik sayfası olduğunu unutmayın. Alt ana öğenin tüm içeriği, üst öğenin ContentPlaceHolder denetiminden içeriğini alan bir Içerik denetiminin içinde görüntülenir.
 
 > [!NOTE]
-> Tasarımcı desteği için iç içe geçmiş ana sayfalar kullanılabilir değil. İç içe geçmiş ana kullanarak geliştirirken, kaynak görünümü kullanmak gerekir.
+> Tasarımcı desteği iç içe yerleştirilmiş ana sayfalar için kullanılamaz. İç içe yerleştirilmiş ana şablonları kullanarak geliştirme yaparken, kaynak görünümü kullanmanız gerekir.
 
-Bu video, iç içe geçmiş ana sayfalar kullanmaya yönelik bir kılavuz gösterir.
+Bu videoda, iç içe yerleştirilmiş ana sayfaların kullanımına ilişkin bir anlatım gösterilmektedir.
 
 ![](master-pages/_static/image1.png)
 
-[Açık tam ekran görüntü](master-pages/_static/nested1.wmv)
+[Tam ekran videosunu açın](master-pages/_static/nested1.wmv)
 
 ![Ana sayfa seçme](master-pages/_static/image4.jpg)
 

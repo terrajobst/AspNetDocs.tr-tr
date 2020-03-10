@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-passwordstrength-extender
-title: '[Bunu nasıl yaparım:] ASP.NET AJAX PasswordStrength genişletici kullanılsın mı? | Microsoft Docs'
+title: "[Nasıl yapılır:] ASP.NET AJAX Passwordkuvveti genişletici 'i mi kullanıyorsunuz? | Microsoft Docs"
 author: JoeStagner
-description: Hemen ve dinamik geri bildirim PasswordStrength genişletici denetimi seçilen parolalarını gücünü hakkında kullanıcılara nasıl sağladığını öğrenin. Geri bildirim c...
+description: Passwordkuvveti genişletici denetiminin, kullanıcılara seçili parolalarının gücü hakkında anında ve dinamik geri bildirimler sağladığını öğrenin. Geri bildirim c...
 ms.author: riande
 ms.date: 02/01/2007
 ms.assetid: 4acc8d48-845f-4451-8a83-0d6d935c4564
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-passwordstrength-extender
 msc.type: video
 ms.openlocfilehash: a9990f27f8f5c17371b6b1738a0ee4fad0b77588
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59391656"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78603175"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-passwordstrength-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX PasswordStrength genişletici kullanılsın mı?
+# <a name="how-do-i-use-the-aspnet-ajax-passwordstrength-extender"></a>[Nasıl yapılır:] ASP.NET AJAX Passwordkuvveti genişletici 'i mi kullanıyorsunuz?
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Hemen ve dinamik geri bildirim PasswordStrength genişletici denetimi seçilen parolalarını gücünü hakkında kullanıcılara nasıl sağladığını öğrenin. Geri bildirim, bir metin bildirimi, grafik göstergesi çubuk veya her ikisinin bir birleşimi olabilir.
+Passwordkuvveti genişletici denetiminin, kullanıcılara seçili parolalarının gücü hakkında anında ve dinamik geri bildirimler sağladığını öğrenin. Geri bildirim bir metin bildirimi, grafik çubuğu göstergesi veya her ikisinin birleşimi olabilir.
 
-[&#9654;Videoyu (15 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-passwordstrength-extender)
+[&#9654;Videoyu izleyin (15 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-passwordstrength-extender)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-use-the-aspnet-ajax-dropshadow-extender.md)

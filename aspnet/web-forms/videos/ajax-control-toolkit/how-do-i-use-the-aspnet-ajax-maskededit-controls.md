@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-maskededit-controls
-title: '[Bunu nasıl yaparım:] ASP.NET AJAX MaskedEdit denetimleri kullanılsın mı? | Microsoft Docs'
+title: '[Nasıl yapılır:] ASP.NET AJAX MaskedEdit denetimlerini mi kullanıyorsunuz? | Microsoft Docs'
 author: JoeStagner
-description: ASP.NET AJAX Denetim Araç Seti MaskedEdit ve istemleri, stil ve d doğrulamak için birlikte çalışan MaskedEditValidator denetimi sağlar...
+description: ASP.NET AJAX denetim araç seti, MaskedEdit denetimini ve bir arada çalışan ve d... için birlikte çalışan MaskedEditValidator denetimini sağlar.
 ms.author: riande
 ms.date: 04/04/2007
 ms.assetid: 806a8bfe-54be-4c96-8ffd-66303cc2b2f9
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-maskededit-controls
 msc.type: video
 ms.openlocfilehash: 4b97b05e16275867db5157e3eaf2ea8db28b4c30
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78628830"
 ---
-# <a name="how-do-i-use-the-aspnet-ajax-maskededit-controls"></a>[Bunu nasıl yaparım:] ASP.NET AJAX MaskedEdit denetimleri kullanılsın mı?
+# <a name="how-do-i-use-the-aspnet-ajax-maskededit-controls"></a>[Nasıl yapılır:] ASP.NET AJAX MaskedEdit denetimlerini mi kullanıyorsunuz?
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-ASP.NET AJAX Denetim Araç Seti MaskedEdit ve istemleri, stili ve bir metin kutusuna kullanıcının girdiği verileri doğrulamak için birlikte çalışan MaskedEditValidator denetimi sağlar. Bu kullanıcı tarafından girilen verilerin geçerli türü ve biçim olup şirket anında görsel geri bildirim sağlamak bu Web sayfası sağlar.
+ASP.NET AJAX denetim araç seti, kullanıcının bir metin kutusuna girdiği verileri istemek, stili ve doğrulamak için birlikte çalışan MaskedEdit denetimini ve MaskedEditValidator denetimini sağlar. Bu, Web sayfasının girilen verilerin geçerli bir tür ve biçimde olup olmadığı hakkında anında görsel geri bildirim sağlamasına olanak tanır.
 
-[&#9654;Videoyu (17 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-maskededit-controls)
+[&#9654;Videoyu izleyin (17 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-maskededit-controls)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-use-the-aspnet-ajax-dropdown-control.md)

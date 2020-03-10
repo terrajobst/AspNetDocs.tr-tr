@@ -1,196 +1,196 @@
 ---
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
-title: MVC 4 ile OAuth sağlayıcıları kullanma | Microsoft Docs
+title: MVC 4 ile OAuth sağlayıcılarını kullanma | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğreticide, kullanıcıların Facebo gibi bir dış sağlayıcı kimlik bilgileriyle oturum sağlayan bir ASP.NET MVC 4 web uygulaması oluşturma işlemini göstermektedir...
+description: Bu öğreticide, kullanıcıların, bir dış sağlayıcıdan gelen kimlik bilgileriyle oturum açmasına olanak tanıyan bir ASP.NET MVC 4 Web uygulamasının nasıl oluşturulacağı gösterilmektedir...
 ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 5dfd1305376a62f4987caea242ca0f6aac1018e9
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65129643"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78539083"
 ---
 # <a name="using-oauth-providers-with-mvc-4"></a>MVC 4 ile OAuth Sağlayıcıları Kullanma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu öğretici, kullanıcıların Facebook, Twitter, Microsoft veya Google gibi bir dış sağlayıcı kimlik bilgileriyle oturum ve bu sağlayıcılardan işlevlerinden bazıları tümleştirmek sağlar bir ASP.NET MVC 4 web uygulamasının nasıl oluşturulacağını gösterir, Web uygulaması. Kolaylık olması için Bu öğreticide, Facebook kimlik bilgileriyle çalışmaya odaklanır.
+> Bu öğreticide, kullanıcıların Facebook, Twitter, Microsoft veya Google gibi bir dış sağlayıcıdan kimlik bilgileriyle oturum açmasını sağlayan bir ASP.NET MVC 4 Web uygulaması oluşturma ve ardından bu sağlayıcılardan bazı işlevleri tümleştirme Web uygulaması. Kolaylık olması için, bu öğretici Facebook kimlik bilgileriyle çalışmaya odaklanır.
 > 
-> Bir ASP.NET MVC 5 web uygulaması Dış kimlik bilgilerini kullanmak için bkz. [Facebook ve Google OAuth2 ve Openıd oturum açma ile ASP.NET MVC 5 uygulaması oluşturma](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
+> Dış kimlik bilgilerini bir ASP.NET MVC 5 Web uygulamasında kullanmak için bkz. [Facebook ve Google OAuth2 Ile OpenID oturum açma ile ASP.NET MVC 5 uygulaması oluşturma](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 > 
-> Hesapları bu dış sağlayıcıları ile milyonlarca kullanıcıya zaten olduğundan, web sitelerinizi, bu kimlik bilgileri sağlayarak bu önemli bir avantaj sunar. Bu kullanıcılar, yeni bir dizi kimlik bilgisi oluşturma ve olmadığı siteniz için kaydolmanız daha eilimli olabilir. Ayrıca, bir kullanıcı bu sağlayıcılardan biri oturum açtıktan sonra sosyal operations sağlayıcısından birleştirebilirsiniz.
+> Bu kimlik bilgilerini Web sitelerinizde etkinleştirmek, milyonlarca kullanıcının zaten bu dış sağlayıcıları olan hesapları olduğundan önemli bir avantaj sağlar. Bu kullanıcılar yeni bir kimlik bilgileri kümesi oluşturup hatırlamaları zorunda olmadıkları takdirde sitenize kaydolmak için daha fazla işlem yapılabilir. Ayrıca, bir Kullanıcı bu sağlayıcılardan biri aracılığıyla oturum açtıktan sonra, sağlayıcıdan sosyal işlemler ekleyebilirsiniz.
 
-## <a name="what-youll-build"></a>Derleme
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Bu öğreticide iki ana hedefi vardır:
+Bu öğreticide iki ana hedef vardır:
 
-1. OAuth sağlayıcısı kimlik bilgileriyle oturum açmasına etkinleştirin.
-2. Hesap bilgileri sağlayıcıdan almak ve bu bilgileri sitenizin hesap kaydı ile tümleştirin.
+1. Bir kullanıcının OAuth sağlayıcısından kimlik bilgileriyle oturum açmasını sağlar.
+2. Sağlayıcıdan hesap bilgilerini alın ve bu bilgileri sitenizin hesap kaydıyla tümleştirin.
 
-Facebook kimlik doğrulama sağlayıcısı olarak kullanarak bu öğreticideki örneklerde odaklanmak olsa da, herhangi bir sağlayıcı kullanmak için kodu değiştirebilirsiniz. Herhangi bir sağlayıcı adımlarını çok benzer adımlarla Bu öğreticide görürsünüz. Yalnızca ayarlamak sağlayıcının API'sine doğrudan çağrı yaparken önemli farklılıkları da göreceksiniz.
+Bu öğreticideki örneklerde, kimlik doğrulama sağlayıcısı olarak Facebook kullanmaya odaklanmakla birlikte, sağlayıcıyı kullanmak için kodu değiştirebilirsiniz. Herhangi bir sağlayıcıyı uygulama adımları, bu öğreticide göreceğiniz adımlara çok benzer. Sağlayıcının API kümesine doğrudan çağrı yaparken yalnızca önemli farklılıklar olduğunu fark edeceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Microsoft Visual Studio 2012](https://www.microsoft.com/visualstudio/eng/downloads#vs) veya [Web için Microsoft Visual Studio Express 2012](https://www.microsoft.com/visualstudio/eng/downloads#d-2012-express)
+- Web için [Microsoft Visual Studio 2012](https://www.microsoft.com/visualstudio/eng/downloads#vs) veya [Microsoft Visual Studio Express 2012](https://www.microsoft.com/visualstudio/eng/downloads#d-2012-express)
 
-Or
+Veya
 
 - Microsoft Visual Studio 2010 SP1 veya [Visual Web Developer Express 2010 SP1](https://www.microsoft.com/visualstudio/eng/downloads#d-2010-express)
 - [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
 
-Ayrıca, bu konuda, ASP.NET MVC ve Visual Studio hakkında temel bilgilere sahip olduğunuz varsayılır. ASP.NET MVC 4 için bir tanıtım gerekirse bkz [ASP.NET MVC 4'e giriş](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
+Ayrıca, bu konuda ASP.NET MVC ve Visual Studio hakkında temel bilgiye sahip olduğunuz varsayılmaktadır. ASP.NET MVC 4 ' e giriş yapmanız gerekiyorsa, bkz. [ASP.NET MVC 4 ' e giriş](getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md).
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
-Visual Studio'da yeni bir ASP.NET MVC 4 Web uygulaması oluşturun ve adlandırın &quot;OAuthMVC&quot;. .NET Framework 4.5 ya da 4 hedefleyebilir.
+Visual Studio 'da yeni bir ASP.NET MVC 4 Web uygulaması oluşturun ve &quot;OAuthMVC&quot;olarak adlandırın. .NET Framework 4,5 veya 4 ' ü hedefleyebilirsiniz.
 
-![Proje oluşturma](using-oauth-providers-with-mvc/_static/image1.png)
+![proje oluştur](using-oauth-providers-with-mvc/_static/image1.png)
 
-Yeni ASP.NET MVC 4 Proje penceresinde **Internet uygulaması** bırakıp **Razor** görüntüleme altyapısı olarak.
+Yeni ASP.NET MVC 4 proje penceresinde **Internet uygulaması** ' nı seçin ve **Razor** 'yi Görünüm altyapısı olarak bırakın.
 
-![Internet uygulaması seçin](using-oauth-providers-with-mvc/_static/image2.png)
+![Internet uygulaması Seç](using-oauth-providers-with-mvc/_static/image2.png)
 
-## <a name="enable-a-provider"></a>Bir sağlayıcı etkinleştir
+## <a name="enable-a-provider"></a>Sağlayıcıyı etkinleştir
 
-Internet uygulaması şablonu kullanarak bir MVC 4 web uygulaması oluşturduğunuzda, projeyi AuthConfig.cs uygulamasında adlı bir dosya oluşturulur\_başlangıç klasörü.
+Internet uygulama şablonuyla MVC 4 Web uygulaması oluşturduğunuzda, proje, uygulama\_başlangıç klasöründe AuthConfig.cs adlı bir dosya ile oluşturulur.
 
 ![AuthConfig dosyası](using-oauth-providers-with-mvc/_static/image3.png)
 
-Dış kimlik doğrulama sağlayıcıları için istemcilerini kaydetmek için kod AuthConfig dosya içerir. Dış sağlayıcılar hiçbiri etkin şekilde varsayılan olarak, bu kod, kılınmıştır.
+AuthConfig dosyası, dış kimlik doğrulama sağlayıcılarının istemcilerini kaydetmek için kod içerir. Bu kod, varsayılan olarak açıklama olarak belirlenir, bu nedenle dış sağlayıcıların hiçbiri etkinleştirilmez.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample1.cs)]
 
-Dış kimlik doğrulama istemcisini kullanmak için bu kod açıklamalarını kaldırın gerekir. Sitenizdeki dahil etmek istediğiniz sağlayıcıları yalnızca açıklama durumundan çıkarın. Bu öğretici için yalnızca Facebook kimlik olanak sağlar.
+Dış kimlik doğrulama istemcisini kullanmak için bu kodun açıklamasını kaldırmalısınız. Yalnızca sitenize dahil etmek istediğiniz sağlayıcıların açıklamalarını kaldırın. Bu öğretici için yalnızca Facebook kimlik bilgilerini etkinleştirecektir.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample2.cs)]
 
-Yukarıdaki örnekte yöntemi boş dizeler için kayıt parametreleri içerdiğini unutmayın. Şimdi uygulamayı çalıştırmayı denerseniz, uygulama için parametreler boş dizeler izin verilmediğinden bir bağımsız değişken özel durum oluşturur. Geçerli değerler sağlamak için web sitenizi dış sağlayıcılarıyla sonraki bölümde gösterildiği gibi kaydetmeniz gerekir.
+Yukarıdaki örnekte, yönteminin kayıt parametreleri için boş dizeler içerdiğine dikkat edin. Uygulamayı şimdi çalıştırmayı denerseniz, parametreler için boş dizelere izin verilmediğinden uygulama bir bağımsız değişken özel durumu oluşturur. Geçerli değerler sağlamak için, sonraki bölümde gösterildiği gibi, Web sitenizi dış sağlayıcılarla kaydetmeniz gerekir.
 
-## <a name="registering-with-an-external-provider"></a>Dış sağlayıcı ile kaydetme
+## <a name="registering-with-an-external-provider"></a>Dış sağlayıcıya kaydolma
 
-Dış sağlayıcıdan kimlik bilgileriyle kullanıcıların kimliğini doğrulamak için web sitenizi ve sağlayıcı ile kaydetmeniz gerekir. Sitenizi kaydolduğunuzda, istemci kaydı sırasında dahil etmek için parametreler (örneğin, anahtar veya kimliği ve gizli dizi) alırsınız. Kullanmak istediğiniz sağlayıcılarıyla bir hesabınızın olması gerekir.
+Bir dış sağlayıcıdan kimlik bilgileriyle kullanıcıların kimliğini doğrulamak için, Web sitenizi sağlayıcıya kaydetmeniz gerekir. Sitenizi kaydettiğinizde, istemciyi kaydederken dahil edilecek parametreleri (anahtar veya kimlik ve gizli dizi) alacaksınız. Kullanmak istediğiniz sağlayıcıları içeren bir hesabınız olmalıdır.
 
-Bu öğretici, bu sağlayıcıları ile kaydetmek için gerçekleştirmeniz gereken adımlar göstermez. Adımları genellikle zor değildir. Sitenizi başarıyla kaydetmek için bu sitelerdeki sağlanan yönergeleri izleyin. Sitenizi kaydetme ile çalışmaya başlamak için geliştirici sitesi için bkz:
+Bu öğretici, bu sağlayıcılarla kaydolmak için gerçekleştirmeniz gereken adımların tümünü göstermez. Adımlar genellikle zor değildir. Sitenizi başarıyla kaydetmek için, bu sitelerde belirtilen yönergeleri izleyin. Sitenizi kaydetmeye başlamak için geliştirici sitesine bakın:
 
 - [Facebook](https://developers.facebook.com/)
 - [Google](https://developers.google.com/)
-- [Microsoft](http://manage.dev.live.com/)
+- [MICROSOFT](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-Sitenizi Facebook ile kaydederken sağlayabilir &quot;localhost&quot; site etki alanı için ve `&quot;http://localhost/&quot;` aşağıdaki resimde gösterildiği gibi URL. Localhost kullanarak çoğu sağlayıcılarıyla birlikte çalışarak, ancak şu anda Microsoft sağlayıcı ile çalışmaz. Microsoft sağlayıcısı için geçerli bir web sitesi URL'si eklemeniz gerekir.
+Sitenizi Facebook 'a kaydederken, aşağıdaki görüntüde gösterildiği gibi site etki alanı için &quot;localhost&quot; ve URL için `&quot; http://localhost/&quot;` sağlayabilirsiniz. Localhost kullanılması çoğu sağlayıcı ile çalışır, ancak şu anda Microsoft sağlayıcısıyla birlikte çalışmaz. Microsoft sağlayıcısı için geçerli bir Web sitesi URL 'SI dahil etmeniz gerekir.
 
-![sitesini kaydedin](using-oauth-providers-with-mvc/_static/image4.png)
+![Siteyi Kaydet](using-oauth-providers-with-mvc/_static/image4.png)
 
-Önceki görüntüde uygulama kimliği, uygulama gizli anahtarı ve ilgili kişi e-posta için değerler kaldırıldı. Sitenizi gerçekten kaydettiğinizde, bu değerleri mevcut olacaktır. Uygulama kimliği ve uygulama gizli anahtarı değerlerini dikkat edin, uygulamanıza eklemek çünkü isteyeceksiniz.
+Önceki görüntüde, uygulama kimliği, uygulama gizli anahtarı ve iletişim e-postası için değerler kaldırılmıştır. Sitenizi gerçekten kaydettiğinizde, bu değerler mevcut olacaktır. Uygulama kimliği ve uygulama gizli anahtarı değerlerini uygulamanıza ekleyecek şekilde aklınızda olmak isteyeceksiniz.
 
-## <a name="creating-test-users"></a>Test kullanıcılarını oluşturma
+## <a name="creating-test-users"></a>Test kullanıcıları oluşturma
 
-Sitenizi test etmek için var olan bir Facebook hesabı kullanarak olmayacaksa bu bölümü atlayabilirsiniz.
+Sitenizi test etmek için mevcut bir Facebook hesabını kullanmıyorsanız, bu bölümü atlayabilirsiniz.
 
-Test kullanıcıları, uygulamanıza Facebook uygulaması Yönetimi sayfasındaki kolayca oluşturabilirsiniz. Bunları test hesapları, sitenize oturum açmak için. Tıklayarak test kullanıcıları Oluştur **rolleri** sol gezinti bölmesinde, tıklayarak bağlantı **Oluştur** bağlantı.
+Facebook uygulama yönetimi sayfasından uygulamanız için test kullanıcılarını kolayca oluşturabilirsiniz. Bu test hesaplarını, sitenizde oturum açmak için kullanabilirsiniz. Sol gezinti bölmesindeki **Roller** bağlantısına tıklayıp **Oluştur** bağlantısına tıklayarak test kullanıcıları oluşturun.
 
-![Test kullanıcıları oluştur](using-oauth-providers-with-mvc/_static/image5.png)
+![Test kullanıcıları oluşturma](using-oauth-providers-with-mvc/_static/image5.png)
 
-Facebook site sayısı, istek test hesapları otomatik olarak oluşturur.
+Facebook sitesi, isteğiniz test hesaplarının sayısını otomatik olarak oluşturur.
 
-## <a name="adding-application-id-and-secret-from-the-provider"></a>Uygulama kimliğini ve parolasını sağlayıcıdan ekleme
+## <a name="adding-application-id-and-secret-from-the-provider"></a>Sağlayıcıdan uygulama kimliği ve gizli dizi ekleme
 
-Facebook'tan kimliğini ve parolasını aldığınız, AuthConfig dosyasına geri dönün ve bunları parametre değerlerini ekleyin. Aşağıda gösterilen değerleri, gerçek değerleri değildir.
+Artık Facebook 'tan kimliği ve gizli dizi aldığınızı öğrenolduğunuza göre, AuthConfig dosyasına geri dönün ve parametre değerleri olarak ekleyin. Aşağıda gösterilen değerler gerçek değer değildir.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample3.cs)]
 
-## <a name="log-in-with-external-credentials"></a>Dış kimlik bilgilerinizle oturum açın
+## <a name="log-in-with-external-credentials"></a>Dış kimlik bilgileriyle oturum açma
 
-Tüm dış kimlik bilgilerini sitenizde etkinleştirmek için yapmanız gereken budur. Uygulamanızı çalıştırın ve sağ üst köşedeki oturum açma bağlantıya tıklayın. Şablonu, Facebook sağlayıcısı olarak kayıtlı ve sağlayıcı için bir düğme içeren otomatik olarak tanır. Birden çok sağlayıcı kaydolursanız, her biri için bir düğme otomatik olarak dahil edilir.
+Sitenizde dış kimlik bilgilerini etkinleştirmek için yapmanız gereken tek şey vardır. Uygulamanızı çalıştırın ve sağ üst köşedeki oturum aç bağlantısına tıklayın. Şablon, Facebook 'a sağlayıcı olarak kaydolduysanız ve sağlayıcı için bir düğme içerdiğine göre otomatik olarak tanır. Birden çok sağlayıcıyı kaydettiğinizde, her biri için bir düğme otomatik olarak eklenir.
 
 ![Dış oturum açma](using-oauth-providers-with-mvc/_static/image6.png)
 
-Bu öğretici için dış sağlayıcıları düğmeleri günlüğünde özelleştirme kapsamaz. Bu bilgi için bkz: [OAuth/Openıd kullanırken oturum açma kullanıcı Arabirimi özelleştirme](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx).
+Bu öğreticide, dış sağlayıcılar için oturum açma düğmelerinin nasıl özelleştirileceği ele alınmaktadır. Bu bilgi için bkz. [OAuth/OpenID kullanırken oturum açma kullanıcı arabirimini özelleştirme](https://blogs.msdn.com/b/pranav_rastogi/archive/2012/08/24/customizing-the-login-ui-when-using-oauth-openid.aspx).
 
-Facebook kimlik bilgileriyle oturum için Facebook düğmesine tıklayın. Dış sağlayıcılardan birini seçtiğinizde, o siteye yeniden yönlendirilen ve oturum açmak için bu hizmet tarafından istenir.
+Facebook kimlik bilgileriyle oturum açmak için Facebook düğmesine tıklayın. Dış sağlayıcılardan birini seçtiğinizde, bu siteye yönlendirilirsiniz ve bu hizmetin oturum açması istenir.
 
-Aşağıdaki görüntüde için Facebook oturum açma ekranı gösterilmektedir. Bunu, Facebook hesabınıza oauthmvcexample adlı bir siteye oturum açmak için kullandığınız not alır.
+Aşağıdaki görüntüde Facebook oturum açma ekranı gösterilmektedir. Oauthmvcexample adlı bir sitede oturum açmak için Facebook hesabınızı kullandığınızı not edin.
 
-![facebook kimlik doğrulaması](using-oauth-providers-with-mvc/_static/image7.png)
+![Facebook kimlik doğrulaması](using-oauth-providers-with-mvc/_static/image7.png)
 
-Facebook kimlik bilgileriyle oturum açtıktan sonra bir sayfa, sitenin temel bilgileri erişimi olmasını kullanıcıya bildirir.
+Facebook kimlik bilgileriyle oturum açtıktan sonra, bir sayfa kullanıcıya sitenin temel bilgilere erişimi olduğunu bildirir.
 
-![İstek izni](using-oauth-providers-with-mvc/_static/image8.png)
+![izin iste](using-oauth-providers-with-mvc/_static/image8.png)
 
-Seçtikten sonra **uygulamasına gidin**, site için kullanıcı kaydetmeniz gerekir. Facebook kimlik bilgileriyle bir kullanıcı oturumu sonra kayıt sayfasına aşağıdaki resimde gösterilmektedir. Genellikle önceden doldurulmuş sağlayıcısından bir ada sahip kullanıcı adıdır.
+**Uygulamaya git**' i seçtikten sonra, kullanıcının siteye kaydolması gerekir. Aşağıdaki görüntüde, Kullanıcı Facebook kimlik bilgileriyle oturum açtıktan sonra kayıt sayfası gösterilmektedir. Kullanıcı adı, genellikle sağlayıcıdan bir ad ile önceden doldurulur.
 
 ![register](using-oauth-providers-with-mvc/_static/image9.png)
 
-Tıklayın **kaydetme** kaydı tamamlamak için. Tarayıcıyı kapatın.
+Kayıt işleminin tamamlanabilmesi için **Kaydol** ' a tıklayın. Tarayıcıyı kapatın.
 
-Yeni hesap, veritabanına eklendiğini görebilirsiniz. Sunucu Gezgini'nde açın **DefaultConnection** açın ve veritabanı **tabloları** klasör.
+Yeni hesabın veritabanınıza eklendiğini görebilirsiniz. Sunucu Gezgini, **DefaultConnection** veritabanını açın ve **Tables** klasörünü açın.
 
 ![veritabanı tabloları](using-oauth-providers-with-mvc/_static/image10.png)
 
-Sağ **USERPROFILE** tablosunu seçip **tablo verilerini Göster**.
+**USERPROFILE** tablosuna sağ tıklayın ve **tablo verilerini göster**' i seçin.
 
 ![verileri göster](using-oauth-providers-with-mvc/_static/image11.png)
 
-Eklediğiniz yeni hesap görürsünüz. Verileri bakın **Web sayfası\_OAuthMembership** tablo. Yeni eklediğiniz hesabı için dış sağlayıcı ile ilgili daha fazla veri görürsünüz.
+Eklediğiniz yeni hesap görüntülenir. **Web sayfası\_OAuthMembership** tablosundaki verilere bakın. Yeni eklediğiniz hesap için dış sağlayıcıyla ilgili daha fazla veri görürsünüz.
 
-Dış kimlik doğrulamasını etkinleştirmek istiyorsanız, gerçekleştirilir. Ancak, daha fazla bilgi sağlayıcısından yeni kullanıcı kayıt işlemine aşağıdaki bölümlerde gösterildiği gibi tümleştirebilirsiniz.
+Yalnızca dış kimlik doğrulamasını etkinleştirmek istiyorsanız işiniz yapılır. Ancak, aşağıdaki bölümlerde gösterildiği gibi sağlayıcıdan bilgileri yeni kullanıcı kayıt işlemine daha fazla tümleştirebilirsiniz.
 
-## <a name="create-models-for-additional-user-information"></a>Ek kullanıcı bilgileri için model oluşturma
+## <a name="create-models-for-additional-user-information"></a>Ek Kullanıcı bilgileri için modeller oluşturma
 
-Önceki bölümlerde fark olarak çalışmak yerleşik hesap kaydı için herhangi bir ek bilgi almak gerekmez. Ancak, kullanıcı ile ilgili geri ek bilgileri en dış sağlayıcıları geçirin. Aşağıdaki bölümlerde, bu bilgileri korumak ve veritabanına kaydetme işlemi gösterilmektedir. Özellikle, kullanıcının tam adı, kullanıcının kişisel web sayfası URI değerlerini ve Facebook hesabı doğruladı olup olmadığını gösteren bir değer saklar.
+Önceki bölümlerde fark ettiğiniz gibi, yerleşik hesap kaydının çalışması için ek bilgi almanız gerekmez. Ancak, çoğu dış sağlayıcı kullanıcı hakkında ek bilgileri geri iletir. Aşağıdaki bölümlerde bu bilgilerin nasıl saklanacağı ve bir veritabanına nasıl kaydedileceği gösterilmektedir. Özellikle, kullanıcının tam adı, kullanıcının kişisel Web sayfasının URI 'SI ve Facebook 'un hesabı doğruladığını belirten bir değer olacak şekilde değerleri koruyabilirsiniz.
 
-Kullanacağınız [Code First Migrations](https://msdn.microsoft.com/data/jj591621) ek kullanıcı bilgileri depolamak için bir tablo eklemek için. Geçerli veritabanı anlık görüntüsünü oluşturmak önce gerekir böylece var olan bir veritabanı için tablo ekliyoruz. Geçerli veritabanı anlık görüntüsünü oluşturarak, daha sonra yalnızca yeni bir tablo içeren bir geçiş oluşturabilirsiniz. Geçerli veritabanı anlık görüntüsünü oluşturmak için:
+Ek Kullanıcı bilgilerini depolamak için bir tablo eklemek üzere [Code First Migrations](https://msdn.microsoft.com/data/jj591621) kullanacaksınız. Tabloyu var olan bir veritabanına ekliyoruz, bu nedenle ilk olarak geçerli veritabanının bir anlık görüntüsünü oluşturmanız gerekir. Geçerli veritabanının bir anlık görüntüsünü oluşturarak, daha sonra yalnızca yeni tabloyu içeren bir geçiş oluşturabilirsiniz. Geçerli veritabanının anlık görüntüsünü oluşturmak için:
 
-1. Açık **Paket Yöneticisi Konsolu**
-2. Komutunu çalıştırın **geçişleri etkinleştir**
-3. Komutunu çalıştırın **ekleme geçiş ilk – IgnoreChanges**
-4. Komutunu çalıştırın **veritabanını güncelleştir**
+1. **Paket Yöneticisi konsolunu** açın
+2. **Enable-geçişler** komutunu çalıştırın
+3. Komut **geçişi ilk-ıgnorechanges** komutunu çalıştırın
+4. **Update-Database** komutunu çalıştırın
 
-Şimdi, yeni özellikler ekleyeceksiniz. Modeller klasörü AccountModels.cs dosyasını açın ve RegisterExternalLoginModel sınıfı bulun. Kimlik doğrulama sağlayıcısı'ndan döndürülmesini değerleri RegisterExternalLoginModel sınıfı içerir. Aşağıda vurgulandığı gibi adlandırılmış tam adı ve bağlantı özellikleri ekleyin.
+Şimdi yeni özellikleri ekleyeceksiniz. Modeller klasöründe, AccountModels.cs dosyasını açın ve RegisterExternalLoginModel sınıfını bulun. RegisterExternalLoginModel sınıfı, kimlik doğrulama sağlayıcısından geri gelen değerleri barındırır. Aşağıda vurgulanan şekilde, FullName ve LINK adlı özellikleri ekleyin.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample4.cs?highlight=9-13)]
 
-Ayrıca AccountModels.cs içinde ExtraUserInformation adlı yeni bir sınıf ekleyin. Bu sınıf, veritabanında oluşturulan yeni tablo temsil eder.
+Ayrıca, AccountModels.cs içinde, Extrauserınformation adlı yeni bir sınıf ekleyin. Bu sınıf, veritabanında oluşturulacak yeni tabloyu temsil eder.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample5.cs)]
 
-UsersContext sınıfta olan DB özelliği için yeni bir sınıf oluşturmak için aşağıdaki vurgulanmış kodu ekleyin.
+UsersContext sınıfında, yeni sınıf için bir DbSet özelliği oluşturmak üzere aşağıdaki vurgulanmış kodu ekleyin.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample6.cs?highlight=9)]
 
-Yeni bir tablo oluşturmak artık hazırsınız. Paket Yöneticisi konsolu yeniden ve bu süre açın:
+Artık yeni tabloyu oluşturmaya hazırsınız. Paket Yöneticisi konsolunu yeniden açın ve şu Zamanı:
 
-1. Komutunu çalıştırın **ekleme geçiş AddExtraUserInformation**
-2. Komutunu çalıştırın **veritabanını güncelleştir**
+1. **Add-Migration Addextrauserınformation** komutunu çalıştırın
+2. **Update-Database** komutunu çalıştırın
 
-Yeni tablo artık veritabanında bulunmuyor.
+Yeni tablo artık veritabanında bulunuyor.
 
-## <a name="retrieve-the-additional-data"></a>Ek veri alma
+## <a name="retrieve-the-additional-data"></a>Ek verileri alma
 
-Ek kullanıcı verilerini almak için iki yolu vardır. Varsayılan olarak, kimlik doğrulama isteği sırasında geri geçirilen kullanıcı verilerini korumak için ilk yoludur bakın. Özellikle sağlayıcısı API çağrısı ve daha fazla bilgi istemek için ikinci yoludur bakın. Tam adı ve bağlantı için değerleri otomatik olarak geri Facebook tarafından geçirilir. Facebook hesabı doğruladı olup olmadığını gösteren bir değer Facebook API'sine yapılan bir çağrıyla alınır. İlk olarak, tam adı ve bağlantı için değerler doldurulur ve ardından daha sonra doğrulanmış değeri alacaktır.
+Ek kullanıcı verilerini almanın iki yolu vardır. İlk yöntem, kimlik doğrulama isteği sırasında varsayılan olarak geri geçirilen kullanıcı verilerinin saklanması olur. İkinci yöntem, özellikle sağlayıcı API 'sini çağırmak ve daha fazla bilgi isteğidir. FullName ve LINK değerleri Facebook tarafından otomatik olarak geri geçirilir. Facebook 'un, Facebook API çağrısı aracılığıyla hesabın alındığını doğruladığını belirten bir değer. İlk olarak, FullName ve LINK değerlerini dolduracaksınız ve sonra doğrulanmış değeri alırsınız.
 
-Ek kullanıcı verileri almak üzere açmak **AccountController.cs** dosyası **denetleyicileri** klasör.
+Ek kullanıcı verilerini almak için, **accountcontroller.cs** dosyasını **denetleyiciler** klasöründe açın.
 
-Bu dosya, günlüğe kaydetme, kaydetme ve hesapları yönetmek için mantığı içerir. Özellikle, çağrılan yöntemler fark **ExternalLoginCallback** ve **ExternalLoginConfirmation**. Bu yöntemler içinde uygulamanız için dış oturum açma işlemleri özelleştirmek için kod ekleyebilirsiniz. İlk satırı **ExternalLoginCallback** yöntem içerir:
+Bu dosya, hesapları günlüğe kaydetme, kaydetme ve yönetme mantığını içerir. Özellikle, **Externallogincallback** ve **externalloginconfirmation**adlı yöntemlere dikkat edin. Bu yöntemler içinde, uygulamanız için dış oturum açma işlemlerini özelleştirmek üzere kod ekleyebilirsiniz. **Externallogincallback** yönteminin ilk satırı şunları içerir:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample7.cs)]
 
-Ek kullanıcı verileri geri iletilir **ExtraData** özelliği **AuthenticationResult** öğesinden döndürülen nesne **VerifyAuthentication** yöntemi. Facebook istemcisini aşağıdaki değerleri içeren **ExtraData** özelliği:
+Daha fazla kullanıcı verisi, **doğrulama Yauthentication** yönteminden döndürülen **Authenticationresult** nesnesinin **ExtraData** özelliğine geri geçirilir. Facebook istemcisi, **ExtraData** özelliğinde aşağıdaki değerleri içerir:
 
 - kimlik
 - name
-- Bağlantı
+- bağlantı
 - cinsiyet
 - accesstoken
 
-Diğer sağlayıcılar ExtraData özelliğinde benzer ancak biraz farklı verilere sahip olur.
+Diğer sağlayıcılar, ExtraData özelliğinde benzer ancak biraz farklı verilere sahip olacaktır.
 
-Kullanıcı sitenize yeni tanışıyorsanız, bazı ek verileri almak ve bu verileri onay görünüme iletmek. Yalnızca kullanıcı sitenize yeni, son blok yöntemindeki kod çalıştırılır. Şu satırı değiştirin:
+Kullanıcı siteniz için yeni ise, bazı ek verileri alır ve bu verileri onay görünümüne geçitirsiniz. Yöntemdeki kodun son bloğu yalnızca Kullanıcı siteniz için yeni ise çalıştırılır. Aşağıdaki satırı değiştirin:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample8.cs)]
 
@@ -198,72 +198,72 @@ Bu satırla:
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample9.cs)]
 
-Bu değişiklik, yalnızca tam adı ve bağlantı özelliklerinin değerlerini içerir.
+Bu değişiklik yalnızca FullName ve bağlantı özelliklerine ilişkin değerleri içerir.
 
-İçinde **ExternalLoginConfirmation** yöntemi, ek kullanıcı bilgileri kaydetmek için aşağıdaki kodu vurgulanmış olarak değiştirin.
+**Externalloginconfirmation** yönteminde, ek kullanıcı bilgilerini kaydetmek için kodu aşağıda vurgulanan şekilde değiştirin.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample10.cs?highlight=4,7-13)]
 
-## <a name="adjusting-the-view"></a>Görünüm ayarlama
+## <a name="adjusting-the-view"></a>Görünümü ayarlama
 
-Sağlayıcıdan almak ek kullanıcı verileri kayıt sayfasında görüntülenir.
+Sağlayıcıdan aldığınız ek kullanıcı verileri kayıt sayfasında görüntülenir.
 
-İçinde **görünümleri**/**hesabı** açık klasör **ExternalLoginConfirmation.cshtml**. Kullanıcı adı için var olan alanın tam adı, bağlantı ve PictureLink alanları ekleyin.
+**Görünümler**/**Hesap** klasöründe **externalloginconfirmation. cshtml**dosyasını açın. Kullanıcı adı için mevcut alanın altında, FullName, LINK ve PictureLink için alanlar ekleyin.
 
 [!code-cshtml[Main](using-oauth-providers-with-mvc/samples/sample11.cshtml)]
 
-Şimdi uygulamayı çalıştırın ve ek bilgileri kaydedildi yeni bir kullanıcı kaydetmek neredeyse hazırsınız demektir. Site zaten kayıtlı değil bir hesabınızın olması gerekir. Farklı test hesabı kullanın veya satırları silmek **USERPROFILE** ve **Web sayfalarını\_OAuthMembership** tabloları yeniden kullanmak istediğiniz hesap için. Satırları silerek, hesabı yeniden kaydedildiğini sağlayacaktır.
+Artık uygulamayı çalıştırmaya neredeyse hazırsınız ve ek bilgiler kaydedilecek şekilde yeni bir Kullanıcı Kaydet. Zaten siteye kayıtlı olmayan bir hesabınız olmalıdır. Farklı bir test hesabı kullanabilir veya **Kullanıcı profili** ve web sayfaları\_, yeniden kullanmak istediğiniz hesap Için **oauthmembership** tablolarındaki satırları silebilirsiniz. Bu satırları silerek, hesabın yeniden kaydettirildiğinden emin olursunuz.
 
-Uygulamayı çalıştırın ve yeni kullanıcı kaydedin. Bu süre, onay sayfasından daha fazla değer içerdiğine dikkat edin.
+Uygulamayı çalıştırın ve yeni kullanıcıyı kaydedin. Bu zaman onay sayfasının daha fazla değer içerdiğine dikkat edin.
 
 ![register](using-oauth-providers-with-mvc/_static/image12.png)
 
-Kayıt tamamlandıktan sonra Tarayıcıyı kapatın. Yeni değerlere dikkat veritabanına bakın **ExtraUserInformation** tablo.
+Kaydı tamamladıktan sonra tarayıcıyı kapatın. **Extrauserınformation** tablosundaki yeni değerleri fark etmek için veritabanına bakın.
 
-## <a name="install-nuget-package-for-facebook-api"></a>Facebook API'si için NuGet paketini yükle
+## <a name="install-nuget-package-for-facebook-api"></a>Facebook API için NuGet paketini yükler
 
-Facebook sağlayan bir [API](https://developers.facebook.com/docs/reference/apis/) işlemleri gerçekleştirmek için çağırabilirsiniz. Facebook API'si, HTTP istekleri göndermek yönlendiren veya bu istekleri gönderirken kolaylaştıran bir NuGet paketini yükleme kullanarak çağırabilirsiniz. Bu öğreticide bir NuGet paketi kullanarak gösterilir, ancak yükleme NuGet paketi gerekli değil. Bu öğreticide, Facebook C# SDK'sını paketin nasıl kullanılacağı gösterilmektedir. Facebook API'si Çağırma ile yardımcı olan diğer NuGet paketleri vardır.
+Facebook, işlemleri gerçekleştirmek için çağırabilmeniz gereken bir [API](https://developers.facebook.com/docs/reference/apis/) sağlar. HTTP istekleri göndererek veya bu istekleri göndermeyi kolaylaştıran bir NuGet paketi yükleme yoluyla Facebook API 'sini çağırabilirsiniz. Bu öğreticide bir NuGet paketi kullanılması, ancak NuGet paketinin yüklenmesi gerekli değildir. Bu öğreticide, Facebook C# SDK paketinin nasıl kullanılacağı gösterilmektedir. Facebook API 'SI çağırmaya yardımcı olan başka NuGet paketleri de vardır.
 
-Gelen **NuGet paketlerini Yönet** windows, Facebook C# SDK paketini seçin.
+**NuGet Paketlerini Yönet** penceresinden Facebook C# SDK paketi ' ni seçin.
 
-![Paketi Yükle](using-oauth-providers-with-mvc/_static/image13.png)
+![paketi yükler](using-oauth-providers-with-mvc/_static/image13.png)
 
-Kullanıcı için erişim belirtecini gerektiren bir işlem çağırmak için Facebook C# SDK'sını kullanır. Sonraki bölümde, erişim belirteci almak gösterilmektedir.
+Kullanıcı için erişim belirteci gerektiren C# bir işlemi çağırmak için Facebook SDK 'sını kullanacaksınız. Sonraki bölümde, erişim belirtecinin nasıl alınacağı gösterilmektedir.
 
-## <a name="retrieve-access-token"></a>Erişim belirtecini alma
+## <a name="retrieve-access-token"></a>Erişim belirtecini al
 
-Kullanıcının kimlik bilgileri doğrulandıktan sonra en dış sağlayıcıları bir erişim belirteci yeniden geçirin. Bu erişim belirteci, yalnızca kimliği doğrulanmış kullanıcılara kullanılabilen işlemleri çağırmak sağladığından çok önemlidir. Bu nedenle, daha fazla işlevsellik sağlamak istediğinizde almaya ve depolamaya erişim belirteci gereklidir.
+Çoğu dış sağlayıcı, kullanıcının kimlik bilgileri doğrulandıktan sonra bir erişim belirtecini geri iletir. Yalnızca kimliği doğrulanmış kullanıcılar için kullanılabilir olan işlemleri çağırmanızı sağladığından bu erişim belirteci çok önemlidir. Bu nedenle, daha fazla işlevsellik sağlamak istediğinizde erişim belirtecinin alınması ve depolanması önemlidir.
 
-Harici sağlayıcıya bağlı olarak, erişim belirteci yalnızca sınırlı bir süre için geçerli olabilir. Geçerli bir erişim belirteciyle sahip olmasını sağlamak için kaydeder ve bir oturumu değeri olarak depolamak yerine kullanıcının veritabanına kaydetme her zaman alır.
+Dış sağlayıcıya bağlı olarak, erişim belirteci yalnızca sınırlı bir süre için geçerli olabilir. Geçerli bir erişim belirteciniz olduğundan emin olmak için, Kullanıcı oturum açtığında bu dosyayı alacak ve bir veritabanına kaydetmek yerine bir oturum değeri olarak depolayacaksınız.
 
-İçinde **ExternalLoginCallback** yöntemi, erişim belirtecini da geçirilir geri **ExtraData** özelliği **AuthenticationResult** nesne. Vurgulanmış kodu ekleyin **ExternalLoginCallback** erişim belirtecinde kaydetmek için **oturumu** nesne. Bu kod, kullanıcı bir Facebook hesabıyla oturum açtığı her sefer çalıştırılır.
+**Externallogincallback** yönteminde, erişim belirteci de **Authenticationresult** nesnesinin **ExtraData** özelliğine geçirilir. Erişim belirtecini **oturum** nesnesine kaydetmek Için **Externallogincallback** öğesine vurgulanmış kodu ekleyin. Bu kod, Kullanıcı her bir Facebook hesabıyla oturum açtığında çalıştırılır.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample12.cs?highlight=11-14)]
 
-Bu örnek, bir erişim belirteci Facebook'tan alır ancak erişim belirtecini herhangi bir dış sağlayıcısından adlı tuşuyla alabilirsiniz &quot;accesstoken&quot;.
+Bu örnek, Facebook 'tan bir erişim belirteci almasına karşın, erişim belirtecini &quot;accesstoken&quot;adlı aynı anahtar aracılığıyla herhangi bir dış sağlayıcıdan alabilirsiniz.
 
-## <a name="logging-off"></a>Oturum kapatma
+## <a name="logging-off"></a>Oturumu kapatma
 
-Varsayılan **kapatma** yöntemi dışında uygulamanızın kullanıcı oturumu, ancak dış sağlayıcı tarafından kullanıcının günlüğe kaydetmez. Facebook dışında kullanıcı oturum ve kullanıcı oturumu kapattıktan sonra kalıcı belirteç önlemek için aşağıdaki vurgulanmış kodu ekleyebilirsiniz **kapatma** AccountController yöntemi.
+Varsayılan **oturum kapatma** yöntemi, kullanıcının uygulamanız dışında oturum açmasını, ancak kullanıcının dış sağlayıcıdan dışarıya kaydetmez. Kullanıcıyı Facebook 'Ta günlüğe kaydetmek ve Kullanıcı oturumu kapattıktan sonra belirtecin kalıcı olmasını engellemek için, AccountController 'daki **logoff** yöntemine aşağıdaki vurgulanmış kodu ekleyebilirsiniz.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample13.cs?highlight=6-14)]
 
-İçinde sağladığınız değerin `next` dışında Facebook kullanıcı oturumu sonra kullanılacak URL parametredir. Yerel bilgisayarınızda test ederken, doğru bağlantı noktası numarası için yerel sitenize sağlar. Üretim ortamında, contoso.com gibi varsayılan bir sayfası sunar.
+`next` parametresinde sağladığınız değer, kullanıcının Facebook oturumu kapatıldıktan sonra kullanılacak URL 'dir. Yerel bilgisayarınızda test edilirken, yerel siteniz için doğru bağlantı noktası numarasını sağlarsınız. Üretimde, contoso.com gibi bir varsayılan sayfa sağlarsınız.
 
-## <a name="retrieve-user-information-that-requires-the-access-token"></a>Erişim belirteci gerektiren kullanıcı bilgilerini alma
+## <a name="retrieve-user-information-that-requires-the-access-token"></a>Erişim belirteci gerektiren Kullanıcı bilgilerini alma
 
-Erişim belirteci depolanan ve Facebook C# SDK'sı paketinin yüklü olduğunu, bunları birlikte ek kullanıcı bilgileri Facebook'tan istemek için kullanabilirsiniz. İçinde **ExternalLoginConfirmation** yöntemi, bir örneğini oluşturmak **FacebookClient** erişim belirteci değerini geçirerek sınıf. Değeri istek **doğrulandı** geçerli, kimliği doğrulanmış kullanıcı için özellik. **Doğrulandı** özelliği, Facebook hesabıyla bir cep telefonuna bir ileti gönderme gibi bazı diğer araçlar, doğrulanmış olup olmadığını gösterir. Bu değer, veritabanında kaydedin.
+Erişim belirtecini depoladığınıza ve Facebook C# SDK paketini yükleolduğunuza göre, Facebook 'tan ek kullanıcı bilgileri istemek için bunları birlikte kullanabilirsiniz. **Externalloginconfirmation** yönteminde, erişim belirtecinin değerini geçirerek çok **yönlü istemci** sınıfının bir örneğini oluşturun. Geçerli, kimliği doğrulanmış kullanıcı için **doğrulanmış** özelliğin değerini isteyin. **Doğrulanan** özellik, Facebook 'un hesabı bir cep telefonuna ileti gönderme gibi başka yollarla doğruladığını gösterir. Bu değeri veritabanına kaydedin.
 
 [!code-csharp[Main](using-oauth-providers-with-mvc/samples/sample14.cs?highlight=7-18,25)]
 
-Yeniden kullanıcı veritabanındaki kayıtları silme veya farklı bir Facebook hesabı kullanmanız gerekir.
+Kullanıcı için veritabanındaki kayıtları silmeniz ya da farklı bir Facebook hesabı kullanmanız gerekir.
 
-Uygulamayı çalıştırın ve yeni kullanıcı kaydedin. Bakmak **ExtraUserInformation** doğrulandı özelliğinin değeri görmek için tabloyu.
+Uygulamayı çalıştırın ve yeni kullanıcıyı kaydedin. Doğrulanan özelliğin değerini görmek için **Extrauserınformation** tablosuna bakın.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, kullanıcı kimlik doğrulaması ve kayıt verisi için Facebook ile tümleşik bir site oluşturulur. MVC 4 web uygulaması ve bu varsayılan davranışı özelleştirme için ayarlanmış varsayılan davranışı hakkında bilgi edindiniz.
+Bu öğreticide, Kullanıcı kimlik doğrulaması ve kayıt verileri için Facebook ile tümleştirilmiş bir site oluşturdunuz. MVC 4 Web uygulaması için ayarlanan varsayılan davranış ve bu varsayılan davranışı özelleştirme hakkında bilgi edindiniz.
 
 ## <a name="related-topics"></a>İlgili konular
 
-- [Kimlik doğrulaması ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)
+- [Auth ve SQL DB ile ASP.NET MVC uygulaması oluşturma ve Azure App Service dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data)

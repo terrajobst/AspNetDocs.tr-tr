@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
-title: Visual Studio 2012'de sayfa denetçisini kullanma | Microsoft Docs
+title: Visual Studio 'da sayfa denetçisini kullanma 2012 | Microsoft Docs
 author: rick-anderson
-description: Bu uygulamalı laboratuvarda, Visual Studio - sayfa denetçisi web sayfası sorunlarını bulmak ve yeni bir aracı keşfeder. Page Inspector, yeni bir aracı bu b ediyor...
+description: Bu uygulamalı laboratuvarda, Visual Studio 'da Web sayfası sorunlarını bulmak ve gidermek için kullanabileceğiniz yeni bir araç bulacaksınız-sayfa denetçisi. Sayfa denetçisi b... için yeni bir araçtır.
 ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: f42b1be2697ba7d1145b3e334fe8f4ebf019cd12
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133549"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586256"
 ---
 # <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012'de Sayfa Denetçisini Kullanma
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-> Bu uygulamalı laboratuvarda, Visual Studio - sayfa denetçisi web sayfası sorunlarını bulmak ve yeni bir aracı keşfeder.
+> Bu uygulamalı laboratuvarda, Visual Studio 'da Web sayfası sorunlarını bulmak ve gidermek için kullanabileceğiniz yeni bir araç bulacaksınız-sayfa denetçisi.
 > 
-> Page Inspector, Visual Studio'ya tarayıcı tanılama araçları getirir ve tarayıcı, ASP.NET ve kaynak kodu arasında tümleşik bir deneyim sağlayan yeni bir aracıdır. Visual Studio IDE içinden doğrudan bir web sayfası (HTML, Web Forms, ASP.NET MVC veya Web sayfaları) oluşturur ve kaynak kodu hem de elde edilen çıkış incelemenize olanak sağlar. Page Inspector, Web sitesi bir kolayca ayırmak, sayfalarını sıfırdan hızlı bir şekilde oluşturmak ve sorunları çabucak tanılamanızı sağlar.
+> Sayfa denetçisi, tarayıcı tanılama araçlarını Visual Studio 'ya getiren ve tarayıcı, ASP.NET ve kaynak kodu arasında tümleşik bir deneyim sağlayan yeni bir araçtır. Doğrudan Visual Studio IDE içinde bir Web sayfası (HTML, Web Forms, ASP.NET MVC veya Web sayfaları) oluşturur ve hem kaynak kodu hem de elde edilen çıktıyı incelemenizi sağlar. Sayfa denetçisi, bir Web sitesini kolayca ayırmayı, sıfırdan hızlıca sayfa oluşturmayı ve sorunları hızlı bir şekilde tanılamayı sağlar.
 > 
-> Günümüzde birçok zamanında, ASP.NET MVC ve WebForms gibi esnek ve ölçeklenebilir Web siteleri oluşturmak Web çerçeveleri sahibiz. Öte yandan, bu daha zor IDE şablon tabanlı sayfaları ve dinamik içerik Tasarımcı görünümü desteklemediği için sayfalarında sorunları bulmak alır. Bu nedenle, bu Web sitelerinin bir kullanıcıya görünme görmek için bir tarayıcıda açılması gerekir.
+> Günümüzde, esnek ve ölçeklenebilir Web sitelerini zamanında ve ASP.NET MVC ve WebForms gibi bir şekilde oluşturan çok sayıda Web Çerçevelerimiz vardır. Diğer yandan, içerik, şablon tabanlı sayfalarda ve dinamik içerikte tasarımcı görünümünü desteklemediğinden, sayfalardaki sorunları bulmayı zorlaştırır. Bu nedenle, bir kullanıcıya nasıl göründüğünü görmek için bu web sitelerinin bir tarayıcıda açılması gerekir.
 > 
-> Web geliştiricileri, dış araçların düzenli olarak bir tarayıcıda çalışan sorunları bulmak için kullanın. Ardından, IDE'ye dönün ve düzeltme başlatın. Bu geri ve İleri etkinliği IDE, tarayıcı ve profil oluşturma araçları arasında verimsiz olabilir ve bazen yeni dağıtım ve önbelleği temizleme, bir sorunu yeniden oluşturmak istediğiniz her zaman gerektirir.
+> Web geliştiricileri, tarayıcıda düzenli olarak çalışan sorunları bulmak için dış araçlar kullanır. Ardından, IDE 'ye geri dönerek düzeltmeye başlar. IDE ile bu geri ve ileri etkinlik, tarayıcı ve profil oluşturma araçları verimsiz olabilir ve bazen bir sorunu yeniden oluşturmak istediğiniz her seferinde yeni bir dağıtım ve önbellek temizleme gerektirir.
 > 
-> Page Inspector, birleştirilmiş bir dizi özellik kullanarak her iki platformdan da araya getirerek Web geliştirme istemci (tarayıcı araçları) ve sunucu (ASP.NET ve kaynak kodu) arasında bir boşluk arasında köprü.
+> Sayfa denetçisi, Birleşik bir özellikler kümesi kullanarak her iki dünyanın en iyi yanı sıra istemci (tarayıcı araçları) ve sunucu (ASP.NET ve kaynak kodu) arasında Web geliştirmede bir boşluk köprüleme.
 > 
-> Sayfa Denetçisi'ni kullanarak, hangi öğelerin (sunucu tarafındaki kod dahil) kaynak dosyalarında tarayıcıda işlenmek üzere HTML biçimlendirmesi ürettiğini görebilirsiniz. Page Inspector ayrıca CSS özelliklerini ve hemen tarayıcıda görmenize değişiklikleri görmek için DOM öğesi özniteliklerini değiştirmenize olanak sağlar.
+> Sayfa denetçisi 'ni kullanarak, kaynak dosyalardaki (sunucu tarafı kod dahil) hangi öğelerin tarayıcıda işlenecek HTML işaretlemesini üretdiğine bakabilirsiniz. Sayfa denetçisi ayrıca, tarayıcıda hemen yansıtılan değişiklikleri görmek için CSS özelliklerini ve DOM öğesi özniteliklerini değiştirmenize imkan tanır.
 > 
-> Bu uygulamalı laboratuvarı, sayfa denetçisi özellikleriyle yol ve Web uygulamalarınızda sorunları gidermek için bunları nasıl kullanacağınızı gösterir. **Bu Laboratuvar benzer akışlarını kullanarak ancak farklı teknolojilerini hedefleyen iki alıştırmaları içerir. Bir ASP.NET MVC geliştiriciyseniz alıştırma birini izleyin. Eğer bir WebForms Geliştirici izleyin alıştırma iki**.
+> Bu uygulamalı laboratuvar, sayfa denetçisi özellikleri boyunca size kılavuzluk eder ve Web uygulamalarındaki sorunları gidermek için bunları nasıl kullanabileceğinizi gösterir. **Bu laboratuvar, benzer akışlar kullanan ancak farklı teknolojileri hedefleyen iki alıştırmada bulunur. Bir ASP.NET MVC geliştiricisiyseniz, alıştırma yapın; bir WebForms geliştiriciyseniz, Alıştırmayı iki izleyin**.
 > 
-> Bu Laboratuvar, küçük değişiklikler kaynak klasördeki sağlanan örnek bir Web uygulamasına uygulayarak daha önce açıklanan yeni özellikler ve iyileştirmeler açıklanmaktadır.
+> Bu laboratuvar, daha önce kaynak klasörde sunulan örnek bir Web uygulamasına küçük değişiklikler uygulayarak açıklanan geliştirmeler ve yeni özellikler konusunda size kılavuzluk eder.
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tüm örnek kod ve kod parçacıkları [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409)adresinden erişilebilen Web Camps eğitim seti ' ne dahildir.
 
 <a id="Objectives"></a>
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- Sayfa Denetçisi'ni kullanarak bir Web sitesi parçalara ayırın
-- İnceleyin ve sayfa denetçisi ile CSS stilleri Değişiklikleri Önizle
-- Sayfa Denetçisi'ni kullanarak web sayfalarınıza sorunlarını algılamak ve
+- Sayfa denetçisini kullanarak bir Web sitesini kaldırma
+- Sayfa denetçisi ile CSS stilleri değişikliklerini İnceleme ve Önizleme
+- Sayfa denetçisi 'ni kullanarak Web sayfalarınızdaki sorunları algılayın ve giderin
 
 <a id="Prerequisites"></a>
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-Bu laboratuvarı tamamlamak için aşağıdakiler olmalıdır:
+Bu Laboratuvarı tamamlayabilmeniz için aşağıdaki öğelere sahip olmanız gerekir:
 
-- [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya üst (okuma [ek A](#AppendixA) nasıl yükleneceği hakkında yönergeler için).
+- [Web veya üst için Microsoft Visual Studio Express 2012](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) (nasıl yükleneceğine ilişkin yönergeler Için [Ek A](#AppendixA) oku).
 - Internet Explorer 9 veya üzeri
 
 ---
@@ -63,206 +63,206 @@ Bu laboratuvarı tamamlamak için aşağıdakiler olmalıdır:
 <a id="Exercises"></a>
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
+## <a name="exercises"></a>Alıştırmalarda
 
-Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
+Bu uygulamalı laboratuvar aşağıdaki alıştırmaları içerir:
 
-1. [Alıştırma 1: ASP.NET MVC projeleri sayfa denetçisini kullanma](#Exercise1)
+1. [Alıştırma 1: ASP.NET MVC projelerinde sayfa denetçisini kullanma](#Exercise1)
 2. [Alıştırma 2: WebForms projelerinde sayfa denetçisini kullanma](#Exercise2)
 
 > [!NOTE]
-> Her alıştırma her alıştırma diğerlerinden takip etmenize olanak tanıyan alıştırmada başlangıç klasöründe yer alan bir başlangıç çözümü vardır. Bir alıştırma için kaynak kodu içinde karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren bir son klasörü bulabilirsiniz. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
+> Her alıştırma, alıştırmanın BEGIN klasöründe bulunan bir başlangıç çözümü ile birlikte her alıştırmanın bağımsız olarak izlenmesi için bir çözüm sağlar. Bir alıştırmada kaynak kodun içinde, ilgili alıştırmada adımların tamamlanmasına neden olan koda sahip bir Visual Studio çözümü içeren bir son klasör de bulacaksınız. Bu uygulamalı laboratuvarda çalışırken daha fazla yardıma ihtiyacınız varsa bu çözümleri kılavuz olarak kullanabilirsiniz.
 
-Bu laboratuvarı tamamlamak için tahmini süre: **30 dakika**.
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **30 dakika**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Using_Page_Inspector_in_ASPNET_MVC_Projects"></a>
-### <a name="exercise-1-using-page-inspector-in-aspnet-mvc-projects"></a>Alıştırma 1: ASP.NET MVC projeleri sayfa denetçisini kullanma
+### <a name="exercise-1-using-page-inspector-in-aspnet-mvc-projects"></a>Alıştırma 1: ASP.NET MVC projelerinde sayfa denetçisini kullanma
 
-Bu alıştırmada, Önizleme ve hata ayıklama hakkında bilgi edineceksiniz bir **ASP.NET MVC 4** çözümünü kullanarak **sayfa denetçisi**. İlk olarak, işlemin hatalarını ayıklamaya Web kolaylaştırmak özellikleri öğrenmek için bir kısa turu aracı gerçekleştirir. Ardından, stil sorunlarını içeren bir web sayfasında çalışır. Sorun oluşturan kaynak kodunu bulmak için sayfa Denetçisi'ni kullanın ve Düzelt öğreneceksiniz.
+Bu alıştırmada, **sayfa denetçisi**'ni kullanarak BIR **ASP.NET MVC 4** çözümünde önizleme ve hata ayıklama işlemlerini öğreneceksiniz. İlk olarak, Web hata ayıklama işlemini kolaylaştıran özellikleri öğrenmek için araç etrafında kısa bir lap gerçekleştirirsiniz. Daha sonra, stil sorunları içeren bir Web sayfasında çalışacaksınız. Sorunu oluşturan kaynak kodunu bulmak ve onarmak için sayfa denetçisi 'ni nasıl kullanacağınızı öğreneceksiniz.
 
 <a id="Ex1Task1"></a>
 
 <a id="Task_1_-_Exploring_Page_Inspector"></a>
-#### <a name="task-1---exploring-page-inspector"></a>Görev 1 - sayfa Denetçisi'ni keşfetme
+#### <a name="task-1---exploring-page-inspector"></a>Görev 1-sayfa denetçisini keşfetme
 
-Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamında sayfa denetçisi kullanmayı öğreneceksiniz.
+Bu görevde, sayfa denetçisini bir fotoğraf galerisini gösteren bir ASP.NET MVC 4 projesi bağlamında nasıl kullanacağınızı öğreneceksiniz.
 
-1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-MVC4/başlangıç/** klasör.
+1. **Kaynak/Ex1-MVC4/BEGIN/** Folder konumunda bulunan **Başlangıç** çözümünü açın.
 
-   1. Bazı eksik NuGet paketleri indirmeniz gerekecek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Çözüm Gezgini'nde bulun **Index.cshtml** görünümüne **/görünümler/giriş** proje klasörü sağ tıklatın ve seçin **sayfa denetçisi görünümünde**.
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
+2. Çözüm Gezgini, **/views/Home** proje klasörü altındaki **Index. cshtml** görünümünü bulun, sağ tıklayın ve **sayfa denetçisinde görüntüle**' yi seçin.
 
-    ![Sayfa denetçisi içinde önizlemek için bir dosya seçmek](using-page-inspector-in-visual-studio-2012/_static/image1.png "içinde sayfa denetçisi önizlemek için bir dosya seçme")
+    ![Sayfa denetçisinde önizlemesi yapılacak bir dosya seçme](using-page-inspector-in-visual-studio-2012/_static/image1.png "Sayfa denetçisinde önizlemesi yapılacak bir dosya seçme")
 
-    *Page Inspector Önizleme için bir dosya seçme*
-3. Sayfa denetçisi penceresi */Home/Index* eşlenen seçtiğiniz görünümü kaynak URL'si.
+    *Sayfa denetçisinde önizlemesi yapılacak bir dosya seçme*
+3. Sayfa denetçisi penceresinde, seçtiğiniz kaynak görünümüne eşlenen */Home/Index* URL 'si gösterilir.
 
-    ![İlk PageInspector kişiyle](using-page-inspector-in-visual-studio-2012/_static/image2.png)
+    ![PageInspector ile ilk iletişim](using-page-inspector-in-visual-studio-2012/_static/image2.png)
 
     *Sayfa denetçisi ile ilk iletişim*
 
-    Sayfa denetçisi aracı Visual Studio ortamınıza tümleşiktir. Inspector, güçlü bir HTML Profil Oluşturucu ile birlikte katıştırılmış bir tarayıcı içerir. Sayfalarınızın nasıl göründüğünü görmek için çözümü çalıştırmak zorunda değilsiniz dikkat edin.
+    Sayfa denetçisi Aracı, Visual Studio ortamınızda tümleşiktir. Denetleyici, güçlü bir HTML Profil Oluşturucusu ile birlikte gömülü bir tarayıcı içerir. Sayfalarınızın nasıl göründüğünü görmek için çözümü çalıştırmanız gerekmediğine dikkat edin.
 
     > [!NOTE]
-    > Sayfa denetçisi tarayıcı genişliğini açılan sayfanın genişliğine'dan olduğunda, sayfanın düzgün tarafından görülmez. Bu durumda, sayfa denetçisi genişliğini ayarla.
-4. Tıklayın **dosyaları** sayfa denetçisi sekmesindedir.
+    > Sayfa denetçisi tarayıcısının genişliği, açılan sayfanın genişliğinden az olduğunda, sayfayı düzgün bir şekilde görmezsiniz. Bu durumda, sayfa denetçisinin genişliğini ayarlayın.
+4. Sayfa denetçisi ' nde **dosyalar** sekmesine tıklayın.
 
-    Dizin Sayfası oluşturmakta olduğunuz tüm kaynak dosyaları görürsünüz. Bu özellik, özellikle kısmi görünümleri ve şablonlar ile çalışırken, bir bakışta tüm öğeleri tanımlamak için yardımcı olur. Bağlantıları tıklarsanız ayrıca her dosya açabileceğiniz dikkat edin.
+    Dizin sayfasını oluşturan tüm kaynak dosyaları görüntülenir. Bu özellik, özellikle kısmi görünümler ve şablonlar ile çalışırken, tüm öğeleri bir bakışta belirlemesine yardımcı olur. Bağlantılara tıkladığınızda dosyaların her birini de açabildiğine dikkat edin.
 
-    ![Dosyalar sekmesi](using-page-inspector-in-visual-studio-2012/_static/image3.png)
+    ![-Files-Tab](using-page-inspector-in-visual-studio-2012/_static/image3.png)
 
     *Dosyalar sekmesi*
-5. Tıklayın **denetleme modunu Aç/Kapat** sekmelerin sol tarafında bulunan düğmesini.
+5. Sekmelerin solunda bulunan **Inceleme modunu aç** düğmesine tıklayın.
 
-    Bu araç, sayfanın herhangi bir öğe seçin ve HTML ve Razor kodunu görmek olanak tanır.
+    Bu araç, sayfanın herhangi bir öğesini seçmenizi ve HTML ve Razor kodunu görmenizi sağlar.
 
-    ![İnceleme modu düğmesi Aç/Kapat](using-page-inspector-in-visual-studio-2012/_static/image4.png)
+    ![Değiştirme-Inceleme modu-düğme](using-page-inspector-in-visual-studio-2012/_static/image4.png)
 
-    *İki durumlu İnceleme modu düğme*
-6. Sayfa denetçisi tarayıcıda sayfa öğelerin üzerine fare işaretçisini taşıyın. İşlenen sayfanın herhangi bir bölümü fare işaretçisini taşıyın, ancak öğe türü görüntülenir ve Visual Studio Düzenleyicisi'nde, karşılık gelen kaynak biçimlendirmeyi veya kodu vurgulanır.
+    *Inceleme modunu değiştirme düğmesi*
+6. Sayfa denetçisi tarayıcısında, fare işaretçisini sayfa öğelerinin üzerine taşıyın. Fare işaretçisini işlenmiş sayfanın herhangi bir bölümünde taşıdığınızda, öğe türü görüntülenir ve ilgili kaynak biçimlendirme veya kod Visual Studio Düzenleyicisi 'nde vurgulanır.
 
-    ![Denetleme modunda, eylem](using-page-inspector-in-visual-studio-2012/_static/image5.png)
+    ![İnceleme modu, eylemde](using-page-inspector-in-visual-studio-2012/_static/image5.png)
 
-    *Denetleme modunda, eylem*
-
-    > [!NOTE]
-    > Sayfa denetçisi pencerenin en üst düzeye çıkarabilirim veya kaynak kodunu gösteren bir önizleme sekmesinde görmeniz mümkün olmayacaktır. Sayfa denetçisi öğesinde tıklarsanız, büyütüldüğünde seçimin kaynak kodu görünür ancak sayfa denetçisi penceresini gizler.
-
-    Dikkatini ödeme yaparsanız **Index.cshtml** dosya, seçili öğenin oluşturduğu kaynak kod bölümünü vurgulanır görürsünüz. Bu özellik, kodu erişmek için doğrudan ve hızlı bir şekilde sağlayarak uzun kaynak dosyalarını, düzenleme kolaylaştırır.
-
-    ![Öğeleri inceleniyor](using-page-inspector-in-visual-studio-2012/_static/image6.png)
-
-    *Öğeleri inceleniyor*
-7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.") ) imleci devre dışı bırakmak için.
-8. Seçin **HTML** sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için sekmesinde.
-9. HTML biçimlendirmede Koala bağlantısını içeren bir liste öğesi bulun ve seçin.
-
-    Kod seçtiğinizde, ilgili çıkış tarayıcıda otomatik olarak vurgulanan dikkat edin. Bu özellik, bir HTML bloğunu sayfada nasıl oluşturulacağını görmek kullanışlıdır.
-
-    ![Seçme HTML öğesi sayfasında](using-page-inspector-in-visual-studio-2012/_static/image8.png "sayfasında seçerek HTML öğesi")
-
-    *Sayfanın HTML öğesi seçme*
-10. Tıklayın **denetleme modunu Aç/Kapat** etkinleştirmek için düğmeye *İnceleme modu* ve gezinti çubuğuna tıklayın. Sağ tarafındaki HTML kod stilleri bölmesinde seçilen öğeye uygulanan CSS stilleri ile bir listesini görürsünüz.
+    *İnceleme modu, eylemde*
 
     > [!NOTE]
-    > Üst site düzenini bir parçası olduğundan, Page Inspector ayrıca açılır \_Layout.cshtml dosyasını ve kod kesiminin etkilenen Vurgula.
+    > Sayfa denetçisi penceresini en üst düzeye çıkarmayın veya kaynak kodu gösteren önizleme sekmesini göremezsiniz. Sayfa denetçisinde öğeyi ekranı kapladıktan sonra seçerseniz, seçimin kaynak kodu görüntülenir, ancak sayfa denetçisi penceresini gizleyecek.
 
-    ![Stilleri keşfetme](using-page-inspector-in-visual-studio-2012/_static/image9.png)
+    **Index. cshtml** dosyasına dikkat etmeniz durumunda, seçili öğeyi üreten kaynak kodu bölümünün vurgulandığını fark edeceksiniz. Bu özellik, koda erişmenin doğrudan ve hızlı bir yolunu sağlayarak uzun kaynak dosyalarını düzenlemenizi kolaylaştırır.
 
-    *Stiller ve seçilen öğenin kaynak dosyaları bulma*
-11. Etkin geçiş İnceleme işaretçisiyle mavi öne çıkan çubuğunun altındaki fare işaretçisini ve Yarım Daire tıklayın.
+    ![Öğeleri İnceleme](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
-    ![Bir öğenin seçilmesi](using-page-inspector-in-visual-studio-2012/_static/image10.png "öğe seçme")
+    *Öğeleri İnceleme*
+7. **Inceleme modunu aç** düğmesine tıklayın (![HTML kodunu sayfa DENETÇISI tarayıcısında oluşturulan HTML kodunu göstermek Için HTML sekmesini seçin.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Sayfa denetçisi tarayıcısında işlenen HTML kodunu göstermek için HTML sekmesini seçin.") ) imleci devre dışı bırakır.
+8. Sayfa denetçisi tarayıcısında işlenen HTML kodunu göstermek için **HTML** sekmesini seçin.
+9. HTML biçimlendirmesinde, Koala bağlantısı olan liste öğesini bulun ve seçin.
 
-    *Bir öğe seçme*
-12. Stilleri bölmesinde bulun **arka plan resmi** altında madde **.main içeriği** grubu. **Onay kutusunu temizleyin** **arka plan resmi** ne olacağına bakalım. Tarayıcı hemen değişiklikleri yansıtır ve dairenin gizli fark edeceksiniz.
+    Kodu seçtiğinizde ilgili çıktının tarayıcıda otomatik olarak vurgulandığını unutmayın. Bu özellik, sayfada bir HTML bloğunun nasıl oluşturulduğunu görmek için yararlıdır.
+
+    ![Sayfada HTML öğesi seçiliyor](using-page-inspector-in-visual-studio-2012/_static/image8.png "Sayfada HTML öğesi seçiliyor")
+
+    *Sayfada HTML öğesi seçiliyor*
+10. İnceleme modunu etkinleştirmek için **Inceleme modunu aç** düğmesine *tıklayın ve gezinti* çubuğuna tıklayın. HTML kodunun sağında, stiller bölmesinde, seçili öğeye CSS stillerinin uygulandığını içeren bir liste görürsünüz.
 
     > [!NOTE]
-    > Sayfa denetçisi stilleri sekmesinde uyguladığınız değişiklikler, özgün stil etkilemez. Stilleri işaretini kaldırın veya sayıda istediğiniz, ancak sayfa yenilendikten sonra kurulacaktır değerlerini değiştirin.
+    > Üst bilgi site düzeninin bir parçası olduğundan, sayfa denetçisi de \_Layout. cshtml dosyasını açıp etkilenen kod segmentini vurgulayacaktır.
 
-    ![CSS stilleri devre dışı bırakma ve etkinleştirme](using-page-inspector-in-visual-studio-2012/_static/image11.png "etkinleştirme ve CSS stilleri devre dışı bırakma")
+    ![Stiller bulunuyor](using-page-inspector-in-visual-studio-2012/_static/image9.png)
 
-    *CSS stilleri devre dışı bırakma ve etkinleştirme*
-13. Şimdi tıklayın '**buraya logonuz**' İnceleme modu kullanarak üstbilgi metni.
-14. İçinde **stilleri** sekmesinde, bulmak **yazı tipi boyutu** CSS özniteliği altında **.site başlık** grubu. Öznitelik değeri çift tıklayın ve 2.3 em değeriyle **3 em**ve tuşuna **ENTER**. Başlık büyük göründüğünü dikkat edin.
+    *Seçili bir öğenin stilleri ve kaynak dosyaları bulunuyor*
+11. Değiştirme denetimi işaretçisi etkinken, fare işaretçisini mavi öne çıkan çubuğun altına taşıyın ve yarım daireye tıklayın.
 
-    ![Sayfa denetçisi CSS değerlerini değiştirmelerini](using-page-inspector-in-visual-studio-2012/_static/image12.png "değiştirme CSS değerleri, sayfa denetçisi")
+    ![Öğe seçme](using-page-inspector-in-visual-studio-2012/_static/image10.png "Öğe seçme")
 
-    *Sayfa denetçisi CSS değerleri değiştirme*
-15. Tıklayın **stilleri İzle** sayfa denetçisi sağ bölmede bulunan sekmesinden. Bu öznitelik ada göre sıralanmış seçim, uygulanan stiller görmek için alternatif bir yoludur.
+    *Öğe seçme*
+12. Stiller bölmesinde, **. Main-Content** grubunun altındaki **Background-Image** öğesini bulun. **Arka plan resminin** **işaretini kaldırın** ve neler olduğunu görün. Tarayıcının değişiklikleri hemen yansıtmasını ve dairenin gizli olduğunu fark edeceksiniz.
+
+    > [!NOTE]
+    > Sayfa denetçisi stilleri sekmesinde uyguladığınız değişiklikler özgün stil sayfasını etkilemez. Stillerin işaretini kaldırabilir veya değerlerini istediğiniz kadar değiştirebilirsiniz, ancak sayfa yenilendikten sonra geri yüklenir.
+
+    ![CSS stillerini etkinleştirme ve devre dışı bırakma](using-page-inspector-in-visual-studio-2012/_static/image11.png "CSS stillerini etkinleştirme ve devre dışı bırakma")
+
+    *CSS stillerini etkinleştirme ve devre dışı bırakma*
+13. İnceleme modunu kullanarak başlıktaki '**buraya logonuz**' düğmesine tıklayın.
+14. **Stiller** sekmesinde, **. site-title** grubu altında **yazı tipi-boyutu** CSS özniteliğini bulun. Öznitelik değerine çift tıklayın ve 2,3 em değerini **3 em**ile değiştirin ve ardından **ENTER**tuşuna basın. Başlığın daha büyük göründüğünü unutmayın.
+
+    ![Sayfa denetçisindeki CSS değerlerini değiştirme](using-page-inspector-in-visual-studio-2012/_static/image12.png "Sayfa denetçisindeki CSS değerlerini değiştirme")
+
+    *Sayfa denetçisindeki CSS değerlerini değiştirme*
+15. Sayfa denetçisinin sağ bölmesinde bulunan **Izleme stilleri** sekmesine tıklayın. Bu, seçime uygulanan tüm stilleri, öznitelik adına göre sıralanmış olarak görmeniz için alternatif bir yoldur.
 
     ![CSS stilleri izleme](using-page-inspector-in-visual-studio-2012/_static/image13.png)
 
-    *Seçili öğenin CSS stilleri izleme*
-16. Başka bir sayfa denetçisi Düzen bölmesi özelliğidir. Gezinti çubuğunu seçin ve ardından İnceleme modu kullanırken **Düzen** sağ bölmede sekme. Seçili öğenin tam boyutunu yanı sıra, uzaklığı, kenar boşluğu, doldurma ve kenarlık boyutuna görürsünüz. Bu görünümden değerlerini de değiştirebilirsiniz dikkat edin.
+    *Seçili öğenin CSS stilleri izleniyor*
+16. Sayfa denetçisinin başka bir özelliği de düzen bölmesidir. İnceleme modunu kullanarak, gezinti çubuğunu seçin ve sağ bölmedeki **Düzen** sekmesine tıklayın. Seçilen öğenin tam boyutunu, bunun yanı sıra onun sapmasını, kenar boşluğunu, doldurmasını ve kenarlık boyutunu görürsünüz. Bu görünümden değerleri de değiştirebildiğinize dikkat edin.
 
-    ![Sayfa denetçisi öğesi düzende](using-page-inspector-in-visual-studio-2012/_static/image14.png "sayfa denetçisi öğesi düzeni")
+    ![Sayfa denetçisindeki öğe düzeni](using-page-inspector-in-visual-studio-2012/_static/image14.png "Sayfa denetçisindeki öğe düzeni")
 
-    *Sayfa denetçisi öğesi düzeni*
+    *Sayfa denetçisindeki öğe düzeni*
 
 <a id="Ex1Task2"></a>
 
 <a id="Task_2_-_Finding_and_Fixing_Style_Issues_in_the_Photo_Gallery"></a>
-#### <a name="task-2---finding-and-fixing-style-issues-in-the-photo-gallery"></a>Görev 2 - bulma ve stil sorunlarını Fotoğraf Galerisi
+#### <a name="task-2---finding-and-fixing-style-issues-in-the-photo-gallery"></a>Görev 2-Fotoğraf galerisindeki stil sorunlarını bulma ve düzeltme
 
-Nasıl Visual Studio'nun önceki sürümleri ile Web sayfaları sorunları tanılamak? Hata ayıklama araçları, Internet Explorer Geliştirici Araçları veya Firebug gibi Visual Studio IDE dışında çalışan web büyük olasılıkla bilmiyorsanız olursunuz. Tarayıcılar, yalnızca HTML, anlamak komut dosyası ve temel alınan bir framework oluşturulacak HTML oluştururken stilleri. Bu nedenle, genellikle tüm sitenin nasıl web sayfaları gibi bakmak için dağıtmanız gerekir.
+Visual Studio 'nun önceki sürümleriyle Web sayfaları sorunlarını nasıl tanılıyorsunuz? Internet Explorer Geliştirici Araçları veya Firebug gibi Visual Studio IDE dışında çalışan Web hata ayıklama araçları hakkında bilginiz olabilir. Tarayıcılar yalnızca HTML, komut dosyası ve stilleri anladıktan sonra, temel alınan bir çerçeve işlenecek HTML 'yi oluşturur. Bu nedenle, Web sayfalarının nasıl göründüğünü görmek için genellikle tüm siteyi dağıtmanız gerekir.
 
-Algılamak ve web sitenizi bir sorunu gidermek istediğinizde bu adımları izlediğiniz büyük olasılıkla:
+Web sitenizdeki bir sorunu tespit etmek ve onarmak istediğinizde muhtemelen bu adımları takip etmiş olursunuz:
 
-1. Visual Studio'dan çözümü çalıştırın veya sayfa üzerinde web sunucusu dağıtın.
-2. Geliştirici Araçları, kullanma veya yalnızca açık kaynak kodu ve stilleri ve sorunu eşleştirmeye tarayıcıda açın. Dosyaları dahil bulmak için kullandığınız &quot;arama&quot; veya &quot;dosyalarında arama&quot; adıyla style sınıflarının özellikleri.
-3. Hata algılandığında, Web tarayıcı ve sunucu durdurun.
+1. Çözümü Visual Studio 'dan çalıştırın veya sayfayı Web sunucusuna dağıtın.
+2. Tarayıcıda, kullandığınız geliştirici araçlarını açın veya yalnızca kaynak kodu ve stilleri açıp sorunu eşleştirmeye çalışın. Dahil edilen dosyaları bulmak için, &quot;arama&quot; veya &quot;dosyalarda ara&quot; özellikleri stil sınıflarının adı ile kullandınız.
+3. Hata algılandıktan sonra, Web tarayıcısını ve sunucuyu durdurun.
 4. Tarayıcı önbelleğini temizleyin.
-5. Bir düzeltme uygulamak için Visual Studio'ya geri dönün. Test adımları yineleyin.
+5. Bir çözüm uygulamak için Visual Studio 'ya dönün. Test etmek için tüm adımları tekrarlayın.
 
-ASP.NET MVC 4'te hiçbir gerçek WYSIWYG gibi sonraki bir aşamasında üzerinde çalışan veya web uygulaması dağıtma sonra stili sorunların çoğu algılanır. Şimdi, sayfa denetçisi ile herhangi bir sayfa çözümü çalıştırmadan önizlemek mümkündür.
+ASP.NET MVC 4 ' te gerçek bir WYSıWYG olmadığından, stil sorunlarının çoğu daha sonraki bir aşamada, Web uygulamasını çalıştırdıktan veya dağıttıktan sonra algılanır. Artık sayfa denetçisi ile, çözümü çalıştırmadan herhangi bir sayfanın önizlemesini yapmak mümkündür.
 
-Bu görevde, sayfa Denetçisi'ni kullanın ve Fotoğraf Galerisi uygulama bazı sorunları giderin.
+Bu görevde, sayfa denetçisini kullanacaksınız ve Fotoğraf Galerisi uygulamasının bazı sorunlarını giderecaksınız.
 
-1. Sayfa Denetçisi'ni kullanarak **kaydetme** ve **oturum** başlığının sol tarafında bağlantılar.
+1. Sayfa denetçisi 'ni kullanarak üstbilginin sol tarafındaki **kayıt** ve **oturum açma** bağlantılarında bulun.
 
-    Bağlantılar, sağdaki beklenen yerde görüntülenmez ve bir madde işaretli liste gibi gösterilen dikkat edin. Şimdi sağdaki bağlantılar Hizala ve buna göre bunları bilgisinin stilini değiştirme.
+    Bağlantıların sağdaki beklenen yerde gösterilmediğine ve madde işaretli bir liste gibi gösterildiğine dikkat edin. Artık bağlantıları sağa hizalamanız ve bunlara göre yeniden stillendirilecektir.
 
-    ![Kaydolun ve günlük bağlantıları bulma](using-page-inspector-in-visual-studio-2012/_static/image15.png "kaydı ve günlük bağlantıları bulma")
+    ![Kayıt ve oturum açma bağlantılarını bulma](using-page-inspector-in-visual-studio-2012/_static/image15.png "Kayıt ve oturum açma bağlantılarını bulma")
 
-    *Kaydolun ve günlük bağlantıları bulma*
-2. Seçili geçiş İnceleme modu ile yakın ancak üzerinde değil, kodunu açmak için Kaydet bağlantısına tıklayın.
+    *Kayıt ve oturum açma bağlantılarını bulma*
+2. Değiştirme Inceleme modu seçiliyken, kodunu açmak için Kaydet bağlantısına tıklayın.
 
-    Kaynak kodu bağlantıları bulunan bildirimi  **\_LoginPartial.cshtml** Index.cshtml dosyası ya da \_ilk yerde görünebilir yerlerdir Layout.cshtml,. Doğru kaynak dosyasına doğrudan yerleştirildi.
-3. İçinde **stilleri** sekmesinde bulun ve tıklayın  **\<bölüm > #login** bu bağlantıların HTML kapsayıcı öğe.
+    Bağlantıların kaynak kodunun dizin. cshtml değil **\_LoginPartial. cshtml** dosyasında, ilk yerde görünebileceği yer olan \_Layout. cshtml dosyasında bulunduğundan emin olun. Doğru kaynak dosyasına doğrudan yerleştirdiniz.
+3. **Stiller** sekmesinde, bu bağlantıların HTML kapsayıcısı olan **#login öğesi >\<bölümünü** bulun ve tıklayın.
 
-    Dikkat **#login** stil bulunan otomatik olarak **Site.css** tıkladıktan sonra. Ayrıca, kodu artık vurgulanır.
+    **#Login** stilin, ' a tıkladıktan sonra **site. css** ' de otomatik olarak bulunduğuna dikkat edin. Ayrıca, kod artık vurgulanmıştır.
 
-    ![CSS stilleri seçerek](using-page-inspector-in-visual-studio-2012/_static/image16.png "CSS stilleri seçme")
+    ![CSS stillerini seçme](using-page-inspector-in-visual-studio-2012/_static/image16.png "CSS stillerini seçme")
 
-    *CSS stilleri seçme*
-4. Açıklamadan çıkarın **text-align** özniteliği vurgulanmış kodu açma ve kapatma karakterleri kaldırarak ve Kaydet **Site.css** dosya.
+    *CSS stillerini seçme*
+4. Açılan ve kapanış karakterlerini kaldırarak ve **site. css** dosyasını kaydettikten sonra vurgulanan koddaki **metin hizalama** özniteliğinin açıklamasını kaldırın.
 
-    Geçerli sayfayı oluşturan tüm farklı dosyalarını sayfa denetçisi farkındadır ve bu dosyalardan herhangi biri değiştiğinde algılayabilir. Geçerli sayfasını tarayıcıda kaynak dosyaları ile eşitlenmemiş olduğunda sizi uyarır.
-5. Sayfa denetçisi tarayıcıda, sayfayı yeniden yüklemek için Adres çubuğunun altında bulunan çubuğu tıklayın.
+    Sayfa denetçisi, geçerli sayfayı oluşturan tüm farklı dosyaların farkındadır ve bu dosyalardan herhangi birinin değiştiğini tespit edebilir. Tarayıcıdaki geçerli sayfa kaynak dosyalarla eşitlendiğinde sizi uyarır.
+5. Sayfa denetçisi tarayıcısında, sayfayı yeniden yüklemek için adres çubuğunun altında bulunan çubuğa tıklayın.
 
-    ![Sayfayı yeniden yüklemeyi](using-page-inspector-in-visual-studio-2012/_static/image17.png)
+    ![Sayfayı yeniden yükleme](using-page-inspector-in-visual-studio-2012/_static/image17.png)
 
-    *Sayfayı yeniden yüklemeyi*
+    *Sayfayı yeniden yükleme*
 
-    Sağ taraftaki bağlantıları sunulmuştur, ancak yine de bir madde işaretli liste gibi görünürler. Şimdi, madde işaretlerini kaldırın ve bağlantıları yatay Hizala.
+    Bağlantılar artık doğru, ancak yine de madde işaretli bir liste gibi görünüyor. Şimdi, madde işaretlerini kaldıracak ve bağlantıları yatay olarak hizalacaksınız.
 
-    ![Güncelleştirilmiş sayfası](using-page-inspector-in-visual-studio-2012/_static/image18.png)
+    ![Güncelleştirilmiş sayfa](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
-    *Güncelleştirilmiş sayfası*
-6. İnceleme modu kullanarak, seçin herhangi birini **&lt;li&gt;** içeren öğelerini &quot;kaydetme&quot; ve &quot;oturum&quot; bağlantıları. ' A tıklayarak  **&lt;bölümü&gt; #login** öğe erişimi **Styles.css** kod.
+    *Güncelleştirilmiş sayfa*
+6. İnceleme modunu kullanarak, &quot;kaydet&quot; ve &quot;oturum&quot; bağlantılarını içeren **&lt;li&gt;** öğelerinden herhangi birini seçin. Ardından, **&gt;&lt;bölümüne tıklayarak #login** öğe **stilleri. css** koduna erişin.
 
-    ![Stilini bulma](using-page-inspector-in-visual-studio-2012/_static/image19.png "stilini bulma")
+    ![Stili bulma](using-page-inspector-in-visual-studio-2012/_static/image19.png "Stili bulma")
 
-    *Stilini bulma*
-7. İçinde **Style.css**, için kodun açıklamasını kaldırın **#login li** öğeleri. Eklemekte olduğunuz stil madde işareti gizleme ve öğeleri yatay olarak görüntüler.
+    *Stili bulma*
+7. **Style. css**' de **#login li** öğeler için kodun açıklamasını kaldırın. Eklediğiniz stil, madde işaretini gizler ve öğeleri yatay olarak görüntüler.
 
-    ![Oturum açma bağlantıları yeniden tasarıma](using-page-inspector-in-visual-studio-2012/_static/image20.png "oturum açma bağlantıları yeniden tasarıma")
+    ![Oturum açma bağlantılarını yeniden Stillendirme](using-page-inspector-in-visual-studio-2012/_static/image20.png "Oturum açma bağlantılarını yeniden Stillendirme")
 
-    *Oturum açma bağlantıları yeniden tasarıma*
-8. Kaydet **Style.css** dosya ve sayfayı yeniden yüklemek için aşağıdaki adresi bulunan çubuğu kez tıklayın. Bağlantıları doğru bir şekilde görüntülendiğine dikkat edin.
+    *Oturum açma bağlantılarını yeniden Stillendirme*
+8. **Style. css** dosyasını kaydedin ve sayfayı yeniden yüklemek için adresin altında bulunan çubukta bir kez tıklayın. Bağlantıların doğru şekilde göründüğünden emin olun.
 
-    ![Bağlantılar için sağ tarafı hizalı](using-page-inspector-in-visual-studio-2012/_static/image21.png "bağlantıları sağa hizalı")
+    ![Sağ tarafa hizalanmış bağlantılar](using-page-inspector-in-visual-studio-2012/_static/image21.png "Sağ tarafa hizalanmış bağlantılar")
 
-    *Sağa hizalı bağlantıları*
-9. Son olarak, üst bilgi başlığı değişecektir. İnceleme modu reklamlara **buraya logonuz** metin ve get, oluşturduğu kaynak koduna.
-10. Bulunduğunuz artık  **\_Layout.cshtml**, Değiştir '**buraya logonuz**'metin'**Fotoğraf Galerisi**'. Kaydet ve sayfa denetçisi tarayıcı güncelleştirin.
+    *Sağ tarafa hizalanmış bağlantılar*
+9. Son olarak, üst bilgi başlığını değiştirirsiniz. **Logonuzu buraya** tıklayıp onu oluşturan kaynak koduna ulaşmak için İnceleme modunu kullanın.
+10. Artık **\_Layout. cshtml**' de çalışıyorsunuz, '**logonuzu buraya**'**Fotoğraf Galerisi**' ile değiştirin. Sayfa denetçisi tarayıcısını kaydedin ve güncelleştirin.
 
-    ![Yeni bir başlık atama](using-page-inspector-in-visual-studio-2012/_static/image22.png "yeni bir başlık atama")
+    ![Yeni bir başlık atanıyor](using-page-inspector-in-visual-studio-2012/_static/image22.png "Yeni bir başlık atanıyor")
 
-    *Yeni bir başlık atama*
+    *Yeni bir başlık atanıyor*
 
     ![Fotoğraf Galerisi sayfası](using-page-inspector-in-visual-studio-2012/_static/image23.png)
 
     *Fotoğraf Galerisi sayfası güncelleştirildi*
-11. Son olarak, seçin **Fotografgalerisi** proje ve ENTER tuşuna **F5** uygulamayı çalıştırmak için. Tüm değişikliklerin istendiği gibi çalışması denetleyin.
+11. Son olarak, **Photogallery** projesini seçin ve **F5** tuşuna basarak uygulamayı çalıştırın. Tüm değişikliklerin beklendiği gibi çalıştığını göz atın.
 
 ---
 
@@ -271,189 +271,189 @@ Bu görevde, sayfa Denetçisi'ni kullanın ve Fotoğraf Galerisi uygulama bazı 
 <a id="Exercise_2_Using_Page_Inspector_in_WebForms_Projects"></a>
 ### <a name="exercise-2-using-page-inspector-in-webforms-projects"></a>Alıştırma 2: WebForms projelerinde sayfa denetçisini kullanma
 
-Bu alıştırmada, Önizleme ve sayfa Denetçisi'ni kullanarak bir WebForms çözüme hata ayıklaması öğreneceksiniz. İlk işlemin hatalarını ayıklamaya Web kolaylaştırmak sayfa denetçisi özellikleri öğrenmek için bir kısa turu aracı gerçekleştirir. Ardından, stil sorunlarını içeren bir web sayfasında çalışır. Sorun oluşturan kaynak kodunu bulmak için sayfa Denetçisi'ni kullanın ve Düzelt öğreneceksiniz.
+Bu alıştırmada, sayfa denetçisi 'ni kullanarak bir WebForms çözümünü nasıl önizleyeceğinizi ve ayıklayacağınızı öğreneceksiniz. Web hata ayıklama işlemini kolaylaştıran sayfa denetçisi özelliklerini öğrenmek için ilk olarak araç etrafında kısa bir lap gerçekleştirirsiniz. Daha sonra, stil sorunları içeren bir Web sayfasında çalışacaksınız. Sorunu oluşturan kaynak kodunu bulmak ve onarmak için sayfa denetçisi 'ni nasıl kullanacağınızı öğreneceksiniz.
 
 <a id="Ex2Task1"></a>
 
 <a id="Task_1_-_Exploring_Page_Inspector"></a>
-#### <a name="task-1---exploring-page-inspector"></a>Görev 1 - sayfa Denetçisi'ni keşfetme
+#### <a name="task-1---exploring-page-inspector"></a>Görev 1-sayfa denetçisini keşfetme
 
-Bu görevde bir Fotoğraf Galerisi gösteren bir WebForms proje bağlamında sayfa denetçisi özelliklerini kullanmayı öğreneceksiniz.
+Bu görevde, sayfa denetçisi özelliklerini fotoğraf galerisini gösteren bir WebForms projesi bağlamında nasıl kullanacağınızı öğreneceksiniz.
 
-1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-WebForms/başlangıç/** klasör.
+1. **Kaynak/EX2-WebForms/BEGIN/** Folder konumunda bulunan **Başlangıç** çözümünü açın.
 
-   1. Bazı eksik NuGet paketleri indirmeniz gerekecek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
-   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
+   1. Devam etmeden önce bazı eksik NuGet paketlerini indirmeniz gerekir. Bunu yapmak için **Proje** menüsüne tıklayın ve **NuGet Paketlerini Yönet**' i seçin.
+   2. **NuGet Paketlerini Yönet** iletişim kutusunda eksik paketleri Indirmek Için **geri yükle** ' ye tıklayın.
+   3. Son olarak, **derleme** | **Build Solution**' a tıklayarak Çözümü derleyin.
 
       > [!NOTE]
-      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Çözüm Gezgini'nde bulun **Default.aspx** sayfasında sağ tıklatın ve seçin **sayfa denetçisi görünümünde**.
+      > NuGet kullanmanın avantajlarından biri, projenizdeki tüm kitaplıkları sevk etmek zorunda olmadığınızdan proje boyutunu azaltmanızı sağlar. NuGet güç araçlarıyla, Packages. config dosyasındaki paket sürümlerini belirterek, projeyi ilk kez çalıştırdığınızda gerekli tüm kitaplıkları indirebilirsiniz. Bu laboratuvardan mevcut bir çözümü açtıktan sonra bu adımları çalıştırmanız neden olur.
+2. Çözüm Gezgini, **default. aspx** sayfasını bulun, sağ tıklayın ve **sayfa denetçisinde görüntüle**' yi seçin.
 
-    ![Sayfa denetçisi ile default.aspx açma](using-page-inspector-in-visual-studio-2012/_static/image24.png "Default.aspx sayfa denetçisi ile açma")
+    ![Default. aspx 'i sayfa denetçisi ile açma](using-page-inspector-in-visual-studio-2012/_static/image24.png "Default. aspx 'i sayfa denetçisi ile açma")
 
-    *Sayfa denetçisi ile açılış Default.aspx*
-3. Sayfa denetçisi penceresi Default.aspx gösterir.
+    *Default. aspx 'i sayfa denetçisi ile açma*
+3. Sayfa denetçisi penceresinde default. aspx görüntülenir.
 
-    ![Sayfa denetçisi içinde default.aspx görüntüleme](using-page-inspector-in-visual-studio-2012/_static/image25.png "sayfa denetçisi içinde Default.aspx görüntüleme")
+    ![Sayfa denetçisinde default. aspx görüntüleme](using-page-inspector-in-visual-studio-2012/_static/image25.png "Sayfa denetçisinde default. aspx görüntüleme")
 
-    *Sayfa denetçisi içinde default.aspx görüntüleme*
+    *Sayfa denetçisinde default. aspx görüntüleme*
 
-    Sayfa denetçisi aracı Visual Studio ortamınıza tümleşiktir. Seçilen kod gösterilir güçlü bir HTML Profil Oluşturucu ile birlikte katıştırılmış bir tarayıcı Inspector'ı içerir. Sayfalarınızın nasıl göründüğünü görmek için çözümü çalıştırmak zorunda değilsiniz dikkat edin.
+    Sayfa denetçisi Aracı, Visual Studio ortamınızda tümleşiktir. Inspector, seçilen kodu gösteren güçlü bir HTML Profil Oluşturucusu ile birlikte gömülü bir tarayıcı içerir. Sayfalarınızın nasıl göründüğünü görmek için çözümü çalıştırmanız gerekmediğine dikkat edin.
 
     > [!NOTE]
-    > Sayfa denetçisi tarayıcı genişliğini açılan sayfanın genişliğine'dan olduğunda, sayfanın düzgün tarafından görülmez. Bu durumda, sayfa denetçisi genişliğini ayarla.
-4. Tıklayın **dosyaları** sayfa denetçisi sekmesindedir.
+    > Sayfa denetçisi tarayıcısının genişliği, açılan sayfanın genişliğinden az olduğunda, sayfayı düzgün bir şekilde görmezsiniz. Bu durumda, sayfa denetçisinin genişliğini ayarlayın.
+4. Sayfa denetçisi ' nde **dosyalar** sekmesine tıklayın.
 
-    İşlenen varsayılan sayfa oluşturmakta olduğunuz tüm kaynak dosyaları görürsünüz. Bu, özellikle de kullanıcı denetimleri ve ana sayfalar ile çalışırken, bir bakışta tüm öğeleri tanımlamak için yararlı bir özelliktir. Her dosya için da gidebilirsiniz dikkat edin.
+    İşlenmiş varsayılan sayfayı oluşturan tüm kaynak dosyaları görüntülenir. Bu, özellikle Kullanıcı denetimleri ve ana sayfalarla çalışırken, tüm öğeleri bir bakışta tanımlamak için yararlı bir özelliktir. Her bir dosyanın da gezindiğine dikkat edin.
 
-    ![Dosyalar sekmesi](using-page-inspector-in-visual-studio-2012/_static/image26.png "dosyalar sekmesi")
+    ![Dosyalar sekmesi](using-page-inspector-in-visual-studio-2012/_static/image26.png "Dosyalar sekmesi")
 
     *Dosyalar sekmesi*
-5. Tıklayın **denetleme modunu Aç/Kapat** sekmelerin sol tarafında bulunan düğmesini.
+5. Sekmelerin solunda bulunan **Inceleme modunu aç** düğmesine tıklayın.
 
-    Bu araç, sayfanın herhangi bir öğe seçin ve HTML kodu ve .aspx kaynağına bakın olanak tanır.
+    Bu araç, sayfanın herhangi bir öğesini seçmenizi ve HTML kodunu ve. aspx kaynağını görmenizi sağlar.
 
-    ![İki durumlu İnceleme modu düğme](using-page-inspector-in-visual-studio-2012/_static/image27.png "denetleme modunu Aç/Kapat düğmesi")
+    ![Inceleme modunu değiştirme düğmesi](using-page-inspector-in-visual-studio-2012/_static/image27.png "Inceleme modunu değiştirme düğmesi")
 
-    *İki durumlu İnceleme modu düğme*
-6. Sayfa denetçisi tarayıcıda sayfa öğeleri üzerinde fareyi hareket ettirin. İşlenen sayfanın herhangi bir bölümü fare işaretçisini taşıyın, ancak öğe türü görüntülenir ve Visual Studio Düzenleyicisi'nde, karşılık gelen kaynak biçimlendirmeyi veya kodu vurgulanır.
+    *Inceleme modunu değiştirme düğmesi*
+6. Sayfa denetçisi tarayıcısında, fareyi sayfa öğelerinin üzerine taşıyın. Fare işaretçisini işlenmiş sayfanın herhangi bir bölümünde taşıdığınızda, öğe türü görüntülenir ve ilgili kaynak biçimlendirme veya kod Visual Studio Düzenleyicisi 'nde vurgulanır.
 
-    ![Denetleme modunda, eylem](using-page-inspector-in-visual-studio-2012/_static/image28.png "uygulamada İnceleme modu")
+    ![İnceleme modu, eylemde](using-page-inspector-in-visual-studio-2012/_static/image28.png "İnceleme modu, eylemde")
 
-    *Denetleme modunda, eylem*
-
-    > [!NOTE]
-    > Sayfa denetçisi pencerenin en üst düzeye çıkarabilirim veya kaynak kodunu gösteren bir önizleme sekmesinde görmeniz mümkün olmayacaktır. Sayfa denetçisi öğesinde tıklarsanız, büyütüldüğünde seçimin kaynak kodu görünür ancak sayfa denetçisi penceresini gizler.
-
-    Dikkatini ödeme yaparsanız **Default.aspx** dosya, seçili öğenin oluşturduğu kaynak kod bölümünü vurgulanır görürsünüz. Bu özellik, kodu erişmek için doğrudan ve hızlı bir şekilde sağlayarak uzun kaynak dosyalarının sürümü kolaylaştırır.
-
-    ![Öğeleri inceleyerek](using-page-inspector-in-visual-studio-2012/_static/image29.png "öğeleri inceleniyor")
-
-    *Öğeleri inceleniyor*
-7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.](using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), sayfa denetçisi sekmeleri imleç devre dışı bırakmak için bulunur.
-8. Seçin **HTML** sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için sekmesinde.
-9. HTML kodunda Koala bağlantısını içeren bir liste öğesi bulun ve seçin.
-
-    Kod seçtiğinizde, ilgili çıkış otomatik olarak vurgulanan tarayıcı olduğuna dikkat edin. Bu özellik, bir HTML bloğunu sayfada nasıl oluşturulacağını görmek kullanışlıdır.
-
-    ![Sayfanın HTML öğesini seçerek](using-page-inspector-in-visual-studio-2012/_static/image31.png "sayfasında bir HTML öğesi seçme")
-
-    *Sayfanın HTML öğesi seçme*
-10. Tıklayın **denetleme modunu Aç/Kapat** etkinleştirmek için düğmeye *İnceleme modu* ve gezinti çubuğuna tıklayın. Sağ tarafındaki HTML kod stilleri bölmesinde seçilen öğeye uygulanan CSS stilleri ile bir listesini görürsünüz.
+    *İnceleme modu, eylemde*
 
     > [!NOTE]
-    > üst site düzenini bir parçası olduğundan, Page Inspector ayrıca Site.Master dosyasını açın ve etkilenen kod kesiminin vurgulayın.
+    > Sayfa denetçisi penceresini en üst düzeye çıkarmayın veya kaynak kodu gösteren önizleme sekmesini göremezsiniz. Sayfa denetçisinde öğeyi ekranı kapladıktan sonra seçerseniz, seçimin kaynak kodu görüntülenir, ancak sayfa denetçisi penceresini gizleyecek.
 
-    ![Stilleri WebForms keşfetme](using-page-inspector-in-visual-studio-2012/_static/image32.png "stilleri ve seçilen öğenin kaynak dosyaları bulma")
+    **Default. aspx** dosyasına dikkat etmeniz durumunda, seçili öğeyi üreten kaynak kodu bölümünün vurgulandığını fark edeceksiniz. Bu özellik, koda erişmenin doğrudan ve hızlı bir yolunu sağlayan uzun kaynak dosyalarının sürümünü kolaylaştırır.
 
-    *Stiller ve seçilen öğenin kaynak dosyaları bulma*
-11. Etkin geçiş İnceleme işaretçisiyle fare işaretçisini menü çubuğunun altında ve boş Yarım Daire tıklayın.
+    ![Öğeleri İnceleme](using-page-inspector-in-visual-studio-2012/_static/image29.png "Öğeleri İnceleme")
 
-    ![Bir öğenin seçilmesi](using-page-inspector-in-visual-studio-2012/_static/image33.png "öğe seçme")
+    *Öğeleri İnceleme*
+7. **Inceleme modunu değiştirme** düğmesine tıklayın (--![HTML-Tab](using-page-inspector-in-visual-studio-2012/_static/image30.png "-----------------------------------") -------------------------------- ) imleci devre dışı bırakmak için sayfa denetçisi sekmelerinde bulunur.
+8. Sayfa denetçisi tarayıcısında işlenen HTML kodunu göstermek için **HTML** sekmesini seçin.
+9. HTML kodunda, Koala bağlantısı olan liste öğesini bulun ve seçin.
 
-    *Bir öğe seçme*
-12. Stilleri bölmesinde bulun **arka plan resmi** altında madde **.main içeriği** grubu. **Onay kutusunu temizleyin** **arka plan resmi** ne olacağına bakalım. Tarayıcı hemen değişiklikleri yansıtır ve dairenin gizli fark edeceksiniz.
+    Kodu seçtiğinizde ilgili çıktının otomatik olarak vurgulandığını unutmayın. Bu özellik, sayfada bir HTML bloğunun nasıl oluşturulduğunu görmek için yararlıdır.
+
+    ![Sayfada HTML öğesi seçme](using-page-inspector-in-visual-studio-2012/_static/image31.png "Sayfada HTML öğesi seçme")
+
+    *Sayfada HTML öğesi seçme*
+10. İnceleme modunu etkinleştirmek için **Inceleme modunu aç** düğmesine *tıklayın ve gezinti* çubuğuna tıklayın. HTML kodunun sağında, stiller bölmesinde, seçili öğeye CSS stillerinin uygulandığını içeren bir liste görürsünüz.
 
     > [!NOTE]
-    > Sayfa denetçisi stilleri sekmesinde uyguladığınız değişiklikler, özgün stil etkilemez. Stilleri işaretini kaldırın veya sayıda istediğiniz, ancak sayfa yenilendikten sonra kurulacaktır değerlerini değiştirin.
+    > üst bilgi site düzeninin bir parçası olduğundan, sayfa denetçisi site. Master dosyasını da açar ve etkilenen kod segmentini vurgulayacaktır.
 
-    ![CSS styles2 devre dışı bırakma ve etkinleştirme](using-page-inspector-in-visual-studio-2012/_static/image34.png "etkinleştirme ve CSS stilleri devre dışı bırakma")
+    ![Stilleri keşfetme WebForms](using-page-inspector-in-visual-studio-2012/_static/image32.png "Seçili bir öğenin stilleri ve kaynak dosyaları bulunuyor")
 
-    *CSS stilleri devre dışı bırakma ve etkinleştirme*
-13. Şimdi tıklayın '**,** **logosu burada '** İnceleme modu kullanarak üstbilgi metni.
-14. İçinde **stilleri** sekmesinde, bulmak **yazı tipi boyutu** CSS özniteliği altında **.site başlık** grubu. Öznitelik bir kez değerini düzenlemek için çift tıklayın. Değeri ile değiştirin 2.3em **3em**, ve ardından ENTER tuşuna basın. Başlık büyük göründüğünü dikkat edin.
+    *Seçili bir öğenin stilleri ve kaynak dosyaları bulunuyor*
+11. Değiştirme denetimi işaretçisi etkinken, fare işaretçisini menü çubuğunun altına taşıyın ve boş yarı daireyi tıklatın.
 
-    ![Sayfa Inspector2 CSS değerlerini değiştirmelerini](using-page-inspector-in-visual-studio-2012/_static/image35.png "değiştirme CSS değerleri, sayfa denetçisi")
+    ![Öğe seçme](using-page-inspector-in-visual-studio-2012/_static/image33.png "Öğe seçme")
 
-    *Sayfa denetçisi CSS değerleri değiştirme*
-15. Tıklayın **stilleri İzle** sayfa denetçisi sağ bölmede bulunan sekmesinden. Bu öznitelik ada göre sıralanmış seçim, uygulanan stiller görmek için alternatif bir yoludur.
+    *Öğe seçme*
+12. Stiller bölmesinde, **. Main-Content** grubunun altındaki **Background-Image** öğesini bulun. **Arka plan resminin** **işaretini kaldırın** ve neler olduğunu görün. Tarayıcının değişiklikleri hemen yansıtmasını ve dairenin gizli olduğunu fark edeceksiniz.
 
-    ![CSS stilleri izleme seçili öğenin](using-page-inspector-in-visual-studio-2012/_static/image36.png "seçili öğenin CSS stilleri izleme")
+    > [!NOTE]
+    > Sayfa denetçisi stilleri sekmesinde uyguladığınız değişiklikler özgün stil sayfasını etkilemez. Stillerin işaretini kaldırabilir veya değerlerini istediğiniz kadar değiştirebilirsiniz, ancak sayfa yenilendikten sonra geri yüklenir.
 
-    *Seçili öğenin CSS stilleri izleme*
-16. Başka bir sayfa denetçisi Düzen bölmesi özelliğidir. Gezinti çubuğunu seçin ve ardından İnceleme modu kullanırken **Düzen** sağ bölmede sekme. Seçili öğenin tam boyutunu yanı sıra, uzaklığı, kenar boşluğu, doldurma ve kenarlık boyutuna görürsünüz. Bu görünümden değerlerini de değiştirebilirsiniz dikkat edin.
+    ![CSS styles2 etkinleştirme ve devre dışı bırakma](using-page-inspector-in-visual-studio-2012/_static/image34.png "CSS stillerini etkinleştirme ve devre dışı bırakma")
 
-    ![Sayfa denetçisi öğesi düzende](using-page-inspector-in-visual-studio-2012/_static/image37.png "sayfa denetçisi öğesi düzeni")
+    *CSS stillerini etkinleştirme ve devre dışı bırakma*
+13. İnceleme modunu kullanarak**başlıktaki '** **buraya logonuz '** düğmesine tıklayın.
+14. **Stiller** sekmesinde, **. site-title** grubu altında **yazı tipi-boyutu** CSS özniteliğini bulun. Değerini düzenlemek için özniteliğe bir kez çift tıklayın. 2\.3 em değerini **3EM**ile değiştirin ve ardından ENTER tuşuna basın. Başlığın daha büyük göründüğünü unutmayın.
 
-    *Sayfa denetçisi öğesi düzeni*
+    ![Sayfadaki CSS değerlerini değiştirme Inspector2](using-page-inspector-in-visual-studio-2012/_static/image35.png "Sayfa denetçisindeki CSS değerlerini değiştirme")
+
+    *Sayfa denetçisindeki CSS değerlerini değiştirme*
+15. Sayfa denetçisinin sağ bölmesinde bulunan **Izleme stilleri** sekmesine tıklayın. Bu, seçime uygulanan tüm stilleri, öznitelik adına göre sıralanmış olarak görmeniz için alternatif bir yoldur.
+
+    ![Seçili öğenin CSS stilleri izleniyor](using-page-inspector-in-visual-studio-2012/_static/image36.png "Seçili öğenin CSS stilleri izleniyor")
+
+    *Seçili öğenin CSS stilleri izleniyor*
+16. Sayfa denetçisinin başka bir özelliği de düzen bölmesidir. İnceleme modunu kullanarak, gezinti çubuğunu seçin ve sağ bölmedeki **Düzen** sekmesine tıklayın. Seçilen öğenin tam boyutunu, bunun yanı sıra onun sapmasını, kenar boşluğunu, doldurmasını ve kenarlık boyutunu görürsünüz. Bu görünümden değerleri de değiştirebildiğinize dikkat edin.
+
+    ![Sayfa denetçisindeki öğe düzeni](using-page-inspector-in-visual-studio-2012/_static/image37.png "Sayfa denetçisindeki öğe düzeni")
+
+    *Sayfa denetçisindeki öğe düzeni*
 
 <a id="Ex2Task2"></a>
 
 <a id="Task_2_-_Finding_and_Fixing_Style_Issues_in_the_Photo_Gallery"></a>
-#### <a name="task-2---finding-and-fixing-style-issues-in-the-photo-gallery"></a>Görev 2 - bulma ve stil sorunlarını Fotoğraf Galerisi
+#### <a name="task-2---finding-and-fixing-style-issues-in-the-photo-gallery"></a>Görev 2-Fotoğraf galerisindeki stil sorunlarını bulma ve düzeltme
 
-Nasıl Visual Studio'nun önceki sürümleri ile Web sayfaları sorunları tanılamak? Hata ayıklama araçları, Internet Explorer Geliştirici Araçları veya Firebug gibi Visual Studio IDE dışında çalışan web büyük olasılıkla bilmiyorsanız olursunuz. Tarayıcılar, yalnızca HTML, anlamak komut dosyası ve temel alınan bir framework oluşturulacak HTML oluştururken stilleri. Bu nedenle, genellikle tüm sitenin nasıl web sayfaları gibi bakmak için dağıtmanız gerekir.
+Visual Studio 'nun önceki sürümleriyle Web sayfaları sorunlarını nasıl tanılıyorsunuz? Internet Explorer Geliştirici Araçları veya Firebug gibi Visual Studio IDE dışında çalışan Web hata ayıklama araçları hakkında bilginiz olabilir. Tarayıcılar yalnızca HTML, komut dosyası ve stilleri anladıktan sonra, temel alınan bir çerçeve işlenecek HTML 'yi oluşturur. Bu nedenle, Web sayfalarının nasıl göründüğünü görmek için genellikle tüm siteyi dağıtmanız gerekir.
 
-Algılamak ve web sitenizi bir sorunu gidermek istediğinizde bu adımları izlediğiniz büyük olasılıkla:
+Web sitenizdeki bir sorunu tespit etmek ve onarmak istediğinizde muhtemelen bu adımları takip etmiş olursunuz:
 
-1. Visual Studio'dan çözümü çalıştırın veya sayfa üzerinde web sunucusu dağıtın.
-2. Geliştirici Araçları, kullanma veya yalnızca açık kaynak kodu ve stilleri ve sorunu eşleştirmeye tarayıcıda açın. Dosyaları dahil bulmak için kullandığınız &quot;arama&quot; veya &quot;dosyalarında arama&quot; adıyla style sınıflarının özellikleri.
-3. Hata algılandığında, Web tarayıcı ve sunucu durdurun.
+1. Çözümü Visual Studio 'dan çalıştırın veya sayfayı Web sunucusuna dağıtın.
+2. Tarayıcıda, kullandığınız geliştirici araçlarını açın veya yalnızca kaynak kodu ve stilleri açıp sorunu eşleştirmeye çalışın. Dahil edilen dosyaları bulmak için, &quot;arama&quot; veya &quot;dosyalarda, stil sınıflarının adı ile&quot; Özellikler ' i kullandınız.
+3. Hata algılandıktan sonra, Web tarayıcısını ve sunucuyu durdurun.
 4. Tarayıcı önbelleğini temizleyin.
-5. Bir düzeltme uygulamak için Visual Studio'ya geri dönün. Test adımları yineleyin.
+5. Bir çözüm uygulamak için Visual Studio 'ya dönün. Test etmek için tüm adımları tekrarlayın.
 
-Bazı stil sorunlarını olduğundan Hayır ASP.NET WebForms gerçek WYSIWYG, sonraki bir aşamasında üzerinde çalışan veya dağıtma sonra algılanır. Şimdi, sayfa denetçisi ile herhangi bir sayfa çözümü çalıştırmadan önizlemek mümkündür.
+ASP.NET WebForms 'de gerçek bir WYSıWYG olmadığından, daha sonraki bir aşamada, çalıştırıldıktan veya dağıttıktan sonra bazı stil sorunları algılanır. Artık sayfa denetçisi ile, çözümü çalıştırmadan herhangi bir sayfanın önizlemesini yapmak mümkündür.
 
-Bu görevde, sayfa denetçisi Fotoğraf Galerisi uygulama ile ilgili bazı sorunları düzeltmek için kullanır. Aşağıdaki adımlarda, algılayın ve hızlı bir şekilde üst bilgisinde bazı basit stil sorun giderin.
+Bu görevde, Fotoğraf Galerisi uygulamasının bazı sorunlarını gidermek için sayfa denetçisini kullanacaksınız. Aşağıdaki adımlarda, üst bilgide bazı basit stil oluşturma sorununu saptayabilir ve hızlı bir şekilde düzelolursunuz.
 
-1. Sayfa İnceleme kullanarak **kaydetme** ve **oturum** başlığının sol tarafında bağlantılar.
+1. Sayfa denetimini kullanarak üstbilginin sol tarafındaki **kayıt** ve **oturum açma** bağlantılarında bulun.
 
-    Bağlantıyı sağ taraftaki beklenen yerde görüntülenmez dikkat edin. Şimdi bağlantı Sağa Hizala ve bilgisinin stilini değiştirme, buna göre.
+    Bağlantının sağdaki beklenen yerde gösterilmediğine dikkat edin. Artık bağlantıyı doğru ve yeniden stile göre hizalacaksınız.
 
-    ![Sol taraftaki konumlandırılmış bağlantısında oturum](using-page-inspector-in-visual-studio-2012/_static/image38.png "soldaki konumlandırılmış bağlantısında oturum")
+    ![Sol tarafta konumlandırılmış oturum açma bağlantısı](using-page-inspector-in-visual-studio-2012/_static/image38.png "Sol tarafta konumlandırılmış oturum açma bağlantısı")
 
-    *Sol taraftaki konumlandırılmış oturum bağlantısı*
-2. Seçili geçiş İnceleme modu ile kodunu açmak için oturum aç bağlantısını seçin.
+    *Sol tarafta konumlandırılmış oturum açma bağlantısı*
+2. Değiştirme Inceleme modu seçiliyken, kodunu açmak için oturum aç bağlantısını seçin.
 
-    Bağlantı kaynak kodu bulunan bildirimi **Site.Master** dosya, nelerin Default.aspx sayfasında ilk yerde görünebilir; doğrudan doğru kaynak dosyada yerleştirildi.
-3. İçinde **stilleri** sekmesinde bulun ve tıklayın  **&lt;bölümü&gt; #login** bu bağlantıların HTML kapsayıcı öğe.
+    Bağlantı kaynak kodunun, ilk yerde görünebileceğiniz yer olan Default. aspx sayfasında değil, **site. Master** dosyasında bulunduğundan emin olun; doğru kaynak dosyasına doğrudan yerleştirdiniz.
+3. **Stiller** sekmesinde, bu bağlantıların HTML kapsayıcısı olan **#login öğesi&gt;&lt;bölümünü** bulun ve tıklayın.
 
-    Dikkat **#login** stil bulunan otomatik olarak **Site.css** tıkladıktan sonra. Ayrıca, kodu artık vurgulanır.
+    **#Login** stilin, ' a tıkladıktan sonra **site. css** ' de otomatik olarak bulunduğuna dikkat edin. Ayrıca, kod artık vurgulanmıştır.
 
-    ![CSS stilleri seçerek](using-page-inspector-in-visual-studio-2012/_static/image39.png "CSS stilleri seçme")
+    ![CSS stillerini seçme](using-page-inspector-in-visual-studio-2012/_static/image39.png "CSS stillerini seçme")
 
-    *CSS stilleri seçme*
-4. Açıklamadan çıkarın **text-align** özniteliği vurgulanmış kodu açma ve kapatma karakterleri kaldırarak ve Kaydet **Site.css** dosya.
+    *CSS stillerini seçme*
+4. Açılan ve kapanış karakterlerini kaldırarak ve **site. css** dosyasını kaydettikten sonra vurgulanan koddaki **metin hizalama** özniteliğinin açıklamasını kaldırın.
 
-    Geçerli sayfayı oluşturan tüm farklı dosyalarını sayfa denetçisi farkındadır ve bu dosyalardan herhangi biri değiştiğinde algılayabilir. Geçerli sayfasını tarayıcıda kaynak dosyaları ile eşitlenmemiş olduğunda sizi uyarır.
-5. Sayfa denetçisi tarayıcıda, değişiklikleri kaydetmek ve sayfayı yeniden yüklemek için Adres çubuğunun altında bulunan çubuğu tıklayın.
+    Sayfa denetçisi, geçerli sayfayı oluşturan tüm farklı dosyaların farkındadır ve bu dosyalardan herhangi birinin değiştiğini tespit edebilir. Tarayıcıdaki geçerli sayfa kaynak dosyalarla eşitlendiğinde sizi uyarır.
+5. Sayfa denetçisi tarayıcısında, değişiklikleri kaydetmek ve sayfayı yeniden yüklemek için adres çubuğunun altında bulunan çubuğa tıklayın.
 
-    ![Sayfayı yeniden yüklemeyi](using-page-inspector-in-visual-studio-2012/_static/image40.png)
+    ![Sayfayı yeniden yükleme](using-page-inspector-in-visual-studio-2012/_static/image40.png)
 
-    *Sayfayı yeniden yüklemeyi*
+    *Sayfayı yeniden yükleme*
 
-    Sağ taraftaki bağlantıları sunulmuştur, ancak yine de bir madde işaretli liste gibi görünürler. Şimdi, madde işaretlerini kaldırın ve bağlantıları yatay Hizala.
+    Bağlantılar artık doğru, ancak yine de madde işaretli bir liste gibi görünüyor. Şimdi, madde işaretlerini kaldıracak ve bağlantıları yatay olarak hizalacaksınız.
 
-    ![Güncelleştirilmiş sayfası](using-page-inspector-in-visual-studio-2012/_static/image41.png)
+    ![Güncelleştirilmiş sayfa](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
-    *Güncelleştirilmiş sayfası*
-6. İnceleme modu kullanarak, seçin herhangi birini **&lt;li&gt;** içeren öğelerini &quot;kaydetme&quot; ve &quot;oturum&quot; bağlantıları. ' A tıklayarak  **&lt;bölümü&gt; #login** öğe erişimi **Styles.css** kod.
+    *Güncelleştirilmiş sayfa*
+6. İnceleme modunu kullanarak, &quot;kaydet&quot; ve &quot;oturum&quot; bağlantılarını içeren **&lt;li&gt;** öğelerinden herhangi birini seçin. Ardından, **&gt;&lt;bölümüne tıklayarak #login** öğe **stilleri. css** koduna erişin.
 
-    ![Stilini bulma](using-page-inspector-in-visual-studio-2012/_static/image42.png "stilini bulma")
+    ![Stili bulma](using-page-inspector-in-visual-studio-2012/_static/image42.png "Stili bulma")
 
-    *Stilini bulma*
-7. İçinde **Style.css**, için kodun açıklamasını kaldırın **#login li** öğeleri. Eklemekte olduğunuz stil madde işareti gizleme ve öğeleri yatay olarak görüntüler.
+    *Stili bulma*
+7. **Style. css**' de **#login li** öğeler için kodun açıklamasını kaldırın. Eklediğiniz stil, madde işaretini gizler ve öğeleri yatay olarak görüntüler.
 
-    ![Oturum açma bağlantıları yeniden tasarıma](using-page-inspector-in-visual-studio-2012/_static/image43.png "oturum açma bağlantıları yeniden tasarıma")
+    ![Oturum açma bağlantılarını yeniden Stillendirme](using-page-inspector-in-visual-studio-2012/_static/image43.png "Oturum açma bağlantılarını yeniden Stillendirme")
 
-    *Oturum açma bağlantıları yeniden tasarıma*
-8. Kaydet **Style.css** dosya ve sayfayı yeniden yüklemek için aşağıdaki adresi bulunan çubuğu kez tıklayın. Bağlantıları doğru bir şekilde görüntülendiğine dikkat edin.
+    *Oturum açma bağlantılarını yeniden Stillendirme*
+8. **Style. css** dosyasını kaydedin ve sayfayı yeniden yüklemek için adresin altında bulunan çubukta bir kez tıklayın. Bağlantıların doğru şekilde göründüğünden emin olun.
 
-    ![Bağlantılar için sağ tarafı hizalı](using-page-inspector-in-visual-studio-2012/_static/image44.png "bağlantıları sağa hizalı")
+    ![Sağ tarafa hizalanmış bağlantılar](using-page-inspector-in-visual-studio-2012/_static/image44.png "Sağ tarafa hizalanmış bağlantılar")
 
-    *Sağa hizalı bağlantıları*
-9. Son olarak, üst bilgi başlığı değişecektir. Arama yerine '**logonuz buraya gelir '** dosyalardaki metni metin tıklayın ve onu oluşturan kaynak koduna almak için denetleme modunu kullan.
+    *Sağ tarafa hizalanmış bağlantılar*
+9. Son olarak, üst bilgi başlığını değiştirirsiniz. Tüm dosyalardaki '**logonuzu buraya yazın '** metnini aramak yerine, metni tıklatıp oluşturan kaynak koduna ulaşmak için İnceleme modunu kullanın.
 
-    ![Site başlığı bulma](using-page-inspector-in-visual-studio-2012/_static/image45.png "site başlığı bulma")
+    ![Site başlığını bulma](using-page-inspector-in-visual-studio-2012/_static/image45.png "Site başlığını bulma")
 
-    *Site başlığı bulma*
-10. Bulunduğunuz artık **Site.Master**, Değiştir '**buraya logonuz**'metin'**Fotoğraf Galerisi**'. Kaydet ve sayfa denetçisi tarayıcı güncelleştirin.
+    *Site başlığını bulma*
+10. Artık **site. Master**' de yer alır, '**logonuz**' metninizi '**Fotoğraf Galerisi**' ile değiştirin. Sayfa denetçisi tarayıcısını kaydedin ve güncelleştirin.
 
     ![Fotoğraf Galerisi sayfası güncelleştirildi](using-page-inspector-in-visual-studio-2012/_static/image46.png "Fotoğraf Galerisi sayfası güncelleştirildi")
 
     *Fotoğraf Galerisi sayfası güncelleştirildi*
-11. Son olarak basın **F5** tüm değişiklikleri beklendiği gibi çalışması kullanıma uygulamayı çalıştırmak için.
+11. Son olarak **F5** tuşuna basarak uygulamayı çalıştırın ve tüm değişikliklerin beklendiği gibi çalıştığını göz atın.
 
 ---
 
@@ -462,23 +462,23 @@ Bu görevde, sayfa denetçisi Fotoğraf Galerisi uygulama ile ilgili bazı sorun
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu uygulamalı laboratuvarı tamamlayarak yeniden derleyin ve Web sitesi bir tarayıcıda çalıştırmak zorunda kalmadan, Web uygulamanızın önizlemesini görüntülemek için sayfa denetçisini kullanmak nasıl modellerin. Ayrıca, nasıl hızlı bir şekilde hataları bulmalarına ve kaynak koduna işlenmiş çıkışı doğrudan erişerek modellerin.
+Bu uygulamalı Laboratuvarı tamamlayarak Web sitesini bir tarayıcıda yeniden oluşturmak ve çalıştırmak zorunda kalmadan Web uygulamanızı önizlemek için sayfa denetçisi 'ni nasıl kullanacağınızı öğrenirsiniz. Ayrıca, işlenen çıktıdan kaynak koda doğrudan erişerek hataları hızlı bir şekilde bulmayı ve düzeltmenizi öğrenirsiniz.
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Web için Express 2012 Visual Studio'yu yükleme
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Web için Visual Studio Express 2012 yükleme
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+**[Microsoft Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** kullanarak **Web için Microsoft Visual Studio Express 2012** veya başka bir &quot;Express&quot; sürümü yükleyebilirsiniz. Aşağıdaki yönergeler *Microsoft Web Platformu Yükleyicisi*kullanarak *Web Için Visual Studio Express 2012* ' i yüklemek için gereken adımlarda size yol gösterir.
 
-1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK ile Web</em>&quot;.
-2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
-3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
+1. [[https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169)gidin. Alternatif olarak, Web Platformu Yükleyicisi zaten yüklüyse, <em>Microsoft Azure SDK&quot;Ile Web için Visual Studio Express 2012</em> &quot;ürünü açabilir ve bunu arayabilirsiniz.
+2. **Şimdi yüklensin**' e tıklayın. **Web platformu yükleyicinizi** yoksa, önce indirmek ve yüklemek üzere yönlendirilirsiniz.
+3. **Web Platformu Yükleyicisi** açıkken, kurulum 'u başlatmak için **yükleme** ' ye tıklayın.
 
-    ![Visual Studio Express yükleyin](using-page-inspector-in-visual-studio-2012/_static/image47.png "Visual Studio Express'i yükle")
+    ![Visual Studio Express yüklensin](using-page-inspector-in-visual-studio-2012/_static/image47.png "Visual Studio Express yüklensin")
 
-    *Visual Studio Express yükleyin*
-4. Tüm ürünlerin lisans ve koşulları okuyun ve tıklayın **kabul ediyorum** devam etmek için.
+    *Visual Studio Express yüklensin*
+4. Tüm ürünlerin lisanslarını ve koşullarını okuyun ve devam etmek için **kabul ediyorum** ' a tıklayın.
 
     ![Lisans koşullarını kabul etme](using-page-inspector-in-visual-studio-2012/_static/image48.png)
 
@@ -488,14 +488,14 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
     ![Yükleme ilerleme durumu](using-page-inspector-in-visual-studio-2012/_static/image49.png)
 
     *Yükleme ilerleme durumu*
-6. Yükleme tamamlandığında, tıklayın **son**.
+6. Yükleme tamamlandığında **son**' a tıklayın.
 
     ![Yükleme tamamlandı](using-page-inspector-in-visual-studio-2012/_static/image50.png)
 
     *Yükleme tamamlandı*
-7. Tıklayın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
-8. Web için Visual Studio Express'te açmak için Git **Başlat** ekranında ve yazmaya başlayabilirsiniz &quot; **VS Express**&quot;, ardından **Web için VS Express** bir kutucuk.
+7. Web Platformu Yükleyicisi 'ni kapatmak için **Çıkış** ' a tıklayın.
+8. Web için Visual Studio Express açmak için **Başlangıç** ekranına gidin ve &quot;**vs Express**&quot;yazmaya başlayın ve ardından **Web için vs Express** kutucuğuna tıklayın.
 
-    ![Web kutucuğu için VS Express](using-page-inspector-in-visual-studio-2012/_static/image51.png)
+    ![Web için VS Express kutucuğu](using-page-inspector-in-visual-studio-2012/_static/image51.png)
 
-    *Web kutucuğu için VS Express*
+    *Web için VS Express kutucuğu*

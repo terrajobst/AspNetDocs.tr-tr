@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
-title: '[Bunu nasıl yaparım:] Bir ASP.NET sayfasını önbelleğe OutputCache kullanın | Microsoft Docs'
+title: '[Nasıl yapılır:] ASP.NET sayfasını önbelleğe almak için OutputCache kullanın | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris piksel yerleşik ASP.NET yeniden işlenmiş olarak içermez, bir sayfanın önbelleğe depolamak için önbelleğe almayı nasıl gösterir. İlk olarak,...
+description: Bu videoda Chris Pbenzerleri, bir Sayfayı önbellekte depolamak için ASP.NET uygulamasının yerleşik önbelleğinin nasıl kullanıldığını gösterir, böylece yeniden oluşturulması gerekmez. İlk,...
 ms.author: riande
 ms.date: 02/05/2009
 ms.assetid: 651c54da-becb-467e-9076-d6ace7456351
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-outputcache-to-cache-an-aspnet-page
 msc.type: video
 ms.openlocfilehash: c2b3738524741a50d669ce1e5fa22ed1a88bf4df
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59398260"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78603084"
 ---
-# <a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[Bunu nasıl yaparım:] Bir ASP.NET sayfasını önbelleğe OutputCache kullanın
+# <a name="how-do-i-use-outputcache-to-cache-an-aspnet-page"></a>[Nasıl yapılır:] ASP.NET sayfasını önbelleğe almak için OutputCache kullanın
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu video Chris piksel yerleşik ASP.NET yeniden işlenmiş olarak içermez, bir sayfanın önbelleğe depolamak için önbelleğe almayı nasıl gösterir. İlk olarak, sayfa önbelleğe alma en basit biçimidir gösterilen sayfanın tamamını burada belirtilen bir süre için önbelleğe alınır. Ardından, daha ayrıntılı bir yaklaşım sayfaları önbelleğe almak için sorgu dizesi değişkenlerinin değerlerini temel olarak nerede kullanıldığını alınır. Son olarak, tarayıcı türü temel bir sayfanın önbelleğe almak için sahip konusuna bakın.
+Bu videoda Chris Pbenzerleri, bir Sayfayı önbellekte depolamak için ASP.NET uygulamasının yerleşik önbelleğinin nasıl kullanıldığını gösterir, böylece yeniden oluşturulması gerekmez. İlk olarak, sayfa önbelleğe almanın en basit biçimi, sayfanın tamamının belirli bir süre için önbelleğe alındığı yerde gösterilmiştir. Daha ayrıntılı bir yaklaşım, QueryString değişkenlerinin değerlerinin önbelleğe alma sayfaları için temel olarak kullanıldığı, daha ayrıntılı bir yaklaşım alınmıştır. Son olarak, bkz. bir sayfanın önbelleğe alınması için tarayıcının türünün temeli olması.
 
-[&#9654;Videoyu (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-outputcache-to-cache-an-aspnet-page)
+[&#9654;Videoyu izleyin (14 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-outputcache-to-cache-an-aspnet-page)

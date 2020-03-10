@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: '[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın | Microsoft Docs'
+title: '[Nasıl yapılır:] Istemci tarafı bilgilerini depolamak ve Işlemek için gizli bir alan kullanma | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel gizli bir alan bir yaklaşım basit durum yönetimi için bir ASP.NET sayfasında ve istemci tarafı iletişim kurmak için olarak nasıl kullanılacağını gösterir...
+description: Bu videoda, bir ASP.NET sayfasında ve istemci tarafında iletişim kurmak için bir gizli alanın basit durum yönetimine tek bir yaklaşım olarak nasıl kullanılacağı gösterilmektedir...
 ms.author: riande
 ms.date: 07/24/2008
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
 ms.openlocfilehash: b79beb79b4ba87fd031f2f2de04a5078d42fa866
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59401926"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78631252"
 ---
-# <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın
+# <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Nasıl yapılır:] Istemci tarafı bilgilerini depolamak ve Işlemek için gizli bir alan kullanın
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda, Chris piksel bir yaklaşım basit durum yönetimi için bir ASP.NET sayfasında ve iletişim kuran istemci için gizli bir alan kullanmayı tarafı işleme bilgileri gösterilir. İlk olarak, bir Hiddenfield'i ASP.NET sunucu denetimi kullanarak bir sayfaya gizli bir alan eklemek nasıl ve sunucu tarafı kodunda gizli alan değerini sonra bir geri alma. Ardından, istemci tarafı betikte gizli alan değerini işlemek nasıl öğrenin ve sonra sunucu tarafı kodunuzda değiştirilen değerini alır. Son olarak, sunucu işlemini geri gönderilen istemci tarafı işleme bilgileri depolamak için çeşitli gizli alanları kullanmaya ilişkin bir örnek bakın.
+Bu videoda kemal, bir ASP.NET sayfasında basit durum yönetimine ve istemci tarafı işleme bilgilerine iletişim kurmaya yönelik bir yaklaşım olarak gizli bir alanın nasıl kullanıldığını gösterir. İlk olarak, ASP.NET HiddenField sunucu denetimi kullanarak sayfaya gizli bir alan ekleme ve geri alındıktan sonra sunucu tarafı kodundaki gizli alanın değerini alma bölümüne bakın. Ardından, istemci tarafı betikteki gizli alanın değerini nasıl kullanacağınızı öğrenin ve ardından sunucu tarafı kodundaki değiştirilen değeri alın. Son olarak, sunucu işleme için geri nakledilebilecek istemci tarafı işlemeden bilgileri depolamak için birkaç gizli alanın nasıl kullanılacağına ilişkin bir örnek görürsünüz.
 
-[&#9654;Videoyu (24 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)
+[&#9654;Videoyu izleyin (24 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)

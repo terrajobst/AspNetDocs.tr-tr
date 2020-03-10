@@ -1,258 +1,258 @@
 ---
 uid: web-pages/overview/data/working-with-files
-title: Bir ASP.NET Web sayfaları (Razor) sitesinde dosyaları ile çalışma | Microsoft Docs
+title: Bir ASP.NET Web Pages (Razor) sitesindeki dosyalarla çalışma | Microsoft Docs
 author: Rick-Anderson
-description: Bu bölümde, okuma, yazma, ekleme, silme ve dosyaları karşıya yükleme açıklanmaktadır.
+description: Bu bölümde, dosyaları okuma, yazma, ekleme, silme ve karşıya yükleme işlemleri açıklanmaktadır.
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 684c47a8a8480dc040e5144144577c94c35d39e5
-ms.sourcegitcommit: dd0dc556a3d99a31d8fdbc763e9a2e53f3441b70
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67411196"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78642368"
 ---
-# <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde dosyalarıyla çalışma
+# <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web Pages (Razor) sitesinde dosyalarla çalışma
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede, okuma, yazma, ekleme, silme ve bir ASP.NET Web sayfaları (Razor) sitesinde dosyaları karşıya yükleme açıklanmaktadır.
+> Bu makalede, bir ASP.NET Web Pages (Razor) sitesinde dosyaları okuma, yazma, ekleme, silme ve karşıya yükleme işlemleri açıklanmaktadır.
 > 
 > > [!NOTE]
-> > Görüntüleri karşıya yüklemek ve bunları yönetmek istiyorsanız (örneğin, çevirme veya bunları yeniden boyutlandırma), bkz: [bir ASP.NET Web sayfaları sitesinde görüntülerle çalışma](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images).
+> > Görüntüleri karşıya yüklemek ve işlemek istiyorsanız (örneğin, bunları çevirin veya yeniden boyutlandırın), bkz. [ASP.NET Web Pages sitesindeki görüntülerle çalışma](/aspnet/web-pages/overview/ui-layouts-and-themes/9-working-with-images).
 > 
 > 
-> **Öğrenecekleriniz:** 
+> **Şunları öğreneceksiniz:** 
 > 
-> - Nasıl bir metin dosyası oluşturun ve veri yazma.
-> - Varolan bir dosyaya veri ekleme yapma.
-> - Nasıl bir dosyayı okumak ve buradan görüntüleyin.
-> - Nasıl bir Web sitesinden dosya silinir.
-> - Kullanıcıların bir veya birden çok dosya karşıya nasıl.
+> - Metin dosyası oluşturma ve verileri yazma.
+> - Mevcut bir dosyaya veri ekleme.
+> - Dosya okuma ve dosyadan görüntüleme.
+> - Bir Web sitesinden dosyaları silme.
+> - Kullanıcıların bir dosya veya birden çok dosyayı karşıya yüklemesine izin verin.
 > 
-> ASP.NET programlama makalesinde sunulan özellikler şunlardır:
+> Makalesinde sunulan ASP.NET programlama özellikleri şunlardır:
 > 
-> - `File` Dosyaları yönetmek için bir yol sağlayan nesne.
+> - Dosyaları yönetmek için bir yol sağlayan `File` nesnesi.
 > - `FileUpload` Yardımcısı.
-> - `Path` Nesne yolu ve dosya adlarını değiştirmek olanak tanıyan yöntemler sağlar.
+> - Yolu ve dosya adlarını değiştirmenize olanak sağlayan yöntemler sağlayan `Path` nesnesi.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 2
 > - WebMatrix 2
 >   
 > 
-> Bu öğreticide, WebMatrix 3'ile de çalışır.
+> Bu öğretici WebMatrix 3 ile de kullanılabilir.
 
 <a id="Creating_a_Text_File"></a>
-## <a name="creating-a-text-file-and-writing-data-to-it"></a>Bir metin dosyası oluşturma ve veri yazma
+## <a name="creating-a-text-file-and-writing-data-to-it"></a>Metin dosyası oluşturma ve verileri yazma
 
-Siteniz veritabanı kullanmanın yanı sıra dosyaları ile çalışabilir. Örneğin, site verilerini depolamak için basit bir yol olarak metin dosyalarını kullanabilirsiniz. (Veri depolamak için kullanılan bir metin dosyası adlandırılan bir *düz dosya*.) Metin dosyası olabilir farklı biçimlerde gibi *.txt*, *.xml*, veya *.csv* (virgülle ayrılmış değerler).
+Web sitenizde bir veritabanı kullanmanın yanı sıra dosyalarla çalışabilirsiniz. Örneğin, site verilerini depolamak için basit bir yol olarak metin dosyalarını kullanabilirsiniz. (Verileri depolamak için kullanılan bir metin dosyası bazen *düz dosya*olarak adlandırılır.) Metin dosyaları *. txt*, *. xml*veya *. csv* (virgülle ayrılmış değerler) gibi farklı biçimlerde olabilir.
 
-Bir metin dosyasına veri depolamak istiyorsanız, kullanabileceğiniz `File.WriteAllText` yöntemi oluşturmak için dosyasını belirtin ve ona yazılacak veriler. Bu yordamda üç basit bir form içeren bir sayfa oluşturacaksınız `input` öğeleri (ad, Soyadı ve e-posta adresi) ve bir **Gönder** düğmesi. Kullanıcı formu gönderdiğinde, bir metin dosyasına kullanıcının girişi depolayacağınızı.
+Verileri bir metin dosyasında depolamak istiyorsanız, oluşturulacak dosyayı ve dosyaya yazılacak verileri belirtmek için `File.WriteAllText` yöntemini kullanabilirsiniz. Bu yordamda, üç `input` öğesi (ad, son ad ve e-posta adresi) ve **Gönder** düğmesi içeren basit bir form içeren bir sayfa oluşturacaksınız. Kullanıcı formu gönderdiğinde, kullanıcının girişini bir metin dosyasında depolayacaksınız.
 
-1. Adlı yeni bir klasör oluşturun *uygulama\_veri*, zaten yoksa.
-2. Web sitenizi kök adlı yeni bir dosya oluşturun *UserData.cshtml*.
-3. Mevcut içeriğini aşağıdakiyle değiştirin: 
+1. Zaten mevcut değilse, *uygulama\_veri*adlı yeni bir klasör oluşturun.
+2. Web sitenizin kökünde, *UserData. cshtml*adlı yeni bir dosya oluşturun.
+3. Var olan içeriği aşağıdaki ile değiştirin: 
 
     [!code-cshtml[Main](working-with-files/samples/sample1.cshtml)]
 
-    HTML biçimlendirmeyi üç metin kutuları formu oluşturur. Kod içinde kullanmanız `IsPost` işleme başlamadan önce sayfa gönderildikten olup olmadığını belirlemek için özellik.
+    HTML biçimlendirmesi, formu üç metin kutusu ile oluşturur. Kodda, işleme başlamadan önce sayfanın gönderilip gönderilmediğini anlamak için `IsPost` özelliğini kullanırsınız.
 
-    Kullanıcı girişi almak ve değişkenlere atamak için ilk görevdir bakın. Kod, dizesine sonra farklı bir değişkende depolanan bir virgülle ayrılmış, sonra ayrı değişkenlerin değerleri birleştirir. Virgül ayırıcısına tırnak içinde yer alan bir dize olduğuna dikkat edin (","), virgül, oluşturmakta olduğunuz büyük dizeye tam anlamıyla ekleme yapıyorsanız olduğundan. Verilerin birlikte birleştirme sonunda, eklediğiniz `Environment.NewLine`. Bu, bir satır sonu (yeni satır karakteri) ekler. Bu birleştirme ile oluşturmakta olduğunuz şuna benzer bir dizedir:
+    İlk görev, Kullanıcı girişini almak ve bunları değişkenlere atayacaktır. Kod daha sonra ayrı değişkenlerin değerlerini virgülle ayrılmış tek bir dizede birleştirir, bu daha sonra farklı bir değişkende depolanır. Oluşturmakta olduğunuz büyük dizeye tam olarak bir virgül Katıştırırken, virgül ayırıcısının tırnak işaretleri (",") içinde bulunan bir dize olduğunu unutmayın. Birlikte birleştirdiğiniz verilerin sonunda `Environment.NewLine`eklersiniz. Bu bir satır sonu ekler (yeni satır karakteri). Bu birleştirme ile oluşturduğunuz şey şöyle görünen bir dizedir:
 
     [!code-css[Main](working-with-files/samples/sample2.css)]
 
-    (Bir görünmez satır sonu ile sonunda.)
+    (Sonunda görünmez bir satır sonuyla birlikte.)
 
-    Ardından bir değişken oluşturun (`dataFile`) verileri depolamak için dosya adını ve konumunu içerir. Konum ayarlama, bazı özel işlem gerektiriyor. İsteğe bağlı olarak Web siteleri, kod içinde mutlak yollar gibi başvurmak için hatalı bir uygulama olan *C:\Folder\File.txt* web sunucusundaki dosyaları. Bir Web sitesi taşınırsa, mutlak bir yol yanlış olabilir. Ayrıca, barındırılan bir site için (kendi bilgisayarınızda olarak), genellikle bile kodu yazarken doğru yolu nedir bilmiyorum.
+    Ardından, verilerin depolandığı dosyanın konumunu ve adını içeren bir değişken (`dataFile`) oluşturursunuz. Konumun ayarlanması için bazı özel işlem yapılması gerekir. Web sitelerinde, Web sunucusundaki dosyalar için *C:\folder\dosya.txt* gibi mutlak yollara kodda başvurmak kötü bir uygulamadır. Bir Web sitesi taşınırsa, mutlak bir yol yanlış olur. Üstelik, barındırılan bir site için (kendi bilgisayarınızda aksine), kodu yazarken doğru yolun ne olduğunu de bilemezsiniz.
 
-    (Bir dosyaya yazmak için ancak bazı durumlarda artık,) gibi bir tam yol gerekir. Çözüm `MapPath` yöntemi `Server` nesne. Bu, uygulamanızın Web sitenize tam yolunu döndürür. Web sitesi kök için kullanıcı olan yolu almak için `~` işleci (site represen için sanal kök) için `MapPath`. (Ayrıca bir alt klasör adı, gibi geçirebilirsiniz *~/App\_veri /* , o alt klasör için olan yolu almak için.) Ardından, üzerine tam yolunu oluşturmak için hangi yöntemi döndürür. ek bilgi bitiştirebilirsiniz. Bu örnekte, bir dosya adı ekleyin. (Daha fazla dosya ve klasör yolları ile çalışma hakkında [ASP.NET Web sayfaları programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
+    Ancak bazen (Şimdi de bir dosya yazmak için), tüm yola ihtiyacınız vardır. Çözüm, `Server` nesnesinin `MapPath` yöntemini kullanmaktır. Bu, Web sitenizin tüm yolunu döndürür. Web sitesi kökünün yolunu almak için, `~` işlecine (sitenin sanal kökünü yeniden eklemek için) `MapPath`. (Bu alt klasörün yolunu almak için *~/App\_Data/* gibi bir alt klasör adı da geçirebilirsiniz.) Daha sonra, bir bütün yol oluşturmak için yöntemin döndürdüğü her şeyi üzerine ek bilgileri birleştirebilirsiniz. Bu örnekte, bir dosya adı eklersiniz. ( [Razor söz dizimini kullanarak ASP.NET Web sayfaları programlamasına giriş](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths)bölümünde dosya ve klasör yollarıyla çalışma hakkında daha fazla bilgi edinebilirsiniz.)
 
-    Dosya kaydedilir *uygulama\_veri* klasör. Bu klasör, veri dosyalarını depolamak için açıklandığı gibi kullanılan ASP.NET özel klasöründedir [ASP.NET Web sayfaları sitelerinde bir veritabanıyla çalışmaya giriş](https://go.microsoft.com/fwlink/?LinkId=195209).
+    Dosya, *App\_veri* klasörüne kaydedilir. Bu klasör, [ASP.NET Web sayfaları sitelerinde bir veritabanıyla çalışmaya giriş](https://go.microsoft.com/fwlink/?LinkId=195209)bölümünde açıklandığı gibi, ASP.NET içinde veri dosyalarını depolamak için kullanılan özel bir klasördür.
 
-    `WriteAllText` Yöntemi `File` nesneyi veri dosyasına yazar. Bu yöntem iki parametre alır: adıyla (yol) yazmak için dosya ve yazılacak gerçek veriler. İlk parametre adını taşıyan bildirimi bir `@` öneki olarak karakter. Bu verbatim dize sabit değeri sağladığınızı ve gibi karakterler ASP "/" özel yollarla yorumlanmamalıdır. (Daha fazla bilgi için [giriş kullanımına ASP.NET Web programlama Razor söz dizimi](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
+    `File` nesnesinin `WriteAllText` yöntemi, verileri dosyaya yazar. Bu yöntem iki parametre alır: yazılacak dosyanın adı (yol ile) ve yazılacak gerçek veriler. İlk parametrenin adının ön ek olarak bir `@` karakteri olduğuna dikkat edin. Bu, tam bir dize sabit değeri ASP.NET ve "/" gibi karakterlerin özel yollarla yorumlanmaması gerektiğini söyler. (Daha fazla bilgi için bkz. [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkId=195205#ID_WorkingWithFileAndFolderPaths).)
 
     > [!NOTE]
-    > Dosyaları kaydetmek, kodunuzda sırayla *uygulama\_veri* klasörü, uygulamanın okuma-yazma bu klasörün izinlerini. Geliştirme bilgisayarınızda bu genellikle bir sorun değildir. Ancak, bir barındırma sağlayıcısının web sunucusuna sitenizi yayımladığınızda, açıkça bu izinleri ayarlamak gerekebilir. Bu kod bir barındırma sağlayıcısının sunucusunda çalıştırın ve hata iletisi alıyorum, bu izinleri ayarlama konusunda bilgi edinmek için barındırma sağlayıcısı ile kontrol edin.
+    > Kodunuzun *App\_Data* klasöründeki dosyaları kaydetmesi için, uygulamanın bu klasör için okuma-yazma izinlerine sahip olması gerekir. Geliştirme bilgisayarınızda bu genellikle bir sorun değildir. Ancak, sitenizi bir barındırma sağlayıcısının Web sunucusunda yayımladığınızda, bu izinleri açıkça ayarlamanız gerekebilir. Bu kodu bir barındırma sağlayıcısının sunucusunda çalıştırırsanız ve hata alırsanız, bu izinleri nasıl ayarlayacağınızı öğrenmek için barındırma sağlayıcısına başvurun.
 
-- Sayfanın tarayıcıda çalıştırın. 
+- Sayfayı bir tarayıcıda çalıştırın. 
 
     ![](working-with-files/_static/image1.jpg)
-- Alanlara değerleri girin ve ardından **Gönder**.
+- Alanlara değerler girin ve ardından **Gönder**' e tıklayın.
 - Tarayıcıyı kapatın.
 - Projeye dönün ve görünümü yenileyin.
-- Açık *data.txt* dosya. Formda gönderilen veriler dosyasıdır. 
+- *Data. txt* dosyasını açın. Formda gönderdiğiniz veriler dosyasında bulunur. 
 
-    ![[image]](working-with-files/_static/image2.jpg)
-- Kapat *data.txt* dosya.
+    ![görüntüyle](working-with-files/_static/image2.jpg)
+- *Data. txt* dosyasını kapatın.
 
 <a id="Appending_Data"></a>
-## <a name="appending-data-to-an-existing-file"></a>Varolan bir dosyaya veri ekleme
+## <a name="appending-data-to-an-existing-file"></a>Mevcut bir dosyaya veri ekleme
 
-Önceki örnekte, kullandığınız `WriteAllText` içinde yalnızca bir veri parçasını tablename'e sahip bir metin dosyası oluşturmak için. Yöntemini yeniden çağırın ve aynı dosya adına geçirmek, var olan dosyayı tamamen üzerine yazılır. Bir dosyayı oluşturduktan sonra Bununla birlikte, genellikle yeni bir veri dosyasının sonuna eklemek istediğiniz. Bu kullanarak yapabileceğiniz `AppendAllText` yöntemi `File` nesne.
+Önceki örnekte, içinde yalnızca bir veri parçası olan bir metin dosyası oluşturmak için `WriteAllText` kullandınız. Yöntemi yeniden çağırır ve aynı dosya adına geçirirseniz, var olan dosyanın tamamen üzerine yazılır. Bununla birlikte, bir dosyayı oluşturduktan sonra genellikle dosyanın sonuna yeni veri eklemek istersiniz. Bunu, `File` nesnesinin `AppendAllText` yöntemini kullanarak yapabilirsiniz.
 
-1. Web sitesi, bir kopyasını *UserData.cshtml* dosya ve kopya adı *UserDataMultiple.cshtml*.
-2. Açmadan önce kod bloğunu `<!DOCTYPE html>` aşağıdaki kod bloğu etiketi: 
+1. Web sitesinde, *UserData. cshtml* dosyasının bir kopyasını oluşturun ve Copy *userdatamultiple. cshtml*olarak adlandırın.
+2. Kod bloğunu, açma `<!DOCTYPE html>` etiketinden önce aşağıdaki kod bloğu ile değiştirin: 
 
     [!code-cshtml[Main](working-with-files/samples/sample3.cshtml)]
 
-    Bu kod bir değişiklik önceki örnekten var. Yerine `WriteAllText`, kullandığı `the AppendAllText` yöntemi. Yöntemleri benzer dışında `AppendAllText` veri dosyasının sonuna ekler. Olduğu gibi `WriteAllText`, `AppendAllText` zaten yoksa dosyayı oluşturur.
-3. Sayfanın tarayıcıda çalıştırın.
-4. Alanlar için değerleri girin ve ardından **Gönder**.
-5. Daha fazla veri ekleme ve formu yeniden gönderin.
-6. Dönüş projenize, proje klasörü sağ tıklatın ve ardından **Yenile**.
-7. Açık *data.txt* dosya. Artık, yeni girdiğiniz yeni veriler içerir. 
+    Bu kodun önceki örnekteki bir değişikliği vardır. `WriteAllText`kullanmak yerine `the AppendAllText` yöntemini kullanır. Yöntemler benzerdir, çünkü `AppendAllText` verileri dosyanın sonuna ekler. `WriteAllText`gibi, zaten yoksa, `AppendAllText` dosyayı oluşturur.
+3. Sayfayı bir tarayıcıda çalıştırın.
+4. Alanlar için değerler girin ve ardından **Gönder**' e tıklayın.
+5. Daha fazla veri ekleyin ve formu yeniden gönderebilirsiniz.
+6. Projenize dönün, proje klasörüne sağ tıklayın ve ardından **Yenile**' ye tıklayın.
+7. *Data. txt* dosyasını açın. Şimdi girdiğiniz yeni verileri içerir. 
 
-    ![[image]](working-with-files/_static/image3.jpg)
+    ![görüntüyle](working-with-files/_static/image3.jpg)
 
 <a id="Reading_and_Displaying_Data"></a>
-## <a name="reading-and-displaying-data-from-a-file"></a>Bir dosyadan verileri görüntüleme ve okuma
+## <a name="reading-and-displaying-data-from-a-file"></a>Dosyadaki verileri okuma ve görüntüleme
 
-Bir metin dosyasına veri yazma gerekmez olsa bile, büyük olasılıkla bazen birinden veri okumak gerekir. Bunu yapmak için yeniden kullanabileceğiniz `File` nesne. Kullanabileceğiniz `File` her satır ayrı ayrı okuma nesnesine (satır sonlarıyla ayırarak) veya tek bir öğe nasıl ayrılmış ne olursa olsun okumak için.
+Bir metin dosyasına veri yazmanıza gerek olmasa bile, bazen verileri bir dosyadan okumanız gerekebilir. Bunu yapmak için `File` nesnesini yeniden kullanabilirsiniz. Her satırı ayrı ayrı okumak için `File` nesnesini kullanabilirsiniz (satır sonlarına göre) veya birbirinden ayrıldıklarında bağımsız bir öğeyi okuyabilirsiniz.
 
-Bu yordam okumak ve önceki örnekte oluşturulan verileri görüntülemek nasıl gösterir.
+Bu yordam, önceki örnekte oluşturduğunuz verilerin nasıl okunacağını ve görüntüleneceğini gösterir.
 
-1. Web sitenizi kök adlı yeni bir dosya oluşturun *DisplayData.cshtml*.
-2. Mevcut içeriğini aşağıdakiyle değiştirin: 
+1. Web sitenizin kökünde *displayData. cshtml*adlı yeni bir dosya oluşturun.
+2. Var olan içeriği aşağıdaki ile değiştirin: 
 
     [!code-cshtml[Main](working-with-files/samples/sample4.cshtml)]
 
-    Kod, önceki örnekte adlı bir değişkende oluşturduğunuz dosyasını okuyarak başlatır `userData`, bu yöntem çağrısı kullanarak:
+    Kod, önceki örnekte oluşturduğunuz dosyayı, bu yöntem çağrısını kullanarak `userData`adlı bir değişkene okuyarak başlar:
 
     [!code-css[Main](working-with-files/samples/sample5.css)]
 
-    Bunu yapmak için kodu içindedir bir `if` deyimi. Bir dosyayı okumak istediğinizde, bunu kullanmak için iyi bir fikirdir `File.Exists` önce dosyanın mevcut olup olmadığını belirlemek için yöntemi. Kod Ayrıca, dosyanın boş olup olmadığını denetler.
+    Bunu yapmak için kod `if` deyimin içindedir. Bir dosyayı okumak istediğinizde, dosyanın kullanılabilir olup olmadığını anlamak için `File.Exists` metodunu kullanmak iyi bir fikirdir. Kod ayrıca dosyanın boş olup olmadığını denetler.
 
-    Sayfanın gövdesi iki tane `foreach` döngüsü, bir diğer içinde iç içe geçmiş. Dış `foreach` döngü veri dosyasından bir defada bir satır alır. Bu durumda, satırları dosyadaki satır sonları tanımlanır &#8212; diğer bir deyişle, her veri kendi satırında öğesidir. Yeni bir öğe dış döngü oluşturur (`<li>` öğesi) sıralı bir liste içinde (`<ol>` öğesi).
+    Sayfanın gövdesi, diğeri içinde iç içe olan iki `foreach` döngüsü içerir. Dış `foreach` döngüsü, veri dosyasından bir seferde bir satır alır. Bu durumda, satırlar dosyadaki &#8212; satır sonları tarafından tanımlanır, her veri öğesi kendi satırlardır. Dış döngü sıralı bir liste içinde (`<ol>` öğesi) yeni bir öğe (`<li>` öğesi) oluşturur.
 
-    İç döngü ayırıcı olarak virgül kullanarak öğeleri (alanlar) her veri satırı ayıran. (Önceki örneği temel alarak, her satırı üç alanı içeren başka bir deyişle &#8212; ad, Soyadı ve e-posta adresi, her bir virgülle ayrılmış.) İç döngü ayrıca oluşturur bir `<ul>` veri satırında her bir alan için madde listesi ve bir listesini görüntüler.
+    İç döngü, her bir veri satırını bir sınırlayıcı olarak virgül kullanarak öğelere (alanlar) böler. (Önceki örneğe bağlı olarak, her bir satırın adı, son adı ve e &#8212; -posta adresi, her biri bir virgülle ayrılmış olarak üç alan içerdiği anlamına gelir.) İç döngü Ayrıca bir `<ul>` listesi oluşturur ve veri satırındaki her alan için bir liste öğesi görüntüler.
 
-    Kod, iki veri türü, bir dizi kullanmayı gösterir ve `char` veri türü. Dizi gereklidir çünkü `File.ReadAllLines` yöntemi, verileri bir dizi olarak döndürür. `char` Çünkü veri türünün gerekli olduğu `Split` yöntemi döndürür bir `array` her öğe türü olduğu `char`. (Diziler hakkında daha fazla bilgi için bkz: [giriş kullanımına ASP.NET Web programlama Razor söz dizimi](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
-3. Sayfanın tarayıcıda çalıştırın. Önceki örneklerde girdiğiniz veriler görüntülenir. 
+    Kod, iki veri türü, bir dizi ve `char` veri türü kullanmayı gösterir. `File.ReadAllLines` yöntemi verileri dizi olarak döndürdüğünden dizi gereklidir. `char` veri türü gereklidir çünkü `Split` yöntemi her bir öğenin `char`türünde olduğu bir `array` döndürür. (Diziler hakkında bilgi için bkz. [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
+3. Sayfayı bir tarayıcıda çalıştırın. Önceki örnekler için girdiğiniz veriler görüntülenir. 
 
-    ![[image]](working-with-files/_static/image4.jpg)
+    ![görüntüyle](working-with-files/_static/image4.jpg)
 
 > [!TIP] 
 > 
-> **Virgülle ayrılmış bir Microsoft Excel dosyasındaki verileri görüntüleme**
+> **Microsoft Excel virgülle ayrılmış bir dosyadan veri görüntüleme**
 > 
-> Virgülle ayrılmış bir dosya olarak bir elektronik tablodaki verileri kaydetmek için Microsoft Excel'i kullanabilirsiniz ( *.csv* dosyası). Bunu yaptığınızda dosya düz metin olarak Excel biçiminde kaydedilir. Elektronik tablodaki her satır bir metin dosyasındaki satır sonu tarafından ayrılmış ve her veri öğesinin virgülle ayrılır. Önceki örnekte gösterilen kod, virgülle ayrılmış bir Excel dosyası kodunuzda veri dosyasının adını değiştirerek okumak için kullanabilirsiniz.
+> Bir elektronik tabloda bulunan verileri virgülle ayrılmış dosya ( *. csv* dosyası) olarak kaydetmek Için Microsoft Excel 'i kullanabilirsiniz. Bunu yaptığınızda, dosya Excel biçiminde değil, düz metin olarak kaydedilir. Elektronik tablodaki her satır metin dosyasında bir satır sonuyla ayrılır ve her bir veri öğesi virgülle ayrılır. Kodunuzda veri dosyasının adını değiştirerek, Excel virgülle ayrılmış bir dosyayı okumak için önceki örnekte gösterilen kodu kullanabilirsiniz.
 
 <a id="Deleting_Files"></a>
-## <a name="deleting-files"></a>Dosyaları silme
+## <a name="deleting-files"></a>Dosyalar siliniyor
 
-Dosyalar, Web sitesinden silmek için kullanabileceğiniz `File.Delete` yöntemi. Bu yordam, kullanıcıların bir görüntüyü silin gösterilmektedir ( *.jpg* dosya) gelen bir *görüntüleri* bunlar dosyasının adını biliyorsanız klasör.
+Web sitenizdeki dosyaları silmek için `File.Delete` yöntemini kullanabilirsiniz. Bu yordamda, kullanıcıların dosyanın adını öğrendikleri bir *görüntü klasöründen bir görüntüyü (* *. jpg* dosyası) silmesine nasıl izin verilmektedir.
 
 > [!NOTE] 
 > 
-> **Önemli** bir üretim Web sitesine, genelde kimin değişiklik verilere izin kısıtlama. Sitede görevleri gerçekleştirmek için Kullanıcıları yetkilendirmek için yolu ve üyeliği ayarlama hakkında bilgi için [güvenlik ekleme ve bir ASP.NET Web sayfaları sitesinde üyelik](https://go.microsoft.com/fwlink/?LinkId=202904).
+> **Önemli** Bir üretim web sitesinde, genellikle verilerde değişiklik yapmasına izin verilen kişileri kısıtlayabilirsiniz. Üyeliği ayarlama ve kullanıcılara sitede görevler gerçekleştirme izni verme yolları hakkında bilgi için bkz. [ASP.NET Web Pages sitesine güvenlik ve üyelik ekleme](https://go.microsoft.com/fwlink/?LinkId=202904).
 
-1. Adlı bir alt Web sitesi oluşturma *görüntüleri*.
-2. Bir veya daha fazla kopyasını *.jpg* dosyalarınızı *görüntüleri* klasör.
-3. Web sitesinin kök dizininde adlı yeni bir dosya oluşturmak *FileDelete.cshtml*.
-4. Mevcut içeriğini aşağıdakiyle değiştirin: 
+1. Web sitesinde *görüntüler*adlı bir alt klasör oluşturun.
+2. Bir veya daha fazla *. jpg* dosyasını *görüntüler* klasörüne kopyalayın.
+3. Web sitesinin kökünde, *Filedelete. cshtml*adlı yeni bir dosya oluşturun.
+4. Var olan içeriği aşağıdaki ile değiştirin: 
 
     [!code-cshtml[Main](working-with-files/samples/sample6.cshtml)]
 
-    Bu sayfa, kullanıcıların bir görüntü dosyasının adını girebileceğiniz bir form içerir. Bunlar girmeyin *.jpg* dosya adı uzantısı; bu gibi dosya adını kısıtlayarak, Yardım kullanıcıların rastgele dosyalar sitenizde silmesini engeller.
+    Bu sayfa, kullanıcıların bir resim dosyası adını girebilecekleri bir form içerir. *. Jpg* dosya adı uzantısını girmez; dosya adını bu şekilde kısıtlayarak, kullanıcıların sitenizdeki rastgele dosyaları silmesini engeller.
 
-    Kodu, kullanıcının girdiği ve ardından tam bir yol oluşturur dosya adı okur. Kod yolu oluşturmak için geçerli Web sitesi yolunu kullanır (tarafından döndürülen `Server.MapPath` yöntemi), *görüntüleri* klasör adı, sağlanan kullanıcı adı ve bir sabit dize olarak ".jpg".
+    Kod, kullanıcının girdiği dosya adını okur ve sonra bir bütün yolu oluşturur. Bu yolu oluşturmak için, kod geçerli Web sitesi yolunu (`Server.MapPath` yöntemi tarafından döndürülen), *görüntüler* klasörünün adını, kullanıcının sağladıysa ve ". jpg" değerini sabit bir dize olarak kullanır.
 
-    Kod çağrıları dosyayı silmek için `File.Delete` yöntemi, yalnızca oluşturulan tam yolunu geçirerek. Biçimlendirme sonunda kod dosyası silindi bir onay iletisi görüntüler.
-5. Sayfanın tarayıcıda çalıştırın. 
+    Dosyayı silmek için kod `File.Delete` yöntemini çağırarak, yeni oluşturduğunuz tam yolu geçirerek kodu çağırır. Biçimlendirmenin sonunda, kod dosyanın silindiğini belirten bir onay iletisi görüntüler.
+5. Sayfayı bir tarayıcıda çalıştırın. 
 
-    ![[image]](working-with-files/_static/image5.jpg)
-6. Silin ve ardından dosya adını **Gönder**. Dosya silinmiş, dosyanın adını sayfanın alt kısmında görüntülenir.
+    ![görüntüyle](working-with-files/_static/image5.jpg)
+6. Silinecek dosyanın adını girin ve ardından **Gönder**' e tıklayın. Dosya silinmişse, dosyanın adı sayfanın altında görüntülenir.
 
 <a id="Letting_Users_Upload_a_File"></a>
-## <a name="letting-users-upload-a-file"></a>İzin vermek kullanıcı bir dosyayı karşıya yükleyin
+## <a name="letting-users-upload-a-file"></a>Kullanıcıların bir dosyayı karşıya yüklemesine izin verme
 
-`FileUpload` Yardımcı kullanıcılar Web sitenize karşıya dosya yükleme sağlar. Aşağıdaki yordam, kullanıcıların tek bir dosyayı karşıya işlemini göstermektedir.
+`FileUpload` yardımcı, kullanıcıların Web sitenize dosya yüklemesine olanak tanır. Aşağıdaki yordamda, kullanıcıların tek bir dosyayı karşıya yüklemesine izin vermek gösterilmektedir.
 
-1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), daha önce ekleyemiyor.
-2. İçinde *uygulama\_veri* klasöründe yeni bir klasör oluşturun ve adlandırın *UploadedFiles*.
-3. Kök dizininde adlı yeni bir dosya oluşturmak *FileUpload.cshtml*.
-4. Sayfanın mevcut içeriği aşağıdakiyle değiştirin: 
+1. Daha önce eklemediğiniz [bir ASP.NET Web sayfaları sitesine yardımcılar yükleme](https://go.microsoft.com/fwlink/?LinkId=252372)bölümünde açıklandığı gibi, ASP.NET Web yardımcıları kitaplığını Web sitenize ekleyin.
+2. *App\_Data* klasöründe yeni bir klasör oluşturun ve bu dosyayı *UploadedFiles*olarak adlandırın.
+3. Kökte, *FileUpload. cshtml*adlı yeni bir dosya oluşturun.
+4. Sayfadaki mevcut içeriği aşağıdaki gibi değiştirin: 
 
     [!code-cshtml[Main](working-with-files/samples/sample7.cshtml)]
 
-    Sayfanın gövdesi bölümünü kullanır `FileUpload` yardımcı yükleme kutusu ve büyük olasılıkla alışık olduğunuz bir düğme oluşturmak için:
+    Sayfanın gövde kısmı, büyük olasılıkla bildiğiniz karşıya yükleme kutusu ve düğmelerini oluşturmak için `FileUpload` yardımcısını kullanır:
 
-    ![[image]](working-with-files/_static/image6.jpg)
+    ![görüntüyle](working-with-files/_static/image6.jpg)
 
-    İçin ayarladığınız özellikleri `FileUpload` Yardımcısı belirtin, karşıya yüklenecek dosyanın için tek bir kutu istediğiniz ve okuma için Gönder düğmesinin istediğiniz **karşıya**. (Daha fazla kutuları makalenin sonraki bölümlerinde ekleyeceksiniz.)
+    `FileUpload` Yardımcısı için ayarladığınız özellikler, dosyanın karşıya yüklenmesini ve Gönder düğmesinin **karşıya yüklemeyi**okumasını istediğinizi belirtir. (Makalede daha sonra daha fazla kutu ekleyeceksiniz.)
 
-    Kullanıcı tıkladığında **karşıya**, sayfanın üstündeki kod dosyasını alır ve onu kaydeder. `Request` Form alanının değerleri almak için normalde kullandığınız nesne de sahip bir `Files` dosya (veya dosyaları) içeren bir dizi, karşıya yüklendi. Dizideki belirli konumlara dışında tek tek dosyaları alabilirsiniz &#8212; Örneğin, karşıya yüklenen dosya ilk almak için size `Request.Files[0]`, ikinci dosyasını almak için size `Request.Files[1]`ve benzeri. (Programlamada, genellikle Sayım sıfırdan başladığını unutmayın.)
+    Kullanıcı **karşıya yükle**' ye tıkladığında, sayfanın üst kısmındaki kod dosyayı alır ve kaydeder. Normalde form alanlarından değerleri almak için kullandığınız `Request` nesnesi ayrıca karşıya yüklenmiş dosyayı (veya dosyaları) içeren bir `Files` dizisine sahiptir. Örneğin, ilk karşıya yüklenen dosyayı almak için, dosyadaki belirli konumlardan &#8212; ayrı ayrı dosyalar alabilirsiniz, `Request.Files[0]`alırsınız, ikinci dosyayı almak için, `Request.Files[1]`ve daha fazlasını yapın. (Programlamada, Sayın genellikle sıfırdan başlayacağını unutmayın.)
 
-    Karşıya yüklenen bir dosya getirilemedi, bunu bir değişkende yerleştirdiğiniz (burada `uploadedFile`) ve böylece onu işleyebilirsiniz. Karşıya yüklenen dosya adını belirlemek için yalnızca size kendi `FileName` özelliği. Ancak, ne zaman kullanıcı karşıya bir dosya `FileName` yolun tamamını içerir kullanıcı asıl adını içerir. Şuna benzeyebilir:
+    Karşıya yüklenen bir dosyayı getirirken, bunu işleyebilmeniz için bir değişkene (burada `uploadedFile`) yerleştirebilirsiniz. Karşıya yüklenen dosyanın adını öğrenmek için, `FileName` özelliğini almanız yeterlidir. Ancak, Kullanıcı bir dosyayı karşıya yüklediğinde, `FileName` tüm yolu içeren kullanıcının özgün adını içerir. Şöyle görünebilir:
 
-    *C:\Users\Public\Sample.txt*
+    *C:\users\ortakörnek.txt*
 
-    Yol sunucunuz için değil, kullanıcının bilgisayarında olduğundan, bu yol bilgisi istemezsiniz. Yalnızca gerçek dosya adı istiyorsanız (*örnek.txt*). Yalnızca yoldan dosyasını kullanarak çıkarmanız `Path.GetFileName` böyle bir yöntemi:
+    Tüm bu yol bilgilerini istemezsiniz, ancak bu, sunucu için değil kullanıcı bilgisayarındaki yoldur. Yalnızca gerçek dosya adını (*Sample. txt*) istiyorsunuz. `Path.GetFileName` yöntemini kullanarak yalnızca bir yoldan dosya açabilirsiniz, örneğin:
 
     [!code-csharp[Main](working-with-files/samples/sample8.cs)]
 
-    `Path` Nesnedir yöntemler gibi bu yolları Şerit, yolları Birleştir ve benzeri için kullanabileceğiniz bir dizi olan bir yardımcı program.
+    `Path` nesnesi, yolları eklemek, yolları birleştirmek, vb. gibi çeşitli yöntemlere sahip bir yardımcı programdır.
 
-    Karşıya yüklenen dosya adını yönettiniz sonra Web sitenize karşıya yüklenen dosya depolamak istediğiniz yeri için yeni bir yol oluşturabilirsiniz. Bu durumda, birleştirerek `Server.MapPath`, klasör adları (*uygulama\_veri/UploadedFiles*) ve yeni bir yol oluşturmak için yeni kesilmiş dosya adı. Karşıya yüklenen dosyanın sonra çağırabilirsiniz `SaveAs` gerçekten dosyayı kaydetmek için yöntemi.
-5. Sayfanın tarayıcıda çalıştırın. 
+    Karşıya yüklenen dosyanın adını aldıktan sonra, karşıya yüklenen dosyayı Web sitenizde depolamak istediğiniz yere yeni bir yol oluşturabilirsiniz. Bu durumda, yeni bir yol oluşturmak için `Server.MapPath`, klasör adlarını (*App\_Data/UploadedFiles*) ve yeni bir dosya adı birleştirmelisiniz. Sonra dosyayı kaydetmek için karşıya yüklenen dosyanın `SaveAs` yöntemini çağırabilirsiniz.
+5. Sayfayı bir tarayıcıda çalıştırın. 
 
-    ![[image]](working-with-files/_static/image7.jpg)
-6. Tıklayın **Gözat** ve karşıya yüklenecek dosyayı seçin. 
+    ![görüntüyle](working-with-files/_static/image7.jpg)
+6. **Araştır** ' a tıklayın ve ardından karşıya yüklenecek dosyayı seçin. 
 
-    ![[image]](working-with-files/_static/image8.jpg)
+    ![görüntüyle](working-with-files/_static/image8.jpg)
 
-    Metin kutusunun yanındaki **Gözat** düğmesi yolu ve dosya konumunu içerir.
+    **Tarayıcı** düğmesinin yanındaki metin kutusu yolu ve dosya konumunu içerir.
 
-    ![[image]](working-with-files/_static/image9.jpg)
+    ![görüntüyle](working-with-files/_static/image9.jpg)
 7. **Karşıya Yükle**'ye tıklayın.
-8. Web sitesi, proje klasörü sağ tıklatın ve ardından **Yenile**.
-9. Açık *UploadedFiles* klasör. Karşıya yüklediğiniz dosyanın, klasöründe bulunur. 
+8. Web sitesinde proje klasörüne sağ tıklayın ve ardından **Yenile**' ye tıklayın.
+9. *UploadedFiles* klasörünü açın. Karşıya yüklediğiniz dosya klasöründe. 
 
-    ![[image]](working-with-files/_static/image10.jpg)
+    ![görüntüyle](working-with-files/_static/image10.jpg)
 
 <a id="Letting_Users_Upload_Multiple_Files"></a>
-## <a name="letting-users-upload-multiple-files"></a>İzin vererek kullanıcılar birden çok dosya yükleme
+## <a name="letting-users-upload-multiple-files"></a>Kullanıcıların birden çok dosyayı karşıya yüklemesine izin verme
 
-Önceki örnekte, bir dosyayı karşıya yüklemeyi kullanıcılar olanak tanır. Ancak, kullanabileceğiniz `FileUpload` aynı anda birden fazla dosya yüklemek için yardımcı. Bu, bir kerede tek bir dosya karşıya yükleme yorucu bir süreç olduğu fotoğrafları karşıya yükleme gibi senaryolar için kullanışlıdır. (Fotoğrafları karşıya yükleme hakkında bilgi edinebilirsiniz [bir ASP.NET Web sayfaları sitesinde görüntülerle çalışma](https://go.microsoft.com/fwlink/?LinkId=202897).) Bu örnek, birden fazla karşıya yükleme için aynı tekniği kullanabilseniz iki bir kerede karşıya kullanıcılara bildirmek üzere nasıl gösterir.
+Önceki örnekte, kullanıcıların bir dosyayı karşıya yüklemesine izin vereceksiniz. Ancak, aynı anda birden fazla dosyayı karşıya yüklemek için `FileUpload` yardımcısını kullanabilirsiniz. Bu, bir kerede bir dosyayı karşıya yüklemek sıkıcı olan fotoğrafları karşıya yükleme gibi senaryolar için kullanışlıdır. ( [ASP.NET Web Pages sitesindeki görüntülerle çalışma](https://go.microsoft.com/fwlink/?LinkId=202897)bölümünde fotoğraf yükleme hakkında bilgi edinebilirsiniz.) Bu örnekte, kullanıcıların aynı anda iki kez karşıya yüklemesine izin vermek gösterilmektedir, ancak aynı tekniği kullanarak daha fazla karşıya yükleme yapabilirsiniz.
 
-1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), henüz yapmadıysanız.
-2. Adlı yeni bir sayfa oluşturun *FileUploadMultiple.cshtml*.
-3. Sayfanın mevcut içeriği aşağıdakiyle değiştirin:  
+1. Henüz yapmadıysanız, [bir ASP.NET Web sayfaları sitesine yardımcılar yükleme](https://go.microsoft.com/fwlink/?LinkId=252372)bölümünde açıklandığı gibi, ASP.NET Web yardımcıları kitaplığı 'nı Web sitenize ekleyin.
+2. *Fileuploadmultiple. cshtml*adlı yeni bir sayfa oluşturun.
+3. Sayfadaki mevcut içeriği aşağıdaki gibi değiştirin:  
 
     [!code-cshtml[Main](working-with-files/samples/sample9.cshtml)]
 
-    Bu örnekte, `FileUpload` yardımcı sayfasının gövdesindeki kullanıcıların iki dosya karşıya yükleme izin vermek için varsayılan olarak yapılandırılır. Çünkü `allowMoreFilesToBeAdded` ayarlanır `true`, Yardımcısı kullanıcı daha fazla karşıya yükleme kutuları Ekle sağlayan bir bağlantı oluşturur:
+    Bu örnekte, sayfanın gövdesindeki `FileUpload` Yardımcısı, kullanıcıların varsayılan olarak iki dosyayı karşıya yüklemesine izin verecek şekilde yapılandırılmıştır. `allowMoreFilesToBeAdded` `true`olarak ayarlandığı için, yardımcı kullanıcının daha fazla karşıya yükleme kutusu eklemesini sağlayan bir bağlantı oluşturur:
 
-    ![[image]](working-with-files/_static/image11.jpg)
+    ![görüntüyle](working-with-files/_static/image11.jpg)
 
-    Kullanıcı yüklemeleri dosyalarını işlemek için kod, önceki örnekte kullanılan aynı temel teknik kullanır &#8212; bir dosyadan al `Request.Files` ve kaydedin. (Çeşitli şeyler de dahil olmak üzere doğru dosya adını ve yolunu almak için gerçekleştirmeniz gereken.) Bu süre yenilik kullanıcı birden çok dosya karşıya yükleme ve birçok bilmiyorum ' dir. Öğrenmek için alabilirsiniz `Request.Files.Count`.
+    Kullanıcının karşıya yükleyen dosyaları işlemek için, kod önceki örnekte &#8212; kullandığınız temel tekniği kullanır `Request.Files` bir dosyayı alır ve sonra kaydeder. (Doğru dosya adını ve yolunu almak için yapmanız gereken çeşitli şeyler dahil.) Bu sefer, kullanıcının birden çok dosyayı karşıya yükleme olabileceği ve pek çok bilginiz olmadığı konusunda yeniliği. Bunu öğrenmek için `Request.Files.Count`alabilirsiniz.
 
-    Bu sayı, el ile döngüye girer `Request.Files`her dosyasını sırayla getirmek ve kaydedin. Bilinen birkaç kez koleksiyonu aracılığıyla döngü istediğinizde, kullanabileceğiniz bir `for` döngü, şöyle:
+    Bu sayıyla birlikte `Request.Files`aracılığıyla döngü yapabilir, her dosyayı sırayla getirebilir ve kaydedebilirsiniz. Bir koleksiyonda bilinen sayıda zaman döngüsü yapmak istediğinizde, şöyle bir `for` döngüsünü kullanabilirsiniz:
 
     [!code-csharp[Main](working-with-files/samples/sample10.cs)]
 
-    Değişken `i` yalnızca sıfırdan ayarladığınız her bir üst sınırı olacak bir geçici sayacı. Bu durumda, üst sınır dosyalarının sayısıdır. Ancak sayacı sıfırda ASP.NET senaryolarda sayım için tipik olan başladığından üst sınırı aslında bir'den küçük dosya sayısı. (Üç dosyayı karşıya yüklenirse, sayısı 2 sıfırdır.)
+    `i` değişkeni, yalnızca sizin ayarladığınız üst sınıra kadar, sıfırdan gidecek geçici bir sayaçtır. Bu durumda, üst sınır dosya sayısıdır. Ancak sayaç sıfırda başladığı için, ASP.NET 'deki sayma senaryolarında genellikle üst sınır dosya sayısından bir küçüktür. (Üç dosya karşıya yüklenirse, sayı sıfırdan 2 ' dir.)
 
-    `uploadedCount` Değişkeni başarıyla yüklenmiş ve kaydedilmiş tüm dosyaları toplar. Bu kod için beklenen bir dosya karşıya yüklenecek mümkün olmayabilir olasılığı hesaplar.
-4. Sayfanın tarayıcıda çalıştırın. Tarayıcı sayfa ve kendi iki yükleme kutularını görüntüler.
+    `uploadedCount` değişkeni başarıyla karşıya yüklenen ve kaydedilen tüm dosyaları toplar. Beklenen bir dosyanın yüklenememe olasılığı nedeniyle bu kod hesapları.
+4. Sayfayı bir tarayıcıda çalıştırın. Tarayıcı, sayfayı ve iki yükleme kutusunu görüntüler.
 5. Karşıya yüklemek için iki dosya seçin.
-6. Tıklayın **başka bir dosyaya ekleme**. Sayfa yeni bir yükleme kutusu görüntüler. 
+6. **Başka bir dosya Ekle**' ye tıklayın. Sayfada yeni bir karşıya yükleme kutusu görüntülenir. 
 
-    ![[image]](working-with-files/_static/image12.jpg)
+    ![görüntüyle](working-with-files/_static/image12.jpg)
 7. **Karşıya Yükle**'ye tıklayın.
-8. Web sitesi, proje klasörü sağ tıklatın ve ardından **Yenile**.
-9. Açık *UploadedFiles* başarıyla karşıya yüklendi dosyaları görmek için klasör.
+8. Web sitesinde proje klasörüne sağ tıklayın ve ardından **Yenile**' ye tıklayın.
+9. Karşıya yüklenen dosyaları başarıyla karşıya görmek için *UploadedFiles* klasörünü açın.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Bir ASP.NET Web sayfaları sitesinde görüntülerle çalışma](https://go.microsoft.com/fwlink/?LinkId=202897)
+[ASP.NET Web Pages sitesindeki görüntülerle çalışma](https://go.microsoft.com/fwlink/?LinkId=202897)
 
-[Bir CSV dosyasına aktarılıyor](https://msdn.microsoft.com/library/ms155919.aspx)
+[CSV dosyasına dışarı aktarma](https://msdn.microsoft.com/library/ms155919.aspx)

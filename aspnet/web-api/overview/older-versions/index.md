@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/index
-title: Belgeleri daha eski sürümlerindeki Web API'si - ASP.NET 4.x
+title: Web API 'sinin eski sürümlerindeki belgeler-ASP.NET 4. x
 author: rick-anderson
-description: ASP.NET Web API'sinin daha eski sürümlerindeki belgelerine 4.x.
+description: ASP.NET 4. x için Web API 'sinin eski sürümlerindeki belgeler.
 ms.author: riande
 ms.date: 10/23/2014
 ms.custom: seoapril2019
@@ -10,15 +10,15 @@ ms.assetid: f5bc7426-27c6-492c-914f-b9d2eb49753d
 msc.legacyurl: /web-api/overview/older-versions
 msc.type: chapter
 ms.openlocfilehash: 9ef642b52d61d7737b37d4499564d71a3bedcd8a
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109110"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78556149"
 ---
-# <a name="documentation-on-older-versions-of-web-api"></a>Web API eski sürümleri ile ilgili belgeler
+# <a name="documentation-on-older-versions-of-web-api"></a>Web API 'sinin eski sürümleriyle ilgili belgeler
 
-> ASP.NET Web API'sinin daha eski sürümlerindeki belgelerine 4.x.
+> ASP.NET 4. x için Web API 'sinin eski sürümlerindeki belgeler.
 
 - [Web API 1'de CRUD İşlemlerini Etkinleştirme](creating-a-web-api-that-supports-crud-operations.md)
 - [ASP.NET Web API 1’i Entity Framework 5 ile Kullanma](using-web-api-1-with-entity-framework-5/index.md)

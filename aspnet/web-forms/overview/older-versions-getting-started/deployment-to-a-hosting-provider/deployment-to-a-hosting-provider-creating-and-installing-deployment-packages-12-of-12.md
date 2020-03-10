@@ -9,11 +9,11 @@ ms.assetid: 3fc23eed-921d-4d46-a610-a2d156e4bd03
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: db8f58e3679e6dea865dadb6f64916032dd9f38c
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74639871"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78528198"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: sorun giderme (12/12)
 
