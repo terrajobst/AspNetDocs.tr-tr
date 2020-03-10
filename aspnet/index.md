@@ -8,11 +8,11 @@ title: ASP.NET Belgeleri
 ms.date: 08/24/2018
 description: ASP.NET ve ASP.NET web uygulamaları geliştirmeyi öğrenin. Belgeler, kod örneği, öğreticiler ve daha fazlasını edinin.
 ms.openlocfilehash: 6309704444d60d42d49c3a8f1683045dc503e761
-ms.sourcegitcommit: cd35be4b25eb05724a5f074214bbdf6573349eda
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161687"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78616426"
 ---
 <!-- markdownlint-disable MD033 -->
 <div id="main" class="v2">
@@ -23,7 +23,7 @@ ms.locfileid: "70161687"
                 <a href="#core">ASP.NET Core</a>
                 <ul id="core">
                     <li>
-                        <a href="#core_overview">Bakýþ</a>
+                        <a href="#core_overview">Genel bakış</a>
                         <ul id="core_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -118,7 +118,7 @@ ms.locfileid: "70161687"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Temeller</h3>
+                                                    <h3>Temel Konular</h3>
                                                     <p>ASP.NET Core’un temellerini öğrenin.</p>
                                                 </div>
                                             </div>
@@ -153,7 +153,7 @@ ms.locfileid: "70161687"
                         </ul>
                     </li>
                     <li>
-                        <a href="#core_tutorials">İzleyin</a>
+                        <a href="#core_tutorials">Öğreticiler</a>
                         <ul id="core_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
@@ -290,7 +290,7 @@ ms.locfileid: "70161687"
                 <a href="#aspnet">ASP.NET</a>
                 <ul id="aspnet">
                     <li>
-                        <a href="#aspnet_overview">Bakýþ</a>
+                        <a href="#aspnet_overview">Genel bakış</a>
                         <ul id="aspnet_overview" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -439,7 +439,7 @@ ms.locfileid: "70161687"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_framework">Çerçeveleri</a>
+                        <a href="#aspnet_framework">Çerçeveler</a>
                         <ul id="aspnet_framework" class="cardsC">
                             <li>
                                 <div class="container intro">
@@ -568,7 +568,7 @@ ms.locfileid: "70161687"
                         </ul>
                     </li>
                     <li>
-                        <a href="#aspnet_tutorials">İzleyin</a>
+                        <a href="#aspnet_tutorials">Öğreticiler</a>
                         <ul id="aspnet_tutorials" class="cardsZ">
                             <li>
                                 <div class="container intro">
