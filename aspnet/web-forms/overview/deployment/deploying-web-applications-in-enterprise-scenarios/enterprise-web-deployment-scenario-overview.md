@@ -1,122 +1,122 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
-title: 'Kurumsal Web Dağıtımı: Senaryoya genel bakış | Microsoft Docs'
+title: 'Kurumsal Web dağıtımı: senaryoya genel bakış | Microsoft Docs'
 author: jrjlee
-description: Bu öğreticiler kümesini ref sağlamak için gerçekçi bir kurgusal kurumsal dağıtım senaryosu ile birlikte bir karmaşıklık düzeyine sahip örnek bir çözüm kullanır...
+description: Bu öğretici kümesi, bir başvuru sağlamak için kurgusal bir kurumsal dağıtım senaryosu ile birlikte gerçekçi karmaşıklık düzeyine sahip örnek bir çözüm kullanır...
 ms.author: riande
 ms.date: 05/03/2012
 ms.assetid: aa862153-4cd8-4e33-beeb-abf502c6664f
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
 ms.openlocfilehash: 9786879844da13c21e6a953b1ab24b29ca8121e2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78574132"
 ---
 # <a name="enterprise-web-deployment-scenario-overview"></a>Kurumsal Web Dağıtımı: Senaryoya Genel Bakış
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu kümesi öğretici örnek bir çözüm gerçekçi bir kurgusal kurumsal dağıtım senaryosu ile birlikte bir karmaşıklık düzeyine sahip bir başvuru uygulaması sağlamak ve görevleri ve izlenecek yollar bir ortak bağlam sağlamak için kullanır. Bu konu, öğretici senaryo açıklar ve örnek bir çözüm sunar.
+> Bu öğretici kümesi, bir başvuru uygulama sağlamak ve görevlere izin vermek ve ortak bir bağlam için izlenecek yollar sağlamak üzere kurgusal bir işletme dağıtım senaryosu ile birlikte gerçekçi karmaşıklık düzeyine sahip örnek bir çözüm kullanır. Bu konuda öğretici senaryosu açıklanmakta ve örnek çözüm tanıtılmaktadır.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Fabrikam, Inc. adlı kurgusal bir şirket iletişim bilgilerini bir web arabiriminden depolanıp uzak satış ekipleri olanak sağlayan bir çözümü oluşturmaktır.
+Kurgusal bir şirket olan Fabrikam, Inc., uzak satış ekiplerinin bir web arabiriminden iletişim bilgilerini depolamasına ve almasına imkan tanıyan bir çözüm oluşturuyor.
 
-Fabrikam, Inc., uygulama yaşam döngüsü yönetimi (ALM) işlemleri için üç sunucu ortamlarında yazılım geliştirme işleminin çeşitli aşamalarda dağıtılan çözümü gerektirir:
+Fabrikam, Inc. konumundaki uygulama yaşam döngüsü yönetimi (ALM) işlemleri, çözümün yazılım geliştirme sürecinin çeşitli aşamalarında üç sunucu ortamına dağıtılmasını gerektirir:
 
-- Bir geliştirici test veya "korumalı alan" ortam.
-- İntranet tabanlı hazırlık ortamı.
-- Internet'e yönelik üretim ortamı.
+- Geliştirici testi veya "Sandbox" ortamı.
+- İntranet tabanlı bir hazırlama ortamıdır.
+- Internet 'e yönelik bir üretim ortamı.
 
-Bu ortamların her birinde farklı yapılandırma ve güvenlik gereksinimleri vardır ve her benzersiz dağıtım zorlukları doğurur.
+Bu ortamların her biri farklı yapılandırma ve güvenlik gereksinimlerine sahiptir ve her biri benzersiz dağıtım zorlukları doğurur.
 
-### <a name="the-fabrikam-inc-server-infrastructure"></a>Fabrikam, Inc. Sunucu altyapısı
+### <a name="the-fabrikam-inc-server-infrastructure"></a>Fabrikam, Inc. Server altyapısı
 
-Fabrikam, Inc.'in en üst düzey geliştirme ve dağıtım altyapısı budur.
+Bu, Fabrikam, Inc. ' deki üst düzey geliştirme ve dağıtım altyapısıdır.
 
 ![](enterprise-web-deployment-scenario-overview/_static/image1.png)
 
-Geliştirici iş istasyonları, kaynak denetimine altyapı, geliştirici test ortamını ve tüm intranet ağ Fabrikam.net etki alanı içinde bulunan bir hazırlık ortamı. İntranet ağ üzerinden bir güvenlik duvarı tarafından ayrılmış olan bir çevre ağındaki (diğer adıyla DMZ, sivil bölge ve denetimli alt ağ), üretim ortamında bulunur. Ortak bir dağıtım senaryosu budur: İç sunucu altyapınızı kullanarak güvenlik duvarı veya ağ geçidi sunucuları'ndan Internet'e yönelik web sunucularınızın yalıtın.
+Geliştirici iş istasyonları, kaynak denetim altyapısı, geliştirici test ortamı ve hazırlama ortamı, Fabrikam.net etki alanındaki intranet ağında bulunur. Üretim ortamı, bir güvenlik duvarı tarafından intranet ağından yalıtılmış bir çevre ağında (DMZ, sivil bölge ve denetimli alt ağ olarak da bilinir) bulunur. Bu, yaygın bir dağıtım senaryosudur: Internet 'e yönelik Web sunucularınızı güvenlik duvarları veya Ağ Geçidi sunucularının kullanımı aracılığıyla iç sunucu altyapınızdan yalıtabilirsiniz.
 
 Bu örnekte:
 
-- Team Foundation Server (TFS) 2010 sunucu ayrı bir yapı sunucusu ile kaynak denetimi ve sürekli tümleştirme (CI) işlevselliği sağlar.
-- Geliştirici test ortamı bir Internet Information Services (IIS) 7.5 web sunucusu ve SQL Server 2008 R2 veritabanı sunucusu içerir.
-- Üretim ortamında, bir SQL Server 2008 R2 veritabanı sunucusu ile birlikte bir Web grubu çerçevesi (WFF) controller sunucusu tarafından eşitlenen birden çok IIS 7.5 web sunucuları içerir. Uygulamada, veritabanı sunucusu kümesi veya yansıtma ölçeklenebilirliği ve kullanılabilirliği geliştirmek için kullanabilir.
-- Hazırlık ortamından üretim ortamının yapılandırması mümkün olduğunca yakın çoğaltmak için tasarlanmıştır.
-- Güvenlik Duvarı ve ağ yalıtımı ilkelerini çevre ağına doğrudan, otomatik dağıtım intranetten izin vermez.
+- Ayrı derleme sunucusuna sahip bir Team Foundation Server (TFS) 2010 sunucusu, kaynak denetimi ve sürekli tümleştirme (CI) işlevselliği sağlar.
+- Geliştirici sınama ortamı bir Internet Information Services (IIS) 7,5 Web sunucusu ve SQL Server 2008 R2 veritabanı sunucusu içerir.
+- Üretim ortamı, bir Web grubu çerçevesi (WFF) denetleyici sunucusu tarafından eşitlenen birden çok IIS 7,5 Web sunucusunu SQL Server 2008 R2 veritabanı sunucusuyla birlikte içerir. Uygulamada veritabanı sunucusu, ölçeklenebilirliği ve kullanılabilirliği geliştirmek için kümeleme veya yansıtma kullanabilir.
+- Hazırlama ortamı, üretim ortamının yapılandırmasını mümkün olduğunca yakından çoğaltmak için tasarlanmıştır.
+- Güvenlik Duvarı ve ağ yalıtımı ilkeleri, intranetten çevre ağına doğrudan, Otomatik dağıtıma izin vermez.
 
-Bu ortamların her birinde yapılandırmasını ikinci öğreticide daha ayrıntılı olarak açıklanan [yapılandırma sunucu ortamlarını Web dağıtımı için](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
+Bu ortamların her birinin yapılandırması, ikinci öğreticide, [Web dağıtımı Için sunucu ortamlarını yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md)konusunda daha ayrıntılı olarak açıklanmıştır.
 
-### <a name="team-roles-for-alm"></a>ALM için ekip rolleri
+### <a name="team-roles-for-alm"></a>ALM için takım rolleri
 
-Bu kullanıcılar, oluşturma, yönetme, oluşturma ve yayımlama Kişi Yöneticisi çözümü ilgilidir:
+Bu kullanıcılar, Contact Manager çözümünü oluşturma, yönetme, derleme ve yayımlama ile ilgilidir:
 
-- Matt Hink Fabrikam, Inc. bir web uygulama geliştiricisi olan He Kişi Yöneticisi çözümü Visual Studio 2010 kullanılarak geliştirilmiş takımın bir parçasıdır. Matt, ona kendi gereksinimlerini karşılamak için ortamı yapılandırmak sağlayan Geliştirici test ortamlarındaki sunucularda tam yönetici haklarına sahip. Kendisi Ayrıca kullanıcı he Kişi Yöneticisi çözümü için kaynak kodu depoladığı Visual Studio 2010 TFS örneği erişebilir.
-- Rob Aksoy Fabrikam, Inc. geliştirme ekibi için Sunucu Yöneticisi ' dir. Böylece yaptığı tüm yönlerini TFS ve Team Build yapılandırabilirsiniz Rob TFS sunucusunda yönetici erişimi olur. Rob ayrıca test ve hazırlama web sunucuları yönetimsel erişim sahibi ve test ve hazırlık ortamları veritabanı sunucuları için veritabanı yöneticisi (DBA) görev yapar. Bu görevleri gerçekleştirmek için TFS sunucusu üzerinde Ekip Rob yapılandırdı:
+- Matt hink, Fabrikam, Inc 'deki bir Web uygulaması geliştiricisiyseniz. Visual Studio 2010 kullanarak Contact Manager çözümünü geliştiren ekibin bir parçasıdır. Matt, geliştirici sınama ortamındaki sunucular üzerinde tam yönetici haklarına sahiptir ve bu sayede ortamı ihtiyaçlarını karşılayacak şekilde yapılandırabilir. Ayrıca, Contact Manager çözümü için kaynak kodu depoladığı Visual Studio 2010 TFS örneğine Kullanıcı erişimi de vardır.
+- Ramiz Walters, Fabrikam, Inc. geliştirme ekibi için bir sunucu yöneticisidir. Ramiz TFS sunucusunda yönetim erişimine sahiptir, böylece TFS ve takım derlemesinin tüm yönlerini yapılandırabilirler. Ramiz Ayrıca test ve hazırlama Web sunucularına yönetim erişimine sahiptir ve test ve hazırlama ortamlarındaki veritabanı sunucuları için veritabanı Yöneticisi (DBA) görevi görür. Ramiz, TFS sunucusunda bu görevleri gerçekleştirmek için takım derlemesini yapılandırdı:
 
-    - Oluşturun ve TFS için bir dosya içinde bir kullanıcı denetimi gerçekleştirildiğinde uygulama üzerinde birim testleri çalıştırın. Bu, CI çağrılır.
-    - Kişi Yöneticisi uygulaması test ortamınıza, uygulama birim testleri başarılı olduktan sonra otomatik olarak dağıtın. Bu, ilk dağıtımdan sonra test sunucularına ilk dağıtımı ile veritabanına herhangi bir güncelleştirme veritabanı yayımlama içerir.
-    - Kişi Yöneticisi uygulamayı tek adımlı işlemde hazırlık ortamına dağıtın.
-    - Web Sunucu Yöneticisi ve DBA üretim ortamına uygulamayı yayımlamak için kullanabileceğiniz bir Web paketi oluşturun.
-- Lisa Andrews sorumlu Fabrikam, Inc.'in üretim sunucularına uygulamaları dağıtmak için Sunucu Yöneticisi ' dir. Kişi Yöneticisi uygulama oluşturur sonra TFS Team Build web dağıtım paketi depoladığı paylaşımına okuma erişimi olan. Kendisi ayrıca o uygulamayı üretim ortamına dağıtabilirsiniz böylece üretim web sunucularına yönetimsel erişim sahibi. Ayrıca, o veritabanı sunucusuna üretim ortamında veritabanları ve veritabanı güncelleştirmeleri dağıtan DBA olarak görev yapar.
+    - Bir Kullanıcı TFS 'ye bir dosyayı her denetlediğinde uygulama üzerinde birim testleri oluşturun ve çalıştırın. Bu, CI olarak adlandırılır.
+    - Uygulama birim testlerini geçtiğinde, Contact Manager uygulamasını test ortamına otomatik olarak dağıtın. Bu, veritabanını ilk dağıtımda test sunucularına ve ilk dağıtımdan sonra veritabanında yapılan tüm güncelleştirmelere yayımlamayı içerir.
+    - Tek adımlı bir işlemde, Contact Manager uygulamasını hazırlama ortamına dağıtın.
+    - Bir Web sunucusu yöneticisinin ve bir DBA 'nın uygulamayı üretim ortamında yayımlayabilmesi için kullanabileceği bir Web paketi oluşturun.
+- Lisa Andrews, Fabrikam, Inc. üretim sunucularına uygulama dağıtmaktan sorumlu bir sunucu yöneticisidir. TFS ekibi derlemesinin, Web dağıtım paketini, Contact Manager uygulamasını yapılandırdıktan sonra depoladığı paylaşıma okuma erişimi vardır. Ayrıca, uygulamayı üretime dağıtabilmesi için üretim Web sunucularına yönetim erişimi de vardır. Ayrıca, üretim ortamındaki veritabanı sunucusuna veritabanları ve veritabanı güncelleştirmeleri dağıtan DBA gibi davranır.
 
 <a id="_The_Contact_Manager"></a>
 
 ### <a name="the-contact-manager-solution"></a>Kişi Yöneticisi Çözümü
 
-Kişi Yöneticisi çözümünü ekleyin ve bir web arabirimi üzerinden iletişim bilgilerini düzenle kayıtlı oturum açmış kullanıcıların, izin vermek için tasarlanmıştır. Kişi Yöneticisi çözümünü dört ayrı ayrı projelerin oluşur:
+Contact Manager çözümü, kayıtlı, oturum açmış kullanıcıların bir Web arabirimi aracılığıyla kişi bilgilerini eklemesini ve düzenlemesini sağlamak üzere tasarlanmıştır. Ilgili kişi Yöneticisi çözümü, dört ayrı projeden oluşur:
 
 ![](enterprise-web-deployment-scenario-overview/_static/image2.png)
 
-- **ContactManager.Mvc**. Çözüm için giriş noktasını temsil eden bir ASP.NET MVC3 web uygulaması projesi budur. Kullanıcıları oluşturma ve kişi ayrıntılarını görüntüleme olanağı sağlama gibi bazı temel web uygulaması işlevselliği sunar. Uygulamanın, kişiler ve kimlik doğrulama ve yetkilendirme yönetmek için bir ASP.NET uygulama hizmetleri veritabanına yönetmek için bir Windows Communication Foundation (WCF) hizmeti kullanır.
-- **ContactManager.Database**. Visual Studio 2010 veritabanı projesi budur. Proje depoları ayrıntıları başvurun bir veritabanı için şema tanımlar.
-- **ContactManager.Service**. Bir WCF web hizmeti projesi budur. WCF kullanıma sunan gerçekleştirin izin veren bir uç nokta oluşturma, alma, güncelleştirme ve silme (CRUD) işlemleri Kişi Yöneticisi veritabanında. Kişi Yöneticisi veritabanı ve ContactManager.Common.dll derleme hizmeti kullanır.
-- **ContactManager.Common**. Bir sınıf kitaplığı projesi budur. Bu derlemede tanımlanan türlerin WCF Hizmeti kullanır.
+- **ContactManager. Mvc**. Bu, çözüm için giriş noktasını temsil eden bir ASP.NET MVC3 Web uygulaması projem. Kullanıcılara kişi ayrıntıları oluşturma ve görüntüleme yeteneği sağlama gibi bazı temel Web uygulaması işlevleri sunar. Uygulama, kimlik doğrulama ve yetkilendirmeyi yönetmek üzere kişileri ve ASP.NET uygulama Hizmetleri veritabanını yönetmek için bir Windows Communication Foundation (WCF) hizmetini kullanır.
+- **ContactManager. Database**. Bu bir Visual Studio 2010 veritabanı projem. Proje, iletişim ayrıntılarını depolayan bir veritabanının şemasını tanımlar.
+- **ContactManager. Service**. Bu bir WCF Web hizmeti projem. WCF, çağıranların Contact Manager veritabanında oluşturma, alma, güncelleştirme ve silme (CRUD) işlemlerini gerçekleştirmesine olanak tanıyan bir uç nokta gösterir. Hizmet, Contact Manager veritabanını ve ContactManager. Common. dll derlemesini kullanır.
+- **ContactManager. Common**. Bu bir sınıf kitaplığı projem. WCF hizmeti bu derlemede tanımlanan türleri kullanır.
 
-Bu serideki ilk öğreticide sağlanan çözüm ve dağıtım gereklilikleri tam bir gözden geçirme [Kurumsal Web dağıtımı](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md).
+Bu serideki ilk öğreticide, [kuruluştaki Web dağıtımıyla](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md)birlikte çözümün ve dağıtım gereksinimlerinin tamamen incelenmesi sağlanır.
 
 <a id="_Deployment_Tasks"></a>
 
 ## <a name="deployment-tasks"></a>Dağıtım görevleri
 
-Büyük bir kuruluş farklı ortamlarda uygulamaların dağıtılmasında kullanılan birkaç farklı görevleri vardır. Öğreticiler kapsayan en önemli görevler şunlardır:
+Büyük bir kuruluştaki farklı ortamlara uygulama dağıtmaya yönelik çeşitli farklı görevler vardır. Bunlar, öğreticilerin kapsaması gereken önemli görevlerdir:
 
 ![](enterprise-web-deployment-scenario-overview/_static/image3.png)
 
-Bu belgede daha önce açıklanan kullanıcı perspektifinden dağıtım işlemindeki her adımın bir listesi aşağıda verilmiştir:
+Bu belgede daha önce açıklanan kullanıcıların perspektifinden dağıtım işlemindeki her adımın bir listesi aşağıda verilmiştir:
 
-1. Tüm takım üyeleri anahtar dağıtım gereksinimleri ve sorunları belirlemek için Visual Studio 2010 Kişi Yöneticisi çözümü gözden geçirin.
-2. Matt Hink, geliştirici test ortamına dağıtım mantığının bir ilk testi yürütmek için geliştirici iş istasyonu doğrudan Kişi Yöneticisi çözümünü dağıtabilirsiniz.
-3. Matt Hink TFS içinde uygulama kaynak denetimine ekler.
-4. Rob Aksoy takım yapısı'nda çeşitli yapı tanımlarını Kişi Yöneticisi çözümü oluşturur. Bir derleme tanımı, yeni kodu bir kullanıcı denetimi gerçekleştirildiğinde çözümü Geliştirici test ortamına dağıtmak için CI kullanır. Başka bir derleme tanımı hazırlık ortamına gerektiği gibi kullanıcıların tetikleyici dağıtımlar sağlar.
-5. Her zaman yeni kod, bir kullanıcı denetler, ekip otomatik olarak çözüm bileşenlerini derlemeler, birim testlerini çalıştırır ve derleme başarılı olduysa Geliştirici test ortamı ve birim testleri geçildi çözümü dağıtır.
-6. Bir kullanıcı bir hazırlık ortamına dağıtım tetiklendiğinde, çözüm paketlenir ve tek adımlı işlemde dağıtılır. Bu işlem ayrıca el ile üretim ortamına dağıtım için bir paket oluşturur.
-7. Lisa Andrews, 6. adımda oluşturduğunuz web paketini el ile içeri aktararak, üretim ortamına uygulamayı dağıtır.
+1. Ekibin tüm üyeleri, temel dağıtım gereksinimlerini ve sorunlarını öğrenmek için Visual Studio 2010 ' deki Contact Manager çözümünü gözden geçirir.
+2. Matt hink, dağıtım mantığının bir başlangıç testini yapmak için doğrudan geliştirici iş istasyonundan geliştirici sınama ortamına kişi Yöneticisi çözümünü dağıtabilir.
+3. Matt hink, uygulamayı TFS 'deki kaynak denetimine ekler.
+4. Ramiz Walters, ekip derlemesinde Ilgili Contact Manager çözümü için çeşitli derleme tanımları oluşturur. Bir derleme tanımı, bir Kullanıcı yeni kodu her denetlediğinde çözümü geliştirici sınama ortamına dağıtmak için CI kullanır. Başka bir derleme tanımı, kullanıcıların hazırlama ortamına gereken dağıtımları gerektiği şekilde tetiklemesine olanak tanır.
+5. Kullanıcı yeni kodu her denetlediğinde, takım derlemesi çözüm bileşenlerini otomatik olarak oluşturur, birim testlerini çalıştırır ve yapı başarılı olduysa ve birim testleri başarılı olursa çözümü geliştirici sınama ortamına dağıtır.
+6. Bir Kullanıcı hazırlama ortamına bir dağıtımı tetiklerse, çözüm paketlenir ve tek adımlı bir işlemde dağıtılır. Bu işlem, üretim ortamına el ile dağıtım için de bir paket oluşturur.
+7. Lisa Andrews, 6. adımda oluşturulan Web paketini el ile içe aktararak uygulamayı üretim ortamına dağıtır.
 
-### <a name="key-deployment-issues"></a>Anahtar Dağıtım sorunları
+### <a name="key-deployment-issues"></a>Anahtar dağıtım sorunları
 
-Kişi Yöneticisi çözümünü ve Fabrikam, Inc. senaryosu, çeşitli genel sorunlar ve karmaşık, Kurumsal ölçekte çözümleri dağıtırken karşılaşabileceğiniz bazı zorluklar vurgulayın. Örneğin:
+Contact Manager çözümü ve Fabrikam, Inc. senaryosunda, karmaşık, kurumsal ölçekte çözümler dağıtırken karşılaşabileceğiniz çeşitli yaygın sorunlar ve güçlükler vurgulanmıştır. Örneğin:
 
-- Geliştirici gibi birden çok ortama projeleri dağıtmak veya test ortamları, platformları ve üretim sunucuları hazırlama gerekir. Çözüm, her ortam için farklı yapılandırma ayarları ile dağıtılması gerekiyor.
-- Tek adımlı ya da otomatikleştirilmiş bir derleme ve dağıtım sürecinin bir parçası olarak aynı anda birden çok bağımlı proje dağıtmanız gerekebilir.
-- Otomatik bir işlemden sürücü dağıtımına olması gerekir. Örneğin, yeni kodu iade edildiğinde bir hazırlık ortamı için web uygulamaları dağıtmak için bir CI işlem kullanmak istiyorsunuz.
-- Geliştiricilerin doğru yapılandırma ayarları veya her bir hedef ortam için gerekli kimlik bilgilerine sahip olasılığının düşük olduğu gibi dağıtım işlemini denetleyen ve dış Visual Studio'dan dağıtım değişkenlerini ayarlamak mümkün olması gerekir.
-- Şema tabanlı veritabanı projeleri dağıtma ve sonraki dağıtımlarda mevcut verilerinizi korumak gerekir.
-- Kullanıcı hesabı verileri dağıtıma gerek kalmadan geçici olarak üyelik veritabanları dağıtma gerekir. Ayrıca, varolan kullanıcı verilerini kaybetmeden dağıtılan üyelik veritabanı şeması güncelleştirmeniz gerekebilir.
-- Çeşitli hedef ortamlara içerik dağıttığınızda, belirli dosyaları veya klasörleri dışlama gerekir.
+- Geliştirici veya test ortamları, hazırlama platformları ve üretim sunucuları gibi birden çok ortama proje dağıtabilmeniz gerekir. Çözümün her ortam için farklı yapılandırma ayarlarıyla dağıtılması gerekir.
+- Tek adımlı veya otomatik derleme ve dağıtım sürecinin bir parçası olarak birden fazla bağımlı projeyi aynı anda dağıtmanız gerekir.
+- Otomatik bir işlemden dağıtım sürücünüzü sağlayabilmeniz gerekir. Örneğin, yeni kod iade edildiğinde bir hazırlama ortamına Web uygulamaları dağıtmak için bir CI işlemi kullanmak istersiniz.
+- Geliştiricilerin, doğru yapılandırma ayarlarına veya her hedef ortam için gerekli kimlik bilgilerine sahip olması olası olduğundan, dağıtım işlemini denetleyebilmeniz ve dağıtım değişkenlerini Visual Studio 'Nun dışında ayarlamanız gerekir.
+- Şema tabanlı veritabanı projelerini dağıtmanız ve sonraki dağıtımlarda mevcut verileri korumanız gerekir.
+- Kullanıcı hesabı verilerini dağıtmadan, üyelik veritabanlarını bir geçici temele göre dağıtmanız gerekir. Ayrıca, mevcut kullanıcı hesabı verilerini kaybetmeden dağıtılan üyelik veritabanlarının şemasını güncelleştirmeniz gerekebilir.
+- Çeşitli hedef ortamlara içerik dağıtırken belirli dosya veya klasörleri hariç bırakmanız gerekir.
 
-Ayrıca, sık ve artımlı güncelleştirmeleri dağıtım yönetirken ek bazı zorluklar oluşturur. Örneğin:
+Bunlara ek olarak, güncelleştirmeler sık sık olduğunda dağıtımı yönetme ve artımlı bazı ek sorunlar oluşturur. Örneğin:
 
-- Yeni kod, bir geliştirici denetler her zaman birim testlerini çalıştırın. Yalnızca kod birim testlerini geçerse çözümü dağıtmak istersiniz.
-- Bir web uygulaması için bir hazırlık veya üretim ortamı dağıttığınızda, kullanıcılara yönlendirmek, istediğiniz bir *uygulama\_offline.htm* dağıtım işlemi süresince dosya.
-- Dağıtım etkinliklerini günlüğe kaydetmek istediğiniz. Dağıtım işlemi, belirtilen alıcılara e-posta bildirimleri başarılı veya başarısız dağıtımlarının göndermesi gerekir.
-- Otomatik bir dağıtım başarısız olursa, dağıtım işlemi geçerli dağıtımı yeniden deneyin veya bunun yerine önceki web paketi dağıtma.
+- Bir geliştirici yeni kodu her denetlediğinde birim testlerini çalıştırırsınız. Çözümü yalnızca kod birim testlerini geçirirse dağıtmak istersiniz.
+- Bir Web uygulamasını bir hazırlık veya üretim ortamına dağıtırken, dağıtım işlemi süresince kullanıcıları *çevrimdışı. htm\_bir uygulamaya* yönlendirmek istersiniz.
+- Dağıtım etkinliklerini günlüğe kaydetmek istiyorsunuz. Dağıtım işlemi, belirlenen alıcılara başarılı veya başarısız dağıtımlara yönelik e-posta bildirimleri göndermelidir.
+- Otomatik bir dağıtım başarısız olursa, dağıtım işlemi geçerli dağıtımı yeniden dener veya bunun yerine önceki Web paketini dağıtmalıdır.
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-web-applications-in-enterprise-scenarios.md)

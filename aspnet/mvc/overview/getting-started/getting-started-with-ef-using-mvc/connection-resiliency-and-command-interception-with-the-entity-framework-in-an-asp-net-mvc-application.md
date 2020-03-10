@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: 'Öğretici: Bağlantı dayanıklılığı ve komut durdurma EF ile bir ASP.NET MVC uygulamasında kullanın.'
+title: 'Öğretici: bir ASP.NET MVC uygulamasında EF ile bağlantı dayanıklılığı ve komut yakalaşmayı kullanın'
 author: tdykstra
-description: Bu öğreticide bağlantı dayanıklılığı ve komut durdurma kullanmayı öğreneceksiniz. Bunlar, Entity Framework 6 iki önemli özellikleri şunlardır.
+description: Bu öğreticide bağlantı dayanıklılığı ve komut yakalaşmayı kullanmayı öğreneceksiniz. Entity Framework 6 ' nın iki önemli özelliği vardır.
 ms.author: riande
 ms.date: 01/22/2019
 ms.topic: tutorial
@@ -10,176 +10,176 @@ ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 276266f8ae9df38529d44742ebe6ac0dc8e79727
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57066384"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583456"
 ---
-# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>Öğretici: Bağlantı dayanıklılığı ve komut durdurma Entity Framework ile bir ASP.NET MVC uygulamasında kullanın.
+# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>Öğretici: bir ASP.NET MVC uygulamasında Entity Framework ile bağlantı dayanıklılığı ve komut yakalaşmayı kullanma
 
-Şu ana kadar uygulamayı yerel olarak IIS Express'te URL'i geliştirme bilgisayarınızda çalışıyor. Gerçek bir uygulamada Internet üzerinden diğer kullanıcılar için kullanılabilir hale getirmek için bir web barındırma sağlayıcısına dağıtmanız ve veritabanı bir veritabanı sunucusuna dağıtmak zorunda.
+Şimdiye kadar uygulama, geliştirme bilgisayarınızda IIS Express yerel olarak çalışıyor. Gerçek bir uygulamayı diğer kişilerin Internet üzerinden kullanmasına olanak sağlamak için, bir Web barındırma sağlayıcısına dağıtmanız ve veritabanını bir veritabanı sunucusuna dağıtmanız gerekir.
 
-Bu öğreticide bağlantı dayanıklılığı ve komut durdurma kullanmayı öğreneceksiniz. Bulut ortamı dağıtıyorsanız, özellikle iki önemli özellikleri Entity Framework 6 oldukları: (geçici hatalar için otomatik yeniden denemeler) bağlantı dayanıklılığı ve komut durdurma (catch veritabanına gönderilen tüm SQL sorguları oturum veya bunları değiştirmek için).
+Bu öğreticide bağlantı dayanıklılığı ve komut yakalaşmayı kullanmayı öğreneceksiniz. Bunlar, bulut ortamına dağıtım yaparken özellikle değerli olan Entity Framework 6 ' nın iki önemli özellikleridir: bağlantı dayanıklılığı (geçici hatalar için otomatik yeniden denemeler) ve komut yakalama (veritabanına gönderilen tüm SQL sorgularını yakala günlüğe kaydetmek veya değiştirmek için).
 
-Bu bağlantı dayanıklılığı ve komut durdurma Öğreticisi isteğe bağlıdır. Bu öğreticiyi atlayabilir, birkaç küçük ayarlamalar sonraki öğreticilerde yapılması gerekecektir.
+Bu bağlantı dayanıklılığı ve komut ele geçirme öğreticisi isteğe bağlıdır. Bu öğreticiyi atlarsanız, sonraki öğreticilerde bazı küçük ayarlamaların yapılması gerekir.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Bağlantı dayanıklılığı etkinleştir
-> * Komut durdurma etkinleştir
+> * Bağlantı dayanıklılığı 'nı etkinleştir
+> * Komut yakalaşmayı etkinleştir
 > * Yeni yapılandırmayı test etme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Sıralama, Filtreleme ve Sayfalama](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
-## <a name="enable-connection-resiliency"></a>Bağlantı dayanıklılığı etkinleştir
+## <a name="enable-connection-resiliency"></a>Bağlantı dayanıklılığı 'nı etkinleştir
 
-Uygulamayı Windows azure'a dağıtırken, bir bulut veritabanı hizmeti Windows Azure SQL veritabanı için veritabanı dağıtacaksınız. Bir bulut veritabanı hizmeti, web sunucunuzun ve veritabanı sunucusuna doğrudan birlikte aynı veri merkezinde bağlı daha bağlandığınızda geçici bağlantı hataları genellikle daha sık. Bir bulut web sunucusu ve bir bulut veritabanı hizmeti, aynı veri merkezinde barındırılan olsa bile, yük Dengeleyiciler gibi sorunlar olabilir bunlar arasında daha fazla ağ bağlantıları vardır.
+Windows Azure 'a uygulamayı dağıttığınızda veritabanını bir bulut veritabanı hizmeti olan Windows Azure SQL veritabanı 'na dağıtırsınız. Bir bulut veritabanı hizmetine bağlandığınızda, Web sunucunuz ve veritabanı sunucunuz aynı veri merkezinde doğrudan birbirine bağlandığında, geçici bağlantı hataları genellikle daha sık kullanılır. Bulut Web sunucusu ve bulut veritabanı hizmeti aynı veri merkezinde barındırılıyorsa bile, aralarında yük dengeleyiciler gibi sorunları oluşabilecek daha fazla ağ bağlantısı vardır.
 
-Ayrıca bir bulut hizmeti vermediğinin onlar tarafından etkilenebilir yani diğer kullanıcılar tarafından genellikle da paylaşılır. Ve ağ kapasitesi azaltmaya tabidir veritabanına erişiminiz olabilir. Daha sık, hizmet düzeyi sözleşmesi (SLA) izin verilenden erişmeyi denediğinizde anlamına gelir azaltma özel durumları veritabanı hizmeti oluşturur.
+Ayrıca, bir bulut hizmeti genellikle diğer kullanıcılar tarafından paylaşılır ve bu da yanıt verme hızı bundan etkilenebilir. Ve veritabanına erişiminiz, azaltma ile ilgili olabilir. Daraltma, veritabanı hizmetinin Hizmet Düzeyi Sözleşmesi (SLA) ' de izin verilenden daha sık erişmeye çalıştığınızda özel durumlar oluşturduğu anlamına gelir.
 
-Bir bulut hizmetine erişirken pek çok ya da çoğu bağlantı sorunları geçici, diğer bir deyişle, bunlar kendilerini kısa sürede çözün. Bu nedenle bir veritabanı işlemi deneyin ve genellikle geçici hata türünü almak kısa bekleyin ve işlemi başarılı olabilir sonra işlemi yeniden çalışabilir. Otomatik olarak yeniden deneyerek geçici hataları işlemek, kullanıcılarınız için bir çok daha iyi bir deneyim sağlayabilirsiniz. bunların çoğu müşteri için görünmez yapma. Entity Framework 6 bağlantı dayanıklılığı özelliğini yeniden deneme işlemi başarısız SQL sorgularının otomatikleştirir.
+Bir bulut hizmetine erişirken bir çok veya en çok bağlantı sorunu geçicidir, diğer bir deyişle, kendilerini kısa bir süre içinde çözer. Bu nedenle, bir veritabanı işlemi deneyip genellikle geçici olan bir hata türü alırsanız, kısa bir bekleme sonrasında işlemi yeniden deneyebilir ve işlem başarılı olabilir. Otomatik olarak yeniden deneyerek geçici hataları idare ediyorsanız kullanıcılarınız için çok daha iyi bir deneyim sağlayabilirsiniz ve bunların çoğunu müşterinin üzerinde görünmez hale getirebilirsiniz. Entity Framework 6 ' daki bağlantı dayanıklılığı özelliği, başarısız olan SQL sorgularını yeniden deneme sürecini otomatikleştirir.
 
-Bağlantı dayanıklılığı özelliğini belirli bir veritabanı hizmeti için uygun şekilde yapılandırılması gerekir:
+Bağlantı dayanıklılığı özelliğinin belirli bir veritabanı hizmeti için uygun şekilde yapılandırılması gerekir:
 
-- Bu, hangi özel durumları geçici bilmesi gerekir. Ağ bağlantısı altında geçici bir kaybına neden hataları göre program hatalar, örneğin neden hataları yeniden denemek istiyor.
-- Uygun miktarda bir başarısız bir işlemin yeniden denemeler arasındaki süre beklemeniz gerekir. Bir kullanıcının yanıt burada bekleyen bir çevrimiçi web sayfası için daha uzun bir toplu işlem için yeniden denemeler arasındaki bekleyebilirsiniz.
-- Uygun sayıda vazgeçmeden önce bir kez denemeye sahiptir. Çevrimiçi bir uygulamada yaptığınız bir toplu işlemde birden fazla kez yeniden denemek isteyebilirsiniz.
+- Hangi özel durumların geçici olma olasılığı olduğunu bilmelidir. Örneğin, program hatalarının neden olduğu hataları değil, ağ bağlantısında geçici bir kayıp oluşmasına neden olan hataları yeniden denemek istiyorsunuz.
+- Başarısız bir işlemin yeniden denemeleri arasında uygun bir süre beklemek zorunda olur. Bir toplu işlem için yeniden denemeler arasında, kullanıcının yanıt beklediği bir çevrimiçi Web sayfası için daha uzun sürebilir.
+- Daha önce uygun sayıda yeniden denemek zorunda olur. Çevrimiçi bir uygulamada yaptığınız bir toplu işlemde daha fazla kez yeniden denemek isteyebilirsiniz.
 
-Bu ayarları el ile bir Entity Framework sağlayıcısı tarafından desteklenen her veritabanı ortam yapılandırabilirsiniz, ancak genellikle Windows Azure SQL veritabanı kullanan iyi bir çevrimiçi uygulama için çalışma varsayılan değerleri zaten yapılandırılmış olması, ve Bu, Contoso University uygulamayı uygulayacaksınız ayarlarıdır.
+Bu ayarları bir Entity Framework sağlayıcısı tarafından desteklenen herhangi bir veritabanı ortamı için el ile yapılandırabilirsiniz, ancak genellikle Windows Azure SQL veritabanı 'nı kullanan bir çevrimiçi uygulama için iyi çalışan varsayılan değerler sizin için zaten yapılandırılmıştır ve Bunlar, Contoso Üniversitesi uygulaması için uyguladığınız ayarlardır.
 
-Tüm bağlantı dayanıklılığı etkinleştirmek için yapmanız gereken olan Oluştur bir sınıf türetildiği derlemenizi [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) sınıfı ve bu sınıfta SQL veritabanı kümesi *yürütme stratejisi*, EF olduğu bir sonraki dönem için *yeniden deneme ilkesi*.
+Bağlantı dayanıklılığı 'nı etkinleştirmek için yapmanız gereken, derlemenizin [DBConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) sınıfından türetilen bir sınıf oluşturur ve bu SıNıFTA, EF içinde, *yeniden deneme ilkesi*için başka bir terim olan SQL veritabanı *yürütme stratejisi*ayarlanır.
 
-1. DAL klasöründe adlı bir sınıf dosyası ekleyin *SchoolConfiguration.cs*.
+1. DAL klasöründe, *SchoolConfiguration.cs*adlı bir sınıf dosyası ekleyin.
 2. Şablon kodunu aşağıdaki kodla değiştirin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework otomatik olarak bulur, türetilen bir sınıf içinde kod çalıştırır `DbConfiguration`. Kullanabileceğiniz `DbConfiguration` Aksi takdirde yaptığınız kod yapılandırma görevlerini yapmak için sınıf *Web.config* dosya. Daha fazla bilgi için [EntityFramework kod tabanlı yapılandırma](https://msdn.microsoft.com/data/jj680699).
-3. İçinde *StudentController.cs*, ekleme bir `using` bildirimi `System.Data.Entity.Infrastructure`.
+    Entity Framework, bulduğu kodu `DbConfiguration`türetilen bir sınıfta otomatik olarak çalıştırır. *Web. config* dosyasında istemediğiniz koddaki yapılandırma görevlerini yapmak için `DbConfiguration` sınıfını kullanabilirsiniz. Daha fazla bilgi için bkz. [EntityFramework kod tabanlı yapılandırma](https://msdn.microsoft.com/data/jj680699).
+3. *StudentController.cs*' de, `System.Data.Entity.Infrastructure`için `using` bir ifade ekleyin.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
-4. Tüm değişiklik `catch` engeller, catch `DataException` özel durumları böylece bunlar catch `RetryLimitExceededException` özel durumlar yerine. Örneğin:
+4. Onun yerine `RetryLimitExceededException` özel durumları yakalayabilmeleri için, `DataException` özel durumlarını yakalayacak tüm `catch` bloklarını değiştirin. Örneğin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs?highlight=1)]
 
-    Kullanmakta olduğunuz `DataException` kolay bir "deneyin" iletisi vermek için geçici olabilecek hataları belirlemeye çalışır. Ancak bir yeniden deneme ilkesi etkinleştirdiyseniz, yalnızca hatalar geçici zaten alınan çalıştı ve birkaç kez başarısız oldu ve döndürülen özel durumu içinde sarmalanmış `RetryLimitExceededException` özel durum.
+    Kolay bir "yeniden dene" iletisi vermek için geçici olabilecek hataları belirlemeyi denemek üzere `DataException` kullanıyorsunuz. Ancak artık bir yeniden deneme ilkesi açtığınızdan, geçici olma olasılığı olan tek hatalar zaten denenir ve birkaç kez başarısız olur ve döndürülen gerçek özel durum `RetryLimitExceededException` özel durumuna kaydırılır.
 
-Daha fazla bilgi için [Entity Framework bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835).
+Daha fazla bilgi için bkz. [Entity Framework bağlantı dayanıklılığı/yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835).
 
-## <a name="enable-command-interception"></a>Komut durdurma etkinleştir
+## <a name="enable-command-interception"></a>Komut yakalaşmayı etkinleştir
 
-Nasıl bir yeniden deneme ilkesi etkinleştirdiyseniz, beklendiği gibi çalışıp çalışmadığını doğrulamak için test? Geçici bir hata meydana gelmesine özellikle ne zaman yerel olarak çalıştırıyorsanız, ve gerçek geçici hatalar bir otomatik birim testine tümleştirmek özellikle zor zorlamak çok kolay değildir. Bağlantı dayanıklılığı özelliğini test etmek için SQL Server için Entity Framework gönderen sorguları kesecek ve SQL Sunucu yanıtı genellikle geçici bir özel durum türüyle değiştirin. bir yol gerekir.
+Bir yeniden deneme ilkesi açtığınızdan, bunun beklendiği gibi çalıştığını doğrulamak için nasıl test edersiniz? Özellikle yerel olarak çalıştırdığınız sırada geçici bir hata oluşmasını zorlamak çok kolay olur ve gerçek geçici hataları otomatik bir birim testi olarak tümleştirmeniz özellikle zordur. Bağlantı dayanıklılığı özelliğini sınamak için, Entity Framework SQL Server gönderdiği sorguları ve genellikle geçici olan bir özel durum türü ile SQL Server yanıtını değiştirmek için bir yol gerekir.
 
-Bulut uygulamaları için en iyi uygulama uygulamak için sorgu durdurma de kullanabilirsiniz: [gecikme süresi ve başarı veya başarısızlık dış hizmetlere yapılan tüm çağrıların oturum](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) veritabanı hizmetleri gibi. EF6 sağlayan bir [günlüğe kaydetme API'si ayrılmış](https://msdn.microsoft.com/data/dn469464) kolaylaştırmak günlük kaydı yapmak, ancak öğreticinin bu bölümünde Entity Framework'ün kullanmayı öğreneceksiniz [durdurma özelliği](https://msdn.microsoft.com/data/dn469464) doğrudan, hem oturum açma ve geçici hataları benzetimi.
+Bulut uygulamaları için en iyi yöntemi uygulamak üzere sorgu yakalamanın de kullanabilirsiniz: veritabanı hizmetleri gibi [dış hizmetlere yapılan tüm çağrıların gecikmesini ve başarısını günlüğe kaydedin](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) . EF6, günlüğü daha kolay hale getirmek için bir [adanmış günlüğe kaydetme API 'si](https://msdn.microsoft.com/data/dn469464) sağlar, ancak öğreticinin bu bölümünde, hem günlüğe kaydetme hem de geçici hataların benzetimini yapmak için Entity Framework [ele geçirme özelliğini](https://msdn.microsoft.com/data/dn469464) nasıl kullanacağınızı öğreneceksiniz.
 
-### <a name="create-a-logging-interface-and-class"></a>Günlük arabirim ve sınıf oluşturma
+### <a name="create-a-logging-interface-and-class"></a>Günlüğe kaydetme arabirimi ve sınıfı oluşturma
 
-A [açısından en iyisi günlüğe kaydetme için](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) bir arabirim kullanarak yapmak için System.Diagnostics.Trace veya günlük sınıfı çağrı sabit kodlama yerine. Bu günlük mekanizma daha sonra yapmanız gereken değiştirmeyi kolaylaştırır. Bu bölümde günlüğe kaydetme arabirimi ve onu/p uygulamak için bir sınıf oluşturacaksınız böylece >
+[Günlüğe kaydetme için en iyi yöntem](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) , System. Diagnostics. Trace 'e veya bir günlük sınıfına yapılan Sabit kodlama yerine bir arabirim kullanarak bunu gerçekleştirmelidir. Bu, daha sonra bunu yapmanız gerekiyorsa, daha sonra günlüğe kaydetme mekanizmanızı değiştirmeyi kolaylaştırır. Bu bölümde, günlük arabirimini ve bunu uygulamak için bir sınıf oluşturacaksınız./p >
 
-1. Projeye bir klasör oluşturun ve adlandırın *günlüğü*.
-2. İçinde *oturum* klasöründe adlı bir sınıf dosyası oluşturma *ILogger.cs*, şablonu kodu aşağıdaki kodla değiştirin:
+1. Projede bir klasör oluşturun ve *günlüğe kaydetme*adını yazın.
+2. *Günlüğe kaydetme* klasöründe *ILogger.cs*adlı bir sınıf dosyası oluşturun ve şablon kodunu şu kodla değiştirin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs)]
 
-    Günlükleri göreceli önemini gösteren üç izleme düzeyi ve veritabanı sorguları gibi dış hizmet çağrıları için gecikme bilgileri sağlamak üzere tasarlanmış bir arabirim sağlar. Günlük yöntemlerini bir özel durum geçirmenize olanak tanıyan aşırı yüklemeleri vardır. Bu, böylelikle yığın izlemesi ve iç özel durumlar dahil olmak üzere özel durum bilgileri, her günlük yöntem çağrısının uygulama boyunca gerçekleştirilen güvenmek yerine arabirimini uygulayan bir sınıf tarafından güvenilir bir şekilde günlüğe kaydedilir.
+    Arabirim, günlüklerin göreli önemini belirtmek için üç izleme düzeyi sağlar ve bir diğeri de veritabanı sorguları gibi dış hizmet çağrıları için gecikme bilgilerini sağlamak üzere tasarlanmıştır. Günlüğe kaydetme yöntemlerinin bir özel durum iletmenizi sağlayan aşırı yüklemeleri vardır. Bu, yığın izleme ve iç özel durumlar dahil olmak üzere özel durum bilgilerinin, uygulama genelinde her günlük yöntemi çağrısında yapılmak yerine, arabirimini uygulayan sınıf tarafından güvenilir bir şekilde günlüğe kaydedilmesini sağlar.
 
-    TraceApi yöntemleri, her SQL veritabanı gibi bir dış hizmete çağrı gecikme süresini izlemenize olanak sağlar.
-3. İçinde *oturum* klasöründe adlı bir sınıf dosyası oluşturma *Logger.cs*, şablonu kodu aşağıdaki kodla değiştirin:
+    Traceapı yöntemleri, SQL veritabanı gibi bir dış hizmete yapılan her çağrının gecikmesini izlemenize olanak sağlar.
+3. *Günlüğe kaydetme* klasöründe *Logger.cs*adlı bir sınıf dosyası oluşturun ve şablon kodunu şu kodla değiştirin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample5.cs)]
 
-    Uygulaması, System.Diagnostics izleme yapmak için kullanır. Bu izleme bilgilerini oluşturup kolaylaştıran .NET yerleşik bir özelliğidir. "Çok sayıda dinleyiciler, System.Diagnostics izleme ile dosyalara, örneğin, günlükleri yazmak için veya Azure blob depolamada yazmak için kullanabilirsiniz" vardır. Bazı seçenekler ve daha fazla bilgi için diğer kaynakların bağlantılarını görmek [Visual Studio'da Azure Web sitelerinin sorunlarını giderme](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio). Bu öğreticide, yalnızca bakın Visual Studio'da günlüklerini için **çıkış** penceresi.
+    Uygulama, izlemeyi yapmak için System. Diagnostics 'i kullanır. Bu, izleme bilgilerini oluşturmayı ve kullanmayı kolaylaştıran .NET 'in yerleşik bir özelliğidir. Dosyaları dosyalara yazmak, örneğin veya Azure 'daki blob depolamaya yazmak için System. Diagnostics izleme ile kullanabileceğiniz birçok "dinleyici" vardır. [Visual Studio 'Da Azure Web siteleri sorunlarını giderme](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio)konusunda daha fazla bilgi için bazı seçeneklere ve diğer kaynakların bağlantılarına bakın. Bu öğreticide yalnızca Visual Studio **çıktı** penceresinde günlüklere bakacaksınız.
 
-    Bir üretim uygulamasında dışında System.Diagnostics izleme paketleri düşünmek isteyebilirsiniz ve ILogger arabirimi oldukça farklı bir izleme mekanizması bunu karar verirseniz anahtar kolaylaştırır.
+    Bir üretim uygulamasında System. Diagnostics dışındaki paketleri izlemeyi düşünebilirsiniz ve ILogger arabirimi, bunu yapmayı seçerseniz, farklı bir izleme mekanizmasına daha kolay geçiş yapmayı tercih edebilir.
 
-### <a name="create-interceptor-classes"></a>Dinleyiciyi sınıfları oluşturma
+### <a name="create-interceptor-classes"></a>Yakalayıcısı sınıfları oluşturma
 
-Ardından veritabanı, geçici hataların benzetimini yapmak için tek ve günlük kaydı yapmak için tek bir sorgu göndermek için gittiği her zaman Entity Framework içine çağıracak sınıfları oluşturacaksınız. Bu dinleyiciyi sınıfların türetilmesi gerekir `DbCommandInterceptor` sınıfı. Bunları sorgu çalıştırılmak üzere olduğunda otomatik olarak adlandırılır yöntemi geçersiz kılmalar yazın. Bu yöntemleri inceleyin veya veritabanına gönderilen sorgu günlük ve veritabanına gönderilmeden önce sorguyu değiştirin ya da bir şey için Entity Framework kendiniz sorgu dahi veritabanına geçmeden döndürür.
+Daha sonra, bir sorgu veritabanına her gönderilirken, biri geçici hataların benzetimini yapmak ve bir günlüğe kaydetmek için bir sorgu göndermek üzere Entity Framework sınıfları oluşturacaksınız. Bu yakalayıcısı sınıfları `DbCommandInterceptor` sınıfından türetilmelidir. Bunlar içinde, sorgu yürütülene kadar otomatik olarak çağrılan yöntem geçersiz kılmaları yazarsınız. Bu yöntemlerde veritabanına gönderilen sorguyu inceleyebilir veya günlüğe kaydedebilir ve sorguyu veritabanına geçirmeden bile veritabanını veritabanına gönderilmeden önce değiştirebilir veya Entity Framework kendinize geri dönebilme sağlayabilirsiniz.
 
-1. Veritabanına gönderilen her bir SQL sorgusu başlar.SSH dinleyiciyi sınıfı oluşturmak için adlı bir sınıf dosyası oluşturma *SchoolInterceptorLogging.cs* içinde *DAL* klasör ve şablon kod ile değiştirin Aşağıdaki kodu:
+1. Veritabanına gönderilen her SQL sorgusunu günlüğe alacak olan yakalayıcıyı sınıfını oluşturmak için, *dal* klasöründe *SchoolInterceptorLogging.cs* adlı bir sınıf dosyası oluşturun ve şablon kodunu şu kodla değiştirin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.cs)]
 
-    Başarılı sorguları veya komutlar için bu kod gecikme süresi bilgileriyle bir bilgi günlüğüne yazar. Özel durumlar için bir hata günlüğü oluşturur.
-2. "Durum" girdiğinizde işlevsiz geçici hatalar oluşturur dinleyiciyi sınıf oluşturmak için **arama** kutusunda, adlı bir sınıf dosyası oluşturma *SchoolInterceptorTransientErrors.cs* içinde*DAL* klasör ve şablon kodunu aşağıdaki kodla değiştirin:
+    Başarılı sorgular veya komutlar için bu kod, gecikme bilgilerine sahip bir bilgi günlüğü yazar. Özel durumlar için bir hata günlüğü oluşturur.
+2. **Arama** kutusuna "Throw" girerken işlevsiz geçici hatalar üreten bir şifre veren sınıfı oluşturmak Için, *dal* klasöründe *SchoolInterceptorTransientErrors.cs* adlı bir sınıf dosyası oluşturun ve şablon kodunu şu kodla değiştirin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample7.cs)]
 
-    Bu kod yalnızca geçersiz kılma `ReaderExecuting` birden çok veri satırlarını döndüren sorgular için çağrılan yöntem. Diğer sorgu türleri için bağlantı dayanıklılığı denetlemek isterseniz, ayrıca geçersiz `NonQueryExecuting` ve `ScalarExecuting` yöntemleri günlük dinleyiciyi yapar.
+    Bu kod yalnızca birden fazla veri satırı döndürebilen sorgular için çağrılan `ReaderExecuting` yöntemini geçersiz kılar. Diğer sorgu türleri için bağlantı dayanıklılığını denetlemek isterseniz, günlük kaydı yakalayıcısı sırasında `NonQueryExecuting` ve `ScalarExecuting` yöntemleri de geçersiz kılabilirsiniz.
 
-    Öğrenci çalıştırırsanız ve "Durum" arama dizesini girin, bu kod hata sayısı 20'li genellikle geçici olarak bilinen bir tür için işlevsiz bir SQL veritabanı özel durumu oluşturur. Şu anda geçici kabul edilen diğer hata numaralarını 64, 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 ve 40613, ancak bu SQL veritabanı'nın yeni sürümlerinde değiştirilebilir.
+    Öğrenci sayfasını çalıştırdığınızda ve arama dizesi olarak "Throw" girdiğinizde bu kod, genellikle geçici olarak bilinen bir tür olan 20 hata numarası için bir kukla SQL veritabanı özel durumu oluşturur. Şu anda geçici olarak tanınan diğer hata numaraları 64, 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 ve 40613 ' dir, ancak bunlar SQL veritabanı 'nın yeni sürümlerindeki değişikliğe tabidir.
 
-    Sorgu çalıştırmak ve arka sorgu sonuçları geçirme yerine Entity Framework özel durum kodu döndürür. Dört kez geçici özel durum döndürülür ve kodun sorgu veritabanına geçirme normal yordama geri döner.
+    Kod, sorguyu çalıştırmak ve sorgu sonuçlarını geri geçirmek yerine Entity Framework özel durumu döndürür. Geçici durum dört kez döndürülür ve sonra kod, sorguyu veritabanına geçirmenin normal yordamına geri döner.
 
-    Her şeyi açmış olduğu için son başarılı önce dört kez sorguyu yürütmek Entity Framework çalışır ve uygulamadaki tek fark, sorgu sonuçlarını içeren bir sayfa işlemek için daha uzun sürer görmek mümkün olacaktır.
+    Her şey günlüğe kaydedildiği için Entity Framework, son başarılı olmadan önce sorguyu dört kez yürütmeye çalıştığını ve uygulamadaki tek fark, sorgu sonuçlarıyla bir sayfanın işlenmesine daha uzun sürmelecektir.
 
-    Entity Framework yeniden denenme sayısı yapılandırılabilir; SQL veritabanı yürütme ilkesi için varsayılan değer olduğundan kod dört kez belirtir. Yürütme ilkesini değiştirirseniz, geçici hataları oluşturulan kaç kez belirten kodunu buraya de değişiklik gerekmektedir. Entity Framework atar, böylece daha fazla özel durum oluşturmak için kod da değiştirebilir `RetryLimitExceededException` özel durum.
+    Entity Framework kaç kez yeniden deneneceğini yapılandırılabilir; kod, SQL veritabanı yürütme ilkesi için varsayılan değer olan dört kez belirtilir. Yürütme ilkesini değiştirirseniz, geçici hataların kaç kez oluşturulduğunu belirten kodu burada da değiştirirsiniz. Ayrıca, Entity Framework `RetryLimitExceededException` özel durumu oluşturması için daha fazla özel durum oluşturmak üzere kodu değiştirebilirsiniz.
 
-    Arama kutusuna girdiğiniz değer olacaktır `command.Parameters[0]` ve `command.Parameters[1]` (bir kullanılan ad ve soyadı için). "% Throw % değerini" bulunduğunda, böylece bazı Öğrenciler bulunan ve döndürülen "Durum" Bu parametreleri "bir" değiştirilir.
+    Arama kutusuna girdiğiniz değer `command.Parameters[0]` ve `command.Parameters[1]` (biri ad ve soyadı için kullanılır) olacaktır. "% Throw%" değeri bulunursa, bazı öğrencilerin bulunması ve döndürülmesi için bu parametrelerde "Throw" değiştirilmiştir.
 
-    Bu uygulama kullanıcı Arabirimi için bir girdiyi değişen dayalı bağlantı dayanıklılığı test etmek için yalnızca bir yoludur. Tüm sorguları veya güncelleştirmeleri, geçici hatalar oluşturan kod hakkında yorumlar bölümünde açıklandığı gibi yazabilirsiniz *DbInterception.Add* yöntemi.
-3. İçinde *Global.asax*, aşağıdaki `using` ifadeleri:
+    Bu, uygulama kullanıcı arabirimine bazı girişlerin değiştirilmesine göre bağlantı dayanıklılığı test etmenin kolay bir yoludur. Ayrıca, daha sonra *Dbyakacu. Add* yöntemi hakkındaki açıklamalarda açıklandığı gibi tüm sorgular veya güncelleştirmeler için geçici hatalar üreten bir kod yazabilirsiniz.
+3. *Global. asax*dosyasında aşağıdaki `using` deyimlerini ekleyin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
-4. Vurgulanan satırları ekleyin `Application_Start` yöntemi:
+4. Vurgulanan satırları `Application_Start` yöntemine ekleyin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs?highlight=7-8)]
 
-    Bu kod satırlarını ne Entity Framework veritabanı için sorgu gönderdiğinde çalıştırılacak dinleyiciyi kodunuzu neden olan. Geçici bir hata simülasyonu için ayrı dinleyiciyi sınıfları oluşturduğunuz ve günlüğe kaydetme, ayrı ayrı etkinleştirebilir ve devre dışı olduğundan dikkat edin.
+    Bu kod satırları, Entity Framework sorguları veritabanına gönderdiğinde, yakacının kodun çalışmasına neden olur. Geçici hata benzetimi ve günlüğe kaydetme için ayrı yakalayıcısı sınıfları oluşturduğunuza göre, bunları bağımsız olarak etkinleştirip devre dışı bırakabildiğinize dikkat edin.
 
-    Kullanarak dinleyicileri ekleyebilirsiniz `DbInterception.Add` yöntemi kodunuzu; herhangi bir yerindeki olması gerekmez `Application_Start` yöntemi. Başka bir seçenek, bu kod yürütme ilkesini yapılandırmak için daha önce oluşturduğunuz DbConfiguration sınıfında eklemektir.
+    Kodlarınızın herhangi bir yerinden `DbInterception.Add` yöntemini kullanarak yakalayıcılar ekleyebilirsiniz; `Application_Start` yönteminde olması gerekmez. Diğer bir seçenek de, yürütme ilkesini yapılandırmak için daha önce oluşturduğunuz DbConfiguration sınıfına bu kodu koymaktır.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs?highlight=6-7)]
 
-    Her yerde olması dikkat edin yürütmek için bu kod put `DbInterception.Add` aynı dinleyiciyi için birden çok kez veya ek dinleyiciyi örnekleri elde edersiniz. Örneğin, günlük dinleyiciyi iki kez eklerseniz, her SQL sorgusu için iki günlüklerini görürsünüz.
+    Bu kodu yerleştirdiğiniz her yerde, aynı dinleyici için `DbInterception.Add` birden çok kez yürütmemeye dikkat edin ya da ek dinleyici örnekleri alırsınız. Örneğin, günlüğe kaydetme yakalayıcısını iki kez eklerseniz, her SQL sorgusu için iki günlük görürsünüz.
 
-    Kesiciler, kayıt sırasına göre yürütülür (sırayı `DbInterception.Add` yöntemi çağrılır). Sipariş dinleyiciyi içinde yaptığınız işlemlere bağlı olarak önemli. Örneğin, bir dinleyiciyi alır, SQL komut değişebilir `CommandText` özelliği. SQL komutu değiştirirseniz, sonraki dinleyiciyi değiştirilen SQL komutu, not özgün SQL komut alırsınız.
+    Yakalayıcılar kayıt sırasında (`DbInterception.Add` yönteminin çağrıldığı sıra) yürütülür. Sipariş, yakalayıcıyı ne yaptığınıza bağlı olarak değişebilir. Örneğin, bir dinleyici, `CommandText` özelliğinde aldığı SQL komutunu değiştirebilir. SQL komutunu değiştirmezse, sonraki dinleyici özgün SQL komutuna değil değiştirilmiş SQL komutunu alır.
 
-    Geçici hatalar kullanıcı Arabiriminde farklı bir değer girerek neden olanak tanır şekilde, geçici hata benzetimi kodu yazdığınız. Alternatif olarak, her zaman belirli bir parametre için denetlemeden geçici özel durumlar dizisi oluşturmak için dinleyiciyi kod yazabilirsiniz. Yalnızca geçici hataları oluşturmak istediğinizde dinleyiciyi sonra ekleyebilirsiniz. Ancak, veritabanı başlatma tamamlandıktan sonra bunu yaparsanız, dinleyiciyi kadar eklemeyin. Diğer bir deyişle, geçici hatalar üretme başlamadan önce varlık kümelerini birinde bir sorgu gibi en az bir veritabanı işlemi yapın. Entity Framework, veritabanı başlatma sırasında çeşitli sorguları yürütür ve başlatma sırasında hatalar tutarsız bir duruma geçmesine alınacak bağlam neden olabilir, bu işlem, yürütülen değildir.
+    Geçici hata benzetim kodunu, Kullanıcı arabirimine farklı bir değer girerek geçici hatalara neden olmanızı sağlayan bir şekilde yazmış oldunuz. Alternatif olarak, belirli bir parametre değerini denetlemeden geçici özel durumların sırasını her zaman oluşturmak için yakalayıcısı kodunu yazabilirsiniz. Daha sonra, yalnızca geçici hatalar oluşturmak istediğinizde, yakalayıcıyı ekleyebilirsiniz. Ancak bunu yaparsanız, veritabanının başlatılması tamamlanana kadar yakalayıcıyı eklemeyin. Diğer bir deyişle, geçici hatalar oluşturmaya başlamadan önce varlık kümelerinizin birinde sorgu gibi en az bir veritabanı işlemi yapın. Entity Framework, veritabanı başlatma sırasında birkaç sorgu yürütür ve bir işlem içinde yürütülmemişse, başlatma sırasında oluşan hatalar bağlamın tutarsız bir duruma gelmesine neden olabilir.
 
 ## <a name="test-the-new-configuration"></a>Yeni yapılandırmayı test etme
 
-1. Tuşuna **F5** uygulamayı hata ayıklama modunda çalıştırın ve ardından **Öğrenciler** sekmesi.
-2. Konum Visual Studio **çıkış** izleme çıktısını görmek için penceresi. Yukarı doğru ilerleyin, Günlükçü tarafından yazılan günlükleri almak için bazı JavaScript hataları geçmiş gerekebilir.
+1. **F5** tuşuna basarak uygulamayı hata ayıklama modunda çalıştırın ve ardından **öğrenciler** sekmesine tıklayın.
+2. İzleme çıktısını görmek için Visual Studio **çıktı** penceresine bakın. Günlükçüizin tarafından yazılan günlüklere ulaşmak için bazı JavaScript hatalarının ölçeğini kaydırarak ilerleyemeyebilirsiniz.
 
-    Veritabanına gönderilen gerçek SQL sorguları gördüğünüz dikkat edin. Bazı ilk sorgular ve veritabanı sürüm denetimi kullanmaya başlamak için Entity Framework mu komutları ve geçiş geçmiş tablosu (sonraki öğreticide geçişleri hakkında öğreneceksiniz) görürsünüz. Sayfalama vardır, kaç Öğrenciler bulmak için bkz ve son olarak, Öğrenci verilerinin alır sorgu görürsünüz.
+    Veritabanına gönderilen gerçek SQL sorgularını görebildiğine dikkat edin. Kullanmaya başlamak için Entity Framework ilk sorgu ve komutları görürsünüz, veritabanı sürümü ve geçiş geçmişi tablosu denetleniyor (sonraki öğreticide geçişler hakkında bilgi edineceksiniz). Ayrıca, kaç öğrencinin olduğunu öğrenmek için disk belleği sorgusu, son olarak da öğrenci verilerini alan sorguyu görürsünüz.
 
-    ![Normal bir sorgu için günlüğe kaydetme](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-3. İçinde **Öğrenciler** sayfasında, "Durum" arama dizesini girin ve tıklayın **arama**.
+    ![Normal sorgu için günlüğe kaydetme](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+3. **Öğrenciler** sayfasında, arama dizesi olarak "Throw" yazın ve **Ara**' ya tıklayın.
 
-    ![Arama dizesi oluşturur](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+    ![Throw arama dizesi](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-    Tarayıcısı Entity Framework, sorgu birkaç kez deniyor sırasında birkaç saniye kilitlenmesine gibi görünüyor fark edeceksiniz. Çok hızlı bir şekilde ilk yeniden deneme bekleme önce her bir ek yeniden denemeden önce arttıkça sonra gerçekleşir. Bu işlemi her yeniden deneme çağrılmadan önce artık bekleyen *üstel geri alma*.
+    Entity Framework sorguyu birkaç kez yeniden denenirken tarayıcının birkaç saniye boyunca askıda olduğunu fark edeceksiniz. İlk yeniden deneme çok hızlı gerçekleşir ve sonra her ek yeniden denemeden önce beklenecek kadar bekler. Her yeniden denemeden önce daha uzun süre bekleme işlemi *üstel geri*alma çağırılacaktır.
 
-    Sayfası görüntülendiğinde, sahip gösteren Öğrenciler "bir" adlarında, çıkış penceresine bakın ve aynı sorgu ilk dört kez geçici döndüren beş kez denendi görürsünüz özel durumlar. Geçici hata oluştururken yazma günlük görmek için her bir geçici hata `SchoolInterceptorTransientErrors` sınıfı ("döndürme geçici hata... komutu için") ve ne zaman yazılan günlük göreceksiniz `SchoolInterceptorLogging` özel durumu alır.
+    Sayfa görüntülendiğinde, adlarında "bir" olan öğrencileri gösteren çıktı penceresine bakın ve aynı sorgunun beş kez denendiğini, ilk dört kez geçici durum döndürdüğünü görürsünüz. Her geçici hata için, `SchoolInterceptorTransientErrors` sınıfında geçici hatayı oluştururken yazdığınız günlüğü görürsünüz ("komut için geçici hata döndürülüyor...") ve `SchoolInterceptorLogging` özel durumu aldığında yazılan günlüğü görürsünüz.
 
-    ![Yeniden deneme gösteren günlük çıktısı](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+    ![Yeniden denemeleri gösteren çıktıyı günlüğe kaydetme](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-    Bir arama dizesi girdiğiniz olduğundan, Öğrenci verilerinin döndüren sorgu parametreli ise:
+    Bir arama dizesi girdiğinizden, öğrenci verileri döndüren sorgu parametreleştirilemiştir:
 
     [!code-sql[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.sql)]
 
-    Parametre değerini oturum açtığınızdan değil, ancak bunu yapabilirsiniz. Parametre değerlerini görmek istiyorsanız, parametre değerlerinin almak için günlük kod yazabileceğiniz `Parameters` özelliği `DbCommand` nesnesini dinleyiciyi yöntemlere sahip olursunuz.
+    Parametrelerin değerini günlüğe kaydedemedi, ancak bunu yapabilirsiniz. Parametre değerlerini görmek isterseniz, bir günlük kodu yazmak için, bu yöntem içinde aldığınız `DbCommand` nesnesinin `Parameters` özelliğinden parametre değerlerini alabilirsiniz.
 
-    Uygulamayı durdurun ve yeniden sürece bu test tekrarlanamıyor unutmayın. Bağlantı dayanıklılığı birden çok kez uygulamanın tek bir çalışma içinde test etmek istiyorsanız, hata sayaç sıfırlamak için kod yazabilirsiniz `SchoolInterceptorTransientErrors`.
-4. Farkı görmek için yürütme stratejisi (yeniden deneme ilkesi) hale getirdiğini, yorum `SetExecutionStrategy` satırına *SchoolConfiguration.cs*Öğrenciler sayfanın hata ayıklama modunda yeniden çalıştırın ve yeniden "Throw" için arama yapın.
+    Uygulamayı durdurmadığınız ve yeniden başlatana kadar bu testi yineleyemiyorum. Uygulamanın tek bir çalıştırmasında bağlantı dayanıklılığını birden çok kez test etmek isterseniz, `SchoolInterceptorTransientErrors`hata sayacını sıfırlamak için kod yazabilirsiniz.
+4. Yürütme stratejisinin (yeniden deneme ilkesi) yaptığı farkı görmek için, *SchoolConfiguration.cs*'deki `SetExecutionStrategy` satırı açıklama olarak ayıklayın, öğrenciler sayfasını hata ayıklama modunda yeniden çalıştırın ve "Throw" ifadesini yeniden aratın.
 
-    Hemen bir sorguyu ilk kez çalıştığında, bu süre ilk oluşturulan özel durumla ilgili hata ayıklayıcıyı durdurur.
+    Bu kez, hata ayıklayıcı ilk oluşturulan özel durum üzerinde sorguyu ilk kez yürütmeyi denediğinde hemen duraklar.
 
-    ![İşlevsiz özel durumu](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-5. Açıklamadan çıkarın *SetExecutionStrategy* satırına *SchoolConfiguration.cs*.
+    ![Kukla özel durum](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+5. *SchoolConfiguration.cs*Içinde *Setexecutionstrateji* hattının açıklamasını kaldırın.
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[Projeyi yükle](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
+[Tamamlanmış projeyi indir](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
+Diğer Entity Framework kaynaklarına bağlantılar, [ASP.NET Data Access-önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md)bölümünde bulunabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -187,9 +187,9 @@ Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * Etkin bağlantı dayanıklılığı
-> * Etkin komut durdurma
-> * Yeni yapılandırmayı test
+> * Komut yakalaşmayı etkin
+> * Yeni yapılandırma test edildi
 
-Code First geçişleri ve Azure dağıtım hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Code First geçişleri ve Azure dağıtımı hakkında bilgi edinmek için sonraki makaleye ilerleyin.
 > [!div class="nextstepaction"]
-> [Kod First geçişleri ve Azure dağıtım](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Code First geçişleri ve Azure dağıtımı](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -9,151 +9,151 @@ ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1aefa46dd0841b1b06675409cc8a09f9a218d7ac
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113504"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78578507"
 ---
 # <a name="emberjs-template"></a>EmberJS şablonu
 
-tarafından [Xinyang Qiu](https://github.com/xqiu)
+[Xınyang Qiu](https://github.com/xqiu) tarafından
 
-> EmberJS MVC şablonu Nathan Totten, Thiago Santos ve Xinyang Qiu yazılır.
+> EmberJS MVC şablonu, Nathan Totten, Thiönce Santos ve Xınyang Qiu tarafından yazılmıştır.
 > 
-> [EmberJS MVC şablonu indirin](https://go.microsoft.com/fwlink/?LinkId=282647)
+> [EmberJS MVC şablonunu indirin](https://go.microsoft.com/fwlink/?LinkId=282647)
 
-SPA EmberJS şablonu EmberJS kullanarak etkileşimli istemci tarafı web uygulamalarını hızlı bir şekilde oluşturmaya başlamanıza yardımcı olmak için tasarlanmıştır.
+EmberJS SPA şablonu, EmberJS kullanarak etkileşimli istemci tarafı Web uygulamalarını hızlıca oluşturmaya başlamanızı sağlayacak şekilde tasarlanmıştır.
 
-"Tek sayfalı uygulama" (SPA) olduğundan tek bir HTML sayfası yükler ve ardından sayfanın dinamik olarak yeni sayfa yükleniyor yerine güncelleştiren bir web uygulaması için genel bir terimdir. Başlangıç sayfası yükleme sonrası AJAX istekleri aracılığıyla sunucusuyla SPA anlatıyor.
+"Tek sayfalı uygulama" (SPA), tek bir HTML sayfası yükleyen bir Web uygulaması için genel bir terimdir ve sonra yeni sayfalar yüklemek yerine sayfayı dinamik olarak güncelleştirir. İlk sayfa yüklendikten sonra, SPA, AJAX istekleri aracılığıyla sunucuyla iletişim kuran bir iletişim yükler.
 
 ![](emberjs-template/_static/image1.png)
 
-AJAX yeni bir şey değildir, ancak bugün oluşturun ve büyük ve karmaşık bir SPA uygulama sürdürmek kolaylaştıran yeni JavaScript çerçevesi vardır. Ayrıca, HTML 5 ve CSS3 zengin kullanıcı arabirimleri oluşturmak kolaylaşır.
+AJAX yeni bir şey değildir, ancak bugün büyük bir Gelişmiş SPA uygulaması oluşturmayı ve bakımını kolaylaştıran JavaScript çerçeveleri vardır. Ayrıca, HTML 5 ve CSS3 zengin Usıs oluşturmayı kolaylaştırır.
 
-EmberJS SPA şablonu kullanan [Ember](http://emberjs.com/) Sayfa güncelleştirmelerini AJAX isteklerini işlemek için JavaScript kitaplığı. Sayfanın en son verileri eşitlemek için veri bağlama Ember.js kullanır. Böylece, herhangi bir JSON verilerini aracılığıyla size yol gösterir ve DOM güncelleştiren kod yazmanız gerekmez Bunun yerine, Ember.js veri sunma hakkında bilgi HTML dosyasındaki bildirim temelli öznitelikleri yerleştirin.
+EmberJS SPA şablonu, AJAX isteklerindeki sayfa güncelleştirmelerini işlemek için [Ember](http://emberjs.com/) JavaScript kitaplığını kullanır. Ember. js sayfayı en son verilerle eşleştirmek için veri bağlamayı kullanır. Bu şekilde, JSON verilerinde izlenecek ve DOM güncelleştiren koddan herhangi birini yazmanız gerekmez. Bunun yerine, açıklayıcı öznitelikleri HTML 'ye yerleştirerek, Ember. js ' nin verileri nasıl sunulacağı hakkında bilgi alabilirsiniz.
 
-Sunucu tarafında EmberJS şablonu neredeyse aynıdır [SPA KnockoutJS şablonu](../introduction/knockoutjs-template.md). ASP.NET MVC, HTML belgeleri ve istemciden AJAX isteklerini işlemek için ASP.NET Web API sunmak için kullanır. Şablonu bu yönleri hakkında daha fazla bilgi için başvurmak [KnockoutJS şablonu](../introduction/knockoutjs-template.md) belgeleri. Bu konuda Knockout şablonu EmberJS şablonu arasındaki farkları ele alınmaktadır.
+Sunucu tarafında, EmberJS şablonu, [altını gizleme Koutjs Spa şablonuyla](../introduction/knockoutjs-template.md)neredeyse aynıdır. ASP.NET MVC kullanarak, HTML belgelerini ve ASP.NET Web API 'sini istemciden AJAX isteklerini işleyecek şekilde işler. Şablonun bu yönleri hakkında daha fazla bilgi için, [altını gizleme şablonu](../introduction/knockoutjs-template.md) belgelerine bakın. Bu konu, altını gizleme şablonu ve EmberJS şablonu arasındaki farklara odaklanır.
 
-## <a name="create-an-emberjs-spa-template-project"></a>Bir EmberJS SPA şablonu projesi oluşturma
+## <a name="create-an-emberjs-spa-template-project"></a>EmberJS SPA şablonu projesi oluşturma
 
-İndirin ve yukarıdaki indir düğmesine tıklayarak şablonu yükleyin. Visual Studio'yu yeniden başlatmanız gerekebilir.
+Yukarıdaki Indir düğmesine tıklayarak şablonu indirip yükleyin. Visual Studio 'Yu yeniden başlatmanız gerekebilir.
 
-İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Projeyi adlandırın ve tıklayın **Tamam**.
+**Şablonlar** bölmesinde, **yüklü şablonlar** ' ı seçin ve **görsel C#**  düğümünü genişletin. **Görsel C#** bölümünde **Web**' i seçin. Proje şablonları listesinde **ASP.NET MVC 4 Web uygulaması**' nı seçin. Projeyi adlandırın ve **Tamam**' a tıklayın.
 
 ![](emberjs-template/_static/image2.png)
 
-İçinde **yeni proje** seçin **Ember.js SPA proje**.
+**Yeni proje** sihirbazında **Ember. js Spa projesi**' ni seçin.
 
 ![](emberjs-template/_static/image4.png)
 
 ## <a name="emberjs-spa-template-overview"></a>EmberJS SPA şablonuna genel bakış
 
-EmberJS şablonu, jQuery, Ember.js, kesintisiz, etkileşimli bir kullanıcı Arabirimi oluşturmak için Handlebars.js bir bileşimini kullanır.
+EmberJS şablonu, sorunsuz, etkileşimli bir kullanıcı arabirimi oluşturmak için jQuery, Ember. js, Handleçubuklarının. js birleşimini kullanır.
 
-Ember.js bir istemci-tarafı MVC desen kullanan bir JavaScript kitaplıktır.
+Ember. js, istemci tarafı MVC deseninin kullanıldığı bir JavaScript kitaplığıdır.
 
-- A *şablon*Gidon şablon dilinde yazılı uygulama kullanıcı arabirimini açıklar. Yayın modunda [Gidon derleyici](https://github.com/Myslik/csharp-ember-handlebars) gruplandırma ve gidon şablon derlemek için kullanılır.
-- A *modeli* sunucudan (ToDo listeler ve ToDo öğeleri) alır uygulama verileri depolar.
-- A *denetleyicisi* uygulama durumunu depolar. Denetleyicileri, genellikle model verilerine karşılık gelen şablonları sunar.
-- A *görünümü* uygulamadaki temel olayları çevirir ve bunlar denetleyicisine geçirir.
-- A *yönlendirici* URL'leri ve şablonları eşitlenmiş tutmak, uygulama durumunu yönetir.
+- Handleçubuklar şablon oluşturma dilinde yazılmış bir *şablon*, uygulama kullanıcı arabirimini açıklar. Yayın modunda handleçubuklar [derleyicisi](https://github.com/Myslik/csharp-ember-handlebars) , handleçubuklar şablonunu paketleyip derlemek için kullanılır.
+- Bir *model* , sunucudan aldığı uygulama verilerini depolar (Todo listeleri ve Yapılacaklar öğeleri).
+- *Denetleyici* uygulama durumunu depolar. Denetleyiciler genellikle ilişkili şablonlara model verilerini sunar.
+- Bir *Görünüm* uygulamadan temel olayları çevirir ve bunları denetleyiciye geçirir.
+- *Yönlendirici* , uygulama durumunu yönetir, URL 'leri ve şablonları eşitlenmiş halde tutun.
 
-Ayrıca, Ember veri kitaplığı JSON nesneleri (sunucunun bir RESTful API'si üzerinden alınan) ve istemci modelleri eşitlemek için kullanılabilir.
+Buna ek olarak, Ember veri kitaplığı JSON nesnelerini (sunucudan bir Restıstalı API aracılığıyla elde edilen) ve istemci modellerini eşitlemeye yönelik olarak kullanılabilir.
 
-SPA EmberJS şablonu sekiz katmanlara betiklerini düzenler:
+EmberJS SPA şablonu, betikleri sekiz katmana düzenler:
 
-- webapı\_adapter.js, webapı\_serializer.js: ASP.NET Web API'si ile çalışmaya Ember veri kitaplığı genişletir.
-- Scripts/helpers.js: Yeni Ember Gidon Yardımcıları tanımlar.
-- Scripts/App.js: Uygulaması oluşturur ve seri hale getirici bağdaştırıcısı yapılandırır.
-- Betikleri/uygulama/modelleri/\*.js: Modelleri tanımlar.
-- Betikleri/uygulama/görünümler/\*.js: Görünümleri tanımlar.
-- Betikleri/uygulama/denetleyicileri/\*.js: Denetleyicileri tanımlar.
-- Betikleri/uygulama/yollar, Scripts/app/router.js: Yolları tanımlar.
-- Şablonlar /\*.hbs: Gidon şablonları tanımlar.
+- WebApi\_Adapter. js, WebApi\_serileştirici. js: Ember veri kitaplığını ASP.NET Web API 'SI ile çalışacak şekilde genişletir.
+- Betikler/yardımcılar. js: yeni Ember Handleçubuklarının yardımcıları tanımlar.
+- Betikler/App. js: uygulamayı oluşturur ve bağdaştırıcıyı ve serileştiriciyi yapılandırır.
+- Betikler/App/modeller/\*. js: modelleri tanımlar.
+- Betikler/App/views/\*. js: görünümleri tanımlar.
+- Betikler/App/Controllers/\*. js: denetleyicileri tanımlar.
+- Betikler/uygulama/rotalar, betikler/App/router. js: yolları tanımlar.
+- Şablonlar/\*. HBS: handleçubuklarının şablonlarını tanımlar.
 
-Daha ayrıntılı bir şekilde bu betiklerden bazıları en göz atalım.
+Daha ayrıntılı bilgi için bu betiklerin bazılarına göz atalım.
 
 ## <a name="models"></a>Modeller
 
-Modelleri betikleri/uygulama/modelleri klasöründe tanımlanır. İki model dosyası vardır: todoItem.js ve todoList.js.
+Modeller, betikler/uygulama/modeller klasöründe tanımlanmıştır. İki model dosyası vardır: TodoItem. js ve todoList. js.
 
-**TODO.model.js** yapılacak işler listelerinin için istemci tarafı (tarayıcı) modelleri tanımlar. İki model sınıfı vardır: Todoıtem ve yapılacaklar listesi. Ember alt sınıfların DS modelleridir. Model. Bir model öznitelikleri olan özelliklere sahiptir:
+**Todo. model. js** Yapılacaklar listeleri için istemci tarafı (tarayıcı) modellerini tanımlar. İki model sınıfı vardır: TodoItem ve todoList. Ember 'de, modeller DS 'nin alt sınıfları. Modelinizi. Model, özniteliklere sahip özelliklere sahip olabilir:
 
 [!code-javascript[Main](emberjs-template/samples/sample1.js)]
 
-Modelleri, diğer modellerle ilişkiler tanımlayabilirsiniz:
+Modeller, diğer modellerle ilişkiler tanımlayabilir:
 
 [!code-css[Main](emberjs-template/samples/sample2.css)]
 
-Modelleri hesaplanan diğer özelliklere bağlama özellikler:
+Modeller, diğer özelliklere bağlanan hesaplanmış özelliklere sahip olabilir:
 
 [!code-javascript[Main](emberjs-template/samples/sample3.js)]
 
-Modelleri, gözlemlenen bir özellik değiştiğinde çağrılan gözlemci işlevleri sahip olabilir:
+Modeller, gözlemlenen bir özellik değiştiğinde çağrılan gözlemci işlevlerine sahip olabilir:
 
 [!code-javascript[Main](emberjs-template/samples/sample4.js)]
 
 ## <a name="views"></a>Görünümler
 
-Görünümler betikleri/uygulama/görünümler klasöründe tanımlanır. Bir görünümü uygulama UI olaylardan çevirir. Bir olay işleyicisi Denetleyicisi işlevleri için geri arama veya yalnızca veri bağlamı doğrudan çağırabilir.
+Görünümler, betikler/uygulama/görünümler klasöründe tanımlanmıştır. Bir görünüm, olayları uygulama kullanıcı arabiriminden çevirir. Bir olay işleyicisi, denetleyici işlevlerine geri çağrı yapabilir veya yalnızca veri bağlamını doğrudan çağırabilir.
 
-Örneğin, aşağıdaki kod views/TodoItemEditView.js olur. Olay işleme için bir giriş metin alanı tanımlar.
+Örneğin, aşağıdaki kod views/TodoItemEditView. js ' den. Bir girdi metin alanı için olay işlemeyi tanımlar.
 
 [!code-javascript[Main](emberjs-template/samples/sample5.js)]
 
 ## <a name="controller"></a>Denetleyici
 
-Denetleyicileri betikleri/uygulama/denetleyicileri klasöründe tanımlanır. Tek bir modeli temsil etmek için genişletme `Ember.ObjectController`:
+Denetleyiciler betikler/uygulamalar/denetleyiciler klasöründe tanımlanmıştır. Tek bir modeli göstermek için `Ember.ObjectController`genişletin:
 
 [!code-javascript[Main](emberjs-template/samples/sample6.js)]
 
-Bir denetleyici de modellerin bir koleksiyonu genişleterek gösterebilir `Ember.ArrayController`. Örneğin, bir dizi TodoListController temsil `todoList` nesneleri. Denetleyiciye azalan düzende todoList Kimliğe göre sıralar:
+Denetleyici Ayrıca `Ember.ArrayController`genişleterek bir model koleksiyonunu temsil edebilir. Örneğin, TodoListController `todoList` nesneleri dizisini temsil eder. Denetleyici, todoList ID değerine göre sıralamayı azalan sırada yapar:
 
 [!code-javascript[Main](emberjs-template/samples/sample7.js)]
 
-Denetleyici adlı bir işlev tanımlar `addTodoList`, yeni bir Yapılacaklar listesi oluşturur ve diziye ekler. Nasıl bu işlev çağrıldığında görmek için şablonlar klasöründeki todoListTemplate.html adlı şablon dosyasını açın. Bir düğme için aşağıdaki şablon kodunu bağlar `addTodoList` işlevi:
+Denetleyici, yeni bir todoList oluşturan ve onu diziye ekleyen `addTodoList`adlı bir işlevi tanımlar. Bu işlevin nasıl çağrıldığını görmek için şablonlar klasöründe todoListTemplate. html adlı şablon dosyasını açın. Aşağıdaki şablon kodu `addTodoList` işleve bir düğme bağlar:
 
 [!code-html[Main](emberjs-template/samples/sample8.html)]
 
-Denetleyici de içeren bir `error` özelliği bir hata iletisi içerir. Hata iletisinde (Ayrıca todoListTemplate.html) görüntülemek için şablon kod aşağıdaki gibidir:
+Denetleyici Ayrıca bir hata mesajı tutan `error` özelliğini içerir. Hata iletisini (Ayrıca todoListTemplate. html) görüntüleyen şablon kodu aşağıda verilmiştir:
 
 [!code-html[Main](emberjs-template/samples/sample9.html)]
 
 ## <a name="routes"></a>Yollar
 
-Router.js yolları ve uygulama durumu ayarlar görüntülenecek varsayılan şablonu tanımlar ve yolları URL'lerle eşleşir:
+Router. js, görüntülenecek yolları ve varsayılan şablonu tanımlar, uygulama durumunu ayarlar ve yolların URL 'Lerini eşler:
 
 [!code-javascript[Main](emberjs-template/samples/sample10.js)]
 
-TodoListRoute.js setupController işlevi geçersiz kılarak, TodoListRoute için verileri yükler:
+TodoListRoute. js, setupController işlevini geçersiz kılarak TodoListRoute için verileri yükler:
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Ember URL'leri, rota adları, denetleyicileri ve şablonları eşleştirmek için adlandırma kuralları kullanır. Daha fazla bilgi için [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) EmberJS belgelerine.
+Ember, URL 'Leri, yol adlarını, denetleyicileri ve şablonları eşleştirmek için adlandırma kuralları kullanır. Daha fazla bilgi için bkz. EmberJS belgelerindeki [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) .
 
 ## <a name="templates"></a>Şablonlar
 
-Şablonlar, dört şablonlarını içerir:
+Şablonlar klasörü dört şablon içerir:
 
-- Application.hbs: Uygulama başlatıldığında oluşturulduğunda varsayılan şablonu.
-- About.hbs: "/ Hakkında" rota şablonu.
-- index.hbs: Kök şablonu "/" rota.
-- todoList.hbs: Şablon için "/ todo" rota.
-- \_navbar.hbs: Şablon Gezinti Menüsü tanımlar.
+- Application. HBS: uygulama başlatıldığında oluşturulan varsayılan şablon.
+- . HBS hakkında: "/About" yolu için şablon.
+- index. HBS: kök "/" yolunun şablonu.
+- todoList. HBS: "/Todo" yolu için şablon.
+- Gezinti çubuğunu \_. HBS: şablon, gezinti menüsünü tanımlar.
 
-Uygulama şablonu, bir ana sayfa gibi davranır. Bu, bir üstbilgi, altbilgi ve "{{rota bağlı olarak diğer şablonlar eklemek için bir çıkış}}" içerir. Ember uygulama şablonları hakkında daha fazla bilgi için bkz. [ http://guides.emberjs.com/v1.10.0/templates/the-application-template// ](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
+Uygulama şablonu, ana sayfa gibi davranır. Yola bağlı olarak içine diğer şablonları eklemek için bir üst bilgi, alt bilgi ve "{{priz}}" içerir. Ember 'de uygulama şablonları hakkında daha fazla bilgi için bkz. [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
 
-"/ Yapılacaklar listesi" şablon iki döngü ifadeleri içerir. Dış döngü `{{#each controller}}`ve iç döngü `{{#each todos}}`. Aşağıdaki kod, bir yerleşik göstermektedir `Ember.Checkbox` görüntülemek, özelleştirilmiş `App.TodoItemEditView`ve bir bağlantıya sahip bir `deleteTodo` eylem.
+"/TodoList" şablonu iki döngü ifadesi içerir. Dış döngü `{{#each controller}}`ve iç döngü `{{#each todos}}`. Aşağıdaki kod, yerleşik bir `Ember.Checkbox` görünümünü, özelleştirilmiş `App.TodoItemEditView`ve `deleteTodo` eylemine sahip bir bağlantıyı gösterir.
 
 [!code-html[Main](emberjs-template/samples/sample12.html)]
 
-`HtmlHelperExtensions` Controllers/HtmlHelperExtensions.cs içinde tanımlanmış sınıf, bir yardımcı tanımlar dosyaları önbelleğe alınması ve şablonu eklemek için işlevi **hata ayıklama** ayarlanır **true** Web.config dosyasında. Bu işlev, ASP.NET MVC görünüm dosyasından Views/Home/App.cshtml içinde tanımlanan çağrılır:
+Controllers/HtmlHelperExtensions. cs ' de tanımlanan `HtmlHelperExtensions` sınıfı, Web. config dosyasında **hata ayıklama** **doğru** olarak ayarlandığında şablon dosyalarını önbelleğe almak ve eklemek için bir yardımcı işlevi tanımlar. Bu işlev, views/Home/App. cshtml içinde tanımlanan ASP.NET MVC görünüm dosyasından çağrılır:
 
 [!code-cshtml[Main](emberjs-template/samples/sample13.cshtml)]
 
-İşlev bağımsız değişken olmadan çağrıldığında tüm şablonlar klasöründe şablon dosyaları işler. Ayrıca, bir alt klasör veya bir özel şablon dosyası da belirtebilirsiniz.
+Bağımsız değişken olmadan çağrılan işlev, Şablonlar klasöründeki tüm şablon dosyalarını işler. Ayrıca, bir alt klasör veya belirli bir şablon dosyası da belirtebilirsiniz.
 
-Zaman **hata ayıklama** olduğu **false** Web.config dosyasında uygulama "~/bundles/templates" Paket öğesi içerir. Bu paket öğesi Gidon derleyici kitaplığını kullanarak BundleConfig.cs eklenir:
+Web. config dosyasında **hata ayıklama** **false** olduğunda, uygulama "~/paketles/Templates" paket öğesini içerir. Bu paket öğesi Handleçubuklar derleyici kitaplığı kullanılarak BundleConfig.cs 'e eklenir:
 
 [!code-csharp[Main](emberjs-template/samples/sample14.cs)]

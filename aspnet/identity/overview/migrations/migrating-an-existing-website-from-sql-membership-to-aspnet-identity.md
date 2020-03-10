@@ -10,11 +10,11 @@ ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 633229cc4311d151121bf6a91b9fa8aeecca1197
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456159"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583729"
 ---
 # <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme
 
@@ -85,13 +85,13 @@ ASP.NET Identity sınıflarının mevcut kullanıcıların verileriyle birlikte 
 
 | **Identityuser** | **Tür** | **Identityrole** | **Identityuserrole** | **Identityuserlogin** | **Identityuserclaim** |
 | --- | --- | --- | --- | --- | --- |
-| Kimlik | string | Kimlik | RoleID | ProviderKey | Kimlik |
-| Kullanıcı adı | string | Adı | UserID | UserID | ClaimType |
-| PasswordHash | string |  |  | LoginProvider | ClaimValue |
-| SecurityStamp | string |  |  |  | Kullanıcı\_kimliği |
-| Email | string |  |  |  |  |
+| Kimlik | dize | Kimlik | RoleID | ProviderKey | Kimlik |
+| Kullanıcı adı | dize | Adı | UserID | UserID | ClaimType |
+| PasswordHash | dize |  |  | LoginProvider | ClaimValue |
+| SecurityStamp | dize |  |  |  | Kullanıcı\_kimliği |
+| E-posta | dize |  |  |  |  |
 | Emailonaylandı | bool |  |  |  |  |
-| PhoneNumber | string |  |  |  |  |
+| PhoneNumber | dize |  |  |  |  |
 | Phonenumberonaylandı | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |

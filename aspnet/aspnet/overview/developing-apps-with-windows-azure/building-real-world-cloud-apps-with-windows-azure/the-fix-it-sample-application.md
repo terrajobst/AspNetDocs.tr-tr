@@ -9,11 +9,11 @@ ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
 ms.openlocfilehash: 896196bdb6a6b0d12a6c798ead510e37dd38a9fc
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77456887"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583449"
 ---
 # <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: BT örneğini yapılandırma örnek uygulaması (Azure ile gerçek hayatta bulut uygulamaları oluşturma)
 
@@ -84,7 +84,7 @@ BT BT uygulaması, karşıya yüklenen görüntüleri ortak olarak depolar, yani
 ASP.NET, kötü amaçlı kullanıcıların, Kullanıcı girişi metin kutularına komut dosyası girerek siteler arası komut dosyası saldırıları deneyebileceği birçok yolu otomatik olarak engeller. Ayrıca, görev başlıklarını ve notları göstermek için kullanılan MVC `DisplayFor` Yardımcısı, tarayıcıya gönderdiği değerleri otomatik olarak HTML olarak kodlar. Ancak bir üretim uygulamasında ek ölçüler yapmak isteyebilirsiniz. Daha fazla bilgi için bkz. [ASP.net Içinde Istek doğrulaması](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="best-practices"></a>Önerilen uygulamalar
 
 Düzeltme BT uygulamasının orijinal sürümünün kod incelemesinin ve test edilmesine sonra düzeltilen bazı sorunlar aşağıda verilmiştir. Özgün kodlayıcı 'ın bazı bir en iyi uygulama farkında olmamasından kaynaklandı, çünkü kod hızla yazıldığı ve piyasaya sürülen yazılım için tasarlanmamıştır. Bu gözden geçirme ve test etme konusunda öğrendiğimiz bir şey, Web uygulamaları geliştirmekte olan başkaları için yararlı olabilecek bir sorun olması durumunda buradaki sorunları listeliyoruz.
 
@@ -249,7 +249,7 @@ Varsayılan olarak, kimlik doğrulama tanımlama bilgileri iki hafta içinde son
    3. Çözüm Gezgini, FixIt çözümüne sağ tıklayın ve **Özellikler**' i seçin.
    4. **Birden çok başlangıç projesi**seçin.
    5. MyFixIt ve MyFixItCloudService altındaki **eylem** açılan listesinde **Başlat**' ı seçin.
-   6. **Tamam**'a tıklayın.
+   6. **Tamam**’a tıklayın.
    7. Her iki projeyi de çalıştırmak için **F5**'e basın.
 
       MyFixItCloudService projesini çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü ' nü başlatır. Güvenlik Duvarı yapılandırmanıza bağlı olarak, güvenlik duvarı üzerinden öykünücüye izin vermeniz gerekebilir.

@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
-title: '[Bunu nasıl yaparım:] Ana sayfa ve içerik sayfalarındaki olayları işleme | Microsoft Docs'
+title: '[Nasıl yapılır:] Ana ve Içerik sayfalarındaki olayları işleme | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel ana ve bireysel içerik sayfalarında olayların nasıl işleneceğini gösterir. Olsa bile bir ana ve bireysel ğlamda nihai sonucu...
+description: Bu videoda, can 'Ların ana ve bireysel içerik sayfalarında nasıl işlendiğini gösterir. Ana ve tek bireyin nihai sonucu olsa da...
 ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 9b5f1ca6-b394-4b33-8b60-fd0587341482
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
 msc.type: video
 ms.openlocfilehash: 8760611dd1b3680283b8d6888efabfed315bdfd5
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59412131"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567888"
 ---
-# <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[Bunu nasıl yaparım:] Ana sayfa ve içerik sayfalarındaki olayları işleme
+# <a name="how-do-i-handle-events-in-master-and-content-pages"></a>[Nasıl yapılır:] Ana ve Içerik sayfalarındaki olayları işle
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda, Chris piksel ana ve bireysel içerik sayfalarında olayların nasıl işleneceğini gösterir. Ana ve ayrı bir içerik sayfasının nihai sonucu tek bir ASP.NET sayfasında kullanıcının tarayıcısında olay her tür sayfa işleme işlenmiş olsa bile ayrı olarak yönetilir. Bir denetim ana sayfada yer alıyorsa karşılık gelen bir olay işleyicisi ana sayfasında varsayılan olarak bulunur. Aynı içerik sayfası denetimleri için geçerlidir. Kodda içerik sayfasının ana sayfasında yer alan bir denetim olaylarına sahip için iki yaklaşım bakın. Bu, "iletişim" ana sayfa ve içerik sayfası arasında sağlar.
+Bu videoda, can 'Ların ana ve bireysel içerik sayfalarında nasıl işlendiğini gösterir. Ana ve bireysel içerik sayfasının nihai sonucu, kullanıcının tarayıcısında işlenen tek bir ASP.NET sayfası olsa da, her sayfa türünde olay işleme ayrı olarak işlenir. Ana sayfada bir denetim varsa, ilgili olay işleyicisi varsayılan olarak ana sayfada bulunur. Aynı, içerik sayfasındaki denetimler için de geçerlidir. İçerik sayfasının arkasındaki kodda işlenen ana sayfada bulunan bir denetimin olaylarına sahip olmak için iki yaklaşımdan birine bakın. Bu, ana sayfa ile içerik sayfası arasında "iletişim" sağlar.
 
-[&#9654;Videoyu (23 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-events-in-master-and-content-pages)
+[&#9654;Videoyu izleyin (23 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-events-in-master-and-content-pages)

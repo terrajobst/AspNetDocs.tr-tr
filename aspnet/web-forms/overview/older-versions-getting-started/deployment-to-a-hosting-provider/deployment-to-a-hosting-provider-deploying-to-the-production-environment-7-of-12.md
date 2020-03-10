@@ -9,11 +9,11 @@ ms.assetid: b83ab819-2b05-4776-b7b4-79ef78d457a5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: db838633accdedd7c0693b126a007e254ca681e4
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74627460"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568021"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: üretim ortamına dağıtım-7/12
 
@@ -148,11 +148,11 @@ Yayımlamadan önce, Web. Production. config dönüştürme dosyanızın uygulan
 
 ![Web 'i Yayımlama Sihirbazı Profilleri yönetme](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image29.png)
 
-**Web yayımlama profillerini Düzenle** iletişim kutusunda, üretim profilini seçin, **Yeniden Adlandır**' a tıklayın ve profil adını üretim olarak değiştirin. Ardından **Kapat**' a tıklayın.
+**Web yayımlama profillerini Düzenle** iletişim kutusunda, üretim profilini seçin, **Yeniden Adlandır**' a tıklayın ve profil adını üretim olarak değiştirin. Sonra **Kapat**’a tıklayın.
 
 ![Web yayımlama profillerini Düzenle iletişim kutusu](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image30.png)
 
-**Yayımla**' ya tıklayın.
+**Yayımla**’ta tıklayın.
 
 Uygulama barındırma sağlayıcısına yayımlanır. Sonuç, **Çıkış** penceresinde gösterilir.
 

@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-cycle/cdnjquerycycle299
-title: jQuery döngüsü 2.99 | Microsoft Docs
+title: jQuery Cycle 2,99 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,19 +9,19 @@ ms.assetid: c4941287-f0bf-42cc-abb0-8d68838a4e98
 msc.legacyurl: /ajax/cdn/jquery-cycle/cdnjquerycycle299
 msc.type: content
 ms.openlocfilehash: 95c28d6be1ab09dd059d6160edf99ce63d68b68e
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59417968"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563317"
 ---
 # <a name="jquery-cycle-299"></a>jQuery Döngüsü 2.99
 
-JQuery döngüsü aşağıdaki dosyalar bu CDN'de barındırılan:
+Aşağıdaki jQuery Cycle dosyaları bu CDN üzerinde barındırılır:
 
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.js) &mdash; JQuery döngüsü eklentisi tam sürümü. Özel efektler yirmiden fazla ve tüm seçenekler içerir.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.min.js) &mdash; Yukarıdaki dosyasının küçültülmüş sürümü. Bu sürümü için üretim uygulamaları, Web sitesi performansını geliştirmek için kullanın.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.js)  &mdash; JQuery döngüsü eklentisi bu sürümü daha küçük olması ve yalnızca "fade" geçiş efektini içerir.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.min.js) &mdash; Yukarıdaki dosyasının küçültülmüş sürümü. Bu sürümü için üretim uygulamaları, Web sitesi performansını geliştirmek için kullanın.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.js) &mdash; Yalnızca "fade" geçiş olmadan tüm seçenekleri içeren jQuery döngüsü eklenti bile küçük bir sürümü.
-- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.min.js) &mdash; Yukarıdaki dosyasının küçültülmüş sürümü. Bu sürümü için üretim uygulamaları, Web sitesi performansını geliştirmek için kullanın.
+- jQuery Cycle eklentisinin tam sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.js) . İkiden fazla özel efekti ve tüm seçenekleri içerir.
+- Yukarıdaki dosyanın küçültülmüş sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.all.min.js) . Web sitenizin performansını geliştirmek için bu sürümü üretim uygulamaları için kullanın.
+- jQuery Cycle eklentisinin bu sürümü&mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.js) küçüktür ve yalnızca "Soldur" geçiş efektini içerir.
+- Yukarıdaki dosyanın küçültülmüş sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.min.js) . Web sitenizin performansını geliştirmek için bu sürümü üretim uygulamaları için kullanın.
+- [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.js) , tüm seçenekleri içermeyen yalnızca "Soldur" geçişini Içeren jQuery Cycle eklentisinin daha da küçük bir sürümünü &mdash;.
+- Yukarıdaki dosyanın küçültülmüş sürümü &mdash; [https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.min.js](https://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.min.js) . Web sitenizin performansını geliştirmek için bu sürümü üretim uygulamaları için kullanın.

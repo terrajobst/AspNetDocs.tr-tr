@@ -9,17 +9,17 @@ ms.assetid: 22ca8efa-7cd1-45a7-b9ce-ce6eb3b3ff95
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
 ms.openlocfilehash: a0b55b0df1b7843120de284891e16178df23fabe
-ms.sourcegitcommit: fe5c7512383a9b0a05d321ff10d3cca1611556f0
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386521"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78576911"
 ---
 # <a name="caching-data-at-application-startup-c"></a>Uygulama Başlangıcında Verileri Önbelleğe Alma (C#)
 
 [Scott Mitchell](https://twitter.com/ScottOnWriting) tarafından
 
-[PDF'yi indirin](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
+[PDF 'YI indir](caching-data-at-application-startup-cs/_static/datatutorial60cs1.pdf)
 
 > Herhangi bir Web uygulamasında, bazı veriler sık sık kullanılır ve bazı veriler seyrek kullanılır. ASP.NET uygulamamız performansını, önbelleğe alma olarak bilinen bir tekniktir, sık kullanılan verileri önceden yükleyerek iyileştirebiliriz. Bu öğreticide, uygulama başlangıcında önbelleğe veri yüklemek üzere bir proaktif yüklemeye yönelik bir yaklaşım gösterilmektedir.
 

@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/index
-title: ASP.NET 4 - Entity Framework 4 ve Web Forms ile çalışmaya başlama | Microsoft Docs
+title: ASP.NET 4-Entity Framework 4 ve Web Forms kullanmaya başlama | Microsoft Docs
 author: rick-anderson
-description: Bir ASP.NET Web formları uygulamasında verileri görüntülemek ve düzenlemek için Entity Framework kullanmanın temellerini.
+description: Bir ASP.NET Web Forms uygulamasındaki verileri göstermek ve düzenlemek için Entity Framework kullanmanın temelleri.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: c801eeab-1469-42d7-a961-082dbbf4683e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef
 msc.type: chapter
 ms.openlocfilehash: 634690d58d187c02ef2fea86ac4b200419826db8
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65119358"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78586074"
 ---
 # <a name="aspnet-4---getting-started-with-entity-framework-4-and-web-forms"></a>ASP.NET 4 - Entity Framework 4 ve Web Forms ile Çalışmaya Başlama
 
-> Bir ASP.NET Web formları uygulamasında verileri görüntülemek ve düzenlemek için Entity Framework kullanmanın temellerini.
+> Bir ASP.NET Web Forms uygulamasındaki verileri göstermek ve düzenlemek için Entity Framework kullanmanın temelleri.
 
 - [Entity Framework 4.0 Database First ile Çalışmaya Başlama](the-entity-framework-and-aspnet-getting-started-part-1.md)
 - [Entity Framework 4.0 Database First ile Çalışmaya Başlama - 2. Bölüm](the-entity-framework-and-aspnet-getting-started-part-2.md)

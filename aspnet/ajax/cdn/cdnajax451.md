@@ -9,15 +9,15 @@ ms.assetid: d7ec655d-49b0-4968-af5e-3064616aff9a
 msc.legacyurl: /ajax/cdn/cdnajax451
 msc.type: content
 ms.openlocfilehash: a81abf2c57d1400a9c4b2f1d1febaddc9c569c6d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59414549"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563359"
 ---
 # <a name="aspnet-web-forms-and-ajax-451"></a>ASP.NET Web Forms ve Ajax 4.5.1
 
-Aşağıdaki dosyalar, CDN'de barındırılan:
+Aşağıdaki dosyalar CDN 'de barındırılır:
 
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/Date.HijriCalendar.debug.js
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/Date.HijriCalendar.js
@@ -56,6 +56,6 @@ Aşağıdaki dosyalar, CDN'de barındırılan:
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/WebParts.js
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/WebUIValidation.js
 
-Not: Fr-FR.js gibi Genelleştirme komut dosyaları aşağıdaki klasörde bulunabilir:
+Note: fr-FR. js gibi Genelleştirme betikleri aşağıdaki klasörde bulunabilir:
 
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/globalization/

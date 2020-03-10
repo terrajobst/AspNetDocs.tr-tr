@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate16
-title: jQuery doğrulama 1.6 | Microsoft Docs
+title: jQuery doğrulama 1,6 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -9,15 +9,15 @@ ms.assetid: 5c890d81-a1a9-4b4f-9221-6947978ae336
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate16
 msc.type: content
 ms.openlocfilehash: e42a53f6d79a14800dab05c87e0943db470c2b7d
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59388094"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78585101"
 ---
 # <a name="jquery-validate-16"></a>jQuery Doğrulama 1.6
 
-Aşağıdaki dosyalar, CDN'de barındırılan:
+Aşağıdaki dosyalar CDN 'de barındırılır:
 
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/jQuery.Validate.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/jQuery.Validate.min.js

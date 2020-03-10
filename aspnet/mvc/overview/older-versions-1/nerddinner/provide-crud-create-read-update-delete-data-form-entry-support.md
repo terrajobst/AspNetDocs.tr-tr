@@ -1,427 +1,427 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
-title: Sağlamak CRUD (oluşturma, okuma, güncelleştirme ve silme) veri formu giriş desteği | Microsoft Docs
+title: CRUD (oluşturma, okuma, güncelleştirme, silme) veri formu girişi desteği | Microsoft Docs
 author: microsoft
-description: 5. adım, düzenleme, oluşturma ve azalma ile de silme için etkinleştirme desteği tarafından daha fazla bizim DinnersController sınıfı nasıl gösterir.
+description: 5\. adım, DinnersController sınıfınızı daha fazla alma, oluşturma ve bunları silme desteğini etkinleştirme konusunda nasıl yapılacağını gösterir.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
 ms.openlocfilehash: b3123af9a1477bc496a0d229d628510fc202b6d2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65128333"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78580558"
 ---
 # <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD (Oluşturma, Okuma, Güncelleştirme, Silme) Veri Formu Giriş Desteği Sağlama
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 5 ücretsiz / budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) 5. adımıdır.
 > 
-> 5. adım, düzenleme, oluşturma ve azalma ile de silme için etkinleştirme desteği tarafından daha fazla bizim DinnersController sınıfı nasıl gösterir.
+> 5\. adım, DinnersController sınıfınızı daha fazla alma, oluşturma ve bunları silme desteğini etkinleştirme konusunda nasıl yapılacağını gösterir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-5-create-update-delete-form-scenarios"></a>NerdDinner adım 5: Oluşturma, güncelleştirme ve silme Form senaryoları
+## <a name="nerddinner-step-5-create-update-delete-form-scenarios"></a>Nerdakşam yemeği 5. Adım: oluşturma, güncelleştirme, form senaryoları silme
 
-Biz denetleyicileri ve görünümleri kullanıma sunulmuştur ve bunları bir azalma listeleme/Ayrıntılar deneyimi sitesinde uygulamak için kullanma dahil. Sonraki adımımız, bizim DinnersController sınıfı ileriye ve düzenleme, oluşturma ve azalma ile de silme desteğini etkinleştirmek için olacaktır.
+Denetleyicileri ve görünümleri geliştirdik ve bunların site/ayrıntı deneyimi için nasıl kullanılacağını ele aldık. Sonraki adımınız, DinnersController sınıfınızı daha fazla almak ve ayrıca, bu da ile ilgili olarak düzenlemenizi, oluşturmayı ve silmeyi destekler.
 
-### <a name="urls-handled-by-dinnerscontroller"></a>DinnersController tarafından işlenen URL'leri
+### <a name="urls-handled-by-dinnerscontroller"></a>DinnersController tarafından işlenen URL 'Ler
 
-Daha önce eylem yöntemleri iki URL'ler için destek uygulanmadı DinnersController ekledik: */Dinners* ve */Dinners/Ayrıntılar / [ID]*.
+Daha önce DinnersController 'e iki URL için destek uygulayan eylem yöntemleri ekledik: */Dıntik* ve */Dinners/details/[ID]* .
 
-| **URL** | **FİİLİ** | **Amaç** |
+| **URL** | **Ü** | **Amaç** |
 | --- | --- | --- |
-| */Dinners/* | GET | Yaklaşan azalma bir HTML listesini görüntüler. |
-| */Dinners/Ayrıntılar / [ID]* | GET | Belirli bir Akşam Yemeği hakkında ayrıntıları görüntüler. |
+| */Dinners/* | GET | Yaklaşan dinlerlerin HTML listesini görüntüleyin. |
+| */Dinners/Details/[kimlik]* | GET | Belirli bir akşam yemeği hakkındaki ayrıntıları görüntüleyin. |
 
-Üç ek URL'ler uygulamak için eylem yöntemleri artık ekleyeceğiz: */Dinners/düzenleme / [ID]*, */azalma/Create*, ve */Dinners/Delete / [ID]*. Bu URL'ler, yeni azalma oluşturma ve silme azalma düzenleme mevcut azalma için desteği etkinleştirir.
+Şimdi üç ek URL uygulamak için eylem yöntemleri ekleyeceğiz: */Dinners/Edit/[ID]* , */Dinners/Create*ve */Dinners/delete/[ID]* . Bu URL 'Ler, var olan Dinlayıcıları düzenlemeyle, yeni yemek oluşturanlar ve Dinlayıcıları silmenin desteğini etkinleştirir.
 
-Bu yeni URL'leri HTTP GET ve HTTP POST edimi etkileşim destekleyeceğiz. Bu URL'ler için HTTP GET isteklerini ("Düzenle" durumunda Dinner verilerle doldurulmuş bir form, "oluşturma" söz konusu olduğunda boş bir form ve bir delete onay ekranında "Sil" söz konusu olduğunda) verilerin ilk HTML görünümünü görüntüler. Bu URL'ler için HTTP POST isteklerini kaydetme/güncelleştirme/silme Dinner veri bizim DinnerRepository (ve buradan veritabanı) olur.
+Bu yeni URL 'Ler ile HTTP GET ve HTTP POST fiili etkileşimlerini destekliyoruz. Bu URL 'lere HTTP GET istekleri, verilerin ilk HTML görünümünü ("Düzenle", "Oluştur" durumunda boş bir form ve "Sil" durumunda bir silme onayı ekranı) görüntüler. Bu URL 'lere HTTP POST istekleri, DinnerRepository sitemizdeki (ve veritabanına) akşam yemeği verilerini kaydeder/güncelleştirir/siler.
 
-| **URL** | **FİİLİ** | **Amaç** |
+| **URL** | **Ü** | **Amaç** |
 | --- | --- | --- |
-| */Dinners/düzenleme / [ID]* | GET | Akşam Yemeği doldurulmuş düzenlenebilir bir HTML form görüntüler. |
-| POST | Belirli bir Akşam Yemeği veritabanına için form değişiklikleri kaydedin. |
-| */ Azalma/oluşturma* | GET | Kullanıcıların yeni azalma tanımlamasına olanak tanıyan boş bir HTML form görüntüler. |
-| POST | Yeni bir Akşam Yemeği oluşturun ve veritabanında kaydedin. |
-| */Dinners/delete / [ID]* | GET | Görünen onay ekranında silin. |
-| POST | Belirtilen Akşam Yemeği veritabanından siler. |
+| */Dinners/Edit/[kimlik]* | GET | Akşam yemeği verileriyle doldurulmuş düzenlenebilir bir HTML formu görüntüleyin. |
+| POST | Veritabanına belirli bir akşam yemeği için form değişikliklerini kaydedin. |
+| */Dinners/Create* | GET | Kullanıcıların yeni Dinlayıcıları tanımlamasına olanak sağlayan boş bir HTML formu görüntüler. |
+| POST | Yeni bir akşam yemeği oluşturun ve veritabanına kaydedin. |
+| */Dinners/Delete/[kimlik]* | GET | Silme onayını görüntüleme ekranı. |
+| POST | Belirtilen akşam yemeği veritabanından siler. |
 
-### <a name="edit-support"></a>Destek Düzenle
+### <a name="edit-support"></a>Desteği Düzenle
 
-"Düzenle" senaryo uygulayarak başlayalım.
+"Düzenle" senaryosunu uygulayarak başlayalım.
 
-#### <a name="the-http-get-edit-action-method"></a>HTTP GET düzenleme eylem yöntemi
+#### <a name="the-http-get-edit-action-method"></a>HTTP-GET düzenleme eylemi yöntemi
 
-Bizim düzenleme eylem yöntemini HTTP "GET" davranışı uygulayarak başlayacağız. Bu yöntem olacaktır ne zaman çağrılır */Dinners/düzenleme / [ID]* istenen URL. Kararlılığımızın şöyle görünecektir:
+Düzenleme eylemi yönteminizin HTTP "GET" davranışını uygulayarak başlayacağız. Bu yöntem, */Dinners/Edit/[ID]* URL 'si istendiğinde çağrılacaktır. Uygulamamız şöyle görünür:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample1.cs)]
 
-Yukarıdaki kod DinnerRepository Dinner nesneyi almak için kullanır. Ardından, Şimdi Akşam nesnesini kullanarak bir şablonu görüntüleme işler. Biz için bir şablon adı açıkça geçirmediğinden henüz *View()* yardımcı yöntemi, tabanlı varsayılan yol şablonu görüntüle çözmek için kullanacağı: /Views/Dinners/Edit.aspx.
+Yukarıdaki kod, DinnerRepository kullanarak bir akşam yemeği nesnesi alır. Daha sonra akşam yemeği nesnesini kullanarak bir görünüm şablonu oluşturur. *Görüntüleme ()* yardımcı yöntemine açıkça bir şablon adı geçirdiğimiz için, görünüm şablonunu çözümlemek için kural tabanlı varsayılan yolu kullanır:/views/Dinners/Edit.aspx.
 
-Artık bu görünüm şablonu oluşturalım. Bu düzen yöntemi içinde sağ tıklayıp "Görünüm Ekle" bağlam menüsü komutu tarafından yapacağız:
+Şimdi bu görünüm şablonunu oluşturalım. Bunu, düzenleme yöntemi içinde sağ tıklayıp "Görünüm Ekle" bağlam menüsü komutunu seçerek yapacağız:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image1.png)
 
-"Görünüm Ekle" iletişim kutusunun içinden biz biz Dinner nesnesi, model olarak bizim görünümü şablona geçirme ve otomatik-iskele "Düzenle" bir şablon seçin belirtmek:
+"Görünüm Ekle" iletişim kutusunda, bir akşam yemeği nesnesini, model olarak görüntüleme şablonumuza geçirdiğimiz ve "düzenleme" şablonunu otomatik olarak yeniden oluşturma ' yı seçtiğimiz anlamına belirteceğiz.
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image2.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni "Edit.aspx" görünümü şablon dosyası ABD için "\Views\Dinners" dizininde ekler. Ayrıca, kod-ilk "Düzenle" iskele uygulaması gibi doldurulmuş Düzenleyici içindeki – yeni "Edit.aspx" Görünüm şablonu açar:
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dınanlar" dizininde bize yönelik yeni bir "Edit. aspx" görünüm şablonu dosyası ekler. Ayrıca, aşağıdaki gibi ilk "Düzenle" İskele uygulamasıyla doldurulan, kod Düzenleyicisi içindeki yeni "Düzenle. aspx" görünüm şablonunu açar:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image3.png)
 
-Şimdi oluşturulan varsayılan "Düzenle" iskele için birkaç değişiklik yapmak ve güncelleştirme (birkaç kullanıma sunmak için istemediğiniz özellikleri kaldıran) aşağıdaki içeriği için şablonu Düzen görüntüle:
+Varsayılan "Düzenle" scafkatı ' nin oluşturulması için birkaç değişiklik yapalim ve düzenleme görünümü şablonunu aşağıdaki içeriğe sahip olacak şekilde güncelleştirin (Bu, göstermek istediğimiz özelliklerden birkaçını kaldırır):
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample2.aspx)]
 
-Biz çalıştırıldığında uygulama ve istek *"/ azalma/düzenleme/1"* URL'si şu sayfayı görürsünüz:
+Uygulamayı çalıştırdığımızda ve *"/Dinners/Edit/1"* URL 'sini isteytiğimiz zaman şu sayfayı görüyoruz:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image4.png)
 
-Bizim görünüm tarafından oluşturulan HTML biçimlendirmesi aşağıdaki gibi görünür. Standart HTML – sahip olduğu bir &lt;form&gt; HTTP POST işlemi gerçekleştiren öğesi */Dinners/Edit/1* URL, "Kaydet" &lt;giriş türü = "submit" /&gt; düğmesi gönderildi. Bir HTML &lt;giriş türü = "text" /&gt; öğesi her düzenlenebilir bir özellik için çıkış oluştu:
+Görünümümüzden üretilen HTML biçimlendirmesi aşağıdaki gibi görünür. "Save" &lt;Input Type = "Gönder"/&gt; düğmesi gönderildiğinde */Dinners/Edit/1* URL 'SINE http post gerçekleştiren bir &lt;form&gt; öğesi Ile standart HTML 'dir. Bir HTML &lt;giriş türü = "Text"/&gt; öğesi her düzenlenebilir özellik için çıktı:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image5.png)
 
-#### <a name="htmlbeginform-and-htmltextbox-html-helper-methods"></a>Html.BeginForm() ve Html.TextBox() Html yardımcı yöntemler
+#### <a name="htmlbeginform-and-htmltextbox-html-helper-methods"></a>HTML. BeginForm () ve HTML. TextBox () HTML yardımcı yöntemleri
 
-Bizim "Edit.aspx" Görünüm şablonu birkaç "Html Yardımcısı" yöntemleri kullanır: Html.ValidationSummary(), Html.BeginForm(), Html.TextBox() ve Html.ValidationMessage(). Yerleşik hata işleme ve doğrulama bizim için oluşturma HTML biçimlendirmeyi yanı sıra bu yardımcı yöntemler sağlayan destekler.
+"Edit. aspx" görünüm şablonunuz birkaç "HTML Yardımcısı" yöntemini kullanıyor: HTML. ValidationSummary (), HTML. BeginForm (), HTML. TextBox () ve HTML. ValidationMessage (). Bu yardımcı yöntemler, bizim için HTML biçimlendirmesi oluşturmaya ek olarak yerleşik hata işleme ve doğrulama desteği sağlar.
 
-##### <a name="htmlbeginform-helper-method"></a>Html.BeginForm() yardımcı yöntemi
+##### <a name="htmlbeginform-helper-method"></a>HTML. BeginForm () yardımcı yöntemi
 
-Hangi HTML çıktı Html.BeginForm() yardımcı yöntem olduğunu &lt;form&gt; bizim biçimlendirme öğesi. Bizim Edit.aspx görünümü şablonunda size C# "deyimi için bu yöntemi kullanırken kullanma" uyguladığınız olduğunu fark edeceksiniz. Açık küme ayracı başlangıcını gösterir &lt;form&gt; içerik ve kapanış küme ayracını olduğu ne sonuna belirten &lt;/form&gt; öğesi:
+HTML. BeginForm () yardımcı yöntemi, biçimlendirme içindeki HTML &lt;form&gt; öğesi çıktı. Edit. aspx görünüm şablonumuza bu yöntemi kullanırken bir C# "Using" ifadesini uygulayacağız fark edeceksiniz. Açık süslü ayraç, &lt;form&gt; içeriğin başlangıcını gösterir ve sağ küme ayracı &lt;formu&gt; öğesinin sonunu belirtir:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample3.cs)]
 
-Alternatif olarak, "kullanma" bildirimi görürseniz bunun gibi bir senaryoya yönelik istemeyiz yaklaşımını, (Bu aynı şeyi yapar) Html.BeginForm() ve Html.EndForm() bir birleşimini kullanabilirsiniz:
+Alternatif olarak, bunun gibi bir senaryo için doğal olmayan "Using" ifadesini görürseniz, bir HTML. BeginForm () ve HTML. EndForm () bileşimini kullanabilirsiniz (aynı şeyi yapar):
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample4.aspx)]
 
-Hiçbir parametre olmadan Html.BeginForm() çağırma geçerli isteğin URL'sine HTTP POST yapan bir form öğesi çıktı neden olur. Diğer bir deyişle neden bizim düzenleme görünümünü oluşturur bir *&lt;form eylem = "/ azalma/düzenleme/1" yöntemi "post" =&gt;* öğesi. Farklı bir URL'ye gönderim yapması istediyseniz biz bunun yerine açık parametrelerini Html.BeginForm() için başarılı.
+HTML. BeginForm () parametresini parametre olmadan çağırmak, geçerli isteğin URL 'SI için HTTP-POST olan bir form öğesinin çıkışının oluşmasına neden olur. Bu nedenle, düzenleme görünümümüzde bir *&lt;form Action = "/Dinners/Edit/1" method = "Post"&gt;* öğesi oluşturulur. Farklı bir URL 'ye gönderi yapmak istiyorsam, alternatif olarak HTML. BeginForm 'a () açık parametreler geçiririz.
 
-##### <a name="htmltextbox-helper-method"></a>Html.TextBox() yardımcı yöntemi
+##### <a name="htmltextbox-helper-method"></a>HTML. TextBox () yardımcı yöntemi
 
-Bizim Edit.aspx görünümü, çıkış Html.TextBox() yardımcı yöntemini kullanır. &lt;giriş türü = "text" /&gt; öğeleri:
+Edit. aspx görünümümüzde, &lt;giriş türü = "Text"/&gt; öğelerinden çıkış yapmak için HTML. TextBox () yardımcı yöntemi kullanılır:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample5.aspx)]
 
-Her iki kimliği/ad özniteliklerini belirtmek için kullanılan tek bir parametre – yukarıdaki Html.TextBox() yöntemi alır &lt;giriş türü = "text" /&gt; metin değerini doldurmak için model özelliğinin yanı sıra çıkış öğesi. Örneğin, ".NET vadeli" öğesinin "Title" özellik değeri biz geçirilen düzenleme görünümüne Dinner nesnesi vardı ve bu nedenle bizim Html.TextBox("Title") yöntemini çağırın çıkış: *&lt;giriş kimliği "Title" name = "Title" type = "text" value = ".NET vadeli" = /&gt;*.
+Yukarıdaki HTML. TextBox () yöntemi tek bir parametre alır. &lt;giriş türü = "Text"/&gt; öğesi için ID/name özniteliklerini ve metin kutusu değerini doldurmak için model özelliğini belirtmek için kullanılır. Örneğin, düzenleme görünümüne geçirdiğimiz akşam yemeği nesnesi ".NET Futures" öğesinin bir "title" özelliği değerine sahipti ve bu nedenle HTML. TextBox ("title") yöntem çağrısı çıkışı: *&lt;giriş kimliği = "title" ad = "title" Type = "metin" değeri = ". NET Futures"/&gt;* .
 
-Alternatif olarak, öğenin kimliği/adını belirtin ve ikinci parametre olarak kullanılacak değeri açıkça geçirebilirsiniz ilk Html.TextBox() parametre kullanabiliriz:
+Alternatif olarak, ilk HTML. TextBox () parametresini kullanarak öğenin kimliğini/adını belirtebilir ve ardından ikinci bir parametre olarak kullanılacak değerde açıkça geçiş yapabilirsiniz:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample6.aspx)]
 
-Genellikle şu çıkış değeri üzerinde özel biçimlendirme gerçekleştirmek isteyebilirsiniz. Bu senaryolar için .NET yerleşiktir String.Format() statik yöntem kullanışlıdır. Böylece süreyi saniye göstermez bizim Edit.aspx şablonu görüntüle (DateTime türünde) EventDate değerini biçimlendirmek için bu kullanıyor:
+Genellikle çıktı olan değer üzerinde özel biçimlendirme gerçekleştirmek istiyoruz. String. Format () statik yöntemi bu senaryolar için yerleşik .NET ' tir. Edit. aspx görünüm şablonumuz, EventDate değerini (DateTime türünde olan) biçimlendirmek için bunu kullanarak sürenin saniye cinsinden gösterilmemesi için kullanılır:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample7.aspx)]
 
-Html.TextBox() üçüncü parametresi, isteğe bağlı olarak, diğer HTML öznitelikleri çıktısını almak için de kullanılabilir. Aşağıdaki kod parçacığında bir ek boyut nasıl oluşturulacağını gösterir. "30" özniteliğini ve bir sınıf = "mycssclass" özniteliği = on &lt;giriş türü = "text" /&gt; öğesi. Biz sınıfı kullanmanın öznitelik adı nasıl kaçış Not bir "@" character because "sınıfı" C# ' de ayrılmış bir anahtar sözcük:
+HTML. TextBox () için üçüncü bir parametre, isteğe bağlı olarak ek HTML özniteliklerinin çıkışını almak için kullanılabilir. Aşağıdaki kod parçacığı, ek bir boyut = "30" özniteliği ve bir Class = "mycssclass" özniteliğinin &lt;giriş türü = "metin"/&gt; öğesi üzerinde nasıl işleneceğini gösterir. "@" character because "sınıfı" kullanılarak sınıf özniteliğinin adının nasıl kaçışımız, içindeki C#ayrılmış bir anahtar sözcüktür.
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample8.aspx)]
 
-#### <a name="implementing-the-http-post-edit-action-method"></a>HTTP POST düzenleme eylem yöntemi uygulama
+#### <a name="implementing-the-http-post-edit-action-method"></a>HTTP-POST düzenleme eylem yöntemini uygulama
 
-Artık uygulanan bizim düzenleme eylem yöntemini HTTP GET sürümü var. Bir kullanıcı istediğinde */Dinners/Edit/1* URL bir HTML sayfasına aşağıdaki gibi alın:
+Şimdi düzenleme eylemi yönteminizin HTTP-Al sürümü uygulandı. Bir Kullanıcı */Dinners/Edit/1* URL 'sini istediğinde, aşağıdaki gıbı bir HTML sayfası alırlar:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image6.png)
 
-"Kaydet" düğmesine basarak neden olan bir form post */Dinners/Edit/1* URL, HTML sorgulayan ve &lt;giriş&gt; form değerleri HTTP POST edimi kullanılarak. Şimdi Akşam Yemeği kaydetme işleyecek bizim düzenleme eylem yöntemine – HTTP POST davranışını hemen uygulayın.
+"Kaydet" düğmesine basıldığında form */Dinners/Edit/1* URL 'si için bir form göndermesine neden olur ve http post FIILINI kullanarak HTML &lt;girişi&gt; form değerlerini gönderir. Şimdi, bir akşam yemeği 'nin kaydedilmesini işleyecek olan düzenleme eylemi yönteminizin HTTP POST davranışını uygulayalim.
 
-HTTP POST senaryoları işleme gösteren bir "AcceptVerbs" özniteliği içeren bizim DinnersController için aşırı yüklenmiş bir "Düzenleme" eylem yöntemine ekleyerek başlayın:
+Bir "AcceptVerbs" özniteliği olan DinnersController için HTTP POST senaryolarını işlediğini belirten, daha fazla yüklenmiş bir "düzenleme" eylemi yöntemi ekleyerek başlayacağız:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-[AcceptVerbs] özniteliği için aşırı yüklenmiş bir eylem yöntemleri uygulandığında, ASP.NET MVC gelen HTTP fiiline bağlı olarak uygun bir eylem yönteminin dispatching isteklerine otomatik olarak işler. HTTP POST isteklerini */Dinners/düzenleme / [ID]* URL'leri diğer tüm HTTP fiili istekleri sırasında yukarıdaki düzenleme yönteme gider */Dinners/düzenleme / [ID]* URL'leri yazılacak ilk düzenleme yönteme (hangi yaptığınız uyguladık sahip bir `[AcceptVerbs]` özniteliği).
+{AcceptVerbs] özniteliği aşırı yüklenmiş eylem yöntemlerine uygulandığında, ASP.NET MVC gelen HTTP fiiline bağlı olarak uygun eylem yöntemine gönderilen istekleri otomatik olarak işler. */Dinners/Edit/[ID]* URL 'LERINE http post Istekleri Yukarıdaki düzenleme yöntemine gider, ancak */Dinners/Edit/[ID]* URL 'lerine yönelik diğer http fiili Istekleri uyguladığımız ilk düzenleme yöntemine (`[AcceptVerbs]` özniteliği olmayan) gidecektir.
 
-| **Yan konu: HTTP fiilleri neden ayırt?** |
+| **Kenar konusu: neden HTTP fiilleri farklılaştırsın?** |
 | --- |
-| İsteyebilir – tek bir URL kullanarak ve davranışını HTTP fiili üzerinden farklılaştırılması duyuyoruz neden? Neden yalnızca yükleme ve düzenleme değişiklikleri kaydetme işlemek için iki ayrı URL vardır? Örneğin: /Dinners/düzenleme ilk formu ve /Dinners/kaydetme kaydetmek için form post işlemek için / [ID] / [ID]? Burada /Dinners/Save/2 için gönderin ve HTML formundaki Giriş bir hata nedeniyle yeniden gereken durumlarda, son kullanıcı (bu yana azalma/kaydetme/2 URL, tarayıcının adres çubuğunda sonunda, yayımlama iki ayrı URL ile dezavantajı olduğu URL için gönderilen bir formu). Son kullanıcı kendi tarayıcı Sık Kullanılanlar listesi redisplayed bu sayfaya yer işaretlerini veya kopyalama/URL yapıştırır ve bir arkadaşınıza e-postaları (Bu URL'yi post değerlerine bağlı olduğundan) gelecekte çalışmaz bir URL kaydetme sonlandırır. Tek bir URL gösterme tarafından (gibi: /Dinners/Edit/[id]) ve işlenmesini HTTP fiili ile ayrım yapma, bunu düzenleme sayfası yer işareti ve/veya URL başkalarına göndermek üzere son kullanıcılar için güvenli. |
+| Sorun: neden tek bir URL kullanıyorum ve HTTP fiili aracılığıyla davranışını farklılaştırıyor musunuz? Düzenleme değişikliklerini yüklemeyi ve kaydetmeyi işlemek için yalnızca iki ayrı URL 'Si yok mu? Örneğin:/Dinners/Edit/[ID] başlangıç formunu ve/Dinners/Save/[ID] öğesini kaydetmek için form gönderisini işleyecek şekilde görüntüleyin. İki ayrı URL yayımlamanın yanı sıra,/Dinners/Save/2 ' a gönderdiğimiz ve ardından bir giriş hatası nedeniyle HTML formunu yeniden görüntüleytiğimiz durumlarda Son Kullanıcı, tarayıcının adres çubuğunda (Bu URL 'nin gönderildiği URL olduğundan)/Dinners/Save/2 URL 'sini alacak. Son Kullanıcı bu sayfayı tarayıcı sık kullanılanlar listesine ekler veya URL 'YI kopyalayıp yapıştırır ve bir arkadaşınıza e-posta ile gönderirse, gelecekte çalışmayan bir URL 'YI kaydederek (Bu URL, post değerlerine bağlı olduğundan) sona acaktır. Tek bir URL 'YI (örneğin,/Dinners/Edit/[ID]) açarak ve işleme HTTP fiili tarafından farklılaştırarak, son kullanıcıların düzenleme sayfasına yer işareti koymak ve/veya URL 'YI başkalarına göndermek güvenlidir. |
 
-#### <a name="retrieving-form-post-values"></a>Form Gönderme değerlerini alma
+#### <a name="retrieving-form-post-values"></a>Form Gönderi değerlerini alma
 
-Gönderilen form parametreleri bizim HTTP POST yöntemi "Düzenle" içinde erişebilmeniz için yol çeşitli vardır. Yalnızca bir form koleksiyonu erişmek ve gönderilen değerlerden doğrudan almak için denetleyici taban sınıfa istek özelliği kullanmak için bir basit yaklaşım şöyledir:
+HTTP POST "düzenleme" yöntemimiz içindeki postalanan form parametrelerine erişebildiğimiz çeşitli yollar vardır. Tek bir basit yaklaşım, form koleksiyonuna erişmek ve gönderilen değerleri doğrudan almak için denetleyici temel sınıfındaki Request özelliğini kullanmaktır:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample10.cs)]
 
-Hata işleme mantığı özellikle eklediğimiz sonra yukarıdaki yine de biraz ayrıntılı bir yaklaşımdır.
+Yukarıdaki yaklaşım biraz ayrıntılıdır, ancak özellikle hata işleme mantığı ekliyoruz.
 
-Bir yerleşik bu senaryo için daha iyi yaklaşımını *UpdateModel()* denetleyicisi taban sınıfta yardımcı yöntemi. Bu güncelleştirme biz gelen form parametreleri kullanarak başarılı bir nesnenin özelliklerini destekler. Özellik adlarının nesne üzerinde belirlemek için yansıtma kullanır ve ardından otomatik olarak dönüştürür ve bunları istemci tarafından gönderilen giriş değerlere göre değerleri atar.
+Bu senaryoya daha iyi bir yaklaşım, denetleyici temel sınıfındaki yerleşik *UpdateModel ()* yardımcı yönteminden faydalanır. Bu, gelen form parametrelerini kullanarak geçirdiğimiz bir nesnenin özelliklerinin güncelleştirilmesini destekler. Nesne üzerindeki özellik adlarını belirlemede yansıma kullanır ve ardından, istemci tarafından gönderilen girdi değerlerine göre değerleri otomatik olarak dönüştürür ve bunlara atar.
 
-HTTP POST Düzenle bu kodu kullanan Eylemimiz basitleştirmek için UpdateModel() yöntemi kullanabiliriz:
+Bu kodu kullanarak HTTP-POST düzenleme eyleminizi basitleştirmek için UpdateModel () yöntemini kullanabiliriz:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample11.cs)]
 
-Şu anda ziyaret edebilirsiniz */Dinners/Edit/1* URL ve değişiklik bizim Dinner başlığı:
+Artık */Dinners/Edit/1* URL 'sini ziyaret edebiliyoruz ve akşam yemeği 'nin başlığını değiştirebiliriz:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image7.png)
 
-Biz "Kaydet" düğmesine tıkladığınızda, form postası düzenleme eylemimiz gerçekleştirirsiniz ve güncelleştirilmiş değerleri veritabanında kalıcı hale. Biz sonra ayrıntıları URL'sine (Bu yeni kaydedilen değerleri gösterir) Akşam yönlendirilir:
+"Kaydet" düğmesine tıkladığımızda, düzenleme eylemmize bir form gönderisi gerçekleştiririz ve güncelleştirilmiş değerler veritabanında kalıcı olacak. Bundan sonra akşam yemeği için Ayrıntılar URL 'sine yönlendirilecektir (yeni kaydedilen değerleri görüntüler):
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image8.png)
 
-#### <a name="handling-edit-errors"></a>Düzenleme hataları işleme
+#### <a name="handling-edit-errors"></a>Düzenleme hatalarını işleme
 
-Dışında geçerli HTTP POST uygulama works – ince hatalar.
+Geçerli HTTP-POST uygulamamız, hatalar olduğu durumlar dışında iyi şekilde çalışıyor.
 
-Bir kullanıcı bir form düzenleniyor hata yaptığında, biz form bunları düzeltmek için yol gösteren bir açıklayıcı hata iletisi ile yeniden görüntülenir emin olmanız gerekir. Bu durumda olduğu bir son kullanıcı yazılarını hatalı giriş içerir (örneğin: hatalı biçimlendirilmiş tarih dizesi) giriş biçimi nerede durumlarda da geçerlidir, ancak bir iş kuralı ihlali gibi. Form giriş veri değişikliklerini el ile yenileme zorunda kalmazsınız başlangıçta girilen kullanıcı koruması gerektiğini hataları olduğunda. Form başarıyla tamamlanana kadar bu işlemi gerektiği kadar yineleyin.
+Bir Kullanıcı bir formu düzenlemede bir hata yaptığında, formu düzeltmeye yönelik bir bilgilendirici hata iletisiyle formun yeniden görüntülendiğinden emin olmanız gerekir. Bu, bir son kullanıcının yanlış giriş (örneğin, hatalı biçimlendirilmiş bir tarih dizesi) naklettiği ve giriş biçiminin geçerli olduğu, ancak bir iş kuralı ihlali olduğu durumlarda oluşan durumları içerir. Hata oluştuğunda form, kullanıcının yaptığı değişiklikleri el ile yeniden doldurmak zorunda kalmayacak şekilde, kullanıcının ilk girdiği giriş verilerini korumalıdır. Bu işlem, form başarıyla tamamlanana kadar gerektiği kadar yinelenir.
 
-ASP.NET MVC, hata işleme ve formu yeniden kolaylaştıran bazı kullanışlı yerleşik özellikler içerir. Şimdi bu özelliklerini iş başında görmek için bizim düzenleme eylem yöntemini aşağıdaki kodla güncelleştirin:
+ASP.NET MVC, hata işleme ve form yeniden görüntüleme işlemlerini kolaylaştıran bazı iyi yerleşik özellikler içerir. Bu özellikleri, şu kodla düzenleme eylemi sitemizi güncelleştirelim ' de görmek için:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample12.cs)]
 
-Yukarıdaki kod, biz artık bir try/catch hata işleme bloğu bizim geçici sarmalamış olursunuz dışında önceki kararlılığımızın için – benzerdir. Bir özel durum oluşursa UpdateModel() çağrılırken veya deneyin ve (kaydetmeye çalıştığınız Dinner nesne modelimizi içinde bir kural ihlali nedeniyle geçersizse, bir özel durum oluşturacak) DinnerRepository Kaydet bizim catch hata işleme bloğu olur yürütün. İçindeki Şimdi Akşam nesnesinde mevcut herhangi bir kural ihlali üzerinden döngü ve (hangi kısa bir süre içinde açıklayacağız) ModelState nesnesine ekleyin. Biz sonra görünümü yeniden görüntüleyin.
+Yukarıdaki kod, şimdi çalışmamıza bir try/catch hata işleme bloğunu sarmalıyoruz, ancak bu, önceki uygulamanıza benzer. UpdateModel () çağrılırken bir özel durum oluşursa veya DinnerRepository (bir özel durum oluşturacak ve kaydetmeye çalıştığınız akşam yemeği nesnesi modelimizin içindeki bir kural ihlali nedeniyle geçerli değilse) yürütme. Bunun içinde, akşam yemeği nesnesinde var olan tüm kural ihlallerinin üzerinde döngü gerçekleştirin ve bunları bir ModelState nesnesine (kısa süre içinde tartışacağız) ekleyin. Daha sonra görünümü yeniden görüntüyoruz.
 
-Bu uygulamayı yeniden çalıştıralım çalışma görmek için bir Akşam Yemeği düzenleyin ve boş bir başlık, "BOGUS", bir EventDate varsa ve UK telefon numarası ABD ülke değeriyle değiştirin. Biz "Kaydet" düğmesine bastığınızda yöntemi bizim HTTP POST Düzenle (hatalar olduğundan) Akşam Yemeği kaydetmek mümkün olmayacaktır ve formu görüntülemek:
+Bu çalışma için uygulamayı yeniden çalıştırın, bir akşam yemeği düzenleyin ve boş bir başlığa, bir EventDate "yapay" adına sahip olacak şekilde değiştirin ve ABD ülke değeriyle Birleşik Krallık telefon numarası kullanın. "Kaydet" düğmesine bastığımızda, HTTP POST düzenleme yönteminiz akşam yemeği (hatalar nedeniyle) kaydedemeyecek ve formu yeniden görüntüleyeceğiz:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image9.png)
 
-Uygulamamız bir makul hata deneyimi vardır. Geçersiz giriş metin öğeleriyle kırmızıyla vurgulanır ve bunlara ilişkin son kullanıcı doğrulama hata iletisi görüntülenir. Herhangi bir şey puanı almak zorunda kalmazsınız formun Ayrıca kullanıcı ilk olarak girilen – giriş verilerini saklayan.
+Uygulamamız bir hata deneyimine sahiptir. Geçersiz girişi olan metin öğeleri kırmızı renkle vurgulanır ve doğrulama hatası iletileri son kullanıcıya bunlarla ilgili olarak görüntülenir. Form Ayrıca kullanıcının ilk girdiği giriş verilerini de korur. böylece, herhangi bir şeyi yeniden doldurmak zorunda kalmazsınız.
 
-Nasıl isteyebilir, bu gerçekleşti? Nasıl başlık ve EventDate ContactPhone metin kutuları kendilerini kırmızı renkte vurgulayın ve ilk olarak girilen kullanıcı değer çıktısı için bilmeniz? Ve nasıl hata iletileri listesinde en üstünde gösterilen? Güzel bir haberimiz var olan Sihirli tarafından ortaya yaramadı - bunun yerine, giriş doğrulama ve hata işleme senaryoları kolaylaştıran yerleşik ASP.NET MVC özelliklerinden bazıları kullandık olduğundan oluştu.
+Nasıl sorabilirsiniz, bu durum ortaya çıkabilir mi? Başlık, EventDate ve ContactPhone metin kutularının kendilerini kırmızıyla nasıl vurguladığına ve özgün olarak girilen Kullanıcı değerlerinin çıkışını nasıl anlayabilirim? En üstteki listede hata iletileri nasıl görüntüleniyor? İyi haber, bu bunun yerine, giriş doğrulama ve hata işleme senaryolarını kolay hale getirmek için yerleşik ASP.NET MVC özelliklerinden bazılarını kullandığımız için, bunun yerine Magic tarafından gerçekleşmiyordu.
 
-#### <a name="understanding-modelstate-and-the-validation-html-helper-methods"></a>ModelState anlama ve doğrulama HTML yardımcı yöntemler
+#### <a name="understanding-modelstate-and-the-validation-html-helper-methods"></a>ModelState ve doğrulama HTML Yardımcısı yöntemlerini anlama
 
-Denetleyici sınıflarına hataları görünümüne geçirilen bir model nesnesi ile mevcut olduğunu belirtmek için bir yol sağlayan bir "ModelState" özellik koleksiyonu vardır. ModelState koleksiyonu içinde hata girişlerini belirlemek model özelliğinin adını sorun (örneğin: "Title", "EventDate" veya "ContactPhone") ve bir insan kullanımı kolay hata iletisi belirtilmesine izin verir (örneğin: "Başlık gereklidir.").
+Denetleyici sınıfları, bir görünüme geçirilmekte olan bir model nesnesiyle ilgili hataların mevcut olduğunu belirtmek için bir yol sağlayan bir "ModelState" özellik koleksiyonuna sahiptir. ModelState koleksiyonundaki hata girdileri, sorun ile model özelliğinin adını (örneğin, "title", "EventDate" veya "ContactPhone") belirler ve insana kolay bir hata iletisi belirtilmesine izin verir (örneğin: "başlık gereklidir").
 
-*UpdateModel()* yardımcı yöntemi form değerleri, model nesnesi özelliklere atanmaya çalışılırken hatalarla karşılaştığında laravel'den ModelState koleksiyonu otomatik olarak doldurur. Örneğin, bizim Dinner nesnenin EventDate DateTime türünde özelliğidir. UpdateModel() yöntemi "BOGUS" dize değeri için yukarıdaki senaryoda atayamadı UpdateModel() yöntemi bu özellik ile bir atama hatası gösteren ModelState koleksiyona bir giriş oluşmadı eklenmesi.
+*UpdateModel ()* yardımcı yöntemi, model nesnesindeki özelliklere form değerleri atamaya çalışırken hata ile karşılaştığında otomatik olarak ModelState koleksiyonunu doldurur. Örneğin, akşam yemeği nesnenizin EventDate özelliği DateTime türündedir. UpdateModel () yöntemi, yukarıdaki senaryoda "yapay" dize değerini atayamamıştı. UpdateModel () yöntemi, bu özellik ile bir atama hatası oluştuğunu gösteren ModelState koleksiyonuna bir giriş ekledi.
 
-Geliştiriciler Ayrıca, etkin kuralı ihlallerini göre girişlerle ModelState koleksiyon doldurma bizim "catch" hata işleme bloğu içinde biz aşağıda yapıyor gibi açıkça hata girişleri ModelState koleksiyona eklemek için kod yazma Akşam Yemeği nesnesi:
+Geliştiriciler, ModelState koleksiyonunu doğrudan "Catch" hata işleme bloğundan aşağıda yaptığımız gibi ModelState koleksiyonuna eklemek için de kod yazabilir ve bu, Akşam yemeği nesnesi:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample13.cs)]
 
-#### <a name="html-helper-integration-with-modelstate"></a>ModelState tümleştirmesiyle HTML Yardımcısı
+#### <a name="html-helper-integration-with-modelstate"></a>ModelState ile HTML Yardımcısı tümleştirmesi
 
-HTML yardımcı yöntemlerinden - Html.TextBox() gibi-çıkış işlenirken ModelState koleksiyon denetleyin. Öğe için bir hata varsa, kullanıcı tarafından girilen değer ve bir CSS hata sınıfı işleyin.
+HTML yardımcı yöntemleri-HTML. TextBox () gibi-çıktı işlenirken ModelState koleksiyonunu kontrol edin. Öğe için bir hata varsa, Kullanıcı tarafından girilen değeri ve bir CSS hata sınıfını işler.
 
-Örneğin, "Düzenle" bizim görünümünde Html.TextBox() yardımcı yöntem bizim Dinner nesnesinin EventDate işlemek için kullanıyoruz:
+Örneğin, "Düzenle" görünümümüzde, akşam yemeği nesnemizin EventDate öğesini işlemek için HTML. TextBox () yardımcı yöntemini kullanıyoruz:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample14.aspx)]
 
-Görünüm hata senaryosunda işlendiğinde Html.TextBox() yöntemi bizim Dinner nesnenin "EventDate" özellikle ilişkili herhangi bir hata olup olmadığını görmek için ModelState koleksiyon teslim. Bir hata oluştu belirlenen zaman değeri olarak gönderilen kullanıcı girişini ("BOGUS") oluşturulmasını ve css hata sınıfa eklediğiniz &lt;giriş türü "metin" = /&gt; biçimlendirmesi ürettiğini:
+Görünüm hata senaryosunda işlendiğinde, HTML. TextBox () yöntemi, akşam yemeği nesnenizin "EventDate" özelliği ile ilişkili herhangi bir hata olup olmadığını görmek için ModelState koleksiyonunu denetledi. Değer olarak gönderilen Kullanıcı girişini ("sahte") işlendiğinde bir hata olduğunu tespit edildiğinde ve &lt;giriş türü = "TextBox"/&gt; işaretleme için bir CSS hata sınıfı ekledi:
 
 [!code-html[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample15.html)]
 
-Ancak istediğiniz aramak için css hata sınıf görünümünü özelleştirebilirsiniz. Varsayılan CSS hata sınıfının – "giriş-doğrulama hata" – tanımlanan *\content\site.css* aşağıdaki gibi stil sayfası ve görünümler:
+CSS hatası sınıfının görünümünü, ancak istediğiniz gibi özelleştirebilirsiniz. Varsayılan CSS hata sınıfı – "giriş-doğrulama-hatası" – *\content\site.exe* stil sayfasında tanımlanmıştır ve aşağıdaki gibi görünür:
 
 [!code-css[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample16.css)]
 
-CSS kuralın ne gibi aşağıda vurgulanmasını bizim geçersiz giriş öğelerini kaynaklanır:
+Bu CSS kuralı, geçersiz giriş öğelerimizin aşağıdaki gibi vurgulanmasının nedeni olan şeydir:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image10.png)
 
-##### <a name="htmlvalidationmessage-helper-method"></a>Html.ValidationMessage() Helper Method
+##### <a name="htmlvalidationmessage-helper-method"></a>HTML. ValidationMessage () yardımcı yöntemi
 
-Belirli bir model özelliğine ile ilişkili ModelState hata iletisi çıkışı Html.ValidationMessage() yardımcı yöntemi kullanılabilir:
+HTML. ValidationMessage () yardımcı yöntemi, belirli bir model özelliği ile ilişkili ModelState hata iletisinin çıktısını almak için kullanılabilir:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample17.aspx)]
 
-Yukarıdaki kod çıkarır:  *&lt;span class = "alan doğrulama hata"&gt; 'BOGUS' değeri geçersiz &lt; /span&gt;*
+Yukarıdaki kod çıktıları: *&lt;span class = "alan-doğrulama-hatası"&gt; ' yapay ' değeri geçersiz&lt;/span&gt;*
 
-Html.ValidationMessage() yardımcı yöntemi, geliştiricilerin görüntülenen hata SMS mesajı geçersiz kılmasına izin veren ikinci bir parametre de destekler:
+HTML. ValidationMessage () yardımcı yöntemi, geliştiricilerin görüntülenen hata SMS iletisini geçersiz kılmasını sağlayan ikinci bir parametreyi de destekler:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Yukarıdaki kod çıkarır: *&lt;span class = "alan doğrulama hata"&gt;\*&lt;/span&gt;* yerine bir hata için mevcut olduğunda varsayılan hata metni EventDate özelliği.
+Yukarıdaki kod çıktıları: *&lt;span class = "alan-doğrulama-hatası"&gt;\** eventdate özelliği için bir hata mevcut olduğunda varsayılan hata metni yerine &lt;/span&gt;.
 
-##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() yardımcı yöntemi
+##### <a name="htmlvalidationsummary-helper-method"></a>HTML. ValidationSummary () yardımcı yöntemi
 
-Html.ValidationSummary() yardımcı yöntem eşlik bir Özet hata iletisini işlemek için kullanılan bir &lt;ul&gt;&lt;li /&gt;&lt;/ul&gt; listesi tüm ayrıntılı hata iletilerini ModelState koleksiyonu:
+HTML. ValidationSummary () yardımcı yöntemi, ModelState koleksiyonundaki tüm ayrıntılı hata iletilerinin bir &lt;ul&gt;&lt;li/&gt;&lt;/ul&gt; listesi tarafından eşlik eden bir Özet hata iletisi oluşturmak için kullanılabilir:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image11.png)
 
-Ayrıntılı hataları listesini görüntülemek için bir Özet hata iletisi tanımlar ve isteğe bağlı dize parametresi – Html.ValidationSummary() yardımcı yöntemi alır:
+HTML. ValidationSummary () yardımcı yöntemi, ayrıntılı hataların listesinin üstünde görüntülenecek bir Özet hata iletisi tanımlayan bir isteğe bağlı dize parametresi alır:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample19.aspx)]
 
-CSS hata listesinin nasıl göründüğünü geçersiz kılmak için isteğe bağlı olarak kullanabilirsiniz.
+İsteğe bağlı olarak, hata listesinin ne gibi göründüğünü geçersiz kılmak için CSS kullanabilirsiniz.
 
-#### <a name="using-a-addruleviolations-helper-method"></a>AddRuleViolations yardımcı yöntemini kullanma
+#### <a name="using-a-addruleviolations-helper-method"></a>Addruleihlalleri yardımcı yöntemi kullanma
 
-İlk HTTP POST Düzenle kararlılığımızın bir foreach deyimi, catch bloğu içinde Dinner nesnenin kural ihlalleri döngü ve denetleyicinin ModelState koleksiyona eklemek için kullanılır:
+İlk HTTP-POST düzenleme uygulamamız, bir catch bloğu içinde akşam yemeği nesnesinin kural Ihlallerinin üzerine döngüsü için bir foreach ifadesi kullandı ve bunları denetleyicinin ModelState koleksiyonuna ekler:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample20.cs)]
 
-Bu kod bir "ControllerHelpers" ekleyerek az temizleyici NerdDinner projeye sınıf ve ASP.NET MVC ModelStateDictionary sınıfa yardımcı yöntemini ekleyen "AddRuleViolations" genişletme yöntemi içindeki uygulama yapabiliyoruz. Bu genişletme yöntemi ModelStateDictionary RuleViolation hataları listesini doldurmak için gerekli mantığı kapsülleyen:
+Nerdakşam yemeği projesine bir "Controllerhelper" sınıfı ekleyerek ve bunun içinde ASP.NET MVC ModelStateDictionary sınıfına bir yardımcı yöntem ekleyen bir "Addruleihlalleri" genişletme yöntemi uygulayarak bu kodu küçük bir temizleyici hale getirebilirsiniz. Bu genişletme yöntemi, ModelStateDictionary öğesini Ruleihlal hatalarının bir listesiyle doldurmak için gereken mantığı kapsülleyebilirsiniz:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample21.cs)]
 
-Biz, bizim HTTP POST Düzenle eylem yöntemi, Şimdi Akşam kural ihlalleri ModelState koleksiyonuyla doldurmak için bu genişletme yöntemi kullanmak için daha sonra güncelleştirebilirsiniz.
+Daha sonra, ModelState koleksiyonunu akşam yemeği kural Ihlalleri ile doldurmak için bu genişletme yöntemini kullanmak üzere HTTP-POST düzenleme eylem yönteminizi güncelleştirebiliriz.
 
-#### <a name="complete-edit-action-method-implementations"></a>Düzenleme eylem yöntem uygulamaları tamamlayın
+#### <a name="complete-edit-action-method-implementations"></a>Eylem yöntemi uygulamalarını tamamen Düzenle
 
-Aşağıdaki kod tüm gerekli düzenleme senaryomuz için denetleyici mantığı uygular:
+Aşağıdaki kod, düzenleme senaryomız için gereken tüm denetleyici mantığını uygular:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample22.cs)]
 
-Güzel bir şey düzenleme kararlılığımızın hakkında ne bizim denetleyici sınıfı, hem de bizim görünüm şablonu herhangi bir şey belirli doğrulama veya Akşam Yemeği modelimizi tarafından zorunlu kılınmayı iş kuralları hakkında bilgi edinmek sahip olur. Biz ek kurallar modelimiz için gelecekte ekleyebilirsiniz ve bizim denetleyicisi veya desteklenecek edebilmeleri görünümünde herhangi bir kod değişikliği yapmak gerekmez. Bu bize kolayca bizim uygulama gereksinimlerini gelecekte en az kod değişikliği geliştiren esnekliği sağlar.
+Düzenleme uygulamamız hakkında iyi şeyler, denetleyici sınıfınız veya görünüm şablonumuz, akşam yemeği modelimiz tarafından zorlanan belirli doğrulama veya iş kuralları hakkında herhangi bir şeyi bilmelidir. Daha sonra modelinize ek kurallar ekleyebiliriz ve bunların desteklenmesi için denetleyicimizde veya görünümümüzde herhangi bir kod değişikliği yapmak zorunda değilsiniz. Bu, en az kod değişikliği ile gelecekte uygulama gereksinimlerimizi kolayca geliştirme esnekliği sağlar.
 
-### <a name="create-support"></a>Oluşturma desteği
+### <a name="create-support"></a>Destek oluştur
 
-Bizim DinnersController sınıfı "Düzenle" davranışını uygulama bitirdikten sonra. Artık "Oluştur" Destek üzerinde – kullanıcıların yeni azalma eklemesine olanak sağlayan uygulamak geçelim.
+DinnersController sınıfımızın "düzenleme" davranışını uygulamayı tamamladık. Şimdi "Oluştur" desteğini uygulamaya geçelim. Bu, kullanıcıların yeni Dinlayıcıları eklemesine olanak tanır.
 
-#### <a name="the-http-get-create-action-method"></a>HTTP GET oluşturma eylem yöntemi
+#### <a name="the-http-get-create-action-method"></a>HTTP-GET oluşturma eylemi yöntemi
 
-Biz "GET" HTTP davranışını uygulayarak başlarsınız bizim eylem yöntemi oluşturun. Birisi ziyaret ettiğinde bu yöntem çağrılacak */azalma/Create* URL'si. Kararlılığımızın şuna benzer:
+Oluşturma eylemi yönteminizin HTTP "GET" davranışını uygulayarak başlayacağız. Bu yöntem, birisi */Dinners/Create* URL 'sini ziyaret ettiğinde çağrılacaktır. Uygulamamız şöyle görünür:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample23.cs)]
 
-Yukarıdaki kod, Akşam Yemeği yeni bir nesne oluşturur ve bir hafta gelecekte olacak şekilde kendi EventDate özelliğine atar. Ardından, yeni Dinner nesnesine bağlı bir görünümü işler. Biz bir adla açıkça geçirmediğinden henüz *View()* yardımcı yöntemi, tabanlı varsayılan yol şablonu görüntüle çözmek için kullanacağı: /Views/Dinners/Create.aspx.
+Yukarıdaki kod yeni bir akşam yemeği nesnesi oluşturur ve EventDate özelliğini gelecekte bir hafta olacak şekilde atar. Daha sonra yeni akşam yemeği nesnesine dayalı bir görünüm oluşturur. *Görüntüleme ()* yardımcı yöntemine açıkça bir ad geçirdiğimiz için, görünüm şablonunu çözümlemek için kural tabanlı varsayılan yolu kullanır:/views/Dinners/Create.aspx.
 
-Artık bu görünüm şablonu oluşturalım. Oluştur eylemi yöntemi içinde sağ tıklatıp "Görünüm Ekle" bağlam menüsü komutu'i seçerek bunu yapabilirsiniz. "Görünüm Ekle" iletişim kutusunun içinden biz size Dinner nesne görünümü şablona geçirme ve otomatik yapı iskelesi için "Oluştur" şablonu seçin belirtmek:
+Şimdi bu görünüm şablonunu oluşturalım. Bunu, oluşturma eylemi yöntemi içinde sağ tıklayıp "Görünüm Ekle" bağlam menüsü komutunu seçerek yapabiliriz. "Görünüm Ekle" iletişim kutusunda, bir akşam yemeği nesnesini görünüm şablonuna geçirdiğimiz ve "oluşturma" şablonunu otomatik olarak oluşturmayı tercih ettiğimiz belirteceğiz.
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image12.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni iskele tabanlı "Create.aspx" Görünüm "\Views\Dinners" dizine kaydedin ve IDE içinde açın:
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dıntik" dizinine yeni bir Scaffold tabanlı "Create. aspx" görünümü kaydeder ve IDE içinde açar:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image13.png)
 
-Şimdi oluşturulan varsayılan "Oluştur" iskele dosyasına bizim için birkaç değişiklik yapmak ve altında görünmesi için yukarı değiştirin:
+Aşağıda, bizim için oluşturulan varsayılan "oluşturma" scafkatlama dosyasında birkaç değişiklik yapmam ve aşağıdaki gibi görünmesi için değiştirin:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample24.aspx)]
 
-Ve şimdi biz çalıştırıldığında, uygulama ve erişim *"/ azalma/oluştur"* Oluştur eylemi kararlılığımızın aşağıdaki gibi kullanıcı Arabirimi oluşturmak ve tarayıcıdaki URL'si:
+Bundan sonra uygulamamızı çalıştırdığımızda ve *"/Dinners/Create"* URL 'sine erişirken, Create ACTION uygulamamızda aşağıdaki gibi kullanıcı arabirimini işleyecek.
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image14.png)
 
-#### <a name="implementing-the-http-post-create-action-method"></a>Oluşturma eylem yöntemini HTTP POST uygulama
+#### <a name="implementing-the-http-post-create-action-method"></a>HTTP-POST oluşturma eylemi yöntemi uygulama
 
-Uygulanan bizim oluşturma eylem yöntemi GET HTTP sürümüne sahibiz. Kullanıcı "Kaydet" düğmesine tıkladığında bir form post gerçekleştirdiği */azalma/Create* URL, HTML sorgulayan ve &lt;giriş&gt; form değerleri HTTP POST edimi kullanılarak.
+Oluşturma eylemi yönteminizin HTTP-GET sürümü uygulandı. Kullanıcı "Kaydet" düğmesine tıkladığında, */Dinners/Create* URL 'sine bir form gönderisini uygular ve http post FIILINI kullanarak HTML &lt;girişi&gt; form değerlerini gönderir.
 
-Şimdi artık HTTP POST davranışını uygulayan bizim eylem yöntemi oluşturun. HTTP POST senaryoları işleme gösteren bir "AcceptVerbs" özniteliği içeren bizim DinnersController için aşırı yüklenmiş bir "Oluştur" eylem yöntemine ekleyerek başlayın:
+Şimdi Create ACTION yönteminizin HTTP POST davranışını uygulayalim. Bir "AcceptVerbs" özniteliği olan DinnersController için HTTP POST senaryolarını işlediğini belirten, daha fazla yüklenmiş bir "Create" eylem yöntemi ekleyerek başlayacağız:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample25.cs)]
 
-Çeşitli şekillerde gönderilen form parametreleri "Oluştur" bizim etkin HTTP POST yöntemi içinde erişebilirsiniz vardır.
+HTTP-POST özellikli "Create" yöntemimiz içindeki postalanan form parametrelerine erişebildiğimiz çeşitli yollar vardır.
 
-Bir yaklaşım ise yeni bir Akşam Yemeği nesnesi oluşturun ve ardından *UpdateModel()* (düzenleme işlemini ile yaptığımız gibi) yardımcı yöntem gönderilen formu değerlerle doldurulacak. Biz sonra için sunduğumuz DinnerRepository ekleyin, veritabanına kalıcı olması ve aşağıdaki kodu kullanarak yeni oluşturulan Akşam Yemeği gösterilecek ayrıntı eylemimiz kullanıcıyı yönlendirir:
+Bir yaklaşım, yeni bir akşam yemeği nesnesi oluşturmak ve ardından *UpdateModel ()* yardımcı yöntemini (düzenleme eylemiyle yaptığımız gibi) kullanarak, postalanan form değerleriyle doldurmaktır. Daha sonra bunu DinnerRepository 'e ekleyebiliriz, veritabanında kalıcı hale getirebiliyoruz ve aşağıdaki kodu kullanarak yeni oluşturulan akşam yemeği 'yi göstermek için kullanıcıyı Ayrıntılar eylemmize yönlendirebilir:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample26.cs)]
 
-Alternatif olarak, Şimdi Akşam nesneye yöntemi parametre olarak geçirmesine bizim Create() eylem yöntemine sahip olduğumuz biz bir yaklaşımı kullanabilirsiniz. ASP.NET MVC sonra otomatik olarak bizim için yeni bir Akşam Yemeği nesne örneği, form girişlerini kullanarak özelliklerini doldurmak ve bizim eylem yönteme geçirin:
+Alternatif olarak, Create () eylem yönteminizin bir yöntem parametresi olarak akşam yemeği nesnesini aldığı bir yaklaşım kullanabiliriz. ASP.NET MVC daha sonra otomatik olarak yeni bir akşam yemeği nesnesi oluşturacak, form girişlerini kullanarak özelliklerini dolduracaktır ve eylem yönteimize iletmektir:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample27.cs)]
 
-Yukarıdaki bizim eylem yöntemi, Şimdi Akşam nesne başarıyla ile form gönderme değerlerini ModelState.IsValid özelliğini kontrol ederek doldurulmadı olduğunu doğrular. Bu giriş dönüştürme sorunları varsa false döndürür (örneğin: "BOGUS" dizesi EventDate özelliği için), ve herhangi bir sorun varsa, eylem yöntemi form görüntüler.
+Yukarıdaki eylem yönteminiz, bir akşam yemeği nesnesinin ModelState. IsValid özelliğini denetleyerek form post değerleriyle başarıyla doldurulduğunu doğrular. Bu, giriş dönüştürme sorunları varsa (örneğin, EventDate özelliği için "yapay" bir dize) ve eylem yöntemizdeki herhangi bir sorun varsa, formu yeniden görüntülediğinde false döndürür.
 
-Giriş değeri geçerliyse, eylem yöntemi ekleyin ve yeni Akşam Yemeği için DinnerRepository kaydetmek çalışır. Bir try/catch bloğu içinde bu iş sarmalar ve (hangi dinnerRepository.Save() yöntemi bir özel durum neden olur) herhangi bir iş kuralı ihlali varsa form görüntüler.
+Giriş değerleri geçerliyse, eylem yöntemi yeni akşam yemeği 'ni eklemeye ve DinnerRepository 'e kaydetmeye çalışır. Bu çalışmayı bir try/catch bloğu içinde kaydırır ve herhangi bir iş kuralı ihlali varsa (bir özel durum oluşturmak için dinnerRepository. Save () yönteminin oluşmasına neden olacak) formu yeniden görüntüler.
 
-Bu hata işleme davranışını iş başında görmek için biz isteyebilir */azalma/Create* URL ve yeni bir Akşam Yemeği ayrıntılarını doldurun. Hatalı giriş veya değerleri hatalarla aşağıda belirtildiği gibi görünürler oluştur formunu neden olur:
+Bu hata işleme davranışını eylemde görmek için, */Dinners/Create* URL 'sini isteyebiliriz ve yeni bir akşam yemeği hakkındaki ayrıntıları dolduracağız. Yanlış giriş veya değerler, oluşturma formunun aşağıdaki gibi vurgulanan hatalarla yeniden görüntülenmesine neden olur:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image15.png)
 
-Oluşturma formumuzu tam aynı doğrulama ve iş kuralları bizim düzenleme formunda nasıl uygularken dikkat edin. Bizim doğrulama ve iş kuralları modelde tanımlanan ve kullanıcı Arabirimi veya uygulama denetleyici içinde eklenmediği olmasıdır. Bu, size daha sonra Değiştir/bizim doğrulama geliştirebilirsiniz veya tek bir iş kuralları yerleştirin ve bunların uygulama genelinde uygulamak anlamına gelir. Size sunduğumuz düzenleme ya da içinde herhangi bir kod değişikliği veya herhangi bir yeni bir kural veya var olanları değişiklikler otomatik olarak uymanız eylem yöntemleri oluşturmak yoktur.
+Oluşturma formumuza, düzenleme formumuzdan aynı doğrulama ve iş kurallarını nasıl sunduğuna dikkat edin. Bunun nedeni, doğrulama ve iş kurallarımızın modelde tanımlanması ve uygulamanın kullanıcı arabirimi ya da denetleyicisi içinde katıştırılmasından kaynaklanır. Bu, daha sonra doğrulama veya iş kurallarımızı tek bir yerde değiştirebiliyoruz/geliştirebilir ve uygulamamız genelinde uygulanabileceksiniz. Var olan yeni kuralları veya değişiklikleri otomatik olarak kabul etmek için düzenleme veya oluşturma eylemi yöntemlerimizin içindeki herhangi bir kodu değiştirmek zorunda değilsiniz.
 
-Giriş değerleri düzeltin ve "Kaydet" düğmesine tıklayın, yeniden DinnerRepository bizim ekleme başarılı olur ve yeni Dinner veritabanına eklenir. Biz ardından yönlendirilecek */Dinners/Ayrıntılar / [ID]* burada biz gösterilir yeni oluşturulan Akşam Yemeği ayrıntılarını içeren URL –:
+Giriş değerlerini düzeltireceğimizde ve "Kaydet" düğmesine tıkladığınızda, DinnerRepository ekleme işlemi başarılı olur ve veritabanına yeni bir akşam yemeği eklenecektir. Daha sonra, yeni oluşturulan akşam yemeği hakkındaki ayrıntılarla sunulacak olan */Dinners/details/[ID]* URL 'sine yönlendirilirsiniz:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image16.png)
 
-### <a name="delete-support"></a>Destek Sil
+### <a name="delete-support"></a>Desteği Sil
 
-Artık "Sil" destek için sunduğumuz DinnersController ekleyelim.
+Şimdi DinnersController ' ye "Sil" desteği ekleyelim.
 
-#### <a name="the-http-get-delete-action-method"></a>HTTP GET silme eylem yöntemi
+#### <a name="the-http-get-delete-action-method"></a>HTTP-GET silme eylemi yöntemi
 
-Biz, bizim delete eylem yöntemini HTTP GET davranışını uygulayarak başlarsınız. Birisi ziyaret ettiğinde bu yöntem çağrılmadığı */Dinners/Delete / [ID]* URL'si. Uygulama aşağıdadır:
+Silme eylemi yönteminizin HTTP GET davranışını uygulayarak başlayacağız. Bu yöntem, birisi */Dinners/delete/[ID]* URL 'sini ziyaret ettiğinde çağırılır. Uygulama aşağıda verilmiştir:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample28.cs)]
 
-Eylem yöntemi, silinecek Akşam Yemeği almayı dener. Akşam Yemeği işler varsa bir görünüm Dinner nesnesine bağlı. Nesne yok (veya zaten silinmiş olan), "Bulunamadı" işleyen bir görünüm verir bizim "Details" eylem yöntemi için daha önce oluşturduğumuz şablonu görüntüleyin.
+Eylem yöntemi, silinecek akşam yemeği 'ni almaya çalışır. Akşam yemeği varsa akşam yemeği nesnesine göre bir görünüm oluşturur. Nesne yoksa (veya zaten silinmişse), daha önce "Ayrıntılar" eylem yöntemi için oluşturduğumuz "NotFound" görünüm şablonunu işleyen bir görünüm döndürür.
 
-"Sil" Görünüm şablonu silme eylem yöntemi içinde sağ tıklayıp "Görünüm Ekle" bağlam menüsü komutu tarafından oluşturabilirsiniz. "Görünüm Ekle" iletişim kutusunun içinden biz biz Dinner nesnesi, model olarak bizim görünümü şablona geçirme ve boş bir şablon oluşturmayı tercih belirtmek:
+"Sil" görünüm şablonunu, silme eylemi yöntemi içinde sağ tıklayıp "Görünüm Ekle" bağlam menüsü komutunu seçerek oluşturuyoruz. "Görünüm Ekle" iletişim kutusunda, bir akşam yemeği nesnesini, modeli olarak görüntüleme şablonumuza geçirdiğimiz ve boş bir şablon oluşturmayı seçtiğimiz belirteceğiz:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image17.png)
 
-Biz "Ekle" düğmesine tıkladığınızda, Visual Studio yeni "Delete.aspx" görünümü şablon dosyası bizim için sunduğumuz "\Views\Dinners" dizininde ekler. Bazı HTML ve kod silme onay ekranında uygulamak için şablona ekleyeceğiz aşağıdaki gibi:
+"Ekle" düğmesine tıkladığımızda, Visual Studio "\Views\dıntik" dizininiz dahilinde bize yönelik yeni bir "delete. aspx" görünüm şablonu dosyası ekler. Aşağıdaki gibi bir silme onayı ekranı uygulamak için şablona bazı HTML ve kod ekleyeceğiz:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample29.aspx)]
 
-Yukarıdaki kod başlığı silinecek Akşam Yemeği ve çıktıları görüntüler bir &lt;form&gt; son içindeki "Sil" düğmesini tıklatırsa /Dinners/Delete / [ID] URL'sine bir GÖNDERİ yapan öğesi.
+Yukarıdaki kod, silinecek akşam yemeği 'nin başlığını görüntüler ve son kullanıcı onun içindeki "Sil" düğmesine tıkladığında,/Dinners/Delete/[ID] URL 'sine GÖNDERI yapan bir &lt;form&gt; öğesi verir.
 
-Biz çalıştırıldığında, uygulama ve erişim *"/ azalma/Delete / [ID]"* URL'si geçerli bir Akşam Yemeği nesnesi UI gibi aşağıda oluşturur:
+Uygulamamızı çalıştırdığımızda ve geçerli bir akşam yemeği nesnesi için *"/Dinners/delete/[ID]"* URL 'sine erişirken, aşağıdaki gibi kullanıcı arabirimini işler:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image18.png)
 
-| **Yan konu: Bir postayı neden düşünüyorsunuz?** |
+| **Kenar konusu: neden bir GÖNDERI yapıyoruz?** |
 | --- |
-| İsteyebilir – neden oldu oluşturma çaba bir &lt;form&gt; bizim silme onayı ekranındaki? Neden gerçek silme işlemini gerçekleştiren bir eylem yöntemine bağlamak için yalnızca standart köprü kullanırsınız? Web gezginleri karşı korumak ve arama motorları Url'lerimizi bulma ve yanlışlıkla veri bağlantıları takip ettiler silinmesine neden dikkat etmek istediğimizden nedenidir. Temel HTTP GET URL'leri "erişim/gezinme için güvenli" olarak değerlendirilir ve HTTP-POST olanları izlemeyecek şekilde gerekiyor. Her zaman zararlı koymadan veya veri değiştirme işlemleri HTTP POST istekleri arkasında emin olmak iyi bir kuraldır. |
+| Sorun, neden silme onayı ekranımızda&gt; &lt;formu oluşturma çabasında gitemiz? Gerçek silme işlemini yapan bir eylem yöntemine bağlanmak için neden yalnızca standart köprü kullanılmalı? Bunun nedeni, URL 'lerimizi bulan web gezginlerine ve arama altyapılarımıza karşı koruma konusunda dikkatli olmak istiyoruz ve bağlantıları izlediklerinde verilerin silinmesine neden oluyordu. HTTP-GET tabanlı URL 'Ler, bunlara erişim/gezinme için "güvenli" olarak değerlendirilir ve HTTP-POST ' ı takip edilmemelidir. HTTP-POST isteklerinin arkasında bozucu veya veri değiştirme işlemlerini her zaman yerleştirdiğinizden emin olmak iyi bir kuraldır. |
 
-#### <a name="implementing-the-http-post-delete-action-method"></a>HTTP POST silme eylem yöntemi uygulama
+#### <a name="implementing-the-http-post-delete-action-method"></a>HTTP-POST silme eylemini uygulama yöntemi
 
-Artık bir silme onay ekranı görüntüleyen HTTP GET sürümüne uygulanan bizim silme eylem yönteminin sahibiz. Son kullanıcı "Sil" düğmesini tıkladığında bir form post gerçekleştireceği */Dinners/Dinner / [ID]* URL'si.
+Artık bir silme onayı ekranını görüntüleyen, silme eylemi yönteminizin uygulandığı HTTP-Al sürümüne sahipsiniz. Son Kullanıcı "Sil" düğmesine tıkladığında, */Dinners/Dinner/[ID]* URL 'si için bir form gönderisini yapar.
 
-Şimdi aşağıdaki kodu kullanarak silme eylem yöntemini HTTP "POST" davranışı hemen uygulayın:
+Şimdi aşağıdaki kodu kullanarak silme eylemi yönteminin HTTP "POST" davranışını uygulayalim:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample30.cs)]
 
-Bizim Delete eylem yöntemini HTTP POST sürümü, Şimdi Akşam nesne silme almayı dener. (Zaten silinmiş olduğundan), bulamazsa, bizim "Bulunamadı" şablonu oluşturur. Akşam Yemeği bulursa, onu DinnerRepository siler. Ardından, "Silinmiş" şablonu oluşturur.
+Silme eylemi yönteminizin HTTP-POST sürümü, silinecek akşam yemeği nesnesini almaya çalışır. Bulamazsa, "NotFound" şablonumuzu işler. Akşam yemeği bulunursa, DinnerRepository öğesinden siler. Daha sonra bir "silinmiş" şablon oluşturur.
 
-"Silinmiş" şablonu uygulamak için biz eylem yönteminde sağ tıklayın ve "Görünüm Ekle" bağlam menüsünü seçin. Biz "Silindi" müşterilerimize görünüm adını ve boş bir şablon olması (ve kesin olarak belirlenmiş model nesnesi katılmak değil) sahip. Ardından bazı HTML içeriği için ekleyeceğiz:
+"Silinen" şablonu uygulamak için eylem yöntemine sağ tıklayıp "Görünüm Ekle" bağlam menüsünü seçmeniz gerekir. "Silinmiş" görünümümüzü adlandıracağız ve boş bir şablon (ve kesin türü belirtilmiş bir model nesnesi almaz) olacaktır. Daha sonra buna bir HTML içeriği ekleyeceğiz:
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample31.aspx)]
 
-Ve şimdi biz çalıştırıldığında, uygulama ve erişim *"/ azalma/Delete / [ID]"* aşağıdaki gibi bizim Dinner oluşturmak nesnesini silme onayı geçerli bir Akşam Yemeği URL'sini ekranında:
+Şimdi uygulamamızı çalıştırdığımızda ve geçerli bir akşam yemeği nesnesi için *"/Dinners/delete/[ID]"* URL 'sine erişirken, aşağıdaki gibi akşam yemeği silme onayı ekranımızı işleyecek:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image19.png)
 
-Biz "Sil" düğmesini tıkladığınızda bir HTTP POST gerçekleştireceği */Dinners/Delete / [ID]* Akşam Yemeği bizim veritabanından kalıcı olarak silmek ve bizim "Silinmiş" görünümü şablon görüntü URL'si:
+"Sil" düğmesine tıkladığımızda, */Dinners/delete/[ID]* URL 'SINE bir HTTP-POST işlemi gerçekleştirecek ve bu, veritabanımızdan akşam yemeği silinecek ve "silinen" görünüm şablonumuzu görüntüleyecektir:
 
 ![](provide-crud-create-read-update-delete-data-form-entry-support/_static/image20.png)
 
 ### <a name="model-binding-security"></a>Model bağlama güvenliği
 
-Yerleşik ASP.NET MVC model bağlama özelliklerini kullanmak için iki farklı şekilde ele almıştık. İlk UpdateModel() yöntemi var olan bir model nesnesi üzerinde özelliklerini güncelleştirmek için ve ikinci kullanarak ASP.NET MVC'nin desteği eylem metodu parametreleriyle model nesneleri geçirme. Bu teknikler her ikisini birden çok güçlü ve son derece kullanışlıdır.
+ASP.NET MVC 'nin yerleşik model bağlama özelliklerini kullanmanın iki farklı yolunu tartıştık. İlk olarak, var olan bir model nesnesindeki özellikleri güncellemek için UpdateModel () yöntemi ve ikincisi, ASP.NET MVC 'nin model nesnelerini eylem yöntemi parametresi olarak geçirme desteğini kullanarak kullanın. Bu tekniklerin her ikisi de çok güçlü ve son derece yararlı olur.
 
-Bu da onunla kazandırır sorumluluk. Herhangi bir kullanıcı girişi kabul ederken her zaman güvenlik hakkında paranoid olmanız önemlidir ve bu da form girişi nesneleri bağlama true olur. İçin dikkatli olmanız gerekir her zaman HTML kodlama HTML ve JavaScript ekleme saldırılarını önlemek ve SQL ekleme saldırıları dikkatli bir kullanıcı tarafından girilen değerleri (Not: Bu önlemek için parametreleri otomatik olarak kodlar uygulamamız için LINQ to SQL kullanıyoruz tür saldırılar). Hiçbir zaman kullanan istemci tarafı doğrulama başına ve bilgisayar korsanlarının sahte değerleri gönderilmeye çalışılırken karşı koruma sağlamak için sunucu tarafı doğrulama her zaman eşitlemeli gerekir.
+Bu güç, BT sorumluluğu da sunar. Herhangi bir kullanıcı girişi kabul edilirken her zaman güvenlik hakkında her zaman bir bilgi olması önemlidir ve bu da nesneleri form girişine bağlarken de geçerlidir. HTML ve JavaScript ekleme saldırılarına karşı, her zaman bir HTML kodlamasına dikkat etmeniz ve SQL ekleme saldırılarına karşı dikkatli olmanız gerekir (Note: uygulamamız için LINQ to SQL kullanıyoruz ve bu sayede bunları önlemek için parametreleri otomatik olarak kodlar saldırı türleri). Hiçbir zaman istemci tarafı doğrulamaya güvenmelisiniz ve size sahte değerler gönderilmeye çalışan korsanlara karşı koruma için her zaman sunucu tarafı doğrulama kullanın.
 
-ASP.NET MVC bağlama özelliklerini kullanırken düşündüğünüzden emin olmak için bir ek güvenlik kapsamı bağlama nesnelerin öğesidir. Özellikle bağımlı olması ve yalnızca gerçekten güncelleştirilmesi için bir son kullanıcı tarafından güncelleştirilebilir olmalıdır özelliklere izin ver emin olmak için izin verme özellikler güvenlik etkilerini anladığınızdan emin olmak istersiniz.
+ASP.NET MVC 'nin bağlama özelliklerini kullanmanın, bağladığınız nesnelerin kapsamı olduğunu düşündüğünüzden emin olmak için bir ek güvenlik öğesi. Özellikle, bağlanmasına izin verdiğiniz özelliklerin güvenlik etkilerine ilişkin etkilerini anladığınızdan emin olmak ve yalnızca son kullanıcı tarafından güncelleştirilemeyen özelliklerin yalnızca gerçekten güncelleştirilmesini sağlamak için emin olmanız gerekir.
 
-Varsayılan olarak, UpdateModel() yöntemi model nesnesi üzerinde gelen form parametre değerlerini eşleşen tüm özelliklerini güncelleştirme dener. Benzer şekilde, nesneleri eylem metodu parametreleriyle de varsayılan olarak geçirilen tüm özellikleri form parametreleri aracılığıyla ayarlanan olabilir.
+Varsayılan olarak, UpdateModel () yöntemi, model nesnesindeki, gelen form parametre değerleriyle eşleşen tüm özellikleri güncelleştirmeye çalışır. Benzer şekilde, eylem yöntemi parametreleri olarak geçirilen nesneler, varsayılan olarak, form parametreleri aracılığıyla ayarlanmış tüm özelliklerine sahip olabilir.
 
-#### <a name="locking-down-binding-on-a-per-usage-basis"></a>Kullanım başına temelinde bağlama kilitlemek
+#### <a name="locking-down-binding-on-a-per-usage-basis"></a>Bağlamayı kullanım bazında kilitleme
 
-Kullanım başına temelinde bağlama ilkesi aşağı sağlayan bir açık "ekleme" güncelleştirilebilir özelliklerini tarafından listesi kilitleyebilirsiniz. Bu, aşağıdaki gibi UpdateModel() yöntemine bir ek dize dizisi parametre geçirerek yapılabilir:
+Güncelleştirilebilen özelliklerin açık bir "dahil listesini" sağlayarak, bağlama ilkesini kullanım başına bir şekilde kilitleyebilir. Bu, aşağıdaki gibi UpdateModel () yöntemine fazladan bir dize dizisi parametresi geçirilerek yapılabilir:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample32.cs)]
 
-Bir "ekleme listesi" gibi aşağıda belirtilmesi özelliklerine izin sağlayan bir [bağlama] özniteliği eylem metodu parametreleriyle ayrıca geçirilen nesneleri destekler:
+Eylem yöntemi parametreleri olarak geçirilen nesneler, aşağıda gösterildiği gibi, izin verilen özelliklerin "içerme listesini" sağlayan bir [bind] özniteliğini de destekler:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample33.cs)]
 
-#### <a name="locking-down-binding-on-a-type-basis"></a>Bağlama türü temelinde kilitlemek
+#### <a name="locking-down-binding-on-a-type-basis"></a>Bir tür temelinde bağlamayı kilitleme
 
-Tür başına temelinde bağlama kurallarını aşağı kilitleyebilirsiniz. Bu, bağlama kurallarını belirlemek ve bunları tüm denetleyiciler ve eylem yöntemlerine (UpdateModel hem eylem yöntemi parametresini senaryoları dahil) tüm senaryolarda geçerli olması sağlar.
+Ayrıca, bağlama kurallarını bir tür temelinde de kilitlersiniz. Bu, bağlama kurallarını bir kez belirtmenizi sağlar ve sonra tüm denetleyiciler ve eylem yöntemleri genelinde tüm senaryolarda (UpdateModel ve eylem yöntemi parametre senaryoları dahil) uygulanmasını sağlar.
 
-Tür başına bağlama kurallarını bir [bağlama] özniteliği bir tür üzerine ekleyerek veya (burada türüne ait olmayan senaryolar için yararlıdır) uygulamasının Global.asax dosyası içinde kaydederek özelleştirebilirsiniz. Sonra bağlama özniteliğin Ekle kullanabilirsiniz ve hangi özellikleri denetlemek için dışlama özellikler belirli bir sınıf veya arabirim için bağlanabilir.
+Türe bir [bind] özniteliği ekleyerek veya bunu uygulamanın Global. asax dosyasına kaydederek tür başına bağlama kurallarını özelleştirebilirsiniz (türü sahip olmadığınız senaryolar için yararlıdır). Daha sonra, belirli bir sınıf veya arabirim için hangi özelliklerin bağlanabilir olduğunu denetlemek için bağlama özniteliğinin Içerme ve dışlama özelliklerini kullanabilirsiniz.
 
-Biz bu tekniği NerdDinner uygulamamız için Dinner sınıfı ve bağlanabilir özellikler listesinde, aşağıdaki kısıtlayan ona [bağlama] özniteliği ekleyin:
+Nerdakşam yemeği uygulamamızda akşam yemeği sınıfı için bu tekniği kullanacağız ve bağlanabilir Özellikler listesini şu şekilde sınırlandıran bir [bind] özniteliği ekleyin:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample34.cs)]
 
-Biz bağlama aracılığıyla yönetilebilmesini LCV'ler koleksiyon sağlanmıyor ya da biz bağlama aracılığıyla ayarlanacak DinnerID veya HostedBy özellikler sağlayan dikkat edin. Güvenlik nedenleriyle biz bunun yerine yalnızca bizim eylem yöntemleri içinde açık kod kullanarak bu belirli özellikleri yöneten.
+RSVPs koleksiyonunun bağlama yoluyla yükseltilmesine izin vermedik, ya da DinnerID veya HostedBy özelliklerinin bağlama yoluyla ayarlanmalarına izin verdik. Bunun yerine, yalnızca eylem yöntemlerimiz içinde açık kod kullanarak bu belirli özellikleri kullanacağız.
 
-### <a name="crud-wrap-up"></a>CRUD Wrap-Up
+### <a name="crud-wrap-up"></a>CRUD kaydırması
 
-ASP.NET MVC form gönderme senaryoları uygulanmasına yardımcı olan yerleşik özellikler içerir. Bizim DinnerRepository üzerine CRUD UI desteği sağlamak için bu özellikleri çeşitli kullandık.
+ASP.NET MVC, form gönderme senaryolarını uygulamaya yardımcı olan çeşitli yerleşik özellikler içerir. DinnerRepository en üstünde CRUD UI desteği sağlamak için bu özelliklerden birini kullandık.
 
-Uygulamamızı uygulamak için model odaklı bir yaklaşım kullanılmıştır. Bu, tüm doğrulama ve iş kuralı mantığı bizim modeli katmanı içinde– ve bizim denetleyicileri veya görünümleri içinde değil tanımlanır anlamına gelir. Bizim denetleyici sınıfı ya da Görünüm şablonlarımız, Şimdi Akşam model sınıfı tarafından zorunlu kılınmayı belirli iş kuralları hakkında bir şey bilmek.
+Uygulamamızı uygulamak için model odaklı bir yaklaşım kullandık. Bu, tüm doğrulama ve iş kuralı mantığımız model katmanımızda tanımlanmış ve denetleyicilerimizin veya görünümlerimiz dahilinde olmadığı anlamına gelir. Denetleyici sınıfınız veya görüntüleme şablonlarımız, akşam yemeği model sınıfımız tarafından zorlanan belirli iş kuralları hakkında herhangi bir şey bilmez.
 
-Bu uygulama mimarimiz temiz tutmaya ve test kolaylaştırır. Ek iş kuralları için sunduğumuz modeli katmanı gelecekte ekleyebiliriz ve *herhangi bir kod değişikliği yapmanız gerekmez* bizim denetleyicisine veya edebilmeleri görünümü desteklenmektedir. Bu, bize çeviklik evrim geçiren ve gelecekte uygulamamız değiştirmek için büyük ölçüde ile sağlamak için geçiyor.
+Bu, uygulama mimarimizi temizleyecektir ve test etmek daha kolay hale getirir. Daha sonra model katmanımız daha fazla iş kuralı ekleyebiliriz ve bunların desteklenmesi için Denetleyicimizde veya görünümümüzde *herhangi bir kod değişikliği yapmak zorunda değilsiniz* . Bu, gelecekte uygulamamızı geliştikçe ve değiştirebilmeniz için harika bir çeviklik sunmamıza olanak sağlıyor.
 
-Bizim DinnersController Şimdi Akşam Yemeği listeleme/Ayrıntılar, sağlar yanı sıra oluşturun, düzenleyin ve Sil desteği. Sınıf için tam kod altında bulunabilir:
+DinnersController şimdi akşam yemeği listelerinin/ayrıntılarının yanı sıra destek oluşturma, düzenleme ve silme desteği sunar. Sınıf için kodun tamamı aşağıda bulunabilir:
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample35.cs)]
 
 ### <a name="next-step"></a>Sonraki adım
 
-Artık bizim DinnersController sınıf içinde uygulama temel CRUD (oluşturma, okuma, güncelleştirme ve silme) desteği sunuyoruz.
+Artık temel CRUD (oluşturma, okuma, güncelleştirme ve silme) desteği, DinnersController sınıfımızın içinde uygulanır.
 
-Şimdi nasıl ViewData ve ViewModel sınıfları bile daha zengin kullanıcı Arabirimi bizim formlarında etkinleştirmek için kullanabilir miyiz göz atalım.
+Artık formlarımızda daha zengin Kullanıcı arabirimi sağlamak için ViewData ve ViewModel sınıflarını nasıl kullanabileceğimizi inceleyelim.
 
 > [!div class="step-by-step"]
 > [Önceki](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

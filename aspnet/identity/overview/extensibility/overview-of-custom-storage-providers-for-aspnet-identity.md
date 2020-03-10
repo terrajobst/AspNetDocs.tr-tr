@@ -10,15 +10,15 @@ ms.custom: seoapril2019
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 21baedf6285b411f89627df9ca25d47a2a42e387
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519108"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78584415"
 ---
 # <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
 > ASP.NET Identity, kendi depolama sağlayıcınızı oluşturmanızı ve uygulamayı yeniden çalıştırmadan uygulamanıza takmanızı sağlayan genişletilebilir bir sistemdir. Bu konuda, ASP.NET Identity için özelleştirilmiş bir depolama sağlayıcısının nasıl oluşturulacağı açıklanmaktadır. Kendi depolama sağlayıcınızı oluşturmaya yönelik önemli kavramlar ele alınmaktadır, ancak özel bir depolama sağlayıcısı uygulamaya yönelik adım adım yönergeler değildir.
 > 
@@ -29,7 +29,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
-> - Visual Studio 2013 with Update 2
+> - Güncelleştirme 2 ile Visual Studio 2013
 > - ASP.NET Identity 2
 
 ## <a name="introduction"></a>Giriş
@@ -86,7 +86,7 @@ ASP.NET Identity 2,0 için veri depolarının MySQL uygulamasında, bkz. [Mysqli
 
 Veri erişim katmanında verileri ASP.NET Identity veri kaynağınıza kaydetme mantığını sağlarsınız. Özelleştirilmiş depolama sağlayıcınızla ilgili veri erişim katmanı, Kullanıcı ve rol bilgilerini depolamak için aşağıdaki sınıfları içerebilir.
 
-| Sınıf | Açıklama | Örnek |
+| örneği | Açıklama | Örnek |
 | --- | --- | --- |
 | Bağlam | Kalıcılık mekanizmanıza bağlanmak ve sorguları yürütmek için bilgileri kapsüller. Bu sınıf, veri erişim katmanınıza yönelik bir merkezidir. Diğer veri sınıfları, işlemlerini gerçekleştirmek için bu sınıfın bir örneğini gerektirir. Mağaza sınıflarınızı bu sınıfın bir örneği ile de başlatacaksınız. | [MySQLDatabase](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/MySQLDatabase.cs) |
 | Kullanıcı depolaması | Kullanıcı bilgilerini depolar ve alır (Kullanıcı adı ve parola karması gibi). | [UserTable (MySQL)](https://github.com/aspnet/samples/blob/master/samples/aspnet/Identity/AspNet.Identity.MySQL/UserTable.cs) |
@@ -163,7 +163,7 @@ Sonraki görüntüde, her arabirimde tanımlanan işlevlerle ilgili daha fazla a
   [Iusersecuritystampstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) arabirimi kullanıcının hesap bilgilerinin değişip değişmediğini belirten bir güvenlik damgası kullanmak için Kullanıcı deponuzda uygulamanız gereken yöntemleri tanımlar. Bu damga, Kullanıcı parolayı değiştirdiğinde veya oturum açma ekler veya kaldırdığında güncelleştirilir. Güvenlik damgasını alma ve ayarlama yöntemlerini içerir.
 - **Iusertwofactorstore**  
   [Iusertwofactorstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) arabirimi iki öğeli kimlik doğrulaması uygulamak için uygulamanız gereken yöntemleri tanımlar. Bir kullanıcı için iki öğeli kimlik doğrulamasının etkin olup olmadığını alma ve ayarlama yöntemlerini içerir.
-- **IUserPhoneNumberStore**  
+- **Iuserphonenumberstore**  
   [Iuserphonenumberstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) arabirimi, Kullanıcı telefon numaralarını depolamak için uygulamanız gereken yöntemleri tanımlar. Telefon numarasını alma ve ayarlama ve telefon numarasının onaylanıp onaylanmayacağı yöntemlerini içerir.
 - **Iuseremailstore**  
   [Iuseremailstore&lt;TUser, TKey&gt;](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) arabirimi, kullanıcı e-posta adreslerini depolamak için uygulamanız gereken yöntemleri tanımlar. E-posta adresini alma ve ayarlama yöntemlerini ve e-postanın onaylanıp onaylanmadığını içerir.

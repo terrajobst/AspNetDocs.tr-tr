@@ -9,11 +9,11 @@ ms.assetid: a89d6f32-b71b-4036-8ff7-5f8ac2a6eca8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: c5281a42596d95e725b32e652c75785abe0fd64e
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640618"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78573467"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server geçiş-10/12
 
@@ -252,7 +252,7 @@ Açılan listeden **yeni...&gt;&lt;** seçin ve profil adı olarak "test" yazın
 
 **Önizleme** sekmesindeki bir ileti, **yayımlanacak hiçbir veritabanı**olmadığını gösterir, ancak bu yalnızca yayımlama profilinde veritabanı yayımlamanın yapılandırılmadığı anlamına gelir.
 
-**Yayımla**' ya tıklayın.
+**Yayımla**’ta tıklayın.
 
 ![Publish_Web_wizard_Preview_tab_Migrate](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image20.png)
 

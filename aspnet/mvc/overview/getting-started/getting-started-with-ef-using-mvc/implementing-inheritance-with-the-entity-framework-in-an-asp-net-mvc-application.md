@@ -10,11 +10,11 @@ ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
 ms.openlocfilehash: 73a01ed47b0935a1a9734c197377470defb1fe36
-ms.sourcegitcommit: 88fc80e3f65aebdf61ec9414810ddbc31c543f04
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76519394"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78583064"
 ---
 # <a name="tutorial-implement-inheritance-with-ef-in-an-aspnet-mvc-5-app"></a>Öğretici: ASP.NET MVC 5 uygulamasında EF ile devralma uygulama
 
@@ -33,7 +33,7 @@ Bu öğreticide şunları yaptınız:
 > * Uygulamayı test etme
 > * Azure’a dağıtma
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Eşzamanlılığı İşleme](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
@@ -149,7 +149,7 @@ Bu bölümde, bu öğretici serisinin bölüm [3, sıralama, filtreleme ve sayfa
 
 1. Visual Studio 'da **Çözüm Gezgini** projeye sağ tıklayın ve bağlam menüsünden **Yayımla** ' yı seçin.
 
-2. Tıklayın **yayımlama**.
+2. **Yayımla**’ta tıklayın.
 
     Web uygulaması varsayılan tarayıcınızda açılır.
 
@@ -157,7 +157,7 @@ Bu bölümde, bu öğretici serisinin bölüm [3, sıralama, filtreleme ve sayfa
 
     Veritabanına erişen bir sayfayı ilk kez çalıştırdığınızda Entity Framework, geçerli veri modeliyle veritabanını güncel hale getirmek için gereken tüm geçişleri `Up` yöntemlerini çalıştırır.
 
-## <a name="get-the-code"></a>Kodu edinin
+## <a name="get-the-code"></a>Kodu alma
 
 [Tamamlanmış projeyi indir](https://webpifeed.blob.core.windows.net/webpifeed/Partners/ASP.NET%20MVC%20Application%20Using%20Entity%20Framework%20Code%20First.zip)
 

@@ -1,23 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/index
-title: Modeller (veriler) | Microsoft Docs
+title: Modeller (veri) | Microsoft Docs
 author: rick-anderson
-description: Bu öğretici serisinde, Microsoft Entity Framework ile ASP.NET MVC kullanmayı öğrenin. Bu öğretici boyunca, bir web uygulaması oluşturma...
+description: Bu öğretici serisinde, ASP.NET MVC 'yi Microsoft Entity Framework kullanmayı öğreneceksiniz. Bu öğreticide, bir Web uygulaması oluşturacaksınız...
 ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
 ms.openlocfilehash: e4e4cce840d46ceceeb3ea77db91ad99d73ef483
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117584"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581153"
 ---
 # <a name="models-data"></a>Modeller (Veriler)
 
-> Bu öğretici serisinde, Microsoft Entity Framework ile ASP.NET MVC kullanmayı öğrenin. Bu öğretici boyunca seçin, Ekle, Güncelleştir ve Entity Framework kullanarak veritabanı verileri silme işlemini gösteren bir web uygulaması oluşturun.
+> Bu öğretici serisinde, ASP.NET MVC 'yi Microsoft Entity Framework kullanmayı öğreneceksiniz. Bu öğreticide, Entity Framework kullanarak veritabanı verilerini seçme, ekleme, güncelleştirme ve silmeyi gösteren bir Web uygulaması oluşturacaksınız.
 
 - [Entity Framework ile Model Sınıfları Oluşturma (C#)](creating-model-classes-with-the-entity-framework-cs.md)
 - [LINQ to SQL ile Model Sınıfları Oluşturma (C#)](creating-model-classes-with-linq-to-sql-cs.md)
