@@ -1,29 +1,29 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management
-title: '[Bunu nasıl yaparım:] Geçişli stil sayfası özelliklerini ve yönetimini geliştirme | Microsoft Docs'
+title: '[Nasıl yapılır:] Geçişli stil sayfası özelliklerini ve yönetimini ilerlet | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda temel geçişli stil sayfası bir önceki videodan üzerinde oluşturulacak. Biz burada öğeleri oluşturduğumuz ötesine ilerler ve...
+description: Bu videoda, önceki bir videodan temel geçişli stil sayfasını oluşturacağız. Yalnızca öğeleri oluşturduğumuz ve... ile ilgili temel bilgilerin ötesine geçecağız.
 ms.author: riande
 ms.date: 02/14/2008
 ms.assetid: 6a7e8bea-2a0d-4011-ad71-3f3b5f152fe4
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management
 msc.type: video
 ms.openlocfilehash: 67b2b6da28b474835020031f957da058eedca7a7
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59397415"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78546314"
 ---
-# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="902e9-104">[Bunu nasıl yaparım:] Geçişli stil sayfası özelliklerini ve yönetimini geliştirme</span><span class="sxs-lookup"><span data-stu-id="902e9-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
+# <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a><span data-ttu-id="1bb94-104">[Nasıl yapılır:] Geçişli stil sayfası özelliklerini ve yönetimini gelişmiş</span><span class="sxs-lookup"><span data-stu-id="1bb94-104">[How Do I:] Advance Cascading Style Sheet Features and Management</span></span>
 
-<span data-ttu-id="902e9-105">asli Bilgin tarafından</span><span class="sxs-lookup"><span data-stu-id="902e9-105">by Asli Bilgin</span></span>
+<span data-ttu-id="1bb94-105">by asli bilgin</span><span class="sxs-lookup"><span data-stu-id="1bb94-105">by Asli Bilgin</span></span>
 
-<span data-ttu-id="902e9-106">Bu videoda temel geçişli stil sayfası bir önceki videodan üzerinde oluşturulacak.</span><span class="sxs-lookup"><span data-stu-id="902e9-106">In this video we will build upon the basic Cascading Style Sheet from a previous video.</span></span> <span data-ttu-id="902e9-107">Biz burada öğeleri oluşturduğumuz ve özel sınıflar artık oluşturacağız temel ilerler.</span><span class="sxs-lookup"><span data-stu-id="902e9-107">We will advance beyond the basics where we just created elements and now we will create custom classes.</span></span> <span data-ttu-id="902e9-108">Biz ardından sınıfları derleme Stil Sayfası Sihirbazı, Visual Studio 2008 ile yönetmeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="902e9-108">We will then learn how to manage classes with the Build Style Sheet Wizard of Visual Studio 2008.</span></span>
+<span data-ttu-id="1bb94-106">Bu videoda, önceki bir videodan temel geçişli stil sayfasını oluşturacağız.</span><span class="sxs-lookup"><span data-stu-id="1bb94-106">In this video we will build upon the basic Cascading Style Sheet from a previous video.</span></span> <span data-ttu-id="1bb94-107">Yalnızca öğeleri oluşturduğumuz temel bilgilerin ötesine geçecağız, şimdi özel sınıflar oluşturacağız.</span><span class="sxs-lookup"><span data-stu-id="1bb94-107">We will advance beyond the basics where we just created elements and now we will create custom classes.</span></span> <span data-ttu-id="1bb94-108">Daha sonra Visual Studio 2008 derleme stil sayfası Sihirbazı ile sınıfları yönetmeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="1bb94-108">We will then learn how to manage classes with the Build Style Sheet Wizard of Visual Studio 2008.</span></span>
 
-[<span data-ttu-id="902e9-109">&#9654;Videoyu (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="902e9-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
+[<span data-ttu-id="1bb94-109">&#9654;Videoyu izleyin (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="1bb94-109">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-advance-cascading-style-sheet-features-and-management)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="902e9-110">[Önceki](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
-> [İleri](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span><span class="sxs-lookup"><span data-stu-id="902e9-110">[Previous](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+> <span data-ttu-id="1bb94-110">[Önceki](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
+> [İleri](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span><span class="sxs-lookup"><span data-stu-id="1bb94-110">[Previous](how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly.md)
 [Next](how-do-i-converting-a-net-20-windows-forms-application-to-net-35.md)</span></span>

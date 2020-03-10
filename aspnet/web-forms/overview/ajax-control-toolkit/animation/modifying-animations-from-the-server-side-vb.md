@@ -9,55 +9,55 @@ ms.assetid: addcf4aa-340a-460b-9c64-506424a1f725
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ebc311d1a931ad611d9556799c94440d41a9cf49
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74575226"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598002"
 ---
-# <a name="modifying-animations-from-the-server-side-vb"></a><span data-ttu-id="20ad2-104">Sunucu tarafında animasyonları değiştirme (VB)</span><span class="sxs-lookup"><span data-stu-id="20ad2-104">Modifying Animations From The Server Side (VB)</span></span>
+# <a name="modifying-animations-from-the-server-side-vb"></a><span data-ttu-id="de21c-104">Sunucu tarafında animasyonları değiştirme (VB)</span><span class="sxs-lookup"><span data-stu-id="de21c-104">Modifying Animations From The Server Side (VB)</span></span>
 
-<span data-ttu-id="20ad2-105">[Hristia WENZ](https://github.com/wenz) tarafından</span><span class="sxs-lookup"><span data-stu-id="20ad2-105">by [Christian Wenz](https://github.com/wenz)</span></span>
+<span data-ttu-id="de21c-105">[Hristia WENZ](https://github.com/wenz) tarafından</span><span class="sxs-lookup"><span data-stu-id="de21c-105">by [Christian Wenz](https://github.com/wenz)</span></span>
 
-<span data-ttu-id="20ad2-106">[Kodu indirin](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.vb.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="20ad2-106">[Download Code](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.vb.zip) or [Download PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9VB.pdf)</span></span>
+<span data-ttu-id="de21c-106">[Kodu indirin](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.vb.zip) veya [PDF 'yi indirin](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9VB.pdf)</span><span class="sxs-lookup"><span data-stu-id="de21c-106">[Download Code](https://download.microsoft.com/download/f/9/a/f9a26acd-8df4-4484-8a18-199e4598f411/Animation9.vb.zip) or [Download PDF](https://download.microsoft.com/download/6/7/1/6718d452-ff89-4d3f-a90e-c74ec2d636a3/animation9VB.pdf)</span></span>
 
-> <span data-ttu-id="20ad2-107">ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir.</span><span class="sxs-lookup"><span data-stu-id="20ad2-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="20ad2-108">Animasyonlar Ayrıca sunucu tarafında değişebilir</span><span class="sxs-lookup"><span data-stu-id="20ad2-108">The animations may also be changed on the server-side</span></span>
+> <span data-ttu-id="de21c-107">ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir.</span><span class="sxs-lookup"><span data-stu-id="de21c-107">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="de21c-108">Animasyonlar Ayrıca sunucu tarafında değişebilir</span><span class="sxs-lookup"><span data-stu-id="de21c-108">The animations may also be changed on the server-side</span></span>
 
-## <a name="overview"></a><span data-ttu-id="20ad2-109">Genel bakış</span><span class="sxs-lookup"><span data-stu-id="20ad2-109">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="de21c-109">Genel bakış</span><span class="sxs-lookup"><span data-stu-id="de21c-109">Overview</span></span>
 
-<span data-ttu-id="20ad2-110">ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir.</span><span class="sxs-lookup"><span data-stu-id="20ad2-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="20ad2-111">Animasyonlar Ayrıca sunucu tarafında değişebilir</span><span class="sxs-lookup"><span data-stu-id="20ad2-111">The animations may also be changed on the server-side</span></span>
+<span data-ttu-id="de21c-110">ASP.NET AJAX denetim araç setinde animasyon denetimi yalnızca bir denetim değildir ancak bir denetime animasyon eklemek için bir bütün çerçevedir.</span><span class="sxs-lookup"><span data-stu-id="de21c-110">The Animation control in the ASP.NET AJAX Control Toolkit is not just a control but a whole framework to add animations to a control.</span></span> <span data-ttu-id="de21c-111">Animasyonlar Ayrıca sunucu tarafında değişebilir</span><span class="sxs-lookup"><span data-stu-id="de21c-111">The animations may also be changed on the server-side</span></span>
 
-## <a name="steps"></a><span data-ttu-id="20ad2-112">Adımlar</span><span class="sxs-lookup"><span data-stu-id="20ad2-112">Steps</span></span>
+## <a name="steps"></a><span data-ttu-id="de21c-112">Adımlar</span><span class="sxs-lookup"><span data-stu-id="de21c-112">Steps</span></span>
 
-<span data-ttu-id="20ad2-113">Birincisi, sayfaya `ScriptManager` ekleyin; ardından, ASP.NET AJAX kitaplığı yüklenir ve Denetim araç setini kullanmayı mümkün kılar:</span><span class="sxs-lookup"><span data-stu-id="20ad2-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
+<span data-ttu-id="de21c-113">Birincisi, sayfaya `ScriptManager` ekleyin; ardından, ASP.NET AJAX kitaplığı yüklenir ve Denetim araç setini kullanmayı mümkün kılar:</span><span class="sxs-lookup"><span data-stu-id="de21c-113">First of all, include the `ScriptManager` in the page; then, the ASP.NET AJAX library is loaded, making it possible to use the Control Toolkit:</span></span>
 
 [!code-aspx[Main](modifying-animations-from-the-server-side-vb/samples/sample1.aspx)]
 
-<span data-ttu-id="20ad2-114">Animasyon, şunun gibi görünen bir metin paneline uygulanır:</span><span class="sxs-lookup"><span data-stu-id="20ad2-114">The animation will be applied to a panel of text which looks like this:</span></span>
+<span data-ttu-id="de21c-114">Animasyon, şunun gibi görünen bir metin paneline uygulanır:</span><span class="sxs-lookup"><span data-stu-id="de21c-114">The animation will be applied to a panel of text which looks like this:</span></span>
 
 [!code-aspx[Main](modifying-animations-from-the-server-side-vb/samples/sample2.aspx)]
 
-<span data-ttu-id="20ad2-115">Panelin ilişkili CSS sınıfında, iyi bir arka plan rengi tanımlayın ve panel için sabit bir genişlik ayarlayın:</span><span class="sxs-lookup"><span data-stu-id="20ad2-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
+<span data-ttu-id="de21c-115">Panelin ilişkili CSS sınıfında, iyi bir arka plan rengi tanımlayın ve panel için sabit bir genişlik ayarlayın:</span><span class="sxs-lookup"><span data-stu-id="de21c-115">In the associated CSS class for the panel, define a nice background color and also set a fixed width for the panel:</span></span>
 
 [!code-css[Main](modifying-animations-from-the-server-side-vb/samples/sample3.css)]
 
-<span data-ttu-id="20ad2-116">Kodun geri kalanı sunucu tarafında çalışır ve biçimlendirme kullanmaz; Bunun yerine, `AnimationExtender` denetimini oluşturmak için kodu kullanır:</span><span class="sxs-lookup"><span data-stu-id="20ad2-116">The rest of the code runs on the server-side and does not use markup; instead, it uses code to create the `AnimationExtender` control:</span></span>
+<span data-ttu-id="de21c-116">Kodun geri kalanı sunucu tarafında çalışır ve biçimlendirme kullanmaz; Bunun yerine, `AnimationExtender` denetimini oluşturmak için kodu kullanır:</span><span class="sxs-lookup"><span data-stu-id="de21c-116">The rest of the code runs on the server-side and does not use markup; instead, it uses code to create the `AnimationExtender` control:</span></span>
 
 [!code-aspx[Main](modifying-animations-from-the-server-side-vb/samples/sample4.aspx)]
 
-<span data-ttu-id="20ad2-117">Ancak, Denetim araç seti Şu anda bireysel animasyonları oluşturmak için bir API erişimi sağlamıyor.</span><span class="sxs-lookup"><span data-stu-id="20ad2-117">However, the Control Toolkit currently does not provide an API access to create the individual animations.</span></span> <span data-ttu-id="20ad2-118">Ancak, `AnimationExtender`animasyonları özelliğini, animasyonları bildirimli olarak atarken kullanılan XML işaretlemesini içeren bir dizeye ayarlamak mümkündür.</span><span class="sxs-lookup"><span data-stu-id="20ad2-118">It is however possible to set the `AnimationExtender`'s Animations property to a string containing the XML markup used when assigning the animations declaratively.</span></span> <span data-ttu-id="20ad2-119">`<Animations>` öğesi içermemesi gereken XML oluşturmak için, .NET Framework XML desteğini veya aşağıdaki kodda olduğu gibi, yalnızca dizeyi sağlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="20ad2-119">In order to create the XML which must not contain the `<Animations>` element you could use the .NET Framework's XML support or, as in the following code, just provide the string:</span></span>
+<span data-ttu-id="de21c-117">Ancak, Denetim araç seti Şu anda bireysel animasyonları oluşturmak için bir API erişimi sağlamıyor.</span><span class="sxs-lookup"><span data-stu-id="de21c-117">However, the Control Toolkit currently does not provide an API access to create the individual animations.</span></span> <span data-ttu-id="de21c-118">Ancak, `AnimationExtender`animasyonları özelliğini, animasyonları bildirimli olarak atarken kullanılan XML işaretlemesini içeren bir dizeye ayarlamak mümkündür.</span><span class="sxs-lookup"><span data-stu-id="de21c-118">It is however possible to set the `AnimationExtender`'s Animations property to a string containing the XML markup used when assigning the animations declaratively.</span></span> <span data-ttu-id="de21c-119">`<Animations>` öğesi içermemesi gereken XML oluşturmak için, .NET Framework XML desteğini veya aşağıdaki kodda olduğu gibi, yalnızca dizeyi sağlamanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="de21c-119">In order to create the XML which must not contain the `<Animations>` element you could use the .NET Framework's XML support or, as in the following code, just provide the string:</span></span>
 
 [!code-vb[Main](modifying-animations-from-the-server-side-vb/samples/sample5.vb)]
 
-<span data-ttu-id="20ad2-120">Son olarak, `<form runat="server">` öğesi içindeki geçerli sayfaya `AnimationExtender` denetimini ekleyin, böylece animasyon dahil edildiğinden ve çalıştığından emin olun:</span><span class="sxs-lookup"><span data-stu-id="20ad2-120">Finally, add the `AnimationExtender` control to the current page, within the `<form runat="server">` element, making sure that the animation is included and runs:</span></span>
+<span data-ttu-id="de21c-120">Son olarak, `<form runat="server">` öğesi içindeki geçerli sayfaya `AnimationExtender` denetimini ekleyin, böylece animasyon dahil edildiğinden ve çalıştığından emin olun:</span><span class="sxs-lookup"><span data-stu-id="de21c-120">Finally, add the `AnimationExtender` control to the current page, within the `<form runat="server">` element, making sure that the animation is included and runs:</span></span>
 
 [!code-vb[Main](modifying-animations-from-the-server-side-vb/samples/sample6.vb)]
 
-<span data-ttu-id="20ad2-121">[![animasyonu, sunucu tarafı C#/vb kodu kullanılarak oluşturulur](modifying-animations-from-the-server-side-vb/_static/image2.png)](modifying-animations-from-the-server-side-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="20ad2-121">[![The animation is created using server-side C#/VB code](modifying-animations-from-the-server-side-vb/_static/image2.png)](modifying-animations-from-the-server-side-vb/_static/image1.png)</span></span>
+<span data-ttu-id="de21c-121">[![animasyonu, sunucu tarafı C#/vb kodu kullanılarak oluşturulur](modifying-animations-from-the-server-side-vb/_static/image2.png)](modifying-animations-from-the-server-side-vb/_static/image1.png)</span><span class="sxs-lookup"><span data-stu-id="de21c-121">[![The animation is created using server-side C#/VB code](modifying-animations-from-the-server-side-vb/_static/image2.png)](modifying-animations-from-the-server-side-vb/_static/image1.png)</span></span>
 
-<span data-ttu-id="20ad2-122">Animasyon, sunucu tarafı C#/vb kodu kullanılarak oluşturulur ([tam boyutlu görüntüyü görüntülemek için tıklayın](modifying-animations-from-the-server-side-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="20ad2-122">The animation is created using server-side C#/VB code ([Click to view full-size image](modifying-animations-from-the-server-side-vb/_static/image3.png))</span></span>
+<span data-ttu-id="de21c-122">Animasyon, sunucu tarafı C#/vb kodu kullanılarak oluşturulur ([tam boyutlu görüntüyü görüntülemek için tıklayın](modifying-animations-from-the-server-side-vb/_static/image3.png))</span><span class="sxs-lookup"><span data-stu-id="de21c-122">The animation is created using server-side C#/VB code ([Click to view full-size image](modifying-animations-from-the-server-side-vb/_static/image3.png))</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="20ad2-123">[Önceki](triggering-an-animation-in-another-control-vb.md)
-> [İleri](executing-animations-using-client-side-code-vb.md)</span><span class="sxs-lookup"><span data-stu-id="20ad2-123">[Previous](triggering-an-animation-in-another-control-vb.md)
+> <span data-ttu-id="de21c-123">[Önceki](triggering-an-animation-in-another-control-vb.md)
+> [İleri](executing-animations-using-client-side-code-vb.md)</span><span class="sxs-lookup"><span data-stu-id="de21c-123">[Previous](triggering-an-animation-in-another-control-vb.md)
 [Next](executing-animations-using-client-side-code-vb.md)</span></span>
