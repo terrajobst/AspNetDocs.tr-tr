@@ -9,11 +9,11 @@ ms.assetid: a973ed3e-400c-4925-ace2-0b086b479301
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 468a830f01c48dc39b22bc5d826f80533df65c1a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74574384"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78554287"
 ---
 # <a name="using-a-confirmbutton-in-a-repeater-c"></a>Repeater’da ConfirmButton Kullanma (C#)
 

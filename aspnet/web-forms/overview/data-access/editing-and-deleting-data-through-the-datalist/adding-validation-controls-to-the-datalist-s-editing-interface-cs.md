@@ -9,11 +9,11 @@ ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e3c14b7098da832bd28f57026e81dcb7f7ba7130
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640492"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78594488"
 ---
 # <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>DataList’in Düzenleme Arabirimine Doğrulama Denetimleri Ekleme (C#)
 
@@ -29,7 +29,7 @@ DataList 'in bu öğreticilerde şu ana kadar, eksik ürün adı veya negatif fi
 
 Bu öğreticide, daha fazla folipop düzenlemesi Kullanıcı arabirimi sağlamak için, DataList s `EditItemTemplate` doğrulama denetimleri eklemenin ne kadar kolay olduğunu görüyoruz. Özellikle, bu öğretici önceki öğreticide oluşturulan örneği alır ve uygun doğrulamayı dahil etmek için Düzenle arabirimini genişlettiğini.
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-csmd"></a>Adım 1: örneği[BLL ve dal düzeyi özel durumları Işlemeye](handling-bll-and-dal-level-exceptions-cs.md) çoğaltma
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptions"></a>Adım 1: örneği[BLL ve dal düzeyi özel durumları Işlemeye](handling-bll-and-dal-level-exceptions-cs.md) çoğaltma
 
 [BLL ve dal düzeyi özel durumları işleme](handling-bll-and-dal-level-exceptions-cs.md) öğreticisinde, ürünlerin adlarını ve fiyatlarını iki sütunlu, düzenlenebilir bir DataList içinde listeleyen bir sayfa oluşturduk. Bu öğreticide bizim amamız,, doğrulama denetimlerini dahil etmek için DataList s Editing arabirimini artırmak içindir. Özellikle, doğrulama mantığımız şunları sağlayacak:
 

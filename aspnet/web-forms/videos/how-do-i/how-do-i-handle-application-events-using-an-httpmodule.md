@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
-title: '[Bunu nasıl yaparım:] HttpModule kullanarak uygulama olaylarını işlemek? | Microsoft Docs'
+title: '[Nasıl yapılır:] Bir HttpModule kullanarak uygulama olaylarını işleyin mi? | Microsoft Docs'
 author: rick-anderson
-description: Bir sayfa isteğinin işlenmesi sırasında uygulama olaylarını işler HttpModule oluşturmayı öğrenin. Örnek modülü bilgileri günlüğe yazacak...
+description: Bir sayfa isteğinin işlenmesi sırasında uygulama olaylarını işleyen bir HttpModule oluşturmayı öğrenin. Örnek modül bir günlüğe bilgi yazacak...
 ms.author: riande
 ms.date: 09/13/2007
 ms.assetid: a4adedeb-92f9-4d08-a068-fdcdedbae069
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
 msc.type: video
 ms.openlocfilehash: 502268f7cedd599d0a2ccda25e2341c9dbc9c5d6
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407464"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78567860"
 ---
-# <a name="how-do-i-handle-application-events-using-an-httpmodule"></a>[Bunu nasıl yaparım:] HttpModule kullanarak uygulama olaylarını işlemek?
+# <a name="how-do-i-handle-application-events-using-an-httpmodule"></a>[Nasıl yapılır:] Bir HttpModule kullanarak uygulama olaylarını işleyin mi?
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bir sayfa isteğinin işlenmesi sırasında uygulama olaylarını işler HttpModule oluşturmayı öğrenin. Örnek modülü bilgi sayfa yaşam döngüsü çeşitli noktalarında adreste bir günlük dosyasına yazar. HttpModule örnek bir web sitesini kullanmak için nasıl yapılandırıldığını görüyoruz.
+Bir sayfa isteğinin işlenmesi sırasında uygulama olaylarını işleyen bir HttpModule oluşturmayı öğrenin. Örnek modül, sayfa yaşam döngüsünün çeşitli noktalarında bir günlük dosyasına bilgi yazar. Ayrıca, HttpModule 'ın örnek bir Web sitesinde kullanılmak üzere nasıl yapılandırıldığını da görtik.
 
-[&#9654;Videoyu (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-application-events-using-an-httpmodule)
+[&#9654;Videoyu izleyin (19 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-handle-application-events-using-an-httpmodule)

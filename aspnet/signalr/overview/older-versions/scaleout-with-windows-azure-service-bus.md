@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: Azure Service Bus ile SignalR ölçeğini genişletme (SignalR 1.x) | Microsoft Docs
+title: SignalR ölçeği Azure Service Bus (SignalR 1. x) | Microsoft Docs
 author: bradygaster
 description: ''
 ms.author: bradyg
@@ -9,103 +9,103 @@ ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
 ms.openlocfilehash: e64f84db00b571c01ea52f48d1ac1af46698d391
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117005"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558417"
 ---
 # <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus ile SignalR Ölçeğini Genişletme (SignalR 1.x)
 
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+, [Mike Ison](https://github.com/MikeWasson), [Patrick fleti](https://github.com/pfletcher)
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-Bu öğreticide, bir Windows Azure Web her rol örneği iletilerini dağıtmak için Service Bus devre kartına kullanarak rol bir SignalR uygulamayı dağıtacaksınız.
+Bu öğreticide, her rol örneğine ileti dağıtmak için Service Bus arka düzlemi kullanarak bir SignalR uygulamasını bir Windows Azure Web rolüne dağıtacaksınız.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image1.png)
 
-Önkoşullar:
+Ön koşullar:
 
 - Bir Windows Azure hesabı.
-- [Windows Azure SDK'sı](https://go.microsoft.com/fwlink/?linkid=254364&amp;clcid=0x409).
+- [Windows Azure SDK](https://go.microsoft.com/fwlink/?linkid=254364&amp;clcid=0x409).
 - Visual Studio 2012.
 
-Service bus devre kartı da uyumlu [Windows Server için hizmet veri yolu](https://msdn.microsoft.com/library/windowsazure/dn282144.aspx), sürüm 1.1. Ancak, Windows Server için hizmet veri yolu 1.0 sürümü ile uyumlu değil.
+Service Bus geri düzlemi, [Windows Server](https://msdn.microsoft.com/library/windowsazure/dn282144.aspx), sürüm 1,1 Service Bus ile de uyumludur. Ancak, Windows Server için Service Bus sürüm 1,0 ile uyumlu değildir.
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Service Bus devre kartına ileti göndermek için konulara kullanır. En son fiyatlandırma bilgileri için bkz. [Service Bus](https://azure.microsoft.com/pricing/details/service-bus/). Bu makalenin yazıldığı sırada, kısa $1 için ayda 1.000.000 iletileri gönderebilir. Devre kartına bir SignalR hub'yöntemini her çalıştırılışı için hizmet veri yolu ileti gönderir. Bağlantı, bağlantı kesilmesi, katılma veya bırakma grupları ve benzeri için bazı denetim iletileri de vardır. Çoğu uygulamada ileti trafiği çoğunu hub yöntemi çağrılarına olacaktır.
+Service Bus arkadüzlemi ileti göndermek için konuları kullanır. En son fiyatlandırma bilgileri için bkz. [Service Bus](https://azure.microsoft.com/pricing/details/service-bus/). Bu yazma sırasında, $1 ' den küçük bir ayda 1.000.000 ileti gönderebilirsiniz. Backdüzlemi, bir SignalR hub yöntemi çağrısı için bir Service Bus iletisi gönderir. Bağlantılar için bazı denetim mesajları de vardır, bağlantıları geri bırakabilir, grupların katılımını ve bu şekilde devam eder. Çoğu uygulamada, ileti trafiğinin büyük bölümü hub yöntemi etkinleştirmeleri olacaktır.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Ayrıntılı Öğreticisine aldığımız önce ne yapacağını, hızlı bir genel bakış aşağıda verilmiştir.
+Ayrıntılı öğreticiye girmeden önce, ne yapabileceğinize ilişkin hızlı bir genel bakış sunulmaktadır.
 
-1. Yeni bir Service Bus ad alanı oluşturmak için Windows Azure portal'ı kullanın.
+1. Yeni bir Service Bus ad alanı oluşturmak için Windows Azure portal kullanın.
 2. Bu NuGet paketlerini uygulamanıza ekleyin: 
 
-    - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.ServiceBus](http://www.nuget.org/packages/SignalR.WindowsAzureServiceBus)
+    - [Microsoft. AspNet. SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
+    - [Microsoft. AspNet. SignalR. ServiceBus](http://www.nuget.org/packages/SignalR.WindowsAzureServiceBus)
 3. Bir SignalR uygulaması oluşturun.
-4. Devre kartına yapılandırmak için Global.asax için aşağıdaki kodu ekleyin: 
+4. Geri düzlemi yapılandırmak için aşağıdaki kodu Global. asax öğesine ekleyin: 
 
     [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample1.cs)]
 
-Her uygulama için "Uygulamanızınadı" için farklı bir değer seçin. Aynı değeri, birden çok uygulamada kullanmayın.
+Her uygulama için, "YourAppName" için farklı bir değer seçin. Birden çok uygulama arasında aynı değeri kullanmayın.
 
-## <a name="create-the-azure-services"></a>Azure hizmetleri oluşturma
+## <a name="create-the-azure-services"></a>Azure hizmetlerini oluşturma
 
-Bölümünde anlatıldığı gibi bir bulut hizmeti oluşturma [bir bulut hizmeti oluşturma ve dağıtma konusunda](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Bölümündeki adımları "nasıl yapılır: Hızlı oluşturma yöntemini kullanarak bir bulut hizmeti oluşturma". Bu öğreticide, bir sertifikayı karşıya yüklemek gerekmez.
+[Bulut hizmeti oluşturma ve dağıtma](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy)bölümünde açıklandığı gibi bir bulut hizmeti oluşturun. "Nasıl yapılır: hızlı oluşturma kullanarak bulut hizmeti oluşturma" bölümündeki adımları izleyin. Bu öğreticide, bir sertifikayı karşıya yüklemeniz gerekmez.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
-Açıklanan şekilde yeni bir Service Bus ad alanı oluşturma [nasıl kullanım hizmet veri yolu konuları/abonelikleri için](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions). "Hizmet Namespace oluşturma" bölümündeki adımları izleyin.
+[Service Bus konu/abonelik kullanma](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)bölümünde açıklandığı gibi yeni bir Service Bus ad alanı oluşturun. "Hizmet ad alanı oluşturma" bölümündeki adımları izleyin.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image3.png)
 
 > [!NOTE]
-> Bulut hizmeti ve Service Bus ad alanı için aynı bölge seçtiğinizden emin olun.
+> Bulut hizmeti ve Service Bus ad alanı için aynı bölgeyi seçtiğinizden emin olun.
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-Visual Studio’yu çalıştırın. Gelen **dosya** menüsünü tıklatın **yeni proje**.
+Visual Studio’yu çalıştırın. **Dosya** menüsünden **Yeni Proje**’ye tıklayın.
 
-İçinde **yeni proje** iletişim kutusunda **Visual C#**. Altında **yüklü şablonlar**seçin **bulut** seçip **Windows Azure bulut hizmeti**. Varsayılan .NET Framework 4.5 tutun. ChatService uygulamaya bir ad ve tıklayın **Tamam**.
+**Yeni proje** iletişim kutusunda, **görsel C#** ' i genişletin. **Yüklü şablonlar**altında **bulut** ' u ve ardından **Windows Azure bulut hizmeti**' ni seçin. Varsayılan .NET Framework 4,5 ' i tutun. Uygulamayı ChatService olarak adlandırın ve **Tamam**' a tıklayın.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image4.png)
 
-İçinde **yeni Windows Azure bulut hizmeti** iletişim kutusunda seçim ASP.NET MVC 4 Web rolü. Sağ ok düğmesine tıklayın (**&gt;**) rolünü çözümünüze ekleyin.
+**Yeni Windows Azure bulut hizmeti** iletişim kutusunda ASP.NET MVC 4 Web rolü ' nü seçin. Rolü çözümünüze eklemek için sağ ok düğmesine ( **&gt;** ) tıklayın.
 
-Fareyi yeni rol, bu nedenle gelin Kurşun Kalem simgesi görünür. Rolü yeniden adlandırmak için bu simgeye tıklayın. Rol "SignalRChat" adını verin ve tıklayın **Tamam**.
+Fareyi yeni rolün üzerine getirin, bu nedenle kurşun kalem simgesi görünür. Rolü yeniden adlandırmak için bu simgeye tıklayın. Rolü "SignalRChat" olarak adlandırın ve **Tamam**' a tıklayın.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image5.png)
 
-İçinde **yeni ASP.NET MVC 4 proje** seçin **Internet uygulaması**. **Tamam**'ı tıklatın. Proje Sihirbazı, iki proje oluşturur:
+**Yeni ASP.NET MVC 4 proje** sihirbazında **Internet uygulaması**' nı seçin. **Tamam**’a tıklayın. Proje Sihirbazı iki proje oluşturur:
 
-- ChatService: Bu proje, Windows Azure uygulamasıdır. Bu, Azure rolleri ve diğer yapılandırma seçenekleri tanımlar.
-- SignalRChat: ASP.NET MVC 4 Proje projesidir.
+- ChatService: Bu proje Windows Azure uygulamasıdır. Azure rollerini ve diğer yapılandırma seçeneklerini tanımlar.
+- SignalRChat: Bu proje ASP.NET MVC 4 projem.
 
 ## <a name="create-the-signalr-chat-application"></a>SignalR sohbet uygulaması oluşturma
 
-Sohbet uygulaması oluşturmak için öğreticinin adımları [SignalR ve MVC 4 ile çalışmaya başlama](tutorial-getting-started-with-signalr-and-mvc-4.md).
+Sohbet uygulamasını oluşturmak için, [SignalR ve MVC 4 Ile çalışmaya](tutorial-getting-started-with-signalr-and-mvc-4.md)başlama öğreticisindeki adımları izleyin.
 
-Gerekli kitaplıkları yükleme için NuGet kullanın. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. İçinde **Paket Yöneticisi Konsolu** penceresinde aşağıdaki komutları girin:
+Gerekli kitaplıkları yüklemek için NuGet kullanın. **Araçlar** menüsünde **NuGet Paket Yöneticisi**' ni ve ardından **Paket Yöneticisi konsolu**' nu seçin. **Paket Yöneticisi konsolu** penceresinde aşağıdaki komutları girin:
 
 [!code-powershell[Main](scaleout-with-windows-azure-service-bus/samples/sample2.ps1)]
 
-Kullanım `-ProjectName` Windows Azure projesi yerine ASP.NET MVC projesi için paketleri yüklemek için seçeneği.
+Paketleri Windows Azure projesi yerine ASP.NET MVC projesine yüklemek için `-ProjectName` seçeneğini kullanın.
 
-## <a name="configure-the-backplane"></a>Devre kartına yapılandırın
+## <a name="configure-the-backplane"></a>Arka düzlemi yapılandırma
 
-Uygulamanızın Global.asax dosyasında aşağıdaki kodu ekleyin:
+Uygulamanızın Global. asax dosyasında aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample3.cs)]
 
-Artık service bus bağlantı dizenizi almanız gerekir. Azure portalında, oluşturduğunuz hizmet veri yolu ad alanını seçin ve erişim anahtarı simgesine tıklayın.
+Artık Service Bus Bağlantı dizenizi almanız gerekir. Azure portal, oluşturduğunuz Service Bus ad alanını seçin ve erişim anahtarı simgesine tıklayın.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image6.png)
 
-Bağlantı dizesini panoya kopyalayın ve yapıştırın *connectionString* değişkeni.
+Bağlantı dizesini panoya kopyalayın, ardından *ConnectionString* değişkenine yapıştırın.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image7.png)
 
@@ -113,40 +113,40 @@ Bağlantı dizesini panoya kopyalayın ve yapıştırın *connectionString* değ
 
 ## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
-Çözüm Gezgini'nde **rolleri** ChatService proje klasöründen.
+Çözüm Gezgini ' de, ChatService projesinin içindeki **Roller** klasörünü genişletin.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image8.png)
 
-SignalRChat role sağ tıklayıp **özellikleri**. Seçin **yapılandırma** sekmesi. Altında **örnekleri** 2'yi seçin. Ayrıca VM boyutu ayarlayabileceğiniz **çok küçük**.
+SignalRChat rolüne sağ tıklayın ve **Özellikler**' i seçin. **Yapılandırma** sekmesini seçin. **Örnekler** altında 2 ' yi seçin. VM boyutunu **çok küçük**olarak da ayarlayabilirsiniz.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image9.png)
 
 Değişiklikleri kaydedin.
 
-Çözüm Gezgini'nde ChatService projeye sağ tıklayın. **Yayımla**’yı seçin.
+Çözüm Gezgini, ChatService projesine sağ tıklayın. **Yayımla**’yı seçin.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image10.png)
 
-Bu, ilk saat yayımlama Windows azure'a ise, kimlik bilgilerinizi indirmeniz gerekir. İçinde **Yayımla** Sihirbazı, "kimlik bilgilerini indirmek oturum"'a tıklayın. Bu, Windows Azure portalında oturum açıp bir yayımlama ayarları dosyasını indirin ister.
+Windows Azure 'a ilk kez yayımladıysanız, kimlik bilgilerinizi indirmeniz gerekir. **Yayımla** sihirbazında, "kimlik bilgilerini Indirmek Için oturum aç" a tıklayın. Bu, Windows Azure portal oturum açmanızı ve bir yayımlama ayarları dosyası indirmeyi ister.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image11.png)
 
-Tıklayın **alma** ve indirdiğiniz yayımlama ayarları dosyası seçin.
+**Içeri aktar** ' a tıklayın ve indirdiğiniz yayınlama ayarları dosyasını seçin.
 
-**İleri**'ye tıklayın. İçinde **yayımlama ayarları** iletişim altında **bulut hizmeti**, daha önce oluşturduğunuz bir bulut hizmeti seçin.
+**İleri**'ye tıklayın. **Yayımlama ayarları** iletişim kutusunda, **bulut hizmeti**altında, daha önce oluşturduğunuz bulut hizmetini seçin.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image12.png)
 
-Tıklayın **yayımlama**. Uygulamanın, uygulamayı dağıtmak ve sanal makinelerin başlamak için birkaç dakika sürebilir.
+**Yayımla**’ta tıklayın. Uygulamanın dağıtılması ve VM 'Lerin başlatılması birkaç dakika sürebilir.
 
-Şimdi Sohbet uygulamayı çalıştırdığınızda, rol örneklerini bir Service Bus konusu kullanarak Azure Service Bus ile iletişim kurar. Birden çok aboneyi izin veren bir ileti kuyruğu bir konudur.
+Artık sohbet uygulamasını çalıştırdığınızda, rol örnekleri Service Bus bir konu kullanarak Azure Service Bus üzerinden iletişim kurar. Konu başlığı, birden çok aboneye izin veren bir ileti kuyruğu.
 
-Devre kartına, konu ve abonelik otomatik olarak oluşturur. Abonelikler ve ileti etkinliği görmek için Azure portalını açın, Service Bus ad alanını seçin ve "Konularda"'a tıklayın.
+Geri düzlemi, konuyu ve abonelikleri otomatik olarak oluşturur. Abonelikler ve ileti etkinliğini görmek için Azure portal açın, Service Bus ad alanını seçin ve "konular" a tıklayın.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image13.png)
 
-Bunu yapmak Panoda gösterilecek ileti etkinliği için birkaç dakika sürer.
+İleti etkinliğinin panoda gösterilmesi birkaç dakika sürer.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image14.png)
 
-SignalR konu yaşam süresini yönetir. Uygulamanız dağıtıldığında olduğu sürece, konu ayarlarını el ile konuları silin veya çalışmayın.
+SignalR, konu ömrünü yönetir. Uygulamanız dağıtıldığı sürece konuları el ile silmeye veya konudaki ayarları değiştirmeye çalışmayın.

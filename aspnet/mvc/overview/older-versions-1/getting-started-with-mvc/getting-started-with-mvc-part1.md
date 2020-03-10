@@ -1,84 +1,84 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
-title: ASP.NET MVC'ye giriş | Microsoft Docs
+title: ASP.NET MVC 'ye giriş | Microsoft Docs
 author: shanselman
-description: ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
+description: Bu, ASP.NET MVC 'nin temellerini tanıtan bir başlangıç öğreticisidir. Bir veritabanından okuyan ve yazan basit bir Web uygulaması oluşturun.
 ms.author: riande
 ms.date: 08/14/2010
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
 ms.openlocfilehash: f8f0014776ba1313119e8c39c63a216b0fc864e7
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123119"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78581587"
 ---
 # <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC’ye Giriş
 
-tarafından [Scott Hanselman](https://github.com/shanselman)
+[Scott Hanselman](https://github.com/shanselman) tarafından
 
 > > [!NOTE]
-> > Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
+> > Bu öğreticiyi [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)kullanarak [burada](../../getting-started/introduction/getting-started.md) kullanılabilirse, güncelleştirilmiş bir sürüm. Yeni öğretici, bu öğreticide birçok geliştirme sağlayan ASP.NET MVC 5 ' i kullanır.
 >
 >
-> ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
+> Bu, ASP.NET MVC 'nin temellerini tanıtan bir başlangıç öğreticisidir. Bir veritabanından okuyan ve yazan basit bir Web uygulaması oluşturacaksınız. Diğer ASP.NET MVC öğreticileri ve örneklerini bulmak için [ASP.NET MVC öğrenme merkezini](../../../index.md) ziyaret edin.
 
-Bizim ilk ASP.NET MVC Web uygulaması kullanarak olalım [Visual Web Developer 2010 Express'i](https://www.microsoft.com/express/Web/). Bize oluşturun ve filmler listesinde biraz film listesi uygulaması oluşturacağız.
+[Visual Web Developer 2010 Express 'i](https://www.microsoft.com/express/Web/)kullanarak Ilk ASP.NET MVC web uygulamamızı yapalim. Film oluşturup listemize olanak sağlayacak küçük bir film listesi uygulaması oluşturacağız.
 
-## <a name="what-youll-build"></a>Ne oluşturacaksınız
+## <a name="what-youll-build"></a>Ne oluşturacağız?
 
-Aşağıda oluşturacağınız uygulama iki ekran görüntüleri verilmiştir. Film çeşitli sütunları içeren basit bir tablo gerekir.
+Oluşturacağınız uygulamanın iki ekran görüntüsü aşağıda verilmiştir. Çeşitli sütunlara sahip basit bir film tablosuna sahip olursunuz.
 
-[![Film listesi - Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
+[![film listesi-Windows Internet Explorer (12)](getting-started-with-mvc-part1/_static/image2.png)](getting-started-with-mvc-part1/_static/image1.png)
 
-Ve filmler listesine ekleyebilirsiniz oluşturma Form sahip olacaksınız.
+Böylece, listeye film ekleyebilmemiz için bir oluştur formu görürsünüz.
 
-[![Bir filmi - Windows Internet Explorer (2) oluşturma](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
+[Film oluşturmak ![-Windows Internet Explorer (2)](getting-started-with-mvc-part1/_static/image4.png)](getting-started-with-mvc-part1/_static/image3.png)
 
-## <a name="skills-youll-learn"></a>Beceriler hakkında bilgi edineceksiniz
+## <a name="skills-youll-learn"></a>Öğrenmeniz gereken yetenekler
 
-Bu öğreticide Visual Studio kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Şunları öğreneceksiniz:
+Bu öğreticide, Visual Studio kullanarak bir ASP.NET MVC web uygulaması oluşturma hakkında temel bilgiler verilir. Şunları öğreneceksiniz:
 
 - Yeni bir ASP.NET MVC projesi oluşturma
 - SQL Server ile yeni bir veritabanı oluşturma
 - ASP.NET MVC denetleyicileri ve görünümleri oluşturma
-- Nasıl alınacağını ve verileri görüntüle
-- Verileri düzenleme ve veri doğrulamasını etkinleştirme
+- Verileri alma ve görüntüleme
+- Verileri düzenleme ve veri doğrulamayı etkinleştirme
 - Veritabanı şemasını güncelleştirme
 
 ## <a name="get-started"></a>Başlarken
 
-Visual Web Developer 2010 (ben bunu "VWD" andan itibaren ararız) Express ve yeni bir proje seçin, başlangıç ekranından çalıştırarak başlayın.
+Visual Web Developer 2010 Express 'ı çalıştırarak başlayın (bunu şimdi "VWD" olarak arayarak) ve başlangıç ekranından yeni proje ' yi seçin.
 
-Visual Web Developer, bir IDE veya tümleşik Geliştirici Ortamı ' dir. Belgeler yazmak için Microsoft Word kullanma gibi bir IDE uygulamalar oluşturmak için kullanırsınız. Araç, hem de de kullanmış dosyasına seçin menü için çeşitli seçenekler kullanılabilir gösteren üstünde yok | Yeni bir proje.
+Visual Web Developer, IDE veya tümleşik bir geliştirici ortamıdır. Belgeleri yazmak için Microsoft Word kullandığınızda olduğu gibi, uygulamalar oluşturmak için IDE kullanacaksınız. En üstteki, sizin için kullanabileceğiniz çeşitli seçenekleri ve ayrıca dosya seçmek için kullanabileceğiniz menüyü gösteren bir araç çubuğu bulunur | Yeni proje.
 
 [![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image6.png)](getting-started-with-mvc-part1/_static/image5.png)
 
-## <a name="creating-your-first-application"></a>İlk uygulamanızı oluşturma
+## <a name="creating-your-first-application"></a>Ilk uygulamanızı oluşturma
 
-Visual Basic veya Visual C# kullanarak uygulamalar oluşturabilirsiniz. Şimdilik seçin Visual C# solda, ardından "ASP.NET MVC 2 Web uygulaması." seçin "Film" projenizi adlandırın ve Tamam'a tıklayın.
+Visual Basic veya görsel C#kullanarak uygulamalar oluşturabilirsiniz. Şimdilik, sol taraftaki görsel C# ' i seçip "ASP.NET MVC 2 Web uygulaması" nı seçin. Projenizi "Filmler" olarak adlandırın ve Tamam ' a tıklayın.
 
-[![Yeni Proje](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[Yeni ![proje](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
-Sağ tarafta tüm dosya ve klasörlerin uygulamanızda gösteren Çözüm Gezgini ' dir. Büyük ortada, kodunuzu düzenleyin ve zamanınızın çoğunu harcama penceredir. Çalışan bir uygulama şu anda hiçbir şey yapmadan sahip olduğunuz visual Studio ASP.NET MVC projesi için az önce oluşturduğunuz varsayılan bir şablon kullanılan! Bu, bir basit "Merhaba Dünya! Proje ve uygulamamız için başlatmak için iyi bir yerdir.
+Sağ tarafta, uygulamanızdaki tüm dosya ve klasörler gösteriliyor Çözüm Gezgini. Ortadaki büyük pencere, kodunuzu düzenlediğiniz ve zamanınızın çoğunu geçirdiğiniz yerdir. Visual Studio, az önce oluşturduğunuz ASP.NET MVC projesi için varsayılan bir şablon kullandı, bu nedenle artık herhangi bir şey yapmadan çalışan bir uygulamaya sahipsiniz! Bu basit bir "Merhaba Dünya! Proje ve uygulamamız için başlamak iyi bir yerdir.
 
 [![Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part1/_static/image10.png)](getting-started-with-mvc-part1/_static/image9.png)
 
-Araç çubuğu "yürütme" düğmesini seçin.
+Araç çubuğunda "Oynat" düğmesini seçin.
 
 ![Hata Ayıklamayı Başlat](getting-started-with-mvc-part1/_static/image11.png)
 
-Bu, programı derleyin ve uygulamanızı bir web tarayıcısında başlatın sağ işaret eden yeşil bir ok olur.
+Bu, programınızı derlemek ve uygulamanızı bir Web tarayıcısında başlatmak için sağ tarafta işaret eden yeşil bir oktur.
 
-*NOT: Bunun yerine, klavyenizde F5 tuşuna basın veya hata ayıklama - seçin&gt;hata ayıklamaya Başla "Debug" menüsünden.*
+*NOTE: klavyenizde F5 tuşuna basabilir veya "hata ayıkla" menüsünden hata ayıklamayı Başlat&gt;başlatabilirsiniz.*
 
-Bu, bir geliştirme web sunucusunu başlatmak ve web uygulamamıza (yapılandırma veya yoktur bunu etkinleştirmek için gerekli adımları el ile) çalıştırmak Visual Web Developer neden olur. Ardından bir tarayıcıyı başlatın ve uygulamanın giriş sayfası göz atmak için yapılandırmanız. Aşağıda tarayıcının adres çubuğuna "localhost" ve example.com şöyle diyor dikkat edin. Bu durumda yalnızca oluşturulan uygulama çalıştıran kendi yerel bilgisayar için - her zaman localhost işaret eder olmasıdır.
+Bu, Visual Web Developer 'ın bir geliştirme Web sunucusu başlatmasını ve Web uygulamamızı çalıştırmasına neden olur (Bunu etkinleştirmek için yapılandırma veya el ile adım gerekmez). Daha sonra bir tarayıcı başlatır ve uygulamanın giriş sayfasına gözatmasını sağlayacak şekilde yapılandırır. Tarayıcının adres çubuğunun, example.com gibi değil, "localhost" olduğunu belirten bir bildirim aşağıda verilmiştir. Bunun nedeni, localhost 'un her zaman kendi yerel bilgisayarınızı gösterdiği ve bu durumda yeni oluşturduğumuz uygulamayı çalıştırdığı anlamına gelir.
 
-[![Giriş sayfası](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
+[![giriş sayfası](getting-started-with-mvc-part1/_static/image13.png)](getting-started-with-mvc-part1/_static/image12.png)
 
-Kullanıma hazır, bu varsayılan şablonu ziyaret etmek için iki sayfa ve bir temel oturum açma sayfası sunar. Şimdi bu uygulamayı nasıl çalıştığını değiştirmek ve biraz işlemde ASP.NET MVC hakkında bilgi edinin. Tarayıcınızı kapatın ve bazı kod değiştirme olanak tanır.
+Bu varsayılan şablon, size iki sayfa ve temel bir oturum açma sayfası sunar. Bu uygulamanın nasıl çalıştığını değiştirelim ve işlemde ASP.NET MVC hakkında biraz bilgi edinebilirsiniz. Tarayıcınızı kapatın ve kodun değiştirilmesini sağlar.
 
 > [!div class="step-by-step"]
 > [Next](getting-started-with-mvc-part2.md)

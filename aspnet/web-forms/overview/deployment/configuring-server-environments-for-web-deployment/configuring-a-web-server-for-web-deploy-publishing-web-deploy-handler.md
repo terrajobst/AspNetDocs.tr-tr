@@ -9,11 +9,11 @@ ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
 ms.openlocfilehash: baaebd32f08d3c6b861572c5c5a16ec0fb70aaf0
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74589035"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568567"
 ---
 # <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)
 
@@ -86,7 +86,7 @@ Bu durumda, şunları yüklemeniz gerekir:
 
     > [!NOTE]
     > Artık **Başlangıç** menüsünden Web Platformu Yükleyicisi 'ni dilediğiniz zaman başlatabilirsiniz. Bunu yapmak için, **Başlat** menüsünde, **tüm programlar**' a ve ardından **Microsoft Web Platformu Yükleyicisi**' ye tıklayın.
-3. **Web Platformu Yükleyicisi** penceresinin en üstünde **Ürünler**' e tıklayın.
+3. **Web Platformu Yükleyicisi** penceresinin en üstünde **Ürünler**'e tıklayın.
 4. Pencerenin sol tarafında, gezinti bölmesinde, **çerçeveler**' e tıklayın.
 5. **Microsoft .NET Framework 4** satırında, .NET Framework zaten yüklenmemişse **Ekle**' ye tıklayın.
 
@@ -100,7 +100,7 @@ Bu durumda, şunları yüklemeniz gerekir:
 9. **Web Dağıtım aracı 2,1** satırında **Ekle**' ye tıklayın.
 10. **IIS: temel kimlik doğrulaması** satırında **Ekle**' ye tıklayın.
 11. **IIS: Yönetim hizmeti** satırında **Ekle**' ye tıklayın.
-12. **Yükle**'ye tıklatın. Web Platformu Yükleyicisi, yüklenecek ilişkili bağımlılıklarla&#x2014;&#x2014;birlikte ürünlerin bir listesini gösterir ve lisans koşullarını kabul etmenizi ister.
+12. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri &#x2014; herhangi bir ilişkili bağımlılıkları &#x2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. Lisans koşullarını gözden geçirin ve koşulları **onayladıysanız kabul ediyorum**' a tıklayın.
@@ -204,7 +204,7 @@ Sunucunuza Web içeriği dağıtabilmeniz için önce içeriği barındırmak ü
     > [!NOTE]
     > Bir üretim ortamında, büyük ihtimalle Web sitenizi bağlantı noktası 80 ' de barındırmak ve eşleşen DNS kayıtlarıyla birlikte bir ana bilgisayar üst bilgisi yapılandırmak isteyeceksiniz. IIS 7 ' de konak üstbilgilerini yapılandırma hakkında daha fazla bilgi için bkz. [bir Web sitesi için bir konak üstbilgisi yapılandırma (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 'daki DNS sunucusu rolü hakkında daha fazla bilgi için bkz. [DNS sunucusuna genel bakış](https://technet.microsoft.com/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
 9. **Eylemler** bölmesinde, **Site Düzenle**altında, **Bağlamalar**'ı tıklatın.
-10. **Site bağlamaları** Iletişim kutusunda **Ekle**' ye tıklayın.
+10. **Site Bağlamaları** iletişim kutusunda **Ekle**’ye tıklayın.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image12.png)
 11. **Site Bağlaması Ekle** iletişim kutusunda, **IP adresini** ve **bağlantı noktasını** mevcut site yapılandırmanızla eşleşecek şekilde ayarlayın.
@@ -213,8 +213,8 @@ Sunucunuza Web içeriği dağıtabilmeniz için önce içeriği barındırmak ü
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image13.png)
 
     > [!NOTE]
-    > İlk site bağlaması, IP adresini ve bağlantı noktasını veya `http://localhost:85`kullanarak siteye yerel olarak erişmenizi sağlar. İkinci site bağlaması, makine adını (örneğin, http://stageweb1:85) kullanarak etki alanındaki diğer bilgisayarlardan siteye erişmenize olanak tanır.
-13. **Site bağlamaları** Iletişim kutusunda **Kapat**' a tıklayın.
+    > İlk site bağlaması, IP adresini ve bağlantı noktasını veya `http://localhost:85`kullanarak siteye yerel olarak erişmenizi sağlar. İkinci site bağlaması, makine adını (örneğin, http://stageweb1:85)kullanarak etki alanındaki diğer bilgisayarlardan siteye erişmenize olanak tanır.
+13. **Site Bağlamaları** iletişim kutusunda **Kapat**’a tıklayın.
 14. **Bağlantılar** bölmesinde, **uygulama havuzları**' na tıklayın.
 15. **Uygulama havuzları** bölmesinde, uygulama havuzunuzun adına sağ tıklayın ve ardından **temel ayarlar**' a tıklayın. Varsayılan olarak, uygulama havuzunuzun adı, Web sitenizin adıyla (örneğin, **Demosite**) eşleşir.
 16. **.NET CLR sürüm** LISTESINDE **.NET CLR v 4.0.30319**' ı seçin ve ardından **Tamam**' a tıklayın.
@@ -224,7 +224,7 @@ Sunucunuza Web içeriği dağıtabilmeniz için önce içeriği barındırmak ü
     > [!NOTE]
     > Örnek çözüm .NET Framework 4,0 gerektirir. Bu, genel olarak Web Dağıtımı için bir gereklilik değildir.
 
-Web sitenizin içeriğe içerik sunması için, uygulama havuzu kimliğinin içeriği depolayan yerel klasörde Okuma izinlerine sahip olması gerekir. IIS 7,5 ' de, uygulama havuzları varsayılan olarak benzersiz bir uygulama havuzu kimliğiyle çalışır (IIS 'nin önceki sürümlerinin aksine, uygulama havuzlarının genellikle ağ hizmeti hesabı kullanılarak çalıştığı). Uygulama havuzu kimliği gerçek bir kullanıcı hesabı değil ve bunun yerine hiçbir Kullanıcı veya grup&#x2014;listesinde gösterilmez, uygulama havuzu başlatıldığında dinamik olarak oluşturulur. Her uygulama havuzu kimliği, gizli bir öğe olarak yerel **ııs\_ıusrs** güvenlik grubuna eklenir.
+Web sitenizin içeriğe içerik sunması için, uygulama havuzu kimliğinin içeriği depolayan yerel klasörde Okuma izinlerine sahip olması gerekir. IIS 7,5 ' de, uygulama havuzları varsayılan olarak benzersiz bir uygulama havuzu kimliğiyle çalışır (IIS 'nin önceki sürümlerinin aksine, uygulama havuzlarının genellikle ağ hizmeti hesabı kullanılarak çalıştığı). Uygulama havuzu kimliği gerçek kullanıcı hesabı değil ve tüm kullanıcılar veya gruplar &#x2014 listelerde görünmüyor; uygulama havuzunu başlatıldığında, bunun yerine, bunu dinamik olarak oluşturulur. Her uygulama havuzu kimliği, gizli bir öğe olarak yerel **ııs\_ıusrs** güvenlik grubuna eklenir.
 
 Bir dosya veya klasördeki uygulama havuzu kimliğine izin vermek için iki seçeneğiniz vardır:
 
@@ -275,8 +275,8 @@ Varsayılan olarak, IIS Web yönetimi hizmeti TCP bağlantı noktası 8172 ' i d
 
 | Yön | Bağlantı noktasından | Bağlantı noktası | Bağlantı noktası türü |
 | --- | --- | --- | --- |
-| Gelen | Tümü | 8172 | TCP |
-| Giden | 8172 | Tümü | TCP |
+| Gelen | Herhangi biri | 8172 | TCP |
+| Giden | 8172 | Herhangi biri | TCP |
 
 Windows güvenlik duvarında kuralları yapılandırma hakkında daha fazla bilgi için bkz. [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Üçüncü taraf güvenlik duvarları için lütfen ürün belgelerinize bakın.
 

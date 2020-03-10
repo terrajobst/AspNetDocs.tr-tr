@@ -9,11 +9,11 @@ ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
 ms.openlocfilehash: 62d00a86c6c5845fb894896df65002c7086d039f
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615141"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78565410"
 ---
 # <a name="checkout-and-payment-with-paypal"></a>PayPal ile Kasa İşlemleri ve Ödeme
 
@@ -31,7 +31,7 @@ Bu öğreticide, Wingtip Toys örnek uygulamasının, PayPal kullanarak Kullanı
 > 
 > Wingtip Toys örnek uygulaması, ASP.NET Web geliştiricileri için sunulan belirli ASP.NET kavramlarını ve özelliklerini göstermek üzere tasarlanmıştır. Bu örnek uygulama, ölçeklenebilirlik ve güvenlikle ilgili tüm olası durumlar için en iyi duruma getirilmemiştir.
 
-## <a name="what-youll-learn"></a>Şunları öğreneceksiniz:
+## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
 - Bir klasördeki belirli sayfalara erişimi kısıtlama.
 - Anonim bir alışveriş sepetinden bilinen bir alışveriş sepeti oluşturma.
@@ -128,7 +128,7 @@ ASP.NET yapılandırmasının bir hiyerarşiyi izlediğine dikkat edin. Bu, her 
 6. **Proje URL** 'sini daha önce kaydettiğiniz **SSL URL 'sini** kullanacak şekilde değiştirin.   
     ![Project Web Properties](checkout-and-payment-with-paypal/_static/image5.png)
 7. **CTRL + S**tuşlarına basarak sayfayı kaydedin.
-8. Uygulamayı çalıştırmak için **CTRL + F5** tuşlarına basın. Visual Studio, SSL uyarılarından kaçınmanıza izin veren bir seçenek görüntüler.
+8. Uygulamayı çalıştırmak için **Ctrl+F5**'e basın. Visual Studio, SSL uyarılarından kaçınmanıza izin veren bir seçenek görüntüler.
 9. IIS Express SSL sertifikasına güvenmek ve devam etmek için **Evet** ' e tıklayın.   
     ![IIS Express SSL sertifikası ayrıntıları](checkout-and-payment-with-paypal/_static/image6.png)  
  Bir güvenlik uyarısı görüntülenir.
@@ -187,7 +187,7 @@ Aşağıdaki adımlar, bir Google kimlik doğrulama sağlayıcısı eklemenize o
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
 15. Uygulamayı derlemek ve çalıştırmak için **CTRL + F5** tuşlarına basın. **Oturum aç** bağlantısına tıklayın.
 16. **Oturum açmak için başka bir hizmet kullan**' ın altında **Google**' a tıklayın.  
-    ](checkout-and-payment-with-paypal/_static/image11.png) ![oturum açma
+    ![Oturum açma](checkout-and-payment-with-paypal/_static/image11.png)
 17. Kimlik bilgilerinizi girmeniz gerekiyorsa, kimlik bilgilerinizi gireceğiniz Google sitesine yönlendirilirsiniz.  
     ![Google-oturum açma](checkout-and-payment-with-paypal/_static/image12.png)
 18. Kimlik bilgilerinizi girdikten sonra, yeni oluşturduğunuz Web uygulamasına izin vermeniz istenir.  
@@ -381,7 +381,7 @@ PayPal 'den döndükten sonra, Wingtip Toys örnek uygulamasının *Checkoutrevi
 
 > [!NOTE] 
 > 
-> **İpucuyla**
+> **İpucu**
 > 
 > *Checkoutreview. aspx* sayfasının biçimlendirmesinde, sayfanın alt kısmındaki **DetailsView** denetimindeki öğelerin stilini değiştirmek için `<ItemStyle>` etiketinin kullanıldığına dikkat edin. Sayfayı **Tasarım görünümünde** görüntüleyerek (Visual Studio 'nun sol alt köşesinde bulunan **Tasarım** ' ı seçerek), sonra **DetailsView** denetimini seçip **akıllı etiketi** (denetimin sağ üst köşesindeki ok simgesi) seçerek **DetailsView görevlerini**görebilirsiniz.
 > 

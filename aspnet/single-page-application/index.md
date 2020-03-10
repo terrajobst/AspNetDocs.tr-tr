@@ -1,19 +1,19 @@
 ---
 uid: single-page-application/index
-title: ASP.NET tek sayfa uygulaması | Microsoft Docs
+title: ASP.NET tek sayfalı uygulama | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Fall 2012 güncelleştirmesini indirin ve önemli istemci tarafı etkileşimler JavaScrip kullanarak uygulamaları oluşturmaya yönelik daha iyi bir uçtan uca deneyim sahibi...
+description: ASP.NET Fall 2012 güncelleştirmesini indirin ve JavaScript... kullanarak önemli istemci tarafı etkileşimlerine sahip uygulamalar oluşturmaya yönelik daha iyi bir uçtan uca deneyim sağlayabilirsiniz.
 ms.author: riande
 ms.date: 11/14/2012
 ms.assetid: 4760328c-3d73-4757-a36f-ab80a5b3f611
 msc.legacyurl: /single-page-application
 msc.type: categoryindex
 ms.openlocfilehash: 74ebdc39a81d31fb3c1ef3e5bab1857915cdc247
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59400950"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558256"
 ---
 # <a name="aspnet-single-page-application"></a>ASP.NET tek sayfalı uygulama
 
@@ -21,7 +21,7 @@ ms.locfileid: "59400950"
 
     - [Giriş](overview/introduction/index.md)
 
-        - [Tek sayfalı uygulama: KnockoutJS şablonu](overview/introduction/knockoutjs-template.md)
+        - [Tek Sayfalı Uygulama: KnockoutJS şablonu](overview/introduction/knockoutjs-template.md)
         - [Knockout dışında bir kitaplık biliyor musunuz?](overview/introduction/other-libraries.md)
     - [Şablonlar](overview/templates/index.md)
 

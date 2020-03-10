@@ -1,75 +1,75 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: ASP.NET mvc'de siteler arası istek sahteciliği (CSRF) saldırılarını önleme
+title: ASP.NET MVC 'de siteler arası Istek forgery (CSRF) saldırılarını önleme
 author: MikeWasson
-description: Siteler arası istek sahteciliği (CSRF) saldırı ve ASP.NET Web MVC'de kötü CSRF önlemlerini açıklar.
+description: Siteler arası istek sahteciliğini önleme (CSRF) saldırısını ve ASP.NET Web MVC 'de Anti-CSRF ölçülerinin nasıl uygulanacağını açıklar.
 ms.author: riande
 ms.date: 12/12/2012
 ms.assetid: 81d46f14-8f48-4d8c-830d-cc8d594dc11b
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
 ms.openlocfilehash: 5fb0f8bcc9e587ba4fbbf2b857d3bf7adcaafb94
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59392033"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78555120"
 ---
-# <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-mvc-application"></a>ASP.NET MVC uygulamasındaki siteler arası istek sahteciliği (CSRF) saldırılarını önleme
+# <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-mvc-application"></a>ASP.NET MVC uygulamasında siteler arası Istek forgery (CSRF) saldırılarını önleme
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-Burada bir kötü niyetli site burada kullanıcı şu anda oturum savunmasız sitesine bir istek gönderir, siteler arası istek sahteciliği (CSRF) bir saldırı olma
+Siteler arası Istek sahteciliği (CSRF), kötü niyetli bir sitenin kullanıcının şu anda oturum açtığı bir güvenlik açığı olan siteye istek gönderdiği bir saldırıya neden olur
 
-CSRF saldırılarının bir örnek aşağıda verilmiştir:
+CSRF saldırılarına bir örnek aşağıda verilmiştir:
 
-1. Bir kullanıcının oturum açtığı `www.example.com` forms kimlik doğrulaması kullanma.
-2. Sunucusu kullanıcının kimliğini doğrular. Sunucu yanıtı bir kimlik doğrulama tanımlama bilgisi içerir.
-3. Kullanıcı oturumu kapatmak olmadan kötü amaçlı web sitesini ziyaret eder. Bu kötü niyetli site aşağıdaki HTML formu içerir: 
+1. Kullanıcı, Forms kimlik doğrulaması kullanarak `www.example.com` oturum açar.
+2. Sunucu, kullanıcının kimliğini doğrular. Sunucudan gelen yanıt bir kimlik doğrulama tanımlama bilgisi içerir.
+3. Oturum açmadan, Kullanıcı kötü amaçlı bir Web sitesi ziyaret ettiğinde. Bu kötü amaçlı site aşağıdaki HTML biçimini içerir: 
 
     [!code-html[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample1.html)]
 
-    Form eylemi kötü niyetli site için güvenlik açığı siteye gönderir dikkat edin. CSRF "siteler arası" parçasıdır.
-4. Kullanıcının gönder düğmesine tıklar. Tarayıcı, kimlik doğrulama tanımlama bilgisi ile istek içerir.
-5. İstek, kullanıcının kimlik doğrulaması bağlamı sunucunuz üzerinde çalışan ve kimliği doğrulanmış bir kullanıcıyı yapmak için izin verilen herhangi bir şey yapabilirsiniz.
+    Form eyleminin kötü amaçlı siteye değil, güvenlik açığı bulunan siteye gönderdiğine dikkat edin. Bu, CSRF 'nin "siteler arası" parçasıdır.
+4. Kullanıcı Gönder düğmesine tıklar. Tarayıcı, istekle kimlik doğrulama tanımlama bilgisini içerir.
+5. İstek, kullanıcının kimlik doğrulama bağlamıyla sunucuda çalışır ve kimliği doğrulanmış bir kullanıcının yapmasına izin verilen her şeyi yapabilir.
 
-Bu örnekte form düğmesini tıklatarak kullanıcı gerektirse de, kötü amaçlı sayfası kolayca otomatik olarak formu gönderdiği bir betik çalıştırma gibi olabilir. Ayrıca, SSL kullanarak, bunlar "https://" istek kötü niyetli site gönderebileceğinden bile, CSRF saldırısını engellemez.
+Bu örnekte kullanıcının form düğmesine tıklamasa da kötü amaçlı sayfa yalnızca formu otomatik olarak gönderen bir betiği kolayca çalıştırabilir. Üstelik, SSL kullanmak CSRF saldırılarına engel değildir çünkü kötü amaçlı site "https://" isteği gönderebilir.
 
-Genellikle, tarayıcılar ilgili tüm tanımlama bilgilerini hedef web sitesine göndermek için CSRF saldırılarına karşı kimlik doğrulaması için tanımlama bilgileri kullanan web siteleri mümkün olabilir. Ancak, CSRF saldırıları tanımlama bilgilerinin kötüye için sınırlı değildir. Örneğin, temel ve Özet kimlik doğrulaması ayrıca savunmasız. Sonra bir kullanıcı oturum temel veya Özet kimlik doğrulamasını açın. oturum sonlandırılana kadar tarayıcı kimlik bilgilerini otomatik olarak gönderir.
+Genellikle, tarayıcılar tüm ilgili tanımlama bilgilerini hedef Web sitesine gönderdikleri için kimlik bilgilerini kullanan Web sitelerine karşı CSRF saldırıları mümkündür. Ancak, CSRF saldırıları, tanımlama bilgilerini kötüye ile sınırlı değildir. Örneğin, temel ve Özet kimlik doğrulaması da savunmasız olacaktır. Bir Kullanıcı temel veya Özet kimlik doğrulamasıyla oturum açtıktan sonra. tarayıcı, oturum sona erene kadar kimlik bilgilerini otomatik olarak gönderir.
 
-## <a name="anti-forgery-tokens"></a>Sahteciliğe karşı koruma belirteçleri
+## <a name="anti-forgery-tokens"></a>Korunma belirteçleri
 
-ASP.NET MVC CSRF saldırılarını önlemeye yardımcı olmak için olarak da bilinir, sahteciliğe karşı koruma belirteçleri kullanır *doğrulama belirteci istemek*.
+ASP.NET MVC, CSRF saldırılarını önlemeye yardımcı olmak için, *istek doğrulama belirteçleri*olarak da adlandırılan, güvenlik yumuşatma belirteçlerini kullanır.
 
-1. İstemci, bir form içeren bir HTML sayfası ister.
-2. Sunucunun yanıtta iki belirteçleri içerir. Bir simge bir tanımlama bilgisi gönderilir. Diğer bir gizli form alanına yerleştirilir. Böylece bir saldırganın değerleri tahmin edilemez belirteçleri rastgele oluşturulur.
-3. İstemci formu gönderdiğinde, bu sunucuya geri hem belirteçleri göndermeniz gerekir. Bir tanımlama bilgisi tanımlama bilgisi belirteci istemciye gönderir ve formu içinde form belirteç gönderir. (Kullanıcı formu gönderdiğinde tarayıcı istemci otomatik olarak bunu yapar.)
-4. Bir isteği her iki simge içermiyorsa, sunucu istek izin vermiyor.
+1. İstemci, form içeren bir HTML sayfası ister.
+2. Sunucu, yanıtta iki belirteç içerir. Bir belirteç tanımlama bilgisi olarak gönderilir. Diğeri gizli form alanına yerleştirilir. Belirteçler rastgele oluşturulur, böylece bir saldırgan değerleri tahmin edemez.
+3. İstemci formu gönderdiğinde, her iki belirteci sunucuya geri göndermelidir. İstemci tanımlama bilgisi belirtecini tanımlama bilgisi olarak gönderir ve form belirtecini form verileri içine gönderir. (Kullanıcı formu gönderdiğinde bir tarayıcı istemcisi bunu otomatik olarak yapar.)
+4. Bir istek her iki belirteci de içermiyorsa, sunucu isteğe izin vermez.
 
-Bir HTML formuna gizli form belirteci ile bir örneği aşağıda verilmiştir:
+Gizli form belirtecine sahip HTML biçimine bir örnek aşağıda verilmiştir:
 
 [!code-html[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample2.html)]
 
-Sahteciliğe karşı koruma belirteçleri çalışır, çünkü kötü amaçlı sayfası aynı çıkış noktası ilkeleri nedeniyle kullanıcının belirteçleri okunamıyor. ([Aynı çıkış noktası ilkeleri](http://www.w3.org/Security/wiki/Same_Origin_Policy) birbirlerinin içeriğe erişmesini iki farklı sitelerde barındırılan belge engelle. Bu nedenle önceki örnekte, kötü amaçlı sayfası istekleri example.com gönderebilir, ancak yanıt okunamıyor.)
+Kötü amaçlı sayfa, aynı kaynak ilkeleri nedeniyle kullanıcının belirteçlerini okuyamadığı için, karşı koruma belirteçleri çalışır. ([Aynı kaynak ilkeleri](http://www.w3.org/Security/wiki/Same_Origin_Policy) iki farklı sitede barındırılan belgelerin birbirlerinin içeriğine erişmesini önler. Bu nedenle, kötü amaçlı sayfa example.com 'e istek gönderebilir, ancak yanıtı okuyamıyor.)
 
-Kullanıcı oturum açtığında sonra CSRF saldırıların önlenmesine, tarayıcı sessizce göndereceği yeri sahteciliğe karşı koruma belirteçleri ile herhangi bir kimlik doğrulama protokolünü kullanmak için kimlik bilgileri. Bu tanımlama bilgisi tabanlı kimlik doğrulama protokolleri, forms kimlik doğrulaması gibi içerir hem de temel ve Özet kimlik doğrulaması gibi protokoller.
+CSRF saldırılarını engellemek için, tarayıcının Kullanıcı oturum açtıktan sonra kimlik bilgilerini sessizce gönderdiği kimlik doğrulama protokolleriyle karşı koruma belirteçleri kullanın. Bu, Forms kimlik doğrulaması ve temel ve Özet kimlik doğrulaması gibi protokollerin yanı sıra tanımlama bilgisi tabanlı kimlik doğrulama protokollerini içerir.
 
-Sahteciliğe karşı koruma belirteçleri için tüm nonsafe yöntemleri (POST, PUT, DELETE) istemeniz gerekir. Ayrıca güvenli yöntemleri (GET, HEAD) yan etkileri sahip olmadığından emin olun. CORS veya JSONP, gibi etki alanları arası destek etkinleştirirseniz, ayrıca, sonra da güvenli GET gibi hassas olabilecek verileri okumak, saldırganın CSRF saldırılarına karşı savunmasız yöntemlerdir.
+Güvenli olmayan Yöntemler (POST, PUT, DELETE) için koruma yumuşatma gerekli olmalıdır. Ayrıca, güvenli yöntemlerin (GET, HEAD) hiç yan etkisi olmadığından emin olun. Üstelik, CORS veya JSONP gibi etki alanları arası desteğini etkinleştirirseniz, GET gibi güvenli yöntemler de CSRF saldırılarına açıktır ve bu da saldırganın potansiyel olarak hassas verileri okumasına olanak tanır.
 
-## <a name="anti-forgery-tokens-in-aspnet-mvc"></a>ASP.NET mvc'de sahteciliğe karşı koruma belirteçleri
+## <a name="anti-forgery-tokens-in-aspnet-mvc"></a>ASP.NET MVC 'de Anti-forgery belirteçleri
 
-Sahteciliğe karşı koruma belirteçleri için bir Razor sayfası eklemek için **HtmlHelper.AntiForgeryToken** yardımcı yöntemi:
+Bir Razor sayfasına korsanlığa karşı koruma belirteçleri eklemek için **HtmlHelper. AntiForgeryToken** yardımcı yöntemini kullanın:
 
 [!code-cshtml[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample3.cshtml)]
 
-Bu yöntem, gizli form alanının ekler ve ayrıca tanımlama bilgisi belirteci ayarlar.
+Bu yöntem gizli form alanını ekler ve tanımlama bilgisi belirtecini de ayarlar.
 
 ## <a name="anti-csrf-and-ajax"></a>Anti-CSRF ve AJAX
 
-Form simgesi HTML form verileri JSON verilerini bir AJAX isteği gönderebilir AJAX istekleri için bir sorun olabilir. Tek bir çözüm, özel bir HTTP üst bilgisinde belirteçleri göndermektir. Aşağıdaki kod, belirteçleri oluşturmak için Razor sözdizimini kullanır ve ardından belirteçleri için bir AJAX isteği ekler. Çağırarak sunucuda oluşturulan belirteçleri **AntiForgery.GetTokens**.
+Bir AJAX isteği HTML form verileri değil JSON verisi gönderebildiğinden, form belirteci, AJAX istekleri için bir sorun olabilir. Tek bir çözüm, belirteçleri özel bir HTTP üst bilgisinde göndermektir. Aşağıdaki kod belirteçleri oluşturmak için Razor söz dizimi kullanır ve ardından belirteçleri bir AJAX isteğine ekler. Belirteçler, **Antiforgery. GetTokens**çağırarak sunucuda oluşturulur.
 
 [!code-html[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample4.html)]
 
-İsteği işlerken, istek üstbilgisi belirteçleri ayıklayın. Ardından çağırın **AntiForgery.Validate** belirteçleri doğrulamak için yöntemi. **Doğrulama** yöntemi belirteçleri geçerli değilse bir özel durum oluşturur.
+İsteği tamamladığınızda, belirteçleri istek başlığından ayıklayın. Ardından, belirteçleri doğrulamak için **Antiforgery. Validate** metodunu çağırın. Belirteçler geçerli değilse **Validate** yöntemi bir özel durum oluşturur.
 
 [!code-csharp[Main](preventing-cross-site-request-forgery-csrf-attacks/samples/sample5.cs)]
