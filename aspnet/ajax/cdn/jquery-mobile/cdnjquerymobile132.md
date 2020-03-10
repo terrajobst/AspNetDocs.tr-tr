@@ -9,11 +9,11 @@ ms.assetid: 89d6cf36-4dd1-46e3-ae2f-d3dee67e7805
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile132
 msc.type: content
 ms.openlocfilehash: f6413f40898422db28575e1a7b7b5cab9e3d75bd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59401887"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78562883"
 ---
 # <a name="jquery-mobile-132-on-the-microsoft-ajax-cdn"></a>Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.2
 

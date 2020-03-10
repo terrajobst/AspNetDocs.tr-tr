@@ -9,11 +9,11 @@ ms.assetid: cd03a188-e947-4f55-9bda-b8bce201d8c6
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 85a77a196cf3458bbb2e6308838a846936cd070b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633569"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78630510"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: klasör Izinlerini ayarlama-6/12
 
@@ -73,7 +73,7 @@ Ayrıca, bu klasörde SQL Server Compact veritabanı dosyalarınız olduğundan 
 
 Contoso Üniversitesi 'nin yerel bilgisayarınızda IIS 'de düzgün şekilde çalışmasını sağlamak için gereken tüm görevleri tamamladınız. Bir sonraki öğreticide, bir barındırma sağlayıcısına dağıtarak siteyi genel kullanıma sunulacaktır.
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha Fazla Bilgi
 
 Bu örnekte, ELMAH 'nin günlük dosyalarını kaydedememesinin nedeni oldukça açıktır. Sorun nedeninin açık olmadığı durumlarda IIS izlemeyi kullanabilirsiniz; IIS.net sitesinde [IIS 7 ' de Izleme kullanarak başarısız Isteklerin sorunlarını giderme](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing/troubleshooting-failed-requests-using-tracing-in-iis) bölümüne bakın.
 

@@ -1,81 +1,81 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
-title: ASP.NET Web uygulamasında kullanıcı girdisi doğrulama sayfaları (Razor) siteler | Microsoft Docs
+title: ASP.NET Web Pages (Razor) sitelerindeki kullanıcı girişini doğrulama | Microsoft Docs
 author: Rick-Anderson
-description: Bu makalede, kullanıcılardan alma bilgileri doğrulamak anlatılmaktadır &mdash; diğer bir deyişle, geçerli kullanıcılar girdiğinizden emin olmak için bir as HTML bilgilerinde forms...
+description: Bu makalede, kullanıcıların HTML formlarında bir AS... içinde geçerli bilgiler girdiğinizden emin olmak için &mdash;, kullanıcılardan aldığınız bilgilerin nasıl doğrulanacağı açıklanmaktadır.
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
 ms.openlocfilehash: e6f8e1051d09d11f1756bfada44a73ba7c2a1db2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108591"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563506"
 ---
-# <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde kullanıcı girişini doğrulama
+# <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web Pages (Razor) sitelerindeki kullanıcı girişini doğrulama
 
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+[Tom FitzMacken](https://github.com/tfitzmac) tarafından
 
-> Bu makalede, kullanıcılardan alma bilgileri doğrulamak anlatılmaktadır &mdash; diğer bir deyişle, geçerli kullanıcılar girdiğinizden emin olmak için bir ASP.NET Web sayfaları (Razor) sitesinde HTML bilgileri oluşturur.
+> Bu makalede, kullanıcıların bir ASP.NET Web Pages (Razor) sitesinde HTML formlarında geçerli bilgiler girdiğinizden emin olmak için &mdash;, kullanıcılardan aldığınız bilgilerin nasıl doğrulanacağı anlatılmaktadır.
 > 
 > Öğrenecekleriniz:
 > 
-> - Bir kullanıcının girişinin olduğunu denetlemek nasıl tanımladığınız doğrulama ölçütlerini eşleşir.
-> - Tüm doğrulama sınamalarını geçtiğini belirlemek nasıl.
-> - Doğrulama hataları görüntülemek nasıl (ve bunları biçimine).
-> - Doğrudan kullanıcılarından gelmeyen veri doğrulama yapma.
+> - Kullanıcı girişinin tanımladığınız doğrulama ölçütleriyle eşleşip eşleşmediğini denetleme.
+> - Tüm doğrulama testlerinin başarılı olup olmadığını belirleme.
+> - Doğrulama hatalarını görüntüleme (ve bunları biçimlendirme).
+> - Doğrudan kullanıcılardan gelmeyen verileri doğrulama.
 > 
-> Programlama Kavramları makalesinde sunulan ASP.NET şunlardır:
+> Makalesinde sunulan ASP.NET programlama kavramları şunlardır:
 > 
 > - `Validation` Yardımcısı.
-> - `Html.ValidationSummary` Ve `Html.ValidationMessage` yöntemleri.
+> - `Html.ValidationSummary` ve `Html.ValidationMessage` yöntemleri.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
 >   
 > 
-> Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
+> Bu öğretici, ASP.NET Web Pages 2 ile de kullanılabilir.
 
-Bu makalede, aşağıdaki bölümleri içerir:
+Bu makale aşağıdaki bölümleri içerir:
 
-- [Kullanıcı girdisi doğrulama genel bakış](#Overview_of_User_Input_Validation)
+- [Kullanıcı girişi doğrulamasına genel bakış](#Overview_of_User_Input_Validation)
 - [Kullanıcı girişini doğrulama](#Validating_User_Input)
-- [İstemci tarafı doğrulama ekleme](#Adding_Client-Side_Validation)
-- [Doğrulama hataları biçimlendirme](#Formatting_Validation_Errors)
-- [Doğrudan kullanıcılarından gelmeyen veri doğrulama](#Validating_Data_That_Doesnt_Come_Directly_from_Users)
+- [Istemci tarafı doğrulama ekleme](#Adding_Client-Side_Validation)
+- [Doğrulama hatalarını biçimlendirme](#Formatting_Validation_Errors)
+- [Doğrudan kullanıcılardan gelmeyen verileri doğrulama](#Validating_Data_That_Doesnt_Come_Directly_from_Users)
 
 <a id="Overview_of_User_Input_Validation"></a>
-## <a name="overview-of-user-input-validation"></a>Kullanıcı girdisi doğrulama genel bakış
+## <a name="overview-of-user-input-validation"></a>Kullanıcı girişi doğrulamasına genel bakış
 
-Bir sayfa bilgileri girmelerini istemek, — örneğin, bir forma — girmeleri değerlerinin geçerli olduğundan emin olmak önemlidir. Örneğin, kritik bilgiler eksik bir form işleme istemezsiniz.
+Kullanıcılardan bir sayfaya bilgi girmesini isteme (örneğin, bir forma), girdikleri değerlerin geçerli olduğundan emin olmak önemlidir. Örneğin, kritik bilgileri eksik olan bir formu işlemek istemezsiniz.
 
-Kullanıcılar, bir HTML formuna değerleri girin, girmeleri değerleri dizelerdir. Çoğu durumda, gereksinim duyduğunuz diğer veri türlerinden bazılarıyla, tam sayılar veya tarihler gibi değerlerdir. Bu nedenle, kullanıcıların giriş değerleri doğru uygun veri türlerine dönüştürülebilir emin olmak ' iniz de.
+Kullanıcılar bir HTML biçimine değer girerken, girdikleri değerler dizelerdir. Çoğu durumda, ihtiyacınız olan değerler, tamsayılar veya tarihler gibi bazı diğer veri türleridir. Bu nedenle, kullanıcıların girebileceği değerlerin uygun veri türlerine doğru şekilde dönüştürülebileceğinden de emin olmanız gerekir.
 
-Ayrıca bazı kısıtlamalar değerlerine sahip olabilir. Örneğin, kullanıcıların bir tamsayı doğru olarak girmiş olsa bile, değeri belirli bir aralığa denk geldiğinden emin emin olmak gerekebilir.
+Ayrıca, değerler üzerinde belirli kısıtlamalara de sahip olabilirsiniz. Kullanıcılar, örneğin, doğru bir tamsayı girse bile, değerin belirli bir aralık dahilinde olduğundan emin olmanız gerekebilir.
 
 ![CSS stil sınıflarını kullanan doğrulama hataları](validating-user-input-in-aspnet-web-pages-sites/_static/image1.png)
 
 > [!NOTE] 
 > 
-> **Önemli** kullanıcı girişini doğrulama, ayrıca güvenlik için önemlidir. Kullanıcıların formlarında girebileceği değerleri kısıtladığınızda, birisi, sitenizin güvenliğini tehlikeye atabilir bir değer girebilirsiniz olasılığını azaltmaya.
+> **Önemli** Güvenlik için Kullanıcı girişinin doğrulanması da önemlidir. Kullanıcıların formlara girebilen değerleri kısıtladığınızda, birisinin sitenizin güvenliğini tehlikeye atabilecek bir değer girebilme olasılığını azaltırsınız.
 
 <a id="Validating_User_Input"></a>
 ## <a name="validating-user-input"></a>Kullanıcı girişini doğrulama
 
-ASP.NET Web sayfaları 2'de kullanabileceğiniz `Validator` Yardımcısı kullanıcı girişini test etmek için. Aşağıdakileri yapmak için basit yaklaşımdır bakın:
+ASP.NET Web Pages 2 ' de, Kullanıcı girişini sınamak için `Validator` yardımcısını kullanabilirsiniz. Temel yaklaşım şunlardır:
 
-1. Doğrulamak istediğiniz öğeleri (alanlar), giriş belirleyin.
+1. Hangi giriş öğelerinin (alanları) doğrulamak istediğinizi saptayın.
 
-    Değerleri genellikle doğrulama `<input>` form öğeleri. Ancak, bu gibi kısıtlı bir öğeden gelen tüm girişleri doğrulayın, hatta giriş için iyi bir uygulamadır bir `<select>` listesi. Bu, kullanıcıların bir sayfadaki denetimleri atlamak yoktur ve form gönderme emin olmak için yardımcı olur.
-2. Yöntemleri kullanılarak öğesi her giriş için sayfa kodunda, tek tek doğrulama denetimleri ekleme `Validation` Yardımcısı.
+    Genellikle bir formdaki `<input>` öğelerdeki değerleri doğrularsınız. Ancak, `<select>` listesi gibi kısıtlanmış bir öğeden gelen tüm giriş, hatta girişi doğrulamak iyi bir uygulamadır. Bu, kullanıcıların bir sayfadaki denetimleri atlayıp form gönderemeyeceği konusunda emin olmanıza yardımcı olur.
+2. Sayfa kodunda, `Validation` Yardımcısı yöntemlerini kullanarak her giriş öğesi için ayrı doğrulama denetimleri ekleyin.
 
-    Gerekli alanlar kontrol için kullanın `Validation.RequireField(field, [error message])` (için tek tek alan) veya `Validation.RequireFields(field1, field2, ...))` (için alanların listesi). Diğer doğrulama türleri için kullanın `Validation.Add(field, ValidationType)`. İçin `ValidationType`, bu seçenekleri kullanabilirsiniz:
+    Gerekli alanları denetlemek için `Validation.RequireField(field, [error message])` (tek bir alan için) veya `Validation.RequireFields(field1, field2, ...))` (alanların listesi için) kullanın. Diğer doğrulama türleri için `Validation.Add(field, ValidationType)`kullanın. `ValidationType`için aşağıdaki seçenekleri kullanabilirsiniz:
 
     `Validator.DateTime ([error message])`  
    `Validator.Decimal([error message])`  
@@ -87,43 +87,43 @@ ASP.NET Web sayfaları 2'de kullanabileceğiniz `Validator` Yardımcısı kullan
    `Validator.Required([error message])`  
    `Validator.StringLength(length)`  
    `Validator.Url([error message])`
-3. Sayfa gönderildiğinde, doğrulama denetleyerek geçip geçmediğini denetleyin `Validation.IsValid`:
+3. Sayfa gönderildiğinde doğrulamanın `Validation.IsValid`denetleyerek başarılı olup olmadığını denetleyin:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
 
-    Herhangi bir doğrulama hatası varsa, normal sayfa işleme atlayın. Sayfanın amacı, bir veritabanını güncelleştirmek için ise, tüm doğrulama hatalarını sabit kadar Örneğin, bunu yok.
-4. Doğrulama hataları varsa, hata iletilerini sayfasının biçimlendirmesinde kullanarak görüntüleme `Html.ValidationSummary` veya `Html.ValidationMessage`, veya her ikisini de.
+    Herhangi bir doğrulama hatası varsa, normal sayfa işlemeyi atlayabilirsiniz. Örneğin, sayfanın amacı bir veritabanını güncelleştirmediğinde, tüm doğrulama hataları düzeltilene kadar bunu yapmayın.
+4. Doğrulama hataları varsa, `Html.ValidationSummary` veya `Html.ValidationMessage`veya her ikisini de kullanarak sayfa biçimlendirmesinde hata iletilerini görüntüleyin.
 
-Aşağıdaki örnek bu adımları gösteren bir sayfa görüntülenir.
+Aşağıdaki örnekte, bu adımları gösteren bir sayfa gösterilmektedir.
 
 [!code-cshtml[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample2.cshtml)]
 
-Doğrulama nasıl çalıştığını görmek için bu sayfayı çalıştırın ve kasıtlı olarak hata yapar. Örneğin, işte girerseniz gibi bir kurs adına girmek unutursanız sayfanın nasıl göründüğüne bir, ve geçersiz bir tarih girin:
+Doğrulamanın nasıl çalıştığını görmek için bu sayfayı çalıştırın ve bilinçli olarak hata oluşturun. Örneğin, bir kurs adı girmeyi unuttuğunuzda, bir, girdiğinizde ve geçersiz bir tarih girerseniz, sayfa şöyle görünür:
 
-![İşlenen sayfanın doğrulama hataları](validating-user-input-in-aspnet-web-pages-sites/_static/image2.png)
+![İşlenmiş sayfada doğrulama hataları](validating-user-input-in-aspnet-web-pages-sites/_static/image2.png)
 
 <a id="Adding_Client-Side_Validation"></a>
-## <a name="adding-client-side-validation"></a>İstemci tarafı doğrulama ekleme
+## <a name="adding-client-side-validation"></a>Istemci tarafı doğrulama ekleme
 
-Varsayılan olarak, kullanıcılar sayfa gönderildikten sonra kullanıcı girişi doğrulanır — diğer bir deyişle, doğrulama sunucu kodunda da yapılır. Bu yaklaşımın bir dezavantajı, kullanıcıların sayfası gönderme hatayla kadar sonrasında yaptığınız bilmiyorum ' dir. Bir form uzun veya karmaşık ise, yalnızca sayfa gönderildikten sonra hata raporlama kullanıcıya kullanışsız olabilir.
+Varsayılan olarak, Kullanıcı girişi, kullanıcılar sayfayı gönderdikten sonra onaylanır — diğer bir deyişle, doğrulama sunucu kodunda gerçekleştirilir. Bu yaklaşımın bir dezavantajı, kullanıcıların sayfayı gönderdikten sonra bir hata yaptığını bilmez. Bir form uzun veya karmaşık ise, yalnızca sayfa gönderildikten sonra hataları bildirmek Kullanıcı için kullanışlı olabilir.
 
-İstemci komut dosyası doğrulaması yapmak için destek ekleyebilirsiniz. Bu durumda, kullanıcılar tarayıcı içinde çalışırken doğrulama gerçekleştirilir. Örneğin, bir değer bir tamsayı olması gerektiğini belirtin varsayalım. Bir kullanıcı bir tamsayı olmayan değeri girerse, kullanıcı girişi alanından ayrılsa hemen sonra bir hata bildirilir. Kullanıcılar için uygun olan anında geri bildirim alın. İstemci tabanlı doğrulama birden çok hataları düzeltmek için formunun kullanıcının sayısını da azaltabilirsiniz.
+İstemci betiği içinde doğrulama gerçekleştirmek için destek ekleyebilirsiniz. Bu durumda, kullanıcı tarayıcıda çalıştığı için doğrulama gerçekleştirilir. Örneğin, bir değerin tamsayı olması gerektiğini varsayalım. Kullanıcı tamsayı olmayan bir değer girerse, Kullanıcı giriş alanından ayrıldığında hata bildirilir. Kullanıcılar, bunlar için uygun olan anında geri bildirim alırlar. İstemci tabanlı doğrulama, kullanıcının birden çok hatayı düzeltmek için formu kaç kez göndermesi gerektiğini de azaltabilir.
 
 > [!NOTE]
-> İstemci tarafı doğrulama kullansanız bile, doğrulama sunucu kodunda her zaman da gerçekleştirilir. Sunucu kodunda doğrulama gerçekleştirme, kullanıcıların istemci tabanlı Doğrulamayı atla durumunda bir güvenlik önlemi olur.
+> İstemci tarafı doğrulaması kullanıyor olsanız bile, doğrulama her zaman sunucu kodunda da gerçekleştirilir. Sunucu kodunda doğrulamanın gerçekleştirilmesi, kullanıcıların istemci tabanlı doğrulamayı atlaması durumunda bir güvenlik ölçümüdür.
 
-1. Aşağıdaki JavaScript kitaplıklarını sayfasında kaydedin:  
+1. Aşağıdaki JavaScript kitaplıklarını sayfaya kaydedin:  
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
-   Mutlaka bilgisayara veya sunucuya olması gerekmez, iki kitaplıkları bir içerik teslim ağı (CDN) de yüklenebilir. Ancak, yerel bir kopyasını olmalıdır *jquery.validate.unobtrusive.js*. Zaten bir WebMatrix şablonu ile çalışıyorsanız değil (gibi **başlangıç sitesi** ) kitaplığı içeren, temel alan bir Web sayfaları sitesinde oluşturma **başlangıç sitesi**. Ardından kopyalama *.js* geçerli siteye dosya.
-2. Biçimlendirmede doğrulamakta her öğe için bir çağrı ekleyin `Validation.For(field)`. Bu yöntem, istemci tarafı doğrulama tarafından kullanılan öznitelikler yayar. (Gerçek JavaScript kodu yayan yerine öznitelikleri gibi yöntem yayar `data-val-...`. Bu öznitelikler işini yapması için jQuery kullanan örtük istemci doğrulama desteklemiyor.)
+   Kütüphanelerin ikisi bir Content Delivery Network (CDN) ile yüklenebilir, bu nedenle bilgisayarınızda veya sunucunuzda olması gerekmez. Ancak, *jQuery. Validate. unobtrusive. js*' nin yerel kopyasına sahip olmanız gerekir. Kitaplığı içeren bir WebMatrix şablonuyla ( **Başlatıcı site** gibi) çalışmıyorsanız, **Başlatıcı siteyi**temel alan bir Web sayfaları sitesi oluşturun. Sonra *. js* dosyasını geçerli sitenize kopyalayın.
+2. Biçimlendirme ' de, doğruladığınızı her öğe için `Validation.For(field)`bir çağrı ekleyin. Bu yöntem, istemci tarafı doğrulama tarafından kullanılan öznitelikleri yayar. (Gerçek JavaScript kodunu yayma yerine, yöntem `data-val-...`gibi öznitelikleri yayar. Bu öznitelikler, işi yapmak için jQuery kullanan istemci doğrulamasını destekler.)
 
-Şu sayfaya, istemci doğrulama özelliklerini daha önce gösterilen örneğe ekleme işlemi gösterilmektedir.
+Aşağıdaki sayfada, daha önce gösterilen örneğe istemci doğrulama özelliklerinin nasıl ekleneceği gösterilmektedir.
 
 [!code-cshtml[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample4.cshtml?highlight=35-39,51,61,71)]
 
-İstemci üzerinde çalışan tüm doğrulama denetimleri. Özellikle, veri türü doğrulama (tamsayı, tarih vb.) istemcide çalışmaz. Aşağıdaki denetimleri, istemci ve sunucu üzerinde çalışır:
+İstemci üzerinde tüm doğrulama denetimleri çalıştırılmadı. Özellikle, veri türü doğrulama (tamsayı, tarih vb.) istemcide çalıştırılmayın. Aşağıdaki denetimler hem istemci hem de sunucu üzerinde çalışır:
 
 - `Required`
 - `Range(minValue, maxValue)`
@@ -131,63 +131,63 @@ Varsayılan olarak, kullanıcılar sayfa gönderildikten sonra kullanıcı giri�
 - `Regex(pattern)`
 - `EqualsTo(otherField)`
 
-Bu örnekte, test için geçerli bir tarih, istemci kodu çalışmaz. Ancak, test sunucu kodunda da yapılır.
+Bu örnekte, geçerli bir tarih testi istemci kodunda çalışmayacaktır. Ancak, test sunucu kodunda gerçekleştirilir.
 
 <a id="Formatting_Validation_Errors"></a>
-## <a name="formatting-validation-errors"></a>Doğrulama hataları biçimlendirme
+## <a name="formatting-validation-errors"></a>Doğrulama hatalarını biçimlendirme
 
-Şu ayrılmış adların olan CSS sınıfı tanımlayarak doğrulama hataları nasıl görüntüleneceğini denetleyebilirsiniz:
+Aşağıdaki ayrılmış adlara sahip CSS sınıfları tanımlayarak, doğrulama hatalarının nasıl görüntülendiğini denetleyebilirsiniz:
 
-- `field-validation-error`. Çıkışı tanımlar `Html.ValidationMessage` hata görüntülenirken yöntemi.
-- `field-validation-valid`. Çıkışı tanımlar `Html.ValidationMessage` herhangi bir hata olduğunda yöntemi.
-- `input-validation-error`. Tanımlar nasıl `<input>` öğeleri, bir hata olduğunda işlenir. (Örneğin, arka plan rengini ayarlamak için bu sınıf kullanabilirsiniz bir &lt;giriş&gt; farklı bir renk değeri geçersizse öğesine.) Bu bir CSS sınıfı (ASP.NET Web Pages 2) istemci doğrulama sırasında yalnızca kullanılır.
-- `input-validation-valid`. Görünümünü tanımlayan `<input>` herhangi bir hata olduğunda öğeleri.
-- `validation-summary-errors`. Çıkışı tanımlar `Html.ValidationSummary` hataların listesini görüntülemeden yöntem.
-- `validation-summary-valid`. Çıkışı tanımlar `Html.ValidationSummary` herhangi bir hata olduğunda yöntemi.
+- `field-validation-error`. Bir hata görüntülenirken `Html.ValidationMessage` yönteminin çıkışını tanımlar.
+- `field-validation-valid`. Hata olmadığında `Html.ValidationMessage` yönteminin çıkışını tanımlar.
+- `input-validation-error`. Bir hata olduğunda `<input>` öğelerinin nasıl işleneceğini tanımlar. (Örneğin, bir &lt;girişi&gt; öğesinin arka plan rengini, değeri geçersizse farklı bir renge ayarlamak için bu sınıfı kullanabilirsiniz.) Bu CSS sınıfı yalnızca istemci doğrulaması sırasında kullanılır (ASP.NET Web Pages 2).
+- `input-validation-valid`. Hata olmadığında `<input>` öğelerinin görünümünü tanımlar.
+- `validation-summary-errors`. `Html.ValidationSummary` yönteminin çıkışını tanımlar ve bu, hataların bir listesini görüntüler.
+- `validation-summary-valid`. Hata olmadığında `Html.ValidationSummary` yönteminin çıkışını tanımlar.
 
-Aşağıdaki `<style>` bloğu hata koşulları için kuralları gösterir.
+Aşağıdaki `<style>` bloğu hata koşulları kurallarını gösterir.
 
 [!code-css[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample5.css)]
 
-Makalesinde daha önce örnek sayfalarından bu stil bloğu dahil ederseniz, hata ekran aşağıdaki gibi görünür:
+Bu stil bloğunu, makalenin önceki kısımlarında bulunan örnek sayfalara dahil ederseniz, hata görünümü aşağıdaki çizimde gösterildiği gibi görünür:
 
 ![CSS stil sınıflarını kullanan doğrulama hataları](validating-user-input-in-aspnet-web-pages-sites/_static/image3.png)
 
 > [!NOTE]
-> ASP.NET Web sayfaları 2'de istemci doğrulama kullanmıyorsanız için CSS sınıfları `<input>` öğeleri (`input-validation-error` ve `input-validation-valid` hiçbir etkisi yoktur.
+> ASP.NET Web Pages 2 ' de istemci doğrulaması kullanmıyorsanız, `<input>` öğeleri için CSS sınıfları (`input-validation-error` ve `input-validation-valid` hiçbir etkiye sahip olmaz.
 
 ### <a name="static-and-dynamic-error-display"></a>Statik ve dinamik hata görüntüleme
 
-CSS kurallarını gibi çiftler halinde gelen `validation-summary-errors` ve `validation-summary-valid`. Bu çiftler iki koşul için kuralları tanımlamanıza olanak sağlar: bir hata koşulu ve "normal" (hata olmayan) koşul. Biçimlendirme hatası görüntülemek için her zaman işlenir hatasız olsa bile anlamak önemlidir. Örneğin, bir sayfa varsa bir `Html.ValidationSummary` biçimlendirme yöntemi, sayfa kaynağı içeren aşağıdaki biçimlendirme bile sayfa ilk istendiğinde:
+CSS kuralları `validation-summary-errors` ve `validation-summary-valid`gibi çiftler halinde gelir. Bu çiftler her iki koşul için kurallar tanımlamanızı sağlar: bir hata durumu ve "normal" (hata olmayan) koşulu. Hata olmadan biçimlendirmenin her zaman bir hata olmasa bile, her zaman işlenip işlenmeyeceğini anlamak önemlidir. Örneğin, bir sayfada biçimlendirme içinde bir `Html.ValidationSummary` yöntemi varsa, sayfa kaynağı ilk kez istendiği zaman bile aşağıdaki biçimlendirmeyi içerecektir:
 
 `<div class="validation-summary-valid" data-valmsg-summary="true"><ul></ul></div>`
 
-Diğer bir deyişle, `Html.ValidationSummary` yöntemi her zaman oluşturur bir `<div>` öğesi ve hata listesinin boş olsa bile bir listesi. Benzer şekilde, `Html.ValidationMessage` yöntemi her zaman oluşturur bir `<span>` öğesi hata olsa bile bir tek alan hatası için bir yer tutucu olarak.
+Diğer bir deyişle, `Html.ValidationSummary` yöntemi her zaman bir `<div>` öğesi ve bir liste oluşturur, bu da hata listesi boş olsa bile. Benzer şekilde, `Html.ValidationMessage` yöntemi her zaman bir alan hatası için bir yer tutucu olarak bir `<span>` öğesi oluşturur, aksi halde bir hata yoktur.
 
-Bazı durumlarda, bir hata iletisi görüntüleniyor boyutlandırıldığında için sayfayı neden olabilir ve öğeleri değiştirmemiz sayfasında neden olabilir. Biten CSS kurallarını `-valid` bu sorunu önlemeye yardımcı olabilecek bir düzen tanımlamanıza olanak sağlar. Örneğin, tanımlayabileceğiniz `field-validation-error` ve `field-validation-valid` her ikisi de aynı boyutu sabit. Böylece, alan için görüntüleme alanı statiktir ve bir hata iletisi görüntülenirse, sayfa akışı değişmez.
+Bazı durumlarda, bir hata iletisi görüntülenirken sayfanın yeniden akıtılmasına neden olabilir ve sayfadaki öğelerin etrafında hareket olmasına neden olabilir. `-valid` biten CSS kuralları, bu sorunu önlemeye yardımcı olabilecek bir düzen tanımlamanızı sağlar. Örneğin, `field-validation-error` tanımlayabilir ve `field-validation-valid` her ikisi de aynı sabit boyuta sahip olabilir. Bu şekilde, alanın görüntüleme alanı statiktir ve bir hata iletisi görüntülenirse sayfa akışını değiştirmez.
 
 <a id="Validating_Data_That_Doesnt_Come_Directly_from_Users"></a>
-## <a name="validating-data-that-doesnt-come-directly-from-users"></a>Doğrudan kullanıcılarından gelmeyen veri doğrulama
+## <a name="validating-data-that-doesnt-come-directly-from-users"></a>Doğrudan kullanıcılardan gelmeyen verileri doğrulama
 
-Bazen, doğrudan bir HTML formundan olmadıktan bilgileri doğrulamak gerekir. Tipik bir örnek, bir değer aşağıdaki örnekte olduğu gibi bir sorgu dizesinde geçirildiği bir sayfa olacaktır:
+Bazen bir HTML formundan doğrudan gelmeyen bilgileri doğrulamanız gerekebilir. Tipik bir örnek, aşağıdaki örnekte olduğu gibi bir sorgu dizesinde bir değerin geçirildiği bir sayfasıdır:
 
 `http://server/myapp/EditClassInformation?classid=1022`
 
-Bu durumda, emin olmak istediğiniz sayfaya geçirilen değerin (burada, 1022 değerini `classid`) geçerlidir. Doğrudan kullanamazsınız `Validation` bu doğrulamayı gerçekleştirmek için yardımcı. Ancak, doğrulama sisteminin doğrulama hata iletilerinin olanağı gibi diğer özellikleri kullanabilirsiniz.
+Bu durumda, sayfaya geçirilen değerin (burada, `classid`değeri için 1022) geçerli olduğundan emin olmak istersiniz. Bu doğrulamayı gerçekleştirmek için `Validation` yardımcısını doğrudan kullanamazsınız. Bununla birlikte, doğrulama sisteminin, doğrulama hatası iletilerini görüntüleme özelliği gibi diğer özelliklerini de kullanabilirsiniz.
 
 > [!NOTE] 
 > 
-> **Önemli** her zaman aldığınız değerleri doğrulaması *herhangi* kaynak, form alanı değerleri, sorgu dizesi değerleri ve tanımlama bilgisi değerleri dahil. Bu değerleri (belki de kötü amaçlı olarak) değiştirmek üzere kişiler için kolaydır. Bu nedenle uygulamanızı korumak için bu değerleri işaretlemeniz gerekir.
+> **Önemli** Form alanı değerleri, sorgu dizesi değerleri ve tanımlama bilgisi değerleri de dahil olmak üzere *herhangi bir* kaynaktan aldığınız değerleri her zaman doğrulayın. Kişilerin bu değerleri değiştirmesi oldukça kolaydır (Belki de kötü amaçlı amaçlar için). Bu nedenle, uygulamanızı korumak için bu değerleri denetlemeniz gerekir.
 
-Aşağıdaki örnek, bir sorgu dizesinde geçirilen bir değeri nasıl doğrulamak gösterir. Kod, değer boş değil ve bir tamsayı olduğunu sınar.
+Aşağıdaki örnek, bir sorgu dizesinde iletilen bir değeri nasıl doğrulayacağınızı gösterir. Kod, değerin boş ve tamsayı olduğunu sınar.
 
 [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample6.cs)]
 
-İstek bir form gönderimi olmadığında test gerçekleştirilir dikkat edin (`if(!IsPost)`). Bu test sayfası istenen ilk kez geçip geçmeyeceğini, ancak zaman istek form gönderme değil.
+İstek bir form gönderimi olmadığında testin gerçekleştirildiğinden (`if(!IsPost)`) dikkat edin. Bu test sayfa istendiğinde ilk kez geçer, ancak istek bir form gönderimi olduğunda bunu yapmayabilir.
 
-Bu hatayı görüntülemek için hata doğrulama hataları listesine çağırarak ekleyebileceğiniz `Validation.AddFormError("message")`. Sayfa için bir çağrı içeriyorsa `Html.ValidationSummary` yöntemi, hata, yalnızca bir kullanıcı girişini doğrulama hatası gibi görüntülenir.
+Bu hatayı göstermek için `Validation.AddFormError("message")`çağırarak doğrulama hataları listesine hatayı ekleyebilirsiniz. Sayfa `Html.ValidationSummary` yöntemine bir çağrı içeriyorsa, hata bir kullanıcı girişi doğrulama hatası gibi görüntülenir.
 
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET Web sayfaları sitelerinde HTML formları ile çalışma](https://go.microsoft.com/fwlink/?LinkID=202892)
+[ASP.NET Web Pages sitelerinde HTML formlarıyla çalışma](https://go.microsoft.com/fwlink/?LinkID=202892)

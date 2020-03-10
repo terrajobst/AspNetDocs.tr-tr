@@ -9,11 +9,11 @@ ms.assetid: 24ad086d-865e-433c-9ac9-05f1a553da16
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
 ms.openlocfilehash: 96dd31d949633e001fc595621bedbf74e98000fc
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74640232"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78642221"
 ---
 # <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak Web dağıtımını ASP.NET: giriş
 
@@ -39,7 +39,7 @@ Eğitim sayısı dağıtım sürecini korkuttabilir. Aslında temel yordamlar ba
 
 Öğreticiler sırayla çalışacak şekilde tasarlanmıştır ve her bölüm önceki bölümde oluşturulur. Durumunuza uygun olmayan parçaları atlayabilirsiniz, ancak daha sonra öğreticilerde daha sonra yordamları ayarlamanız gerekebilir.
 
-## <a name="intended-audience"></a>Hedeflenen hedef kitle
+## <a name="intended-audience"></a>Hedef kitle
 
 Öğreticiler, şu durumlarda ortamlarda çalışan ASP.NET geliştiricileri için tasarlanmıştır:
 
@@ -110,7 +110,7 @@ Dağıtım sırasında bir hata oluştuğunda veya dağıtılan Site doğru şek
 
 <a id="prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğretici aşağıdaki ürünler için yazılmıştır:
 
@@ -137,7 +137,7 @@ Yönergeler ve ekran görüntüleri Windows 8 ' i temel alır, ancak Öğreticil
 
 Öğreticiyi tamamlayabilmeniz için bazı başka yazılımlar gerekir, ancak henüz yüklü olması gerekmez. Öğretici, ihtiyacınız olduğunda yükleme adımlarında size kılavuzluk eder.
 
-## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin
+## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
 Dağıttığınız uygulama Contoso University olarak adlandırılır ve sizin için önceden oluşturulmuştur. Bu, [ASP.NET sitesindeki Entity Framework öğreticiler](https://asp.net/entity-framework/tutorials)bölümünde açıklanan Contoso University uygulamasına bağlı olarak, bir üniversite Web sitesinin basitleştirilmiş bir sürümüdür.
 
@@ -154,7 +154,7 @@ Projeyi öğretici adımları aracılığıyla çalışmak üzere hazırlamak i�
     (Bu öğreticideki ekran görüntüleri için, proje klasörü `C`: sürücü ' deki kök dizinde bulunur.)
 2. Visual Studio 'Yu başlatın ve projeyi açın.
 3. **Çözüm Gezgini**, çözüme sağ tıklayın ve **Enablenuget paketini geri yükle**' ye tıklayın.
-4. Çözümü oluşturun.
+4. Çözümü derleyin.
 5. Derleme hataları alırsanız NuGet paketlerini el ile geri yükleyin:
 
     1. **Çözüm Gezgini**, çözüme sağ tıklayın ve ardından **çözüm Için NuGet Paketlerini Yönet**' e tıklayın.

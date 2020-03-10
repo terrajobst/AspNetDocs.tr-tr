@@ -1,151 +1,151 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
-title: Forms kimlik doğrulama (VB) ile kullanıcıların kimliğini doğrulama | Microsoft Docs
+title: Forms kimlik doğrulaması ile kullanıcıların kimliğini doğrulama (VB) | Microsoft Docs
 author: microsoft
-description: '[Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfalara parolanızı koruyun. Web sitesi yönetim çok kullanmayı öğrenin...'
+description: MVC uygulamanızda belirli sayfaları korumak için [Yetkilendir] özniteliğini nasıl kullanacağınızı öğrenin. Web sitesi yönetimini de nasıl kullanacağınızı öğrenirsiniz...
 ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 4341f5b1-6fe5-44c5-8b8a-18fa84f80177
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
 ms.openlocfilehash: a2c2140631d59a7f8b21aa73613a92ea5c7a91d0
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65122072"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78615579"
 ---
 # <a name="authenticating-users-with-forms-authentication-vb"></a>Forms Kimlik Doğrulaması ile Kullanıcıların Kimliğini Doğrulama (VB)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> [Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfalara parolanızı koruyun. Kullanıcılar ve roller oluşturmak ve yönetmek için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca kullanıcı hesabı ve rol bilgilerini depolandığı yapılandırmayı öğrenin.
+> MVC uygulamanızda belirli sayfaları korumak için [Yetkilendir] özniteliğini nasıl kullanacağınızı öğrenin. Kullanıcı ve rolleri oluşturmak ve yönetmek için Web sitesi yönetim aracı 'nın nasıl kullanılacağını öğrenirsiniz. Ayrıca Kullanıcı hesabı ve rol bilgilerinin nerede depolandığını nasıl yapılandıracağınızı öğreneceksiniz.
 
-Bu öğreticide formların nasıl kullanabileceğiniz açıklayacak şekilde hedefidir parola kimlik doğrulaması, ASP.NET MVC uygulamaları görünümlerde koruyun. Kullanıcıları ve rolleri oluşturmak için Web Sitesi Yönetim Aracı'nı kullanmayı öğrenin. Ayrıca yetkisiz kullanıcıların denetleyici eylemleri yürütmesini engelleme öğrenin. Son olarak, kullanıcı adları ve parolaların depolandığı yapılandırma konusunda bilgi edinin.
+Bu öğreticinin amacı, ASP.NET MVC uygulamalarınızda görünümleri parolayla korumak için Forms kimlik doğrulamasını nasıl kullanabileceğinizi açıklamaktır. Kullanıcı ve rolleri oluşturmak için Web sitesi yönetim aracı 'nın nasıl kullanılacağını öğrenirsiniz. Ayrıca, yetkisiz kullanıcıların denetleyici eylemlerini yürütmesini nasıl önleyeceğinizi öğreneceksiniz. Son olarak, Kullanıcı adlarının ve parolaların nerede depolandığını nasıl yapılandıracağınızı öğrenirsiniz.
 
-#### <a name="using-the-web-site-administration-tool"></a>Web Sitesi Yönetim Aracı'nı kullanma
+#### <a name="using-the-web-site-administration-tool"></a>Web sitesi yönetim aracı 'nı kullanma
 
-Bunu başka bir şey yapmadan önce ki bazı kullanıcılar ve roller oluşturarak başlamanız gerekir. Visual Studio 2008 Web Sitesi Yönetim Aracı'nı yararlanmak için yeni kullanıcılar ve roller oluşturmak için en kolay yolu olan. Menü seçeneğini belirleyerek bu araç başlatabilirsiniz **proje, ASP.NET yapılandırma**. Alternatif olarak, Çözüm Gezgini penceresinin en üstünde görünen dünyanın ulaşmaktan Çekiç (biraz scary) simgesini tıklayarak Web Sitesi Yönetim Aracı'nı çalıştırmanızı sağlayan (bkz. Şekil 1).
+Başka bir şey yapmadan önce bazı kullanıcılar ve roller oluşturarak başlamamız gerekir. Yeni Kullanıcı ve rol oluşturmanın en kolay yolu, Visual Studio 2008 Web sitesi yönetim aracından faydalanabilir. Bu aracı **, proje, ASP.NET yapılandırma**menü seçeneğini belirleyerek başlatabilirsiniz. Alternatif olarak, Çözüm Gezgini penceresinin en üstünde görünen dünyaya vurarak (biraz Scary) simgesine tıklayarak web sitesi yönetim aracını başlatabilirsiniz (bkz. Şekil 1).
 
-**Şekil 1 – Web Sitesi Yönetim Aracı'nı başlatma**
+**Şekil 1 – Web sitesi yönetim aracı başlatılıyor**
 
 ![clip_image002[4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
 
-Web Sitesi Yönetim Aracı'içinde yeni kullanıcılar ve roller Güvenlik sekmesini seçerek oluşturun. Tıklayın **kullanıcı oluşturma** Stephen adlı yeni bir kullanıcı oluşturmak için bağlantı (bkz: Şekil 2). Stephen kullanıcı istediğiniz herhangi bir parolayla sağlayın (örneğin, *gizli*).
+Web sitesi yönetim aracı 'nda Güvenlik sekmesini seçerek yeni kullanıcılar ve roller oluşturursunuz. Stephen adlı yeni bir kullanıcı oluşturmak için **Kullanıcı oluştur** bağlantısına tıklayın (bkz. Şekil 2). Stephen kullanıcısına istediğiniz parolayı (örneğin, *gizli*) sağlayın.
 
-**Şekil 2-yeni kullanıcı oluşturma**
+**Şekil 2 – yeni bir Kullanıcı oluşturma**
 
 ![clip_image004[4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
 
-İlk rol etkinleştirme ve bir veya daha fazla rollerini tanımlama yeni roller oluşturun. Rolleri etkinleştirmek **rolleri etkinleştir** bağlantı. Ardından, adlı bir rol oluşturun *Yöneticiler* tıklayarak **oluşturabilir veya rolleri yönetme** (bkz: Şekil 3) bağlayın.
+Önce rolleri etkinleştirerek ve bir veya daha fazla rol tanımlayarak yeni roller oluşturursunuz. Rolleri **Etkinleştir** bağlantısına tıklayarak rolleri etkinleştirin. Ardından, **Roller oluştur veya Yönet** bağlantısına tıklayarak *Yöneticiler* adlı bir rol oluşturun (bkz. Şekil 3).
 
-**Şekil 3 – yeni rol oluşturma**
+**Şekil 3 – yeni bir rol oluşturma**
 
 ![clip_image006[4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
 
-Son olarak, Sally adlı yeni bir kullanıcı oluşturun ve sally'nin satış Create User bağlantıya tıklamak ve sally'nin satış oluştururken seçmek, yöneticilerin yalnızca Yöneticiler rolü ile ilişkilendir (bkz: Şekil 4).
+Son olarak, Sally adlı yeni bir kullanıcı oluşturun ve kullanıcı oluştur bağlantısına tıklayıp yöneticiler ' i (bkz. Şekil 4) seçerek Yöneticiler rolüyle Sally ilişkilendirin.
 
-**Şekil 4 – bir kullanıcı bir role ekleniyor**
+**Şekil 4: bir role Kullanıcı ekleme**
 
-![clip_image008[4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
+![clip_image008 [4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
 
-Tüm belirtti ve bitti Stephen ve Sally adlı iki yeni kullanıcı olması gerekir. Ayrıca, yöneticilerin adlı yeni bir rolü de sahip olmalıdır. Sally Yöneticiler rolünün bir üyesidir ve Stephen değildir.
+Tümü bir kez söylenir ve tamamlandığında, Stephen ve Sally adlı iki yeni kullanıcınız olmalıdır. Ayrıca, Yöneticiler adlı yeni bir rolünüzün olması gerekir. Sally, Yöneticiler rolünün bir üyesidir ve Stephen değildir.
 
-#### <a name="requiring-authorization"></a>Yetkilendirme gerektiren
+#### <a name="requiring-authorization"></a>Yetkilendirme gerektirme
 
-Kullanıcı eylemi [Authorize] özniteliği ekleyerek bir denetleyici eylemi çağırır. önce doğrulanması bir kullanıcı gerektirebilir. [Authorize] özniteliği için ayrı ayrı denetleyicisinin eylem uygulayabilir veya bu öznitelik için bir tüm denetleyicinin sınıf uygulayabilirsiniz.
+Kullanıcı, eyleme [Yetkilendir] özniteliği ekleyerek bir denetleyici eylemi çağırmadan önce bir kullanıcının kimliğinin doğrulanmasını zorunlu kılabilirsiniz. [Yetkilendir] özniteliğini tek bir denetleyici eylemine uygulayabilir veya bu özniteliği bir denetleyici sınıfına uygulayabilirsiniz.
 
-Örneğin, denetleyici 1 listeleme CompanySecrets() adlı bir eylem kullanıma sunar. Bu eylem [Authorize] özniteliği ile donatılmış olduğundan, bir kullanıcının kimlik doğrulamasını sürece bu eylem çağrılamaz.
+Örneğin, liste 1 ' deki denetleyici Companygizlilikler () adlı bir eylem gösterir. Bu eylem [Yetkilendir] özniteliğiyle donatılmış olduğundan, bu eylem, bir kullanıcının kimliği doğrulanmadıkça çağrılamaz.
 
-**1 – Controllers\HomeController.vb listeleme**
+**Listeleme 1 – Controllers\homecontroller.exe**
 
 [!code-vb[Main](authenticating-users-with-forms-authentication-vb/samples/sample1.vb)]
 
-Tarayıcınızın adres çubuğuna URL'yi /Home/CompanySecrets girerek CompanySecrets() eylemin çağırması ve kimliği doğrulanmış bir kullanıcı olmayan varsa, otomatik olarak oturum açma görünümüne yönlendirilir (bkz: Şekil 5).
+Tarayıcınızın adres çubuğuna/Home/companygizlilikler URL 'sini girerek Companygizlilikler () eylemini çağırırsanız ve kimliği doğrulanmış bir kullanıcı değilseniz, otomatik olarak oturum açma görünümüne yönlendirilirsiniz (bkz. Şekil 5).
 
-**Şekil 5-oturum açma görünümü**
+**Şekil 5 – oturum açma görünümü**
 
 ![clip_image010[4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
 
-Kullanıcı adınızı ve parolanızı girmek için oturum açma görünümü kullanabilirsiniz. Kayıtlı kullanıcı olmayan sonra tıklayabilirsiniz **kaydetme** kasaya gidilecek bağlantıya (bkz. Şekil 6) görüntüleyin. Kayıt görünümü, yeni bir kullanıcı hesabı oluşturmak için kullanabilirsiniz.
+Kullanıcı adınızı ve parolanızı girmek için oturum açma görünümünü kullanabilirsiniz. Kayıtlı bir kullanıcı değilseniz, **Kaydet bağlantısına tıklayarak kayıt görünümüne** gidebilirsiniz (bkz. Şekil 6). Yeni bir kullanıcı hesabı oluşturmak için kayıt görünümünü kullanabilirsiniz.
 
-**Şekil 6: Register görüntüle**
+**Şekil 6 – kayıt görünümü**
 
 ![clip_image012](authenticating-users-with-forms-authentication-vb/_static/image6.jpg)
 
-Başarıyla oturum açtıktan sonra (bkz. Şekil 7) görüntüleme CompanySecrets görebilirsiniz. Varsayılan olarak, tarayıcı penceresini kapatana kadar oturum açma devam eder.
+Başarıyla oturum açtıktan sonra Companygizlilikler görünümü ' ne bakabilirsiniz (bkz. Şekil 7). Varsayılan olarak, tarayıcı pencerenizi kapatıncaya kadar oturum açmaya devam edersiniz.
 
-**Şekil 7 – CompanySecrets görüntüle**
+**Şekil 7 – Companygizlilikler görünümü**
 
 ![clip_image014](authenticating-users-with-forms-authentication-vb/_static/image7.jpg)
 
-#### <a name="authorizing-by-user-name-or-user-role"></a>Kullanıcı adı veya kullanıcı rolü tarafından yetkilendirme
+#### <a name="authorizing-by-user-name-or-user-role"></a>Kullanıcı adına veya kullanıcı rolüne göre yetkilendirme
 
-[Authorize] özniteliği bir denetleyici eylemi kullanıcı ya da belirli bir kullanıcı rolleri kümesi için belirli bir veri kümesine erişimi kısıtlamak için kullanabilirsiniz. Örneğin, 2 listeleme değiştirilmiş giriş denetleyicisine StephenSecrets() ve AdministratorSecrets() adlı iki yeni eylemler içerir.
+Bir denetleyici eylemine erişimi belirli bir Kullanıcı kümesiyle veya belirli bir kullanıcı rolü kümesiyle kısıtlamak için [Yetkilendir] özniteliğini kullanabilirsiniz. Örneğin, liste 2 ' deki değiştirilmiş giriş denetleyicisi, StephenSecrets () ve Tınsırlar () adlı iki yeni eylem içerir.
 
-**2 – Controllers\HomeController.vb listeleme**
+**Listeleme 2 – Controllers\homecontroller.exe**
 
 [!code-vb[Main](authenticating-users-with-forms-authentication-vb/samples/sample2.vb)]
 
-Yalnızca bir kullanıcı kullanıcı adıyla Stephen StephenSecrets() eylemini çağırabilirsiniz. Diğer tüm kullanıcılar oturum açma görünümüne yeniden yönlendirilen. Kullanıcıların özelliği, kullanıcı hesabı adlarını virgülle ayrılmış listesini kabul eder.
+Yalnızca Stephen Kullanıcı adı olan bir Kullanıcı StephenSecrets () eylemini çağırabilir. Diğer tüm kullanıcılar oturum açma görünümüne yönlendirilir. Users özelliği, Kullanıcı hesabı adlarının virgülle ayrılmış bir listesini kabul eder.
 
-Yalnızca Yöneticiler rolündeki kullanıcılar AdministratorSecrets() eylemini çağırabilirsiniz. Örneğin, Filiz sally'nin satış yöneticileri grubunun bir üyesi olduğundan, AdministratorSecrets() eylemini çağırabilirsiniz. Diğer tüm kullanıcılar oturum açma görünümüne yeniden yönlendirilen. Roller özelliği Rol adlarının virgülle ayrılmış listesini kabul eder.
+Yalnızca Yöneticiler rolündeki kullanıcılar Tınsırlar () eylemini çağırabilir. Örneğin, Sally Administrators grubunun bir üyesi olduğundan, Tınsırlar () eylemini çağırabilir. Diğer tüm kullanıcılar oturum açma görünümüne yönlendirilir. Roles Özelliği, rol adlarının virgülle ayrılmış bir listesini kabul eder.
 
 #### <a name="configuring-authentication"></a>Kimlik doğrulamasını yapılandırma
 
-Bu noktada, kullanıcı hesabı ve rol bilgilerini nerede depolandığını merak ediyor olabilirsiniz. Varsayılan olarak, ilgili bilgiler ve adlandırılmış ASPNETDB.mdf MVC uygulamanızın uygulamada bulunan (nedeniyle RANU) SQL Express veritabanında depolanır\_veri klasörü. Bu veritabanı, üyelik kullanarak başlattığınızda ASP.NET çerçevesi tarafından otomatik olarak oluşturulur.
+Bu noktada, Kullanıcı hesabının ve rol bilgilerinin nerede depolanmakta olduğunu merak ediyor olabilirsiniz. Varsayılan olarak, bilgiler MVC uygulamanızın App\_Data klasöründe bulunan ASPNETDB. mdf adlı bir (RANU) SQL Express veritabanında depolanır. Bu veritabanı, üyeliği kullanmaya başladığınızda ASP.NET Framework tarafından otomatik olarak oluşturulur.
 
-Çözüm Gezgini penceresinde ASPNETDB.mdf veritabanı görmek için ilk menü seçeneği projenin tüm dosyaları göster seçmeniz gerekir.
+Çözüm Gezgini penceresinde ASPNETDB. mdf veritabanını görmek için, önce menü seçeneği projesi ' ni seçmelisiniz, tüm dosyaları göster ' i seçmeniz gerekir.
 
-Varsayılan SQL Express veritabanı ile bir uygulama geliştirirken uygundur. Büyük olasılıkla, ancak bir üretim uygulaması için varsayılan ASPNETDB.mdf veritabanı kullanmak istemezsiniz. Bu durumda, aşağıdaki iki adımı izleyerek kullanıcı hesabı bilgilerini nerede depolandığını değiştirebilirsiniz:
+Varsayılan SQL Express veritabanını kullanmak, bir uygulama geliştirirken iyi bir uygulamadır. Ancak büyük olasılıkla, bir üretim uygulaması için varsayılan ASPNETDB. mdf veritabanını kullanmak istemezsiniz. Bu durumda, aşağıdaki iki adımı tamamlayarak Kullanıcı hesabı bilgilerinin nerede depolandığını değiştirebilirsiniz:
 
-1. Uygulama Hizmetleri veritabanı nesnelerini üretim veritabanınız için add - uygulama bağlantı dizenizi üretim veritabanına işaret edecek şekilde değiştirin
+1. Uygulama Hizmetleri veritabanı nesnelerini üretim veritabanınıza ekleyin-uygulama Bağlantı dizenizi üretim veritabanınıza işaret etmek üzere değiştirin
 
-İlk adım üretim veritabanınız için tüm gerekli veritabanı nesnelerini (tablolarına ve depolanmış yordamlarına) eklemektir. ASP.NET SQL Sunucusu Kurulum Sihirbazı'nın avantajlarından yararlanmak için yeni bir veritabanı için bu nesneleri eklemek için en kolay yolu olan (bkz. Şekil 8). Bu araç, Microsoft Visual Studio 2008 program grubundan Visual Studio 2008 Komut İstemi'ni açarak ve komut isteminden aşağıdaki komutu yürütülürken başlatabilirsiniz:
+İlk adım, tüm gerekli veritabanı nesnelerini (tablolar ve saklı yordamlar) üretim veritabanınıza eklemektir. Bu nesneleri yeni bir veritabanına eklemenin en kolay yolu, ASP.NET SQL Server kurulum sihirbazından faydalanabilir (bkz. Şekil 8). Bu aracı Microsoft Visual Studio 2008 program grubundan Visual Studio 2008 komut Istemi ' ni açıp komut isteminden aşağıdaki komutu yürüterek başlatabilirsiniz:
 
-aspnet\_regsql
+ASPNET\_regsql
 
-**8 – ASP.NET SQL Server Kurulum Sihirbazı'nı Şekil**
+**Şekil 8 – ASP.NET SQL Server Kurulum Sihirbazı**
 
 ![clip_image016](authenticating-users-with-forms-authentication-vb/_static/image8.jpg)
 
-ASP.NET SQL Sunucusu Kurulum Sihirbazı, ağınızdaki bir SQL Server veritabanını seçin ve ASP.NET uygulama hizmetleri tarafından gerekli veritabanı nesnelerini yüklemeniz sağlar. Veritabanı sunucusu yerel makinenizde bulunması gerekli değildir.
+ASP.NET SQL Server Kurulum Sihirbazı, ağınızdaki bir SQL Server veritabanını seçmenizi ve ASP.NET uygulama hizmetleri için gereken tüm veritabanı nesnelerini yüklemenizi sağlar. Veritabanı sunucusunun yerel makinenizde bulunması gerekli değildir.
 
 > [!NOTE]
-> ASP.NET SQL Server Kurulum Sihirbazı kullanmak istemiyorsanız aşağıdaki klasörde uygulama Hizmetleri veritabanı nesneleri eklemek için SQL komut dosyaları bulabilirsiniz:
+> ASP.NET SQL Server Kurulum Sihirbazı 'Nı kullanmak istemiyorsanız, aşağıdaki klasöre uygulama Hizmetleri veritabanı nesneleri eklemek için SQL betikleri bulabilirsiniz:
 > 
 > 
 > C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
-Gerekli veritabanı nesnelerini oluşturduktan sonra MVC uygulamanız tarafından kullanılan veritabanı bağlantısını değiştirmeniz gerekir. Üretim veritabanına işaret eden web (web.config) yapılandırma dosyanızdaki ApplicationServices bağlantı dizesini değiştirin. Örneğin, listeleme 3'te değiştirilmiş bağlantı MyProductionDB (özgün ApplicationServices bağlantı dizesini yorum olarak belirtilmiştir) adlı bir veritabanına işaret eder.
+Gerekli veritabanı nesnelerini oluşturduktan sonra, MVC uygulamanız tarafından kullanılan veritabanı bağlantısını değiştirmeniz gerekir. Web yapılandırma (Web. config) dosyanızdaki ApplicationServices bağlantı dizesini, üretim veritabanına işaret eden şekilde değiştirin. Örneğin, Listeleme 3 ' teki değiştirilen bağlantı Myüretim DB adlı bir veritabanına işaret eder (özgün ApplicationServices bağlantı dizesi açıklama eklenmiş).
 
-**3 – Web.config listeleme**
+**Listeleme 3 – Web. config**
 
 [!code-xml[Main](authenticating-users-with-forms-authentication-vb/samples/sample3.xml)]
 
-#### <a name="configuring-database-permissions"></a>Veritabanı izinlerini yapılandırma
+#### <a name="configuring-database-permissions"></a>Veritabanı Izinlerini yapılandırma
 
-Veritabanınıza bağlanmak için tümleşik güvenlik kullanırsanız doğru Windows kullanıcı hesabı olarak oturum açın, veritabanına eklemek gerekir. Doğru hesap olup olmadığını ASP.NET geliştirme sunucusu ya da Internet Information Services, web sunucusu olarak kullandığınız bağlıdır. Doğru kullanıcı hesabı Ayrıca, işletim sistemine bağlıdır.
+Veritabanınıza bağlanmak için tümleşik güvenlik kullanıyorsanız, veritabanınıza oturum açmak için doğru Windows Kullanıcı hesabını eklemeniz gerekir. Doğru hesap, ASP.NET geliştirme sunucusunu veya Internet Information Services Web sunucunuz olarak kullanıp kullanmayacağınızı bağlıdır. Doğru Kullanıcı hesabı da işletim sisteminize bağlıdır.
 
-ASP.NET Geliştirme Sunucusu (Visual Studio tarafından kullanılan varsayılan web sunucusu) kullanıyorsanız, uygulamanızı Windows kullanıcı hesabınızın bağlamında yürütür. Bu durumda, Windows kullanıcı hesabınızın veritabanı sunucusu oturum açma eklemeniz gerekir.
+ASP.NET geliştirme sunucusunu kullanıyorsanız (Visual Studio tarafından kullanılan varsayılan Web sunucusu), uygulamanız Windows Kullanıcı hesabınızın bağlamı içinde yürütülür. Bu durumda, bir veritabanı sunucusu oturumu olarak Windows kullanıcı hesabınızı eklemeniz gerekir.
 
-Internet Information Services kullanıyorsanız alternatif olarak, daha sonra ASP.NET hesabı veya NT AUTHORITY/NETWORK SERVICE hesabı veritabanı sunucusu oturum açma eklemeniz gerekir. Windows XP kullanıyorsanız hesabından veritabanınız için bir oturum olarak ekleyin. Windows Vista veya Windows Server 2008 gibi daha yeni bir işletim sistemi kullanıyorsanız, NT Yetkilisi/ağ hizmeti hesabı veritabanı oturumu ekleyin.
+Alternatif olarak, Internet Information Services kullanıyorsanız, ASPNET hesabını ya da NT YETKILISI/ağ HIZMETI hesabını bir veritabanı sunucusu oturumu olarak eklemeniz gerekir. Windows XP kullanıyorsanız, ASPNET hesabını veritabanınıza oturum açma olarak ekleyin. Windows Vista veya Windows Server 2008 gibi daha yeni bir işletim sistemi kullanıyorsanız, veritabanı oturumu açmak için NT YETKILISI/ağ HIZMETI hesabını ekleyin.
 
-Microsoft SQL Server Management Studio'yu kullanarak veritabanına yeni bir kullanıcı hesabı ekleyebilirsiniz (bkz. Şekil 9).
+Veritabanınıza Microsoft SQL Server Management Studio kullanarak yeni bir kullanıcı hesabı ekleyebilirsiniz (bkz. Şekil 9).
 
-**Şekil 9 – yeni bir Microsoft SQL Server oturum açma oluşturma**
+**Şekil 9 – yeni Microsoft SQL Server oturum açma oluşturma**
 
 ![clip_image018](authenticating-users-with-forms-authentication-vb/_static/image9.jpg)
 
-Gerekli oturum açma oluşturduktan sonra doğru veritabanı rollerine sahip bir veritabanı kullanıcısı için oturum açma eşlemeniz gerekir. Oturum açma çift tıklayın ve kullanıcı eşleme sekmesini seçin. Bir veya daha fazla uygulama Hizmetleri veritabanı rolleri seçin. Örneğin, kullanıcıların kimliklerini doğrulamak için aspnet sağlamak gerekir\_üyelik\_BasicAccess veritabanı rolü. Yeni kullanıcılar oluşturmak için ASP.NET etkinleştirmeniz gerektiğini\_üyelik\_FullAccess veritabanı rolü (bkz. Şekil 10).
+Gerekli oturum açma bilgilerini oluşturduktan sonra, oturum açma bilgilerini doğru veritabanı rolleriyle bir veritabanı kullanıcısına eşlemeniz gerekir. Oturum aç ' a çift tıklayın ve Kullanıcı eşleme sekmesini seçin. bir veya daha fazla uygulama Hizmetleri veritabanı rolü seçin. Örneğin, kullanıcıların kimliğini doğrulamak için, ASPNET\_üyeliğini\_BasicAccess veritabanı rolü ' ne etkinleştirmeniz gerekir. Yeni kullanıcılar oluşturmak için ASPNET\_üyeliğini\_FullAccess veritabanı rolüne (bkz. Şekil 10) etkinleştirmeniz gerekir.
 
-**Şekil 10 – uygulama Hizmetleri veritabanı rolleri ekleme**
+**Şekil 10: Uygulama Hizmetleri veritabanı rolleri ekleme**
 
 ![clip_image020](authenticating-users-with-forms-authentication-vb/_static/image10.jpg)
 
 #### <a name="summary"></a>Özet
 
-Bu öğreticide bir ASP.NET MVC uygulaması oluştururken form kimlik doğrulaması kullanmayı öğrendiniz. İlk olarak, yeni kullanıcılar ve roller Web Sitesi Yönetim Aracı'nı avantajlarından yararlanarak oluşturmayı öğrendiniz. Ardından, yetkisiz kullanıcıların denetleyici eylemleri yürütmesini önlemek için [Authorize] özniteliği kullanmayı öğrendiniz. Son olarak, bir üretim veritabanında kullanıcı ve rol bilgilerini depolamak için MVC uygulamasının nasıl yapılandırılacağını öğrendiniz.
+Bu öğreticide, ASP.NET MVC uygulaması oluştururken Forms kimlik doğrulamasını nasıl kullanacağınızı öğrendiniz. İlk olarak, Web sitesi yönetim aracı 'nın avantajlarından yararlanarak yeni kullanıcılar ve roller oluşturmayı öğrendiniz. Bundan sonra, yetkisiz kullanıcıların denetleyici eylemlerini yürütmesini engellemek için [Yetkilendir] özniteliğini nasıl kullanacağınızı öğrendiniz. Son olarak, MVC uygulamanızı, Kullanıcı ve rol bilgilerini bir üretim veritabanında depolamak üzere nasıl yapılandıracağınızı öğrendiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](preventing-javascript-injection-attacks-cs.md)

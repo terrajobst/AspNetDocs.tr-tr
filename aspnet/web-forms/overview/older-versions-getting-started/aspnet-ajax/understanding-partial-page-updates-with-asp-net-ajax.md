@@ -9,11 +9,11 @@ ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
 ms.openlocfilehash: 4b87cb8f58dbd7f27b16bcb0d488ff361770d4fe
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74622921"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78545971"
 ---
 # <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile Kısmi Sayfa Güncelleştirmelerini Anlama
 
@@ -49,7 +49,7 @@ Kısmi sayfa işlemeyi tümleştirme özelliği, projenizde en az değişiklikle
 
 1. Microsoft Visual Studio 2008 ' de, <em>dosya</em> <em>-&gt; Yeni</em> <em>-&gt; Web sitesi</em> ' ne giderek ve iletişim kutusundan ASP.NET Web sitesi ' ni seçerek yeni bir ASP.NET Web sitesi projesi oluşturun. İstediğiniz gibi adlandırabilirsiniz ve bunu dosya sistemine veya Internet Information Services (IIS) ' e yükleyebilirsiniz.
 2. Temel ASP.NET işaretlemesi (sunucu tarafı form ve bir `@Page` yönergesi) ile boş bir varsayılan sayfa sunulur. `Label1` adlı bir etiketi ve `Button1` adlı bir düğmeyi form öğesi içindeki sayfaya bırakın. Metin özelliklerini dilediğiniz şekilde ayarlayabilirsiniz.
-3. Tasarım görünümü ' de, arka plan kod işleyicisi oluşturmak için `Button1` ' a çift tıklayın. Bu olay işleyicisi içinde, düğmesine tıklandınız `Label1.Text` ayarlayın! .
+3. Tasarım görünümü ' de, arka plan kod işleyicisi oluşturmak için `Button1` ' a çift tıklayın. Bu olay işleyicisi içinde, düğmesine tıklandınız `Label1.Text` ayarlayın! arasında yetersiz alanla karşılaştı.
 
 **Listeleme 1: Kısmi işleme etkinleştirilmeden önce default. aspx için biçimlendirme etkin**
 
@@ -103,7 +103,7 @@ Visual Studio 2008, ASP.NET AJAX özellikli bir Web sitesi için önceden tanım
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Türüyle** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AllowCustomErrors-yeniden yönlendirme | Bool | Hataları işlemek için Web. config dosyasının özel hata bölümünün kullanılıp kullanılmayacağını belirtir. |
 | AsyncPostBackError-Ileti | Dize | Bir hata ortaya çıktığında istemciye gönderilen hata iletisini alır veya ayarlar. |
@@ -112,15 +112,15 @@ Biçimlendirme etkin özellikler:
 | ENABLESCRIPT-yerelleştirme | Bool | Betik yerelleştirmenin etkinleştirilip etkinleştirilmediğini alır veya ayarlar. |
 | ScriptLoadTimeout | Int32 | İstemciye betikleri yüklemeye izin verilen saniye sayısını belirler |
 | ScriptMode | Sabit Listesi (otomatik, hata ayıklama, yayın, devralma) | Betiklerin yayın sürümlerinin oluşturulup oluşturulmayacağını alır veya ayarlar |
-| scriptPath | Dize | İstemciye gönderilecek betik dosyalarının konumunun kök yolunu alır veya ayarlar. |
+| ScriptPath | Dize | İstemciye gönderilecek betik dosyalarının konumunun kök yolunu alır veya ayarlar. |
 
 Yalnızca kod özellikleri:
 
-| **Özellik adı** | **Türüyle** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService-yönetici | İstemciye gönderilecek ASP.NET kimlik doğrulama hizmeti proxy 'si hakkındaki ayrıntıları alır. |
 | Ihata ayıklama Ggingenabled | Bool | Betik ve kod hata ayıklamanın etkinleştirilip etkinleştirilmeyeceğini alır. |
-| Iınasyncpostback | Bool | Sayfanın Şu anda zaman uyumsuz bir geri gönderme isteği içinde olup olmadığını alır. |
+| IsInAsyncPostback | Bool | Sayfanın Şu anda zaman uyumsuz bir geri gönderme isteği içinde olup olmadığını alır. |
 | ProfileService | ProfileService-yönetici | İstemciye gönderilecek ASP.NET profil oluşturma hizmeti proxy 'si hakkındaki ayrıntıları alır. |
 | Komut dosyaları | Koleksiyon&lt;betiği başvurusu&gt; | İstemciye gönderilecek bir betik başvuruları koleksiyonunu alır. |
 | Hizmetler | Koleksiyon&lt;hizmeti-başvuru&gt; | İstemciye gönderilecek Web hizmeti proxy başvuruları koleksiyonunu alır. |
@@ -128,17 +128,17 @@ Yalnızca kod özellikleri:
 
 Ortak kod yöntemleri:
 
-| **Yöntem adı** | **Türüyle** | **Açıklama** |
+| **Yöntem adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | SetFocus (dize) | Kağıt | İstek tamamlandığında istemcinin odağını belirli bir denetime ayarlar. |
 
 Biçimlendirme alt öğeleri:
 
-| **Etiket** | **Açıklama** |
+| **Tag** | **Açıklama** |
 | --- | --- |
 | &lt;AuthenticationService&gt; | Proxy hakkında ASP.NET kimlik doğrulama hizmetine ilişkin ayrıntıları sağlar. |
 | &lt;ProfileService&gt; | ASP.NET profil oluşturma hizmetine ara sunucu hakkında ayrıntılar sağlar. |
-| &lt;betikler&gt; | Ek betik başvuruları sağlar. |
+| &lt;Betikler&gt; | Ek betik başvuruları sağlar. |
 | &lt;ASP: ScriptReference&gt; | Belirli bir betik başvurusunu gösterir. |
 | &lt;Hizmet&gt; | Proxy sınıfları oluşturulacak ek Web hizmeti başvuruları sağlar. |
 | &lt;ASP: ServiceReference&gt; | Belirli bir Web hizmeti başvurusunu gösterir. |
@@ -177,7 +177,7 @@ ScriptManager denetimi, komut dosyası dizelerinin ve Kullanıcı arabirimi bile
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Türüyle** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | ChildrenAsTriggers | bool | Alt denetimlerin geri gönderme sırasında yenilemeyi otomatik olarak çağırmayacağını belirtir. |
 | RenderMode | Enum (blok, satır Içi) | İçeriğin görsel olarak sunulama şeklini belirtir. |
@@ -185,7 +185,7 @@ Biçimlendirme etkin özellikler:
 
 Yalnızca kod özellikleri:
 
-| **Özellik adı** | **Türüyle** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | Ipartialrendering | bool | UpdatePanel 'ın geçerli istek için kısmi işlemeyi destekleyip desteklemediğini alır. |
 | ContentTemplate | ITemplate | Güncelleştirme isteği için biçimlendirme şablonunu alır. |
@@ -194,13 +194,13 @@ Yalnızca kod özellikleri:
 
 Ortak kod yöntemleri:
 
-| **Yöntem adı** | **Türüyle** | **Açıklama** |
+| **Yöntem adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | Update () | Kağıt | Belirtilen UpdatePanel 'ı programlı olarak güncelleştirir. Bir sunucu isteğinin, aksi takdirde tetiklenmiş bir UpdatePanel 'ın kısmi işlemesini tetiklemesine olanak sağlar. |
 
 Biçimlendirme alt öğeleri:
 
-| **Etiket** | **Açıklama** |
+| **Tag** | **Açıklama** |
 | --- | --- |
 | &lt;ContentTemplate&gt; | Kısmi işleme sonucunu işlemek için kullanılacak biçimlendirmeyi belirtir. &lt;ASP: UpdatePanel&gt;alt öğesi. |
 | &lt;Tetikleyiciler&gt; | Bu UpdatePanel 'ın güncelleştirilmesiyle ilişkili *n* denetim koleksiyonunu belirtir. &lt;ASP: UpdatePanel&gt;alt öğesi. |
@@ -267,7 +267,7 @@ Son olarak, bir uygulama UpdatePanel 'in kullanılmasını gerektiriyorsa, aşa�
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Türüyle** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | Ilişkili güncelleştirme-PanelID | Dize | Bu UpdateProgress 'in rapor etmesi gereken UpdatePanel 'ın KIMLIĞINI belirtir. |
 | DisplayAfter | int | Zaman uyumsuz istek başladıktan sonra bu denetim görüntülenmeden önce geçen süreyi milisaniye olarak belirtir. |
@@ -275,7 +275,7 @@ Biçimlendirme etkin özellikler:
 
 Biçimlendirme alt öğeleri:
 
-| **Etiket** | **Açıklama** |
+| **Tag** | **Açıklama** |
 | --- | --- |
 | &lt;ProgressTemplate&gt; | Bu denetimle görüntülenecek içerik için ayarlanan denetim şablonunu içerir. |
 

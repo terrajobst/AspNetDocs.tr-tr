@@ -9,11 +9,11 @@ ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
 ms.openlocfilehash: c2f420bb7c2f7d2e31654c20fb9ec7497a30a9f7
-ms.sourcegitcommit: 6f0e10e4ca61a1e5534b09c655fd35cdc6886c8a
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74564880"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78641577"
 ---
 # <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Razor söz dizimini kullanarak ASP.NET Web programlamaya giriş (C#)
 
@@ -335,7 +335,7 @@ Aşağıdaki tabloda, değişkenler için bazı ortak dönüştürme ve test yö
 
 :::row:::
     :::column:::
-    <strong>Yöntemidir</strong>
+    <strong>Yöntem</strong>
     :::column-end:::
     :::column:::
     <strong>Açıklama</strong>
@@ -533,7 +533,7 @@ Aşağıdaki tabloda, değişkenler için bazı ortak dönüştürme ve test yö
 
 :::row:::
     :::column:::
-        `+=``-=`
+        `+=` `-=`
     :::column-end:::
     :::column:::
     Bir değişkenden 1 (sırasıyla) ekleyen ve çıkartacak artırma ve azaltma işleçleri.
@@ -603,7 +603,7 @@ Aşağıdaki tabloda, değişkenler için bazı ortak dönüştürme ve test yö
 
 :::row:::
     :::column:::
-        `&&``||`
+        `&&` `||`
     :::column-end:::
     :::column:::
     Koşulları birbirine bağlamak için kullanılan mantıksal AND ve OR.
@@ -648,7 +648,7 @@ Genellikle sitenizin bir barındırma sitesinin sunucusunda mutlak fiziksel yolu
 
 ### <a name="referencing-the-virtual-root-the--operator-and-href-method"></a>Sanal köke başvuruluyor: ~ operator ve href yöntemi
 
-Bir *. cshtml* veya *. vbhtml* dosyasında, `~` işlecini kullanarak sanal kök yoluna başvurabilirsiniz. Sayfaları bir sitede bir konuma taşıyabilmeniz ve içerdikleri bağlantıların diğer sayfalara bölünememesi nedeniyle bu çok yararlı olur. Web sitenizi farklı bir konuma taşımanız durumunda da yararlıdır. Aşağıda bazı örnekler verilmiştir:
+Bir *. cshtml* veya *. vbhtml* dosyasında, `~` işlecini kullanarak sanal kök yoluna başvurabilirsiniz. Sayfaları bir sitede bir konuma taşıyabilmeniz ve içerdikleri bağlantıların diğer sayfalara bölünememesi nedeniyle bu çok yararlı olur. Web sitenizi farklı bir konuma taşımanız durumunda da yararlıdır. İşte bazı örnekler:
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample47.cshtml)]
 
@@ -836,7 +836,7 @@ Kodunuz özel durumu işlemediyse, önceki ekran görüntüsündeki gibi bir hat
 
 [Ek: Visual Basic dil ve sözdizimi](https://go.microsoft.com/fwlink/?LinkId=202908)
 
-**Başvuru belgeleri**
+**Başvuru Belgeleri**
 
 [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
 

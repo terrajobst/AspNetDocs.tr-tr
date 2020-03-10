@@ -2,22 +2,22 @@
 uid: web-pages/overview/getting-started/index
 title: ASP.NET Web sayfaları ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: Bilgi hakkında ASP.NET Web sayfaları ASP.NET Web Pages ve yeni Razor sözdizimi sunucu kodunu HTML t ile birleştirmek için hızlı, ulaşılabilir ve hafif bir yol sağlayın...
+description: Web sayfaları ASP.NET ASP.NET Web Pages hakkında bilgi edinin ve yeni Razor söz dizimi sunucu kodunu HTML t ile birleştirmek için hızlı, ulaşılabilir ve hafif bir yol sağlar...
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
 ms.openlocfilehash: 50a249d0e64cff2a8c4f16f38f530b6d52f755de
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133182"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640926"
 ---
 # <a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web sayfaları ile çalışmaya başlama
 
-> Hangi Web sayfalarını ve Webmatrix'i, her şeyi yüklemek, kullanmaya başlayın ve siteleri dağıtım nasıl artı var.
+> Web sayfalarının ve WebMatrix 'in yanı sıra her şeyi yüklemek, kullanmaya başlamak ve siteleri dağıtmak.
 
 - [Visual Studio'da ASP.NET Web Sayfaları Programlama](program-asp-net-web-pages-in-visual-studio.md)
 - [ASP.NET Web Programlama Razor Söz Dizimine Giriş](introducing-razor-syntax-c.md)

@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
-title: '[Bunu nasıl yaparım:] Bir sayfadan diğerine sorgu dizesi kullanarak bir bilgi geçirmek | Microsoft Docs'
+title: '[Nasıl yapılır:] Sorgu dizesi kullanarak bir sayfadan diğerine bilgi geçirme | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda, Chris piksel nasıl bilgi bir sayfadan kullanarak başka bir sorgu dizesi geçirilebilir gösterilir. İlk olarak, bir sorgu dizesi oluşturmak nasıl gör...
+description: Bu videoda, bir sorgu dizesi kullanılarak bilgilerin bir sayfadan diğerine nasıl geçirilebileceğini gösterir. İlk olarak, bkz. bir sorgu dizesi oluşturma...
 ms.author: riande
 ms.date: 06/26/2008
 ms.assetid: 81bd2d32-53c5-4bd9-8d09-dd8a2c734f3b
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
 msc.type: video
 ms.openlocfilehash: cc52592bbb377e9f04e56f6cc1f02d16a271d158
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59417006"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544830"
 ---
-# <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a>[Bunu nasıl yaparım:] Başka bir sorgu dizesi kullanarak bir sayfadan bilgi geçirmek
+# <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a>[Nasıl yapılır:] Sorgu dizesi kullanarak bir sayfadan diğerine bilgi geçirme
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu videoda, Chris piksel nasıl bilgi bir sayfadan kullanarak başka bir sorgu dizesi geçirilebilir gösterilir. İlk olarak, değişken adları ve değerlerinden bir veri giriş formunu hakkında bilgi dahil olmak üzere bir sorgu dizesi oluşturmak bkz. Ardından, birden çok sorgu dizesi değişkenlerinin işlenir dahil olmak üzere sayfa gönderildiğinde sorgu dizesi bilgilerine erişmek nasıl bakın. Sunucu tarafı sorgu dize bilgilerini işlenmesini bir parçası olarak, sorgu dizesi değişkenlerinin ve beklenen veri türü içeren bulunup bulunmadığını doğrulama nasıl göreceksiniz. Son olarak, özel karakter kodlama dizesi tarafından bir sorgu dizesi içinde bir boşluk ve ve işareti dahil geçirme konusunda bilgi edinin.
+Bu videoda, bir sorgu dizesi kullanılarak bilgilerin bir sayfadan diğerine nasıl geçirilebileceğini gösterir. İlk olarak, bir veri girişi formundaki bilgilerden değişken adlarını ve değerleri içeren bir sorgu dizesi oluşturma bölümüne bakın. Daha sonra, bkz. birden çok sorgu dizesi değişkeninin nasıl işlendiği dahil olmak üzere sayfa gönderildiğinde sorgu dizesi bilgilerine erişme. Sorgu dizesi bilgilerinin sunucu tarafında işlenmesinin bir parçası olarak bkz. sorgu dizesi değişkenlerinin varlığı için doğrulamayı uygulama ve beklenen veri türlerini içermeleri. Son olarak, dizeyi kodlayarak bir boşluk ve sorgu dizesinde bir ve işareti dahil özel karakterleri nasıl geçitireceğinizi öğrenin.
 
-[&#9654;(25 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-pass-information-from-one-page-to-another-using-a-query-string)
+[&#9654;Videoyu izleyin (25 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-pass-information-from-one-page-to-another-using-a-query-string)

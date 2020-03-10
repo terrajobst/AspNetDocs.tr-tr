@@ -9,11 +9,11 @@ ms.assetid: 14873c5d-81a9-455b-bd71-30fb555583e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 33367d5e3c4b5c8fa039ee20704054ba508e717a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74615090"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78643404"
 ---
 # <a name="displaying-a-custom-error-page-vb"></a>Özel Hata Sayfası Görüntüleme (VB)
 
@@ -55,7 +55,7 @@ Hata sayfası geliştiricileri, en çok tanıdık özel durum ayrıntılardır. 
 
 Diğer YSOD türü, çalışma zamanı hatası yıldır ve **Şekil 2**' de gösterilir. Çalışma zamanı hatası, ziyaretçiye bir çalışma zamanı hatası oluştuğunu bildirir, ancak oluşturulan özel durumla ilgili herhangi bir bilgi içermez. (Ancak, bu, bu tür bir YSOD 'nin bir parçası olan `Web.config` dosyasını değiştirerek hata ayrıntılarını nasıl görüntüleyebileceğinize ilişkin yönergeler sağlar.)
 
-Varsayılan olarak, çalışma zamanı hatası YSOD, tarayıcının adres çubuğunda **Şekil 2**' deki URL tarafından (http://www.yoursite.com) aracılığıyla) uzaktan ziyaret eden kullanıcılara gösterilir: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Geliştiriciler hata ayrıntılarını öğrenmekte olduğu için iki farklı YSOD ekranı mevcuttur, ancak bu tür bilgiler canlı bir sitede gösterilmemelidir çünkü bu durum, olası güvenlik açıklarını veya diğer hassas bilgileri bölgesi.
+Varsayılan olarak, çalışma zamanı hatası YSOD, tarayıcının adres çubuğunda **Şekil 2**' deki URL tarafından (http://www.yoursite.com)aracılığıyla) uzaktan ziyaret eden kullanıcılara gösterilir: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Geliştiriciler hata ayrıntılarını öğrenmekte olduğu için iki farklı YSOD ekranı mevcuttur, ancak bu tür bilgiler canlı bir sitede gösterilmemelidir çünkü bu durum, olası güvenlik açıklarını veya diğer hassas bilgileri bölgesi.
 
 > [!NOTE]
 > ' İ de ve Web ana bilgisayarınız olarak DiscountASP.NET kullanıyorsanız, çalışma zamanı hatası ile canlı siteyi ziyaret ederken görüntülemediğine dikkat edebilirsiniz. Bunun nedeni, DiscountASP.NET 'in sunucularının varsayılan olarak özel durum ayrıntılarını gösterecek şekilde yapılandırılmalarından kaynaklanır. İyi haber, `Web.config` dosyanıza bir `<customErrors>` bölümü ekleyerek bu varsayılan davranışı geçersiz kıkılabileceğiniz yerdir. "Hangi hata sayfasının görüntülendiğini yapılandırma" bölümünde `<customErrors>` bölümü ayrıntılı olarak incelenir.

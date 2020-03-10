@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-tableless-menu-control
-title: Tablsuz menü denetimi | Microsoft Docs
+title: Tableless menü denetimi | Microsoft Docs
 author: JoeStagner
-description: Bu videoda ASP.NET menü denetimi sırasız bir listesini ve liste öğeleri oluşan anlam biçimlendirme kullanarak HTML nasıl işlediğini görürsünüz
+description: Bu videoda, ASP.NET Menu denetiminin, sıralanmamış bir liste ve liste öğelerinden oluşan semantik biçimlendirme kullanarak HTML 'i nasıl işlediğini görürsünüz
 ms.author: riande
 ms.date: 11/16/2009
 ms.assetid: 5eabcaab-5f95-4052-9a92-f5cf332b35a5
 msc.legacyurl: /web-forms/videos/net-4/markup-control/aspnet-4-quick-hit-tableless-menu-control
 msc.type: video
 ms.openlocfilehash: 39e566a431d0e6382954c2cc2773451d20bc382b
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59402785"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637146"
 ---
-# <a name="aspnet-4-quick-hit--tableless-menu-control"></a>ASP.NET 4 "Hızlı isabet" – Tablsuz menü denetimi
+# <a name="aspnet-4-quick-hit--tableless-menu-control"></a>ASP.NET 4 "hızlı vuruş" – Tableless menü denetimi
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoda ASP.NET menü denetimi sırasız bir listesini ve liste öğeleri oluşan anlam biçimlendirme kullanarak HTML nasıl işlediğini görürsünüz 
+Bu videoda, ASP.NET Menu denetiminin, sıralanmamış bir liste ve liste öğelerinden oluşan semantik biçimlendirme kullanarak HTML 'i nasıl işlediğini görürsünüz 
 
-[&#9654;(5 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-tableless-menu-control)
+[&#9654;Videoyu izleyin (5 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-4-quick-hit-tableless-menu-control)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-4-quick-hit-table-free-templated-controls.md)

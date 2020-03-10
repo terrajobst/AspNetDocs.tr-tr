@@ -1,227 +1,227 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
-title: İş kuralı doğrulamaları ile Model oluşturma | Microsoft Docs
+title: Iş kuralı doğrulamaları ile model oluşturma | Microsoft Docs
 author: microsoft
-description: 3. adım, biz hem sorgulamak için kullanma ve böylelikle veritabanı NerdDinner uygulamamız için güncelleştirme modeli oluşturma işlemi gösterilmektedir.
+description: 3\. adım, Nerdakşam yemeği uygulamamız için veritabanını sorgulamak ve güncelleştirmek üzere kullandığımız bir modelin nasıl oluşturulacağını gösterir.
 ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 0bc191b2-4311-479a-a83a-7f1b1c32e6fe
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
 ms.openlocfilehash: 6ebf1b71c089229ba9139ff7dc788b8978724046
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65117614"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78541666"
 ---
 # <a name="build-a-model-with-business-rule-validations"></a>İş Kuralı Doğrulamaları ile Model Oluşturma
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF 'YI indir](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 3 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
+> Bu, ASP.NET MVC 1 kullanarak küçük, ancak tam bir Web uygulamasının nasıl oluşturulacağını gösteren ücretsiz bir ["Nerdakşam yemeği" uygulama öğreticisinin](introducing-the-nerddinner-tutorial.md) 3. adımından oluşur.
 > 
-> 3. adım, biz hem sorgulamak için kullanma ve böylelikle veritabanı NerdDinner uygulamamız için güncelleştirme modeli oluşturma işlemi gösterilmektedir.
+> 3\. adım, Nerdakşam yemeği uygulamamız için veritabanını sorgulamak ve güncelleştirmek üzere kullandığımız bir modelin nasıl oluşturulacağını gösterir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
+> ASP.NET MVC 3 kullanıyorsanız, [MVC 3 Ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik mağazası](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticilerini izlemeniz önerilir.
 
-## <a name="nerddinner-step-3-building-the-model"></a>NerdDinner adım 3: Modeli oluşturma
+## <a name="nerddinner-step-3-building-the-model"></a>Nerdakşam yemeği 3. Adım: model oluşturma
 
-Bir model-view-controller çerçeve "modeli" terimi, doğrulama ve iş kuralları ile tümleştiren karşılık gelen etki alanı mantığı yanı sıra, uygulama verilerini temsil eden nesneleri anlamına gelir. Modeli birçok şekilde MVC tabanlı bir uygulamanın "Kalp" olan ve daha sonra temelde anlatıldığı gibi davranışını sürücüler.
+Model-View-Controller çerçevesinde, "model" terimi, uygulamanın verilerinin yanı sıra doğrulama ve iş kurallarını uygulamayla tümleştiren karşılık gelen etki alanı mantığını temsil eden nesneleri ifade eder. Model, MVC tabanlı bir uygulamanın "kalp" ve daha sonra temel olarak davranmasından daha sonra görüyoruz.
 
-Tüm veri erişim teknolojisi kullanarak ASP.NET MVC çerçevesi destekler ve geliştiricilere çeşitli dahil olmak üzere modellerini uygulamak için zengin .NET veri seçenekleri arasından seçim yapabilirsiniz: LINQ to Entities, LINQ to SQL, NHibernate, LLBLGen Pro, SubSonic, WilsonORM, veya yalnızca ham ADO.NET DataReaders veya veri kümeleri.
+ASP.NET MVC çerçevesi herhangi bir veri erişim teknolojisini kullanmayı destekler ve geliştiriciler, LINQ to Entities, LINQ to SQL, Nhazırda beklet, LLBLGen Pro, SubSonic, Solsonorm veya yalnızca ham ADO gibi modellerini uygulamak için çeşitli zengin .NET veri seçenekleri arasından seçim yapabilir. NET DataReaders veya veri kümeleri.
 
-NerdDinner uygulamamız için oldukça yakından bizim için veritabanı tasarımı karşılık gelir ve bazı özel doğrulama mantığı ve iş kurallarını ekler ve basit bir model oluşturmak için LINQ to SQL kullanmak için kullanacağız. Soyut hemen yardımcı olan bir depo sınıfına sonra rest bizim için kolayca birim testi etkinleştirir ve uygulama veri kalıcılığı uygulamasından uygular.
+Nerdakşam yemeği uygulamamız için, veritabanı tasarımlarımıza oldukça yakından karşılık gelen basit bir model oluşturmak üzere LINQ to SQL kullanacağız ve bazı özel doğrulama mantığı ve iş kuralları ekler. Daha sonra, veri Kalıcılık uygulamasını uygulamanın geri kalanından soyutlamanıza yardımcı olan bir depo sınıfı uygulayacağız ve kolayca birim test etmemizi sağlar.
 
 ### <a name="linq-to-sql"></a>LINQ - SQL
 
-LINQ to SQL .NET 3.5 bir parçası olarak gönderilen bir ORM (nesne ilişkisel eşleyicidir) olur.
+LINQ to SQL, .NET 3,5 'nin bir parçası olarak gönderilen bir ORM (nesne ilişkisel Eşleyici).
 
-LINQ to SQL veritabanı tablolarına karşı kodlayabilirsiniz .NET sınıfları eşlemek için kolay bir yol sağlar. NerdDinner uygulamamız için veritabanımızdaki Akşam Yemeği ve RSVP sınıflarına içinde azalma ve RSVP tabloları eşleştirmek için kullanacağız. Azalma ve RSVP tablo sütunlarını Akşam Yemeği ve RSVP sınıflarda özelliklerine karşılık gelir. Her Akşam Yemeği ve RSVP nesne veritabanında azalma veya RSVP tabloları içinde ayrı bir satırda temsil eder.
+LINQ to SQL, veritabanı tablolarını, kodladığı .NET sınıflarıyla eşleştirmek için kolay bir yol sağlar. Nerdakşam yemeği uygulamamız için, veritabanımızda bulunan Dinetleri ve RSVP tablolarını akşam yemeği ve RSVP sınıflarıyla eşlemek üzere bu uygulamayı kullanacağız. Dinde ve RSVP tablolarının sütunları, akşam yemeği ve RSVP sınıflarının özelliklerine karşılık gelir. Her akşam yemeği ve RSVP nesnesi, veritabanındaki dinde veya RSVP tablolarında ayrı bir satırı temsil eder.
 
-LINQ to SQL aktarımlardaki bize el ile alma ve güncelleştirme Akşam Yemeği ve RSVP SQL deyimlerini oluşturmak zorunda kalmamak veritabanı veri nesneleriyle. Bunun yerine, Akşam Yemeği ve RSVP sınıfları tanımlarız bunların eşleneceğine nasıl / veritabanı ve aralarındaki ilişkiler. LINQ to SQL ardından etkileşim ve bunları çalışma zamanında kullanmak için uygun SQL yürütme mantığı oluşturma bakım sürer.
+LINQ to SQL, veritabanı verileriyle akşam yemeği ve RSVP nesnelerini almak ve güncelleştirmek için el ile SQL deyimlerini oluşturma zorunluluğunu ortadan kaldırmanıza olanak tanır. Bunun yerine, akşam yemeği ve RSVP sınıflarını, veritabanlarının veritabanına/üzerinden nasıl eşlendiğini ve aralarındaki ilişkileri tanımlayacağız. LINQ to SQL, etkileşim kurarken ve kullanırken çalışma zamanında kullanmak üzere uygun SQL yürütme mantığını oluşturma işlemini gerçekleştirir.
 
-VB ve C# içinde LINQ dil desteği Akşam Yemeği ve RSVP almak ifadesel sorgular yazmak için kullanabiliriz nesnelerini veritabanından. Bu veri kod yazmak için ihtiyacımız miktarını en aza indirir ve çok temiz uygulamalar oluşturmanıza olanak tanır.
+VB 'de LINQ dil desteğini kullanabilir ve C# veritabanından akşam YEMEĞI ve RSVP nesnelerini alan ifade sorguları yazabilirsiniz. Bu, yazmamız gereken veri kodu miktarını en aza indirir ve gerçekten temiz uygulamalar oluşturmamızı sağlar.
 
-### <a name="adding-linq-to-sql-classes-to-our-project"></a>Ekleme LINQ to SQL sınıfları Projemizin için
+### <a name="adding-linq-to-sql-classes-to-our-project"></a>LINQ to SQL sınıfları projemizi ekleme
 
-Biz Projemizin içinde "Modelleri" klasörüne sağ tıklayarak başlayın ve seçin **Add -&gt;yeni öğe** menü komutu:
+Projemizdeki "modeller" klasörüne sağ tıklayıp ardından **&gt;yeni öğe Ekle** menü komutunu seçerek başlayacağız:
 
 ![](build-a-model-with-business-rule-validations/_static/image1.png)
 
-Bu, "Add New Item" iletişim kutusu getirir. Biz "Veri" kategoriye göre filtreleme ve bunun içinde "SQL sınıfları için LINQ" şablonu seçin:
+Bu, "yeni öğe Ekle" iletişim kutusunu getirir. "Veri" kategorisine göre filtreleyecek ve içindeki "LINQ to SQL sınıfları" şablonunu seçeceğiz:
 
 ![](build-a-model-with-business-rule-validations/_static/image2.png)
 
-Biz "NerdDinner" öğe adı ve "Ekle" düğmesine tıklayın. Visual Studio bizim \Models dizini altında NerdDinner.dbml dosya ekleyin ve ardından LINQ to SQL Nesne İlişkisel Tasarımcısı açın:
+"Nerdakşam yemeği" öğesini adlandırın ve "Ekle" düğmesine tıklayın. Visual Studio, \Modeller dizinimizin altına bir Nerdakşam yemeği. dbml dosyası ekleyecek ve ardından LINQ to SQL nesne ilişkisel tasarımcısını açacaktır:
 
 ![](build-a-model-with-business-rule-validations/_static/image3.png)
 
 ### <a name="creating-data-model-classes-with-linq-to-sql"></a>LINQ to SQL ile veri modeli sınıfları oluşturma
 
-LINQ to SQL hızla var olan veritabanı şema veri modeli sınıfları oluşturma sağlıyor. Yapılacaklar bu biz NerdDinner veritabanı sunucu Gezgini'nde açın ve tabloları seçme içinde model istiyoruz:
+LINQ to SQL, mevcut veritabanı şemasından hızlı bir şekilde veri modeli sınıfları oluşturmamızı sağlar. Bunu yapmak için, Sunucu Gezgini Nerdakşam yemeği veritabanını açacak ve içinde modelleme yaptığımız tabloları seçeceğiz:
 
 ![](build-a-model-with-business-rule-validations/_static/image4.png)
 
-Ardından LINQ tabloları SQL Tasarımcı yüzeyine sürükleyebilirsiniz. Bu LINQ SQL zaman yaptığımız Dinner otomatik olarak oluşturur ve RSVP sınıfları (özellikleriyle tablolarını için veritabanı tablo sütunlarından eşleyen sınıfı) şemasını kullanarak:
+Daha sonra tabloları LINQ to SQL tasarımcı yüzeyine sürükleyebiliriz. Bunu yaptığımız LINQ to SQL, tabloların şemasını kullanarak otomatik olarak akşam yemeği ve RSVP sınıfları oluşturur (veritabanı tablosu sütunlarıyla eşlenen sınıf özellikleriyle birlikte):
 
 ![](build-a-model-with-business-rule-validations/_static/image5.png)
 
-"Veritabanı şemasını temel alan sınıflar oluşturduğunda varsayılan LINQ to SQL Tasarımcı otomatik olarak tablo ve sütun adları çoğullaştırır". Örneğin: Yukarıdaki örneğimizde "Azalma" Tablo "Akşam Yemeği" sınıfında sonuçlandı. Bu sınıf adlandırma bizim modelleri .NET adlandırma kuralları ile tutarlı hale getirir ve genellikle bu Tasarımcı düzeltme bu kullanışlı ayarlama (özellikle de tabloların çok sayıda eklerken) sahip bulabilirim. Bir sınıf ya da her zaman geçersiz kılmak ve istediğiniz bir adla değiştirin olsa, oluşturduğu Tasarımcı, özellik adını beğenmezseniz. Varlık/özellik adı satır içini Tasarımcı düzenleyerek veya özellik kılavuzunda değiştirerek bunu yapabilirsiniz.
+Varsayılan olarak, bir veritabanı şemasını temel alan sınıflar oluşturduğunda, LINQ to SQL tasarımcı, tablo ve sütun adlarını otomatik olarak "pluralleştirir". Örneğin: Yukarıdaki örneğimizdeki "dinlenebilir" tablosu, "akşam yemeği" sınıfı ile sonuçlandı. Bu sınıf adlandırması, modellerimizin .NET adlandırma kurallarıyla tutarlı olmasına yardımcı olur ve genellikle Tasarımcı 'nın bu çözümü (özellikle de çok sayıda tablo eklerken) düzeltmesine sahip olduğunu buldum. Tasarımcının oluşturduğu bir sınıfın veya özelliğin adını beğenmezseniz, her zaman geçersiz kılabilir ve istediğiniz adla değiştirebilirsiniz. Bunu, tasarımcı içinde varlık/özellik adını düzenleyerek ya da Özellik Kılavuzu aracılığıyla değiştirerek yapabilirsiniz.
 
-LINQ to SQL Tasarımcı ayrıca tabloların birincil anahtarı/yabancı anahtar ilişkileri inceler ve bunları temel alan otomatik olarak varsayılan olarak, varsayılan "ilişkisi ilişkilendirmeleri" arasında farklı model sınıfları oluşturur oluşturur. Bir yabancı anahtar tablosuna azalma RSVP tablonuz dayanarak gerçeğine Örneğin, ne zaman azalma Sürüklemeyi tercih ve RSVP tabloları LINQ to SQL Tasarımcı üzerine bir-çok ilişkisi ilişkilendirmesi ikisi arasındaki çıkarılan (Bu oku simgesiyle belirtilir Tasarımcı):
+Varsayılan olarak LINQ to SQL tasarımcı, tabloların birincil anahtar/yabancı anahtar ilişkilerini de inceler ve bunlara dayalı olarak, oluşturduğu farklı model sınıfları arasında varsayılan "ilişki ilişkilendirmelerini" otomatik olarak oluşturur. Örneğin, dinetleri ve RSVP tablolarını LINQ to SQL tasarımcı 'ya sürükleytiğimiz zaman, RSVP tablosunun dinlenebilir tabloya yabancı anahtar sahip olduğu olgusuna göre çıkarsandı. (Bu, içindeki okla belirtilir Tasarımcı):
 
 ![](build-a-model-with-business-rule-validations/_static/image6.png)
 
-Yukarıdaki ilişkilendirme LINQ geliştiriciler ile belirli bir RSVP ilişkili Akşam Yemeği erişmek için kullanabileceğiniz RSVP sınıfı türü kesin belirlenmiş bir "Akşam Yemeği" özelliği eklemek için SQL neden olur. Ayrıca, geliştiricilerin almak ve belirli bir Akşam Yemeği ile ilişkili RSVP nesnelerini güncelleştirme sağlayan "RSVPs" bir koleksiyon özelliği Dinner sınıfı neden olur.
+Yukarıdaki ilişki, LINQ to SQL, geliştiricilerin belirli bir RSVP ile ilişkili olan akşam yemeği 'ya erişmek için kullanabileceği RSVP sınıfına kesin olarak yazılmış bir "akşam yemeği" özelliği eklemesine neden olur. Ayrıca, akşam yemeği sınıfının, geliştiricilerin belirli bir akşam yemeği ile ilişkili RSVP nesnelerini almasını ve güncelleştirmesini sağlayan bir "RSVPs" koleksiyon özelliğine sahip olmasına neden olur.
 
-Aşağıda yeni RSVP nesne oluşturma ve Dinner'ın LCV'ler koleksiyona eklemek IntelliSense Visual Studio içinden bir örneğini görebilirsiniz. Nasıl LINQ to SQL otomatik olarak "LCV'ler" koleksiyonu Şimdi Akşam nesnede eklenen dikkat edin:
+Aşağıda, Visual Studio 'da yeni bir RSVP nesnesi oluşturduğumuz ve bunu akşam yemeği 'nin RSVPs koleksiyonuna ekleyen bir IntelliSense örneği görebilirsiniz. LINQ to SQL akşam yemeği nesnesine otomatik olarak bir "RSVPs" koleksiyonu ekleme hakkında dikkat edin:
 
 ![](build-a-model-with-business-rule-validations/_static/image7.png)
 
-Akşam Yemeği'nın LCV'ler koleksiyonuna RSVP nesne ekleyerek biz LINQ Akşam Yemeği veritabanımızdaki RSVP satır arasında bir yabancı anahtar ilişkisi ilişkilendirilecek SQL söylemiş olursunuz:
+Akşam yemeği 'nin RSVPs koleksiyonuna RSVP nesnesini ekleyerek, veritabanımızda akşam yemeği ve RSVP satırı arasında yabancı anahtar ilişki ilişkilendirmesi LINQ to SQL söyliyoruz:
 
 ![](build-a-model-with-business-rule-validations/_static/image8.png)
 
-Tasarımcı nasıl veya modellenmiş adlı bir tablo ilişkisi beğenmezseniz geçersiz kılabilirsiniz. Yalnızca Tasarımcı içinde ilişkilendirme oku tıklatın ve özelliklerini yeniden adlandırma, silme veya değiştirmek için özellik kılavuzunu aracılığıyla erişin. NerdDinner uygulamamız için yine de oluşturmakta olduğunuz da veri modeli sınıfları için varsayılan ilişkilendirme kuralları çalışır ve yalnızca varsayılan davranışı kullanabiliriz.
+Tasarımcının bir tablo ilişkilendirmesini modellenmiş veya adlandırılmış olarak beğenmezseniz, bunu geçersiz kılabilirsiniz. Tasarımcı içindeki ilişki okuna tıkladıktan sonra, özellik Kılavuzu aracılığıyla yeniden adlandırmak, silmek veya değiştirmek için özelliklerine erişmeniz yeterlidir. Nerdakşam yemeği uygulamamız için, varsayılan ilişkilendirme kuralları oluşturmakta olduğumuz veri modeli sınıfları için iyi çalışır ve yalnızca varsayılan davranışı kullanabiliriz.
 
-### <a name="nerddinnerdatacontext-class"></a>NerdDinnerDataContext Class
+### <a name="nerddinnerdatacontext-class"></a>NerdDinnerDataContext sınıfı
 
-Visual Studio, modelleri ve LINQ to SQL Tasarımcı kullanılarak tanımlanan veritabanı ilişkileri temsil eden .NET sınıfları otomatik olarak oluşturur. Bir LINQ to SQL Datacontext'e sınıf ayrıca her bir LINQ to SQL Tasarımcı dosyası çözüme oluşturulur. Size sunduğumuz LINQ to SQL sınıf öğesi "NerdDinner" kullandığından, oluşturulan DataContext sınıf "NerdDinnerDataContext" olarak adlandırılır. Bu NerdDinnerDataContext sınıf biz veritabanıyla etkileşim birincil yoludur.
+Visual Studio, LINQ to SQL Tasarımcısı kullanılarak tanımlanan modelleri ve veritabanı ilişkilerini temsil eden .NET sınıfları otomatik olarak oluşturur. Çözüme eklenen her bir LINQ to SQL tasarımcı dosyası için LINQ to SQL DataContext Sınıfı da oluşturulur. "Nerdakşam yemeği" adlı LINQ to SQL sınıf öğesini adlandırdığımız için, oluşturulan DataContext Sınıfı "NerdDinnerDataContext" olarak adlandırılacaktır. Bu NerdDinnerDataContext sınıfı, veritabanıyla etkileşime gitireceğiz birincil yoldur.
 
-Bizim NerdDinnerDataContext sınıfı iki özellikleri - biz veritabanı içinde modellenmiş iki tabloları temsil eden "Azalma" ve "RSVPs" - gösterir. C# LINQ sorguları bu özellikleri veritabanından sorgu ve alma Akşam Yemeği ve RSVP nesnelerine yazmak için kullanabiliriz.
+NerdDinnerDataContext sınıfımızda, veritabanı içinde modellendiğimiz iki tabloyu temsil eden iki Özellik ("dinlenebilir" ve "RSVPs") kullanıma sunar. Veritabanından akşam yemeği C# ve RSVP nesnelerini sorgulamak ve almak için bu ÖZELLIKLERE karşı LINQ sorguları yazmak üzere kullanabiliriz.
 
-Aşağıdaki kod bir NerdDinnerDataContext nesnesinin örneğini oluşturma ve bir dizi gelecekte ortaya azalma almak üzere bir LINQ sorgusu gerçekleştirmek nasıl gösterir. LINQ Sorgu yazarken, Visual Studio IntelliSense sağlar ve ondan döndürülen nesneleri türü kesin olarak belirtilmiş ve IntelliSense de destekler:
+Aşağıdaki kod, bir NerdDinnerDataContext nesnesinin örneğini oluşturmayı ve gelecekte meydana gelen bir sıra elde etmek için bir LINQ sorgusu gerçekleştirmeyi gösterir. Visual Studio LINQ sorgusu yazarken tam IntelliSense sağlar ve bundan döndürülen nesneler kesin bir şekilde türdedir ve IntelliSense de desteklenir:
 
 ![](build-a-model-with-business-rule-validations/_static/image9.png)
 
-Akşam Yemeği ve RSVP nesneleri sorgulamak bize yayımlamanızı bir NerdDinnerDataContext üzerinden alıyoruz Dinner ve RSVP nesnelere biz sonradan yaptığınız tüm değişiklikler otomatik olarak izler. Değişiklikleri kolayca kaydetmek veritabanına - açık SQL güncelleştirme kod yazmaya gerek kalmadan bu işlevselliği kullanabiliriz.
+NerdDinnerDataContext, akşam yemeği ve RSVP nesneleri için sorgulamanızı sağlayan ek olarak, bundan sonra geri aldığımız akşam yemeği ve RSVP nesnelerinde yaptığımız tüm değişiklikleri de otomatik olarak izler. Açık SQL update kodu yazmak zorunda kalmadan değişiklikleri veritabanına geri yüklemek için bu işlevi kullanabiliriz.
 
-Örneğin, aşağıdaki kod bir LINQ Sorgu tek bir Akşam Yemeği nesne veritabanından, iki Dinner özelliklerini güncelleştirin ve değişiklikleri veritabanına geri kaydedin için nasıl kullanılacağını göstermektedir:
+Örneğin, aşağıdaki kod, bir LINQ sorgusunun veritabanından tek bir akşam yemeği nesnesini almak, akşam yemeği özelliklerinden ikisini güncelleştirmek ve değişiklikleri veritabanına geri kaydetmek için nasıl kullanılacağını gösterir:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample1.cs)]
 
-NerdDinnerDataContext nesne üzerindeki kodda biz alınan Dinner nesneye özellik değişikliklerinin otomatik olarak izlenir. Biz "SubmitChanges()" yöntemi çağrıldığında, "Güncelleştir" uygun SQL deyimi veritabanına güncelleştirilmiş değerleri geri kalıcı hale getirmek için çalıştırın.
+Yukarıdaki koddaki NerdDinnerDataContext nesnesi, bundan sonra gelen akşam yemeği nesnesinde yapılan özellik değişikliklerini otomatik olarak izlendi. "SubmitChanges ()" yöntemini çağırdığımız zaman, güncelleştirilmiş değerlerin yeniden kalıcı hale getirilmesi için veritabanında uygun bir SQL "UPDATE" ifadesini yürütür.
 
 ### <a name="creating-a-dinnerrepository-class"></a>DinnerRepository sınıfı oluşturma
 
-Küçük uygulamalar için bazen bir LINQ to SQL Datacontext'e sınıfı karşı doğrudan çalışma ve LINQ sorguları içinde denetleyicileri ekleme denetleyicileri uygundur. Ancak, uygulamaları daha büyük alma gibi bu yaklaşım sağlamak ve test etmek için zahmetli hale gelir. Bize birden çok yerde aynı LINQ sorguları çoğaltma da neden olabilir.
+Küçük uygulamalar için, denetleyicilerin doğrudan bir LINQ to SQL DataContext sınıfına karşı çalışması ve denetleyicilere LINQ sorguları eklemesi çok iyi bir çalışmadır. Uygulamalar daha büyük olsa da, bu yaklaşım bakım ve test için çok daha fazla hale gelir. Aynı LINQ sorgularını birden fazla yerde çoğaltmamıza de yol açabilir.
 
-Uygulamaları sağlamak ve test etmek daha kolay hale getirebilirsiniz bir yaklaşım, "depo" deseni kullanmaktır. Bir depo sınıfına veri sorgulama ve Kalıcılık mantığı ve hemen özetleri uygulamadan veri kalıcılığı uygulama ayrıntılarını kapsüllemek yardımcı olur. Uygulama kodu temizleme yapmak, ek bir depo deseni kullanarak veri depolama uygulamaları değiştirmeye kolaylaştırabilir ve birim gerçek bir veritabanı gerek kalmadan uygulama testi kolaylaştırmak yardımcı olabilir.
+Uygulamaları sürdürme ve test etme işlemlerini daha kolay hale getirmek için bir yaklaşım, "depo" deseninin kullanılması. Bir depo sınıfı, veri sorgulama ve kalıcılık mantığını kapsüllemeye yardımcı olur ve veri kalıcılığının uygulama ayrıntılarını uygulamadan soyutlar. Uygulama kodu temizleyici yapmanın yanı sıra, bir depo deseninin kullanılması gelecekte veri depolama uygulamalarının değiştirilmesini kolaylaştırabilir ve gerçek bir veritabanı gerekmeden bir uygulamanın birim testini kolaylaştırmaya yardımcı olabilir.
 
-NerdDinner uygulamamız için biz DinnerRepository sınıfıyla tanımlarsınız imza aşağıda:
+Nerdakşam yemeği uygulamamız için aşağıdaki imzaya sahip bir DinnerRepository sınıfı tanımlayacağız:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample2.cs)]
 
-*Not: Bu bölümde daha sonra Biz bu sınıftan IDinnerRepository arabirimi ayıklayın ve onunla bağımlılık ekleme bizim denetleyicilerinde etkinleştir. Başlangıç olarak, yine de başlayın ve yalnızca doğrudan DinnerRepository sınıfı ile çalışmak için kullanacağız.*
+*Note: Bu bölümde daha sonra bu sınıftan bir IDinnerRepository arabirimini ayıklayıp Denetleyicilerimizden bu sınıftan bağımlılık ekleme işlemini etkinleştireceğiz. Bununla birlikte başlamak için, basit bir başlangıç yapın ve doğrudan DinnerRepository sınıfıyla çalışmaya devam ediyoruz.*
 
-Biz bizim "Modelleri" klasörü sağ tıklatın ve seçin, bu sınıf uygulamak için **Add -&gt;yeni öğe** menü komutu. "Yeni Öğe Ekle" iletişim kutusunun içinden biz "Class" şablonu seçin ve "DinnerRepository.cs" dosya adı:
+Bu sınıfı uygulamak için "modeller" klasörünüze sağ tıklayıp **&gt;yeni öğe Ekle** menü komutunu seçin. "Yeni öğe Ekle" iletişim kutusunda "sınıf" şablonunu seçeceğiz ve "DinnerRepository.cs" dosyasını adı vereceğiz:
 
 ![](build-a-model-with-business-rule-validations/_static/image10.png)
 
-Biz, ardından aşağıdaki kodu kullanarak bizim DinnerRepository sınıfı uygulayabilirsiniz:
+Daha sonra DinnerRepository sınıfınızı aşağıdaki kodu kullanarak uygulayabiliriz:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample3.cs)]
 
-### <a name="retrieving-updating-inserting-and-deleting-using-the-dinnerrepository-class"></a>Alma, güncelleştirme, ekleme ve silme DinnerRepository sınıfını kullanma
+### <a name="retrieving-updating-inserting-and-deleting-using-the-dinnerrepository-class"></a>DinnerRepository sınıfını kullanarak alma, güncelleştirme, ekleme ve silme
 
-Bizim DinnerRepository sınıfı oluşturduk, ortak görevler ile yapabileceğimiz gösteren birkaç kod örnekleri göz atalım:
+DinnerRepository sınıfınızı oluşturduğumuza göre, bununla birlikte yapabilmemiz için sık kullanılan görevleri gösteren birkaç kod örneğini inceleyelim:
 
-#### <a name="querying-examples"></a>Örnekleri sorgulama
+#### <a name="querying-examples"></a>Örnek sorgulama
 
-Aşağıdaki kod DinnerID değerini kullanarak tek bir Akşam Yemeği alır:
+Aşağıdaki kod DinnerID değerini kullanarak tek bir akşam yemeği alır:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample4.cs)]
 
-Aşağıdaki kod, tüm gelecek azalma ve döngüler üzerlerine alır:
+Aşağıdaki kod, tüm yaklaşan geri layıcılar ve bunlara yönelik döngüleri alır:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample5.cs)]
 
 #### <a name="insert-and-update-examples"></a>INSERT ve Update örnekleri
 
-Aşağıdaki kod, iki yeni azalma eklemeyi gösterir. "Save()" yöntemi çağrılana kadar depoya ekleme/değişiklik veritabanına taahhüt değildir. LINQ to SQL otomatik olarak tüm değişiklikleri bir veritabanı işlemindeki – tüm değişiklikleri ortaya ya da depomuzda kaydettiğinde bunların hiçbiri yapmak sarmalar:
+Aşağıdaki kod, iki yeni dinde eklemeyi gösterir. Depoya yapılan eklemeler/değişiklikler, "Save ()" yöntemi çağrılana kadar veritabanına yürütülmedi. LINQ to SQL, bir veritabanı işleminde tüm değişiklikleri otomatik olarak kaydırır. bu nedenle, depomız kaydettiğinde tüm değişiklikler gerçekleşir veya hiçbirini kullanmaz:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample6.cs)]
 
-Aşağıdaki kod Şimdi Akşam nesnelerinden alır ve iki özelliklerde değiştirir. Depomuzda "Save()" yöntemi çağrıldığında, değişiklikler veritabanına uygulanır:
+Aşağıdaki kod, var olan bir akşam yemeği nesnesini alır ve üzerinde iki özelliği değiştirir. Depomızda "Save ()" yöntemi çağrıldığında değişiklikler veritabanına geri kaydedilir:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample7.cs)]
 
-Aşağıdaki kod, bir Akşam Yemeği alır ve bir RSVP ekler. (Olmadığı için birincil-anahtar/yabancı anahtar ilişkisi iki veritabanı arasında), LINQ to SQL bizim için oluşturulan Dinner nesnesindeki LCV'ler koleksiyonunu kullanarak bunu yapar. Havuzda "Save()" yöntem çağrıldığında bu değişiklik yeni RSVP tabloda satır veritabanına geri kalıcı hale getirilir:
+Aşağıdaki kod bir akşam yemeği alır ve buna bir RSVP ekler. Bunu, RSVPs için oluşturulan akşam yemeği LINQ to SQL nesnesindeki koleksiyonunu kullanarak yapar (veritabanında ikisi arasında birincil anahtar/yabancı anahtar ilişkisi olduğundan). Bu değişiklik, depoda "Save ()" yöntemi çağrıldığında yeni bir RSVP tablo satırı olarak veritabanına geri kaydedilir:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample8.cs)]
 
-#### <a name="delete-example"></a>Örnek delete
+#### <a name="delete-example"></a>Örneği Sil
 
-Aşağıdaki kod, Şimdi Akşam nesnelerinden alır ve sonra silinebilir işaretler. Havuzda "Save()" yöntemi çağrıldığında veritabanına geri silme işlemeniz:
+Aşağıdaki kod, var olan bir akşam yemeği nesnesini alır ve sonra silinecek şekilde işaretler. Depoda "Save ()" yöntemi çağrıldığında, silme işlemi veritabanına geri alınacaktır:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample9.cs)]
 
-### <a name="integrating-validation-and-business-rule-logic-with-model-classes"></a>Doğrulama ve iş kuralı mantığı ile Model sınıfları tümleştirme
+### <a name="integrating-validation-and-business-rule-logic-with-model-classes"></a>Doğrulama ve Iş kuralı mantığını model sınıflarıyla tümleştirme
 
-Doğrulama ve iş kuralı mantığını verileriyle çalışan herhangi bir uygulamanın önemli bir parçasıdır tümleştirme.
+Doğrulama ve iş kuralı mantığını tümleştirmek, verilerle birlikte çalışarak herhangi bir uygulamanın önemli bir parçasıdır.
 
-#### <a name="schema-validation"></a>Şema doğrulaması
+#### <a name="schema-validation"></a>Şema doğrulama
 
-LINQ to SQL Tasarımcı kullanarak model sınıfları tanımlandığında, veri modeli sınıfları özelliklerin türleri veritabanı tablosu veri türleri için karşılık gelir. Örneğin: "EventDate" tablosundaki azalma "tarih" ise, LINQ to SQL tarafından oluşturulan veri modeli sınıfı türü "(yerleşik bir .NET veri türü olan) DateTime" olacaktır. Başka bir deyişle, bir tamsayı veya boolean koddan atayın dener ve örtük olarak geçerli olmayan bir dize türü için çalışma zamanında dönüştürmeye çalışırsanız, hata otomatik olarak oluşturur, derleme hatası alırsınız.
+Model sınıfları LINQ to SQL Tasarımcısı kullanılarak tanımlandığında, veri modeli sınıflarında özelliklerin veri türleri veritabanı tablosunun veri türlerine karşılık gelir. Örneğin: dinlenebilir tablosundaki "EventDate" sütunu bir "TarihSaat" ise, LINQ to SQL tarafından oluşturulan veri modeli sınıfı "DateTime" (yerleşik bir .NET veri türü) türünde olacaktır. Bu, koddan bir tamsayı veya Boole değeri atamayı denerseniz derleme hataları alacağınız anlamına gelir ve bu, geçerli olmayan bir dize türünü çalışma zamanında buna örtük olarak dönüştürmeye çalışırsanız bir hata otomatik olarak yükseltir.
 
-LINQ to SQL da otomatik olarak işler escaping SQL değerleri sizin için dizeleri - korunmasına yardımcı olan, SQL ekleme saldırılarına karşı kullanırken kullanırken.
+LINQ to SQL, dizeleri kullanırken kaçış SQL değerlerini otomatik olarak işler; bu da, kullanırken SQL ekleme saldırılarına karşı korunmanıza yardımcı olur.
 
-#### <a name="validation-and-business-rule-logic"></a>Doğrulama ve iş kural mantığı
+#### <a name="validation-and-business-rule-logic"></a>Doğrulama ve Iş kuralı mantığı
 
-Şema doğrulaması ilk adım olarak kullanışlıdır ancak nadiren yeterlidir. Çoğu gerçek dünya senaryoları birden çok özellik span, kod yürütmek ve genellikle bir modelin durumunun tanıma sahip daha zengin Doğrulama mantığı belirtme olanağı gerektirir (örnek:, / güncelleştirilen/silinen, veya bir etki alanına özel durumu oluşturuluyor "arşivlenen gibi"). Çok sayıda farklı desenleri ve tanımlamak ve model sınıflarına doğrulama kuralları uygulamak için kullanılan çerçeve mevcuttur ve bu konuda yardımcı olmak için kullanılan birkaç temel .NET Framework burada vardır. Neredeyse herhangi biri ASP.NET MVC uygulamaları içinde kullanabilirsiniz.
+Şema doğrulaması ilk adım olarak faydalıdır, ancak nadiren yeterlidir. Birçok gerçek dünyada senaryo, birden çok özelliğe yayılabilen daha zengin doğrulama mantığı belirtme, kod yürütme ve genellikle bir modelin durumunu tanıma (örneğin: veya "arşivlenmiş" gibi bir etki alanına özgü durum içinde). Model sınıflarına doğrulama kuralları tanımlamak ve uygulamak için kullanılabilecek çeşitli farklı desenler ve çerçeveler vardır ve bu konuda yardımcı olmak için kullanılabilecek çeşitli .NET tabanlı çerçeveler vardır. ASP.NET MVC uygulamalarında neredeyse her türlü uygulamayı kullanabilirsiniz.
 
-NerdDinner uygulamamızın amacı doğrultusunda, görece basit ve rahatça desen burada IsValid özelliği ve GetRuleViolations() yöntemi bizim Dinner model nesnesi üzerinde kullanıma sunuyoruz kullanacağız. IsValid özelliği true veya false doğrulama ve iş kuralları geçerli olup olmadığına bağlı olarak döndürür. GetRuleViolations() yöntemi herhangi bir kural hatalarının listesini döndürür.
+Nerdakşam yemeği uygulamanızın amaçları doğrultusunda, akşam yemeği model nesnemiz üzerinde IsValid özelliği ve Getruleihlalleri () yöntemi sergilediğimiz görece basit ve düz ileri bir model kullanacağız. IsValid özelliği, doğrulamanın ve iş kurallarının tümünün geçerli olup olmadığına bağlı olarak true veya false değerini döndürür. Getruleihlalleri () yöntemi herhangi bir kural hatalarının listesini döndürür.
 
-Biz IsValid ve GetRuleViolations() Dinner modelimiz bizim projeye "kısmi class" ekleyerek uygulayacaksınız. Kısmi sınıflar, yöntemler/özellikler/olaylar (örneğin, LINQ to SQL tasarımcı tarafından oluşturulan Dinner sınıfı) bir VS tasarımcısı tarafından tutulan sınıfları eklemek için kullanılabilir ve kodumuzla uðraþmaya gelen araç önlemeye yardımcı olmak. Biz \Models klasöre sağ tıklayarak yeni bir kısmi sınıf bizim projesine ekleyin ve ardından "Yeni Öğe Ekle" menü komutunu seçin. Biz daha sonra "Yeni Öğe Ekle" iletişim kutusunda "Sınıfı" şablonunu seçin ve Dinner.cs adlandırın.
+Projenize bir "partial class" ekleyerek akşam yemeği modelimiz için IsValid ve Getruleihlalleri () uygulayacağız. Kısmi sınıflar, bir VS Designer tarafından tutulan sınıflara Yöntemler/Özellikler/olaylar eklemek için kullanılabilir (LINQ to SQL tasarımcı tarafından oluşturulan akşam yemeği sınıfı gibi) ve araç kodumuza ulaşmaktan kaçınmaya yardımcı olur. \Modeller klasörüne sağ tıklayıp "yeni öğe Ekle" menü komutunu seçerek projemizi yeni bir kısmi sınıf ekleyebiliriz. Daha sonra "yeni öğe Ekle" iletişim kutusunda "sınıf" şablonunu seçebilir ve Dinner.cs adını verebilirsiniz.
 
 ![](build-a-model-with-business-rule-validations/_static/image11.png)
 
-"Ekle" düğmesine tıklayarak sunduğumuz projesine Dinner.cs dosyası ekleme ve IDE içinde açın. Biz bir temel kural/doğrulama zorlama framework kullanarak ardından uygulayabilirsiniz kod aşağıda:
+"Ekle" düğmesine tıkladığınızda projemizi bir Dinner.cs dosyası ekleyecek ve IDE içinde açacaktır. Daha sonra aşağıdaki kodu kullanarak temel bir kural/doğrulama zorlama çerçevesi uygulayabiliriz:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample10.cs)]
 
 Yukarıdaki kodla ilgili birkaç Not:
 
-- Akşam Yemeği sınıfı ile içerdiği kod LINQ to SQL tasarımcı tarafından oluşturulan ve tutulan sınıfıyla birleşik ve tek bir sınıfı derlenmiş anlamına gelir. bir "kısmi" anahtar sözcüğünü – başlar.
-- Yardımcı bir sınıf kurmamızı kuralı ihlali hakkında daha fazla ayrıntı sağlamak proje ekleyeceğiz RuleViolation sınıftır.
-- Değerlendirilecek bizim doğrulama ve iş kuralları Dinner.GetRuleViolations() yöntemi neden olur (biz bunları kısa bir süre içinde uygulama). Daha sonra geri kural hatalar hakkında daha fazla ayrıntı sağlayan RuleViolation nesneleri dizisi döndürür.
-- Dinner.IsValid özelliği Şimdi Akşam nesne herhangi bir etkin RuleViolations olup olmadığını belirten bir kullanışlı yardımcı özelliği sağlar. Proaktif olarak Şimdi Akşam nesnesi dilediğiniz zaman kullanılarak bir geliştirici tarafından denetlenebilir (ve bir özel durum oluşturmaz).
-- Veritabanı içinde yaklaşık sürdürülecek Dinner nesnedir herhangi bir zamanda size bildirilmesini sağlar bir LINQ to SQL sağlayan bir kanca Dinner.OnValidate() kısmi yöntem budur. OnValidate() kararlılığımızın yukarıdaki, kaydedilmeden önce Dinner hiçbir RuleViolations sahip olmasını sağlar. Geçersiz bir durumda ise LINQ SQL işlem iptal için neden olacak bir özel durum oluşturur.
+- Akşam yemeği sınıfı bir "partial" anahtar sözcüğüyle önceden geliyor. Bu, içinde yer alan kodun, LINQ to SQL tasarımcı tarafından oluşturulan/tutulan ve tek bir sınıfta derlenen sınıfla birleştirileceği anlamına gelir.
+- Ruleihlalin sınıfı, bir kural ihlali hakkında daha fazla ayrıntı sağlayabilmemiz için projeye ekleyeceğiniz bir yardımcı sınıftır.
+- Akşam yemeği. Getruleihlalleri () yöntemi doğrulama ve iş kurallarımızın değerlendirilmesine neden olur (bunları kısa süre içinde uygulayacağız). Daha sonra herhangi bir kural hatası hakkında daha fazla ayrıntı sağlayan Ruleihlal nesnelerinin bir dizisini geri döndürür.
+- Akşam yemeği. IsValid özelliği, akşam yemeği nesnesinde etkin Ruleihlal olup olmadığını gösteren kullanışlı bir yardımcı özellik sağlar. Her zaman akşam yemeği nesnesi kullanılarak bir geliştirici tarafından proaktif olarak denetlenebilir (ve bir özel durum oluşturmaz).
+- Akşam yemeği. OnValidate () kısmi yöntemi, akşam yemeği nesnesinin veritabanı içinde kalıcı hale geçmek üzere olduğu her zaman bildirim almamızı sağlayan bir kanca LINQ to SQL. Yukarıdaki OnValidate () uygulamamız, akşam yemeği 'nin kaydedilmeden önce Ruleihlal olmamasını sağlar. Geçersiz bir durumdaysa, LINQ to SQL işlemi iptal etmek için bir özel durum oluşturur.
 
-Bu yaklaşım, biz doğrulama ve iş kuralları ile tümleştirebileceğiniz basit bir çerçeve sağlar. Şimdilik ekleyelim bizim GetRuleViolations() yöntemi kuralları aşağıda:
+Bu yaklaşım, doğrulama ve iş kurallarını ' de tümleştirebilmemiz için basit bir çerçeve sağlar. Şimdilik, Getruleihlalleri () yöntemine aşağıdaki kuralları ekleyelim:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample11.cs)]
 
-Tüm RuleViolations bir dizisini döndürmek için C# "yield return" özelliği kullanıyoruz. Yukarıdaki ilk altı kural denetimleri, yalnızca bizim Dinner dize özellikleri null veya boş olamaz uygular. Son kural biraz daha ilginçtir ve çağrıları biz doğrulamak için Projemizin ContactPhone ekleyebilirsiniz PhoneValidator.IsValidNumber() yardımcı yöntem sayı biçimi eşleşme Akşam Yemeği'nın ülke.
+Kural Ihlallerinin bir dizisini döndürmek C# için "yield return" özelliğini kullanıyoruz. Yukarıdaki ilk altı kural denetimi yalnızca akşam yemeği 'daki dize özelliklerinin null ya da boş olamaz. Son kural biraz daha ilgi çekici olduğundan, ContactPhone sayı biçiminin akşam yemeği ülkesinden eşleştiğini doğrulamak üzere projemizi ekleyebilmemiz için bir PhoneValidator. ısvalidnumber () yardımcı yöntemi çağırır.
 
-Kullanabiliriz. Bu telefon doğrulama desteği uygulamak için NET normal ifade desteği. Ekleyebiliriz basit bir PhoneValidator uygulama aşağıdadır Ülkeye özel normal ifade deseni denetimleri Ekle sağlıyor Projemizin için:
+' İ kullanabilirsiniz. Bu telefon doğrulama desteğini uygulamak için NET 'in normal ifade desteği. Aşağıda ülkeye özgü Regex desenli denetimleri ekleyebilmemiz için projemizi ekleyebileceğimiz basit bir PhoneValidator uygulamasıdır:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample12.cs)]
 
-#### <a name="handling-validation-and-business-logic-violations"></a>Doğrulama ve iş mantığı ihlalleri işleme
+#### <a name="handling-validation-and-business-logic-violations"></a>Doğrulama ve Iş mantığı Ihlallerini işleme
 
-Yukarıdaki doğrulama ve iş kuralı kod, oluşturulacak veya güncelleştirilecek bir Akşam Yemeği Çalıştığımızda dilediğiniz zaman ekledik, bizim Doğrulama mantığı kuralları değerlendirilir ve zorunlu tutulur.
+Yukarıdaki doğrulama ve iş kuralı kodunu ekledik, şimdi de bir akşam yemeği oluşturmayı veya güncelleştirmeyi denediğimiz her seferinde doğrulama mantığı kuralları değerlendirilir ve zorlanır.
 
-Geliştiriciler gibi aşağıda proaktif olarak Dinner nesne geçerli olup olmadığını belirlemek için kod ve içindeki tüm ihlalleri herhangi bir özel durumlarını oluşturma olmadan listesini almak yazabilirsiniz:
+Geliştiriciler, bir akşam yemeği nesnesinin geçerli olup olmadığını önceden belirleme ve özel durum oluşturmadan tüm ihlallerin bir listesini alma için aşağıda gibi kod yazabilir:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample13.cs)]
 
-Biz, geçersiz bir durumda bir Akşam Yemeği kaydetmeyi denerse, biz üzerinde DinnerRepository Save() yöntemi çağırdığınızda bir özel durum gerçekleştirilecektir. Bu durum, LINQ to SQL otomatik olarak Akşam Yemeği'nın değişiklikleri kaydeder ve Dinner.OnValidate() Akşam Yemeği içinde herhangi bir kural ihlallerini mevcut bir özel durum oluşturmak için kod ekledik önce bizim Dinner.OnValidate() kısmi yöntem çağrıları kaynaklanır. Bu özel durumu yakalar ve öngörülebiliyorsa ihlallerini düzeltmek için bir listesini alın:
+Bir akşam yemeği 'yi geçersiz bir durumda kaydetmeye çalışdığımızda, DinnerRepository üzerinde Save () yöntemini çağırdığınızda bir özel durum oluşur. Bunun LINQ to SQL nedeni, akşam yemeği. OnValidate () kısmi yöntemimizi Dinner Now 'ın değişikliklerini kaydetmeden önce otomatik olarak çağırdığı ve akşam yemeği. OnValidate () öğesine kod ekledik. Bu özel durumu yakalayabilir ve düzeltilmesi için ihlallerin bir listesini yeniden etkin bir şekilde alabilirsiniz:
 
 [!code-csharp[Main](build-a-model-with-business-rule-validations/samples/sample14.cs)]
 
-Bizim doğrulama ve iş kuralları UI yerleşiminde içinde değil ve bizim modeli katmanı içinde uygulanan olduğundan, bunlar uygulanan ve uygulamamızı içindeki tüm senaryolarında kullanılan. Daha sonra değiştirmek veya iş kuralları ekleyebilir ve bizim Dinner nesneleri ile çalışır bunları dikkate tüm koda sahip.
+Doğrulama ve iş kurallarımız, Kullanıcı arabirimi katmanında değil, model katmanımız içinde uygulandığından ve uygulamamız içindeki tüm senaryolarda kullanılacak ve bu kurallar kullanılacaktır. Daha sonra iş kurallarını değiştirebilir veya ekleyebiliriz ve akşam yemeği nesnelerimiz ile birlikte çalışarak tüm kodların bunları kabul eteceğiz.
 
-İş kuralları tek bir yerde değiştirme esnekliğine sahip olmak, bu değişiklikler uygulama ve UI mantığı ripple zorunda kalmadan bir iyi yazılmış uygulama ve MVC çerçevesi teşvik yardımcı olur. bir avantajı işaretidir.
+Uygulama ve Kullanıcı arabirimi mantığı genelinde bu değişikliklere gerek kalmadan, iş kurallarını tek bir yerde değiştirme esnekliğine sahip olmak, iyi yazılmış bir uygulamanın bir işareti ve MVC çerçevesinin teşvik etmesine yardımcı olan bir avantajdır.
 
 ### <a name="next-step"></a>Sonraki adım
 
-Artık sorgu hem bizim veritabanını güncellemek için kullanabileceğiniz bir model sorunumuz.
+Şimdi, veritabanımızı sorgulamak ve güncelleştirmek için kullanabilmemiz gereken bir model sunuyoruz.
 
-Şimdi bazı denetleyicileri ve görünümleri çevresinde bir HTML kullanıcı Arabirimi deneyimi oluşturmak için kullanabiliriz proje ekleyelim.
+Şimdi de, bir HTML Kullanıcı arabirimi deneyimi oluşturmak için kullanabilmemiz için projeye bazı denetleyiciler ve görünümler ekleyelim.
 
 > [!div class="step-by-step"]
 > [Önceki](create-a-database.md)

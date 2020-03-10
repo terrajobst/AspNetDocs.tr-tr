@@ -9,11 +9,11 @@ ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
 ms.openlocfilehash: 81cca22cb4752d071d2a68986ae9ac2bed737594
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74633180"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640198"
 ---
 # <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Model bağlama ve Web formları ile verileri alma ve görüntüleme
 
@@ -49,7 +49,7 @@ Bu öğreticide şunları yapmanız gerekir:
 
    ![proje oluştur](retrieving-data/_static/image19.png)
 
-2. **Tamam ' ı**seçin. Bir şablon seçmek için iletişim kutusu görüntülenir.
+2. **Tamam**’ı seçin. Bir şablon seçmek için iletişim kutusu görüntülenir.
 
    ![Web formları seçin](retrieving-data/_static/image3.png)
 
@@ -57,7 +57,7 @@ Bu öğreticide şunları yapmanız gerekir:
 
 4. Gerekirse, kimlik doğrulamasını **bireysel kullanıcı hesaplarıyla**değiştirin. 
 
-5. Projeyi oluşturmak için **Tamam ' ı** seçin.
+5. Projeyi oluşturmak için **Tamam**'ı seçin.
 
 ## <a name="modify-site-appearance"></a>Site görünümünü değiştirme
 
@@ -89,17 +89,17 @@ Bu öğreticide şunları yapmanız gerekir:
 
       ![sayfa oluştur](retrieving-data/_static/image5.png)
 
-   3. **Ekle**' yi seçin.
+   3. **Add (Ekle)** seçeneğini belirleyin.
    
    4. Web formunun ana sayfasında, **site. Master**' u seçin.
    
-   5. **Tamam ' ı**seçin.
+   5. **Tamam**’ı seçin.
 
 ## <a name="add-the-data-model"></a>Veri modelini ekleme
 
 **Modeller** klasöründe, **UniversityModels.cs**adlı bir sınıf ekleyin.
 
-   1. **Modeller**' e sağ tıklayın, **Ekle**' yi ve ardından **Yeni öğe**' yi seçin. **Yeni öğe Ekle** iletişim kutusu görüntülenir.
+   1. **Modeller**' e sağ tıklayın, **Ekle**' yi ve ardından **Yeni öğe**' yi seçin. **Yeni Öğe Ekle** iletişim kutusu görünür.
 
    2. Sol gezinti menüsünde, **kod**' u ve ardından **sınıf**' ı seçin.
 

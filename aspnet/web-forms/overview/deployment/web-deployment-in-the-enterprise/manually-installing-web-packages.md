@@ -2,129 +2,129 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 title: Web paketlerini el ile yükleme | Microsoft Docs
 author: jrjlee
-description: Bu konuda, bir web dağıtım paketi Internet Information Services (IIS) içinde el ile içe aktarmayı açıklar. Konu oluşturma ve paketleme Web uygulama...
+description: Bu konu, bir Web dağıtım paketini Internet Information Services (IIS) içine el ile nasıl içeri aktarabileceğinizi açıklamaktadır. Web uygulaması oluşturma ve paketleme konusu...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: f11d22a7-5d32-4ad0-8a9b-276460a61c06
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
 ms.openlocfilehash: f778549d3e26989a2e71ef21171adec521842729
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132121"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78634206"
 ---
 # <a name="manually-installing-web-packages"></a>Web Paketlerini El ile Yükleme
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, bir web dağıtım paketi Internet Information Services (IIS) içinde el ile içe aktarmayı açıklar.
+> Bu konu, bir Web dağıtım paketini Internet Information Services (IIS) içine el ile nasıl içeri aktarabileceğinizi açıklamaktadır.
 > 
-> Konu [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md) açıklanan nasıl IIS Web Dağıtım Aracı (Web dağıtımı) birlikte Microsoft Build Engine (MSBuild) ve Web yayımlama işlem hattı (Usewpp_copywebapplication), izin verir, paket, Web Uygulama projeleri bir tek bir ZIP dosyasına. Web dağıtım paketi (veya sadece bir dağıtım paketi olarak), yaygın olarak bilinen bu dosya, IIS web sunucusunda web uygulamanızı yeniden oluşturmak için gereken tüm içerik ve yapılandırma bilgileri içerir.
+> [Web uygulaması projelerini oluşturma ve paketleme](building-and-packaging-web-application-projects.md) konusunda, IIS Web Dağıtım aracı 'nın (Web dağıtımı), Microsoft Build Engine (MSBuild) ve Web yayımlama işlem hattı (WPP) ile birlikte, Web uygulaması projelerinizi tek bir zip dosyasına paketlemenize olanak tanır. Genellikle bir Web dağıtım paketi (veya yalnızca bir dağıtım paketi) olarak bilinen bu dosya, Web uygulamanızı bir Web sunucusunda yeniden oluşturmak için IIS 'nin ihtiyaç duyacağı tüm içerik ve yapılandırma bilgilerini içerir.
 > 
-> Web dağıtım paketi oluşturduktan sonra çeşitli yollarla IIS sunucusuna yayımlayabilirsiniz. İçinde çok sayıda senaryo, tümleştirme noktaları arasında MSBuild WPP ve Web dağıtımı oluşturmak ve web paketleri uzaktan bir otomatik olarak veya tek adımlı derleme ve dağıtım sürecinin bir parçası olarak yüklemek için yararlanmak isteyebilirsiniz. Bu işlem açıklanan [Web paketleri dağıtma](deploying-web-packages.md). Ancak, bu her zaman mümkün değildir. Internet'e yönelik bir üretim ortamında bir web uygulamasına dağıtmak istediğinizi varsayalım. Güvenlik nedeniyle, bu tür bir üretim ortamına derleme sunucusundan bir çevre ağındaki (DMZ, sivil bölge ve denetimli alt ağ olarak da bilinir) ayrı bir alt ağdaki bir güvenlik duvarının arkasında olması olası çok az altındadır. İçinde çok sayıda servis talepleri, ayrı bir etki alanı veya fiziksel olarak yalıtılmış bir ağda üretim ortamına olacaktır.
+> Bir Web dağıtım paketi oluşturduktan sonra, bunu çeşitli yollarla bir IIS sunucusunda yayımlayabilirsiniz. Birçok senaryoda, MSBuild, WPP ve Web Dağıtımı arasındaki tümleştirme noktalarından yararlanarak otomatik veya tek adımlı derleme ve dağıtım sürecinin bir parçası olarak Uzaktan Web paketleri oluşturup yükleyebilirsiniz. Bu işlem [Web paketlerinin dağıtılmasında](deploying-web-packages.md)açıklanmıştır. Ancak, bu her zaman mümkün değildir. Bir Web uygulamasını Internet 'e yönelik bir üretim ortamına dağıtmak istediğinizi varsayalım. Güvenlik nedenleriyle, bir üretim ortamı, derleme sunucusundan (DMZ, sivil bölge ve denetimli alt ağ olarak da bilinir) ayrı bir alt ağda bir güvenlik duvarının arkasında olma olasılığı yüksektir. Birçok durumda, üretim ortamı ayrı bir etki alanında veya fiziksel olarak yalıtılmış bir ağda olacaktır.
 > 
-> Bu senaryolarda, tek seçeneğiniz, hedef sunucuya web paketi bağlantı noktası ve IIS içinde el ile içeri aktarmak için olabilir. Bu yaklaşım, otomatik dağıtım ışığının rağmen bir web uygulaması yayımlamak için son derece etkili bir teknik hala açıktır&#x2014;yalnızca tek bir ZIP dosyasını web sunucunuza kopyalayın ve içeri aktarma işlemi boyunca size rehberlik için bir sihirbaz kullanın.
+> Bu senaryolarda, tek seçeneğiniz Web paketinin hedef sunucuya bağlantı noktası haline gelebilir ve el ile IIS 'ye içeri aktarabilirsiniz. Bu yaklaşım otomatik dağıtıma neden olsa da, bir Web uygulaması&#x2014;yayımlamak için oldukça etkili bir tekniktir, Web sunucunuza tek bir ZIP dosyasını kopyalamanız ve içeri aktarma işleminde size rehberlik etmek için bir sihirbaz kullanmanız yeterlidir.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](the-contact-manager-solution.md)&#x2014;kullanır.
 
-## <a name="task-overview"></a>Görev genel bakış
+## <a name="task-overview"></a>Göreve genel bakış
 
-Web dağıtım paketi, IIS ile içeri aktarmak için bu üst düzey görevleri tamamlamak gerekir:
+Web dağıtım paketini IIS 'e aktarmak için bu üst düzey görevleri gerçekleştirmeniz gerekir:
 
-- MSBuild komut satırı, ekip veya Visual Studio 2010'u kullanarak bir web dağıtım paketi oluşturun.
-- Web paketi hedef web sunucusuna kopyalayın.
-- Uygulama paketi İçeri Aktarma Sihirbazı'nı IIS Yöneticisi'nde bağlantı dizelerini ve hizmet uç noktaları gibi değişkenler için değerler sağlayın ve web paketi yüklemek için kullanın.
+- MSBuild komut satırı, takım derlemesi veya Visual Studio 2010 kullanarak bir Web dağıtım paketi oluşturun.
+- Web paketini hedef Web sunucusuna kopyalayın.
+- Web paketini yüklemek ve bağlantı dizeleri ve hizmet uç noktaları gibi değişkenler için değerler sağlamak üzere IIS Yöneticisi 'ndeki uygulama paketini Içeri aktarma Sihirbazı 'Nı kullanın.
 
-Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir. Görevler ve bu konudaki yönergeler, zaten web paketleri, Web dağıtımı ve WPP kavramları hakkında bilgi sahibi olduğunuzu varsayar. Daha fazla bilgi için [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md).
+Bu konu başlığı altında, bu yordamların nasıl gerçekleştirileceği gösterilmektedir. Bu konudaki görevler ve izlenecek yollar, Web paketleri, Web Dağıtımı ve WPP 'nin arkasındaki kavramları zaten öğrenolduğunuzu varsayar. Daha fazla bilgi için bkz. [Web uygulaması projelerini oluşturma ve paketleme](building-and-packaging-web-application-projects.md).
 
 > [!NOTE]
-> Bu konuda en iyi birlikte kullanılan [bir Web sunucusunu Web dağıtımı yayımlama için (çevrimdışı dağıtım) yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md), gerekli bileşenleri yüklemeniz ve paketi içeri aktarma için bir IIS Web hazırlamak nasıl açıklar.
+> Bu konu, [bir Web sunucusunu Web dağıtımı yayımlama Için yapılandırma (çevrimdışı dağıtım)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)ile birlikte en iyi şekilde kullanılmak üzere, gerekli bileşenlerin nasıl yükleneceğini ve paket içeri aktarma IÇIN bir IIS Web sitesi nasıl hazırlanacağını açıklar.
 
-## <a name="create-a-web-deployment-package"></a>Web dağıtım paketi oluştur
+## <a name="create-a-web-deployment-package"></a>Web dağıtım paketi oluşturma
 
-İlk görev bir web dağıtım paketi dağıtmak istediğiniz web uygulaması projesi için oluşturmaktır. Web paketleri çeşitli yollarla oluşturabilirsiniz.
+İlk görev, dağıtmak istediğiniz Web uygulaması projesi için bir Web dağıtım paketi oluşturmaktır. Web paketlerini çeşitli yollarla oluşturabilirsiniz.
 
-**Yaklaşım 1: Visual Studio ile derleme işleminin bir parçası olarak bir paket oluşturma**
+**Yaklaşım 1: Visual Studio ile derleme sürecinin bir parçası olarak paket oluşturma**
 
-Web uygulaması projenize her derlemeden sonra bir web dağıtım paketi oluşturmak için yapılandırabileceğiniz **Paketle/Yayımla Web** proje özelliği sayfalarından sekmesinde. Bu işlem açıklanan [oluşturma ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md).
+Web uygulaması projenizi, her derlemeden sonra bir Web dağıtım paketi oluşturacak şekilde yapılandırabilir ve proje özellik sayfalarındaki **Web 'ı Yayımla** sekmesini kullanarak. Bu işlem, [Web uygulaması projelerini oluşturma ve paketleme](building-and-packaging-web-application-projects.md)konularında açıklanmaktadır.
 
-**Yaklaşım 2: MSBuild ile derleme işleminin bir parçası olarak bir paket oluşturma**
+**2. yaklaşım: MSBuild ile derleme işleminin bir parçası olarak bir paket oluşturma**
 
-MSBuild, doğrudan komut satırından veya özel bir MSBuild proje dosyası aracılığıyla kullanarak web uygulaması projenize yapı web dağıtım paketi oluşturma işleminin bir parçası dahil ederek oluşturabileceğiniz **DeployOnBuild = true** ve **DeployTarget paket =** özelliklerinde komutu. Bu işlem açıklanan [derleme işlemini anlama](understanding-the-build-process.md).
+Özel bir MSBuild proje dosyası ya da komut satırından doğrudan MSBuild 'i kullanarak Web uygulaması projenizi derliyorsanız, komutunuz **Deployonbuild = true** ve **Deploytarget = Package** özelliklerini ekleyerek yapı işleminin bir parçası olarak bir Web dağıtım paketi oluşturabilirsiniz. Bu işlem [, yapı sürecini anlama](understanding-the-build-process.md)bölümünde açıklanmaktadır.
 
-**Yaklaşım 3: Visual Studio isteğe bağlı bir paket oluşturun**
+**Yaklaşım 3: Visual Studio 'da isteğe bağlı bir paket oluşturma**
 
-Visual Studio 2010'daki herhangi bir zamanda bir web uygulaması projesi için web dağıtım paketi oluşturabilirsiniz. Bunu yapmak için **Çözüm Gezgini** penceresinde web uygulaması projenize sağ tıklayın ve ardından **derleme dağıtım paketi**.
+Web uygulaması projesi için, Visual Studio 2010 ' de dilediğiniz zaman Web dağıtım paketi oluşturabilirsiniz. Bunu yapmak için, **Çözüm Gezgini** penceresinde, Web uygulaması projenize sağ tıklayın ve ardından **dağıtım paketi oluştur**' a tıklayın.
 
 ![](manually-installing-web-packages/_static/image1.png)
 
-**Yaklaşım 4: Komut satırından isteğe bağlı bir paket oluşturun**
+**Yaklaşım 4: komut satırından isteğe bağlı bir paket oluşturma**
 
-Web dağıtım paketi komut satırından çağırarak oluşturabileceğiniz **paket** MSBuild'ı kullanarak web uygulaması projenize hedefte. Komut şuna benzemelidir:
+MSBuild kullanarak Web uygulaması projenizdeki **paket** hedefini çağırarak komut satırından bir Web dağıtım paketi oluşturabilirsiniz. Komut şuna benzemelidir:
 
 [!code-console[Main](manually-installing-web-packages/samples/sample1.cmd)]
 
-Hangisi yaklaşımını kullanmak, sonuç aynıdır. WPP web dağıtım paketi, web uygulaması projesi için çıkış klasöründe çeşitli destekleyici kaynakları birlikte bir zip dosyası olarak oluşturur.
+Hangi yaklaşımı kullanırsanız kullanın, nihai sonuç aynıdır. WPP, Web uygulaması projenizin çıktı klasöründe çeşitli destekleyici kaynaklarla birlikte bir Web dağıtım paketini ZIP dosyası olarak oluşturur.
 
 ![](manually-installing-web-packages/_static/image2.png)
 
-Web paketi el ile içeri aktarma planlamanız durumunda, yalnızca zip dosyası gerektirir. Bu dosya hedef web sunucusuna kopyalayın ve içeri aktarma işlemi başlayabilirsiniz.
+Web paketini el ile aktarmayı planlarken, yalnızca ZIP dosyası gerekir. Bu dosyayı hedef Web sunucunuza kopyalayın ve içeri aktarma işlemini başlatabilirsiniz.
 
-## <a name="import-a-web-package-into-iis"></a>IIS içinde Web paketi içeri aktarma
+## <a name="import-a-web-package-into-iis"></a>Web paketini IIS 'e aktarma
 
-Sonraki yordam, web dağıtım paketi, yerel dosya sisteminden bir IIS Web içeri aktarmak için kullanabilirsiniz. Bu yordamı gerçekleştirmeden önce sahip olduğunuzdan emin olun:
+Bir Web dağıtım paketini yerel dosya sisteminden bir IIS Web sitesine aktarmak için bir sonraki yordamı kullanabilirsiniz. Bu yordamı gerçekleştirmeden önce, şunları kullandığınızdan emin olun:
 
-- Web dağıtım paketi, web sunucusuna kopyalanır.
-- Uygulamanızı barındırmak için IIS web sunucusu yapılandırıldı.
+- Web dağıtım paketi Web sunucusuna kopyalanamadı.
+- Uygulamanızı barındırmak için bir IIS Web sunucusu yapılandırıldı.
 
-Bir IIS web sunucusunu web dağıtımı paketleri destekleyecek şekilde yapılandırma hakkında daha fazla bilgi için bkz: [bir Web sunucusunu Web dağıtımı yayımlama için (çevrimdışı dağıtım) yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md).
+Web dağıtım paketlerini desteklemek için bir IIS Web sunucusu yapılandırma hakkında daha fazla bilgi için bkz. [bir Web sunucusunu Web dağıtımı yayımlama Için yapılandırma (çevrimdışı dağıtım)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md).
 
-**IIS Yöneticisi'ni kullanarak bir web dağıtımı paketini içeri aktarmak için**
+**IIS Yöneticisi 'Ni kullanarak bir Web dağıtım paketini içeri aktarmak için**
 
-1. IIS Yöneticisi'nde, **bağlantıları** bölmesinde, IIS Web sitesini sağ tıklatın, **Dağıt**ve ardından **alma uygulama**.
+1. IIS Yöneticisi 'nde, **Bağlantılar** BÖLMESINDE, IIS Web sitenize sağ tıklayın, **Dağıt**' ın üzerine gelin ve ardından **uygulamayı içeri aktar**' a tıklayın.
 
     ![](manually-installing-web-packages/_static/image3.png)
-2. İçeri aktarma uygulama paketi Sihirbazı'nda üzerinde **paketi seçin** sayfasında web dağıtım paketinin konumuna göz atın ve ardından **sonraki**.
-3. Üzerinde **paket içeriğini seçin** sayfasında, gerektiren ve ardından olmayan herhangi bir içeriği temizleyin **sonraki**.
+2. Uygulama paketini Içeri aktarma sihirbazında, **paketi seçin** sayfasında, Web Dağıtım paketinizin konumuna gidin ve ardından **İleri**' ye tıklayın.
+3. **Paketin Içeriğini seçin** sayfasında, ihtiyacınız olmayan tüm içerikleri temizleyin ve ardından **İleri**' ye tıklayın.
 
     ![](manually-installing-web-packages/_static/image4.png)
 
     > [!NOTE]
-    > İçinde çok sayıda durumlarda, bir web dağıtım paketi ile birlikte gelen her şeyi almak istemeyebilirsiniz. Örneğin, ilişkili veritabanını değiştirmek Web dağıtımı izin istemeyebilirsiniz.  
-    > **İzinleri verin** girişleri, uygulama havuzu kimliğini Web sitesi içeriğini saklayan fiziksel klasör erişebildiğinden emin olmak için hedef dosya sistemi izinleri ayarlayın. Ayrıca, anonim kimlik doğrulaması kullanıcı klasörü çok amaçlı Internet Posta Uzantıları (MIME) türü dosyaları işleme izin vermek için izin verilen okunur. Tercih ederseniz, bu girişleri kaldırın ve izinlerini el ile yapılandırın.
-4. Üzerinde **uygulama paketi bilgilerini girin** sayfasında, istenen bilgileri sağlayın.
+    > Birçok durumda, bir Web Dağıtım paketiyle birlikte gelen her şeyi içeri aktarmak istemeyebilirsiniz. Örneğin, Web Dağıtımı ilişkili veritabanının değiştirilmesini sağlamak istemeyebilirsiniz.  
+    > **Izin verme** girişleri, uygulama havuzu kimliğinin Web sitesi içeriğini depolayan fiziksel klasöre erişebildiğinden emin olmak için hedef dosya sisteminde izinleri ayarlar. Buna ek olarak, anonim kimlik doğrulama kullanıcısına uygulamanın çok amaçlı Internet posta uzantıları (MIME) tür dosyalarını sunmasını sağlamak için klasöre okuma izni verilir. İsterseniz, bu girişleri kaldırabilir ve izinleri el ile yapılandırabilirsiniz.
+4. **Uygulama paketi bilgilerini girin** sayfasında, istenen bilgileri sağlayın.
 
     ![](manually-installing-web-packages/_static/image5.png)
-5. Web paketi oluşturduğunuzda, WPP uygulamanız için yapılandırma dosyasını analiz eder ve bağlantı dizeleri ve hizmet uç noktaları gibi herhangi bir değişkeni algılar. Bu durumda:
+5. Bir Web paketi oluşturduğunuzda, WPP, uygulamanızın yapılandırma dosyasını analiz eder ve bağlantı dizeleri ve hizmet uç noktaları gibi tüm değişkenleri algılar. Bu durumda:
 
-    1. **Uygulama yolu** uygulamanızı yüklemek istediğiniz IIS yoludur. Bu ayar, WPP oluşturan tüm dağıtım paketleri yaygındır.
-    2. **Hizmet uç noktası adresi ContactService** uygulamanın dağıtılan WCF Hizmeti ile iletişim kurmak için kullanması gereken adresidir. Bu ayar bir girişe karşılık gelen *web.config* dosya.
-    3. İlk **bağlantı dizesi** Web dağıtımı (Bu durumda bir veritabanındaki ASP.NET üyeliği) uygulama ile ilişkili veritabanı dağıtmak için kullanması gereken bağlantı dizesini bir ayardır. Bu ayar, ayarları karşılık gelen **SQL Paketle/Yayımla** Visual Studio'da sekmesi.
-    4. İkinci **bağlantı dizesi** gerçekten uygulamanız hazır ve çalışır durumda olduğunda veritabanı ile iletişim kurmak için kullanacağı bağlantı dizesini bir ayardır. Bu bir bağlantı dizesi giriş karşılık gelen *web.config* dosya.
+    1. **Uygulama yolu** , uygulamanızı yüklemek istediğiniz IIS yoludur. Bu ayar, WPP 'nin oluşturduğu tüm dağıtım paketlerinde ortaktır.
+    2. **ContactService hizmet uç noktası adresi** , UYGULAMANıN dağıtılan WCF hizmetiyle iletişim kurmak için kullanması gereken adrestir. Bu ayar, *Web. config* dosyasındaki bir girdiye karşılık gelir.
+    3. İlk **bağlantı dizesi** ayarı, Web dağıtımı uygulamayla ilişkili veritabanını (Bu durumda bir ASP.NET üyelik veritabanı) dağıtmak için kullanması gereken bağlantı dizesidir. Bu ayar, Visual Studio 'da **paket/YAYıMLAMA SQL** sekmesindeki ayara karşılık gelir.
+    4. İkinci **bağlantı dizesi** ayarı, uygulamanızın çalışır duruma geldiğinde veritabanıyla iletişim kurmak için kullanacağı bağlantı dizesidir. Bu, *Web. config* dosyasındaki bir bağlantı dizesi girişine karşılık gelir.
 
         > [!NOTE]
-        > Bu parametreleri nereden geldiğini daha fazla bilgi için bkz: [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md).
+        > Bu parametrelerin nereden geldiği hakkında daha fazla bilgi için bkz. [Web paketi dağıtımı Için parametreleri yapılandırma](configuring-parameters-for-web-package-deployment.md).
 6. **İleri**'ye tıklayın.
-7. Bu Web uygulamasına dağıttınız ilk kez bu değilse, yükleme öncesinde tüm mevcut içeriğini silmek isteyip istemediğinizi belirtmek için istenir. Gereksinimlerinize uygun seçeneği seçin ve ardından **sonraki**.
+7. Uygulamayı bu Web sitesine ilk kez dağıtmadıysanız, yüklemeden önce tüm mevcut içeriği silmek isteyip istemediğinizi belirtmeniz istenir. Gereksinimleriniz için uygun olan seçeneği seçin ve ardından **İleri**' ye tıklayın.
 
     ![](manually-installing-web-packages/_static/image6.png)
-8. IIS paketinin yüklenmesi tamamlandığında, tıklayın **son**.
+8. IIS, paketi yüklemeyi tamamladığında **son**' a tıklayın.
 
     ![](manually-installing-web-packages/_static/image7.png)
 
-Bu noktada, web uygulamanızı IIS'e başarıyla oluşturdunuz.
+Bu noktada, Web uygulamanızı başarıyla IIS 'de yayımladınız.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda, IIS Yöneticisi'ni kullanarak bir IIS Web sitesine bir web dağıtım paketi içeri aktarma açıklanmaktadır. Web uygulaması yayımlamaya bu yaklaşım, güvenlik veya altyapı kısıtlamaları, mümkün olmayan veya istenmeyen Uzaktan dağıtım yaptığınızda uygundur.
+Bu konu, bir Web dağıtım paketinin IIS Yöneticisi kullanılarak bir IIS Web sitesine nasıl içeri aktarılacağını açıklamaktadır. Web uygulaması yayımlamasına yönelik bu yaklaşım, güvenlik veya altyapı kısıtlamaları uzaktan dağıtımı olanaksız veya istenmeyen hale getirir.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-El ile bir web paketi içe aktarma işlemlerini desteklemesi için IIS web sunucusu yapılandırma hakkında yönergeler için bkz. [bir Web sunucusunu Web dağıtımı yayımlama için (çevrimdışı dağıtım) yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Web paketleri dağıtma konusunda daha fazla genel yönergeler için bkz: [izlenecek yol: Web dağıtım paketi (Bölüm 1 / 4) kullanarak bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/library/dd483479.aspx).
+Bir Web paketini el ile içeri aktarmaya yönelik bir IIS Web sunucusunun nasıl yapılandırılacağı hakkında yönergeler için bkz. [bir Web sunucusunu Web dağıtımı yayımlama Için yapılandırma (çevrimdışı dağıtım)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Web paketlerinin dağıtılması hakkında daha fazla genel bilgi için bkz. [Izlenecek yol: Web uygulaması projesi bir Web dağıtım paketi (Bölüm 1/4) kullanarak dağıtma](https://msdn.microsoft.com/library/dd483479.aspx).
 
 > [!div class="step-by-step"]
-> [Önceki](creating-and-running-a-deployment-command-file.md)
+> [Öncekini](creating-and-running-a-deployment-command-file.md)

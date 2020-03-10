@@ -1,27 +1,27 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
-title: 'ASP.NET MVC Storefront Bölüm 24: Finis | Microsoft Docs'
+title: 'ASP.NET MVC storefront Bölüm 24: Finsıs | Microsoft Docs'
 author: robconery
-description: Bu MVC Storefront serideki son bölüm ve bu biraz tuhaf görünebilir. Bunu kesinlikle göre ASP.NET yapacağım son yayını değil...
+description: Bu, MVC storefront serisinin son bölümü ve tek bir bit görünebilir. ASP.NET... öğesine göre yapacağım son ekran kaydı kesinlikle değildir.
 ms.author: riande
 ms.date: 05/28/2009
 ms.assetid: 160d6dde-1a19-4822-963b-cd936fb8afa0
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 msc.type: video
 ms.openlocfilehash: 6478ad3c8ef599dcf17c998cb0ce3c71a0039223
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59418800"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78559187"
 ---
-# <a name="aspnet-mvc-storefront-part-24-finis"></a>ASP.NET MVC Storefront Bölüm 24: Finis
+# <a name="aspnet-mvc-storefront-part-24-finis"></a>ASP.NET MVC Storefront 24. Bölüm: Son
 
-tarafından [Rob Conery](https://github.com/robconery)
+[ramiz](https://github.com/robconery) 'e göre
 
-Bu MVC Storefront serideki son bölüm ve bu biraz tuhaf görünebilir. Bunu kesinlikle ASP.NET MVC göre yapacağım son yayını değildir, ancak bu seriyi başvurabilirim kadar miyim incelediğinize düşünüyorum.
+Bu, MVC storefront serisinin son bölümü ve tek bir bit görünebilir. Bu, ASP.NET MVC 'ye göre yapacağım son ekran kaydı kesin değildir, ancak bu seriye gidebileceğimizi öğrendim.
 
-[&#9654;Videoyu (27 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
+[&#9654;Videoyu izleyin (27 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-24-finis)
 
 > [!div class="step-by-step"]
-> [Önceki](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)
+> [Öncekini](aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md)

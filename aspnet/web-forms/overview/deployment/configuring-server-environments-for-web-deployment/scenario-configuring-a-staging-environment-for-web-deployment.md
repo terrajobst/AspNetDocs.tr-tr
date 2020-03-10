@@ -1,61 +1,61 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
-title: 'Senaryo: Web dağıtımı için hazırlama ortamı yapılandırma | Microsoft Docs'
+title: 'Senaryo: Web dağıtımı için hazırlama ortamını yapılandırma | Microsoft Docs'
 author: jrjlee
-description: Bu konu, tipik web dağıtım senaryosu için bir hazırlık ortamı açıklar ve benzer bir env ayarlamak için tamamlamanız gereken görevleri açıklar...
+description: Bu konuda, hazırlama ortamı için tipik bir Web Dağıtım senaryosu açıklanmakta ve benzer bir env 'yi kurmak için gerçekleştirmeniz gereken görevler açıklanmaktadır...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 5a8e49b7-5317-4125-b107-7e2466b47bb3
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: eaa61ca850817f8dd98955b59e94be93389bf256
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65106840"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637846"
 ---
-# <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma
+# <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Senaryo: Web Dağıtımı için Hazırlama Ortamı Yapılandırma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu, tipik web dağıtım senaryosu için bir hazırlık ortamı açıklar ve benzer bir ortamı ayarlamak için tamamlanması gereken görevler açıklanmaktadır.
+> Bu konuda, bir hazırlama ortamı için tipik bir Web Dağıtım senaryosu açıklanmakta ve benzer bir ortam kurmak için gerçekleştirmeniz gereken görevler açıklanmaktadır.
 
-Kuruluşlar çok sayıda web uygulamaları veya Web siteleri için güncelleştirmeleri önizlemek için hazırlama ortamlarını kullanın. Bu kuruluş içindeki kişilerin keşfedin ve site "Canlı gider" veya diğer bir deyişle bir üretim ortamına dağıtıldıktan önce yeni işlevsellik ve içeriği gözden geçirmek için bir fırsat sağlar. Hazırlık ortamından üretim ortamına gerçekçi bir önizleme sağlamak için mümkün olduğunca çoğaltmak için tasarlanmıştır. Bu tür bir hazırlık ortamı genellikle şu özelliklere sahiptir:
+Birçok kuruluş, Web uygulamalarına veya Web sitelerine yönelik güncelleştirmelerin önizlemesi için hazırlık ortamları kullanır. Bu, kuruluş dahilindeki kişilere site "canlı olmadan" veya diğer sözcüklerden bir üretim ortamına dağıtılmadan önce yeni işlevleri veya içeriği araştırma ve gözden geçirme şansı verir. Hazırlama ortamı, gerçekçi bir önizleme sağlamak için üretim ortamını mümkün olduğunca yakın bir şekilde çoğaltmak üzere tasarlanmıştır. Bu tür bir hazırlık ortamı genellikle şu özelliklere sahiptir:
 
-- Ortamın birden çok yük dengeli web sunucusu ve bir veya daha fazla veritabanı sunucuları, genellikle Yük Devretme Kümelemesi ve veritabanı yansıtma oluşur.
-- Uygulamaları el ile bir geliştirme ekibi tarafından veya bir takım derleme sunucusu tarafından otomatik olarak dağıtılabilir.
-- Kullanıcı veya uygulama dağıtma işlemi hesapları hazırlama sunucularında yönetici ayrıcalıklarına sahip düşüktür.
-- Değişiklikleri uygulamalara ortamı tek adımlı desteklemek gereken şekilde sık olarak dağıtılan veya otomatik dağıtım.
+- Ortam, genellikle Yük Devretme Kümelemesi ve veritabanı yansıtma ile birlikte birden fazla yük dengeli Web sunucusundan ve bir veya daha fazla veritabanı sunucusundan oluşur.
+- Uygulamalar, bir geliştirme ekibi tarafından el ile veya bir ekip yapı sunucusu tarafından otomatik olarak dağıtılabilir.
+- Uygulamaları dağıtan Kullanıcı veya işlem hesaplarının, hazırlama sunucularında yönetici ayrıcalıklarına sahip olması olası değildir.
+- Uygulamalarda yapılan değişiklikler sıklıkla dağıtılır, bu nedenle ortamın tek adımlı veya otomatik dağıtımı desteklemesi gerekir.
 
 > [!NOTE]
-> Birden çok sunucu arasında bir veritabanı dağıtımını ölçekleme, bu öğreticinin kapsamı dışındadır olduğu. Bu alan hakkında daha fazla bilgi için lütfen başvurun [SQL Server Books Online](https://technet.microsoft.com/library/ms130214.aspx).
+> Bir veritabanı dağıtımının birden çok sunucu arasında ölçeklendirilmesi, Bu öğreticinin kapsamı dışındadır. Bu alan hakkında daha fazla bilgi için lütfen [çevrimiçi SQL Server Books Online](https://technet.microsoft.com/library/ms130214.aspx)'a başvurun.
 
-Örneğin, bizim [öğretici senaryo](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) Kişi Yöneticisi çözümü yönetir. TFS Yöneticisi, Rob Aksoy geliştiricilerinin hazırlık ortamına gerektiği gibi bir dağıtımı tetikleyecek bir yapı tanımını oluşturmuştur.
+Örneğin, [öğretici senaryolarımızda](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team FOUNDATION Server (TFS), Contact Manager çözümünü yönetir. Ramiz Walters TFS Yöneticisi, geliştiricilerin gereken hazırlama ortamına dağıtım tetiklemesine olanak tanıyan bir yapı tanımı oluşturmuştur.
 
 ![](scenario-configuring-a-staging-environment-for-web-deployment/_static/image1.png)
 
-Çoğu durumda, mutlaka en son sürüme hazırlama ortamına dağıtmak istediğiniz olmaz olduğunu unutmayın. Bunun yerine, doğrulama ve doğrulama test ortamında zaten gerçekleştirdi, belirli bir yapıyı dağıtmak istediğiniz çok daha büyük olasılıkla.
+Çoğu durumda, en son derlemeyi hazırlama ortamına dağıtmak istemeyebileceğine unutmayın. Bunun yerine, test ortamında zaten bir onaylama ve doğrulama işlemi olan belirli bir derlemeyi dağıtmak istemeniz çok daha olasıdır.
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
 
-Bu senaryoda, bu bilgileri dağıtım gereksinimleri analizini gelen çıkarabilir:
+Bu senaryoda, dağıtım gereksinimlerinin bir analizinden bu olguları getirebilirsiniz:
 
-- Hazırlama web sunucularını yönetici olmayan dağıtım desteklemesi için dağıtımı gerçekleştiren kullanıcı veya işlem hesabı hazırlama sunucularında yönetici ayrıcalıklarına sahip olmaz. Bu nedenle, uzak aracı yerine Web dağıtımı işleyicisi kullanmak üzere hazırlama web sunucularını yapılandırma gerekir.
-- Birden çok web sunucusu hazırlık ortamı içerir ancak bu Web grubu çerçevesi (WFF) bir sunucu grubu oluşturmak için kullanılacak ihtiyacınız olacak şekilde tek tıklamayla veya otomatik dağıtım desteklemesi gerekir. Bu yaklaşımı kullanarak bir web sunucusu (birincil) bir uygulamayı dağıtabilirsiniz ve diğer tüm web sunucuları hazırlama ortamında dağıtımı WFF çoğaltır.
-- Dağıtımı gerçekleştiren işlem hesabı ve kullanıcı veritabanları oluşturma izni olması gerekir. Bu nedenle, eklemeniz gerekecektir **dbcreator** uzaktan erişim ve dağıtımını desteklemek için veritabanı sunucusunu yapılandırmaya ek olarak veritabanı sunucusunda, sunucu rolü.
+- Dağıtımı gerçekleştiren kullanıcı veya işlem hesabı, hazırlama sunucularında yönetici ayrıcalıklarına sahip olmayacaktır, bu nedenle hazırlama Web sunucularının yönetici olmayan dağıtımı desteklemesi gerekir. Bu nedenle, hazırlama Web sunucularını uzak aracı yerine Web Dağıtımı Işleyicisini kullanacak şekilde yapılandırmanız gerekir.
+- Hazırlama ortamı birden çok Web sunucusu içerir, ancak tek tıklamayla veya otomatik dağıtımı desteklemesi gerekir, bu nedenle bir sunucu grubu oluşturmak için Web grubu çerçevesini (WFF) kullanmanız gerekir. Bu yaklaşımı kullanarak, bir uygulamayı bir Web sunucusuna (birincil sunucu) dağıtabilir ve WFF, hazırlama ortamındaki diğer tüm Web sunucularındaki dağıtımı çoğaltır.
+- Dağıtımı gerçekleştiren kullanıcı veya işlem hesabı, veritabanı oluşturma izinlerine sahip olmalıdır. Bu nedenle, sunucu sunucusunu uzaktan erişim ve dağıtımı destekleyecek şekilde yapılandırmaya ek olarak, hesabı veritabanı sunucusundaki **dbcreator** sunucu rolüne eklemeniz gerekir.
 
-Bu konular bu görevleri tamamlamak için gereken tüm bilgileri sağlar:
+Bu konular, bu görevleri gerçekleştirmek için ihtiyacınız olan tüm bilgileri sağlar:
 
-- [Web Farm Framework ile bir sunucu grubu oluştur](creating-a-server-farm-with-the-web-farm-framework.md). Bu konu, oluşturmak ve web platformu ürünlerini ve bileşenleri, yapılandırma ayarlarını ve Web siteleri ve uygulamaları birden çok yük dengeli web sunucusu arasında çoğaltılmasını WFF, kullanan bir sunucu grubu yapılandırmak açıklar.
-- [Bir Web sunucusunu Web dağıtımı yayımlama için yapılandırma (Web dağıtımı işleyicisi)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md). Bu konuda, temiz bir Windows Server 2008 R2 derleme başlatma yayımlama, uzak aracı yaklaşımı kullanarak Web dağıtımını destekleyen bir web sunucusu nasıl oluşturulduğu açıklanır.
-- [Bir veritabanı sunucusunu Web dağıtımı yayımlama için yapılandırma](configuring-a-database-server-for-web-deploy-publishing.md). Bu konuda, uzaktan erişim ve dağıtımını, bir SQL Server 2008 R2'in varsayılan yüklemesinden başlatma desteklemek için bir veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır.
+- [Web grubu çerçevesiyle bir sunucu grubu oluşturun](creating-a-server-farm-with-the-web-farm-framework.md). Bu konu, Web platformu ürünlerinin ve bileşenlerinin, yapılandırma ayarlarının ve Web sitelerinin ve uygulamaların birden çok yük dengeli Web sunucusunda çoğaltılmasını sağlamak üzere WFF kullanarak bir sunucu grubu oluşturma ve yapılandırmayı açıklar.
+- [Bir Web sunucusunu Web dağıtımı yayımlaması Için yapılandırın (Web dağıtımı işleyicisi)](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md). Bu konuda, temiz bir Windows Server 2008 R2 derlemesinden başlayarak uzak Aracı yaklaşımını kullanarak Web Dağıtımı yayımlamayı destekleyen bir Web sunucusunun nasıl oluşturulacağı açıklanmaktadır.
+- [Web dağıtımı yayımlaması için bir veritabanı sunucusu yapılandırın](configuring-a-database-server-for-web-deploy-publishing.md). Bu konuda, bir veritabanı sunucusunun varsayılan bir SQL Server 2008 R2 yüklemesinden başlayarak uzaktan erişim ve dağıtımı destekleyecek şekilde nasıl yapılandırılacağı açıklanmaktadır.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Tipik bir geliştirici test ortamı yapılandırma ile ilgili yönergeler için bkz [senaryosu: Web dağıtımı için bir Test Ortamı yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md). Tipik bir üretim ortamı yapılandırma hakkında yönergeler için bkz. [senaryosu: Web dağıtımı için bir üretim ortamı yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md).
+Tipik bir geliştirici test ortamını yapılandırma hakkında yönergeler için bkz. [Senaryo: Web dağıtımı Için test ortamı yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md). Tipik bir üretim ortamını yapılandırma hakkında yönergeler için bkz. [Senaryo: Web dağıtımı Için üretim ortamı yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md).
 
 > [!div class="step-by-step"]
 > [Önceki](scenario-configuring-a-test-environment-for-web-deployment.md)

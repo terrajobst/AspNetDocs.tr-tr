@@ -1,423 +1,423 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: "Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web formları, MVC ve Web API'yi tümleştirme | Microsoft Docs"
+title: "Uygulamalı laboratuvar: One ASP.NET: ASP.NET Web Forms, MVC ve Web API 'sini tümleştirme | Microsoft Docs"
 author: rick-anderson
-description: ASP.NET Web siteleri, uygulamaları ve Hizmetleri MVC, Web API ve diğerleri gibi özelleştirilmiş teknolojilerini kullanarak oluşturmaya yönelik bir çerçevedir. Genişletmeyle ASP.NET h...
+description: ASP.NET, MVC, Web API 'SI ve diğerleri gibi özel teknolojiler kullanarak Web siteleri, uygulamalar ve hizmetler oluşturmaya yönelik bir çerçevedir. Genişletme ASP.NET h...
 ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 165d104b5d3ef3281af449cc8673ad96f531d628
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113075"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78623202"
 ---
-# <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’sini Tümleştirme
+# <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’yi Tümleştirme
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
+[Web Camps eğitim setini indirin](https://aka.ms/webcamps-training-kit)
 
-> ASP.NET Web siteleri, uygulamaları ve Hizmetleri MVC, Web API ve diğerleri gibi özelleştirilmiş teknolojilerini kullanarak oluşturmaya yönelik bir çerçevedir. Genişletmeyle oluşturulduktan sonra ASP.NET yakaladı ve ifade edilen teknolojiler tümleşik olması gerekir, doğru çalışma yeni çabalar olmuştur **tek ASP.NET**.
+> ASP.NET, MVC, Web API 'SI ve diğerleri gibi özel teknolojiler kullanarak Web siteleri, uygulamalar ve hizmetler oluşturmaya yönelik bir çerçevedir. Genişletme ASP.NET, oluşturulduktan ve bu teknolojilerin tümleşik olması gerektiğinden, **bir ASP.net**üzerinde çalışan son çalışmalar vardır.
 > 
-> Visual Studio 2013, bir uygulama oluşturmak ve tüm ASP.NET teknolojileri tek bir projede kullanmanıza olanak sağlayan yeni bir birleşik proje sistemi sunuyor. Bu özellik, bir proje ve onunla Sopası başlangıcında bir teknolojisini seçin gereğini ortadan kaldırır ve bunun yerine bir projede birden çok ASP.NET çerçeve kullanımını teşvik eder.
+> Visual Studio 2013, bir uygulama oluşturmanıza ve tüm ASP.NET teknolojilerini tek bir projede kullanmanıza imkan tanıyan yeni bir birleştirilmiş proje sistemi kullanıma sunuyor. Bu özellik projenin başlangıcında bir teknoloji seçme gereksinimini ortadan kaldırır ve bunun yerine birden çok ASP.NET Framework 'ün bir proje içinde kullanımını teşvik eder.
 > 
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve kod parçacıkları [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)adresinden erişilebilen Web Camps eğitim seti ' ne dahildir.
 
 <a id="Overview"></a>
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- Temel bir Web sitesi oluşturma **tek ASP.NET** proje türü
-- Farklı kullanım **ASP.NET** çerçeveleri ister **MVC** ve **Web API** aynı projede
-- Ana bileşenleri tanımlamak bir **ASP.NET** uygulama
-- Yararlanmak **ASP.NET iskeleti oluşturma** denetleyicileri ve görünümleri CRUD işlemleri gerçekleştirmek için otomatik olarak oluşturmak için framework tabanlı model sınıflarınızı
-- Her iş için doğru aracı kullanarak makine ve İnsan okunabilir biçimde bilgi aynı kümesini kullanıma sunma
+- **Bir ASP.net** proje türünü temel alan bir Web sitesi oluşturma
+- **MVC** ve **Web apı** gibi farklı **ASP.net** çerçeveleri aynı projede kullanın
+- Bir **ASP.net** uygulamasının ana bileşenlerini tanımla
+- Model sınıflarınıza göre CRUD işlemleri gerçekleştirmek üzere otomatik olarak denetleyiciler ve görünümler oluşturmak için **ASP.net Scafkatlama** çerçevesinden yararlanın
+- Her iş için doğru aracı kullanarak makine ve insanlarca okunabilir biçimlerde aynı bilgi kümesini kullanıma sunun
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-Aşağıda bu uygulamalı laboratuvarı tamamlamak için gereklidir:
+Bu uygulamalı laboratuvarın tamamlanabilmesi için aşağıdakiler gereklidir:
 
-- [Visual Studio Express 2013 Web](https://www.microsoft.com/visualstudio/) veya üzeri
+- Web veya daha büyük [için Visual Studio Express 2013](https://www.microsoft.com/visualstudio/)
 - [Visual Studio 2013 Güncelleştirme 1](https://go.microsoft.com/fwlink/?LinkId=301714)
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum
 
-Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı oluşturmanız gerekir.
+Bu uygulamalı laboratuvarda alýþtýrmalarý çalıştırmak için öncelikle ortamınızı ayarlamanız gerekecektir.
 
-1. Açık Windows Gezgini ve Laboratuvar göz atın **kaynak** klasör.
-2. Sağ **Setup.cmd** seçip **yönetici olarak çalıştır** ortamınızı yapılandırın ve bu Laboratuvar için Visual Studio kod parçacıkları yükleme kurulum işlemini başlatmak için.
-3. Kullanıcı Hesabı Denetimi iletişim kutusunu gösteriliyorsa, devam etmek için eylemi onaylayın.
+1. Windows Gezgini 'ni açın ve laboratuvarın **kaynak** klasörüne gidin.
+2. Ortamınızı yapılandıracak ve bu laboratuvar için Visual Studio kod parçacıklarını yükleyecek kurulum işlemini başlatmak için **Setup. cmd** ' ye sağ tıklayın ve **yönetici olarak çalıştır** ' ı seçin.
+3. Kullanıcı hesabı denetimi iletişim kutusu gösterilirse, devam etmek için eylemi onaylayın.
 
 > [!NOTE]
-> Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
+> Kurulumu çalıştırmadan önce bu laboratuvarın tüm bağımlılıklarını denetlediğinizden emin olun.
 
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
-Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık olması için bu kodu çoğunu, Visual Studio el ile eklemek zorunda kalmamak için 2013 içinde erişebileceğiniz Visual Studio kod parçacıkları, olarak sağlanır.
+Laboratuvar belgesi boyunca kod blokları eklemeniz istenir. Kolaylık olması için, bu kodun çoğu Visual Studio Code kod parçacığı olarak sağlanır ve bu, el ile ekleme zorunluluğunu ortadan kaldırmak için Visual Studio 2013 içinden erişebilirsiniz.
 
 > [!NOTE]
-> Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
+> Her alıştırma, her alıştırmanın bağımsız olarak her birini takip etmenizi sağlayan alıştırmanın **BEGIN** klasöründe bulunan bir başlangıç çözümüdür. Lütfen bir alıştırma sırasında eklenen kod parçacıklarının bu başlangıç çözümlerinde eksik olduğunu ve Alıştırmayı tamamlayana kadar çalışmadığının farkında olun. Bir alıştırmada kaynak kodun içinde, ilgili alıştırmada adımların tamamlanmasına neden olan koda sahip bir Visual Studio çözümü içeren bir **son** klasör de bulacaksınız. Bu uygulamalı laboratuvarda çalışırken daha fazla yardıma ihtiyacınız varsa bu çözümleri kılavuz olarak kullanabilirsiniz.
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
+## <a name="exercises"></a>Alıştırmalarda
 
-Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
+Bu uygulamalı laboratuvar aşağıdaki alıştırmaları içerir:
 
-1. [Yeni bir Web formları projesi oluşturma](#Exercise1)
-2. [İskele kurma kullanarak MVC denetleyicisi oluşturma](#Exercise2)
-3. [Yapı İskelesi kullanarak bir Web API denetleyicisi oluşturma](#Exercise3)
+1. [Yeni bir Web Forms projesi oluşturma](#Exercise1)
+2. [Yapı Iskelesi kullanarak MVC denetleyicisi oluşturma](#Exercise2)
+3. [Yapı Iskelesi kullanarak Web API denetleyicisi oluşturma](#Exercise3)
 
-Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **60 dakika**
 
 > [!NOTE]
-> Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
+> Visual Studio 'Yu ilk kez başlattığınızda, önceden tanımlanmış ayarlar koleksiyonundan birini seçmeniz gerekir. Her önceden tanımlı koleksiyon, belirli bir geliştirme stiliyle eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışını, IntelliSense kod parçacıklarını ve iletişim kutusu seçeneklerini belirler. Bu laboratuvardaki yordamlarda, **genel geliştirme ayarları** koleksiyonu kullanılırken, Visual Studio 'da belirli bir görevi gerçekleştirmek için gereken eylemler açıklanır. Geliştirme ortamınız için farklı bir ayarlar koleksiyonu seçerseniz, adımlarda dikkate almanız gereken adımlarda farklılıklar olabilir.
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-creating-a-new-web-forms-project"></a>Alıştırma 1: Yeni bir Web formları projesi oluşturma
+### <a name="exercise-1-creating-a-new-web-forms-project"></a>Alıştırma 1: yeni bir Web Forms projesi oluşturma
 
-Bu alıştırmada, Visual Studio 2013 kullanarak yeni Web Forms sitesi oluşturacaksınız **tek ASP.NET** birleşik Proje deneyimi, Web Forms, MVC ve Web API'si bileşenleri aynı uygulamada kolayca tümleştirmenizi sağlar. Daha sonra oluşturulan çözümü keşfedin ve onun parçalarını tanımlamak ve son olarak eylem Web sitesinde görürsünüz.
+Bu alıştırmada, aynı uygulamadaki Web Forms, MVC ve Web API bileşenlerini kolayca tümleştirmenize olanak tanıyan **ASP.net** Birleşik proje deneyimini kullanarak Visual Studio 2013 yeni bir Web Forms sitesi oluşturacaksınız. Sonra oluşturulan çözümü keşfedebilir ve parçalarını tanımlayabilir, son olarak Web sitesini çalışır durumda görürsünüz.
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1--creating-a-new-site-using-the-one-aspnet-experience"></a>Görev 1: tek ASP.NET deneyimi kullanarak yeni bir Site oluşturma
+#### <a name="task-1--creating-a-new-site-using-the-one-aspnet-experience"></a>Görev 1 – bir ASP.NET deneyimini kullanarak yeni bir site oluşturma
 
-Bu görevde, başlayacak yeni bir Web sitesi Visual Studio'da oluşturma dayalı **tek ASP.NET** proje türü. **Bir ASP.NET** tüm ASP.NET teknolojileri birleştirir ve karıştırın ve bunları istediğiniz gibi eşleşen seçeneği sunar. Canlı Web formları, MVC ve Web API farklı bileşenleri ardından yan yana ve uygulamanızdaki algılar.
+Bu görevde, Visual Studio 'da **bir ASP.net** proje türüne göre yeni bir Web sitesi oluşturmaya başlayacaksınız. **Bir ASP.net** tüm ASP.NET teknolojilerini birleştirir ve bunları istediğiniz gibi karıştırma ve eşleştirme seçeneği sunar. Daha sonra uygulamanız içinde yan yana Web Forms, MVC ve Web API 'sinin farklı bileşenlerini tanıyacaksınız.
 
-1. Açık **Visual Studio Express 2013 Web** seçip **dosya | Yeni proje...**  yeni bir çözüm başlatmak için.
+1. **Web için Visual Studio Express 2013** ' i açın ve dosya ' yı seçin **| Yeni proje...** Yeni bir çözüm başlatmak için.
 
     ![Yeni proje oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image1.png)
 
-    *Yeni proje oluşturma*
-2. İçinde **yeni proje** iletişim kutusunda **ASP.NET Web uygulaması** altında **Visual C# | Web** sekmesini tıklatıp emin **.NET Framework 4.5** seçilir. Projeyi adlandırın *MyHybridSite*, seçin bir **konumu** tıklatıp **Tamam**.
+    *Yeni bir proje oluşturma*
+2. **Yeni proje** iletişim kutusunda, görsel  **C# altında ASP.NET Web uygulaması ' nı seçin | Web** sekmesine ve **.NET Framework 4,5** ' nin seçildiğinden emin olun. Projeyi *Myhybridsite*olarak adlandırın, bir **konum** seçin ve **Tamam 'a**tıklayın.
 
     ![Yeni ASP.NET Web uygulaması projesi](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image2.png)
 
     *Yeni bir ASP.NET Web uygulaması projesi oluşturma*
-3. İçinde **yeni ASP.NET projesi** iletişim kutusunda **Web Forms** şablonu seçip alt **MVC** ve **Web API** seçenekleri. Ayrıca, emin **kimlik doğrulaması** seçeneği **bireysel kullanıcı hesapları**. Devam etmek için **Tamam** 'a tıklayın.
+3. **Yeni ASP.NET projesi** iletişim kutusunda **Web Forms** şablonunu seçin ve **MVC** ve **Web API 'si** seçeneklerini belirleyin. Ayrıca, **kimlik doğrulama** seçeneğinin **bireysel kullanıcı hesapları**olarak ayarlandığından emin olun. Devam etmek için **Tamam** 'a tıklayın.
 
-    ![Web API ve MVC bileşenler dahil olmak üzere Web Forms şablonuyla yeni proje oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image3.png)
+    ![Web API ve MVC bileşenleri dahil Web Forms şablonuyla yeni bir proje oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image3.png)
 
-    *Web API ve MVC bileşenler dahil olmak üzere Web Forms şablonuyla yeni proje oluşturma*
-4. Şimdi oluşturulan çözüm yapısını keşfedebilirsiniz.
+    *Web API ve MVC bileşenleri dahil Web Forms şablonuyla yeni bir proje oluşturma*
+4. Artık oluşturulan çözümün yapısını inceleyebilirsiniz.
 
-    ![Oluşturulan çözüm keşfetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image4.png)
+    ![Oluşturulan çözümü keşfetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image4.png)
 
-    *Oluşturulan çözüm keşfetme*
+    *Oluşturulan çözümü keşfetme*
 
-    1. **Hesabı:** Bu klasör kaydetmek için oturum açın ve uygulamanın kullanıcı hesaplarını yönetmek için Web formu sayfaları içerir. Bu klasöre eklenen **bireysel kullanıcı hesapları** kimlik doğrulaması seçeneği Web Forms proje şablonu yapılandırması sırasında belirlenir.
-    2. **Modelleri:** Bu klasör, uygulama verilerinizi temsil eden sınıfları içerir.
-    3. **Denetleyicileri** ve **görünümleri**: Bu klasör için gerekli olan **ASP.NET MVC** ve **ASP.NET Web API** bileşenleri. Sonraki alıştırmalarda MVC ve Web API teknolojileri inceleyeceksiniz.
-    4. **Default.aspx**, **Contact.aspx** ve **About.aspx** dosyalar için belirli sayfaları oluşturmak için başlangıç noktası olarak kullanabileceğiniz önceden tanımlanmış Web formu sayfaları, uygulama. Bu dosyaların programlama mantığı olarak adlandırılan ayrı bir dosyada bulunan &quot;arka plan kod&quot; olan dosya, bir &quot;. aspx.vb&quot; veya &quot;. aspx.cs&quot; uzantısı (bağlı olarak dili) kullanılır. Arka plan kod mantıksal sunucu üzerinde çalışır ve dinamik olarak sayfanız için bir HTML çıktı üretir.
-    5. **Site.Master** ve **Site.Mobile.Master** sayfaları, uygulamanın görünümünü ve tüm sayfaları standart davranışını tanımlayın.
-5. Çift **Default.aspx** sayfasının içeriği keşfetmek için dosya.
+    1. **Hesap:** Bu klasör, kaydedilecek Web formu sayfalarını içerir, oturum açın ve uygulamanın kullanıcı hesaplarını yönetir. Bu klasör, Web Forms projesi şablonunun yapılandırması sırasında **bireysel kullanıcı hesapları** kimlik doğrulaması seçeneği belirlendiğinde eklenir.
+    2. **Modeller:** Bu klasör, uygulama verilerinizi temsil eden sınıfları içerir.
+    3. **Denetleyiciler** ve **Görünümler**: Bu klasörler **ASP.NET MVC** ve **ASP.NET Web API** bileşenleri için gereklidir. MVC ve Web API teknolojilerini bir sonraki alıştırmada keşfedecektir.
+    4. **Default. aspx**, **Contact. aspx** ve **About. aspx** dosyaları, uygulamanıza özgü sayfaları oluşturmak için başlangıç noktaları olarak kullanabileceğiniz önceden tanımlanmış Web formu sayfalarıdır. Bu dosyaların programlama mantığı, bir &quot;. aspx. vb&quot; veya &quot;. aspx.cs&quot; uzantısına (kullanılan dile bağlı olarak) sahip &quot;arka plan kod&quot; dosyası olarak adlandırılan ayrı bir dosyada yer alır. Arka plan kod mantığı sunucuda çalışır ve sayfanız için HTML çıktısını dinamik olarak oluşturur.
+    5. **Site. Master** ve **site. Mobile. Master** sayfaları, uygulamadaki tüm sayfaların görünüm ve yapısını ve standart davranışını tanımlar.
+5. Sayfanın içeriğini araştırmak için **default. aspx** dosyasına çift tıklayın.
 
-    ![Default.aspx sayfasında keşfetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image5.png)
+    ![Default. aspx sayfasını keşfetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image5.png)
 
-    *Default.aspx sayfasında keşfetme*
+    *Default. aspx sayfasını keşfetme*
 
     > [!NOTE]
-    > **Sayfa** yönergesi dosyanın üst Web Forms sayfası özniteliklerini tanımlar. Örneğin, **MasterPageFile** öznitelik asıl yolunu belirtir - bu durumda, sayfa *Site.Master* sayfası - ve **Inherits** öznitelik tanımlar. arka plan kod sınıfı sayfanın devralır. Bu sınıf tarafından belirlenen dosya bulunan **CodeBehind** özniteliği.
+    > Dosyanın en üstündeki **sayfa** yönergesi Web Forms sayfasının özniteliklerini tanımlar. Örneğin, **MasterPageFile** özniteliği ana sayfanın yolunu belirtir-bu durumda, *site. Master* sayfası ve **Inherits** özniteliği, sayfanın devralması için arka plan kod sınıfını tanımlar. Bu sınıf, **codebehind** özniteliği tarafından belirlenen dosyada bulunur.
     > 
-    > **Asp: Content** denetim (metin, biçimlendirme ve denetimleri) sayfanın gerçek içeriği bulunduran ve eşlenmiş bir **asp: ContentPlaceHolder** ana sayfadaki denetim. Bu durumda, sayfa içeriği içinde işlenir *MainContent* tanımlı denetim *Site.Master* sayfası.
-6. Genişletin **uygulama\_Başlat** klasörü ve bildirim **WebApiConfig.cs** dosya. Web API'si ile tek ASP.NET şablon projenizi yapılandırırken içerdiğinden visual Studio bu dosyayı oluşturulan çözümde yer alan.
-7. Açık **WebApiConfig.cs** dosya. İçinde *WebApiConfig* HTTP eşleştiren, Web API, ile ilişkili yapılandırma bulacaksınız sınıf yolları için **Web APİ'si denetleyicilerinin**.
+    > **ASP: Content** Control, sayfanın gerçek içeriğini (metin, biçimlendirme ve denetimler) tutar ve ana sayfada bir **ASP: ContentPlaceHolder** denetimiyle eşlenir. Bu durumda, sayfa içeriği *site. Master* sayfasında tanımlanan *mainContent* denetimi içinde işlenir.
+6. **Uygulama\_Başlat** klasörünü genişletin ve **WebApiConfig.cs** dosyasına dikkat edin. Visual Studio, projenizi bir ASP.NET şablonuyla yapılandırırken Web API 'SI eklemiş olduğunuzdan, bu dosyayı oluşturulan çözümde içeriyordu.
+7. **WebApiConfig.cs** dosyasını açın. *WebApiConfig* SıNıFıNDA, http YOLLARıNı **Web API DENETLEYICILERIYLE**eşleyen Web API 'siyle ilişkili yapılandırmayı bulacaksınız.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample1.cs)]
-8. Açık **RouteConfig.cs** dosya. İçinde *RegisterRoutes* yöntemi için bir HTTP rotasıyla eşleştiren MVC ile ilişkili yapılandırmasını bulacaksınız **MVC denetleyicileri**.
+8. **RouteConfig.cs** dosyasını açın. *RegisterRoutes* yönteminin IÇINDE, http yollarını **MVC denetleyicileriyle**eşleyen MVC ile ilişkili yapılandırmayı bulacaksınız.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample2.cs)]
 
 <a id="Ex1Task2"></a>
 #### <a name="task-2--running-the-solution"></a>Görev 2 – çözümü çalıştırma
 
-Bu görevde oluşturulan çözümü çalıştırın, uygulama ve URL yeniden yazma ve yerleşik kimlik doğrulama gibi özelliklerinden bazılarını keşfedin.
+Bu görevde, oluşturulan çözümü çalıştıracak, uygulamanın URL yeniden yazma ve yerleşik kimlik doğrulama gibi bazı özelliklerini keşfedecektir.
 
-1. Çözümü çalıştırmak için basın **F5** veya **Başlat** düğme araç çubuğunda yer alan. Tarayıcıda uygulama giriş sayfası açmanız gerekir.
+1. Çözümü çalıştırmak için **F5** tuşuna basın veya araç çubuğunda bulunan **Başlat** düğmesine tıklayın. Uygulama giriş sayfası tarayıcıda açılmalıdır.
 
-    ![Çözüm çalıştırma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image6.png)
-2. Web formları sayfaları çağrılan doğrulayın. Bunu yapmak için URL'ye **/contact.aspx** tuşuna basın ve adres çubuğuna URL'ye **Enter**.
+    ![Çözümü çalıştırma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image6.png)
+2. Web Forms sayfalarının çağrıldığından emin olun. Bunu yapmak için, adres çubuğundaki URL 'ye **/Contact.aspx** ekleyin ve **ENTER**'a basın.
 
-    ![Kolay URL'ler](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image7.png)
+    ![Kolay URL’ler](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image7.png)
 
-    *Kolay URL'ler*
+    *Kolay URL 'Ler*
 
     > [!NOTE]
-    > Gördüğünüz gibi URL değişir **/başvurun**. Başlangıç **ASP.NET 4**, URL yönlendirme özellikleri, Web Forms eklendi, URL'ler, yazabilmesi ister *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* yerine  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Daha fazla bilgi için [URL yönlendirme](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
-3. Şimdi uygulamaya tümleşik kimlik doğrulaması akışı inceleyeceksiniz. Bunu yapmak için tıklatın **kaydetme** sayfanın sağ üst köşesindeki içinde.
+    > Gördüğünüz gibi URL, **/Contact**olarak değişir. **ASP.NET 4**' ten başlayarak, URL yönlendirme özellikleri Web Forms eklendi, bu nedenle *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)* yerine *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* gibi URL 'leri yazabilirsiniz. Daha fazla bilgi için [URL yönlendirmeye](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md)bakın.
+3. Artık uygulamayla tümleştirilmiş kimlik doğrulama akışını araştıracaktır. Bunu yapmak için sayfanın sağ üst köşesindeki **Kaydet** ' e tıklayın.
 
-    ![Yeni bir kullanıcı kaydetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
+    ![Yeni Kullanıcı kaydetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
 
-    *Yeni bir kullanıcı kaydetme*
-4. İçinde **kaydetme** want bir **kullanıcı adı** ve **parola**ve ardından **kaydetme**.
+    *Yeni Kullanıcı kaydetme*
+4. **Kaydet** sayfasında, bir **Kullanıcı adı** ve **parola**girin ve ardından **Kaydet**' e tıklayın.
 
     ![Kayıt sayfası](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image9.png)
 
     *Kayıt sayfası*
-5. Uygulama, yeni hesabı kaydeder ve kullanıcının kimliği doğrulanır.
+5. Uygulama yeni hesabı kaydeder ve kullanıcının kimliği doğrulanır.
 
-    ![Kimliği doğrulanmış kullanıcı](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image10.png)
+    ![Kullanıcının kimliği doğrulandı](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image10.png)
 
-    *Kimliği doğrulanmış kullanıcı*
-6. Geri Git Visual Studio ve ENTER tuşuna **SHIFT + F5 tuşlarına basarak** hata ayıklamayı durdurmak için.
+    *Kullanıcının kimliği doğrulandı*
+6. Visual Studio 'ya geri dönün ve hata ayıklamayı durdurmak için **SHIFT + F5** tuşlarına basın.
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-creating-an-mvc-controller-using-scaffolding"></a>Alıştırma 2: İskele kurma kullanarak MVC denetleyicisi oluşturma
+### <a name="exercise-2-creating-an-mvc-controller-using-scaffolding"></a>Alıştırma 2: yapı Iskelesi kullanarak MVC denetleyicisi oluşturma
 
-Bu alıştırmada, Eylemler ve Razor görünümleri, tek satırlık bir kod yazmadan CRUD işlemleri gerçekleştirmek için bir ASP.NET MVC 5 denetleyici oluşturmak için Visual Studio tarafından sağlanan ASP.NET iskeleti oluşturma çerçevesi yararlanır. Yapı iskelesi süreci Entity Framework Code First SQL veritabanı'nda veri bağlamı ve veritabanı şeması oluşturmak için kullanır.
+Bu alıştırmada, tek bir kod satırı yazmadan CRUD işlemleri gerçekleştirmeye yönelik eylemlerle ve Razor görünümleriyle ASP.NET MVC 5 denetleyicisi oluşturmak için Visual Studio tarafından sunulan ASP.NET Scafkatlama çerçevesinden faydalanabilirsiniz. Yapı iskelesi işlemi, SQL veritabanında veri bağlamını ve veritabanı şemasını oluşturmak için Entity Framework Code First kullanacaktır.
 
-**Entity Framework'ü ilk kod**
+**Entity Framework Code First hakkında**
 
-Entity Framework (EF) programlama ilişkisel depolama şeması kullanarak doğrudan programlama yerine kavramsal bir uygulama modeli tarafından veri erişimi uygulamaları oluşturmanızı sağlayan bir nesne ilişkisel eşleyicidir (ORM) olur.
+Entity Framework (EF), ilişkisel bir depolama şemasını kullanarak doğrudan programlama yerine kavramsal bir uygulama modeliyle programlama yoluyla veri erişimi uygulamaları oluşturmanıza olanak sağlayan bir nesne ilişkisel Eşleyici 'dir (ORM).
 
-Entity Framework Code First modelleme iş akışı sorgulama, gerçekleştirirken EF dayalı modeli temsil etmek için kendi etki alanı sınıflarını kullanmak değişiklik izleme ve güncelleştirme işlevleri sağlar. Code First geliştirme iş akışı kullanarak, bir veritabanı oluşturmak ya da bir şema belirleme uygulamanızı başlatmak gerekmez. Bunun yerine, uygulamanız için en uygun etki alanı model nesneleri tanımlayan standart .NET sınıfları yazabilirsiniz ve Entity Framework veritabanı sizin için oluşturur.
+Entity Framework Code First modelleme iş akışı, sorgu, değişiklik izleme ve güncelleştirme işlevlerini gerçekleştirirken EF 'in kullandığı modeli göstermek için kendi etki alanı sınıflarınızı kullanmanıza olanak sağlar. Code First geliştirme iş akışını kullanarak, bir veritabanı oluşturarak veya bir şema belirterek uygulamanıza başlamanız gerekmez. Bunun yerine, uygulamanız için en uygun etki alanı modeli nesnelerini tanımlayan standart .NET sınıfları yazabilir ve Entity Framework veritabanı sizin için oluşturulur.
 
 > [!NOTE]
-> Entity Framework hakkında daha fazla bilgi [burada](../../../entity-framework.md).
+> [Buradan](../../../entity-framework.md)Entity Framework hakkında daha fazla bilgi edinebilirsiniz.
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1--creating-a-new-model"></a>Görev 1 – yeni bir Model oluşturma
+#### <a name="task-1--creating-a-new-model"></a>Görev 1 – yeni model oluşturma
 
-Artık tanımlayacak bir **kişi** sınıfı MVC denetleyicisi ve görünümleri oluşturmak için iskele kurma işlemi tarafından kullanılan model olacaktır. Oluşturarak başlayacaksınız bir **kişi** model sınıfı ve denetleyici de CRUD işlemlerini otomatik olarak oluşturulacak yapı iskelesi özelliklerini kullanma.
+Artık, MVC denetleyicisi ve görünümleri oluşturmak için yapı iskelesi işlemi tarafından kullanılan model olacak bir **kişi** sınıfı tanımlayacaksınız. Bir **kişi** modeli sınıfı oluşturarak başlayacaksınız ve DENETLEYICIDEKI CRUD işlemleri, yapı iskelesi özellikleri kullanılarak otomatik olarak oluşturulur.
 
-1. Açık **Visual Studio Express 2013 Web** ve **MyHybridSite.sln** çözüm bulunan **kaynak/Ex2-MvcScaffolding/başlangıcı** klasör. Alternatif olarak, önceki alıştırmada aldığınız çözümüyle devam edebilirsiniz.
-2. İçinde **Çözüm Gezgini**, sağ **modelleri** klasörü **MyHybridSite** seçin ve proje **Ekle | Sınıfı...** .
+1. **Web için Visual Studio Express 2013** ve **kaynak/EX2-Mvcscafkat/başlangıç** klasöründe bulunan **myhybridsite. sln** çözümünü açın. Alternatif olarak, önceki alıştırmada elde ettiğiniz çözüme devam edebilirsiniz.
+2. **Çözüm Gezgini**, **Myhybridsite** projesinin **modeller** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Sınıf.** ...
 
-    ![Kişi model sınıfı ekleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image11.png)
+    ![Kişi modeli sınıfı ekleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image11.png)
 
-    *Kişi model sınıfı ekleme*
-3. İçinde **Yeni Öğe Ekle** iletişim kutusunda, dosya adı *Person.cs* tıklatıp **Ekle**.
+    *Kişi modeli sınıfı ekleme*
+3. **Yeni öğe Ekle** iletişim kutusunda dosyayı *Person.cs* olarak adlandırın ve **Ekle**' ye tıklayın.
 
-    ![Kişi model sınıfı oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image12.png)
+    ![Kişi modeli sınıfı oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image12.png)
 
-    *Kişi model sınıfı oluşturma*
-4. İçeriğinin yerine geçecek **Person.cs** dosyasındaki kodu aşağıdaki kodla. Tuşuna **CTRL + S** değişiklikleri kaydedin.
+    *Kişi modeli sınıfı oluşturma*
+4. **Person.cs** dosyasının içeriğini aşağıdaki kodla değiştirin. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
 
-    (Kod parçacığını - *BringingTogetherOneAspNet - Ex2 - PersonClass*)
+    (Kod parçacığı- *BringingTogetherOneAspNet-EX2-PersonClass*)
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample3.cs)]
-5. İçinde **Çözüm Gezgini**, sağ **MyHybridSite** seçin ve proje **derleme**, veya basın **CTRL + SHIFT + B** Projeyi derlemek için.
+5. **Çözüm Gezgini**, **Myhybridsite** projesine sağ tıklayın ve **Oluştur**' u seçin ya da projeyi derlemek için **CTRL + SHIFT + B** tuşlarına basın.
 
 <a id="Ex2Task2"></a>
-#### <a name="task-2--creating-an-mvc-controller"></a>Görev 2-bir MVC denetleyicisi oluşturma
+#### <a name="task-2--creating-an-mvc-controller"></a>Görev 2 – MVC denetleyicisi oluşturma
 
-Şimdi **kişi** model oluşturulur, CRUD denetleyici eylemleri ve görünümleri oluşturmak için Entity Framework ile ASP.NET MVC yapı iskelesi kullanacağı **kişi**.
+Artık **kişi** modeli oluşturduğumuzdan, **kışı**için CRUD denetleyicisi eylemlerini ve görünümlerini oluşturmak üzere Entity Framework ile ASP.NET MVC scafkatlaması kullanacaksınız.
 
-1. İçinde **Çözüm Gezgini**, sağ **denetleyicileri** klasörü **MyHybridSite** seçin ve proje **Ekle | Yeni İskeleli öğe...** .
+1. **Çözüm Gezgini**, **Myhybridsite** projesinin **denetleyiciler** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Yeni yapı Iskelesi öğesi...** .
 
-    ![Yeni iskele kurulmuş denetleyici oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image13.png)
+    ![Yeni bir scafkatlanmış denetleyici oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image13.png)
 
-    *Yeni iskele kurulmuş denetleyici oluşturma*
-2. İçinde **İskele Ekle** iletişim kutusunda **MVC 5 denetleyici Entity Framework kullanarak görünümler ile** ve ardından **Ekle.**
+    *Yeni bir Scafkatlanmış denetleyici oluşturma*
+2. **Yapı Iskelesi Ekle** iletişim kutusunda, **Entity Framework kullanarak, görünümler Içeren MVC 5 denetleyici '** yi seçin ve ardından Ekle ' ye tıklayın **.**
 
-    ![Entity Framework ve görünümler ile MVC 5 denetleyici seçme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image14.png)
+    ![Görünümler ve Entity Framework MVC 5 denetleyicisi seçiliyor](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image14.png)
 
-    *Entity Framework ve görünümler ile MVC 5 denetleyici seçme*
-3. Ayarlama *MvcPersonController* olarak **Denetleyici adı**seçin **zaman uyumsuz denetleyici eylemlerini kullanmak** seçeneğini işaretleyip **kişi (MyHybridSite.Models)**  olarak **Model sınıfı**.
+    *Görünümler ve Entity Framework MVC 5 denetleyicisi seçiliyor*
+3. *Mvcpersoncontroller* 'ı **Denetleyici adı**olarak ayarlayın, **zaman uyumsuz denetleyici eylemleri kullan** seçeneğini belirleyin ve **model sınıfı**olarak **Person (myhybridsite. modeller)** öğesini seçin.
 
     ![Yapı iskelesi ile MVC denetleyicisi ekleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image15.png)
 
     *Yapı iskelesi ile MVC denetleyicisi ekleme*
-4. Altında **veri bağlamı sınıfının**, tıklayın **yeni veri bağlamı...** .
+4. **Veri bağlamı sınıfı**altında **Yeni veri bağlamı...** öğesine tıklayın.
 
     ![Yeni bir veri bağlamı oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image16.png)
 
     *Yeni bir veri bağlamı oluşturma*
-5. İçinde **yeni veri bağlamı** iletişim kutusunda, yeni veri bağlamı adı *PersonContext* tıklatıp **Ekle**.
+5. **Yeni veri bağlamı** iletişim kutusunda yeni veri *bağlamı ' nı adlandırın ve* **Ekle**' ye tıklayın.
 
-    ![Yeni PersonContext oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image17.png)
+    ![Yeni Personbu bağlamı oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image17.png)
 
-    *Yeni PersonContext tür oluşturma*
-6. Tıklayın **Ekle** için yeni denetleyicisi oluşturmak için **kişi** yapı iskelesi ile. Visual Studio ardından denetleyici eylemleri, kişi veri bağlamı ve Razor görünümleri oluşturur.
+    *Yeni Personya bağlamı türü oluşturuluyor*
+6. Yeni denetleyiciyi yapı iskelesi içeren bir **kişiye** oluşturmak için **Ekle** ' ye tıklayın. Daha sonra, Visual Studio denetleyici eylemlerini, kişi veri bağlamını ve Razor görünümlerini oluşturacaktır.
 
     ![Yapı iskelesi ile MVC denetleyicisi oluşturduktan sonra](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image18.png)
 
     *Yapı iskelesi ile MVC denetleyicisi oluşturduktan sonra*
-7. Açık **MvcPersonController.cs** dosyası **denetleyicileri** klasör. CRUD eylem yöntemlerine otomatik olarak oluşturulmuş dikkat edin.
+7. **MvcPersonController.cs** dosyasını **denetleyiciler** klasöründe açın. CRUD eylem yöntemlerinin otomatik olarak oluşturulduğuna dikkat edin.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample4.cs)]
 
     > [!NOTE]
-    > Seçerek **zaman uyumsuz denetleyici eylemlerini kullanmak** iskele onay kutusundan seçenekleri önceki adımlarda, Visual Studio kişi veri bağlamı erişim gerektiren tüm eylemler için zaman uyumsuz eylem yöntemi oluşturur. Uzun süre çalışan zaman uyumsuz eylem yöntemleri kullanın, Web sunucusu isteği işlenirken iş gerçekleştirmeyi engellenmesini önlemek için istekleri CPU dışı bağlı önerilir.
+    > Önceki adımlarda bulunan scafkatlama seçeneklerinde **zaman uyumsuz denetleyici eylemleri kullan** onay kutusunu seçerek, Visual Studio kişi veri bağlamına erişimi olan tüm eylemler için zaman uyumsuz eylem yöntemleri oluşturur. İstek işlenirken Web sunucusunun iş gerçekleştirmesini engellemeyi önlemek için uzun süre çalışan, CPU olmayan istekler için zaman uyumsuz eylem yöntemleri kullanmanız önerilir.
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--running-the-solution"></a>Görev 3: çözümü çalıştırma
+#### <a name="task-3--running-the-solution"></a>Görev 3 – çözümü çalıştırma
 
-Bu görevde, görünümleri yeniden doğrulamak için çözümü çalıştıracak **kişi** beklendiği gibi çalışıyor. Veritabanı başarılı bir şekilde kaydedildiğini doğrulamak için yeni bir kişiye ekleyeceksiniz.
+Bu görevde, **kişi** görünümlerinin beklendiği gibi çalıştığını doğrulamak için çözümü yeniden çalıştıracaksınız. Veritabanına başarıyla kaydedildiğini doğrulamak için yeni bir kişi ekleyeceksiniz.
 
-1. Tuşuna **F5** çözümü çalıştırın.
-2. Gidin **/MvcPerson**. Kişilerin listesini gösteren iskele kurulmuş görünümü görüntülenmesi gerekir.
-3. Tıklayın **Yeni Oluştur** yeni bir kişiye eklemek için.
+1. Çözümü çalıştırmak için **F5** tuşuna basın.
+2. **/Mvcperson**'a gidin. Kişilerin listesini gösteren yapı iskelesi görünümü.
+3. Yeni bir kişi eklemek için **Yeni oluştur** ' a tıklayın.
 
-    ![İskele kurulmuş MVC görünümlerine gezinme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image19.png)
+    ![Scafkatlanmış MVC görünümlerine gitme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image19.png)
 
-    *İskele kurulmuş MVC görünümlerine gezinme*
-4. İçinde **Oluştur** görüntülemek için sağlayan bir **adı** ve bir **yaş** kişi ve tıklayın **Oluştur**.
+    *Scafkatlanmış MVC görünümlerine gitme*
+4. **Oluştur** görünümünde, kişi Için bir **ad** ve **yaş** girin ve **Oluştur**' a tıklayın.
 
     ![Yeni bir kişi ekleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image20.png)
 
     *Yeni bir kişi ekleme*
-5. Yeni bir kişiye listesine eklenir. Öğe listesinde **ayrıntıları** kişinin ayrıntıları görüntülemek için. Ardından **ayrıntıları** yi **listesine geri** liste görünümüne geri dönmek için.
+5. Yeni kişi listeye eklenir. Öğe listesinde, **Ayrıntılar** ' a tıklayarak kişinin Ayrıntılar görünümünü görüntüleyin. Ardından, **Ayrıntılar** görünümünde liste görünümüne geri dönmek Için **listeye geri dön** ' e tıklayın.
 
-    ![Kişi Ayrıntıları görünümü](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image21.png)
+    ![Kişinin Ayrıntılar görünümü](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image21.png)
 
-    *Kişi Ayrıntıları görünümü*
-6. Tıklayın **Sil** kişi silmek için bağlantı. İçinde **Sil** yi **Sil** işlemini onaylamak için.
+    *Kişinin Ayrıntılar görünümü*
+6. Kişiyi silmek için **Sil** bağlantısına tıklayın. İşlemi doğrulamak için **Sil** görünümünde **Sil** ' e tıklayın.
 
-    ![Bir kişi siliniyor](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image22.png)
+    ![Bir kişiyi silme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image22.png)
 
-    *Bir kişi siliniyor*
-7. Geri Git Visual Studio ve ENTER tuşuna **SHIFT + F5 tuşlarına basarak** hata ayıklamayı durdurmak için.
+    *Bir kişiyi silme*
+7. Visual Studio 'ya geri dönün ve hata ayıklamayı durdurmak için **SHIFT + F5** tuşlarına basın.
 
 <a id="Exercise3"></a>
-### <a name="exercise-3-creating-a-web-api-controller-using-scaffolding"></a>Alıştırma 3: Yapı İskelesi kullanarak bir Web API denetleyicisi oluşturma
+### <a name="exercise-3-creating-a-web-api-controller-using-scaffolding"></a>Alıştırma 3: yapı Iskelesi kullanarak Web API denetleyicisi oluşturma
 
-Web API çerçevesi ASP.NET yığınının bir parçasıdır ve uygulama HTTP Hizmetleri genel veri gönderme ve JSON veya XML biçimli bir RESTful API'si aracılığıyla alma kolaylaştırmak için tasarlanmıştır.
+Web API çerçevesi, ASP.NET yığınının bir parçasıdır ve HTTP hizmetlerini uygulamayı daha kolay hale getirmek, genel olarak JSON veya XML biçimli veriler gönderip almak için tasarlanmıştır.
 
-Bu alıştırmada, ASP.NET iskeleti oluşturma yeniden bir Web API denetleyicisi oluşturmak için kullanın. Aynı kullanacağınız **kişi** ve **PersonContext** aynı kişi verilerini JSON biçiminde sağlamak için önceki alıştırmada sınıflardan. Aynı ASP.NET uygulamasından farklı yollarla aynı kaynakları nasıl getirebilir görürsünüz.
+Bu alıştırmada, bir Web API denetleyicisi oluşturmak için ASP.NET Scafkatmayı yeniden kullanacaksınız. Aynı kişi verilerini JSON biçiminde sağlamak için önceki alıştırmada aynı **kişiyi** ve **personcontext** sınıflarını kullanacaksınız. Aynı kaynakları aynı ASP.NET uygulamasının farklı şekillerde nasıl kullanıma sunabileceğiniz hakkında bilgi alırsınız.
 
 <a id="Ex3Task1"></a>
-#### <a name="task-1--creating-a-web-api-controller"></a>Görev 1-bir Web API denetleyicisi oluşturma
+#### <a name="task-1--creating-a-web-api-controller"></a>Görev 1 – Web API denetleyicisi oluşturma
 
-Bu görevde, yeni bir oluşturacaksınız **Web API denetleyicisi** kişi verilerini JSON gibi makine tüketilebilir biçiminde kullanıma.
+Bu görevde, kişi verilerini JSON gibi makine tüketilebilir bir biçimde kullanıma sunmayacak yeni bir **Web API denetleyicisi** oluşturacaksınız.
 
-1. Henüz açık değilse açın **Visual Studio Express 2013 Web** açın **MyHybridSite.sln** çözüm bulunan **kaynak/Ex3-Webapı/başlangıcı** klasör. Alternatif olarak, önceki alıştırmada aldığınız çözümüyle devam edebilirsiniz.
+1. Zaten açık değilse, **Web için Visual Studio Express 2013** ' i açın ve **kaynak/Ex3-WebAPI/BEGIN** klasöründe bulunan **myhybridsite. sln** çözümünü açın. Alternatif olarak, önceki alıştırmada elde ettiğiniz çözüme devam edebilirsiniz.
 
     > [!NOTE]
-    > Alıştırma 3 başlangıç çözüm ile Başlat, basın **CTRL + SHIFT + B** çözümü derlemek için.
-2. İçinde **Çözüm Gezgini**, sağ **denetleyicileri** klasörü **MyHybridSite** seçin ve proje **Ekle | Yeni İskeleli öğe...** .
+    > Alıştırma 3 ' ten başla çözümüyle başlarsanız, çözümü derlemek için **CTRL + SHIFT + B** tuşlarına basın.
+2. **Çözüm Gezgini**, **Myhybridsite** projesinin **denetleyiciler** klasörüne sağ tıklayın ve Ekle | ' yi seçin.  **Yeni yapı Iskelesi öğesi...** .
 
-    ![Yeni iskele kurulmuş denetleyici oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image23.png)
+    ![Yeni bir scafkatlanmış denetleyici oluşturma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image23.png)
 
-    *Yeni iskele kurulmuş denetleyici oluşturma*
-3. İçinde **İskele Ekle** iletişim kutusunda **Web API** sol bölmesinde, ardından **Web API 2 denetleyici Entity Framework kullanarak Eylemler ile** Orta bölmede ve 'yetıklayın **Ekleyin.**
+    *Yeni bir scafkatlanmış denetleyici oluşturma*
+3. **Yapı Iskelesi Ekle** iletişim kutusunda sol bölmedeki **Web API 'si** ' ni, sonra da **Eylemler ile Web API 2 denetleyicisi '** ni, orta bölmedeki Entity Framework kullanarak ve ardından Ekle ' yi seçin **.**
 
-    ![Eylemler ve Entity Framework ile Web API 2 denetleyicisi seçerek](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "Eylemler ve Entity Framework ile Web API 2 denetleyicisi seçme")
+    ![Eylemler ve Entity Framework Web API 2 denetleyicisi seçme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image24.png "Eylemler ve Entity Framework Web API 2 denetleyicisi seçme")
 
-    *Eylemler ve Entity Framework ile Web API 2 denetleyicisi seçme*
-4. Ayarlama *ApiPersonController* olarak **Denetleyici adı**seçin **zaman uyumsuz denetleyici eylemlerini kullanmak** seçeneğini işaretleyip **kişi (MyHybridSite.Models)**  ve **PersonContext (MyHybridSite.Models)** olarak **modeli** ve **veri bağlamı** sırasıyla sınıfları. Ardından **Ekle**.
+    *Eylemler ve Entity Framework Web API 2 denetleyicisi seçme*
+4. *Apipersoncontroller* 'ı **Denetleyici adı**olarak ayarlayın, **zaman uyumsuz denetleyici eylemleri kullan** seçeneğini belirleyin ve sırasıyla **model** ve **veri bağlamı** sınıfları olarak **Person (MyHybridSite. modeller** ) ve **personcontext (myhybridsite. modeller)** seçeneğini belirleyin. Daha sonra **Ekle**'ye tıklayın.
 
-    ![Yapı iskelesi ile Web API denetleyici ekleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "yapı iskelesi ile Web API denetleyici ekleme")
+    ![Yapı iskelesi ile Web API denetleyicisi ekleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image25.png "Yapı iskelesi ile Web API denetleyicisi ekleme")
 
-    *Yapı iskelesi ile Web API denetleyici ekleme*
-5. Visual Studio ardından oluşturacağını **ApiPersonController** verilerinizle çalışmaya dört CRUD eylemleri ile sınıfı.
+    *Yapı iskelesi ile Web API denetleyicisi ekleme*
+5. Daha sonra Visual Studio, verileriniz ile çalışmak için dört CRUD eylemleriyle **Apipersoncontroller** sınıfını oluşturur.
 
-    ![Yapı iskelesi ile Web API denetleyicisi oluşturduktan sonra](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image26.png "yapı iskelesi ile Web API denetleyicisi oluşturduktan sonra")
+    ![Web API denetleyicisini yapı iskelesi ile oluşturduktan sonra](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image26.png "Web API denetleyicisini yapı iskelesi ile oluşturduktan sonra")
 
-    *Yapı iskelesi ile Web API denetleyicisi oluşturduktan sonra*
-6. Açık **ApiPersonController.cs** dosya ve incelemek *GetPeople* eylem yöntemi. Bu yöntem db alanı sorgular **PersonContext** kişiler veri alabilmek için türü.
+    *Web API denetleyicisini yapı iskelesi ile oluşturduktan sonra*
+6. **ApiPersonController.cs** dosyasını açın ve *getkişiler* eylem yöntemini inceleyin. Bu yöntem, kişi verilerini almak için **Personcontext** türünün DB alanını sorgular.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample5.cs)]
-7. Artık yorum yöntem tanımını yukarıda dikkat edin. Bu, sonraki görevde kullanacağınız bu eylemi kullanıma sunar. URI'yi sağlar.
+7. Şimdi yöntem tanımının üzerindeki açıklamaya dikkat edin. Bir sonraki görevde kullanacağınız bu eylemi sunan URI 'yi sağlar.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample6.cs)]
 
     > [!NOTE]
-    > Varsayılan olarak, Web API'si sorguları yakalamak için yapılandırılmış */API'si* MVC denetleyicileri ile çarpışmalardan kaçınmak için yol. Bu ayarı değiştirmek istiyorsanız, başvurmak [ASP.NET Web API'de yönlendirme](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md).
+    > Varsayılan olarak, Web API 'si, MVC denetleyicileriyle çakışmaları önlemek için */API* yoluna sorguları yakalamak üzere yapılandırılmıştır. Bu ayarı değiştirmeniz gerekiyorsa, [ASP.NET Web API 'de yönlendirme](../../../web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api.md)' ye başvurun.
 
 <a id="Ex3Task2"></a>
 #### <a name="task-2--running-the-solution"></a>Görev 2 – çözümü çalıştırma
 
-Bu görevde, Internet Explorer kullandığınız **F12 Geliştirici araçlarıyla** Web API denetleyicisi gelen tam yanıtı denetlemek için. Uygulama verileriniz hakkında daha fazla bilgi almak için ağ trafiğini yakalamak için nasıl görürsünüz.
+Bu görevde, Web API denetleyicisinden tam yanıtı incelemek için Internet Explorer **F12 geliştirici araçları** ' nı kullanacaksınız. Uygulama verilerinize ilişkin daha fazla bilgi almak için ağ trafiğini nasıl yakalayabileceğiniz hakkında bilgi alacaksınız.
 
 > [!NOTE]
-> Emin olun **Internet Explorer** seçili **Başlat** düğmesi Visual Studio araç çubuğunda yer alan.
+> Visual Studio araç çubuğunda bulunan **Başlat** düğmesinde **Internet Explorer** 'ın seçili olduğundan emin olun.
 > 
 > ![Internet Explorer seçeneği](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image27.png)
 > 
-> **F12 Geliştirici araçlarıyla** geniş Bu uygulamalı-lab içinde kapsanmayan işlevleri kümesine sahiptir. Hakkında daha fazla bilgi edinmek istiyorsanız, başvurmak [F12 geliştirici araçlarını kullanarak](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
+> **F12 geliştirici araçları** , bu uygulamalı laboratuvarda kapsanmayan geniş bir işlevsellik kümesine sahiptir. Hakkında daha fazla bilgi edinmek istiyorsanız, [F12 geliştirici araçlarını kullanma](https://msdn.microsoft.com/library/ie/bg182326(v=vs.85))bölümüne bakın.
 
-1. Tuşuna **F5** çözümü çalıştırın.
+1. Çözümü çalıştırmak için **F5** tuşuna basın.
 
     > [!NOTE]
-    > Bu görevi doğru takip etmek için uygulamanız verileri olmalıdır. Veritabanınızı boşsa, görev 3'te alıştırma 2 dönün ve MVC görünümleri kullanarak yeni bir kişiye oluşturma konusunda adımları izleyin.
-2. Tarayıcıda basın **F12** açmak için **Geliştirici Araçları** paneli. Tuşuna **CTRL** + **4** veya **ağ** simgesine ve ardından ağ trafiğini yakalamaktan başlamak için yeşil ok düğmesi.
+    > Bu görevi doğru bir şekilde takip edebilmek için uygulamanızın verileri olması gerekir. Veritabanınız boşsa, çalışma 2 ' de görev 3 ' e geri dönerek MVC görünümlerini kullanarak yeni bir kişi oluşturma hakkındaki adımları izleyebilirsiniz.
+2. Tarayıcıda, **Geliştirici Araçları** panelini açmak için **F12** tuşuna basın. **CTRL** + **4** ' e basın veya **ağ** simgesine tıklayın ve sonra ağ trafiğini yakalamaya başlamak için yeşil ok düğmesine tıklayın.
 
-    ![Web API ağ yakalama başlatma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image28.png "başlatma Web API ağ yakalama")
+    ![Web API ağı yakalama başlatılıyor](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image28.png "Web API ağı yakalama başlatılıyor")
 
-    *Web API ağ yakalama başlatılıyor*
-3. Append **API/ApiPerson** tarayıcının adres çubuğundaki URL. Şimdi gelen yanıt ayrıntılarını inceleyeceksiniz **ApiPersonController**.
+    *Web API ağı yakalama başlatılıyor*
+3. Tarayıcı adres çubuğundaki URL 'ye **API/ApiPerson** ekleyin. Şimdi **Apipersoncontroller**'dan Yanıtın ayrıntılarını inceleyebilirsiniz.
 
     ![Web API aracılığıyla kişi verilerini alma](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image29.png "Web API aracılığıyla kişi verilerini alma")
 
     *Web API aracılığıyla kişi verilerini alma*
 
     > [!NOTE]
-    > İndirme tamamlandıktan sonra indirilen dosya ile bir eylem yapmanız istenir. İletişim kutusu, yanıt içeriği geliştiriciler araç penceresi aracılığıyla izlemek için açık bırakın.
-4. Artık yanıt gövdesinin inceleyeceksiniz. Bunu yapmak için tıklatın **ayrıntıları** sekmesine ve ardından **yanıt gövdesi**. İndirilen veriler özellikleriyle nesnelerin bir listesini olduğunu denetleyebilirsiniz **kimliği**, **adı** ve **yaş** karşılık gelen için **kişi** sınıf.
+    > İndirme işlemi tamamlandıktan sonra indirilen dosyayla bir eylem yapmanız istenir. Geliştirici araç penceresi aracılığıyla yanıt içeriğini izleyebilmek için iletişim kutusunu açık bırakın.
+4. Şimdi yanıtın gövdesini inceleyeceksiniz. Bunu yapmak için **Ayrıntılar** sekmesine tıklayın ve ardından **yanıt gövdesi**' ne tıklayın. İndirilen verilerin, **kişi** sınıfına karşılık gelen özellik **kimliği**, **ad** ve **yaşa** sahip bir nesne listesi olup olmadığını kontrol edebilirsiniz.
 
-    ![Web API yanıt gövdesi görüntüleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image30.png "görüntüleme Web API yanıt gövdesi")
+    ![Web API yanıt gövdesini görüntüleme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image30.png "Web API yanıt gövdesini görüntüleme")
 
-    *Web API yanıt gövdesi görüntüleme*
+    *Web API yanıt gövdesini görüntüleme*
 
 <a id="Ex3Task3"></a>
-#### <a name="task-3--adding-web-api-help-pages"></a>Görev 3: Web API Yardım sayfaları ekleme
+#### <a name="task-3--adding-web-api-help-pages"></a>Görev 3 – Web API Yardım sayfaları ekleme
 
-Bir Web API'si oluşturma, böylece diğer geliştiriciler, API'nin nasıl çağrılacağını öğrenmiş olacaksınız Yardım sayfasını oluşturmak kullanışlıdır. Oluşturma ve belge sayfaları el ile güncelleştirmeniz, ancak bunları bakım işi yapmak zorunda kalmamak için otomatik olarak oluşturmak iyidir. Bu görevde Web API Yardım sayfaları çözüme otomatik olarak oluşturmak için bir Nuget paketi kullanır.
+Bir Web API 'SI oluşturduğunuzda, diğer geliştiricilerin API 'nizi nasıl çağırabileceğini bilmesi için bir yardım sayfası oluşturmak yararlı olacaktır. Belge sayfalarını el ile oluşturup güncelleştirebilirsiniz, ancak bakım işleri yapmak zorunda kalmamak için bunları otomatik oluşturmak daha iyidir. Bu görevde, çözüme otomatik olarak Web API Yardım sayfaları oluşturmak için bir NuGet paketi kullanacaksınız.
 
-1. Gelen **Araçları** Visual Studio'da seçim menüsünde **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
-2. İçinde **Paket Yöneticisi Konsolu** penceresinde aşağıdaki komutu yürütün:
+1. Visual Studio 'daki **Araçlar** menüsünde, **NuGet Paket Yöneticisi**' ni seçin ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
+2. **Paket Yöneticisi konsolu** penceresinde aşağıdaki komutu yürütün:
 
     [!code-powershell[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample7.ps1)]
 
     > [!NOTE]
-    > **Microsoft.AspNet.WebApi.HelpPage** paketi gerekli bütünleştirilmiş kodları yükler ve Yardım sayfaları'nın altında MVC görünümleri ekler **alanlar/HelpPage** klasör.
+    > **Microsoft. Aspnet. WebApi. helppage** paketi gerekli derlemeleri yüklüyor ve **Areas/helppage** klasörü altındakı yardım sayfaları için MVC görünümleri ekliyor.
 
-    ![HelpPage alan](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image31.png "HelpPage alan")
+    ![HelpPage alanı](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image31.png "HelpPage alanı")
 
     *HelpPage alanı*
-3. Varsayılan olarak, Yardım sayfaları, belgeler için yer tutucu dizeleri vardır. XML belgeleri yorumları belgeleri oluşturmak için kullanabilirsiniz. Bu özelliği etkinleştirmek için açık **HelpPageConfig.cs** bulunan dosya **HelpPage/alanlar/uygulama\_Başlat** klasörü ve aşağıdaki satırı açıklamadan çıkarın:
+3. Varsayılan olarak, yardım sayfalarında belgeler için yer tutucu dizeleri vardır. Belgeleri oluşturmak için XML belge açıklamalarını kullanabilirsiniz. Bu özelliği etkinleştirmek için, **Areas/yardım sayfası/uygulama\_başlangıç** klasöründe bulunan **HelpPageConfig.cs** dosyasını açın ve aşağıdaki satırın açıklamasını kaldırın:
 
     [!code-javascript[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample8.js)]
-4. İçinde **Çözüm Gezgini**, projeye sağ tıklayın **MyHybridSite**seçin **özellikleri** tıklatıp **derleme** sekmesi.
+4. **Çözüm Gezgini**, **Myhybridsite**projesine sağ tıklayın, **Özellikler** ' i seçin ve **derleme** sekmesine tıklayın.
 
-    ![Derleme sekmesi](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image32.png "derleme bölümü")
+    ![Derleme sekmesi](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image32.png "Derleme bölümü")
 
     *Derleme sekmesi*
-5. Altında **çıkış**seçin **XML belge dosyası**. Düzenleme kutusuna **uygulama\_Data/XmlDocument.xml**.
+5. **Çıkış**' ın altında, **XML belge dosyası**' nı seçin. Düzenle kutusunda **App\_Data/XmlDocument. xml**yazın.
 
-    ![Çıkış derleme sekmesi bölümünde](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "çıkış bölümünde derleme sekmesi")
+    ![Derleme sekmesindeki çıkış bölümü](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image33.png "Derleme sekmesindeki çıkış bölümü")
 
-    *Çıkış bölümünde derleme sekmesi*
-6. Tuşuna **CTRL** + **S** değişiklikleri kaydedin.
-7. Açık **ApiPersonController.cs** dosya **denetleyicileri** klasör.
-8. Arasında yeni bir satıra girin *GetPeople* yöntem imzası ve */ / GET API/ApiPerson* açıklama satırı yapın ve ardından üç eğik yazın.
+    *Derleme sekmesindeki çıkış bölümü*
+6. Değişiklikleri kaydetmek için **CTRL** + **S** tuşlarına basın.
+7. **ApiPersonController.cs** dosyasını **denetleyiciler** klasöründen açın.
+8. *GetPerson* yöntemi imzası ile *//Al API/apiperson* açıklaması arasına yeni bir satır girin ve ardından üç eğik çizgi yazın.
 
     > [!NOTE]
-    > Visual Studio yöntemi belgelerine tanımlayan XML öğeleri otomatik olarak ekler.
-9. Bir Özet metni ve dönüş değeri Ekle *GetPeople* yöntemi. Aşağıdaki gibi görünmelidir.
+    > Visual Studio, yöntem belgelerini tanımlayan XML öğelerini otomatik olarak ekler.
+9. *Getkişilerim* yöntemi için bir Özet metni ve dönüş değeri ekleyin. Aşağıdaki gibi görünmelidir.
 
     [!code-csharp[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample9.cs)]
-10. Tuşuna **F5** çözümü çalıştırın.
-11. Append **/help** adres çubuğundaki URL'ye yardım sayfasına gidin.
+10. Çözümü çalıştırmak için **F5** tuşuna basın.
+11. Yardım sayfasına gitmek için, adres çubuğundaki URL 'ye **/help** ekleyin.
 
     ![ASP.NET Web API Yardım sayfası](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image34.png "ASP.NET Web API Yardım sayfası")
 
     *ASP.NET Web API Yardım sayfası*
 
     > [!NOTE]
-    > Ana sayfanın içeriğini API'leri, denetleyici tarafından gruplandırılmış bir tablodur. Tablo girişleri kullanarak dinamik olarak oluşturulan **IApiExplorer** arabirimi. Ekler veya güncelleştirirseniz bir API denetleyicisi, tablonun uygulamayı sonraki açışınızda otomatik olarak güncelleştirilir.
+    > Sayfanın ana içeriği, denetleyiciye göre gruplandırılan bir API tablosudur. Tablo girdileri, **IApiExplorer** arabirimi kullanılarak dinamik olarak oluşturulur. Bir API denetleyicisi ekler veya güncelleştirirseniz, uygulamayı bir sonraki derişinizde tablo otomatik olarak güncelleştirilir.
     > 
-    > **API** göreli URI ve HTTP yöntemi sütununda listelenir. **Açıklama** sütun yöntemin belgelerinden ayıklanan bilgileri içerir.
-12. Metot tanımına eklenen açıklama Açıklama sütununda görüntülendiğini unutmayın.
+    > API sütunu, HTTP yöntemini ve göreli URI **'yi** listeler. **Açıklama** sütunu, yöntemin belgelerinden ayıklanmış olan bilgileri içerir.
+12. Yöntem tanımının üstüne eklediğiniz açıklamanın Açıklama sütununda görüntülendiğini unutmayın.
 
     ![API yöntemi açıklaması](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image35.png "API yöntemi açıklaması")
 
     *API yöntemi açıklaması*
-13. Örnek yanıt gövdeleri dahil olmak üzere daha ayrıntılı bilgi içeren bir sayfaya gitmek için API yöntemleri birine tıklayın.
+13. Örnek yanıt gövdeleri dahil olmak üzere daha ayrıntılı bilgiler içeren bir sayfaya gitmek için API yöntemlerinden birine tıklayın.
 
-    ![Ayrıntı bilgi sayfası](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image36.png "ayrıntı bilgileri sayfası")
+    ![Ayrıntı bilgileri sayfası](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image36.png "Ayrıntı bilgileri sayfası")
 
     *Ayrıntılı bilgi sayfası*
 
@@ -426,10 +426,10 @@ Bir Web API'si oluşturma, böylece diğer geliştiriciler, API'nin nasıl çağ
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Öğrendiğiniz Bu uygulamalı laboratuvarı tamamlayarak nasıl yapılır:
+Bu uygulamalı Laboratuvarı tamamlayarak şu şekilde nasıl yapılacağını öğrendiniz:
 
-- Visual Studio 2013'te bir ASP.NET deneyimi kullanarak yeni bir Web uygulaması oluşturma
-- Tek bir projeye birden çok ASP.NET teknolojileri tümleştirme
-- MVC denetleyicileri ve görünümleri kullanarak ASP.NET iskeleti oluşturma, modeli sınıfların üretileceği
-- Zaman uyumsuz programlama ve Entity Framework ile veri erişimi gibi özellikleri kullanan Web APİ'si denetleyicilerinin oluştur
-- Web API Yardım sayfaları denetleyicileriniz için otomatik olarak oluştur
+- Visual Studio 2013 bir ASP.NET deneyimini kullanarak yeni bir Web uygulaması oluşturun
+- Birden çok ASP.NET teknolojilerini tek bir projede tümleştirme
+- ASP.NET Scafkatlaması kullanarak model sınıflarınızda MVC denetleyicileri ve görünümleri oluşturma
+- Entity Framework aracılığıyla zaman uyumsuz programlama ve veri erişimi gibi özellikleri kullanan Web API denetleyicileri oluşturun
+- Denetleyicileriniz için otomatik olarak Web API Yardım sayfaları oluşturma

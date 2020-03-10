@@ -7,18 +7,18 @@ ms.author: csfanos
 ms.date: 06/28/2019
 msc.type: content
 ms.openlocfilehash: 8701e29ae18e2a4ad2ac0c44e5e37ebacfdaf317
-ms.sourcegitcommit: 6a564984ad448db34cdfab5458af755d6b65e69c
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538796"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544529"
 ---
-# <a name="jquery-validation-1191"></a>jQuery doğrulaması 1.19.1
+# <a name="jquery-validation-1191"></a>jQuery doğrulama 1.19.1
 
-Aşağıdaki dosyalar, CDN'de barındırılan:
+Aşağıdaki dosyalar CDN 'de barındırılır:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/additional-methods.min.js
-- Yerelleştirme dosyalarının https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/localization/messages\_##.js nerede ## loc kodudur.
+- Yerelleştirme dosyaları # #, Loc kodudur https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/localization/messages\_##.js.

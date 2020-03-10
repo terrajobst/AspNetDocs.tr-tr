@@ -9,11 +9,11 @@ ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
 ms.openlocfilehash: e1ddd43524a61ff2e012171eba1a8dc8efbf8f1d
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74587474"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78530844"
 ---
 # <a name="master-pages-and-site-navigation-c"></a>Ana Sayfalar ve Site Gezintisi (C#)
 
@@ -37,7 +37,7 @@ Bu kavramları göstermek ve Öğreticiler Web sitemizi daha kullanışlı hale 
 
 ## <a name="step-1-creating-the-master-page"></a>1\. Adım: Ana sayfayı oluşturma
 
-İlk adım, site için ana sayfayı oluşturmaktır. Şu anda web sitemizden yalnızca yazılan veri kümesi (`Northwind.xsd`, `App_Code` klasörü), BLL sınıfları (`ProductsBLL.cs`, `CategoriesBLL.cs`, vb.), veritabanı (`App_Code` klasöründe), yapılandırma dosyası (`NORTHWND.MDF`) ve bir CSS stil sayfası dosyası (`App_Data`) oluşur. Bu örnekleri gelecekteki öğreticilerde daha ayrıntılı bir şekilde incelenebilmemiz için ilk iki öğreticiden DAL ve BLL 'yi kullanarak bu sayfaları ve dosyaları temizlerdim.
+İlk adım, site için ana sayfayı oluşturmaktır. Şu anda web sitemizden yalnızca yazılan veri kümesi (`Northwind.xsd`, `App_Code` klasörü), BLL sınıfları (`ProductsBLL.cs`, `CategoriesBLL.cs`, vb.), veritabanı (`App_Code` klasöründe), yapılandırma dosyası (`NORTHWND.MDF`) ve bir CSS stil sayfası dosyası (`App_Data`) oluşur.`Web.config``Styles.css` Bu örnekleri gelecekteki öğreticilerde daha ayrıntılı bir şekilde incelenebilmemiz için ilk iki öğreticiden DAL ve BLL 'yi kullanarak bu sayfaları ve dosyaları temizlerdim.
 
 ![Projemizdeki dosyalar](master-pages-and-site-navigation-cs/_static/image4.png)
 

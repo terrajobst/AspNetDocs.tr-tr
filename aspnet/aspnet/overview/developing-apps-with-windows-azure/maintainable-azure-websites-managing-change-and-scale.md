@@ -1,911 +1,911 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: 'Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişiklikleri ve ölçeği yönetme | Microsoft Docs'
+title: 'Uygulamalı laboratuvar: sürdürülebilir Azure Web siteleri: değişikliği ve ölçeği yönetme | Microsoft Docs'
 author: rick-anderson
-description: Bu laboratuvarda nasıl Microsoft Azure, oluşturun ve Web siteleri üretim ortamına dağıtmayı kolaylaştırır öğrenin.
+description: Bu laboratuvarda, Microsoft Azure Web sitelerini üretime derlemeyi ve dağıtmayı nasıl kolaylaştırdığını öğrenin.
 ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
 ms.openlocfilehash: c88bae40a8aa092037c0b359ee391acaf161cf10
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65118307"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78624273"
 ---
-# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme
+# <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişiklikleri ve Ölçeği Yönetme
 
-Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+[Web 'de Camps ekibine](https://twitter.com/webcamps) göre
 
-[Eğitim Seti Web Kampları indirin](https://aka.ms/webcamps-training-kit)
+[Web Camps eğitim setini indirin](https://aka.ms/webcamps-training-kit)
 
-> Microsoft Azure, oluşturun ve Web siteleri üretim ortamına dağıtmayı kolaylaştırır. Ancak uygulamanız Canlı hale geldiğinde işiniz yok, size yalnızca başlangıç! Değişen gereksinimleri, veritabanı güncelleştirmeleri, ölçek ve daha fazla işlemek gerekir. Neyse ki, Azure App Service, sitelerinizi sorunsuz çalışmasını tutmanıza yardımcı olacak özellikler bolca işinize yarayacaktır.
+> Microsoft Azure Web sitelerini üretime oluşturup dağıtmayı kolaylaştırır. Ancak uygulamanız canlı olduğunda bu işlemi siz yapmanız yeterlidir! Değiştirme gereksinimleri, veritabanı güncelleştirmeleri, ölçek ve daha fazlasını ele almanız gerekir. Neyse ki, sitelerinizi sorunsuz bir şekilde çalışmaya devam etmenize yardımcı olacak çok sayıda özellik ile birlikte Azure App Service.
 >
-> Azure, güvenli ve esnek geliştirme, dağıtma ve ölçeklendirme herhangi bir boyut web uygulaması için seçenekleri sunar. Altyapı yönetimiyle uğraşmak zorunda kalmadan uygulamaları oluşturmak ve dağıtmak için mevcut araçlarınızı kullanarak.
+> Azure, her boyuttaki web uygulaması için güvenli ve esnek geliştirme, dağıtım ve ölçeklendirme seçenekleri sunar. Altyapıyı yönetme zahmetsiz olmayan uygulamalar oluşturmak ve dağıtmak için mevcut araçlarınızdan yararlanın.
 >
-> Bir üretim web uygulaması, sevdiğiniz geliştirme aracını kullanarak oluşturduğunuz içerikleri kolayca dağıtarak kendiniz dakikalar içinde hazırlayın. Mevcut bir site için desteğe sahip kaynak denetiminden doğrudan dağıtabilirsiniz **Git**, **GitHub**, **Bitbucket**, **TFS**ve hatta  **DropBox**. Doğrudan en sevdiğiniz IDE veya komut dosyalarını kullanarak dağıtma **PowerShell** içinde Windows veya **CLI** herhangi bir işletim sisteminde araçları. Dağıtıldıktan sonra sitelerinizi, sürekli dağıtım ile sürekli olarak güncel tutun.
+> En sevdiğiniz geliştirme aracını kullanarak oluşturulan içeriği kolayca dağıtarak bir üretim Web uygulamasını dakikalar içinde kendiniz sağlayın. Var olan bir siteyi **Git**, **GitHub**, **Bitbucket**, **TFS**ve hatta **Dropbox**desteğiyle doğrudan kaynak denetiminden dağıtabilirsiniz. En sevdiğiniz IDE 'den veya Windows 'da **PowerShell** kullanarak veya HERHANGI bir işletim sisteminde çalışan **CLI** araçlarından doğrudan bir dağıtım yapın. Dağıtıldıktan sonra, sürekli dağıtım desteğiyle sitelerinizi sürekli güncel tutun.
 >
-> Azure ölçeklendirilebilir ve dayanıklı bulut depolama, yedekleme ve kurtarma çözümleri büyük veya küçük tüm veriler için sunar. Bir üretim ortamında, tablolar, BLOB'lar ve SQL veritabanları gibi depolama hizmetleri uygulamaları dağıtırken, bulutta uygulamanızı ölçeklendirin yardımcı olur.
+> Azure, büyük veya küçük tüm veriler için ölçeklenebilir, dayanıklı bulut depolama, yedekleme ve kurtarma çözümleri sağlar. Uygulamalar bir üretim ortamına dağıtıldığında, tablolar, Bloblar ve SQL veritabanları gibi depolama hizmetleri, uygulamanızı bulutta ölçeklendirmenize yardımcı olur.
 >
-> SQL veritabanlarında olduğu gibi uygulamanızın yeni sürümünü dağıtırken üretken veritabanınızı güncel tutmak önemlidir. Performanstan **Entity Framework Code First Migrations**, ortamınızı dakikalar içinde güncelleştirmek için geliştirme ve veri modelinizin dağıtımı basitleştirilmiştir. Bu uygulamalı laboratuvarı, üretim ortamlarında, Microsoft Azure web uygulamanızı dağıtırken karşılaşabileceği farklı konular gösterilmektedir.
+> SQL veritabanları ile uygulamanızın yeni sürümlerini dağıttığınızda üretken veritabanınızı güncel tutmanız önemlidir. **Entity Framework Code First Migrations**teşekkür ederiz, veri modelinizin geliştirilmesi ve dağıtılması, ortamınızı dakikalar içinde güncelleştirmek üzere basitleştirilmiştir. Bu uygulamalı laboratuvarda, Web uygulamanızı Microsoft Azure ' de üretim ortamlarına dağıttığınızda karşılaşabileceğiniz farklı konular gösterilecektir.
 >
-> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://aka.ms/webcamps-training-kit ](https://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve kod parçacıkları [https://aka.ms/webcamps-training-kit](https://aka.ms/webcamps-training-kit)adresinden erişilebilen Web Camps eğitim seti ' ne dahildir.
 >
-> Görmek için daha fazla ayrıntılı kapsamı bu konunun [Azure e-kitabı ile gerçek hayatta kullanılan bulut uygulamaları oluşturma](building-real-world-cloud-apps-with-windows-azure/introduction.md).
+> Bu konuda daha ayrıntılı bilgi için bkz. [Azure e-kitabı Ile gerçek dünyada bulut uygulamaları oluşturma](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
 <a id="Overview"></a>
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda şunları nasıl yapacağınızı öğreneceksiniz:
 
-- Mevcut bir model ile Entity Framework geçişleri etkinleştir
-- Nesne modeli ve buna göre varlık çerçevesi geçişleriyle kullanarak veritabanını güncelleştir
-- Azure App Service'e Git kullanarak dağıtma
-- Azure yönetim portalını kullanarak önceki bir dağıtıma geri alma
-- Web uygulamasını ölçeklendirme için Azure depolama kullanma
-- Azure yönetim portalını kullanarak bir web uygulaması için otomatik ölçeklendirmeyi yapılandırma
-- Oluşturma ve Visual Studio Yük testi projesi yapılandırma
+- Mevcut bir modelle Entity Framework geçişleri etkinleştir
+- Nesne modelini ve veritabanını Entity Framework geçişleri kullanarak uygun şekilde güncelleştirme
+- Git kullanarak Azure App Service dağıtma
+- Azure yönetim portalı 'nı kullanarak önceki bir dağıtıma geri alma
+- Bir Web uygulamasını ölçeklendirmek için Azure Storage 'ı kullanma
+- Azure Yönetim Portalı kullanarak bir Web uygulaması için otomatik ölçeklendirmeyi yapılandırma
+- Visual Studio 'da bir yük testi projesi oluşturma ve yapılandırma
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-Aşağıda bu uygulamalı laboratuvarı tamamlamak için gereklidir:
+Bu uygulamalı laboratuvarın tamamlanabilmesi için aşağıdakiler gereklidir:
 
-- [Visual Studio Express 2013 Web](https://www.microsoft.com/visualstudio/) veya üzeri
-- [.NET 2.2 için Azure SDK](https://www.microsoft.com/windowsazure/sdk/)
+- Web veya daha büyük [için Visual Studio Express 2013](https://www.microsoft.com/visualstudio/)
+- [.NET 2,2 için Azure SDK](https://www.microsoft.com/windowsazure/sdk/)
 - [GIT sürüm denetimi sistemi](http://git-scm.com/download)
 - Microsoft Azure aboneliği
 
-    - Kaydolun bir [ücretsiz deneme](https://aka.ms/watk-freetrial)
-    - Bir Visual Studio Professional, Test Professional, Premium veya Ultimate ile MSDN veya MSDN Platforms aboneliği varsa, etkinleştirme, [MSDN avantajı](https://aka.ms/watk-msdn) geliştirip Azure'da test şimdi başlatmak için
-    - [BizSpark](https://aka.ms/watk-bizspark) üyeleri otomatik olarak almak Azure teklifi, Visual Studio Ultimate with MSDN Abonelikleri aracılığıyla
-    - Üyeleri [Microsoft iş ortağı ağı](https://aka.ms/watk-mpn) Cloud Essentials programı ücretsiz olarak aylık Azure KREDİLERİ alırsınız
+    - [Ücretsiz deneme](https://aka.ms/watk-freetrial) için kaydolun
+    - MSDN veya MSDN Platformları abonesine sahip bir Visual Studio Professional, Test Professional, Premium veya Ultimate kullanıyorsanız, Azure 'da geliştirme ve test etmeye başlamak için [MSDN avantajınızı](https://aka.ms/watk-msdn) şimdi etkinleştirin
+    - [BizSpark](https://aka.ms/watk-bizspark) üyeleri Azure avantajını Visual Studio Ultimate with MSDN aboneliklerine göre otomatik olarak alır
+    - [Microsoft iş ortağı ağı](https://aka.ms/watk-mpn) Cloud Essentials programı üyeleri, aylık Azure kredilerini ücretsiz olarak alır
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum
 
-Bu uygulamalı laboratuvarda alıştırmalar çalıştırmak için önce ortamı oluşturmanız gerekir.
+Bu uygulamalı laboratuvarda alýþtýrmalarý çalıştırmak için öncelikle ortamınızı ayarlamanız gerekecektir.
 
-1. Açık Windows Gezgini ve Laboratuvar göz atın **kaynak** klasör.
-2. Sağ **Setup.cmd** seçip **yönetici olarak çalıştır** ortamınızı yapılandırın ve bu Laboratuvar için Visual Studio kod parçacıkları yükleme kurulum işlemini başlatmak için.
-3. Kullanıcı Hesabı Denetimi iletişim gösteriliyorsa, devam etmek için eylemi onaylayın.
+1. Windows Gezgini 'ni açın ve laboratuvarın **kaynak** klasörüne gidin.
+2. Ortamınızı yapılandıracak ve bu laboratuvar için Visual Studio kod parçacıklarını yükleyecek kurulum işlemini başlatmak için **Setup. cmd** ' ye sağ tıklayın ve **yönetici olarak çalıştır** ' ı seçin.
+3. Kullanıcı hesabı denetimi iletişim kutusu gösteriliyorsa, devam etmek için eylemi onaylayın.
 
 > [!NOTE]
-> Kurulumu çalıştırmadan önce bu Laboratuvar için tüm bağımlılıkların etkinleştirdiğinizden emin olun.
+> Kurulumu çalıştırmadan önce bu laboratuvarın tüm bağımlılıklarını denetlediğinizden emin olun.
 
 <a id="CodeSnippets"></a>
 ### <a name="using-the-code-snippets"></a>Kod parçacıklarını kullanma
 
-Laboratuvar belge boyunca kod blokları eklemeye yönlendirilirsiniz. Kolaylık olması için bu kodu çoğunu, Visual Studio el ile eklemek zorunda kalmamak için 2013 içinde erişebileceğiniz Visual Studio kod parçacıkları, olarak sağlanır.
+Laboratuvar belgesi boyunca kod blokları eklemeniz istenir. Kolaylık olması için, bu kodun çoğu Visual Studio Code kod parçacığı olarak sağlanır ve bu, el ile ekleme zorunluluğunu ortadan kaldırmak için Visual Studio 2013 içinden erişebilirsiniz.
 
 > [!NOTE]
-> Her alıştırma bulunan bir başlangıç çözüm eşlik **başlamak** her alıştırma diğerlerinden takip etmenize olanak tanıyan çalışma klasörü. Lütfen bir alıştırma sırasında eklenen kod parçacıkları bu çözümleri başlangıç eksik ve alıştırma tamamlayıncaya kadar çalışmayabilir unutmayın. Ayrıca bulabilirsiniz bir alıştırma için kaynak kod içinde bir **son** karşılık gelen bir alıştırma olarak adımları tamamlamanızı sonuçları kodunu içeren bir Visual Studio çözüm içeren klasör. Bu uygulamalı laboratuvarı çalışırken ek yardıma ihtiyacınız varsa, bu çözümleri kılavuz kullanabilirsiniz.
+> Her alıştırma, her alıştırmanın bağımsız olarak her birini takip etmenizi sağlayan alıştırmanın **BEGIN** klasöründe bulunan bir başlangıç çözümüdür. Lütfen bir alıştırma sırasında eklenen kod parçacıklarının bu başlangıç çözümlerinde eksik olduğunu ve Alıştırmayı tamamlayana kadar çalışmadığının farkında olun. Bir alıştırmada kaynak kodun içinde, ilgili alıştırmada adımların tamamlanmasına neden olan koda sahip bir Visual Studio çözümü içeren bir **son** klasör de bulacaksınız. Bu uygulamalı laboratuvarda çalışırken daha fazla yardıma ihtiyacınız varsa bu çözümleri kılavuz olarak kullanabilirsiniz.
 
 ---
 
 <a id="Exercises"></a>
-## <a name="exercises"></a>Alıştırmaları
+## <a name="exercises"></a>Alıştırmalarda
 
-Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
+Bu uygulamalı laboratuvar aşağıdaki alıştırmaları içerir:
 
 1. [Entity Framework geçişleri kullanma](#Exercise1)
-2. [Bir Web uygulaması hazırlık ortamına dağıtma](#Exercise2)
-3. [Üretim ortamında dağıtım geri alma gerçekleştiriliyor](#Exercise3)
-4. [Azure depolama kullanarak ölçeklendirme](#Exercise4)
-5. [Otomatik ölçeklendirme için Web Apps kullanarak](#Exercise5) (Visual Studio 2013 Ultimate edition için isteğe bağlı)
+2. [Bir Web uygulamasını hazırlama için dağıtma](#Exercise2)
+3. [Üretimde dağıtım geri alma gerçekleştiriliyor](#Exercise3)
+4. [Azure Storage kullanarak ölçeklendirme](#Exercise4)
+5. [Web Apps Için otomatik ölçeklendirmeyi kullanma](#Exercise5) (Visual Studio 2013 Ultimate Edition için isteğe bağlı)
 
-Bu laboratuvarı tamamlamak için tahmini süre: **75 dakika**
+Bu Laboratuvarı tamamlamaya yönelik tahmini süre: **75 dakika**
 
 > [!NOTE]
-> Visual Studio'yu ilk başlattığınızda, önceden tanımlı ayar koleksiyonlarından birini seçmeniz gerekir. Her önceden tanımlı bir koleksiyon belirli geliştirme stili eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışı, IntelliSense kod parçacıkları ve iletişim kutusu seçenekleri belirler. Bu Laboratuvar yordamları kullanarak Visual Studio'da belirli bir görevi gerçekleştirmek için gerekli eylemleri açıklayan **genel geliştirme ayarları** koleksiyonu. Geliştirme ortamınız için farklı ayarlar koleksiyonu seçerseniz, dikkate almanız adımlar farklılıklar olabilir.
+> Visual Studio 'Yu ilk kez başlattığınızda, önceden tanımlanmış ayarlar koleksiyonundan birini seçmeniz gerekir. Her önceden tanımlı koleksiyon, belirli bir geliştirme stiliyle eşleşecek şekilde tasarlanmıştır ve pencere düzenlerini, düzenleyici davranışını, IntelliSense kod parçacıklarını ve iletişim kutusu seçeneklerini belirler. Bu laboratuvardaki yordamlarda, **genel geliştirme ayarları** koleksiyonu kullanılırken, Visual Studio 'da belirli bir görevi gerçekleştirmek için gereken eylemler açıklanır. Geliştirme ortamınız için farklı bir ayarlar koleksiyonu seçerseniz, adımlarda dikkate almanız gereken adımlarda farklılıklar olabilir.
 
 <a id="Exercise1"></a>
-### <a name="exercise-1-using-entity-framework-migrations"></a>Alıştırma 1: Entity Framework geçişleri kullanma
+### <a name="exercise-1-using-entity-framework-migrations"></a>Alıştırma 1: Entity Framework geçişlerini kullanma
 
-Bir uygulama geliştirirken, veri modelinizi zaman içinde değişebilir. (Yeni bir sürüm oluşturuyorsanız) bu değişiklikleri veritabanınızdaki mevcut modeli etkileyebilir ve veritabanınızı hataları önlemek için güncel tutmak önemlidir.
+Bir uygulama geliştirirken, veri modeliniz zaman içinde değişebilir. Bu değişiklikler, veritabanınızdaki mevcut modeli etkileyebilir (yeni bir sürüm oluşturuyorsanız) ve hataları önlemek için veritabanınızı güncel tutmak önemlidir.
 
-Bu değişiklikler, modelinizdeki izleme basitleştirmek için **Entity Framework Code First Migrations** modelinizi veritabanı şeması ile karşılaştırma değişiklikleri otomatik olarak algılayıp veritabanınızı, güncelleştirme için belirli kod oluşturur Yeni oluşturma *sürümleri* veritabanınızın.
+Modelinizdeki bu değişikliklerin izlenmesini basitleştirmek için **Entity Framework Code First Migrations** , modelinizi veritabanı şemasıyla karşılaştıran değişiklikleri otomatik olarak algılar ve veritabanınızı güncelleştirmek ve veritabanınızın yeni *sürümlerini* oluşturmak için belirli bir kod oluşturur.
 
-Bu alıştırmada nasıl etkinleştirileceğini göstermektedir **geçişler** uygulamanız ve nasıl kolayca algılayabilir ve veritabanlarınızı güncelleştirmek için değişiklikler oluşturmak için.
+Bu alıştırmada, uygulamanız için **geçişlerinizi** etkinleştirme ve veritabanlarınızı güncelleştirmek için nasıl kolayca tespit ve değişiklik oluşturabileceğiniz gösterilmektedir.
 
 <a id="Ex1Task1"></a>
-#### <a name="task-1--enabling-migrations"></a>Görev 1: etkinleştirme geçişleri
+#### <a name="task-1--enabling-migrations"></a>Görev 1 – geçişleri etkinleştirme
 
-Bu görevde, etkinleştirme adımları geçer **Entity Framework Code First Migrations** için **Geek test** modelini değiştirme ve bu değişiklikleri nasıl yansıtılır anlama veritabanı Veritabanı.
+Bu görevde, **Geek test** veritabanına **Entity Framework Code First Migrations** etkinleştirme, modeli değiştirme ve bu değişikliklerin veritabanına nasıl yansıtıldığını anlama adımlarını öğreneceksiniz.
 
-1. Visual Studio'yu açın ve açık **GeekQuiz.sln** çözüm dosyasından **Source\Ex1 UsingEntityFrameworkMigrations\Begin**.
-2. İndirmek ve yüklemek için çözümü derleyin **NuGet** paket bağımlılıkları. Bunu yapmak için çözümü sağ tıklatın ve **Çözümü Derle** veya basın **Ctrl + Shift + B**.
-3. Gelen **Araçları** Visual Studio'da seçim menüsünde **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
-4. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**. Var olan model temelinde bir başlangıç geçiş oluşturulur.
+1. Visual Studio 'Yu açın ve **Source\Ex1-UsingEntityFrameworkMigrations\Begin**adresinden **geeksınav. sln** çözüm dosyasını açın.
+2. **NuGet** paketi bağımlılıklarını indirmek ve yüklemek için çözümü derleyin. Bunu yapmak için çözüme sağ tıklayın ve **çözüm oluştur** ' a tıklayın veya **CTRL + SHIFT + B**tuşlarına basın.
+3. Visual Studio 'daki **Araçlar** menüsünde, **NuGet Paket Yöneticisi**' ni seçin ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
+4. **Paket Yöneticisi konsolunda**, aşağıdaki komutu girin ve ardından **ENTER**tuşuna basın. Mevcut modeli temel alan bir ilk geçiş oluşturulacaktır.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample1.ps1)]
 
-    ![Geçişleri etkinleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image1.png "geçişler etkinleştirme")
+    ![Geçişleri etkinleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image1.png "Geçişleri etkinleştirme")
 
-    *Geçiş etkinleştiriliyor*
-
-    > [!NOTE]
-    > Bu komut bir **geçişler** adlı klasörde bir dosya içeren Geek test projesine **Configuration.cs**. **Yapılandırma** sınıfı geçişleri içeriğiniz için nasıl davranacağını yapılandırmanıza olanak tanır.
-5. Etkin Migrations ile güncelleştirmeniz gerekir. **yapılandırma** ilk veriler ile veritabanını doldurmak için sınıf, **Geek test** gerektirir. Altında **geçişler**, değiştirin **Configuration.cs** bir dosyayla bulunan **Source\Assets** , bu Laboratuvarın klasör.
+    *Geçişleri etkinleştirme*
 
     > [!NOTE]
-    > Bu yana **geçişler** çağıracak **çekirdek** yöntemi ile her veritabanı güncelleştirmesi gereken kayıtları veritabanında çoğaltılmadığından emin olun. **AddOrUpdate** yöntemi yinelenen veri önlemek için yardımcı olur.
-6. Bir başlangıç geçiş eklemek için aşağıdaki komutu girin ve sonra basın **Enter**.
+    > Bu komut, **Configuration.cs**adlı bir dosya Içeren Geek test projesine bir **geçişler** klasörü ekler. **Yapılandırma** sınıfı, geçiş işleminin bağlam için nasıl davranacağını yapılandırmanıza olanak tanır.
+5. Geçişler etkinken, veritabanını **Geek sınavın** gerektirdiği ilk verilerle doldurmak için **yapılandırma** sınıfını güncelleştirmeniz gerekir. **Geçişler**altında **Configuration.cs** dosyasını, bu laboratuvarın **source\varlıklar** klasöründe bulunan ile değiştirin.
 
     > [!NOTE]
-    > Adlı bir veritabanı olduğundan emin olun &quot;GeekQuizProd&quot; LocalDB Örneğinizdeki.
+    > **Geçişler** her veritabanı güncelleştirmesiyle ilgili **çekirdek** yöntemini çağıracak olduğundan, kayıtların veritabanında yinelenmediğinden emin olmanız gerekir. **AddOrUpdate** yöntemi yinelenen verilerin engellenmesine yardımcı olur.
+6. İlk geçiş eklemek için aşağıdaki komutu girin ve ardından **ENTER**tuşuna basın.
+
+    > [!NOTE]
+    > LocalDB örneğiniz içinde &quot;GeekQuizProd&quot; adlı bir veritabanı olmadığından emin olun.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample2.ps1)]
 
-    ![Taban şema geçişi ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image2.png "ekleme taban şema geçişi")
+    ![Temel şema geçişi ekleniyor](maintainable-azure-websites-managing-change-and-scale/_static/image2.png "Temel şema geçişi ekleniyor")
 
-    *Taban şema geçişi ekleme*
+    *Temel şema geçişi ekleniyor*
 
     > [!NOTE]
-    > **Geçiş** son geçiş oluşturulmasından bu yana modelinize yaptığınız değişikliklere dayalı sonraki geçiş iskelesini. Bu durumda, ilk geçiş projesinin olduğu gibi tanımlanan tüm tabloları oluşturma komut dosyaları ekleyecek **TriviaContext** sınıfı.
-7. Aşağıdaki komutu çalıştırarak veritabanını güncellemek için bir geçiş çalıştırın. Bu komut için belirttiğiniz **ayrıntılı** hedef veritabanına uygulanan SQL deyimlerini görüntülemek için bayrak.
+    > **Geçiş geçişi** , son geçişten sonra, modelinizde yaptığınız değişikliklere dayalı olarak bir sonraki geçişi kankatacaktır. Bu durumda, projenin ilk geçişi olduğu için, **Triviacontext** sınıfında tanımlanmış tüm tabloları oluşturmak üzere betikleri ekler.
+7. Aşağıdaki komutu çalıştırarak veritabanını güncelleştirmek için geçişi yürütün. Bu komut için, hedef veritabanına uygulanan SQL deyimlerini görüntülemek üzere **verbose** bayrağını belirtin.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample3.ps1)]
 
-    ![Başlangıç veritabanı oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image3.png "başlangıç veritabanı oluşturma")
+    ![İlk veritabanı oluşturuluyor](maintainable-azure-websites-managing-change-and-scale/_static/image3.png "İlk veritabanı oluşturuluyor")
 
-    *Başlangıç veritabanı oluşturma*
+    *İlk veritabanı oluşturuluyor*
 
     > [!NOTE]
-    > **Veritabanını Güncelleştir** geçişler bekleyen herhangi bir veritabanına uygulanır. Bu durumda, web.config dosyanızda tanımlanan bağlantı dizesi kullanarak veritabanı oluşturun.
-8. Git **görünümü** menü ve açık **SQL Server Nesne Gezgini**.
+    > **Update-Database** bekleyen geçişleri veritabanına uygular. Bu durumda, Web. config dosyanızda tanımlanan bağlantı dizesini kullanarak veritabanını oluşturur.
+8. **Görünüm** menüsüne gidin ve **SQL Server Nesne Gezgini**açın.
 
-    ![SQL Server nesne Gezgini'nde Aç](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "SQL Server nesne Gezgini'nde Aç")
+    ![SQL Server Nesne Gezgini aç](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "SQL Server Nesne Gezgini aç")
 
-    *SQL Server nesne Gezgini'nde Aç*
-9. İçinde **SQL Server Nesne Gezgini** penceresinin sağ tıklayarak LocalDB Örneğinize bağlanmak **SQL Server** düğüm ve seçerek **SQL Server Ekle...**  seçeneği.
+    *SQL Server Nesne Gezgini aç*
+9. **SQL Server Nesne Gezgini** penceresinde, **SQL Server** düğümüne sağ tıklayıp **SQL Server Ekle...** seçeneğini belirleyerek LocalDB örneğinizi bağlayın.
 
-    ![Bir SQL Server örneği ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "bir SQL Server örneği ekleme")
+    ![SQL Server örneği ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "SQL Server örneği ekleme")
 
-    *Bir SQL Server örneği için SQL Server Nesne Gezgini ekleme*
-10. Ayarlama **sunucu adı** için *(localdb) \v11.0* bırakıp **Windows kimlik doğrulaması** , kimlik doğrulama modu. Tıklayın **Connect** devam etmek için.
+    *SQL Server Nesne Gezgini SQL Server örnek ekleme*
+10. **Sunucu adını** *(LocalDB) \v11.0* olarak ayarlayın ve **Windows kimlik doğrulamasını** kimlik doğrulama modu olarak bırakın. Devam etmek için **Bağlan**’a tıklayın.
 
-    ![Bağlanmak için LocalDB](maintainable-azure-websites-managing-change-and-scale/_static/image6.png "yerel veritabanı'na bağlanma")
+    ![LocalDB 'ye bağlanma](maintainable-azure-websites-managing-change-and-scale/_static/image6.png "LocalDB 'ye bağlanma")
 
-    *Yerel veritabanı'na bağlanma*
-11. Açık **GeekQuizProd** genişletin ve veritabanı **tabloları** düğümü. Gördüğünüz gibi **veritabanını Güncelleştir** komut içinde tanımlanan tüm tabloları oluşturulan **TriviaContext** sınıfı. Bulun **dbo. TriviaQuestions** tablo ve sütunları düğümünü açın. Sonraki görev, bu tabloya yeni bir sütun ekleyin ve veritabanını kullanarak güncelleştirme **geçişler**.
+    *LocalDB 'ye bağlanma*
+11. **GeekQuizProd** veritabanını açın ve **Tablolar** düğümünü genişletin. Gördüğünüz gibi, **Update-Database** komutu **triviacontext** sınıfında tanımlanmış tüm tabloları üretti. Dbo 'yi bulun **. Triviasorular** tablosu ve Columns düğümünü açın. Sonraki görevde, bu tabloya yeni bir sütun ekleyecek ve **geçişleri**kullanarak veritabanını güncellendirilecektir.
 
-    ![Meraklısına Notlar sorular sütunları](maintainable-azure-websites-managing-change-and-scale/_static/image7.png "Trivia sütunları sorular")
+    ![Soruların sütunları](maintainable-azure-websites-managing-change-and-scale/_static/image7.png "Soruların sütunları")
 
-    *Meraklısına Notlar sütunları sorular*
+    *Soruların sütunları*
 
 <a id="Ex1Task2"></a>
-#### <a name="task-2--updating-database-schema-using-migrations"></a>Görev 2-güncelleştirme veritabanı şemasını Migrations'ı kullanma
+#### <a name="task-2--updating-database-schema-using-migrations"></a>Görev 2 – geçişler kullanılarak veritabanı şemasını güncelleştirme
 
-Bu görevde kullanacağınız **Entity Framework Code First Migrations** modelinizde bir değişikliği algılar ve veritabanını güncelleştirmek için gereken kodu oluşturmak için. Güncelleştirme **TriviaQuestions** yeni bir özellik ekleyerek varlık. Tabloya yeni bir sütun eklemek için yeni bir geçiş oluşturmak için komutları çalıştırılır.
+Bu görevde, modelinizde bir değişikliği algılamak ve veritabanını güncelleştirmek için gerekli kodu oluşturmak üzere **Entity Framework Code First Migrations** kullanacaksınız. Yeni bir özellik ekleyerek **Triviasoruların** varlığını güncelleşirsiniz. Daha sonra yeni bir geçiş oluşturmak için komutları çalıştırarak tabloya yeni bir sütun ekleyin.
 
-1. İçinde **Çözüm Gezgini**, çift **TriviaQuestion.cs** içinde bulunan dosyasını **modelleri** klasör.
-2. Adlı yeni bir özellik eklemek **İpucu**aşağıdaki kod parçacığında gösterildiği gibi.
+1. **Çözüm Gezgini**, **modeller** klasörünün içinde bulunan **TriviaQuestion.cs** dosyasına çift tıklayın.
+2. Aşağıdaki kod parçacığında gösterildiği gibi **İpucu**adlı yeni bir özellik ekleyin.
 
     [!code-csharp[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample4.cs)]
-3. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**. Yeni bir geçiş modelimizi değişikliği yansıtacak şekilde oluşturulur.
+3. **Paket Yöneticisi konsolunda**, aşağıdaki komutu girin ve ardından **ENTER**tuşuna basın. Modelimizin değişikliğini yansıtan yeni bir geçiş oluşturulacaktır.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample5.ps1)]
 
-    ![Geçiş](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "geçiş Ekle")
+    ![Geçiş Ekle](maintainable-azure-websites-managing-change-and-scale/_static/image8.png "Geçiş Ekle")
 
     *Geçiş Ekle*
 
     > [!NOTE]
-    > Bir geçiş dosyasını iki yöntemden oluşur **yukarı** ve **aşağı**.
+    > Geçiş dosyası, **yukarı** ve **aşağı**olmak üzere iki yöntemden oluşur.
     >
-    > - **Yukarı** yöntemi, bir veritabanına uygulamak için sunduğumuz uygulama gereksinimi geçerli sürümü değişiklikler belirtmek için kullanılır.
-    > - **Aşağı** eklediğimiz için değişiklikleri geri almak için kullanılan **yukarı** yöntemi.
+    > - **Up** yöntemi, uygulamamız için geçerli sürümünün veritabanına hangi değişikliklerin uygulanacağını belirtmek için kullanılacaktır.
+    > - **Up** yöntemine eklediğimiz değişiklikleri tersine çevirmek için **aşağı** doğru kullanılır.
     >
-    > Veritabanı geçişi, veritabanı güncelleştirdiğinde, zaman damgası sırayla ve yalnızca son güncelleştirmeden bu yana kullanılan değil tüm geçişler çalışacağı ( \_MigrationHistory tablo, hangi geçişleri uygulanmış olduğunu izler). **Yukarı** tüm geçişler yöntemi çağrılır ve veritabanına belirttik değişiklikleri yapar. Önceki bir geçiş için geri dönmek isterseniz **aşağı** yöntemi, bir ters sırada değişiklikleri yinelemek için çağrılır.
-4. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**.
+    > Veritabanı geçişi veritabanını güncelleştirdiğinde, zaman damgası sırasındaki tüm geçişleri çalıştırır ve yalnızca son güncelleştirmeden bu yana kullanılmamış olanlar (\_MigrationHistory tablosu, hangi geçişlerin uygulandığını izler). Tüm geçişlerin **up** metodu çağrılır ve veritabanına belirttiğimiz değişiklikleri yapar. Önceki bir geçişe geri dönmek isterseniz, değişiklikleri ters sırada yinelemek için **azaltma** yöntemi çağırılır.
+4. **Paket Yöneticisi konsolunda**, aşağıdaki komutu girin ve ardından **ENTER**tuşuna basın.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample6.ps1)]
-5. Çıkışı **veritabanını Güncelleştir** oluşturulan komut bir **Alter Table** yeni bir sütun eklemek için SQL deyimi **TriviaQuestions** aşağıdaki resimde gösterildiği gibi tablo.
+5. **Update-Database** komutunun çıktısı, aşağıdaki görüntüde gösterildiği gibi **triviasorular** tablosuna yeni bir sütun eklemek için **alter table** SQL deyimini oluşturdu.
 
-    ![Oluşturulan sütun SQL deyimine](maintainable-azure-websites-managing-change-and-scale/_static/image9.png "oluşturulan sütun SQL deyimi ekleyin")
+    ![Oluşturulan sütun SQL açıklaması ekle](maintainable-azure-websites-managing-change-and-scale/_static/image9.png "Oluşturulan sütun SQL açıklaması ekle")
 
-    *Oluşturulan sütun SQL deyimi ekleyin*
-6. İçinde **SQL Server Nesne Gezgini**, yenileme **dbo. TriviaQuestions** denetleyin ve tablo yeni **İpucu** sütununda görüntülenir.
+    *Oluşturulan sütun SQL açıklaması ekle*
+6. **SQL Server Nesne Gezgini**, dbo 'yı yenileyin **. Triviasorular** tablosu ve yeni **İpucu** sütununun görüntülendiğini kontrol edin.
 
-    ![Yeni bir ipucu sütun gösteren](maintainable-azure-websites-managing-change-and-scale/_static/image10.png "yeni bir ipucu sütun gösteriliyor")
+    ![Yeni Ipucu sütununu gösterme](maintainable-azure-websites-managing-change-and-scale/_static/image10.png "Yeni Ipucu sütununu gösterme")
 
-    *Yeni bir ipucu sütun gösteriliyor*
-7. Geri **TriviaQuestion.cs** Düzenleyicisi, bir **StringLength** kısıtlamaya *İpucu* özelliği, aşağıdaki kod parçacığında gösterildiği gibi.
+    *Yeni Ipucu sütununu gösterme*
+7. **TriviaQuestion.cs** düzenleyicisine geri döndüğünüzde, aşağıdaki kod parçacığında gösterildiği gibi *Ipucu* özelliğine bir **StringLength** kısıtlaması ekleyin.
 
     [!code-csharp[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample7.cs)]
-8. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**.
+8. **Paket Yöneticisi konsolunda**, aşağıdaki komutu girin ve ardından **ENTER**tuşuna basın.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample8.ps1)]
-9. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**.
+9. **Paket Yöneticisi konsolunda**, aşağıdaki komutu girin ve ardından **ENTER**tuşuna basın.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample9.ps1)]
-10. Çıkışı **veritabanını Güncelleştir** oluşturulan komut bir **Alter Table** güncelleştirmek için SQL deyimi *İpucu* sütunun türü **TriviaQuestions** aşağıdaki resimde gösterildiği gibi tablo.
+10. **Update-Database** komutunun çıktısı, aşağıdaki görüntüde gösterildiği gibi **üç aylık** dönemin *İpucu* sütun türünü güncelleştirmek için bir **alter table** SQL deyimini oluşturdu.
 
-    ![Alter column SQL deyimi oluşturulan](maintainable-azure-websites-managing-change-and-scale/_static/image11.png "Alter column SQL deyimi oluşturulan")
+    ![ALTER COLUMN SQL ifadesi oluşturuldu](maintainable-azure-websites-managing-change-and-scale/_static/image11.png "ALTER COLUMN SQL ifadesi oluşturuldu")
 
-    *Oluşturulan sütun SQL deyimini değiştirme*
-11. İçinde **SQL Server Nesne Gezgini**, yenileme **dbo. TriviaQuestions** denetleyin ve tablo **İpucu** sütun türü **nvarchar(150)**.
+    *ALTER COLUMN SQL ifadesi oluşturuldu*
+11. **SQL Server Nesne Gezgini**, dbo 'yı yenileyin **. Triviasorular** tablosu ve **İpucu** sütun türünün **nvarchar (150)** olup olmadığını denetleyin.
 
-    ![New kısıtlaması gösteren](maintainable-azure-websites-managing-change-and-scale/_static/image12.png "gösteren new kısıtlaması")
+    ![Yeni kısıtlama gösteriliyor](maintainable-azure-websites-managing-change-and-scale/_static/image12.png "Yeni kısıtlama gösteriliyor")
 
-    *New kısıtlaması gösteriliyor*
+    *Yeni kısıtlama gösteriliyor*
 
 <a id="Exercise2"></a>
-### <a name="exercise-2-deploying-a-web-app-to-staging"></a>Alıştırma 2: Bir Web uygulaması hazırlık ortamına dağıtma
+### <a name="exercise-2-deploying-a-web-app-to-staging"></a>Alıştırma 2: hazırlama için bir Web uygulaması dağıtma
 
-**Web uygulamaları Azure App Service'te** aşamalı yayımlama yapmanıza olanak sağlar. Aşamalı yayımlama her varsayılan üretim sitesi için bir aşamalandırma site yuvası oluşturur ve bu yuvaları bir arıza süresi olmadan takas etmenizi sağlar. Bu, gerçekten genel bırakmadan önce değişiklikleri doğrulamak, artımlı olarak site içeriği tümleştirme ve geri değişiklikleri beklendiği gibi çalışmıyorsa geri alma kullanışlıdır.
+**Azure App Service Web Apps** , hazırlanan yayımlamayı gerçekleştirmenize olanak sağlar. Hazırlanan yayımlama, her varsayılan üretim sitesi için bir hazırlama site yuvası oluşturur ve bu yuvaları bir süre sonra takas etmenize olanak sağlar. Bu, genel kullanıma sunulmadan önce değişiklikleri doğrulamak, site içeriğini artımlı olarak bütünleştirmek ve değişiklikler beklendiği gibi çalışmıyorsa geri dönmek için yararlıdır.
 
-Bu alıştırmada, dağıtacağınız **Geek test** Git kaynak denetimi kullanarak web uygulamanızı hazırlama ortamına uygulama. Bunu yapmak için web uygulaması oluşturma ve Yönetim Portalı gerekli bileşenler sağlama, yapılandırma bir **Git** yerel bilgisayarınızdan bir kod hazırlama yuvasına kaynak deposu ve anında iletme uygulama. Ayrıca, üretim veritabanınız ile güncelleştirir **Code First Migrations** önceki alıştırmada oluşturduğunuz. Ardından, işlemi doğrulamak için bu test ortamında uygulamanın da yürütülür. Memnun olduğunuzda BT'nin beklentilerinizi göre çalıştığından, uygulamayı üretim ortamına yükseltmez.
+Bu alıştırmada, git kaynak denetimi 'ni kullanarak **Geek test** uygulamasını Web uygulamanızın hazırlama ortamına dağıtacaksınız. Bunu yapmak için, Web uygulamasını oluşturur ve yönetim portalında gerekli bileşenleri temin eder, bir **Git** deposu yapılandırır ve uygulama kaynak kodunu yerel bilgisayarınızdan hazırlama yuvasına gönderirsiniz. Ayrıca, üretim veritabanınızı önceki alıştırmada oluşturduğunuz **Code First Migrations** de güncelleştirebilirsiniz. Sonra, işlemini doğrulamak için bu test ortamında uygulamayı yürütecaksınız. Beklentilerinize göre çalıştığından emin olduktan sonra, uygulamayı üretime yükseltemeirsiniz.
 
 > [!NOTE]
-> Hazırlanmış yayımlamayı etkinleştirmek için web uygulaması olmalıdır **Standart mod**. Web uygulamanızı standart moda değişiklik yaparsanız ek ücretler tahakkuk ettirilecek unutmayın. Fiyatlandırma hakkında daha fazla bilgi için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
+> Hazırlanmış yayımlamayı etkinleştirmek için Web uygulamasının **Standart modda**olması gerekir. Web uygulamanızı standart moda değiştirirseniz ek ücretler tahakkuk ettiğine unutmayın. Fiyatlandırma hakkında daha fazla bilgi için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
 <a id="Ex2Task1"></a>
-#### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>Görev 1-Azure App Service'te bir Web uygulaması oluşturma
+#### <a name="task-1--creating-a-web-app-in-azure-app-service"></a>Görev 1 – Azure App Service bir Web uygulaması oluşturma
 
-Bu görevde, bir web uygulaması oluşturacak **Azure App Service** Yönetim Portalı'ndan. Ayrıca yapılandıracak bir **SQL veritabanı** uygulama verileri kalıcı hale getirmek ve yerel bir Git deposunda kaynak denetimi için yapılandırma.
+Bu görevde, yönetim portalından **Azure App Service** bir Web uygulaması oluşturacaksınız. Ayrıca, uygulama verilerini kalıcı hale getirmek ve kaynak denetimi için yerel bir git deposu yapılandırmak üzere bir **SQL veritabanı** yapılandıracaksınız.
 
-1. Git [Azure Yönetim Portalı](https://manage.windowsazure.com) aboneliğinizle ilişkili Microsoft hesabını kullanarak oturum açın.
+1. [Azure yönetim portalı](https://manage.windowsazure.com) ' na gidin ve aboneliğinizle ilişkili Microsoft hesabı kullanarak oturum açın.
 
-    ![Azure yönetim portalında oturum açın](maintainable-azure-websites-managing-change-and-scale/_static/image13.png)
+    ![Azure yönetim portalı 'nda oturum açın](maintainable-azure-websites-managing-change-and-scale/_static/image13.png)
 
-    *Azure yönetim portalında oturum açın*
-2. Tıklayın **yeni** sayfanın alt kısmındaki komut çubuğunda.
+    *Azure yönetim portalı 'nda oturum açın*
+2. Sayfanın alt kısmındaki komut çubuğunda **Yeni** ' ye tıklayın.
 
-    ![Yeni bir web uygulaması oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image14.png "yeni bir web uygulaması oluşturma")
+    ![Yeni bir Web uygulaması oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image14.png "Yeni bir Web uygulaması oluşturma")
 
-    *Yeni bir web uygulaması oluşturma*
-3. Tıklayın **işlem**, **Web sitesi** ardından **özel Oluştur**.
+    *Yeni bir Web uygulaması oluşturma*
+3. **İşlem**, **Web sitesi** ve sonra **özel oluştur**' a tıklayın.
 
-    ![Özel Oluştur'ı kullanarak yeni web uygulaması oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image15.png "özel Oluştur'ı kullanarak yeni web uygulaması oluşturma")
+    ![Özel oluştur kullanarak yeni bir Web uygulaması oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image15.png "Özel oluştur kullanarak yeni bir Web uygulaması oluşturma")
 
-    *Özel Oluştur'ı kullanarak yeni web uygulaması oluşturma*
-4. İçinde **yeni Web sitesi - özel Oluştur** iletişim kutusunda, kullanılabilir sağlayın **URL** (örneğin *geek test*), bir konum seçin **bölge** aşağı açılan liste ve select **yeni SQL veritabanı oluşturma** içinde **veritabanı** aşağı açılan listesi. Son olarak, seçin **kaynak denetiminden Yayımla** onay kutusunu ve tıklatın **sonraki**.
+    *Özel oluştur kullanarak yeni bir Web uygulaması oluşturma*
+4. **Yeni Web sitesi-özel oluştur** iletişim kutusunda, kullanılabilir bir **URL** (örn. *Geek-test*) girin, **bölge** açılan listesinden bir konum seçin ve **veritabanı** açılır listesinden **Yeni bir SQL veritabanı oluştur** ' u seçin. Son olarak, **kaynak denetiminden yayınla** onay kutusunu seçin ve **İleri**' ye tıklayın.
 
-    ![Yeni web uygulamasını özelleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image16.png)
+    ![Yeni Web uygulamasını özelleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image16.png)
 
-    *Yeni web uygulamasını özelleştirme*
+    *Yeni Web uygulamasını özelleştirme*
 5. Veritabanı ayarları için aşağıdaki bilgileri belirtin:
 
-   - İçinde **adı** metin kutusunda, bir veritabanı adı girin (örneğin *geekquiz\_db*)
-   - Sunucusundaki **açılan** listesinden **yeni SQL veritabanı sunucusu**. Alternatif olarak, var olan bir sunucu seçin.
-   - İçinde **veritabanı kullanıcı adı** ve **veritabanı parolasını** kutularında, SQL veritabanı sunucusu için yönetici kullanıcı adı ve parola girin. Bir sunucu seçerseniz oluşturduysanız, parola girmesi istenir.
+   - **Ad** metin kutusuna bir veritabanı adı girin (örn. *geektest\_DB*)
+   - Sunucu **açılan** listesinde, **Yeni SQL veritabanı sunucusu**' nu seçin. Alternatif olarak, var olan bir sunucuyu seçebilirsiniz.
+   - **Veritabanı Kullanıcı adı** ve **VERITABANı parolası** kutularına SQL veritabanı sunucusu için yönetici kullanıcı adını ve parolasını girin. Zaten oluşturduğunuz bir sunucuyu seçerseniz parola istenir.
 
      ![Veritabanı ayarlarını belirtme](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
      *Veritabanı ayarlarını belirtme*
 6. Devam etmek için **İleri** 'ye tıklayın.
-7. Seçin **yerel Git deposu** 'e tıklayın, kaynak denetimi için **sonraki**.
+7. Kullanılacak kaynak denetimi için **yerel Git deposu** ' nu seçin ve **İleri**' ye tıklayın.
 
     > [!NOTE]
-    > Dağıtım kimlik bilgileri (kullanıcı adı ve parola) istenebilir.
+    > Dağıtım kimlik bilgileri (Kullanıcı adı ve parola) istenebilir.
 
     ![Git deposu oluşturuluyor](maintainable-azure-websites-managing-change-and-scale/_static/image18.png)
 
     *Git deposu oluşturuluyor*
-8. Yeni web uygulamasına oluşturulana kadar bekleyin.
+8. Yeni Web uygulaması oluşturuluncaya kadar bekleyin.
 
     > [!NOTE]
-    > Varsayılan olarak, Azure konumundaki etki alanları sağlar *azurewebsites.net* ancak Ayrıca, Azure yönetim portalını kullanarak özel etki alanlarını ayarlamak için olanağını sağlar. Ancak, belirli bir Azure App Service modları kullanıyorsanız yalnızca özel etki alanlarını yönetebilir.
+    > Azure, varsayılan olarak *azurewebsites.net* adresinde etki alanları sağlar, ancak Azure yönetim portalı 'nı kullanarak özel etki alanları ayarlama olasılığından de olanak tanır. Ancak, yalnızca belirli Azure App Service modlarını kullanıyorsanız özel etki alanlarını yönetebilirsiniz.
     >
-    > Azure App Service, ücretsiz, paylaşılan, temel, standart ve Premium sürümlerinde kullanılabilir. Ücretsiz ve paylaşılan modda tüm web sitelerinde çok kiracılı bir ortamda çalıştırmak ve CPU, bellek ve ağ kullanımı için kotaları. Ücretsiz uygulama sayısı planınızla farklılık gösterebilir. Standart modda, standart Azure karşılık gelen özel sanal makinelerde çalışan uygulamaların işlem kaynakları seçin. Web uygulama modu yapılandırmasında bulabilirsiniz **ölçek** web uygulamanızın menüsü.
+    > Azure App Service ücretsiz, paylaşılan, temel, standart ve Premium sürümlerde kullanılabilir. Ücretsiz ve paylaşılan modda tüm Web uygulamaları çok kiracılı bir ortamda çalışır ve CPU, bellek ve ağ kullanımı için kotalar vardır. En fazla ücretsiz uygulama sayısı planınızda değişiklik gösterebilir. Standart modda, standart Azure işlem kaynaklarına karşılık gelen adanmış sanal makinelerde çalışan uygulamaları seçersiniz. Web uygulaması modu yapılandırmasını Web uygulamanızın **Ölçek** menüsünde bulabilirsiniz.
     >
-    > ![Azure App Service'e modları](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure uygulama hizmeti modları")
+    > ![Azure App Service modları](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure App Service modları")
     >
-    > Kullanıyorsanız **paylaşılan** veya **standart** modu oluşturabileceksiniz, uygulamanızın giderek web uygulamanız için özel etki alanlarını yönetmek **yapılandırma** menü ve tıklayarak**Etki alanlarını yönet** altında *etki alanı adları*.
+    > **Paylaşılan** veya **Standart** mod kullanıyorsanız, uygulamanızın **Yapılandır** menüsüne gidip *etki alanı adları*altındaki **etki alanlarını yönet** ' e tıklayarak web uygulamanız için özel etki alanlarını yönetebilirsiniz.
     >
-    > ![Etki alanlarını yönet](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "etki alanlarını yönet")
+    > ![Etki alanlarını yönetme](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "Etki Alanlarını Yönet")
     >
-    > ![Özel etki alanlarını yönet](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "özel etki alanlarını yönet")
-9. Web uygulaması oluşturduktan sonra altındaki bağlantıya tıklayın **URL** sütunun yeni web uygulamasına çalışıp çalışmadığını denetleyin.
+    > ![Özel etki alanlarını yönetme](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "Özel etki alanlarını yönetme")
+9. Web uygulaması oluşturulduktan sonra, yeni Web uygulamasının çalıştığını denetlemek için **URL** sütununun altındaki bağlantıya tıklayın.
 
-    ![Yeni web uygulamasına göz atma](maintainable-azure-websites-managing-change-and-scale/_static/image22.png)
+    ![Yeni Web uygulamasına göz atma](maintainable-azure-websites-managing-change-and-scale/_static/image22.png)
 
-    *Yeni web uygulamasına göz atma*
+    *Yeni Web uygulamasına göz atma*
 
-    ![çalışan web uygulaması](maintainable-azure-websites-managing-change-and-scale/_static/image23.png)
+    ![çalışan Web uygulaması](maintainable-azure-websites-managing-change-and-scale/_static/image23.png)
 
-    *çalışan web uygulaması*
+    *çalışan Web uygulaması*
 
 <a id="Ex2Task2"></a>
-#### <a name="task-2--creating-the-production-sql-database"></a>Görev 2-üretim SQL veritabanı oluşturma
+#### <a name="task-2--creating-the-production-sql-database"></a>Görev 2 – üretim SQL veritabanı oluşturuluyor
 
-Bu görevde kullanacağınız **Entity Framework Code First Migrations** hedefleme veritabanı oluşturmak için **Azure SQL veritabanı** önceki görevde oluşturduğunuz örneği.
+Bu görevde, önceki görevde oluşturduğunuz **Azure SQL veritabanı** örneğini hedefleyen veritabanını oluşturmak için **Entity Framework Code First Migrations** kullanacaksınız.
 
-1. Yönetim Portalı'nda, önceki görevde oluşturduğunuz web uygulamasına gidin ve Git alt **Pano**.
-2. İçinde **Pano** sayfasında **bağlantı dizelerini görüntüle** altında bağlantı **Hızlı Bakış** bölümü.
+1. Yönetim Portalı, önceki görevde oluşturduğunuz Web uygulamasına gidin ve **panosuna**gidin.
+2. **Pano** sayfasında, **Hızlı bakış** bölümünün altındaki **bağlantı dizelerini görüntüle** bağlantısını tıklatın.
 
-    ![Bağlantı dizelerini görüntüle](maintainable-azure-websites-managing-change-and-scale/_static/image24.png "bağlantı dizelerini görüntüle")
+    ![Bağlantı dizelerini görüntüle](maintainable-azure-websites-managing-change-and-scale/_static/image24.png "Bağlantı dizelerini görüntüle")
 
     *Bağlantı dizelerini görüntüle*
-3. Kopyalama **bağlantı dizesi** değeri ve iletişim kutusunu kapatın.
+3. **Bağlantı dizesi** değerini kopyalayın ve iletişim kutusunu kapatın.
 
-    ![Azure Yönetim Portalı'nda bağlantı dizesi](maintainable-azure-websites-managing-change-and-scale/_static/image25.png "Azure Yönetim Portalı'nda bağlantı dizesi")
+    ![Azure Yönetim Portalı bağlantı dizesi](maintainable-azure-websites-managing-change-and-scale/_static/image25.png "Azure Yönetim Portalı bağlantı dizesi")
 
-    *Azure Yönetim Portalı'nda bağlantı dizesi*
-4. Tıklayın **SQL veritabanları** azure'da SQL veritabanlarının listesini görmek için
+    *Azure Yönetim Portalı bağlantı dizesi*
+4. Azure 'da SQL veritabanlarının listesini görmek için **SQL veritabanları** ' na tıklayın
 
-    ![SQL veritabanı menü](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "SQL veritabanı menüsü")
+    ![SQL veritabanı menüsü](maintainable-azure-websites-managing-change-and-scale/_static/image26.png "SQL veritabanı menüsü")
 
     *SQL veritabanı menüsü*
-5. Önceki görevde oluşturduğunuz veritabanını bulun ve bu sunucuda'a tıklayın.
+5. Önceki görevde oluşturduğunuz veritabanını bulun ve sunucusuna tıklayın.
 
-    ![SQL veritabanı sunucusu](maintainable-azure-websites-managing-change-and-scale/_static/image27.png "SQL veritabanı sunucusu")
+    ![SQL veritabanı sunucusu](maintainable-azure-websites-managing-change-and-scale/_static/image27.png "SQL Veritabanı sunucusu")
 
     *SQL veritabanı sunucusu*
-6. İçinde **Hızlı Başlangıç** sayfasında, sunucunun tıklayarak **yapılandırma**.
+6. Sunucusunun **hızlı başlangıç** sayfasında, **Yapılandır**' a tıklayın.
 
-    ![Yapılandırma menü](maintainable-azure-websites-managing-change-and-scale/_static/image28.png "yapılandırma menüsü")
+    ![Menüyü Yapılandır](maintainable-azure-websites-managing-change-and-scale/_static/image28.png "Menüyü Yapılandır")
 
-    *Menüden yapılandırın*
-7. İçinde **izin verilen IP adresleri** bölümünde, tıklayarak **eklemek için izin verilen IP adreslerini** SQL veritabanı sunucusuna bağlanmak IP etkinleştirmek için bağlantı.
+    *Menüyü Yapılandır*
+7. **Izin VERILEN IP adresleri** bölümünde, IP 'Nizin SQL veritabanı sunucusuna bağlanmasını sağlamak için **izin verilen IP adresleri bağlantısına Ekle** ' ye tıklayın.
 
-    ![İzin verilen IP adresleri](maintainable-azure-websites-managing-change-and-scale/_static/image29.png "izin verilen IP adresleri")
+    ![İzin verilen IP adresleri](maintainable-azure-websites-managing-change-and-scale/_static/image29.png "İzin verilen IP adresleri")
 
     *İzin verilen IP adresleri*
-8. Tıklayın **Kaydet** adımı tamamlamak için sayfanın alt kısmındaki.
-9. Visual Studio'ya geçiş yapın.
-10. İçinde **Paket Yöneticisi Konsolu**, değiştirerek aşağıdaki komutu yürütün *[YOUR-CONNECTION-STRING]* Azure'dan kopyaladığınız bağlantı dizesi yer tutucusunu
+8. Adımı gerçekleştirmek için sayfanın alt kısmındaki **Kaydet** ' e tıklayın.
+9. Visual Studio 'ya geri dönün.
+10. **Paket Yöneticisi konsolunda**, *[bağlantı-dize]* yer tutucusunu Azure 'dan kopyaladığınız bağlantı dizesiyle değiştirerek aşağıdaki komutu yürütün
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample10.ps1)]
 
-    ![Windows Azure SQL veritabanı hedefleyen veritabanını Güncelleştir](maintainable-azure-websites-managing-change-and-scale/_static/image30.png "Windows Azure SQL veritabanı hedefleyen veritabanını güncelleştir")
+    ![Windows Azure SQL veritabanı 'nı hedefleyen veritabanını güncelleştir](maintainable-azure-websites-managing-change-and-scale/_static/image30.png "Windows Azure SQL veritabanı 'nı hedefleyen veritabanını güncelleştir")
 
-    *Azure SQL veritabanı hedefleyen veritabanını güncelleştir*
+    *Azure SQL veritabanı 'nı hedefleyen veritabanını güncelleştirme*
 
 <a id="Ex2Task3"></a>
-#### <a name="task-3--deploying-geek-quiz-to-staging-using-git"></a>Görev 3 – hazırlamaya Git kullanarak dağıtma Geek sınavı
+#### <a name="task-3--deploying-geek-quiz-to-staging-using-git"></a>Görev 3 – git kullanarak hazırlama için Geek sınavını dağıtma
 
-Bu görevde, aşamalı yayımlamayı kullanarak web uygulamanızı sağlayacaktır. Ardından, web uygulamanızı hazırlama ortamını, doğrudan yerel bilgisayarınızdan Geek test uygulamayı yayımlamak için Git'i kullanabilirsiniz.
+Bu görevde, Web uygulamanızda hazırlanan yayımlamayı etkinleştirecektir. Daha sonra, Geek test uygulamasını doğrudan yerel bilgisayarınızdan Web uygulamanızın hazırlama ortamına yayımlamak için git ' i kullanacaksınız.
 
-1. Portala geri dönün ve web uygulamasının altında adına **adı** yönetim sayfaları görüntülemek için sütun.
+1. Portala geri dönün ve yönetim sayfalarını göstermek için **ad** sütununun altındaki Web uygulamasının adına tıklayın.
 
     ![Web uygulaması yönetim sayfalarını açma](maintainable-azure-websites-managing-change-and-scale/_static/image31.png)
 
     *Web uygulaması yönetim sayfalarını açma*
-2. Gidin **ölçek** sayfası. Altında **genel** bölümünden **standart** tıklayın ve yapılandırma için **Kaydet** komut çubuğunda.
+2. **Ölçek** sayfasına gidin. **Genel** bölümünde, yapılandırma için **Standart** ' ı seçin ve komut çubuğunda **Kaydet** ' e tıklayın.
 
     > [!NOTE]
-    > Geçerli bölge ve Abonelikteki tüm web uygulamaları çalıştırmanın **standart** modu, bırakın **Tümünü Seç** onay kutusunu seçili **seçin siteleri** yapılandırma. Aksi halde temizleyin **Tümünü Seç** onay kutusu.
+    > Tüm Web uygulamalarını geçerli bölgede ve abonelikte **Standart** modda çalıştırmak Için, **siteleri seçin** yapılandırması ' nda **Tümünü Seç** onay kutusunu seçili bırakın. Aksi takdirde, **Tümünü Seç** onay kutusunu temizleyin.
 
-    ![Web uygulaması Standart modu için yükseltme](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "standart moda web uygulamasını yükseltme")
+    ![Web uygulamasını standart moda yükseltme](maintainable-azure-websites-managing-change-and-scale/_static/image32.png "Web uygulamasını standart moda yükseltme")
 
-    *Web uygulaması Standart modu için yükseltme*
-3. Tıklayın **Evet** değişiklikleri onaylamak için.
+    *Web uygulamasını standart moda yükseltme*
+3. Değişiklikleri onaylamak için **Evet** ' e tıklayın.
 
-    ![Standart mod değişikliğini onaylayan](maintainable-azure-websites-managing-change-and-scale/_static/image33.png "web uygulama modu değiştirmeye devam")
+    ![Standart mod değişikliğini onaylama](maintainable-azure-websites-managing-change-and-scale/_static/image33.png "Web uygulaması modunun değiştirilmesine devam etme")
 
-    *Standart mod değişikliğini onaylanıyor*
-4. Git **Pano** sayfasında ve tıklayın **hazırlanmış yayımlamayı etkinleştir** altında **Hızlı Bakış** bölümü.
+    *Standart mod değişikliğini onaylama*
+4. **Pano** sayfasına gidin ve **Hızlı bakış** bölümünde **hazırlanan yayımlamayı etkinleştir** ' e tıklayın.
 
-    ![Aşamalı yayımlamayı etkinleştirmeye](maintainable-azure-websites-managing-change-and-scale/_static/image34.png "aşamalı yayımlamayı etkinleştirme")
+    ![Hazırlanan yayımlamayı etkinleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image34.png "Hazırlanan yayımlamayı etkinleştirme")
 
-    *Aşamalı yayımlamayı etkinleştirme*
-5. Tıklayın **Evet** hazırlanmış yayımlamayı etkinleştirmek için.
+    *Hazırlanan yayımlamayı etkinleştirme*
+5. Hazırlanmış yayımlamayı etkinleştirmek için **Evet** ' i tıklatın.
 
-    ![Aşamalı yayımlama onaylayan](maintainable-azure-websites-managing-change-and-scale/_static/image35.png "hazırlanmış yayımlamayı etkinleştirmek için Evet'e tıklayarak")
+    ![Hazırlanan yayımlamayı onaylama](maintainable-azure-websites-managing-change-and-scale/_static/image35.png "Aşamalı yayımlamayı etkinleştirmek için Evet 'i tıklatın")
 
-    *Aşamalı yayımlama onaylanıyor*
-6. Web uygulamaları listesinde işareti aşamalandırma site yuvası görüntülemek için web uygulamanızın adına solunda genişletin. Ardından web uygulamanızın adına sahip ***(hazırlama)***. Yönetim sayfasına gitmek için hazırlama sitesini tıklayın.
+    *Hazırlanan yayımlamayı onaylama*
+6. Web Apps listesinde, hazırlama site yuvasını göstermek için Web uygulaması adınızın solundaki işareti genişletin. Web uygulamanızın adı ve sonra ***(hazırlama)*** bulunur. Yönetim sayfasına gitmek için hazırlama sitesine tıklayın.
 
-    ![Hazırlama web uygulamasına gidip](maintainable-azure-websites-managing-change-and-scale/_static/image36.png "hazırlama web uygulamasına gidin")
+    ![Hazırlama Web uygulamasına gitme](maintainable-azure-websites-managing-change-and-scale/_static/image36.png "Hazırlama Web uygulamasına gitme")
 
-    *Hazırlama uygulamasına gidin*
-7. Bu he yönetimi gibi herhangi diğer web uygulamasının Yönetim sayfasını sayfanız dikkat edin. Gidin **dağıtımları** sayfası ve kopyalama **Git URL'si** değeri. Bu alıştırmada, kullanır.
+    *Hazırlama uygulamasına gitme*
+7. Yönetim sayfasının diğer Web uygulamaları yönetim sayfası gibi göründüğünü unutmayın. **Dağıtımlar** sayfasına gidin ve **Git URL 'si** değerini kopyalayın. Bu alıştırmanın ilerleyen kısımlarında kullanacaksınız.
 
-    ![Git URL değeri kopyalama](maintainable-azure-websites-managing-change-and-scale/_static/image37.png)
+    ![Git URL 'SI değeri kopyalanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image37.png)
 
-    *Git URL değeri kopyalama*
-8. Yeni bir **Git Bash** konsol ve aşağıdaki komutları yürütün. Güncelleştirme *[YOUR-uygulaması-PATH]* yolu ile yer tutucu **GeekQuiz** bulunan bir çözümün **Source\Ex1 DeployingWebSiteToStaging\Begin** klasörü Bu Laboratuvarın.
+    *Git URL 'SI değeri kopyalanıyor*
+8. Yeni bir **Git Bash** konsolu açın ve aşağıdaki komutları yürütün. *[-APPLICATION-Path]* yer tutucusunu, bu laboratuvarın **Source\ex1-deployingwebsitetostaging\begin** klasöründe bulunan **geektest** çözümünün yoluyla güncelleştirin.
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample11.cmd)]
 
-    ![Git başlatma ve ilk tamamlama](maintainable-azure-websites-managing-change-and-scale/_static/image38.png)
+    ![Git başlatması ve ilk kayıt](maintainable-azure-websites-managing-change-and-scale/_static/image38.png)
 
-    *Git başlatma ve ilk tamamlama*
-9. Web uygulamanızı bir uzak konuma itme aşağıdaki komutu çalıştırarak **Git** depo. Yönetim Portalı'ndan alınan URL yer tutucusunu değiştirin. Dağıtım parolanızı istenir.
+    *Git başlatması ve ilk kayıt*
+9. Web uygulamanızı uzak **Git** deposuna göndermek için aşağıdaki komutu çalıştırın. Yer tutucusunu, yönetim portalından edindiğiniz URL ile değiştirin. Sizden dağıtım parolanızı girmeniz istenir.
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample12.cmd)]
 
-    ![Windows Azure'a gönderme](maintainable-azure-websites-managing-change-and-scale/_static/image39.png)
+    ![Microsoft Azure 'a gönderiliyor](maintainable-azure-websites-managing-change-and-scale/_static/image39.png)
 
-    *Azure'a gönderme*
+    *Azure 'a gönderiliyor*
 
     > [!NOTE]
-    > FTP konak ya da bir web uygulamasının GIT deposuna içerik dağıttığınızda, kimliğini kullanarak gerekir **dağıtım kimlik bilgileri** oluşturduğunuz web uygulamasından 's **Hızlı Başlangıç** veya **Panosu**  yönetim sayfaları. Dağıtım kimlik bilgilerinizi bilmiyorsanız, bunları yönetim portalını kullanarak kolayca sıfırlayabilirsiniz. Web uygulamasını açın **Pano** sayfasında ve tıklayın **dağıtım kimlik bilgilerinizi sıfırlayın** bağlantı. Yeni bir parola girin ve tıklatın **Tamam**. Dağıtım kimlik bilgileri, aboneliğinizle ilişkilendirilmiş tüm web apps ile kullanım için geçerlidir.
-10. Web uygulamasını Azure'a başarıyla gönderildi doğrulamak için Yönetim Portalı'na geri dönün ve **Web siteleri**.
-11. Web uygulamanızı bulun ve giriş aşamalandırma site yuvası görüntülemek için genişletin. ' A tıklayın, **adı** Yönetim sayfasına gidin.
-12. Tıklayın **dağıtımları** görmek için **dağıtım geçmişini**. Olduğunu doğrulayın bir **etkin dağıtım** ile  *&quot;ilk işleme&quot;*.
+    > Bir Web uygulamasının FTP ana bilgisayarına veya GIT deposuna içerik dağıttığınızda, Web uygulamasının **hızlı başlangıç** veya **Pano** yönetim sayfalarından oluşturduğunuz **dağıtım kimlik bilgilerini** kullanarak kimlik doğrulaması yapmanız gerekir. Dağıtım kimlik bilgilerinizi görmüyorsanız, yönetim portalı 'nı kullanarak bunları kolayca sıfırlayabilirsiniz. Web uygulaması **panosu** sayfasını açın ve **dağıtım kimlik bilgilerinizi sıfırlayın** bağlantısına tıklayın. Yeni bir parola girin ve **Tamam 'a**tıklayın. Dağıtım kimlik bilgileri, aboneliğinizle ilişkili tüm Web uygulamalarıyla birlikte kullanılmak üzere geçerlidir.
+10. Web uygulamasının başarıyla Azure 'a itildiğini doğrulamak için yönetim portalına dönün ve **Web siteleri**' ne tıklayın.
+11. Web uygulamanızı bulun ve hazırlama site yuvasını göstermek için girişi genişletin. Yönetim sayfasına gitmek için **adına** tıklayın.
+12. **Dağıtım geçmişini**görmek için **dağıtımlar** ' a tıklayın. *&quot;Ilk işlemesini&quot;* **etkin bir dağıtım** olduğunu doğrulayın.
 
     ![Etkin dağıtım](maintainable-azure-websites-managing-change-and-scale/_static/image40.png)
 
     *Etkin dağıtım*
-13. Son olarak, tıklayın **Gözat** komut çubuğunda web uygulamasına gidin.
+13. Son olarak, Web uygulamasına gitmek için komut çubuğunda bulunan **Araştır** ' a tıklayın.
 
-    ![Web uygulamasına göz atın](maintainable-azure-websites-managing-change-and-scale/_static/image41.png)
+    ![Web uygulamasına gözatamıyorum](maintainable-azure-websites-managing-change-and-scale/_static/image41.png)
 
-    *Web uygulamasına göz atın*
-14. Uygulama başarıyla dağıtılır Geek test oturum açma sayfasını görürsünüz.
+    *Web uygulamasına gözatamıyorum*
+14. Uygulama başarıyla dağıtılırsa Geek test oturum açma sayfasını görürsünüz.
 
     > [!NOTE]
-    > Ardından web uygulamanızın adını dağıtılan uygulamayı adresi URL'sini içeren *-hazırlama*.
+    > Dağıtılan uygulamanın adres URL 'SI, Web uygulamanızın adını ve ardından *hazırlamayı*içerir.
 
-    ![Hazırlama ortamındaki çalışan uygulama](maintainable-azure-websites-managing-change-and-scale/_static/image42.png)
+    ![Hazırlama ortamında çalışan uygulama](maintainable-azure-websites-managing-change-and-scale/_static/image42.png)
 
-    *Hazırlama ortamındaki çalışan uygulama*
-15. Uygulamayı incelemek isterseniz tıklayın **kaydetme** yeni bir kullanıcı kaydetmek için. Hesap ayrıntıları, bir kullanıcı adı, e-posta adresi ve parola girerek tamamlayın. Ardından, uygulamayı test ilk soru gösterir. Beklendiği gibi çalıştığından emin olmak için birkaç soruyu yanıtlayın.
+    *Hazırlama ortamında çalışan uygulama*
+15. Uygulamayı araştırmak isterseniz, yeni bir kullanıcı kaydetmek için **Kaydet** ' e tıklayın. Hesap ayrıntılarını bir Kullanıcı adı, e-posta adresi ve parola girerek doldurun. Ardından, uygulama, test ilk sorusunu gösterir. Beklenen şekilde çalıştığından emin olmak için birkaç soruyu yanıtlayın.
 
-    ![Kullanılmaya hazır uygulama](maintainable-azure-websites-managing-change-and-scale/_static/image43.png)
+    ![Uygulama kullanılmak üzere hazırlanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image43.png)
 
-    *Kullanılmaya hazır uygulama*
+    *Uygulama kullanılmak üzere hazırlanıyor*
 
 <a id="Ex2Task4"></a>
-#### <a name="task-4--promoting-the-web-app-to-production"></a>Görev 4 – üretim Web uygulamasına yükseltme
+#### <a name="task-4--promoting-the-web-app-to-production"></a>Görev 4 – Web uygulamasını üretime yükseltme
 
-Web uygulaması hazırlama ortamındaki doğru şekilde çalıştığını doğruladıktan sonra üretime yükseltmek hazır olursunuz. Bu görevde, üretim site yuvası ile aşamalandırma site yuvası takas.
+Artık, Web uygulamasının hazırlama ortamında düzgün çalıştığını doğruladığınıza göre, bunu üretime yükseltmeye hazırsınız demektir. Bu görevde, hazırlama site yuvasını üretim site yuvası ile takas edersiniz.
 
-1. Yönetim Portalı'na dönün ve aşamalandırma site yuvası seçin. Tıklayın **takas** komut çubuğunda.
+1. Yönetim portalına geri dönün ve hazırlama site yuvasını seçin. Komut çubuğunda **takas et** ' e tıklayın.
 
-    ![Üretim için değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image44.png)
+    ![Üretime değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image44.png)
 
-    *Üretim için değiştirme*
-2. Tıklayın **Evet** değiştirme işlemine devam etmek için onay iletişim kutusunda. Azure, hazırlama sitesi içeriğini üretim sitesini içerikle hemen değiştireceksiniz.
-
-    > [!NOTE]
-    > Bazı ayarlar hazırlanmış sürümünden (örn: bağlantı dizesi geçersiz kılmalar, işleyici eşlemeleri, vb.) üretim sürümü için otomatik olarak kopyalanır, ancak diğer ayarları değiştirmez (örneğin DNS uç noktaları, SSL bağlamaları, vb.).
-
-    ![Değiştirme işlemi onayı](maintainable-azure-websites-managing-change-and-scale/_static/image45.png)
-
-    *Değiştirme işlemi onayı*
-3. Değiştirme işlemi tamamlandıktan sonra üretim yuvası seçip tıklayın **Gözat** üretim sitesini açmak için komut çubuğunda. Adres çubuğundaki URL dikkat edin.
+    *Üretime değiştirme*
+2. Değiştirme işlemine devam etmek için onay iletişim kutusunda **Evet** ' e tıklayın. Azure, üretim sitesinin içeriğini hazırlama sitesinin içeriğiyle hemen takas eder.
 
     > [!NOTE]
-    > Önbelleği temizlemek için tarayıcınızı yenilemeniz gerekebilir. Internet Explorer'da tuşlarına basarak bunu yapabilirsiniz **CTRL + R**.
+    > Hazırlanan sürümden bazı ayarlar otomatik olarak üretim sürümüne (örn. bağlantı dizesi geçersiz kılmaları, işleyici eşlemeleri vb.) kopyalanacak, ancak diğer ayarlar değişmeyecektir (örneğin, DNS uç noktaları, SSL bağlamaları vb.).
 
-    ![Üretim ortamında çalışan web uygulaması](maintainable-azure-websites-managing-change-and-scale/_static/image46.png)
-4. İçinde **GitBash** konsolunda, üretim yuvası hedeflemek için yerel bir Git deposu için Uzak URL'LERİNİ güncellemeleri. Bunu yapmak için yer tutucuları, dağıtım kullanıcı adı ve web uygulamanızın adıyla değiştirerek aşağıdaki komutu çalıştırın.
+    ![Değiştirme işlemi onaylanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image45.png)
+
+    *Değiştirme işlemi onaylanıyor*
+3. Değiştirme tamamlandıktan sonra üretim yuvasını seçin ve komut çubuğunda, üretim sitesini açmak için **Araştır** ' a tıklayın. Adres çubuğundaki URL 'ye dikkat edin.
 
     > [!NOTE]
-    > Aşağıdaki alıştırmalarda basitliğinin yanı sıra Laboratuvar için hazırlama yerine üretim sitesi için değişiklikler gönderir. Bir gerçek dünya senaryosunda, üretim için yükseltmeden önce hazırlama ortamına değişiklikleri doğrulamak için önerilir.
+    > Önbelleği temizlemek için tarayıcınızı yenilemeniz gerekebilir. Internet Explorer 'da, **CTRL + R**tuşlarına basarak bunu yapabilirsiniz.
+
+    ![Üretim ortamında çalışan Web uygulaması](maintainable-azure-websites-managing-change-and-scale/_static/image46.png)
+4. **GitBash** konsolunda, yerel git deposunun uzak URL 'sini üretim yuvasını hedefleyecek şekilde güncelleştirin. Bunu yapmak için, yer tutucuları dağıtım Kullanıcı adınızla ve Web uygulamanızın adıyla değiştirerek aşağıdaki komutu çalıştırın.
+
+    > [!NOTE]
+    > Aşağıdaki alıştırmalarda, değişiklikleri yalnızca laboratuvarın basitliği için hazırlama yerine üretim sitesine gönderirsiniz. Gerçek dünyada bir senaryoda, üretime yükseltmeden önce hazırlama ortamındaki değişikliklerin doğrulanması önerilir.
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample13.cmd)]
 
 <a id="Exercise3"></a>
-### <a name="exercise-3-performing-deployment-rollback-in-production"></a>Alıştırma 3: Üretim ortamında dağıtım geri alma gerçekleştiriliyor
+### <a name="exercise-3-performing-deployment-rollback-in-production"></a>Alıştırma 3: üretimde dağıtım geri alma Işlemi gerçekleştiriliyor
 
-Burada sahip olmadığınız arasındaki hazırlama ve üretim, örneğin, sık erişimli değiştirme gerçekleştirmek için bir hazırlama yuvası ile çalışıyorsanız senaryo vardır **ücretsiz** veya **paylaşılan** modu. Bu senaryolarda, uygulamanız bir sınama ortamında – yerel veya uzak bir sitedeki – üretim ortamına dağıtmadan önce test etmelisiniz. Ancak, sınama aşamasında algılanmayan sorunu üretim sitede kaynaklanabilecek mümkündür. Bu durumda, mümkün olan en kısa sürede uygulamanın önceki ve daha kararlı sürümü arasında kolayca geçiş için bir mekanizma olması önemlidir.
+Hazırlama ve üretim arasında, örneğin, **ücretsiz** veya **paylaşılan** modla çalışıyorsanız, hazırlık ve üretim arasında dinamik değiştirme gerçekleştirmek için bir hazırlama yuvalarınızın olmadığı senaryolar vardır. Bu senaryolarda, üretime dağıtım yapmadan önce, uygulamanızı yerel olarak veya uzak bir sitede bir test ortamında test etmeniz gerekir. Ancak, üretim sitesinde test aşamasında algılanamayan bir sorun ortaya çıkabilir. Bu durumda, mümkün olduğunca hızlı bir şekilde uygulamanın önceki ve daha kararlı bir sürümüne kolayca geçiş mekanizması olması önemlidir.
 
-İçinde **Azure App Service**, kaynak denetiminden sürekli dağıtım yapar, bu olası teşekkür **yeniden** eylemi Yönetim Portalı'nda kullanılabilir. Azure, depoya itilmiş yürütmeleri ile ilişkilendirilen dağıtımları izler ve herhangi bir zamanda önceki dağıtımlarınızı birini kullanarak uygulamanızı yeniden dağıtmaya yönelik bir seçenek sağlar.
+**Azure App Service**, kaynak denetiminden sürekli dağıtım, yönetim portalı 'nda kullanılabilir yeniden **dağıtma** eylemi sayesinde bunu mümkün hale getirir. Azure, depoya gönderilen işlemelerle ilişkili dağıtımları izler ve istediğiniz zaman, önceki dağıtımlarınızdan herhangi birini kullanarak uygulamanızı yeniden dağıtmaya yönelik bir seçenek sağlar.
 
-Bu alıştırmada, kodda değişiklik gerçekleştirecek **Geek test** kasıtlı olarak eklediği uygulama bir *hata*. Hatayı görmek için uygulamayı üretime dağıtır ve ardından önceki duruma geri dönmek için yeniden dağıtma özelliğin avantajlarından yararlanmak.
+Bu alıştırmada, bir *hatayı*kasıtlı olarak gösteren **Geek test** uygulamasındaki kodda bir değişiklik gerçekleştirirsiniz. Hatayı görmek için uygulamayı üretime dağıtırsınız ve ardından önceki duruma geri dönmek için yeniden dağıtma özelliğinden faydalanabilirsiniz.
 
 <a id="Ex3Task1"></a>
-#### <a name="task-1--updating-the-geek-quiz-application"></a>Görev 1 – Geek test uygulamayı güncelleştirme
+#### <a name="task-1--updating-the-geek-quiz-application"></a>Görev 1 – Geek test uygulamasını güncelleştirme
 
-Bu görevde, küçük bir parça kodu yeniden düzenleyin **TriviaController** seçili test seçeneği, yeni bir yönteme veritabanından alır mantığının parçası ayıklamak için sınıf.
+Bu görevde, seçilen test seçeneğini veritabanından yeni bir yönteme alan mantığın bir kısmını ayıklamak için **Triviacontroller** sınıfının küçük bir kod parçasını yeniden düzenlemelisiniz.
 
-1. Geçiş ile Visual Studio örneğine **GeekQuiz** önceki alıştırmada çözümünden.
-2. İçinde **Çözüm Gezgini**açın **TriviaController.cs** içinde dosya **denetleyicileri** klasör.
-3. Bulun **StoreAsync** yöntemi ve kodu vurgulanmış aşağıdaki şekilde seçin.
+1. Önceki alıştırmada **Geektest** çözümüyle Visual Studio örneğine geçin.
+2. **Çözüm Gezgini**, **TriviaController.cs** dosyasını **denetleyiciler** klasörü içinde açın.
+3. **Storeasync** yöntemini bulun ve aşağıdaki şekilde vurgulanan kodu seçin.
 
-    ![Kod seçme](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
+    ![Kodu seçme](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
 
-    *Kod seçme*
-4. Seçilen koda sağ tıklayın, genişletin **yeniden düzenleyin** menü ve select **yöntemi ayıkla...** .
+    *Kodu seçme*
+4. Seçili koda sağ tıklayın, yeniden **Düzenle** menüsünü genişletin ve **yöntemi ayıkla...** seçeneğini belirleyin.
 
-    ![Yeni bir yöntem kod ayıklanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
+    ![Kod yeni bir yöntem olarak ayıklanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
 
-    *Ayıklama yöntemi seçme*
-5. İçinde **yöntemi ayıklama** iletişim kutusunda, yeni yöntemin adı *MatchesOption* tıklatıp **Tamam**.
+    *Ayıklama yöntemi seçiliyor*
+5. **Yöntemi Ayıkla** iletişim kutusunda, yeni yöntem *matchesoption* olarak adlandırın ve **Tamam**' a tıklayın.
 
-    ![Yöntem adı belirtme](maintainable-azure-websites-managing-change-and-scale/_static/image49.png)
+    ![Yöntem adını belirtme](maintainable-azure-websites-managing-change-and-scale/_static/image49.png)
 
-    *Ayıklanan Metoda için ad belirtme*
-6. Seçilen kod içine ayıklanır **MatchesOption** yöntemi. Sonuç kodu aşağıdaki kod parçacığında gösterilir.
+    *Ayıklanan metodun adını belirtme*
+6. Daha sonra seçili kod **Matchesoption** yöntemine ayıklanır. Elde edilen kod aşağıdaki kod parçacığında gösterilmiştir.
 
     [!code-csharp[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample14.cs)]
-7. Tuşuna **CTRL + S** değişiklikleri kaydedin.
+7. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
 
 <a id="Ex3Task2"></a>
-#### <a name="task-2--redeploying-the-geek-quiz-application"></a>Görev 2 – Geek sınavı uygulamanızı
+#### <a name="task-2--redeploying-the-geek-quiz-application"></a>Görev 2 – Geek test uygulamasını yeniden dağıtma
 
-Artık üretim ortamına yeni bir dağıtımı tetikleyecek depo önceki görevde yapılan değişiklikleri gönderir. Ardından, troubleshot kullanarak bir sorun **F12 geliştirme araçları** Internet Explorer tarafından sağlanan ve ardından önceki dağıtım için bir geri alma Azure Yönetim Portalı'ndan gerçekleştirin.
+Artık önceki görevde yaptığınız değişiklikleri depoya göndererek, üretim ortamına yeni bir dağıtım tetikleyitecaksınız. Daha sonra, Internet Explorer tarafından sunulan **F12 geliştirme araçlarını** kullanarak bir sorun troubleshot ve ardından Azure Yönetim portalından önceki dağıtıma geri alma işlemi gerçekleştirirsiniz.
 
-1. Yeni bir **Git Bash** güncelleştirilmiş uygulamayı Azure App Service'e dağıtmak için konsolu.
-2. Değişiklikleri Azure'a göndermek için aşağıdaki komutları yürütün. Güncelleştirme *[YOUR-uygulaması-PATH]* yolu ile yer tutucu **GeekQuiz** çözüm. Dağıtım parolanızı istenir.
+1. Güncelleştirilmiş uygulamayı Azure App Service dağıtmak için yeni bir **Git Bash** konsolu açın.
+2. Değişiklikleri Azure 'a göndermek için aşağıdaki komutları yürütün. *[-APPLICATION-Path]* yer tutucusunu **geektest** çözümünün yoluyla güncelleştirin. Sizden dağıtım parolanızı girmeniz istenir.
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample15.cmd)]
 
-    ![İşlenmiş kod Azure'a gönderme](maintainable-azure-websites-managing-change-and-scale/_static/image50.png)
+    ![Yeniden düzenlenmiş kodunu Azure 'a iletme](maintainable-azure-websites-managing-change-and-scale/_static/image50.png)
 
-    *İşlenmiş kod Azure'a gönderme*
-3. Internet Explorer'ı açın ve web uygulamanıza gidin (örn `http://<your-web-site>.azurewebsites.net`). Önceden oluşturulmuş kimlik bilgilerini kullanarak oturum açın.
-4. Tuşuna **F12** Geliştirme Araçları'nı başlatmak için **ağ** sekmesine **yürütmek** düğmesi kaydı başlatın.
+    *Yeniden düzenlenmiş kodunu Azure 'a iletme*
+3. Internet Explorer 'ı açın ve Web uygulamanıza gidin (örn. `http://<your-web-site>.azurewebsites.net`). Önceden oluşturulan kimlik bilgilerini kullanarak oturum açın.
+4. Geliştirici araçlarını başlatmak için **F12** tuşuna basın, **ağ** sekmesini seçin ve kaydetmeye başlamak için **Yürüt** düğmesine tıklayın.
 
-    ![Ağ kayıt başlangıç](maintainable-azure-websites-managing-change-and-scale/_static/image51.png "ağ kayıt başlatılıyor")
+    ![Ağ kaydı başlatılıyor](maintainable-azure-websites-managing-change-and-scale/_static/image51.png "Ağ kaydı başlatılıyor")
 
-    *Ağ kayıt başlatılıyor*
-5. Test herhangi bir seçenek seçin. Hiçbir şey olmuyor görürsünüz.
-6. İçinde **F12** penceresini bir HTTP POST HTTP isteğine karşılık gelen girişi göstermektedir **500** sonucu.
+    *Ağ kaydı başlatılıyor*
+5. Sınavın herhangi bir seçeneğini belirleyin. Hiçbir şeyin gerçekleşmeyecek olduğunu göreceksiniz.
+6. **F12** PENCERESINDE, http post isteğine karşılık gelen GIRIŞ bir http **500** sonucunu gösterir.
 
-    ![HTTP 500 hata](maintainable-azure-websites-managing-change-and-scale/_static/image52.png)
+    ![HTTP 500 hatası](maintainable-azure-websites-managing-change-and-scale/_static/image52.png)
 
-    *HTTP 500 hata*
-7. Seçin **konsol** sekmesi. Bir hata nedeninin ayrıntılarını günlüğe kaydedilir.
+    *HTTP 500 hatası*
+7. **Konsol** sekmesini seçin. Hatanın ayrıntıları ile bir hata günlüğe kaydedilir.
 
-    ![Oturum hata](maintainable-azure-websites-managing-change-and-scale/_static/image53.png)
+    ![Günlüğe kaydedilen hata](maintainable-azure-websites-managing-change-and-scale/_static/image53.png)
 
-    *Oturum hata*
-8. Hata ayrıntıları bölümü bulun. NET bir şekilde, önceki adımda kaydedilen yeniden düzenleme kod tarafından bu hataya neden.
+    *Günlüğe kaydedilen hata*
+8. Hatanın Ayrıntılar bölümünü bulun. Açıkça, bu hata önceki adımlarda yaptığınız kod yeniden düzenlemesi nedeniyle oluşur.
 
     `Details: LINQ to Entities does not recognize the method 'Boolean MatchesOption ...`.
-9. Tarayıcı kapatmayın.
-10. Yeni bir tarayıcı örneğinde gidin [Azure Yönetim Portalı](https://manage.windowsazure.com) aboneliğinizle ilişkili Microsoft hesabını kullanarak oturum açın.
-11. Seçin **Web siteleri** ve alıştırma 2'de oluşturduğunuz web uygulamasına tıklayın.
-12. Gidin **dağıtımları** sayfası. Dağıtım geçmişi gerçekleştirilen tüm işlemeleri listelendiğine dikkat edin.
+9. Tarayıcıyı kapatmayın.
+10. Yeni bir tarayıcı örneğinde [Azure yönetim portalı](https://manage.windowsazure.com) ' na gidin ve aboneliğinizle ilişkili Microsoft hesabı kullanarak oturum açın.
+11. **Web siteleri** ' ni seçin ve alıştırma 2 ' de oluşturduğunuz Web uygulamasına tıklayın.
+12. **Dağıtımlar** sayfasına gidin. Gerçekleştirilen tüm yürütmelerin dağıtım geçmişinde listelendiğini unutmayın.
 
-    ![Var olan dağıtımları listesi](maintainable-azure-websites-managing-change-and-scale/_static/image54.png)
+    ![Mevcut dağıtımların listesi](maintainable-azure-websites-managing-change-and-scale/_static/image54.png)
 
-    *Var olan dağıtımları listesi*
-13. Önceki işlemeyi seçip tıklayın **yeniden** komut çubuğunda.
+    *Mevcut dağıtımların listesi*
+13. Önceki yürütmeyi seçin ve komut çubuğunda yeniden **Dağıt** ' a tıklayın.
 
-    ![Önceki işlemeyi yeniden dağıtılıyor](maintainable-azure-websites-managing-change-and-scale/_static/image55.png)
+    ![Önceki işleme yeniden dağıtılıyor](maintainable-azure-websites-managing-change-and-scale/_static/image55.png)
 
-    *Önceki işlemeyi yeniden dağıtılıyor*
-14. Onaylamak için sorulduğunda **Evet**.
+    *Önceki işleme yeniden dağıtılıyor*
+14. Onaylamanız istendiğinde **Evet**' e tıklayın.
 
-    ![Onaylayan yeniden dağıtma](maintainable-azure-websites-managing-change-and-scale/_static/image56.png)
-15. Dağıtım tamamlandığında, web uygulaması ve tuşuna tarayıcı örneğiyle dönmek **CTRL + F5 tuşlarına basarak**.
-16. Seçeneklerden birini tıklatın. Çevirme animasyon yerinde ve sonucu şimdi al (*düzeltmek/yanlış*) görüntülenir.
-17. (İsteğe bağlı) Geçiş **Git Bash** konsol ve için önceki yürütmeyi dönmek için aşağıdaki komutları yürütün.
+    ![Yeniden dağıtımı onaylama](maintainable-azure-websites-managing-change-and-scale/_static/image56.png)
+15. Dağıtım tamamlandığında, Web uygulamanızla birlikte tarayıcı örneğine dönün ve **CTRL + F5**tuşlarına basın.
+16. Seçeneklerden herhangi birine tıklayın. Ters çevir animasyonu artık alınacaktır ve sonuç (*doğru/yanlış*) görüntülenecektir.
+17. Seçim **Git Bash** konsoluna geçin ve önceki işlemeye dönmek için aşağıdaki komutları yürütün.
 
     > [!NOTE]
-    > Bu komutlar Git deposundaki hatalı işlemede yapılan tüm değişiklikleri geri alır, yeni bir işleme oluşturur. Azure, ardından yeni işleme kullanarak uygulamayı yeniden dağıtır.
+    > Bu komutlar, hatalı işlemede gerçekleştirilen git deposundaki tüm değişiklikleri geri yükleyen yeni bir kayıt oluşturur. Daha sonra Azure, yeni yürütmeyi kullanarak uygulamayı yeniden dağıtırsınız.
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample16.cmd)]
 
 <a id="Exercise4"></a>
-### <a name="exercise-4-scaling-using-azure-storage"></a>Alıştırma 4: Azure depolama kullanarak ölçeklendirme
+### <a name="exercise-4-scaling-using-azure-storage"></a>Alıştırma 4: Azure Storage kullanarak ölçeklendirme
 
-**Blobları** büyük miktarda yapılandırılmamış metin ve video, ses ve görüntü gibi ikili verileri depolamanın en kolay yoludur. Depolama uygulamanıza statik içeriği taşıma, görüntülerin veya belgelerin doğrudan tarayıcı sunarak uygulamanızın ölçeğini yardımcı olur.
+**BLOB 'lar** , büyük miktarlarda yapılandırılmamış metin veya video, ses ve görüntü gibi ikili verileri depolamanın en kolay yoludur. Uygulamanızın statik içeriğini depolamaya taşımak, doğrudan tarayıcıya görüntü veya belge sunarak uygulamanızı ölçeklendirmenize yardımcı olur.
 
-Bu alıştırmada, statik içerik, uygulamanızın bir Blob kapsayıcısını taşınır. Uygulamanızı eklemek için yapılandıracağınız sonra bir **ASP.NET URL yeniden yazma kuralı** içinde **Web.config** içeriğinizi Blob kapsayıcısına yönlendirmek için.
+Bu alıştırmada, uygulamanızın statik içeriğini bir blob kapsayıcısına taşıyacaksınız. Daha sonra, içeriğinizi blob kapsayıcısına yönlendirmek üzere **Web. config** dosyasına BIR **ASP.net URL yeniden yazma kuralı** eklemek için uygulamanızı yapılandıracaksınız.
 
 <a id="Ex4Task1"></a>
-#### <a name="task-1--creating-an-azure-storage-account"></a>Görev 1-bir Azure depolama hesabı oluşturma
+#### <a name="task-1--creating-an-azure-storage-account"></a>Görev 1 – Azure depolama hesabı oluşturma
 
-Bu görevde, yönetim portalını kullanarak yeni bir depolama hesabının nasıl oluşturulacağını öğreneceksiniz.
+Bu görevde, yönetim portalını kullanarak yeni bir depolama hesabı oluşturmayı öğreneceksiniz.
 
-1. Gidin [Azure Yönetim Portalı](https://manage.windowsazure.com) aboneliğinizle ilişkili Microsoft hesabını kullanarak oturum açın.
-2. Seçin **yeni | Veri Hizmetleri | Depolama | Hızlı Oluştur** yeni bir depolama hesabı oluşturmaya başlamak için. Seçin ve hesabı için benzersiz bir ad girin. bir **bölge** listeden. Tıklayın **depolama hesabı oluştur** devam etmek için.
+1. [Azure yönetim portalı](https://manage.windowsazure.com) ' na gidin ve aboneliğinizle ilişkili Microsoft hesabı kullanarak oturum açın.
+2. Yeni ' yi seçin **| Veri Hizmetleri | Depolama |** Yeni bir depolama hesabı oluşturmaya başlamak için hızlı oluştur. Hesap için benzersiz bir ad girin ve listeden bir **bölge** seçin. Devam etmek için **depolama hesabı oluştur** ' a tıklayın.
 
-    ![Yeni bir depolama hesabı oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image57.png "yeni bir depolama hesabı oluşturma")
+    ![Yeni depolama hesabı oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image57.png "Yeni depolama hesabı oluşturma")
 
-    *Yeni bir depolama hesabı oluşturma*
-3. İçinde **depolama** bölümünde, yeni depolama hesabı durumunu olana kadar bekleyin *çevrimiçi* aşağıdaki adım ile devam etmek için.
+    *Yeni depolama hesabı oluşturma*
+3. **Depolama** bölümünde, aşağıdaki adımla devam etmek için yeni depolama hesabının durumu *çevrimiçi* olarak değişene kadar bekleyin.
 
-    ![Oluşturduğunuz depolama hesabına](maintainable-azure-websites-managing-change-and-scale/_static/image58.png "depolama hesabı oluşturuldu")
+    ![Depolama hesabı oluşturuldu](maintainable-azure-websites-managing-change-and-scale/_static/image58.png "Depolama hesabı oluşturuldu")
 
     *Depolama hesabı oluşturuldu*
-4. Depolama hesabının adına tıklayın ve ardından **Pano** sayfanın üstündeki bağlantısı. **Pano** sayfası durumuyla ilgili bilgileri hesabınızın ve uygulamalarınızın içinde kullanılabilir hizmet uç noktaları ile sağlar.
+4. Depolama hesabı adına tıklayın ve ardından sayfanın üst kısmındaki **Pano** bağlantısına tıklayın. **Pano** sayfası, hesap durumu ve uygulamalarınız dahilinde kullanılabilecek hizmet uç noktaları hakkında bilgi sağlar.
 
-    ![Depolama hesabı panoyu görüntüleme](maintainable-azure-websites-managing-change-and-scale/_static/image59.png "depolama hesabı panoyu görüntüleme")
+    ![Depolama hesabı panosunu görüntüleme](maintainable-azure-websites-managing-change-and-scale/_static/image59.png "Depolama hesabı panosunu görüntüleme")
 
-    *Depolama hesabı panoyu görüntüleme*
-5. Tıklayın **erişim anahtarlarını Yönet** gezinti çubuğunda düğme.
+    *Depolama hesabı panosunu görüntüleme*
+5. Gezinti çubuğundaki **erişim tuşlarını Yönet** düğmesine tıklayın.
 
-    ![Yönet erişim anahtarları düğmesi](maintainable-azure-websites-managing-change-and-scale/_static/image60.png "erişim anahtarlarını Yönet düğmesi")
+    ![Erişim anahtarlarını Yönet düğmesi](maintainable-azure-websites-managing-change-and-scale/_static/image60.png "Erişim anahtarlarını Yönet düğmesi")
 
-    *Erişim anahtarları düğmesi yönetme*
-6. İçinde **erişim anahtarlarını Yönet** iletişim kutusu, kopyalama **depolama hesabı adı** ve **birincil erişim anahtarı** alıştırmada ihtiyaç duyacaksınız. Ardından, iletişim kutusunu kapatın.
+    *Erişim anahtarlarını Yönet düğmesi*
+6. **Erişim anahtarlarını Yönet** iletişim kutusunda, Aşağıdaki alıştırmada gerekli olacak şekilde **depolama hesabı adı** ve **birincil erişim anahtarı** ' nı kopyalayın. Sonra iletişim kutusunu kapatın.
 
-    ![Erişim anahtarı iletişim kutusu Yönet](maintainable-azure-websites-managing-change-and-scale/_static/image61.png "erişim anahtarını yönetin iletişim kutusu")
+    ![Erişim anahtarını Yönet iletişim kutusu](maintainable-azure-websites-managing-change-and-scale/_static/image61.png "Erişim anahtarını Yönet iletişim kutusu")
 
-    *Erişim anahtarı iletişim kutusu yönetme*
+    *Erişim anahtarını Yönet iletişim kutusu*
 
 <a id="Ex4Task2"></a>
-#### <a name="task-2--uploading-an-asset-to-azure-blob-storage"></a>Görev 2-Azure Blob depolama alanına bir varlık karşıya yükleniyor
+#### <a name="task-2--uploading-an-asset-to-azure-blob-storage"></a>Görev 2 – bir varlığı Azure Blob depolamaya yükleme
 
-Bu görevde, depolama hesabınıza bağlanmak için Visual Studio Sunucu Gezgini penceresinde kullanır. Ardından, bir blob kapsayıcı oluşturun ve kapsayıcıya Geek test logosu bir dosyayı karşıya.
+Bu görevde, depolama hesabınıza bağlanmak için Visual Studio 'daki Sunucu Gezgini penceresini kullanacaksınız. Daha sonra bir blob kapsayıcısı oluşturacak ve kapsayıcıya Geek test logosu içeren bir dosya yükleyeceksiniz.
 
-1. Geçiş ile Visual Studio örneğine **GeekQuiz** önceki alıştırmada çözümünden.
-2. Menü çubuğundan seçin **görünümü** ve ardından **Sunucu Gezgini**.
-3. İçinde **Sunucu Gezgini**, sağ **Azure** düğümünü seçip alt **azure'a Bağlan...** . Aboneliğinizle ilişkili Microsoft hesabını kullanarak oturum açın.
+1. Önceki alıştırmada **Geektest** çözümüyle Visual Studio örneğine geçin.
+2. Menü çubuğundan **Görünüm** ' ü seçin ve ardından **Sunucu Gezgini**' ye tıklayın.
+3. **Sunucu Gezgini**, **Azure** düğümüne sağ tıklayın ve **Azure 'a Bağlan...** seçeneğini belirleyin. Aboneliğinizle ilişkili Microsoft hesabı kullanarak oturum açın.
 
-    ![Windows Azure'a bağlanma](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
+    ![Microsoft Azure'a Bağlan](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
     *Azure'a bağlanma*
-4. Genişletin **Azure** düğümünü sağ **depolama** seçip **dış depolama Ekle...** .
-5. İçinde **yeni depolama hesabı Ekle** iletişim kutusuna **hesap adı** ve **hesap anahtarı** tıklayın ve önceki görev içinde elde edilen **Tamam**.
+4. **Azure** düğümünü genişletin, **depolama alanı** ' na sağ tıklayın ve **dış depolama Ekle...** seçeneğini belirleyin.
+5. **Yeni depolama hesabı ekle** iletişim kutusunda, önceki görevde edindiğiniz **hesap adını** ve **hesap anahtarını** girip **Tamam**' a tıklayın.
 
-    ![Yeni depolama hesabı iletişim kutusu Ekle](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
+    ![Yeni depolama hesabı Ekle iletişim kutusu](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
 
-    *Yeni depolama hesabı iletişim kutusu Ekle*
-6. Depolama hesabınızın altında görünmelidir **depolama** düğümü. Depolama hesabınızı genişletin, sağ **Blobları** seçip **Blob kapsayıcısı oluştur...** .
+    *Yeni depolama hesabı Ekle iletişim kutusu*
+6. Depolama hesabınız **depolama** düğümünün altında görünmelidir. Depolama hesabınızı genişletin, **Bloblar** ' a sağ tıklayıp **BLOB kapsayıcısı oluştur...** ' u seçin.
 
-    ![BLOB kapsayıcısı oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "Blob kapsayıcısı oluşturma")
+    ![Blob kapsayıcısı oluştur](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "Blob kapsayıcısı oluştur")
 
-    *BLOB kapsayıcısı oluşturma*
-7. İçinde **Blob kapsayıcısı Oluştur** iletişim kutusuna blob kapsayıcısı için bir ad girin ve tıklatın **Tamam**.
+    *Blob kapsayıcısı oluştur*
+7. **BLOB kapsayıcısı oluştur** iletişim kutusunda, blob kapsayıcısı için bir ad girin ve **Tamam**' a tıklayın.
 
-    ![Blob kapsayıcısı iletişim kutusu oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image65.png "Blob kapsayıcısı Oluştur iletişim kutusu")
+    ![Blob kapsayıcısı oluştur iletişim kutusu](maintainable-azure-websites-managing-change-and-scale/_static/image65.png "Blob kapsayıcısı oluştur iletişim kutusu")
 
-    *BLOB kapsayıcısı iletişim kutusu oluşturma*
-8. Yeni blob kapsayıcı eklenmelidir **Blobları** düğümü. Kapsayıcı genel hale getirmek üzere kapsayıcıda erişim izinlerini değiştirin. Bunu yapmak için sağ **görüntüleri** kapsayıcı ve select **özellikleri**.
+    *Blob kapsayıcısı oluştur iletişim kutusu*
+8. Yeni blob kapsayıcısı **Bloblar** düğümüne eklenmelidir. Kapsayıcıyı ortak hale getirmek için kapsayıcıdaki erişim izinlerini değiştirin. Bunu yapmak için, **görüntüler** kapsayıcısını sağ tıklatın ve **Özellikler**' i seçin.
 
-    ![kapsayıcı özellikleri görüntüleri](maintainable-azure-websites-managing-change-and-scale/_static/image66.png "görüntüler kapsayıcı özellikleri")
+    ![görüntü kapsayıcısı özellikleri](maintainable-azure-websites-managing-change-and-scale/_static/image66.png "görüntü kapsayıcısı özellikleri")
 
-    *Görüntüler kapsayıcı özellikleri*
-9. İçinde **özellikleri** penceresinde **genel okuma erişimini** için **kapsayıcı**.
+    *Görüntü kapsayıcısı özellikleri*
+9. **Özellikler** penceresinde, **kapsayıcıya** **Genel okuma erişimi** ayarlayın.
 
-    ![Genel okuma erişimi özelliği değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image67.png "genel okuma erişimi özelliği değiştirme")
+    ![Genel okuma erişimi Özelliği değiştiriliyor](maintainable-azure-websites-managing-change-and-scale/_static/image67.png "Genel okuma erişimi Özelliği değiştiriliyor")
 
-    *Genel okuma erişimi özelliği değiştirme*
-10. Emin olup olmadığınız sorulduğunda, istediğiniz genel erişim özelliği değiştirmek **Evet**.
+    *Genel okuma erişimi Özelliği değiştiriliyor*
+10. Genel erişim özelliğini değiştirmek istediğinizden emin olup istemediğiniz sorulduğunda **Evet**' e tıklayın.
 
-    ![Microsoft Visual Studio uyarı](maintainable-azure-websites-managing-change-and-scale/_static/image68.png "Microsoft Visual Studio Uyarısı")
+    ![Microsoft Visual Studio uyarısı](maintainable-azure-websites-managing-change-and-scale/_static/image68.png "Microsoft Visual Studio uyarısı")
 
-    *Microsoft Visual Studio Uyarısı*
-11. İçinde **Sunucu Gezgini**, sağ **görüntüleri** blob kapsayıcısını ve select **görünüm Blob kapsayıcısını**.
+    *Microsoft Visual Studio uyarısı*
+11. **Sunucu Gezgini**, **görüntüler** blob kapsayıcısını sağ tıklatın ve **BLOB kapsayıcısını görüntüle**' yi seçin.
 
-    ![Blob kapsayıcısı görüntülemek](maintainable-azure-websites-managing-change-and-scale/_static/image69.png "Blob kapsayıcısı görüntüleyin")
+    ![Blob kapsayıcısını görüntüle](maintainable-azure-websites-managing-change-and-scale/_static/image69.png "Blob kapsayıcısını görüntüle")
 
-    *Görünüm Blob kapsayıcısı*
-12. Görüntü kapsayıcısı yeni bir pencerede açılması gerekir; hiçbir girdi bir gösterge gösterilecek. Tıklayın **karşıya** simgesini bir dosyayı blob kapsayıcısına yükleyin.
+    *Blob kapsayıcısını görüntüle*
+12. Görüntüler kapsayıcısının yeni bir pencerede açılması ve girişin gösterilmemelidir. Blob kapsayıcısına bir dosya yüklemek için **karşıya yükle** simgesine tıklayın.
 
-    ![Hiçbir girdi ile kapsayıcı görüntüleri](maintainable-azure-websites-managing-change-and-scale/_static/image70.png "hiçbir girdi ile kapsayıcı görüntüleri")
+    ![Girişi olmayan görüntü kapsayıcısı](maintainable-azure-websites-managing-change-and-scale/_static/image70.png "Girişi olmayan görüntü kapsayıcısı")
 
-    *Görüntü kapsayıcısı ile giriş yok*
-13. İçinde **Blob karşıya** iletişim kutusunda, gitmek **varlıklar** laboratuvarı klasör. Seçin **logosu big.png** tıklayın ve dosya **açık**.
-14. Dosya karşıya kadar bekleyin. Karşıya yükleme tamamlandığında, dosya görüntüleri kapsayıcısında listelenmelidir. Dosya giriş sağ tıklayıp **kopya URL**.
+    *Girişi olmayan görüntü kapsayıcısı*
+13. **Blobu karşıya yükle** iletişim kutusunda, laboratuvarın **varlıklar** klasörüne gidin. **Logo-Big. png** dosyasını seçin ve **Aç**' a tıklayın.
+14. Dosya karşıya yüklenene kadar bekleyin. Karşıya yükleme tamamlandığında, dosyanın görüntüler kapsayıcısında listelenmesi gerekir. Dosya girdisine sağ tıklayıp **URL 'Yi Kopyala**' yı seçin.
 
-    ![BLOB URL'sini kopyalayın](maintainable-azure-websites-managing-change-and-scale/_static/image71.png "kopyalama blob dosya URL'si")
+    ![Blob URL 'sini Kopyala](maintainable-azure-websites-managing-change-and-scale/_static/image71.png "Blob dosyası URL 'sini Kopyala")
 
-    *BLOB URL'sini Kopyala*
-15. Internet Explorer'ı açın ve URL'yi yapıştırın. Aşağıdaki görüntüde, tarayıcı içinde gösterilmesi gerekir.
+    *Blob URL 'sini Kopyala*
+15. Internet Explorer 'ı açın ve URL 'YI yapıştırın. Aşağıdaki görüntü tarayıcıda gösterilmelidir.
 
-    ![Windows Blob depolamadan big.png logo görüntüsü](maintainable-azure-websites-managing-change-and-scale/_static/image72.png "logosu big.png görüntüden depolama")
+    ![Windows blob depolamadan logo-Big. png görüntüsü](maintainable-azure-websites-managing-change-and-scale/_static/image72.png "depolamadan logo-Big. png görüntüsü")
 
-    *Azure Blob Depolama'dan big.png logo görüntüsü*
+    *Azure Blob depolamadan logo-Big. png görüntüsü*
 
 <a id="Ex4Task3"></a>
-#### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a>Görev 3: Azure Blob depolamadan statik içeriği çözüm güncelleştiriliyor
+#### <a name="task-3--updating-the-solution-to-consume-static-content-from-azure-blob-storage"></a>Görev 3 – Azure Blob depolama alanından statik Içerik kullanmak için çözümü güncelleştirme
 
-Bu görevde, yapılandıracağınız **GeekQuiz** görüntüyü kullanmak için çözüm karşıya Azure Blob depolama alanına (yerine web uygulamasında yer alan görüntü) bir ASP.NET URL yeniden yazma kuralı ekleyerek **web.config**dosya.
+Bu görevde, **Web. config** dosyasına BIR ASP.net URL yeniden yazma kuralı ekleyerek Azure Blob depolama alanına (Web uygulamasında bulunan görüntü yerine) yüklenen görüntüyü kullanmak Için **geektest** çözümünü yapılandıracaksınız.
 
-1. Visual Studio'da açın **Web.config** içinde dosya **GeekQuiz** bulun ve proje **&lt;system.webServer&gt;** öğesi.
-2. Bir URL, yer tutucu ile depolama hesabınızın adını güncelleştirme kuralı, yeniden yazma eklemek için aşağıdaki kodu ekleyin.
+1. Visual Studio 'da, **Geektest** projesi içindeki **Web. config** dosyasını açın ve **&lt;System. webserver&gt;** öğesini bulun.
+2. Bir URL yeniden yazma kuralı eklemek için aşağıdaki kodu ekleyin ve yer tutucuyu depolama hesabınızın adıyla güncelleyerek.
 
-    (Kod parçacığını - *WebSitesInProduction - Ex4 - UrlRewriteRule*)
+    (Kod parçacığı- *Websitesinproduction-EX4-UrlRewriteRule*)
 
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > URL yeniden yazma, gelen bir Web isteği kesintiye ve istek farklı bir kaynak için yönlendirme işlemidir. URL yeniden yazma kuralları, bir istek yönlendirilmesi gerektiğinde ve burada yönlendirilen yeniden yazma motoru söyler. Bir yeniden yazma kuralı iki dizeleri kümesinden oluşur: İstenen URL'de aranacak desenini (genellikle, normal ifadeler kullanarak) ve varsa, deseni değiştirilecek dize bulundu. Daha fazla bilgi için [URL yeniden yazma ASP.NET](https://msdn.microsoft.com/library/ms972974.aspx).
-3. Tuşuna **CTRL + S** değişiklikleri kaydedin.
-4. Yeni bir **Git Bash** güncelleştirilmiş uygulamayı Azure App Service'e dağıtmak için konsolu.
-5. Değişiklikleri Azure'a göndermek için aşağıdaki komutları yürütün. Güncelleştirme *[YOUR-uygulaması-PATH]* yolu ile yer tutucu **GeekQuiz** çözüm. Dağıtım parolanızı istenir.
+    > URL yeniden yazma, gelen bir web isteğini kesintiye uğratan ve isteği farklı bir kaynağa yönlendirmeye yönelik bir işlemdir. URL yeniden yazma kuralları yeniden yazma motoruna bir isteğin yeniden yönlendirilmesi gerektiğinde ve nereye yönlendirilmeleri gerektiğini söyler. Yeniden yazma kuralı iki dizeden oluşur: istenen URL 'de (genellikle normal ifadeler kullanılarak) aranacak model ve bulunursa, deseninin yerini alacak dize. Daha fazla bilgi için bkz. [ASP.net Içinde URL yeniden yazma](https://msdn.microsoft.com/library/ms972974.aspx).
+3. Değişiklikleri kaydetmek için **CTRL + S** tuşlarına basın.
+4. Güncelleştirilmiş uygulamayı Azure App Service dağıtmak için yeni bir **Git Bash** konsolu açın.
+5. Değişiklikleri Azure 'a göndermek için aşağıdaki komutları yürütün. *[-APPLICATION-Path]* yer tutucusunu **geektest** çözümünün yoluyla güncelleştirin. Sizden dağıtım parolanızı girmeniz istenir.
 
     [!code-console[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample18.cmd)]
 
-    ![Güncelleştirme Azure'a dağıtma](maintainable-azure-websites-managing-change-and-scale/_static/image73.png)
+    ![Güncelleştirme Azure 'a dağıtılıyor](maintainable-azure-websites-managing-change-and-scale/_static/image73.png)
 
-    *Güncelleştirme Azure'a dağıtma*
+    *Güncelleştirme Azure 'a dağıtılıyor*
 
 <a id="Ex4Task4"></a>
 #### <a name="task-4--verification"></a>Görev 4 – doğrulama
 
-Bu görevde kullanacağınız **Internet Explorer** göz atmak için **Geek test** görüntüye barındırılan uygulama ve URL yeniden yazma, görüntüleri çalışır ve kuralı onay yönlendirilir **Azure Blob Depolama**.
+Bu görevde, **Geek test** uygulamasına göz atabilmeniz Için **Internet Explorer** 'ı kullanacaksınız ve görüntülerin URL yeniden yazma kuralının çalışıp çalışmadığını ve **Azure Blob depolamada**barındırılan görüntüye yönlendirildiğini kontrol edersiniz.
 
-1. Internet Explorer'ı açın ve web uygulamanıza gidin (örn `http://<your-web-site>.azurewebsites.net`). Önceden oluşturulmuş kimlik bilgilerini kullanarak oturum açın.
+1. Internet Explorer 'ı açın ve Web uygulamanıza gidin (örn. `http://<your-web-site>.azurewebsites.net`). Önceden oluşturulan kimlik bilgilerini kullanarak oturum açın.
 
-    ![Görüntüyle Geek test web uygulamasını gösteren](maintainable-azure-websites-managing-change-and-scale/_static/image74.png "görüntüyle Geek test web uygulamasını gösteren")
+    ![Görüntüyle birlikte Geek test Web uygulamasını gösterme](maintainable-azure-websites-managing-change-and-scale/_static/image74.png "Görüntüyle birlikte Geek test Web uygulamasını gösterme")
 
-    *Geek test web uygulaması ile görüntü gösterme*
-2. Tuşuna **F12** Geliştirme Araçları'nı başlatmak için **ağ** sekme ve kaydı başlatın.
+    *Görüntüyle birlikte Geek test Web uygulamasını gösterme*
+2. Geliştirici araçlarını başlatmak için **F12** tuşuna basın, **ağ** sekmesini seçin ve kaydı başlatın.
 
-    ![Ağ kayıt başlangıç](maintainable-azure-websites-managing-change-and-scale/_static/image75.png "ağ kayıt başlatılıyor")
+    ![Ağ kaydı başlatılıyor](maintainable-azure-websites-managing-change-and-scale/_static/image75.png "Ağ kaydı başlatılıyor")
 
-    *Ağ kayıt başlatılıyor*
-3. Tuşuna **CTRL + F5 tuşlarına basarak** web sayfasını yenilemek için.
-4. Sayfa yükleme tamamlandıktan sonra bir HTTP isteği için görmelisiniz **/img/logo-big.png** URL bir HTTP ile **301** sonucu (yeniden yönlendirme) ve başka bir istek `http://[YOUR-STORAGE-ACCOUNT].blob.core.windows.net/images/logo-big.png` URL ile bir HTTP **200** sonucu.
+    *Ağ kaydı başlatılıyor*
+3. Web sayfasını yenilemek için **CTRL + F5** tuşlarına basın.
+4. Sayfa yükleme tamamlandıktan sonra, http **301** sonucuyla **/IMG/logo-Big.png** URL 'si için BIR http isteği ve http **200** sonucuyla birlikte `http://[YOUR-STORAGE-ACCOUNT].blob.core.windows.net/images/logo-big.png` URL 'si için bir istek görmeniz gerekir.
 
-    ![URL yeniden yönlendirme doğrulama](maintainable-azure-websites-managing-change-and-scale/_static/image76.png "yeniden yönlendirme gösteren geliştirme araçları")
+    ![URL yeniden yönlendirmesi doğrulanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image76.png "Geliştirme araçlarındaki yeniden yönlendirmeyi gösterme")
 
-    *URL yeniden yönlendirme doğrulanıyor*
+    *URL yeniden yönlendirmesi doğrulanıyor*
 
 <a id="Exercise5"></a>
-### <a name="exercise-5-using-autoscale-for-web-apps"></a>Alıştırma 5: Web uygulamaları için otomatik ölçeklendirme kullanma
+### <a name="exercise-5-using-autoscale-for-web-apps"></a>Alıştırma 5: Web Apps için otomatik ölçeklendirmeyi kullanma
 
 > [!NOTE]
-> Web yükü için destek gerektirdiğinden bu alıştırmada, isteğe bağlı &amp; yalnızca için kullanılabilir olan performans testi **Visual Studio 2013 Ultimate Edition**. Belirli Visual Studio 2013 özellikleri hakkında daha fazla bilgi için sürümleri Karşılaştır [burada](https://www.microsoft.com/visualstudio/eng/products/compare).
+> Bu alıştırma isteğe bağlıdır, çünkü yalnızca **Visual Studio 2013 Ultimate Edition**Için kullanılabilen Web yükü &amp; performans testi için destek gerektirir. Belirli Visual Studio 2013 özellikleri hakkında daha fazla bilgi için, sürümleri [burada](https://www.microsoft.com/visualstudio/eng/products/compare)karşılaştırın.
 
-**Azure App Service Web Apps** çalışan web uygulamaları için otomatik ölçeklendirme özelliği sağlar **Standart mod**. Otomatik ölçeklendirme, Azure web uygulamanızı yüke bağlı olarak örnek sayısını otomatik olarak ölçeklendirme sağlar. Otomatik ölçeklendirme etkin olduğunda, Azure web uygulamanızın CPU her beş dakikada denetler ve o noktasında örneği ekler. CPU kullanımı düşükse, Azure web uygulamanızın performansını değil düzeyinin düşürüldüğünü emin olmak için her iki saatte bir kez örneklerini kaldırır.
+**Azure App Service Web Apps** , **Standart modda**çalışan Web uygulamaları için otomatik ölçeklendirme özelliğini sağlar. Otomatik ölçeklendirme, Azure 'un yük 'e bağlı olarak Web uygulamanızın örnek sayısını otomatik olarak ölçeklendirmesine imkan tanır. Otomatik ölçeklendirme etkinleştirildiğinde Azure, Web uygulamanızın CPU 'sunu her beş dakikada bir denetler ve bu noktada gerektiğinde örnekler ekler. CPU kullanımı düşükse, Azure, Web uygulamanızın performansının düşürülmemesini sağlamak için örnekleri iki saatte bir daha kaldırır.
 
-Bu alıştırmada yapılandırmak için gereken adımlarda size geçer **otomatik ölçeklendirme** için özellik **Geek test** web uygulaması. Bu özellik, bir örneği yükseltme tetiklemek için uygulama üzerinde yeterli CPU yükü oluşturmak için Visual Studio Yük testi çalıştırarak doğrular.
+Bu alıştırmada, **Geek test** Web uygulaması Için **Otomatik ölçeklendirme** özelliğini yapılandırmak için gerekli olan adımlara gidecaksınız. Uygulama üzerinde bir örnek yükseltmesi tetikleyecek kadar CPU yükü oluşturmak için bir Visual Studio yük testi çalıştırarak bu özelliği doğrulayacaksınız.
 
 <a id="Ex5Task1"></a>
-#### <a name="task-1--configuring-autoscale-based-on-the-cpu-metric"></a>Görev 1 – CPU ölçüme göre yapılandırma otomatik ölçeklendirme
+#### <a name="task-1--configuring-autoscale-based-on-the-cpu-metric"></a>Görev 1 – CPU ölçüsüne göre otomatik ölçeklendirmeyi yapılandırma
 
-Bu görevde alıştırma 2'de oluşturduğunuz web uygulaması için otomatik ölçeklendirme özelliği etkinleştirmek için Azure Yönetim Portalı'nı kullanır.
+Bu görevde, alıştırma 2 ' de oluşturduğunuz Web uygulamasına yönelik otomatik ölçeklendirme özelliğini etkinleştirmek için Azure yönetim portalını kullanacaksınız.
 
-1. İçinde [Azure Yönetim Portalı](https://manage.windowsazure.com/)seçin **Web siteleri** ve alıştırma 2'de oluşturduğunuz web uygulamasına tıklayın.
-2. Gidin **ölçek** sayfası. Altında **kapasite** bölümünden **CPU** için **ölçek ölçümü tarafından** yapılandırma.
-
-    > [!NOTE]
-    > CPU tarafından ölçeklendirme, Azure CPU kullanımı değişirse uygulamanın kullandığı örnek sayısını dinamik olarak ayarlar.
-
-    ![Ölçek CPU tarafından seçerek](maintainable-azure-websites-managing-change-and-scale/_static/image77.png "otomatik ölçeklendirmeye yönelik CPU ölçüm seçme")
-
-    *Ölçek CPU'ya göre seçme*
-3. Değişiklik **hedef CPU** yapılandırmasına **20**-**40** yüzdesi.
+1. [Azure yönetim portalı](https://manage.windowsazure.com/)' nda **Web siteleri** ' ni seçin ve alıştırma 2 ' de oluşturduğunuz Web uygulamasına tıklayın.
+2. **Ölçek** sayfasına gidin. **Kapasite** bölümünde, **ölçüm için ölçek yapılandırmasına göre** **CPU** ' yı seçin.
 
     > [!NOTE]
-    > Bu aralık, web uygulamanız için ortalama CPU kullanımını gösterir. Azure eklemek veya web uygulamanız bu aralıkta tutmak için örnekler kaldırın. Ölçeklendirme için kullanılan örneklerin minimum ve maksimum sayı belirtilen **örnek sayısı** yapılandırma. Azure, yukarıda veya bu sınırı aşan hiçbir zaman geçer.
+    > CPU 'ya göre ölçeklendirilirken, Azure, CPU kullanımı değişirse uygulamanın kullandığı örneklerin sayısını dinamik olarak ayarlar.
+
+    ![CPU 'ya göre ölçeklendirmeye seçme](maintainable-azure-websites-managing-change-and-scale/_static/image77.png "Otomatik ölçeklendirme için CPU ölçüsünü seçme")
+
+    *CPU 'ya göre ölçeklendirmeye seçme*
+3. **Hedef CPU** yapılandırmasını **20**-yüzde **40** olarak değiştirin.
+
+    > [!NOTE]
+    > Bu Aralık, Web uygulamanız için Ortalama CPU kullanımını temsil eder. Azure, Web uygulamanızı bu aralıkta tutmak için örnekler ekler veya kaldırır. Ölçeklendirme için kullanılan minimum ve maksimum örnek sayısı **örnek sayısı** yapılandırmasında belirtilmiştir. Azure hiçbir şekilde bu sınırın üzerinde veya ötesine geçmeyecektir.
     >
-    > Varsayılan **hedef CPU** değerleri yalnızca bu Laboratuvarın amacı doğrultusunda değiştirildi. CPU aralığı küçük değerleri ile yapılandırarak, uygulama üzerinde orta dereceli bir yük yerleştirildiğinde tetikleyici otomatik ölçeklendirme için büyük olasılıkla artmaktadır.
+    > Varsayılan **hedef CPU** değerleri yalnızca bu laboratuvarın amaçları doğrultusunda değiştirilir. CPU aralığını küçük değerlerle yapılandırarak, uygulamaya bir orta yük yerleştirildiğinde otomatik ölçeklendirmeyi tetikleme olasılığını artırırsınız.
 
-    ![Hedef CPU 20 ve yüzde 40'a arasında olacak şekilde değiştirmeyi](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "20 ve yüzde 40'arasında olması için hedef CPU değiştirme")
+    ![Hedef CPU 'YU 20 ila %40 arasında olacak şekilde değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "Hedef CPU 'YU 20 ila %40 arasında olacak şekilde değiştirme")
 
-    *Hedef CPU 20 ve yüzde 40'a arasında olacak şekilde değiştirme*
-4. Tıklayın **Kaydet** değişiklikleri kaydetmek için komut çubuğunda.
+    *Hedef CPU 'YU 20 ila %40 arasında olacak şekilde değiştirme*
+4. Değişiklikleri kaydetmek için komut çubuğunda **Kaydet** ' e tıklayın.
 
 <a id="Ex5Task2"></a>
-#### <a name="task-2--load-testing-with-visual-studio"></a>Görev 2: yük testi Visual Studio ile
+#### <a name="task-2--load-testing-with-visual-studio"></a>Görev 2 – Visual Studio ile yük testi
 
-Şimdi **otomatik ölçeklendirme** olmuştur oluşturacağınız yapılandırıldı, bir **Web performansı ve yük testi projesi** biraz CPU yükü web uygulamanızı oluşturmak için Visual Studio'da.
+**Otomatik ölçeklendirme** yapılandırıldıktan sonra, Web UYGULAMANıZDA bazı CPU yükü oluşturmak Için Visual Studio 'Da bir **Web performansı ve yük testi projesi** oluşturacaksınız.
 
-1. Açık **Visual Studio Ultimate 2013** seçip **dosya | Yeni | Proje...**  yeni bir çözüm başlatmak için.
+1. **Visual Studio Ultimate 2013** açın ve dosya ' yı seçin **| Yeni | Proje..** . Yeni bir çözüm başlatmak için.
 
-    ![Yeni proje oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "yeni proje oluşturma")
+    ![Yeni bir proje oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "Yeni proje oluşturma")
 
-    *Yeni proje oluşturma*
-2. İçinde **yeni proje** iletişim kutusunda **Web performansı ve yük testi projesi** altında **Visual C# | Test** sekmesi. Emin olun **.NET Framework 4.5** olduğu belirlenirse, projeyi adlandırın *WebAndLoadTestProject*, seçin bir **konumu** tıklatıp **Tamam**.
+    *Yeni bir proje oluşturma*
+2. **Yeni proje** iletişim kutusunda, Web performansı ' nı seçin ve görsel  **C# ' ün altında yük testi projesi | Test** sekmesi. **.NET Framework 4,5** ' nin seçildiğinden emin olun, projeyi *webandloadtestproject*olarak adlandırın, bir **konum** seçin ve **Tamam**' a tıklayın.
 
-    ![Yeni Web ve yük testi projesi oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image80.png "yeni Web ve yük testi projesi oluşturma")
+    ![Yeni bir Web ve yük testi projesi oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image80.png "Yeni bir Web ve yük testi projesi oluşturma")
 
-    *Yeni Web ve yük testi projesi oluşturma*
-3. İçinde **WebTest1.webtest** sağ **WebTest1'i** düğüm ve tıklatın **ekleme isteği**.
+    *Yeni bir Web ve yük testi projesi oluşturma*
+3. **WebTest1. webtest** içinde **WebTest1** düğümüne sağ tıklayıp **istek ekle**' ye tıklayın.
 
-    ![Bir istek için WebTest1'i ekleyerek](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "WebTest1'i için bir istek ekleme")
+    ![WebTest1 'e istek ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "WebTest1 'e istek ekleme")
 
-    *Bir istek için WebTest1'i ekleme*
-4. İçinde **özellikleri** penceresi yeni istek düğümünün güncelleştirme **Url** özelliği, web uygulamanızın URL'sine işaret edecek şekilde (örneğin *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
+    *WebTest1 'e istek ekleme*
+4. Yeni istek düğümünün **Özellikler** penceresinde **URL** özelliğini Web uygulamanızın URL 'sini işaret etmek üzere güncelleştirin (ör. *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)* ).
 
-    ![Url özelliğini değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Url özelliğini değiştirme")
+    ![URL özelliğini değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "URL özelliğini değiştirme")
 
-    *Url özelliğini değiştirme*
-5. İçinde **WebTest1.webtest** penceresinde sağ **WebTest1'i** tıklatıp **döngü Ekle...** .
+    *URL özelliğini değiştirme*
+5. **WebTest1. webtest** penceresinde, **WebTest1** öğesine sağ tıklayın ve **döngü Ekle...** öğesine tıklayın.
 
-    ![Bir döngü için WebTest1'i ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "WebTest1'i için döngü ekleme")
+    ![WebTest1 'e döngü ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "WebTest1 'e döngü ekleme")
 
-    *Bir döngü için WebTest1'i ekleme*
-6. İçinde **koşullu Kural Ekle ve döngü öğeler** iletişim kutusunda **For döngüsü** kural ve aşağıdaki özellikleri değiştirebilirsiniz.
+    *WebTest1 'e döngü ekleme*
+6. **Koşullu kural ve Döngülenecek öğe Ekle** iletişim kutusunda, **for döngüsü** kuralını seçin ve aşağıdaki özellikleri değiştirin.
 
    1. **Sonlandırma değeri:** 1000
-   2. **Bağlam parametresi adı:** Yineleyici
-   3. **Değeri Artır:** 1.
+   2. **Bağlam parametresi adı:** İden
+   3. **Artış değeri:** 1
 
-      ![For döngüsü kuralı seçip özelliklerini güncelleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For döngüsü kuralı seçip özellikleri güncelleştiriliyor")
+      ![For döngüsü kuralını seçme ve özellikleri güncelleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For döngüsü kuralını seçme ve özellikleri güncelleştirme")
 
-      *For döngüsü kuralı seçip özellikleri güncelleştiriliyor*
-7. Altında **döngüsel öğeler** bölümünde, daha önce oluşturduğunuz ilk ve son öğe döngü için olmasını isteği seçin. Devam etmek için **Tamam** 'a tıklayın.
+      *For döngüsü kuralını seçme ve özellikleri güncelleştirme*
+7. **Döngüdeki öğeler** bölümünde, döngünün ilk ve son öğesi olarak daha önce oluşturduğunuz isteği seçin. Devam etmek için **Tamam** 'a tıklayın.
 
-    ![Döngü için ilk ve son öğe seçme](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "döngü için ilk ve son öğe seçme")
+    ![Döngünün ilk ve son öğelerini seçme](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "Döngünün ilk ve son öğelerini seçme")
 
-    *Döngü için ilk ve son öğe seçme*
-8. İçinde **Çözüm Gezgini**, sağ **WebAndLoadTestProject** proje, genişletin **Ekle** menü ve select **yük testi...** .
+    *Döngünün ilk ve son öğelerini seçme*
+8. **Çözüm Gezgini**, **webandloadtestproject** projesine sağ tıklayın, **Ekle** menüsünü ve **Yük testi seç...** öğesini seçin.
 
-    ![Bir yük testi WebAndLoadTestProject projeye eklenirken](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "bir yük testi WebAndLoadTestProject projeye ekleniyor")
+    ![WebAndLoadTestProject projesine yük testi ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "WebAndLoadTestProject projesine yük testi ekleme")
 
-    *Bir yük testi WebAndLoadTestProject projeye ekleniyor*
-9. İçinde **Yeni Yük Testi Sihirbazı** iletişim kutusu, tıklayın **sonraki**.
+    *WebAndLoadTestProject projesine yük testi ekleme*
+9. **Yeni Yük Testi Sihirbazı** Iletişim kutusunda **İleri**' ye tıklayın.
 
     ![Yeni Yük Testi Sihirbazı](maintainable-azure-websites-managing-change-and-scale/_static/image87.png "Yeni Yük Testi Sihirbazı")
 
     *Yeni Yük Testi Sihirbazı*
-10. İçinde **senaryo** sayfasında **Düşünme süreleri kullanmayın** tıklatıp **sonraki**.
+10. **Senaryo** sayfasında **düşünme süreleri kullanmayın** ' ı seçin ve **İleri**' ye tıklayın.
 
-    ![Düşünme süreleri kullanmayı seçme](maintainable-azure-websites-managing-change-and-scale/_static/image88.png "Düşünme süreleri kullanmayı seçme")
+    ![Düşünme sürelerini kullanmayı seçme](maintainable-azure-websites-managing-change-and-scale/_static/image88.png "Düşünme sürelerini kullanmayı seçme")
 
-    *Düşünme süreleri kullanmayı seçme*
-11. İçinde **yük düzeni** sayfasında, aşağıdakileri sağlayın **sabit yük** seçeneği belirlenir. Değişiklik **kullanıcı sayısı** ayarını **250** kullanıcılar ve tıklatın **sonraki**.
+    *Düşünme sürelerini kullanmayı seçme*
+11. **Yük kalıbı** sayfasında, **sabit yükleme** seçeneğinin seçildiğinden emin olun. **Kullanıcı sayısı** ayarını **250** Kullanıcı olarak değiştirin ve **İleri**' ye tıklayın.
 
-    ![Kullanıcı sayısını 250 ile değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image89.png "kullanıcı sayısını 250 ile değiştirme")
+    ![Kullanıcı sayısını 250 olarak değiştirme](maintainable-azure-websites-managing-change-and-scale/_static/image89.png "Kullanıcı sayısını 250 olarak değiştirme")
 
-    *Kullanıcı sayısını 250 ile değiştirme*
-12. İçinde **Test karışımı modeli** sayfasında **sıralı test düzeni tabanlı** tıklatıp **sonraki**.
+    *Kullanıcı sayısını 250 olarak değiştirme*
+12. **Test karışımı modeli** sayfasında, **sıralı test sırasına göre** ' yi seçin ve **İleri**' ye tıklayın.
 
-    ![Test karışımı modelini seçmek](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "test karışımı modelini seçme")
+    ![Test karışımı modelini seçme](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "Test karışımı modelini seçme")
 
     *Test karışımı modelini seçme*
-13. İçinde **Test karışımı modeli** sayfasında **Ekle...**  test karışımına eklenecek.
+13. **Test karışımı modeli** sayfasında, karışıma bir test eklemek için **Ekle...** ' ye tıklayın.
 
-    ![Bir test için test karışımını eklenmesi](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "bir test için test karışımını ekleme")
+    ![Test karışımına test ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "Test karışımına test ekleme")
 
-    *Bir test için test karışımını ekleme*
-14. İçinde **Test Ekle** iletişim kutusunda, çift **WebTest1'i** testine ekleme **Seçili testler** listesi. Devam etmek için **Tamam** 'a tıklayın.
+    *Test karışımına test ekleme*
+14. **Testleri Ekle** iletişim kutusunda, **Seçili testler** listesine test eklemek için **WebTest1** öğesine çift tıklayın. Devam etmek için **Tamam** 'a tıklayın.
 
-    ![WebTest1'i test eklenmesi](maintainable-azure-websites-managing-change-and-scale/_static/image92.png "WebTest1'i test ekleme")
+    ![WebTest1 testi ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image92.png "WebTest1 testi ekleme")
 
-    *WebTest1'i test ekleme*
-15. Geri **Test Karışımını** sayfasında **sonraki**.
+    *WebTest1 testi ekleme*
+15. **Test karışımı** sayfasına geri döndüğünüzde **İleri**' ye tıklayın.
 
-    ![Test karışımı sayfasını tamamladıktan](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Test Karışımını sayfanın Tamamlanıyor")
+    ![Test karışımı sayfası Tamamlanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image93.png "Test karışımı sayfası Tamamlanıyor")
 
-    *Test Karışımı sayfası Tamamlanıyor*
-16. İçinde **ağ karışımını** sayfasında **sonraki**.
+    *Test karışımı sayfası Tamamlanıyor*
+16. **Ağ karışımı** sayfasında, **İleri**' ye tıklayın.
 
-    ![Ağ karışımı sayfasında İleri seçeneğine tıkladığınızda](maintainable-azure-websites-managing-change-and-scale/_static/image94.png "ağ karışımını sayfasında İleri seçeneğine tıkladığınızda")
+    ![Ağ karışımı sayfasında ileri 'ye tıklama](maintainable-azure-websites-managing-change-and-scale/_static/image94.png "Ağ karışımı sayfasında ileri 'ye tıklama")
 
-    *Ağ karışımı sayfasında İleri'ye tıklama*
-17. İçinde **tarayıcı karışımı** sayfasında **Internet Explorer 10.0** tıklayın ve tarayıcı türü olarak **sonraki**.
+    *Ağ karışımı sayfasında ileri 'ye tıklama*
+17. **Tarayıcı karışımı** sayfasında, tarayıcı türü olarak **Internet Explorer 10,0** ' ı seçin ve **İleri**' ye tıklayın.
 
-    ![Tarayıcı türü seçme](maintainable-azure-websites-managing-change-and-scale/_static/image95.png "tarayıcı türü seçme")
+    ![Tarayıcı türünü seçme](maintainable-azure-websites-managing-change-and-scale/_static/image95.png "Tarayıcı türünü seçme")
 
-    *Tarayıcı türü seçme*
-18. İçinde **sayaç kümeleri** sayfasında **sonraki**.
+    *Tarayıcı türünü seçme*
+18. **Sayaç kümeleri** sayfasında, **İleri**' ye tıklayın.
 
-    ![Sayaç kümeleri sayfasında İleri'ye tıklama](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "sayaç kümeleri sayfasında İleri tıklayarak")
+    ![Sayaç kümeleri sayfasında Ileri 'ye tıklama](maintainable-azure-websites-managing-change-and-scale/_static/image96.png "Sayaç kümeleri sayfasında Ileri 'ye tıklama")
 
-    *Sayaç kümeleri sayfasında İleri'ye tıklama*
-19. İçinde **çalıştırma ayarları** sayfasında **yük testi süresi** için **5 dakika** tıklatıp **son**.
+    *Sayaç kümeleri sayfasında Ileri 'ye tıklama*
+19. **Ayarları Çalıştır** sayfasında, **Yük testi süresini** **5 dakikaya** ayarlayın ve **son**' a tıklayın.
 
-    ![Yük testi süresi 5 dakikaya ayarlanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image97.png "yük testi süresi 5 dakikaya ayarlanıyor")
+    ![Yük testi süresini 5 dakikaya ayarlama](maintainable-azure-websites-managing-change-and-scale/_static/image97.png "Yük testi süresini 5 dakikaya ayarlama")
 
-    *Yük testi süresi 5 dakikaya ayarlanıyor*
-20. İçinde **Çözüm Gezgini**, çift **Local.settings** dosyasının test ayarları keşfedin. Varsayılan olarak, Visual Studio, testleri çalıştırmak için yerel bilgisayarınıza kullanır.
+    *Yük testi süresini 5 dakikaya ayarlama*
+20. **Çözüm Gezgini**, test ayarlarını araştırmak için **yerel. Settings** dosyasına çift tıklayın. Varsayılan olarak, Visual Studio Testleri çalıştırmak için yerel bilgisayarınızı kullanır.
 
     > [!NOTE]
-    > Alternatif olarak, Bulutu kullanarak yük testleri çalıştırmak için test projenizi yapılandırabilirsiniz **Azure Test planları**. Azure Test planlarını daha gerçekçi bir yükü benzetir hizmeti test etmek, CPU kapasitesi, kullanılabilir bellek ve ağ bant genişliği gibi yerel ortam kısıtlamalarını önleme bir bulut tabanlı yük sağlar. Yük testleri çalıştırmak için Azure Test planlarını kullanma hakkında daha fazla bilgi için bkz. [yük testi senaryoları](/azure/devops/test/load-test/overview?view=vsts).
+    > Alternatif olarak, test projenizi **Azure test Plans**kullanarak bulutta yük testlerini çalıştıracak şekilde yapılandırabilirsiniz. Azure Test Plans, daha gerçekçi bir yükü taklit eden, CPU kapasitesi, kullanılabilir bellek ve ağ bant genişliği gibi yerel ortam kısıtlamalarını önyükleyen bulut tabanlı bir yük testi hizmeti sağlar. Yük testlerini çalıştırmak için Azure Test Plans kullanma hakkında daha fazla bilgi için bkz. [Yük testi senaryoları](/azure/devops/test/load-test/overview?view=vsts).
 
     ![Test ayarları](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
 <a id="Ex5Task3"></a>
-#### <a name="task-3--autoscale-verification"></a>Görev 3: otomatik ölçeklendirme doğrulama
+#### <a name="task-3--autoscale-verification"></a>Görev 3 – otomatik ölçeklendirme doğrulaması
 
-Şimdi, önceki görevde oluşturduğunuz yük testi yürütmek ve web uygulamanızı yük altında nasıl davrandığını görmek.
+Şimdi, önceki görevde oluşturduğunuz yük testini yürütülecektir ve Web uygulamanızın yük altında nasıl davrandığını görürsünüz.
 
-1. İçinde **Çözüm Gezgini**, çift **LoadTest1.loadtest** yük testi açın.
+1. **Çözüm Gezgini**, yük testini açmak için **LoadTest1. LoadTest** öğesine çift tıklayın.
 
-    ![LoadTest1.loadtest açma](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "LoadTest1.loadtest açma")
+    ![LoadTest1. LoadTest açılıyor](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "LoadTest1. LoadTest açılıyor")
 
-    *Açılış LoadTest1.loadtest*
-2. İçinde **LoadTest1.loadtest** penceresinde yük testini çalıştırmak için araç kutusunda ilk düğmesine tıklayın.
+    *LoadTest1. LoadTest açılıyor*
+2. **LoadTest1. LoadTest** penceresinde, yük testini çalıştırmak için araç kutusundaki ilk düğmesine tıklayın.
 
-    ![Yük testi çalıştırma](maintainable-azure-websites-managing-change-and-scale/_static/image100.png "yük testi çalıştırma")
+    ![Yük testini çalıştırma](maintainable-azure-websites-managing-change-and-scale/_static/image100.png "Yük testini çalıştırma")
 
-    *Yük testi çalıştırma*
+    *Yük testini çalıştırma*
 3. Yük testi tamamlanana kadar bekleyin.
 
     > [!NOTE]
-    > Yük testi, web uygulamasına isteği gönderen, aynı anda birden çok kullanıcının benzetimini yapar. Bir test çalıştırırken, hataları, uyarıları veya yük test ile ilgili diğer bilgileri algılamak için kullanılabilir sayaçları izleyebilirsiniz.
+    > Yük testi, istekleri Web uygulamasına aynı anda gönderen birden çok kullanıcıyı benzetir. Test çalışırken, herhangi bir hata, uyarı veya yük testi çalıştırla ilgili diğer bilgileri algılamak için kullanılabilir sayaçları izleyebilirsiniz.
 
-    ![Yük testi çalıştıran](maintainable-azure-websites-managing-change-and-scale/_static/image101.png "yük testi tamamlanana kadar bekleniyor")
+    ![Yük testi çalışıyor](maintainable-azure-websites-managing-change-and-scale/_static/image101.png "Yük testi tamamlanana kadar bekleniyor")
 
-    *Yük testi çalıştırma*
-4. Test tamamlandıktan sonra Yönetim Portalı'na geri dönün ve gidin **ölçek** web uygulamanızın sayfasında. Altında **kapasite** bölümünde, yeni bir örneği otomatik olarak dağıtılan grafikte görmelisiniz.
+    *Yük testi çalışıyor*
+4. Test tamamlandıktan sonra, yönetim portalına geri dönün ve Web uygulamanızın **Ölçek** sayfasına gidin. **Kapasite** bölümünde, grafikte yeni bir örneğin otomatik olarak dağıtıldığını görmeniz gerekir.
 
-    ![Otomatik olarak dağıtılan yeni örneği](maintainable-azure-websites-managing-change-and-scale/_static/image102.png)
+    ![Yeni örnek otomatik olarak dağıtıldı](maintainable-azure-websites-managing-change-and-scale/_static/image102.png)
 
-    *Otomatik olarak dağıtılan yeni örneği*
+    *Yeni örnek otomatik olarak dağıtıldı*
 
     > [!NOTE]
-    > Değişikliklerin grafikte görünmesi birkaç dakika sürebilir (basın **CTRL + F5 tuşlarına basarak** düzenli aralıklarla sayfayı yenilemek için). Herhangi bir değişiklik görmüyorsanız, aşağıdakileri deneyebilirsiniz:
+    > Değişikliklerin grafikte görünmesi birkaç dakika sürebilir (sayfayı yenilemek için **CTRL + F5** tuşlarına basın). Herhangi bir değişiklik görmüyorsanız, aşağıdakileri deneyebilirsiniz:
     >
-    > - Yük testi süresini artırmak (örneğin için **10 dakika**)
-    > - Maksimum ve minimum değerleri azaltmak **hedef CPU** aralığında web uygulamanız otomatik ölçeklendirme yapılandırması
-    > - Bulutta yük testi çalıştırma **Azure Test planları**. Daha fazla bilgi [burada](/azure/devops/test/load-test/index?view=vsts)
+    > - Yük testinin süresini artırın (ör. **10 dakika**)
+    > - Web uygulamanızın otomatik ölçeklendirme yapılandırmasındaki **hedef CPU** aralığının maksimum ve en düşük değerlerini azaltın
+    > - Yük testini bulutta **Azure test Plans**ile çalıştırın. [Buradan](/azure/devops/test/load-test/index?view=vsts) daha fazla bilgi
 
 ---
 
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu uygulamalı laboratuvarda ayarlama ve uygulamanızı üretim web uygulamalarını azure'da dağıtma hakkında bilgi edindiniz. Algılama ve veritabanlarınızı kullanarak güncelleştirerek başlattığınız **Entity Framework Code First Migrations**, ardından yeni sürümlerini kullanarak siteyi dağıtarak devam **Git** ve düzeyine gerçekleştirme sitenizi en son kararlı sürümü. Ayrıca, statik içerik Blob kapsayıcısına taşımak için depolama kullanarak uygulamanızı ölçeklendirme hakkında bilgi edindiniz.
+Bu uygulamalı laboratuvarda, uygulamanızı ayarlamayı ve Azure 'da üretim Web uygulamalarına dağıtmayı öğrendiniz. **Entity Framework Code First Migrations**kullanarak veritabanlarınızı algılayıp güncelleştirerek ve sonra **Git** kullanarak sitenizin yeni sürümlerini dağıtarak ve sitenizin en son kararlı sürümüne geri dönme gerçekleştirerek çalışmaya devam edersiniz. Ayrıca, statik içeriğinizi bir blob kapsayıcısına taşımak için depolamayı kullanarak uygulamanızı nasıl ölçeklendirebileceğinizi öğrendiniz.

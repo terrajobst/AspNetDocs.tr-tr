@@ -1,26 +1,26 @@
 ---
 uid: tutorials
-title: ASP.NET öğreticilerini | Microsoft Docs
+title: ASP.NET öğreticileri | Microsoft Docs
 author: tdykstra
-description: ASP.NET uygulamaları geliştirmek için adım adım kılavuzlar listesi.
+description: ASP.NET uygulamaları geliştirmeye yönelik adım adım kılavuzların listesi.
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.openlocfilehash: 106b4b88d2e7de90900b7a73570ecd6140e2db66
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65113186"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78558172"
 ---
-# <a name="aspnet-tutorials"></a>ASP.NET öğreticiler
+# <a name="aspnet-tutorials"></a>ASP.NET öğreticileri
 
 [!INCLUDE[](~/includes/rp.md)]
 
-ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar mevcuttur.
+ASP.NET uygulamaları geliştirmeye yönelik aşağıdaki adım adım kılavuzlar kullanılabilir.
 
 > [!NOTE]
-> ASP.NET Core öğreticileri için mi arıyorsunuz?  Bunları bulmak [burada](https://docs.microsoft.com/aspnet/core/tutorials/).
+> ASP.NET Core öğreticileri mi arıyorsunuz?  [Buradan](https://docs.microsoft.com/aspnet/core/tutorials/)bulabilirsiniz.
 
 ## <a name="web-forms"></a>Web Forms
 
@@ -60,7 +60,7 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [Web API 2 ile Çalışmaya Başlama (C#)](web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
 * [ASP.NET Web Forms ile Web API Kullanma](web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md)
 * [Web API Yardım Sayfaları Oluşturma](web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md)
-* [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile tek sayfalı uygulama (SPA) oluşturun](web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
+* [Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma](web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md)
 * [Web API 2’de Öznitelik Yönlendirme ile REST API Oluşturma](web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing.md)
 * [Web API 2’yi Entity Framework 6 ile Kullanma](web-api/overview/data/using-web-api-with-entity-framework/index.md)
 * [Windows Phone 8 Uygulamasından Web API'sine Çağrı Yapma (C#)](web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application.md)
@@ -78,8 +78,8 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [Azure Çalışan Rolünde Web API 2 Barındırma](web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role.md)
 * [Web API 2’de Bağımlılık Ekleme](web-api/overview/advanced/dependency-injection.md)
 * [Bir .NET İstemcisinden Web API'ye Çağrı Yapma (C#)](web-api/overview/advanced/calling-a-web-api-from-a-net-client.md)
-* [Web API'de HTML Form verileri gönderme: Form-urlencoded verileri](web-api/overview/advanced/sending-html-form-data-part-1.md)
-* [Web API'de HTML Form verileri gönderme: Karşıya dosya yükleme ve çok parçalı MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
+* [Web API’de HTML Form Verileri Gönderme: Form-urlencoded Verileri](web-api/overview/advanced/sending-html-form-data-part-1.md)
+* [Web API’de HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME](web-api/overview/advanced/sending-html-form-data-part-2.md)
 
 ## <a name="web-pages"></a>Web Sayfaları
 
@@ -112,11 +112,11 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 
 ## <a name="aspnet-signalr"></a>ASP.NET SignalR
 
-* [Öğretici: SignalR 2 ile çalışmaya başlama](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
-* [Öğretici: SignalR 2 ve MVC 5 kullanmaya başlama](signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
-* [Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı](signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
-* [Öğretici: SignalR 2 ile sunucu yayını](signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-* [Uygulamalı Laboratuvar: SignalR ile gerçek zamanlı Web uygulamaları](signalr/overview/getting-started/real-time-web-applications-with-signalr.md)
+* [Öğretici: SignalR 2 ile Çalışmaya Başlama](signalr/overview/getting-started/tutorial-getting-started-with-signalr.md)
+* [Öğretici: SignalR 2 ve MVC 5 ile Çalışmaya Başlama](signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
+* [Öğretici: SignalR 2 ile Yüksek Sıklıkta Gerçek Zamanlı](signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
+* [Öğretici: SignalR 2 ile Sunucu Yayını](signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md)
+* [Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları](signalr/overview/getting-started/real-time-web-applications-with-signalr.md)
 * [SignalR Uygulamalarına Birim Testi Yapma](signalr/overview/testing-and-debugging/unit-testing-signalr-applications.md)
 * [SignalR İzlemeyi Etkinleştirme](signalr/overview/testing-and-debugging/enabling-signalr-tracing.md)
 * [Azure Service Bus ile SignalR Ölçeğini Genişletme](signalr/overview/performance/scaleout-with-windows-azure-service-bus.md)
@@ -124,14 +124,14 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 * [SQL Server ile SignalR Ölçeğini Genişletme](signalr/overview/performance/scaleout-with-sql-server.md)
 * [Crank ile SignalR Bağlantı Yoğunluğu Testi](signalr/overview/performance/signalr-connection-density-testing-with-crank.md)
 * [Bir Azure Web Rolünde SignalR Performans Sayaçları Kullanma](signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
-* [Öğretici: Şirket içinde SignalR barındırma](signalr/overview/deployment/tutorial-signalr-self-host.md)
+* [Öğretici: Şirket İçinde SignalR Barındırma](signalr/overview/deployment/tutorial-signalr-self-host.md)
 * [Azure App Service'te Web Apps ile SignalR Kullanma](signalr/overview/deployment/using-signalr-with-azure-web-sites.md)
 
 ## <a name="aspnet-identity"></a>ASP.NET Kimlik
 
 * [Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme](identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 * [Azure Active Directory ile ASP.NET Uygulamaları geliştirme](identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-* [ASP.NET Identity: Bir EntityFramework MySQL sağlayıcısı ile MySQL depolama kullanma (C#)](identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+* [ASP.NET Identity: Bir EntityFramework MySQL Sağlayıcısı ile MySQL Depolama Kullanma (C#)](identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
 * [ASP.NET Identity ile Hesap Onaylama ve Parola Kurtarma (C#)](identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 * [ASP.NET Identity ile SMS ve e-posta kullanılan iki öğeli kimlik doğrulaması](identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
 * [Özel MySQL ASP.NET Identity Depolama Sağlayıcısı Uygulama](identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)

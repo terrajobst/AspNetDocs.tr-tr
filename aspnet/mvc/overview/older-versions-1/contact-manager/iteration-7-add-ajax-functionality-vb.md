@@ -2,234 +2,234 @@
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 title: 'Yineleme #7 – Ajax işlevselliği ekleme (VB) | Microsoft Docs'
 author: microsoft
-description: Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
+description: Yedinci yinelemede, Ajax desteği ekleyerek uygulamamızın yanıt hızını ve performansını geliştirdik.
 ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: f640e063-150e-453d-8cfc-7e54a6ce0f1e
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
 ms.openlocfilehash: cee2b6e7c7517a1e03ae26d5233fc438857a030c
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65123874"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78601656"
 ---
 # <a name="iteration-7--add-ajax-functionality-vb"></a>Yineleme #7 – Ajax işlevselliği ekleme (VB)
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
 [Kodu indir](iteration-7-add-ajax-functionality-vb/_static/contactmanager_7_vb1.zip)
 
-> Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
+> Yedinci yinelemede, Ajax desteği ekleyerek uygulamamızın yanıt hızını ve performansını geliştirdik.
 
-## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Bir kişi yönetimi ASP.NET MVC uygulama (VB)
+## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Kişi yönetimi ASP.NET MVC uygulaması oluşturma (VB)
 
-Bu öğretici serisinde, tamamlanması bir tüm kişi yönetimi uygulaması ekleriz. Kişi Yöneticisi uygulama kişilerin bir listesi için kişi bilgilerini - adları, telefon numarası ve e-posta adresleri - depolamanızı sağlar.
+Bu öğretici dizisinde, başlangıçtan sonuna kadar bir Iletişim yönetimi uygulaması oluşturacaksınız. Ilgili kişi Yöneticisi uygulaması, kişi listesi için kişi bilgilerini, telefon numaralarını ve e-posta adreslerini depolamanıza olanak sağlar.
 
-Birden çok yineleme üzerinde uygulama ekleriz. Her yineleme ile biz kademeli olarak uygulama geliştirin. Bu birden çok yineleme yaklaşımı amacı, her değişikliğin nedenini anlamak etkinleştirmektir.
+Uygulamayı birden çok yineleme üzerinde oluşturacağız. Her yinelemede, uygulamayı kademeli olarak geliştirdik. Bu birden çok yineleme yaklaşımının hedefi, her bir değişikliğin nedenini anlamanıza olanak sağlamaktır.
 
-- Yineleme #1 - uygulama oluşturun. İlk yinelemede Kişi Yöneticisi basit şekilde olası oluştururuz. Temel veritabanı işlemleri için destek ekliyoruz: Oluşturma, okuma, güncelleştirme ve silme (CRUD).
+- Yineleme #1-uygulamayı oluşturun. İlk yinelemede, mümkün olan en kolay şekilde Contact Manager oluşturacağız. Temel veritabanı işlemleri için destek ekledik: oluşturma, okuma, güncelleştirme ve silme (CRUD).
 
-- Yineleme #2 - uygulamanın güzel görünmesini olun. Bu yineleme, varsayılan ASP.NET MVC görünüm ana sayfası değiştirme ve geçişli stil sayfası biz uygulamanın görünümünü geliştirin.
+- Yineleme #2-uygulamanın iyi görünmesini sağlayın. Bu yinelemede, varsayılan ASP.NET MVC görünüm ana sayfası ve geçişli stil sayfasını değiştirerek uygulamanın görünüşünü geliştiririz.
 
-- Yineleme #3 - form doğrulaması ekleme. Üçüncü yinelemede temel form doğrulaması ekleriz. Biz, kişi formu gerekli form alanlarını tamamlamadan göndermesinin önlenmesine. Biz de e-posta adresi ve telefon numaralarını doğrulayın.
+- Yineleme #3-form doğrulaması ekleme. Üçüncü yinelemede, temel form doğrulaması ekleyeceğiz. Kullanıcıların gerekli form alanlarını tamamlamadan form göndermesini önliyoruz. Ayrıca e-posta adreslerini ve telefon numaralarını da doğruladık.
 
-- Yineleme #4 - birbirine sıkı şekilde bağlı uygulama olun. Bu dördüncü yinelemede biz Bakım ve değişiklik kişi yöneticisi uygulamayı kolaylaştırmak için çeşitli yazılım tasarım desenleri yararlanın. Örneğin, biz uygulamamız depo deseni ve bağımlılık ekleme modelini kullanmak için yeniden düzenleyin.
+- Yineleme #4-uygulamayı gevşek olarak bağlanmış hale getirin. Bu dördüncü yinelemede, Contact Manager uygulamasının bakımını ve değiştirmesini kolaylaştırmak için çeşitli yazılım tasarımı desenlerinden faydalanır. Örneğin, uygulamamız depo deseninin ve bağımlılık ekleme düzeninin kullanılması için yeniden düzenliyoruz.
 
-- Yineleme #5 - birim testleri oluşturun. Beşinci yinelemede uygulamamız Bakım ve değişiklik birim testleri ekleyerek daha kolay vermiyoruz. Biz, bizim veri modeli sınıfları Sahne ve yapı denetleyicilerini ve Doğrulama mantığı birim testleri.
+- Yineleme #5-birim testleri oluşturun. Beşinci yinelemede, uygulamanızın birim testlerini ekleyerek bakımını ve değiştirmeyi daha kolay hale sunuyoruz. Denetleyicilerimizin ve doğrulama mantığımız için veri modeli Sınıflarımızı ve derleme birimi testlerini modelliyoruz.
 
-- Yineleme #6 - test odaklı geliştirme kullanma. Bu altıncı yinelemede yeni işlevsellik uygulamamız için ilk birim testleri yazma ve birim testlerini karşı kod yazma ekleriz. Bu yineleme, kişi grupları ekleriz.
+- Yineleme #6-test odaklı geliştirme kullanın. Bu altıncı yinelemede, önce birim testlerini yazarak ve birim testlerine göre kod yazarak uygulamamıza yeni işlevsellik ekleyeceğiz. Bu yinelemede kişi grupları ekleyeceğiz.
 
-- Yineleme #7 - Ajax işlevselliği ekleme. Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
+- Yineleme #7-Ajax işlevselliği ekleme. Yedinci yinelemede, Ajax desteği ekleyerek uygulamamızın yanıt hızını ve performansını geliştirdik.
 
 ## <a name="this-iteration"></a>Bu yineleme
 
-Kişi Yöneticisi uygulamasının bu yinelemede biz uygulamamız Ajax yararlanması için yeniden düzenleyin. Ajax avantajlarından yararlanarak, uygulamamız daha hızlı yanıt vermiyoruz. Biz yalnızca belirli bir bölgede bir sayfa güncelleştirmek gerektiğinde bir sayfanın tamamını işleme önleyebilirsiniz.
+Contact Manager uygulamasının bu yinelemesinde, Ajax 'un kullanımını sağlamak için uygulamamızı yeniden düzenlemelisiniz. Ajax 'tan yararlanarak uygulamamızı daha hızlı hale getirir. Sayfada yalnızca belirli bir bölgeyi güncelleştirmeniz gerektiğinde sayfanın tamamını oluşturmaktan kaçınabilirsiniz.
 
-Böylece biz t her birinin yeni bir kişi grubu seçtiğinde sayfanın tamamını görüntülemek gerek ki biz bizim dizini görünümü yeniden düzenleme. Bunun yerine, birisi bir kişi grubu tıkladığında, biz yalnızca ilgili kişi listesini güncelleştirmek ve sayfanın geri kalanını tek başına bırakın.
+Dizin görünümümüzü yeniden görüntüleyeceğiz, böylece her biri yeni bir kişi grubu seçtiğinde sayfanın tamamını yeniden görüntülemeye gerek kalmaz. Bunun yerine, birisi bir kişi grubunu tıkladığında yalnızca kişi listesini güncelleştirip sayfanın geri kalanını tek başına bırakacağız.
 
-Ayrıca bizim silme bağlantı çalışır şekilde değiştireceğiz. Ayrı bir onay sayfası yerine bir JavaScript onay iletişim kutusunda görüntüleyeceğiz. Bir kişiyi silmek istediğinizi onaylayın, ilgili kişi kaydı veritabanından silmek için sunucuya yönelik bir HTTP DELETE işlemi gerçekleştirilir.
+Ayrıca, silme bağlantımız çalışma şeklini de değiştireceksiniz. Ayrı bir onay sayfası görüntülemek yerine bir JavaScript onay iletişim kutusu görüntüleriz. Bir kişiyi silmek istediğinizi onaylamanız durumunda, veritabanından kişi kaydını silmek için bir HTTP SILME işlemi gerçekleştirilir.
 
-Ayrıca, biz animasyon efektleri bizim dizin görünümüne eklemek için jQuery yararlanır. Yeni kişiler listesi sunucudan getirildiğinde animasyon görüntüleyeceğiz.
+Ayrıca, Dizin görünümimize animasyon etkileri eklemek için jQuery 'tan faydalanacağız. Yeni kişiler listesi sunucudan getirilirken bir animasyon görüntüleriz.
 
-Son olarak, biz tarayıcı geçmişini yönetmek için ASP.NET AJAX framework desteğinden. Şu kişi listesini güncelleştirmek için bir Ajax çağrısı yaptığınızda geçmişi noktaları oluşturacağız. Bu şekilde, tarayıcısı İleri ve geriye dönük düğmeleri çalışır.
+Son olarak, tarayıcı geçmişini yönetmek için ASP.NET AJAX Framework desteği avantajlarından faydalanacağız. Kişi listesini güncelleştirmek için bir AJAX çağrısı gerçekleştirdiğimiz her seferinde geçmiş noktaları oluşturacağız. Bu şekilde, geri ve ileri tarayıcı düğmeleri çalışacaktır.
 
-## <a name="why-use-ajax"></a>Ajax neden kullanmalısınız?
+## <a name="why-use-ajax"></a>Ajax neden kullanılmalıdır?
 
-AJAX kullanarak birçok faydası vardır. İlk olarak, bir uygulama sonuçları daha iyi bir kullanıcı deneyimi için Ajax işlevselliği ekleme. Normal web uygulamasında, sayfanın tamamını bir kullanıcı bir eylem gerçekleştiren her zaman sunucuya geri gönderilmelidir. Bir eylem gerçekleştirmek her sayfanın tamamını alınan ve yeniden kadar tarayıcı kilitler ve kullanıcının beklemesi gerekir.
+Ajax kullanmanın birçok avantajı vardır. İlk olarak, bir uygulamaya Ajax işlevselliği eklendiğinde daha iyi bir kullanıcı deneyimi elde edilecek. Normal bir Web uygulamasında, sayfanın tamamı her seferinde sunucuya ve her bir eylem gerçekleştirdiğinde sunucuya geri gönderilebilir. Bir eylem gerçekleştirdiğinizde tarayıcı kilitlenir ve Kullanıcı tüm sayfa getirilme ve yeniden görüntülenene kadar beklemeniz gerekir.
 
-Bu bir masaüstü uygulaması söz konusu olduğunda kabul edilemez bir deneyim olacaktır. Ancak, daha iyi yapabileceğimiz tanımamış çünkü geleneksel olarak, biz ile bir web uygulaması söz konusu olduğunda bu olumsuz kullanıcı deneyiminden beklenir. İsteğe bağlı olarak, çünkü yalnızca bizim imaginations bir kısıtlaması olduğu zaman, web uygulamaları ile ilgili bir sınırlama olduğu düşündük.
+Bu, masaüstü uygulaması durumunda kabul edilemez bir deneyim olacaktır. Ancak, bu durum geleneksel olarak, bir Web uygulaması durumunda bu kötü Kullanıcı deneyimiyle karşılaşacağız, ancak daha iyi yapabileceğimizi bilmiyor. Bir Web uygulamaları sınırlaması olduğunu düşündük, bu durumda, imaginations bir kısıtlamadır.
 
-Ajax uygulamada t bir sayfa yalnızca güncelleştirilecek durdurmak için kullanıcı deneyimi getirme gerek istemiyorsunuz. Bunun yerine, sayfayı güncelleştirmek için arka planda bir zaman uyumsuz istek gerçekleştirebilirsiniz. Sayfanın parçası güncelleştirilir bekleyin kullanıcının t zorla istemiyorsunuz.
+Bir AJAX uygulamasında, bir sayfayı güncellemek için Kullanıcı deneyimini bir durdurmak için gerekli kılmazsınız. Bunun yerine, sayfayı güncelleştirmek için arka planda zaman uyumsuz bir istek gerçekleştirebilirsiniz. Sayfanın bir bölümü güncelleştirilirken kullanıcıyı beklemeye zorlarsınız.
 
-Ajax avantajlarından yararlanarak uygulamanızın performansını artırabilir. Kişi Yöneticisi uygulama Ajax işlevselliği hemen şimdi nasıl çalıştığını düşünün. Bir kişi grubu tıkladığınızda, tüm dizin görünümü yeniden gerekir. Kişiler listesi ve kişi grupları listesi, veritabanı sunucusundan alınmalıdır. Tüm bu verileri ağ üzerinden web sunucusundan web tarayıcısına geçirilmelidir.
+Ajax 'un avantajlarından yararlanarak uygulamanızın performansını de artırabilirsiniz. Contact Manager uygulamasının Ajax işlevselliği olmadan Şu anda nasıl çalıştığını göz önünde bulundurun. Bir kişi grubuna tıkladığınızda, tüm dizin görünümünün yeniden görüntülenmesi gerekir. Kişiler ve kişi gruplarının listesi, veritabanı sunucusundan alınmalıdır. Bu verilerin tümünün Web sunucusundan Web tarayıcısına geçirilmesi gerekir.
 
-Biz Ajax işlevselliği uygulamamıza ekledikten sonra ancak biz bir kullanıcı bir kişi grubu tıkladığında sayfanın tamamını yeniden görüntüleme önleyebilirsiniz. Artık veritabanından kişi grupları almak ihtiyacımız var. Biz de t tüm dizin görünümünün kablo anında iletme gerek ki. Yararlanarak Ajax, biz veritabanı Sunucumuz gerçekleştirmesi gereken iş miktarını azaltmak ve biz uygulamamız tarafından gerekli ağ trafiği miktarını azaltır.
+Uygulamamıza Ajax işlevselliği eklendikten sonra, Kullanıcı bir kişi grubuna tıkladığında sayfanın tamamını yeniden görüntülememize kaçınabilirsiniz. Artık veritabanından kişi gruplarını almak zorunda kalmıyoruz. Ayrıca tüm dizin görünümünü tel da göndermemiz gerekmez. Ajax 'tan yararlanarak, veritabanı sunucunuzun gerçekleştirmesi gereken iş miktarını azalttık ve uygulamamız için gereken ağ trafiği miktarını azalttık.
 
-## <a name="don-t-be-afraid-of-ajax"></a>Azure keşfetmek, Ajax Rsquo olabilir
+## <a name="don-t-be-afraid-of-ajax"></a>Ajax 'un Afraıd 'i olamaz
 
-Bazı geliştiriciler, çünkü bunlar alt düzey tarayıcılar hakkında endişe Ajax kullanmaktan kaçının. Bunlar web uygulamalarını JavaScript desteklemeyen bir tarayıcı tarafından erişildiğinde yine de çalışacağından emin olmak istersiniz. AJAX JavaScript üzerinde bağlı olduğundan, Ajax kullanarak bazı geliştiriciler kaçının.
+Bazı geliştiriciler, alt düzey tarayıcılarla uğraşdığı için AJAX kullanmaktan kaçınır. JavaScript desteklemeyen bir tarayıcı tarafından erişildiğinde Web uygulamalarının hala çalışır durumda olduğundan emin olmak ister. Ajax JavaScript 'e bağlı olduğundan, bazı geliştiriciler Ajax kullanmaktan kaçınır.
 
-Ancak, Ajax nasıl uygulamanız hakkında dikkatli olduğunuz algılamadığı üst düzey hem de alt düzey tarayıcıları ile çalışan uygulamalar oluşturabilirsiniz. Kişi Yöneticisi uygulamamız olmayan tarayıcıları ve JavaScript destekleyen tarayıcılar ile çalışır.
+Ancak, Ajax 'u nasıl uygulayacağından emin değilseniz, hem üst düzey hem de alt düzey tarayıcılarla çalışan uygulamalar oluşturabilirsiniz. Contact Manager uygulamamız, JavaScript ve olmayan tarayıcıları destekleyen tarayıcılarla çalışacaktır.
 
-Kişi Yöneticisi uygulama JavaScript destekleyen bir tarayıcı ile kullanırsanız, daha iyi bir kullanıcı deneyimi gerekir. Örneğin, bir kişi grubu tıkladığınızda, yalnızca ilgili kişileri görüntüleyen sayfanın bölge güncelleştirilecektir.
+JavaScript 'ı destekleyen bir tarayıcıyla Contact Manager uygulamasını kullanıyorsanız daha iyi bir kullanıcı deneyimi olacaktır. Örneğin, bir kişi grubuna tıkladığınızda, yalnızca ilgili kişileri görüntüleyen sayfanın bölgesi güncelleştirilir.
 
-Öte yandan, JavaScript desteklemez (veya JavaScript devre dışı olan) bir tarayıcı ile kişi Yöneticisi uygulama kullanın, biraz daha az tercih bir kullanıcı deneyimi yüklemeniz gerekir. Bir kişi grubu tıkladığınızda, örneğin, tüm dizin görünümünün tarayıcıya kişiler eşleşen listesini görüntülemek için gönderilmelidir.
+Diğer taraftan, Contact Manager uygulamasını JavaScript desteklemeyen bir tarayıcıyla (veya JavaScript devre dışı bırakılmış) kullanıyorsanız, daha az bir tercih ettiğiniz Kullanıcı deneyimi olur. Örneğin, bir kişi grubuna tıkladığınızda, ilgili kişi listesini görüntülemek için tüm dizin görünümünün tarayıcıya geri nakledilmesi gerekir.
 
-## <a name="adding-the-required-javascript-files"></a>Gerekli JavaScript dosyaları ekleme
+## <a name="adding-the-required-javascript-files"></a>Gerekli JavaScript dosyaları ekleniyor
 
-Uygulamamız için Ajax işlevselliği ekleme için üç JavaScript dosyalarının kullanılması gerekir. Bu dosyaların üç yeni bir ASP.NET MVC uygulaması betikler klasörüne eklenir.
+Uygulamamıza Ajax işlevselliği eklemek için üç JavaScript dosyası kullanmanız gerekir. Bu dosyaların üçü de yeni bir ASP.NET MVC uygulamasının Scripts klasörüne eklenir.
 
-İçinde uygulamanızın birden çok sayfada Ajax kullanmayı planlıyorsanız, daha sonra uygulama s görünüm ana sayfasında gerekli JavaScript dosyaları içerecek şekilde mantıklıdır. Bu şekilde, JavaScript dosyalarının tüm uygulamanızdaki sayfaların otomatik olarak dahil edilir.
+Ajax 'ı uygulamanızdaki birden çok sayfada kullanmayı planlıyorsanız, gereken JavaScript dosyalarını uygulama s görünüm ana sayfanıza dahil etmek mantıklı olur. Bu şekilde, JavaScript dosyaları uygulamanızdaki tüm sayfalara otomatik olarak dahil edilir.
 
-Aşağıdaki JavaScript içeren içine ekleme &lt;baş&gt; görünüm ana sayfanızın etiketi:
+Aşağıdaki JavaScript 'ı, görünüm ana sayfanızın &lt;Head&gt; etiketinin içine ekleyin:
 
 [!code-html[Main](iteration-7-add-ajax-functionality-vb/samples/sample1.html)]
 
-## <a name="refactoring-the-index-view-to-use-ajax"></a>Ajax kullanılacak şekilde dizin görünümünün yeniden düzenleme
+## <a name="refactoring-the-index-view-to-use-ajax"></a>Dizin görünümünü Ajax kullanacak şekilde yeniden düzenleme
 
-S kişi grubu tıklayarak yalnızca görüntüleyen kişiler görünümü bölgesi güncelleştirilebilmesi için sunduğumuz dizin görünümünün değiştirerek başlamanızı sağlar. Şekil 1'görüntüsünde, güncelleştirmek istediğiniz bölgeyi içerir.
+Bir kişi grubuna tıklamak yalnızca kişileri görüntüleyen görünümün bölgesini güncelleştirmeleri için Dizin görünümümüzü değiştirerek başlayalım. Şekil 1 ' deki kırmızı kutu, güncelleştirmek istediğimiz bölgeyi içerir.
 
-[![Yalnızca kişileri güncelleştiriliyor](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
+[yalnızca kişileri güncelleştirmek ![](iteration-7-add-ajax-functionality-vb/_static/image1.jpg)](iteration-7-add-ajax-functionality-vb/_static/image1.png)
 
-**Şekil 01**: Yalnızca kişileri güncelleştiriliyor ([tam boyutlu görüntüyü görmek için tıklatın](iteration-7-add-ajax-functionality-vb/_static/image2.png))
+**Şekil 01**: yalnızca kişiler güncelleştiriliyor ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-7-add-ajax-functionality-vb/_static/image2.png))
 
-İlk adım, zaman uyumsuz olarak ayrı bir kısmi (görünümü kullanıcı denetimi) güncelleştirmek için istediğimiz görünümü parçası ayırmaktır. Kişiler tablosunu görüntüler dizin görünümünün bölümünü listeleme 1 kısmi içine taşındı.
+İlk adım, görünümün zaman uyumsuz olarak güncelleştirilmesini istediğimiz bölümünü ayrı bir kısmi (Kullanıcı denetimini görüntüle) olarak ayırmaktır. Kişiler tablosunu görüntüleyen Dizin görünümünün bölümü, liste 1 ' de kısmi tabloya taşındı.
 
-**Listing 1 - Views\Contact\ContactList.ascx**
+**Listeleme 1-Views\contact\contactlist.exe**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample2.aspx)]
 
-Listeleme 1. kısmi dizin görünümünün değerinden farklı bir model olduğuna dikkat edin. *Inherits* özniteliğini &lt;% @ sayfa %&gt; yönergesi belirtir kısmi ViewUserControl devralan&lt;grubu&gt; sınıfı.
+Liste 1 ' deki kısmen dizin görünümünden farklı bir modele sahip olduğuna dikkat edin. &lt;% @ Page%&gt; yönergesinin *Inherits* özniteliği, kısmen viewusercontrol&lt;Group&gt; sınıfından devraldığını belirtir.
 
-Güncelleştirilmiş dizin görünümünün listeleme 2'de yer alır.
+Güncelleştirilmiş dizin görünümü liste 2 ' de yer alır.
 
-**Listing 2 - Views\Contact\Index.aspx**
+**Listeleme 2-Views\contact\ındex.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample3.aspx)]
 
-Güncelleştirilmiş görünümü 2 listeleme hakkında fark etmişsinizdir iki şey vardır. İlk olarak, tüm içeriğin kısmi taşındı bildirimi Html.RenderPartial() çağrısı ile değiştirilir. Index görünümünü ilk kez kişiler ilk kümesini görüntülemek için istenen Html.RenderPartial() yöntem çağrılır.
+Liste 2 ' de güncelleştirilmiş görünüm hakkında dikkat etmeniz gereken iki şey vardır. İlk olarak, kısmi olarak taşınan tüm içeriğin HTML. RenderPartial () çağrısıyla değiştirildiğini fark edersiniz. İlk kişi kümesini görüntülemek için dizin görünümü istendiğinde, HTML. RenderPartial () yöntemi çağrılır.
 
-İkinci olarak, kişi grupları göstermek için kullanılan Html.ActionLink() bir Ajax.ActionLink() ile değiştirilmiştir dikkat edin. Aşağıdaki parametrelerle Ajax.ActionLink() çağrılır:
+İkincisi, iletişim gruplarını göstermek için kullanılan html. ActionLink (), bir AJAX. ActionLink () ile değiştirildiğini unutmayın. AJAX. ActionLink () aşağıdaki parametrelerle çağrılır:
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample4.aspx)]
 
-Bağlantı için görüntülenecek metin ilk parametresini temsil eder, ikinci parametre, rota değerlerini temsil eder ve üçüncü parametre Ajax seçeneklerini temsil eder. Bu durumda, UpdateTargetId Ajax seçenek HTML işaret edecek şekilde kullanırız &lt;div&gt; Ajax isteği tamamlandıktan sonra güncelleştirmek için istediğimiz etiketi. Güncelleştirmek istediğiniz &lt;div&gt; yeni kişi listesinin etiketi.
+İlk parametre bağlantı için görüntülenecek metni temsil eder, ikinci parametre yol değerlerini temsil eder ve üçüncü parametre Ajax seçeneklerini temsil eder. Bu durumda, Ajax isteği tamamlandıktan sonra güncelleştirmek istediğimiz HTML &lt;div&gt; etiketini işaret etmek için UpdateTargetId Ajax seçeneğini kullanıyoruz. &lt;div&gt; etiketini yeni kişiler listesiyle güncelleştirmek istiyoruz.
 
-İlgili kişi denetleyicisi güncelleştirilmiş İNDİS() yöntemi listeleme 3'te yer alır.
+Iletişim denetleyicisinin güncelleştirilmiş Index () yöntemi, Listeleme 3 ' te bulunur.
 
-**3 - Controllers\ContactController.vb (Index yöntemi) listeleme**
+**Listeleme 3-Controllers\contactcontroller.exe (Dizin yöntemi)**
 
 [!code-vb[Main](iteration-7-add-ajax-functionality-vb/samples/sample5.vb)]
 
-Güncelleştirilmiş İNDİS() eylem koşullu olarak ikisinden birini döndürür. Ardından İNDİS() eylemi bir Ajax isteği tarafından çağrılan denetleyici kısmi döndürür. Aksi takdirde İNDİS() eylem tamamı döndürür.
+Güncelleştirilmiş Index () eylemi, iki işlemlerden birini koşullu olarak döndürür. Dizin () eylemi bir AJAX isteği tarafından çağrılırsa, denetleyici kısmi döndürür. Aksi takdirde, Index () eylemi bir görünümün tamamını döndürür.
 
-İNDİS() eylemi bir Ajax isteği tarafından çağrıldığında kadar veri döndürmeyen gerekmez dikkat edin. Normal bir isteği bağlamında dizin eylem tüm kişi grupları ve seçilen kişi grubu listesini döndürür. Bir Ajax isteği bağlamında İNDİS() eylem yalnızca seçilen grup döndürür. AJAX veritabanı sunucunuzdaki daha az iş anlamına gelir.
+Dizin () eyleminin bir AJAX isteği tarafından çağrıldığında çok fazla veri döndürmesi gerekmediğini unutmayın. Normal bir istek bağlamında, Dizin eylemi tüm kişi gruplarının ve seçilen kişi grubunun bir listesini döndürür. Ajax isteği bağlamında, Index () eylemi yalnızca seçili grubu döndürür. Ajax, veritabanı sunucunuzda daha az iş anlamına gelir.
 
-Bizim değiştirilmiş dizin görünümünün algılamadığı üst düzey hem de alt düzey tarayıcılar söz konusu olduğunda çalışır. Bir kişi grubu tıklatın ve tarayıcınızın JavaScript'i destekleyip yalnızca Kişiler listesi içeren görünümü bölgesi güncelleştirilir. Öte yandan, tarayıcınız JavaScript desteklemiyor, ardından tüm görünüm güncelleştirilir.
+Değiştirilen Dizin görünümümüzde, hem upLevel hem de alt düzey tarayıcıların durumunda çalışmaktadır. Bir kişi grubuna tıklarsanız ve tarayıcınız JavaScript 'i destekliyorsa, yalnızca kişi listesini içeren görünümün bölgesi güncellenir. Öte yandan, tarayıcınız JavaScript 'ı desteklemiyorsa, tüm görünüm güncellenir.
 
-Güncelleştirilmiş bizim dizin görünümünün bir sorun var. Bir kişi grubu tıkladığınızda, seçili grubun vurgulanmaz. Grup listesini bir Ajax isteği sırasında güncelleştirildiğinde bölgesinin dışındaki görüntülendiğinden, doğru grubu vurgulanmış değil. Sonraki bölümde bu sorunu gidereceğiz.
+Güncelleştirilmiş Dizin görünümümüzde bir sorun vardır. Bir kişi grubuna tıkladığınızda, seçilen grup vurgulanmaz. Grup listesi, bir AJAX isteği sırasında güncelleştirilmiş bölge dışında görüntülendiğinden, doğru grup vurgulanmaz. Sonraki bölümde bu sorunu çözeceğiz.
 
-## <a name="adding-jquery-animation-effects"></a>JQuery animasyon efektleri ekleme
+## <a name="adding-jquery-animation-effects"></a>JQuery animasyon etkileri ekleme
 
-Normalde, bir web sayfasındaki bir bağlantıya tıkladığında, tarayıcı etkin bir şekilde güncelleştirilmiş içeriği getirilirken olup olmadığını algılamak için tarayıcı ilerleme çubuğunu kullanabilirsiniz. Öte yandan, bir Ajax isteği gerçekleştirirken, tarayıcı ilerleme çubuğu hiçbir ilerleme durumunu göstermez. Bu kullanıcılar seni çileden yapabilir. Tarayıcı dondurulmuş olup olmadığını nasıl biliyor musunuz?
+Normalde, bir Web sayfasındaki bir bağlantıya tıkladığınızda, tarayıcının güncelleştirilmiş içeriği etkin bir şekilde mi getirmediğini saptamak için tarayıcı ilerleme çubuğunu kullanabilirsiniz. Diğer taraftan, bir AJAX isteği gerçekleştirirken, tarayıcı ilerleme çubuğu herhangi bir ilerleme göstermez. Bu, kullanıcıları nervous yapabilir. Tarayıcının dondurulmuş olup olmadığını nasıl anlarsınız?
 
-Bir kullanıcı için bir Ajax isteği gerçekleştirilirken iş gerçekleştirilmekte olduğunu belirtebilir birkaç yolu vardır. Basit animasyon görüntüleme bir yaklaşımdır. Örneğin, bir Ajax isteği başlar ve istek tamamlandığında bölgede Soldurma bir bölgede Soldurma.
+Bir AJAX isteği gerçekleştirirken çalışmanın gerçekleştirildiği bir kullanıcıya gösterdiğiniz birçok yol vardır. Bir yaklaşım basit bir animasyon görüntülemektir. Örneğin, bir AJAX isteği başladığında bir bölgeyi soluklaştırarak istek tamamlandığında bölgede geçiş yapabilirsiniz.
 
-Animasyon efektleri oluşturmak için Microsoft ASP.NET MVC çerçevesiyle dahildir jQuery kitaplığı kullanacağız. Güncelleştirilmiş dizin görünümünün listeleme 4'te yer alır.
+Animasyon efektlerini oluşturmak için Microsoft ASP.NET MVC çerçevesine dahil olan jQuery kitaplığını kullanacağız. Güncelleştirilmiş dizin görünümü liste 4 ' te bulunur.
 
-**Listing 4 - Views\Contact\Index.aspx**
+**Listeleme 4-Views\contact\ındex.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample6.aspx)]
 
-Güncelleştirilmiş dizin görünümünün üç yeni JavaScript işlevleri içerdiğine dikkat edin. İlk iki işlevleri jQuery Kıs ve kişiler listesinde yeni bir kişi grubu tıkladığınızda Soldurma için kullanın. Üçüncü işlev, bir hata (örneğin, ağ zaman aşımı) bir Ajax isteği sonuçları, bir hata iletisi görüntüler.
+Güncelleştirilmiş Dizin görünümünün üç yeni JavaScript işlevi içerdiğine dikkat edin. İlk iki işlev, yeni bir kişi grubuna tıkladığınızda kişiler listesinde soluklaştırmak ve soluklaştırmak için jQuery kullanır. Üçüncü işlev bir AJAX isteği bir hatayla (örneğin, ağ zaman aşımı) sonuçlanırsa bir hata mesajı görüntüler.
 
-İlk işlev Ayrıca seçili grup vurgulama üstlenir. Bir sınıf = seçilen öznitelik, üst öğeye tıklandığında öğenin (LI öğesi) eklenir. Yine, jQuery, doğru öğeyi seçin ve CSS sınıfı eklemek kolaylaştırır.
+İlk işlev Ayrıca seçili grubu vurgulamaya de karşı sürer. Bir Class = Selected özniteliği, tıklanan öğenin üst öğesine (LI element) eklenir. Yine, jQuery doğru öğeyi seçmenizi ve CSS sınıfını eklemenizi kolaylaştırır.
 
-Bu betikler Ajax.ActionLink() AjaxOptions parametre Yardım grup bağlantıları gerektirir. Güncelleştirilmiş Ajax.ActionLink() yöntem çağrısının şöyle görünür:
+Bu betikler, Ajax. ActionLink () AjaxOptions parametresinin yardımıyla grup bağlantılarına bağlanır. Güncelleştirilmiş Ajax. ActionLink () yöntem çağrısı şöyle görünür:
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample7.aspx)]
 
-## <a name="adding-browser-history-support"></a>Tarayıcı geçmişini desteği ekleme
+## <a name="adding-browser-history-support"></a>Tarayıcı geçmişi desteği ekleme
 
-Normalde, bir sayfayı güncelleştirmek üzere bir bağlantıya tıkladığında, tarayıcı geçmişinizi güncelleştirilir. Bu şekilde, zaman içinde sayfasının önceki durumuna geri taşımak için tarayıcı geri düğmesine tıklayabilirsiniz. Örneğin, arkadaş kişi grubu tıklatın ve sonra iş kişi grubu tıklatın, arkadaş kişi grubu seçildiğinde, sayfanın duruma geri gitmek için tarayıcıda geri düğmesini tıklatabilirsiniz.
+Normal olarak, bir sayfayı güncelleştirmek için bir bağlantıya tıkladığınızda, tarayıcı geçmişiniz güncellenir. Bu şekilde, sayfanın önceki durumuna geri dönmek için tarayıcıyı geri düğmesine tıklayabilirsiniz. Örneğin, arkadaşlar iletişim grubuna ve sonra Iş iletişim grubuna tıklarsanız, arkadaşlar iletişim grubu seçildiğinde sayfanın durumuna geri dönmek için tarayıcı geri düğmesine tıklayabilirsiniz.
 
-Ne yazık ki, bir Ajax isteği gerçekleştiren gözatma geçmişini otomatik olarak güncelleştirilmez. Bir kişi grubu tıklatın ve kişiler eşleşen listesi olan bir Ajax isteği alınır, tarayıcı geçmişini güncelleştirilmez. Bir kişi grubuna yeni bir kişi grubu seçtikten sonra gitmek için tarayıcıda geri düğmesini kullanamazsınız.
+Ne yazık ki, bir AJAX isteği gerçekleştirildiğinde tarayıcı geçmişi otomatik olarak güncelleştirmez. Bir kişi grubuna tıklarsanız ve eşleşen kişilerin listesi bir AJAX isteğiyle alınırsa, tarayıcı geçmişi güncellenmez. Yeni bir kişi grubu seçtikten sonra, bir kişi grubuna geri gitmek için tarayıcı geri düğmesini kullanamazsınız.
 
-Ajax isteği gerçekleştirdikten sonra kullanıcılar tarayıcı yeniden kullanabilmek için düğme istiyorsanız biraz daha fazla işi gerçekleştirmek gerekir. ASP.NET AJAX Framework'e yerleşik tarayıcı geçmişini yönetim işlevselliğinin yararlanmak için gerekir.
+Kullanıcıların, Ajax isteklerini gerçekleştirdikten sonra tarayıcı geri düğmesini kullanabilmelerini istiyorsanız, biraz daha iş yapmanız gerekir. ASP.NET AJAX çerçevesinde yerleşik olarak bulunan tarayıcı geçmişi yönetim işlevlerinden faydalanabilirsiniz.
 
-ASP.NET AJAX tarayıcı geçmişini üç işlem yapmanız gerekir:
+ASP.NET AJAX tarayıcı geçmişi, üç şey yapmanız gerekir:
 
-1. Tarayıcı geçmişini enableBrowserHistory özelliği true olarak ayarlayarak etkinleştirin.
-2. Görünüm durumu değiştiğinde addHistoryPoint() yöntemi çağırarak geçmişi noktalarını kaydedin.
-3. Navigate olay ortaya çıktığında görünümünün durumunu yeniden yapılandırma.
+1. EnableBrowserHistory özelliğini true olarak ayarlayarak tarayıcı geçmişini etkinleştirin.
+2. Addgeçmişpoint () yöntemini çağırarak bir görünümün durumu değiştiğinde geçmiş noktalarını kaydedin.
+3. Gezinme olayı başlatıldığında görünümün durumunu yeniden yapılandırma.
 
-Güncelleştirilmiş dizin görünümünün listeleme 5'te yer alır.
+Güncelleştirilmiş dizin görünümü, Listeleme 5 ' te bulunur.
 
-**Listing 5 - Views\Contact\Index.aspx**
+**Listeleme 5-Views\contact\ındex.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample8.aspx)]
 
-Listeleme 5'te tarayıcı geçmişini pageInit() işlevinde etkinleştirildi. PageInit() işlevi navigate olayı için olay işleyicisi ayarlamak için de kullanılır. Tarayıcı İleri veya geri düğmesine değiştirmek için sayfanın durumunu neden olur. her navigate olay tetiklenir.
+Listeleme 5 ' te, pageInit () işlevinde tarayıcı geçmişi etkinleştirilir. PageInit () işlevi, gezinme olayı için olay işleyicisini ayarlamak üzere de kullanılır. Gezinme olayı, tarayıcı Ileri veya geri düğmesi sayfanın durumunun değişmesine neden olduğunda tetiklenir.
 
-Bir kişi grubu tıkladığınızda beginContactList() yöntemi çağrılır. Bu yöntem, yeni bir geçmiş noktası addHistoryPoint() yöntemi çağırarak oluşturur. Tıklandı kişi grubu kimliği geçmişe eklenir.
+Bir kişi grubuna tıkladığınızda beginContactList () yöntemi çağrılır. Bu yöntem, Addgeçmişpoint () yöntemini çağırarak yeni bir geçmiş noktası oluşturur. Tıklanan kişi grubunun kimliği geçmişe eklenir.
 
-Grup Kimliği, bir kişi grubu bağlantısına expando özniteliğinden alınır. Bağlantıyı aşağıdaki çağrı Ajax.ActionLink() ile işlenir.
+Grup kimliği, kişi grubu bağlantısındaki bir bir bir özniteliği veritabanından alınır. Bağlantı, Ajax. ActionLink () için aşağıdaki çağrı ile işlenir.
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample9.aspx)]
 
-Son Ajax.ActionLink() için geçirilen parametre (XHTML uyumluluk için küçük harf) bağlantısına GroupID adlı expando öznitelik ekler.
+AJAX. ActionLink () öğesine geçirilen son parametre, bağlantıya GroupID adlı bir bir öznitelik ekler (XHTML uyumluluğu için küçük harf).
 
-Bir kullanıcı tarayıcı geri veya İleri düğmesine dokunduğunda navigate olay tetiklenir ve navigate() yöntemi çağrılır. Bu yöntem, navigate yönteme tarayıcı geçmişini noktasına karşılık gelen sayfanın durumunu eşleştirilecek sayfasında görüntülenen kişiler güncelleştirir.
+Kullanıcı tarayıcıyı geri veya Ileri düğmesine geldiğinde, gezinme olayı tetiklenir ve gezin () yöntemi çağrılır. Bu yöntem, sayfada görüntülenen kişileri, gezinme yöntemine geçirilen tarayıcı geçmişi noktasına karşılık gelen sayfanın durumuyla eşleşecek şekilde güncelleştirir.
 
-## <a name="performing-ajax-deletes"></a>AJAX gerçekleştirme siler
+## <a name="performing-ajax-deletes"></a>Ajax silmeleri gerçekleştirme
 
-Şu anda, bir kişiyi silmek için Sil bağlantısını tıklatın ve ardından silme onay sayfasında görüntülenen Sil düğmesine tıklayın gerekir (bkz: Şekil 2). Bu, çok sayıda veritabanı kaydını silme gibi basit bir şeyler için sayfa istekleri gibi görünüyor.
+Şu anda, bir kişiyi silmek için Sil bağlantısına tıkladıktan sonra silme onayı sayfasında görüntülenen Sil düğmesine Tıklamamız gerekir (bkz. Şekil 2). Bu, bir veritabanı kaydını silme gibi çok sayıda sayfa isteği gibi görünüyor.
 
-[![Silme onayı sayfası](iteration-7-add-ajax-functionality-vb/_static/image2.jpg)](iteration-7-add-ajax-functionality-vb/_static/image3.png)
+[silme onayı sayfasını ![](iteration-7-add-ajax-functionality-vb/_static/image2.jpg)](iteration-7-add-ajax-functionality-vb/_static/image3.png)
 
-**Şekil 02**: Silme onayı sayfası ([tam boyutlu görüntüyü görmek için tıklatın](iteration-7-add-ajax-functionality-vb/_static/image4.png))
+**Şekil 02**: silme onayı sayfası ([tam boyutlu görüntüyü görüntülemek için tıklayın](iteration-7-add-ajax-functionality-vb/_static/image4.png))
 
-Silme onayı sayfasını atlayın ve doğrudan dizini görünümünden bir kişiyi sil daha cazip. Bu yaklaşımı uygulamanıza güvenlik açıkları açar çünkü bu dürtüsüne kapılmayın. Genel olarak, t don istediğiniz web uygulamanızın durumunu değiştiren bir eylem çağrılırken bir HTTP GET işlemi gerçekleştirmek. Bir silme işlemi gerçekleştirirken, bir HTTP POST gerçekleştirin ya da bir HTTP DELETE işlemi henüz, daha iyi istiyorsunuz.
+Silme onayı sayfasını atlamak ve bir kişiyi doğrudan dizin görünümünden silmek önemlidir. Bu yaklaşımın önüne alınması uygulamanızı güvenlik delikleri üzerinde açtığından bu geçicinizi kullanmaktan kaçının. Genel olarak, Web uygulamanızın durumunu değiştiren bir eylem çağırırken HTTP GET işlemi gerçekleştirmek istemezsiniz. Silme işlemi gerçekleştirirken bir HTTP POST işlemini veya daha iyi bir HTTP SILME işlemini gerçekleştirmek istersiniz.
 
-Silme bağlantısı kısmi ContactList yer alır. Kısmi ContactList güncelleştirilmiş bir sürümünü listeleme 6'da yer alır.
+Sil bağlantısı, ContactList bölümünde yer alır. ContactList bölümünün güncelleştirilmiş bir sürümü listeleme 6 ' da bulunur.
 
-**Listing 6 - Views\Contact\ContactList.ascx**
+**Liste 6-Views\contact\contactlist.exe**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample10.aspx)]
 
-Silme bağlantısı Ajax.ImageActionLink() yöntemine aşağıdaki çağrıyı ile oluşturulur:
+Delete bağlantısı, Ajax. ımageactionlink () yöntemine aşağıdaki çağrı ile işlenir:
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-vb/samples/sample11.aspx)]
 
 > [!NOTE] 
 > 
-> Ajax.ImageActionLink() ASP.NET MVC çerçevesi standart bir parçası değil. Kişi Yöneticisi projeye dahil bir özel yardımcı yöntemler Ajax.ImageActionLink() olur.
+> AJAX. ımageactionlink (), ASP.NET MVC çerçevesinin standart bir parçası değildir. AJAX. ımageactionlink (), Contact Manager projesine dahil olan özel bir yardımcı yöntemleridir.
 
-AjaxOptions parametre iki özelliğe sahiptir. İlk olarak Onayla özellik açılan JavaScript onay iletişim kutusunu görüntülemek için kullanılır. İkinci olarak, HttpMethod özelliği, bir HTTP DELETE işlemi gerçekleştirmek için kullanılır.
+AjaxOptions parametresinin iki özelliği vardır. İlk olarak, Onayla özelliği bir açılan JavaScript onay iletişim kutusunu göstermek için kullanılır. İkinci olarak, HttpMethod özelliği bir HTTP SILME işlemi gerçekleştirmek için kullanılır.
 
-7 listeleme kişi denetleyiciye eklenmiş olan yeni bir AjaxDelete() eylemi içerir.
+7\. liste, kişi denetleyicisine eklenmiş yeni bir AjaxDelete () eylemi içerir.
 
-**Listing 7 - Controllers\ContactController.vb (AjaxDelete)**   
+**7-Controllers\contactcontroller.exe (AjaxDelete) listeleniyor**   
 
 [!code-vb[Main](iteration-7-add-ajax-functionality-vb/samples/sample12.vb)]
 
-AcceptVerbs özniteliğiyle donatılmış AjaxDelete() eylem. Bu özniteliği eylemin çağrılmasını dışında bir HTTP DELETE işlemi dışında herhangi bir HTTP işlemi tarafından engeller. Özellikle, bu eylem bir HTTP GET ile çağrılamaz.
+AjaxDelete () eylemi bir AcceptVerbs özniteliğiyle donatılmalıdır. Bu öznitelik, HTTP SILME işlemi dışında herhangi bir HTTP işlemi dışında eylemin çağrılmasını engeller. Özellikle, bu eylemi bir HTTP GET ile çağıramazsınız.
 
-Veritabanı kaydı sildikten sonra silinen kayıt içermeyen kişiler güncelleştirilmiş listesini görüntülemek gerekir. AjaxDelete() yöntemin kısmi ContactList ve kişiler güncelleştirilmiş listesini döndürür.
+Veritabanı kaydını sildikten sonra, silinen kaydı içermeyen kişilerin güncelleştirilmiş listesini görüntüetmeniz gerekir. AjaxDelete () yöntemi, ContactList kısmını ve güncelleştirilmiş kişi listesini döndürür.
 
 ## <a name="summary"></a>Özet
 
-Bu yineleme, kişi yöneticisi uygulamamız için Ajax işlevselliği ekledik. Uygulamamızı performansını ve yanıt hızını artırmak için Ajax kullandık.
+Bu yinelemede, Contact Manager uygulamanıza Ajax işlevselliği ekledik. Uygulamamızın yanıt hızını ve performansını geliştirmek için AJAX kullandık.
 
-İlk olarak, böylece bir kişi grubu tıklayarak tüm görünüm güncelleştirmez biz Index görünümünü yeniden. Bunun yerine, bir kişi grubu tıklayarak yalnızca ilgili kişi listesini güncelleştirir.
+İlk olarak, bir kişi grubuna tıklanması görünümün tamamını güncelleştirmemesi için dizin görünümüne yeniden düzenlenmiş. Bunun yerine, bir kişi grubuna tıkladığınızda yalnızca kişiler listesi güncelleştirilir.
 
-Ardından, jQuery animasyon efektleri Kıs ve kişiler listesinde Soldurma kullandık. Ajax uygulamaya animasyon ekleme tarayıcı ilerleme çubuğu denk uygulamanızın kullanıcılarla sağlamak için kullanılabilir.
+Daha sonra, kişiler listesinde belirme ve belirme için jQuery animasyon efektlerini kullandık. Bir AJAX uygulamasına animasyon eklemek, uygulamanın kullanıcılarına bir tarayıcı ilerleme çubuğunun eşdeğerini sağlamak için kullanılabilir.
 
-Ajax uygulamamız için tarayıcı geçmişini desteği de ekledik. Tarayıcı geri ve İleri düğmeleri dizin görünümünün durumunu değiştirmek için kullanıcıların etkinleştirdik.
+Ayrıca, Ajax uygulamamıza tarayıcı geçmişi desteği ekledik. Kullanıcıların, Dizin görünümünün durumunu değiştirmek için tarayıcıyı geri ve Ileri düğmelerine tıklamesini etkinleştirdik.
 
-Son olarak, HTTP DELETE işlemleri destekleyen bir silme bağlantısı oluşturduk. AJAX siler gerçekleştirerek, biz bir ek silme onayı sayfası istemek kullanıcının gerek kalmadan veritabanı kayıtlarını silmek kullanıcıları etkinleştirin.
+Son olarak, HTTP SILME işlemlerini destekleyen bir silme bağlantısı oluşturduk. Ajax silmeleri gerçekleştirerek, kullanıcıların ek silme onayı sayfası istememesini gerektirmeden veritabanı kayıtlarını silmesini olanaklı kıldık.
 
 > [!div class="step-by-step"]
-> [Önceki](iteration-6-use-test-driven-development-vb.md)
+> [Öncekini](iteration-6-use-test-driven-development-vb.md)

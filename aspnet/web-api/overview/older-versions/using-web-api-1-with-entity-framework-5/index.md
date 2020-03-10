@@ -1,23 +1,23 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/index
-title: ASP.NET Web API 1 Entity Framework 5 ile kullanma | Microsoft Docs
+title: Entity Framework 5 ile ASP.NET Web API 1 kullanma | Microsoft Docs
 author: rick-anderson
-description: Veritabanı Kalıcılık için Entity Framework kullanan bir Web API 1 uygulama oluşturma
+description: Veritabanı kalıcılığı için Entity Framework kullanan bir Web API 1 uygulaması oluşturma.
 ms.author: riande
 ms.date: 06/16/2014
 ms.assetid: b380c940-84c4-4e4a-980a-fa69986e919b
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5
 msc.type: chapter
 ms.openlocfilehash: d244d3762aec001eecad399bdfe3347b48c1a5f2
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65134714"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78525034"
 ---
 # <a name="using-aspnet-web-api-1-with-entity-framework-5"></a>ASP.NET Web API 1’i Entity Framework 5 ile Kullanma
 
-> Veritabanı Kalıcılık için Entity Framework kullanan bir Web API 1 uygulama oluşturma
+> Veritabanı kalıcılığı için Entity Framework kullanan bir Web API 1 uygulaması oluşturma.
 
 - [Genel Bakış ve Projeyi Oluşturma](using-web-api-with-entity-framework-part-1.md)
 - [Etki Alanı Modellerini Oluşturma](using-web-api-with-entity-framework-part-2.md)

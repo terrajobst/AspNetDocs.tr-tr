@@ -2,23 +2,23 @@
 uid: web-pages/index
 title: ASP.NET Web sayfaları | Microsoft Docs
 author: rick-anderson
-description: Webmatrix'i indir & hızlı bir şekilde web sayfaları, sunucu kodunu HTML ile birleştirmenin basit bir şekilde oluşturmayı öğrenin.
+description: WebMatrix 'i indirin & sunucu kodunu HTML ile birleştirmek için basit bir yolla Web sayfalarını hızla oluşturmayı öğrenin.
 ms.author: riande
 ms.date: 05/18/2012
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
 msc.legacyurl: /web-pages
 msc.type: categoryindex
 ms.openlocfilehash: 56bf82e22b3562893ef842a90d42aa7b6ff5858f
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114527"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640954"
 ---
 # <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
 > [!NOTE] 
-> WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Kullanım [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) veya [Visual Studio Code'u](https://code.visualstudio.com/).
+> WebMatrix artık ASP.NET Web sayfaları için tümleşik bir geliştirme ortamı olarak önerilmez. [Visual Studio](xref:aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio) veya [Visual Studio Code](https://code.visualstudio.com/)kullanın.
 
 - [Kılavuz](overview/index.md)
 
@@ -102,7 +102,7 @@ ms.locfileid: "65114527"
         - [WebMatrix’te Veri Düzenleme Sayfası Oluşturma](videos/introduction/create-an-edit-data-page-in-webmatrix.md)
         - [WebMatrix’te Veri Silme Sayfası Oluşturma](videos/introduction/create-a-delete-data-page-in-webmatrix.md)
         - [Webmatrix Kullanarak Bir Web Sitesini İnternet'te Yayımlama](videos/introduction/publish-a-website-to-the-internet-using-webmatrix.md)
-    - [ASP.NET Razor sayfaları](videos/aspnet-razor-pages/index.md)
+    - [ASP.NET Razor Pages](videos/aspnet-razor-pages/index.md)
 
         - [WebMatrix ve ASP.NET Web Sayfaları ile Çalışmaya Başlama](videos/aspnet-razor-pages/getting-started-with-webmatrix-and-aspnet-web-pages.md)
         - [ASP.NET Web Programlama Razor Söz Dizimine Giriş](videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax.md)

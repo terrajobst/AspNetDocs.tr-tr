@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
-title: CascadingDropdown | Microsoft Docs
+title: Basamaklı Dingdropdown | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide CascadingDropDown denetim kullanıcılar bir seçim yaptığınızda, güncelleştirme ilgili açılan listeleri oluşturmak için nasıl kullanılacağını gösterir.
+description: Bu öğreticide, kullanıcılar bir seçim yaparken güncelleştirilecek ilgili açılan listeleri oluşturmak için basamaklı Dingaçýlan denetimin nasıl kullanılacağı gösterilmektedir.
 ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 5cc304e2-0013-4c26-8fe6-e897a533809f
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
 ms.openlocfilehash: d28441e3ea3ae1ee999b52f9ab0b42ec8862f472
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65132219"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78535996"
 ---
 # <a name="cascadingdropdown"></a>CascadingDropdown
 
-> Bu öğreticide CascadingDropDown denetim kullanıcılar bir seçim yaptığınızda, güncelleştirme ilgili açılan listeleri oluşturmak için nasıl kullanılacağını gösterir.
+> Bu öğreticide, kullanıcılar bir seçim yaparken güncelleştirilecek ilgili açılan listeleri oluşturmak için basamaklı Dingaçýlan denetimin nasıl kullanılacağı gösterilmektedir.
 
 - [CascadingDropDown Kullanarak Liste Doldurma (C#)](filling-a-list-using-cascadingdropdown-cs.md)
 - [Veritabanı ile CascadingDropDown Kullanma (C#)](using-cascadingdropdown-with-a-database-cs.md)

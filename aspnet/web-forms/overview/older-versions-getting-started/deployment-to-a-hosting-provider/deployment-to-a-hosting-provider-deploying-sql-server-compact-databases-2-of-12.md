@@ -9,11 +9,11 @@ ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: 56ceabc79947967846d342354fd033510be5f05a
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74625508"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78568119"
 ---
 # <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Visual Studio veya Visual Web Developer kullanarak SQL Server Compact bir ASP.NET Web uygulaması dağıtma: SQL Server Compact veritabanları dağıtma-2/12
 
@@ -77,7 +77,7 @@ Projeyi derleyin ve ardından **Çözüm Gezgini** daha önce yapmadıysanız **
 
 Klasör simgeleri, klasörün projeye dahil edildiğini gösterecek şekilde değişir.
 
-![Solution_Explorer_amd64_included. png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
 ## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Uygulama veritabanı dağıtımı için Code First Migrations yapılandırma
 
@@ -108,7 +108,7 @@ Sonra Code First Migrations etkinleştirin.
 
 İlk adım, ContosoUniversity projesinin başlangıç projesi olarak ayarlandığından emin olmak. **Çözüm Gezgini**, contosouniversity projesine sağ tıklayın ve **Başlangıç projesi olarak ayarla**' yı seçin. Code First Migrations, veritabanı bağlantı dizesini bulmak için başlangıç projesine bakacaktır.
 
-**Araçlar** menüsünde, **NuGet Paket Yöneticisi** ' ne ve ardından **Paket Yöneticisi konsolu**' na tıklayın.
+**Araçlar** menüsünden **NuGet Paket Yöneticisi**’ne ve ardından **Paket Yöneticisi Konsolu**’na tıklayın.
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 
@@ -206,7 +206,7 @@ Bir siteyi ilk kez dağıttığınızda, test için oluşturduğunuz Kullanıcı
 
 Tarayıcıyı kapatın. **Çözüm Gezgini**, yeni *Aspnet. sdf* dosyasını görmek için Yenile düğmesine tıklayın.
 
-![New_aspnet. sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
+![New_aspnet.sdf_in_Solution_Explorer](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image25.png)
 
 **Aspnet. sdf** öğesine sağ tıklayın ve **projeye dahil et**' i seçin.
 
@@ -234,7 +234,7 @@ Uygulama Web. config dosyasını açın ve bağlantı dizelerini bulun:
 
 SQL Server Compact veritabanı altyapısı ve her iki veritabanı artık dağıtılmaya hazırdır. Aşağıdaki öğreticide, geliştirme, test ve üretim ortamlarında farklı olması gereken ayarlar için otomatik *Web. config* dosyası dönüştürmeleri ayarlarsınız. (Değiştirilmesi gereken ayarlar arasında bağlantı dizeleridir, ancak bir yayımlama profili oluştururken bu değişiklikleri daha sonra ayarlarsınız.)
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha Fazla Bilgi
 
 NuGet hakkında daha fazla bilgi için bkz. NuGet ve [NuGet belgeleriyle](http://docs.nuget.org/docs/start-here/overview) [Proje kitaplıklarını yönetme](https://msdn.microsoft.com/magazine/hh547106.aspx) . NuGet 'i kullanmak istemiyorsanız, ne zaman yüklendiğini belirlemek için bir NuGet paketini nasıl analiz edeceğinizi öğrenmeniz gerekir. (Örneğin, *Web. config* dönüşümlerini yapılandırabilir, PowerShell betiklerini derleme zamanında çalışacak şekilde yapılandırabilir vs.) NuGet 'in nasıl çalıştığı hakkında daha fazla bilgi edinmek için, bkz. özellikle bir paket ve [yapılandırma dosyası ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations) [oluşturma ve yayımlama](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) .
 

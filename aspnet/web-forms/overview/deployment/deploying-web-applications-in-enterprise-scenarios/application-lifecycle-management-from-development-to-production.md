@@ -1,216 +1,216 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
-title: 'Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden üretime | Microsoft Docs'
+title: 'Uygulama yaşam döngüsü yönetimi: geliştirmeden üretime | Microsoft Docs'
 author: jrjlee
-description: Bu konuda, kurgusal bir şirkete test, hazırlık ve üretim ortamları aracılığıyla par olarak ASP.NET web uygulaması dağıtımını nasıl yönettiğini gösterir...
+description: Bu konuda, kurgusal bir şirketin test, hazırlama ve üretim ortamları aracılığıyla bir ASP.NET Web uygulamasının dağıtımını nasıl yönettiği gösterilmektedir...
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
 ms.openlocfilehash: 230cf4393db0ee19cfc42ed54359d61e7926a49d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109281"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78640667"
 ---
 # <a name="application-lifecycle-management-from-development-to-production"></a>Uygulama Yaşam Döngüsü Yönetimi: Geliştirmeden Üretime
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, kurgusal bir şirkete test, hazırlık ve üretim ortamları aracılığıyla sürekli geliştirme sürecinin bir parçası olarak ASP.NET web uygulaması dağıtımını nasıl yönettiğini gösterir. Konu başlığı altında yaptığımız daha fazla bilgi ve yönergeler belirli görevleri gerçekleştirmek için bağlantılar sağlanmaktadır.
+> Bu konuda, kurgusal bir şirketin, sürekli bir geliştirme sürecinin bir parçası olarak test, hazırlama ve üretim ortamları aracılığıyla bir ASP.NET Web uygulamasının dağıtımını nasıl yönettiği gösterilmektedir. Konu başlığı boyunca bağlantılar, belirli görevlerin nasıl gerçekleştirileceği hakkında daha fazla bilgi ve izlenecek yollar için sağlanır.
 > 
-> Konunun üst düzey bir genel bakış için sağlamak için tasarlanmış bir [öğretici serisinde,](deploying-web-applications-in-enterprise-scenarios.md) Kurumsal web dağıtımı üzerinde. Bazı burada açıklanan kavramlar ile bilmiyorsanız endişelenmeyin&#x2014;izleyen öğreticiler tüm bu görevler ve teknikler hakkında ayrıntılı bilgi sağlar.
+> Bu konu, kuruluştaki Web dağıtımıyla ilgili bir [dizi öğretici](deploying-web-applications-in-enterprise-scenarios.md) için yüksek düzeyde bir genel bakış sağlamak üzere tasarlanmıştır. Burada&#x2014;açıklanan öğreticilerin, bu görevlerin ve tekniklerle ilgili ayrıntılı bilgiler sağlaması hakkında daha fazla bilgi sahibi olmadığınız durumlarda endişelenmeyin.
 > 
 > > [!NOTE]
-> > Basitleştirmek amacıyla, dağıtım işleminin bir parçası güncelleştirme veritabanları bu konuda ele alınmamaktadır. Ancak, birçok kurumsal dağıtım senaryosu gereksinimi olan veritabanları özellikleri artımlı güncelleştirmeler yapma ve bunu daha sonra Bu öğretici serisinde gerçekleştirmek nasıl yönergeler bulabilirsiniz. Daha fazla bilgi için [veritabanı projeleri dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
+> > Basitlik sağlamak için bu konu, dağıtım sürecinin bir parçası olarak veritabanlarını güncelleştirme konusunda ele almaz. Ancak, veritabanları için artımlı güncelleştirmeler yapmak birçok kurumsal dağıtım senaryosunda gereksinimidir ve bu öğreticide daha sonra bu öğretici serisinde nasıl gerçekleştirileceğini gösteren yönergeler bulabilirsiniz. Daha fazla bilgi için bkz. [veritabanı projelerini dağıtma](../web-deployment-in-the-enterprise/deploying-database-projects.md).
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Burada gösterilen dağıtım işlemi açıklanan Fabrikam, Inc. dağıtım senaryosuna bağlıdır [Kurumsal Web Dağıtımı: Senaryoya genel bakış](enterprise-web-deployment-scenario-overview.md). Senaryoya genel bakış, bu konu üzerinde çalışmanız önce okumanız gerekir. Temelde, senaryo bir kuruluş bir makul karmaşık web uygulaması dağıtımını nasıl yönettiğini inceler [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md), tipik kurumsal ortamda çeşitli aşamaları aracılığıyla.
+Burada gösterilen dağıtım süreci, Kurumsal Web dağıtımı 'nda açıklanan Fabrikam, Inc. dağıtım senaryosuna dayanır [: senaryoya genel bakış](enterprise-web-deployment-scenario-overview.md). Bu konuyu inceetmeden önce senaryoya genel bakış konusunu okumalısınız. Temelde, senaryo, bir kuruluşun tipik bir kurumsal ortamdaki çeşitli aşamalar aracılığıyla makul bir karmaşık Web uygulamasının dağıtımını, [Ilgili kişi Yöneticisi çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)nasıl yönettiğini inceler.
 
-Kişi Yöneticisi çözümünü yüksek bir düzeyde geliştirme ve dağıtım işleminin bir parçası olarak bu aşamaların geçer:
+Yüksek düzeyde, Contact Manager çözümü geliştirme ve dağıtım sürecinin bir parçası olarak bu aşamalardan geçer:
 
-1. Bir geliştirici, Team Foundation Server (TFS) 2010 içinde bazı kod denetler.
-2. TFS kod derlenir ve takım projesiyle ilişkili herhangi bir birim testlerini çalıştırır.
-3. TFS, çözümü test ortamı dağıtır.
-4. Geliştirici Takımı doğrular ve test ortamında çözüm doğrular.
-5. Hazırlama ortamı yönetici, bir hazırlık ortamına dağıtım herhangi bir soruna neden olup olmadığını kurmak için "what IF" dağıtım yapar.
-6. Hazırlama ortamı yönetici, canlı bir hazırlık ortamına dağıtım yapar.
-7. Çözüm kullanıcı kabul testi hazırlık ortamında uygulanır.
-8. Web dağıtımı paketleri üretim ortamına el ile aktarılır.
+1. Geliştirici bazı kodları Team Foundation Server (TFS) 2010 ' ye denetler.
+2. TFS kodu oluşturur ve takım projesiyle ilişkili tüm birim testlerini çalıştırır.
+3. TFS, çözümü test ortamına dağıtır.
+4. Geliştirici ekibi, çözümü test ortamında doğrular ve doğrular.
+5. Hazırlama ortamı Yöneticisi, dağıtımın herhangi bir soruna neden olup olmayacağını belirlemek için hazırlama ortamında "ne tür" dağıtımı gerçekleştirir.
+6. Hazırlama ortamı Yöneticisi, hazırlama ortamına canlı bir dağıtım gerçekleştirir.
+7. Çözüm, hazırlama ortamında Kullanıcı kabul testini üstden geçer.
+8. Web dağıtım paketleri üretim ortamına el ile aktarılır.
 
-Bu aşama, sürekli geliştirme döngüsü bir parçasını oluşturur.
+Bu aşamalar sürekli bir geliştirme döngüsünün bir parçasını oluşturur.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image1.png)
 
-Ne zaman her aşamasında daha ayrıntılı baktığımızda anlatıldığı gibi uygulamada, işlem bu değerden biraz daha karmaşık bir işlemdir. Fabrikam, Inc. dağıtım için farklı bir yaklaşım, her bir hedef ortam için kullanır.
+Uygulamada, her aşamada daha ayrıntılı olarak baktığımızda göreceğiniz gibi süreç bundan biraz daha karmaşıktır. Fabrikam, Inc. her hedef ortam için dağıtım için farklı bir yaklaşım kullanır.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image2.png)
 
-Bu konunun geri kalanında bu anahtar bu dağıtım yaşam döngüsü aşamaları denetler:
+Bu konunun geri kalanında bu dağıtım yaşam döngüsünün bu temel aşamaları incededir:
 
-- **Önkoşullar**: Nasıl dağıtım mantığınızı yerleştirdiniz önce sunucu altyapınızda yapılandırmanız gerekir.
-- **İlk geliştirme ve dağıtım**: Çözümünüzü ilk defa dağıtmadan önce yapmanız gerekenler.
-- **Test etmek için dağıtım**: Nasıl paketini ve bir geliştirici yeni kod içinde denetlediğinde içeriği bir test ortamına otomatik olarak dağıtın.
-- **Hazırlama dağıtımı**: Belirli dağıtma "what IF" gerçekleştirmek nasıl hazırlık ortamı ile bir dağıtım herhangi bir soruna neden olmaz emin olmak için dağıtımları oluşturur.
-- **Dağıtımı üretime**: Ağ altyapısını uzaktan dağıtım engellediğinde web paketlerini bir üretim ortamına içeri aktarma.
+- **Önkoşullar**: dağıtım mantığınızı yerine koyabilmeniz için sunucu altyapınızı nasıl yapılandırmanız gerekir.
+- İlk **geliştirme ve dağıtım**: çözümünüzü ilk kez dağıtmadan önce yapmanız gerekenler.
+- **Test 'e dağıtım**: bir geliştirici yeni kodu iade ettiğinde, içeriği bir test ortamına otomatik olarak paketleme ve dağıtma.
+- **Hazırlama dağıtımı**: belirli derlemeleri bir hazırlama ortamına dağıtma ve bir dağıtımın herhangi bir soruna neden olmamasını sağlamak için "durum" dağıtımları gerçekleştirme.
+- **Üretime dağıtım**: ağ altyapısı uzaktan dağıtımı engellediğinde, Web paketlerini bir üretim ortamına aktarma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sunucu altyapınızı dağıtım araçları ve teknikleri gereksinimlerini karşıladığından emin olmak için herhangi bir dağıtım senaryosu ilk görevde olduğu. Bu durumda, Fabrikam, Inc., bu gibi sunucu altyapısını yapılandırdı:
+Herhangi bir dağıtım senaryosunda ilk görev, sunucu altyapınızın dağıtım araçlarınızın ve tekniklerinizin gereksinimlerini karşıladığından emin olunması. Bu durumda, Fabrikam, Inc. sunucu altyapısını şunun gibi yapılandırmıştır:
 
-- TFS takım projesi koleksiyonuna eklemek, yapı denetleyicilerini ve yapı aracıları için yapılandırılır. Bkz: [otomatik Web dağıtımı için Team Foundation Server yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md) daha fazla bilgi için.
-- Test ortamını ("Uzak Aracı"), Web dağıtım aracı hizmetini kullanarak uzak dağıtımları açıklandığı kabul edecek şekilde yapılandırılmış [senaryosu: Web dağıtımı için bir Test Ortamı yapılandırma](../configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md) ve [bir Web sunucusunu Web dağıtımı yayımlama (Uzak Aracı) için yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md).
-- Web dağıtımı işleyicisi uç noktasını kullanarak uzak dağıtımları açıklandığı kabul etmek için hazırlık ortamı yapılandırılmış [senaryosu: Web dağıtımı için hazırlama ortamı yapılandırma](../configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md) ve [bir Web sunucusunu Web dağıtımı yayımlama için yapılandırma (Web dağıtımı işleyicisi)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md).
-- Üretim ortamına açıklandığı gibi web dağıtımı paketleri Internet Information Services (IIS) içinde el ile içeri aktarmak bir yönetici izin verecek şekilde yapılandırılmış [senaryosu: Web dağıtımı için bir üretim ortamı yapılandırma](../configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md) ve [bir Web sunucusunu Web dağıtımı yayımlama (çevrimdışı dağıtım) için yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md).
+- TFS, bir takım projesi koleksiyonu, derleme denetleyicileri ve yapı aracıları içerecek şekilde yapılandırılmıştır. Daha fazla bilgi için bkz. [Otomatik Web dağıtımı için Team Foundation Server yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md) .
+- Test ortamı, [Senaryo: Web dağıtımı için bir test ortamı yapılandırma](../configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md) ve [Web dağıtımı yayımlaması (uzak Aracı) Için bir Web sunucusu yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)bölümünde açıklandığı gibi Web Deployment Agent hizmeti ("uzak Aracı") kullanılarak uzak dağıtımları kabul edecek şekilde yapılandırılmıştır.
+- Hazırlama ortamı, [Senaryo: Web dağıtımı Için hazırlama ortamı yapılandırma](../configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md) ve [Web Dağıtımı yayımlaması (Web dağıtımı işleyicisi) Için bir Web sunucusu yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)bölümünde açıklandığı gibi Web dağıtımı işleyici uç noktası kullanılarak uzak dağıtımları kabul edecek şekilde yapılandırılmıştır.
+- Üretim ortamı, bir yöneticinin, Web dağıtımı [için bir üretim ortamı yapılandırma](../configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md) ve [Web dağıtımı yayımlaması (çevrimdışı dağıtım) Için bir Web sunucusu yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)konusunda açıklandığı gibi, Web DAĞıTıM paketlerini Internet Information Services (IIS) uygulamasına el ile içeri aktarmaya izin verecek şekilde yapılandırılmıştır.
 
 ## <a name="initial-development-and-deployment"></a>İlk geliştirme ve dağıtım
 
-Fabrikam, Inc. geliştirme ekibi için ilk kez Kişi Yöneticisi çözümü dağıtmadan önce bu görevleri gerçekleştirmek ihtiyaç duyduğu:
+Fabrikam, Inc. geliştirme ekibinin, Contact Manager çözümünü ilk kez dağıtabilmesi için, bu görevleri gerçekleştirmesi gerekir:
 
-- TFS'de bir takım projesi oluşturun.
-- Dağıtım mantığı içeren Microsoft Build Engine (MSBuild) proje dosyalarını oluşturun.
-- Dağıtım süreçlerini tetiklemek TFS yapı tanımları oluşturun.
+- TFS 'de yeni bir takım projesi oluşturun.
+- Dağıtım mantığını içeren Microsoft Build Engine (MSBuild) proje dosyaları oluşturun.
+- Dağıtım süreçlerini tetikleyen TFS derleme tanımlarını oluşturun.
 
-### <a name="create-a-new-team-project"></a>Yeni takım projesi oluşturma
+### <a name="create-a-new-team-project"></a>Yeni takım projesi oluştur
 
-- TFS Yöneticisi, Rob Aksoy açıklandığı gibi uygulama için yeni bir takım projesi oluşturur [TFS'de takım projesi oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md). Ardından, baş Geliştirici olan Matt Hink iskelet bir çözüm oluşturur. He kendi dosyalarını, tfs'deki yeni takım projesi içine açıklandığı denetler [kaynak denetimine içerik ekleme](../configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control.md).
+- TFS Yöneticisi, ramiz Walters, [TFS 'de bir takım projesi oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs.md)bölümünde açıklandığı gibi, uygulama için yeni bir takım projesi oluşturur. Daha sonra, müşteri adayı geliştiricisi, Matt hink bir çatı çözümü oluşturur. [Kaynak denetimine Içerik ekleme](../configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control.md)bölümünde açıklandığı gibi, dosyalarını TFS 'deki yeni takım projesine denetler.
 
-### <a name="create-the-deployment-logic"></a>Dağıtım mantığı oluşturma
+### <a name="create-the-deployment-logic"></a>Dağıtım mantığını oluşturma
 
-Matt Hink açıklanan bölünmüş proje dosyası yaklaşımı kullanarak çeşitli özel MSBuild proje dosyaları, oluşturur [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Matt oluşturur:
+Matt hink, [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını kullanarak çeşitli özel MSBuild proje dosyaları oluşturur. Matt oluşturduğunda:
 
-- Adlı bir proje dosyası *Publish.proj* , dağıtım işlemi çalıştırır. Bu dosya, çözümdeki projeleri derlemek, web paketleri oluşturun ve paketleri dağıtmak için bir hedef sunucu ortamı MSBuild hedefleri içerir.
-- Adlı ortama özgü proje dosyaları *Env Dev.proj* ve *Env Stage.proj*. Bu, bağlantı dizeleri, hizmet uç noktaları ve web paketi alacak Uzak Hizmet ayrıntılarını gibi sırasıyla test ortamı ve hazırlık ortamı için belirli ayarları içerir. Belirli bir hedef ortam için doğru ayarlarını seçme ile ilgili yönergeler için bkz [dağıtım özelliklerini yapılandırmak için bir hedef ortam](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
+- Dağıtım işlemini çalıştıran *Publish. proj* adlı bir proje dosyası. Bu dosya çözümdeki projeleri oluşturan MSBuild hedeflerini, Web paketleri oluşturmayı ve paketleri bir hedef sunucu ortamına dağıtmayı içerir.
+- *Env-dev. proj* ve *env-Stage. proj*adlı ortama özgü proje dosyaları. Bunlar, bağlantı dizeleri, hizmet uç noktaları ve Web paketini alacak uzak hizmetin ayrıntıları gibi sırasıyla, test ortamına ve hazırlama ortamına özgü ayarları içerir. Belirli hedef ortamları için doğru ayarları seçme konusunda rehberlik için bkz. [hedef ortam Için dağıtım özelliklerini yapılandırma](../configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment.md).
 
-Dağıtım çalıştırmak için bir kullanıcı yürütür *Publish.proj* MSBuild veya takım yapısı'nı kullanarak dosya ve ilgili ortama özgü proje dosyasının konumunu belirtir (*Env Dev.proj* veya *Env Stage.proj*) komut satırı bağımsız değişkeni olarak. *Publish.proj* dosya ardından yayımlama yönergeleri her hedef ortam için eksiksiz bir kümesi oluşturmak için ortama özgü proje dosyasını içeri aktarır.
+Dağıtımı çalıştırmak için, bir Kullanıcı MSBuild veya takım derlemesi kullanarak *Publish. proj* dosyasını yürütür ve bir komut satırı bağımsız değişkeni olarak ilgili ortama özgü proje dosyasının (*env-dev. proj* veya *env-Stage. proj*) konumunu belirtir. *Publish. proj* dosyası daha sonra, her hedef ortam için tam bir yayımlama yönergeleri kümesi oluşturmak üzere ortama özgü proje dosyasını içeri aktarır.
 
 > [!NOTE]
-> Bu özel proje dosyaları işleyişini MSBuild çağırmak için kullandığınız mekanizması bağımsızdır. Örneğin, MSBuild komut satırını doğrudan açıklandığı gibi kullanabileceğiniz [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Proje dosyaları içinde anlatıldığı gibi bir komut dosyasından çalıştırabilirsiniz [oluşturma ve dağıtım komut dosyası çalıştırma](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatif olarak, proje dosyaları, tfs'deki bir yapı tanımından açıklandığı çalıştırabileceğiniz [bu destekleyen dağıtım derleme tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
-> Her durumda sonuç aynıdır&#x2014;MSBuild proje birleştirilen dosyasını yürütür ve çözümünüz için hedef ortamı dağıtır. Bu, büyük ölçüde nasıl, yayımlama işlemini tetikleme esneklik sağlar.
+> Bu özel proje dosyalarının çalışma şekli, MSBuild 'i çağırmak için kullandığınız mekanizmaya bağımsızdır. Örneğin, [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklandığı gibi doğrudan MSBuild komut satırını kullanabilirsiniz. [Bir dağıtım komut dosyası oluşturma ve çalıştırma](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md)bölümünde açıklandığı gibi, proje dosyalarını bir komut dosyasından çalıştırabilirsiniz. Alternatif olarak, [dağıtımı destekleyen bir yapı tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md)bölümünde açıklandığı gibi, proje dosyalarını TFS 'deki bir yapı tanımından çalıştırabilirsiniz.  
+> Her durumda, nihai sonuç aynı&#x2014;MSBuild ile birleştirilmiş proje dosyası yürütülür ve çözümünüzü hedef ortama dağıtır. Bu, yayımlama işleminizi nasıl tetikleytiğiyle ilgili büyük bir esneklik sağlar.
 
-Hüseyin, özel proje dosyalarını oluşturulan Matt bunları bir çözüm klasörü için ekler ve bunları kaynak denetimine iade.
+Özel proje dosyalarını oluşturduktan sonra, Matt onları bir çözüm klasörüne ekler ve bunları kaynak denetimine iade eder.
 
-### <a name="create-build-definitions"></a>Derleme tanımları oluşturma
+### <a name="create-build-definitions"></a>Derleme tanımları oluştur
 
-Bir son hazırlama görevi Matt ve Rob yeni takım projesi için üç yapı tanımları oluşturmak için birlikte çalışır:
+Son bir hazırlık görevi olarak, Matt ve Ramiz yeni takım projesi için üç derleme tanımı oluşturmak üzere birlikte çalışır:
 
-- **DeployToTest**. Bu kişi yöneticisi çözümü oluşturur ve iade her gerçekleştiğinde, test ortamı dağıtır.
-- **DeployToStaging**. Bir geliştirici yapıyı sıraya aldığında bu kaynakları belirtilen bir önceki yapıdan hazırlık ortamına dağıtır.
-- **DeployToStaging-WhatIf**. Bir geliştirici yapıyı sıraya aldığında bu bir "what IF" hazırlık ortamına dağıtım gerçekleştirir.
+- **Deploytotest**. Bu, Contact Manager çözümünü oluşturur ve her bir iade gerçekleştiğinde onu test ortamına dağıtır.
+- **Deploytohazırlama**. Bu, bir geliştirici derlemeyi sıraya alırken, belirtilen bir önceki derlemeden alınan kaynakları hazırlama ortamına dağıtır.
+- **Deploytohazırlama-whatIf**. Bu, bir geliştirici derlemeyi sıraya alırken hazırlama ortamına "durum" dağıtımını gerçekleştirir.
 
-Aşağıdaki bölümlerde her birini daha fazla ayrıntı sağlamak derleme tanımları.
+Aşağıdaki bölümler, bu derleme tanımlarının her biri hakkında daha fazla ayrıntı sağlar.
 
-## <a name="deployment-to-test"></a>Test ortamına dağıtım
+## <a name="deployment-to-test"></a>Teste dağıtım
 
-Fabrikam, Inc. geliştirme ekibinin çeşitli yazılım doğrulama ve doğrulama, kullanılabilirlik testi, uyumluluk testinin ve geçici veya araştırmacı test gibi etkinlikler testleri yürütmek için test ortamları tutar.
+Fabrikam, Inc. ' deki geliştirme ekibi, doğrulama ve doğrulama, kullanılabilirlik testi, Uyumluluk testi ve geçici ya da keşif testi gibi çeşitli yazılım test etkinliklerini gerçekleştirmek için test ortamlarını korur.
 
-Geliştirme ekibi adlı TFS'de yapı tanımını oluşturmuştur **DeployToTest**. Bu derleme tanımı, Fabrikam, Inc. geliştirme ekibinin bir üyesi bir iade işlemini her gerçekleştirdiğinde yapı işlem sürerken anlamına gelir. bir sürekli tümleştirme tetikleyicisini kullanır. Derleme tanımı, bir derleme tetiklendiğinde olur:
+Geliştirme ekibi, TFS 'de **Deploytotest**adlı bir derleme tanımı oluşturdu. Bu derleme tanımı, bir sürekli tümleştirme tetikleyicisi kullanır. Bu, Fabrikam, Inc. geliştirme ekibinin bir üyesi her seferinde bir iade işlemi gerçekleştirdiğinde yapı işleminin çalıştırıldığı anlamına gelir. Bir yapı tetiklendiğinde, derleme tanımı şu şekilde olur:
 
-- ContactManager.sln çözümü oluşturun. Bu, buna karşılık her proje çözüm içinde oluşturur.
-- (Çözüm başarıyla derlenirse) herhangi bir birim test Çözüm klasörü yapısı içinde çalıştırın.
-- Özel proje dosyaları (Çözüm başarıyla derlenir ve herhangi bir birim testi başarılı olursa) tıklayarak dağıtım işlemini denetleyen çalıştırın.
+- ContactManager. sln çözümünü oluşturun. Bu da çözüm içindeki her projeyi oluşturur.
+- Çözüm klasörü yapısındaki tüm birim testlerini çalıştırın (çözüm başarıyla oluşturulmadıysanız).
+- Dağıtım işlemini denetleyen özel proje dosyalarını çalıştırın (çözüm başarıyla oluşturulur ve herhangi bir birim testini geçirir).
 
-Çözüm başarıyla derlenir ve birim testlerini geçtiğini, web paketleri ve diğer tüm dağıtım kaynakları test ortamına dağıtılması son sonucudur.
+Nihai sonuç, çözümün başarıyla oluşturulup birim testlerini geçirirse, Web paketleri ve diğer dağıtım kaynakları test ortamına dağıtılır.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image3.png)
 
-### <a name="how-does-the-deployment-process-work"></a>Dağıtım işlemi nasıl çalışır?
+### <a name="how-does-the-deployment-process-work"></a>Dağıtım Işlemi nasıl çalışır?
 
-**DeployToTest** tanımı kaynakları bu MSBuild bağımsız değişkenleri oluşturun:
+**Deploytotest** derleme tanımı, MSBuild 'e şu bağımsız değişkenleri sağlar:
 
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample1.cmd)]
 
-**DeployOnBuild = true** ve **DeployTarget paket =** ekip çözüm içindeki projeleri oluştururken özellikleri kullanılır. Projeye bir web uygulaması projesi olduğunda, bu özellikleri projesi için web dağıtım paketi oluşturmak için MSBuild isteyin. **TargetEnvPropsFile** özelliği söyler *Publish.proj* içeri aktarılacak ortama özgü proje dosyasını nerede bulacağını dosya.
+Ekip derlemesi çözüm içindeki projeleri oluşturduğunda, **Deployonbuild = true** ve **deploytarget = paket** özellikleri kullanılır. Proje bir Web uygulaması projesi olduğunda, bu özellikler MSBuild 'e proje için bir Web dağıtım paketi oluşturma talimatını verecektir. **Targetenvpropsfile** özelliği *Publish. proj* dosyasına aktarılacak ortama özgü proje dosyasını nerede bulacağını söyler.
 
 > [!NOTE]
-> Bunun gibi bir yapı tanımı oluşturma hakkında ayrıntılı bilgi için bkz: [bu destekleyen dağıtım derleme tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
+> Bunun gibi bir yapı tanımı oluşturma hakkında ayrıntılı yönergeler için, bkz. [dağıtımı destekleyen bir yapı tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).
 
-*Publish.proj* dosyası çözümde her proje yapı hedefleri içerir. Ancak, ayrıca, takım yapısı'nda dosya yürütüyorsunuz atlar bu hedefleri yapı koşullu mantık içerir. Bu ekip, birim testleri çalıştırma gibi imkanı ek yapı işlevselliğinde avantajlarından yararlanmanıza imkan sağlar. Hata, çözüm derlemesi veya birim testleri, *Publish.proj* dosya yürütülmez ve uygulama dağıtılmadı.
+*Publish. proj* dosyası çözümdeki her bir projeyi oluşturan hedefleri içerir. Ancak, dosyayı takım derlemesinde yürütüyorsanız bu derleme hedeflerini atlayan koşullu mantığı da içerir. Bu, birim testlerini çalıştırma özelliği gibi ekip oluşturma tekliflerinin ek derleme işlevlerinden yararlanmanızı sağlar. Çözüm derlemesi veya birim testleri başarısız olursa, *Publish. proj* dosyası yürütülmez ve uygulama dağıtılacaktır.
 
-Koşullu mantık değerlendirerek gerçekleştirilir **BuildingInTeamBuild** özelliği. Otomatik olarak ayarlamak için bir MSBuild özellik budur **true** kullandığınızda ekip projelerinizi derleyin.
+Koşul mantığı, **Buildinginteambuild** özelliği hesaplanarak gerçekleştirilir. Bu, projelerinizi derlemek için takım derlemesi kullandığınızda otomatik olarak **true** olarak ayarlanan bir MSBuild özelliğidir.
 
-## <a name="deployment-to-staging"></a>Dağıtım için hazırlama
+## <a name="deployment-to-staging"></a>Hazırlama dağıtımı
 
-Bir derleme için tüm gereksinimleri test ortamında geliştirme takımının karşıladığında takım aynı yapı hazırlama ortamına dağıtmak isteyebilirsiniz. Hazırlama ortamları genellikle üretim ya da "canlı" ortam olarak yakından mümkün olduğunca, örneğin, sunucunun özellikleri, işletim sistemi ve yazılım ve ağ yapılandırması açısından özelliklerini eşleşecek şekilde yapılandırılır. Hazırlama ortamları, genellikle yük testi, kullanıcı kabul testi ve daha geniş bir şirket içi incelemeler için kullanılır. Derlemeleri doğrudan derleme sunucusundan hazırlama ortamına dağıtılır.
+Bir yapı, test ortamındaki geliştirici ekibinin tüm gereksinimlerini karşılıyorsa, ekip aynı derlemeyi hazırlama ortamına dağıtmak isteyebilir. Hazırlama ortamları genellikle, örneğin sunucu belirtimleri, işletim sistemleri ve yazılım ve ağ yapılandırması açısından, üretim veya "canlı" ortamının özellikleriyle eşleşecek şekilde yapılandırılır. Hazırlama ortamları genellikle yük testi, Kullanıcı kabul testi ve daha geniş iç incelemeler için kullanılır. Derlemeler hazırlama ortamına doğrudan yapı sunucusundan dağıtılır.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image4.png)
 
-Çözüm hazırlama ortamına dağıtmak için kullanılan derleme tanımları **DeployToStaging-WhatIf** ve **DeployToStaging**, bu ortak özelliklere sahiptir:
+Çözümü hazırlama ortamına dağıtmak için kullanılan derleme tanımları **deploytohazırlama-whatIf** ve **deploytohazırlama**, bu özellikleri paylaşma:
 
-- Bunlar gerçekten her şeyi oluşturmayın. Rob hazırlama ortamına çözüm dağıttığında, kendisinin zaten doğrulandı ve test ortamında doğrulanması belirli, varolan bir yapı dağıtmak istiyor. Dağıtım işlemini denetleyen özel proje dosyalarını çalıştırmak derleme tanımlarını yeterlidir.
-- Hangi derleme içeren derleme sunucusundan dağıtmak için istediği kaynakları belirtmek için Rob bir derleme tetiklendiğinde, o derleme parametrelerini kullanır.
-- Derleme tanımlarını otomatik olarak tetiklenen değil. Çözümü hazırlama ortamına dağıtmak istediği zaman Rob el ile bir derlemeyi sıralar.
+- Aslında hiçbir şey oluşturmazlar. Ramiz çözümü hazırlama ortamına dağıttığında, test ortamında önceden doğrulanmış ve doğrulanmış olan belirli bir derlemeyi dağıtmak istemektedir. Derleme tanımlarının yalnızca dağıtım işlemini denetleyen özel proje dosyalarını çalıştırması gerekir.
+- Ramiz bir derlemeyi tetiklerse, derleme sunucusundan dağıtmak istediği kaynakları hangi yapıda içerdiğini belirtmek için derleme parametrelerini kullanır.
+- Derleme tanımları otomatik olarak tetiklenmez. Ramiz, çözümü hazırlama ortamına dağıtmak istediğinde bir derlemeyi el ile sıraya alır.
 
-Bu üst düzey bir işlem için bir hazırlık ortamına dağıtım.
+Bu, hazırlama ortamına dağıtım için üst düzey bir işlemdir:
 
-1. Hazırlama Ortam Yöneticisi, Rob Aksoy kullanarak bir derleme kuyruğa **DeployToStaging-WhatIf** derleme tanımı. Rob istediği dağıtmak için hangi yapı belirtmek için derleme tanımı parametreleri kullanır.
-2. **DeployToStaging-WhatIf** tanımı çalıştırmaları "what IF" modunda özel proje dosyalarını oluşturun. Bu günlük dosyaları gibi Rob Canlı dağıtım gerçekleştirmekte olduğu, ancak gerçekte hedef ortama herhangi bir değişiklik yapmaz oluşturur.
-3. Rob hazırlama ortamında dağıtım etkilerini belirlemek için günlük dosyalarını gözden geçirir. Özellikle, Rob ne eklenecek, ne güncelleştirilir ve nelerin silineceğini kontrol ister.
-4. Rob ise dağıtım istenmeyen değişiklikler mevcut kaynaklara veya veri yaratmayacaktır memnuniyet kendisinin kullanarak bir derleme kuyruğa **DeployToStaging** derleme tanımı.
-5. **DeployToStaging** tanımı çalıştırmaları özel proje dosyalarını oluşturun. Bu dağıtım kaynakları hazırlık ortamı birincil web sunucusunda yayımlayın.
-6. Web Farm Framework (WFF) denetleyicisi hazırlama ortamındaki web sunucuları eşitler. Bu uygulama sunucu grubundaki tüm web sunucularında kullanılabilmesini sağlar.
+1. Ramiz Walters, hazırlama ortamı Yöneticisi, **Deploytohazırlama-whatIf** derleme tanımını kullanarak bir derlemeyi kuyruğa alır. Ramiz hangi derlemeyi dağıtmak istediğini belirtmek için derleme tanımı parametrelerini kullanır.
+2. **Deploytohazırlama-whatIf** derleme tanımı, özel proje dosyalarını "durum" modunda çalıştırır. Bu günlük dosyalarını, ramiz bir canlı dağıtım gerçekleştiriyor gibi oluşturur, ancak aslında hedef ortamda herhangi bir değişiklik yapmaz.
+3. Ramiz, hazırlama ortamında dağıtımın etkilerini belirlemek için günlük dosyalarını gözden geçirir. Özellikle, ramiz nelerin ekleneceğini, nelerin güncelleştirileceğini ve nelerin silineceğini denetlemek istiyor.
+4. Ramiz, dağıtımın mevcut kaynak veya verilerde istenmeyen bir değişiklik yapmayadüşünmemesi durumunda, bir derlemeyi **Deploytohazırlama** derleme tanımını kullanarak sıraya alır.
+5. **Deploytohazırlama** derleme tanımı özel proje dosyalarını çalıştırır. Bu, dağıtım kaynaklarını hazırlama ortamında birincil web sunucusuna yayımlar.
+6. Web grubu çerçevesi (WFF) denetleyicisi, hazırlama ortamındaki Web sunucularını eşitler. Bu, uygulamayı sunucu grubundaki tüm Web sunucularında kullanılabilir hale getirir.
 
-### <a name="how-does-the-deployment-process-work"></a>Dağıtım işlemi nasıl çalışır?
+### <a name="how-does-the-deployment-process-work"></a>Dağıtım Işlemi nasıl çalışır?
 
-**DeployToStaging** tanımı kaynakları bu MSBuild bağımsız değişkenleri oluşturun:
+**Deploytohazırlama** derleme tanımı, MSBuild 'e şu bağımsız değişkenleri sağlar:
 
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample2.cmd)]
 
-**TargetEnvPropsFile** özelliği söyler *Publish.proj* içeri aktarılacak ortama özgü proje dosyasını nerede bulacağını dosya. **OutputRoot** özelliği yerleşik değerini geçersiz kılar ve dağıtmak istediğiniz kaynakları içeren derleme klasörü konumunu belirtir. Rob derlemeyi sıralar, kullandığı **parametreleri** için güncelleştirilmiş bir değer sağlamak için sekmesinde **OutputRoot** özelliği.
+**Targetenvpropsfile** özelliği *Publish. proj* dosyasına aktarılacak ortama özgü proje dosyasını nerede bulacağını söyler. **Outputroot** özelliği, yerleşik değeri geçersiz kılar ve dağıtmak istediğiniz kaynakları içeren yapı klasörünün konumunu gösterir. Ramiz derlemeyi sıraladığı zaman, **Outputroot** özelliği için güncelleştirilmiş bir değer sağlamak üzere **Parametreler** sekmesini kullanır.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image5.png)
 
 > [!NOTE]
-> Bunun gibi bir yapı tanımı oluşturma hakkında daha fazla bilgi için bkz. [belirli bir yapı dağıtma](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md).
+> Bunun gibi bir yapı tanımı oluşturma hakkında daha fazla bilgi için bkz. [belirli bir derlemeyi dağıtma](../configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build.md).
 
-**DeployToStaging-WhatIf** derleme tanımını içeren aynı dağıtım mantığı **DeployToStaging** derleme tanımı. Ancak, ek bağımsız değişkeni içerdiğinden **WhatIf = true**:
+**Deploytohazırlama-whatIf** derleme tanımı, **deploytohazırlama** derleme tanımıyla aynı dağıtım mantığını içerir. Bununla birlikte, **whatIf = true**ek bağımsız değişkenini içerir:
 
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
 
-İçinde *Publish.proj* dosyası **WhatIf** özelliği, tüm dağıtım kaynakları "what IF" modunda yayımlanmasına gösterir. Diğer bir deyişle, dağıtım devam gitti, ancak hiçbir şey hedef ortamda gerçekten değiştirildiğinde gibi günlük dosyaları oluşturulur. Bu, önerilen dağıtım etkisini değerlendirmenize olanak tanır&#x2014;belirli, hangi eklenir, ne güncelleştirilecektir ve hangi silinecek&#x2014;gerçekte herhangi bir değişiklik yapmadan önce.
+*Publish. proj* dosyasında, **whatIf** özelliği tüm dağıtım kaynaklarının "durum" modunda yayımlanması gerektiğini gösterir. Diğer bir deyişle, günlük dosyaları, dağıtım ilerlemiş gibi oluşturulur, ancak hedef ortamda hiçbir şey değiştirilmez. Bu, belirli bir dağıtımın&#x2014;etkisini özellikle, nelerin ekleneceğini, nelerin güncelleştirileceğini ve herhangi bir değişiklik yapmadan önce ne silineceğini&#x2014;değerlendirmenizi sağlar.
 
 > [!NOTE]
-> "What IF" dağıtımlar yapılandırma hakkında daha fazla bilgi için bkz. ["What If" dağıtımı gerçekleştiren](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
+> "Ne tür" dağıtımları yapılandırma hakkında daha fazla bilgi için, bkz. ["What If" dağıtımı gerçekleştirme](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
 
-Uygulamanızı hazırlama ortamında birincil web sunucusuna dağıttıktan sonra WFF uygulama sunucu grubundaki tüm sunucuları arasında otomatik olarak eşitler.
+Uygulamanızı hazırlama ortamında birincil web sunucusuna dağıttıktan sonra WFF, uygulamayı sunucu grubundaki tüm sunucular arasında otomatik olarak eşitler.
 
 > [!NOTE]
-> WFF web sunucuları eşitlemek için yapılandırma hakkında daha fazla bilgi için bkz. [Web Farm Framework ile bir sunucu grubu oluştur](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md).
+> Web sunucularını eşitlemeye yönelik WFF 'yi yapılandırma hakkında daha fazla bilgi için bkz. [Web grubu çerçevesiyle sunucu grubu oluşturma](../configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework.md).
 
-## <a name="deployment-to-production"></a>Üretim ortamına dağıtım
+## <a name="deployment-to-production"></a>Üretime dağıtım
 
-Bir yapı hazırlama ortamındaki onaylandığında, Fabrikam, Inc. takımı üretim ortamına uygulama yayımlayabilirsiniz. Üretim ortamında uygulamanın "canlı" gider ve son kullanıcıların hedef kitlesi ulaştığında ' dir.
+Hazırlama ortamında bir derleme onaylandığında Fabrikam, Inc. ekibi uygulamayı üretim ortamında yayımlayabilir. Üretim ortamı, uygulamanın "canlı" olduğu ve son kullanıcıların hedef kitliğine ulaştığı yerdir.
 
-Üretim ortamına bir Internet'e yönelik çevre ağındadır. Yapı sunucusunu içeren iç ağdan yalıtılmış budur. Lisa Andrews, üretim ortamı yönetici el ile derleme sunucusundan web dağıtımı paketleri kopyalayın ve birincil üretim web sunucusuna IIS aktarın gerekir.
+Üretim ortamı, Internet 'e yönelik bir çevre ağındadır. Bu, yapı sunucusunu içeren iç ağdan yalıtılmıştır. Üretim ortamı Yöneticisi olan Lisa Andrews, Web dağıtım paketlerini derleme sunucusundan el ile kopyalayıp birincil üretim Web sunucusunda IIS 'ye içeri aktarmalıdır.
 
 ![](application-lifecycle-management-from-development-to-production/_static/image6.png)
 
-Bu bir üretim ortamına dağıtım için üst düzey bir işlem.
+Bu, üretim ortamına dağıtım için üst düzey bir işlemdir:
 
-1. Geliştirici takım derleme dağıtımı üretime hazır olduğunu Lisa önerir. Takım, yapı sunucusunda web dağıtımı paketleri bırakma klasörü içindeki konumunu Lisa önerir.
-2. Lisa derleme sunucusundan web paketleri toplar ve bunları üretim ortamında birincil web sunucusuna kopyalar.
-3. Lisa içeri aktarma ve birincil web sunucusunda web paketleri yayımlama için IIS Yöneticisi'ni kullanır.
-4. WFF denetleyicisi üretim ortamında web sunucuları eşitler. Bu uygulama sunucu grubundaki tüm web sunucularında kullanılabilmesini sağlar.
+1. Geliştirici ekibi, bir yapılandırmanın üretime dağıtım için hazırlanmaya uygun olduğunu öneren bir yapı sağlar. Ekip, derleme sunucusundaki bırakma klasörü içindeki Web Dağıtım paketlerinin konumunun LISA olduğunu önerir.
+2. Lisa, derleme sunucusundan Web paketlerini toplar ve bunları üretim ortamında birincil web sunucusuna kopyalar.
+3. LISA, Web paketlerini birincil web sunucusunda içeri aktarmak ve yayımlamak için IIS Yöneticisi 'Ni kullanır.
+4. WFF denetleyicisi, üretim ortamındaki Web sunucularını eşitler. Bu, uygulamayı sunucu grubundaki tüm Web sunucularında kullanılabilir hale getirir.
 
-### <a name="how-does-the-deployment-process-work"></a>Dağıtım işlemi nasıl çalışır?
+### <a name="how-does-the-deployment-process-work"></a>Dağıtım Işlemi nasıl çalışır?
 
-Web paketleri bir IIS Web sitesine yayımlamak kolaylaştıran bir içeri aktarma uygulama paketi Sihirbazı IIS Yöneticisi'ni içerir. Bu yordamı gerçekleştirmek için bir kılavuz için bkz. [Web paketlerini el ile yükleme](../web-deployment-in-the-enterprise/manually-installing-web-packages.md).
+IIS Yöneticisi, Web paketlerinin bir IIS Web sitesinde yayımlanmasını kolaylaştıran bir uygulama paketi Içeri aktarma Sihirbazı içerir. Bu yordamı gerçekleştirme hakkında yönergeler için bkz. [Web paketlerini el Ile yükleme](../web-deployment-in-the-enterprise/manually-installing-web-packages.md).
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda, tipik kurumsal ölçekte web uygulaması için dağıtım yaşam döngüsünün çizim sağlanır.
+Bu konu, tipik bir kurumsal ölçekte Web uygulaması için dağıtım yaşam döngüsünün bir resmini sağladı.
 
-Bu konuda, bir dizi web uygulaması dağıtımı çeşitli yönlerini hakkında rehberlik öğreticiler parçası oluşturur. Uygulama, dağıtım işleminin her aşamada çok sayıda ek görevler ve önemli noktalar vardır ve bunları tek bir kılavuzda tüm kapsamak mümkün değildir. Daha fazla bilgi için bu öğreticileri bakın:
+Bu konu, Web uygulaması dağıtımının çeşitli yönlerine rehberlik sağlayan bir öğretici serisinin bir parçasını oluşturur. Uygulamada, dağıtım sürecinin her aşamasında birçok ek görev ve dikkat edilecek şey vardır ve bunların tümünü tek bir yönergede ele alınması mümkün değildir. Daha fazla bilgi için şu öğreticilere bakın:
 
-- [Web dağıtımı kuruluştaki](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Bu öğreticide, web dağıtım teknikleri MSBuild ve IIS Web Dağıtım Aracı (Web dağıtımı) kullanarak kapsamlı giriş bilgileri sağlanır.
-- [Sunucu ortamlarını Web dağıtımı için yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Bu öğretici, Windows server ortamlarını çeşitli dağıtım senaryoları destekleyecek şekilde yapılandırma hakkında rehberlik sağlar.
-- [Team Foundation Server için otomatik Web dağıtımı](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğretici, dağıtım mantıksal TFS derleme süreçlerinizle tümleştirme konusunda rehberlik sağlar.
-- [Gelişmiş Kurumsal Web dağıtımı](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici, bazı daha karmaşık dağıtım zorluklarını karşılayacak şekilde nasıl bu kuruluşların yüz rehberlik sağlar.
+- [Kuruluşta Web dağıtımı](../web-deployment-in-the-enterprise/web-deployment-in-the-enterprise.md). Bu öğreticide, MSBuild ve IIS Web Dağıtım Aracı (Web Dağıtımı) kullanılarak Web Dağıtım teknikleri hakkında kapsamlı bir giriş sunulmaktadır.
+- [Web dağıtımı Için sunucu ortamlarını yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Bu öğretici, çeşitli dağıtım senaryolarını desteklemek üzere Windows Server ortamlarını yapılandırma hakkında rehberlik sağlar.
+- [Otomatik Web dağıtımı için Team Foundation Server yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğretici, dağıtım mantığını TFS derleme işlemlerine tümleştirme hakkında rehberlik sağlar.
+- [Gelişmiş kurumsal Web dağıtımı](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici, kuruluşların karşılaştığı daha karmaşık dağıtım güçlüklerinden bazılarının nasıl ele alınacağını gösteren yönergeler sağlar.
 
 > [!div class="step-by-step"]
-> [Önceki](enterprise-web-deployment-scenario-overview.md)
+> [Öncekini](enterprise-web-deployment-scenario-overview.md)

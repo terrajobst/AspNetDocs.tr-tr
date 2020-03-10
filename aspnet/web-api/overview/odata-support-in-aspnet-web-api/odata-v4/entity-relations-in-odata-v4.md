@@ -1,87 +1,87 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
-title: OData v4 sürümünde varlık ilişkilerini kullanarak ASP.NET Web API 2.2 | Microsoft Docs
+title: OData v4 'de ASP.NET Web API 2,2 kullanılarak varlık Ilişkileri | Microsoft Docs
 author: MikeWasson
-description: 'Çoğu veri kümeleri, varlıkları arasındaki ilişkileri tanımlayın: Siparişler imajlarını; Books Yazar; yine de olan istiyor musunuz? Ürünler tedarikçileri sahip. OData kullanarak istemcileri üzerinden gidebilirsiniz...'
+description: 'Çoğu veri kümesi varlıklar arasındaki ilişkileri tanımlar: müşterilerin siparişleri vardır; Kitaplar yazar. ürünlerin tedarikçileri vardır. OData kullanarak, istemciler üzerinde gezinerişebilir...'
 ms.author: riande
 ms.date: 06/26/2014
 ms.assetid: 72657550-ec09-4779-9bfc-2fb15ecd51c7
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
 msc.type: authoredcontent
 ms.openlocfilehash: fbafb2b2346689271905db5790cdddeeb809b070
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59418813"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78598695"
 ---
-# <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>OData v4 sürümünde varlık ilişkilerini kullanarak ASP.NET Web API 2.2
+# <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>ASP.NET Web API 2,2 kullanarak OData v4 'de varlık Ilişkileri
 
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+, [Mike te son](https://github.com/MikeWasson)
 
-> Çoğu veri kümeleri, varlıkları arasındaki ilişkileri tanımlayın: Siparişler imajlarını; Books Yazar; yine de olan istiyor musunuz? Ürünler tedarikçileri sahip. İstemciler, OData kullanarak, varlık ilişkileri gidebilirsiniz. Bir ürün göz önünde bulundurulduğunda, tedarikçi bulabilirsiniz. Ayrıca, oluşturmak veya ilişkileri kaldırın. Örneğin, bir ürünün sağlayıcısına ayarlayabilirsiniz.
+> Çoğu veri kümesi varlıklar arasındaki ilişkileri tanımlar: müşterilerin siparişleri vardır; Kitaplar yazar. ürünlerin tedarikçileri vardır. OData kullanarak, istemciler varlık ilişkilerine gidebilir. Bir ürün verildiğinde, tedarikçiyi bulabilirsiniz. Ayrıca ilişkiler oluşturabilir veya kaldırabilirsiniz. Örneğin, tedarikçiyi bir ürün için ayarlayabilirsiniz.
 >
-> Bu öğreticide, ASP.NET Web API'sini kullanarak bu işlemleri OData v4 sürümünde destekleyen gösterilmektedir. Öğretici öğreticiyi genişletip yapılar [OData v4 uç noktası kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md).
+> Bu öğreticide, ASP.NET Web API kullanılarak OData v4 'de bu işlemlerin nasıl destekleyeceği gösterilmektedir. Öğretici, [ASP.NET Web API 2 kullanarak bir OData v4 uç noktası oluşturma](create-an-odata-v4-endpoint.md)öğreticisinde derleme oluşturur.
 >
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 >
 > - Web API 2.1
 > - OData v4
-> - Visual Studio 2013 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
+> - Visual Studio 2013 (Visual Studio 2017 'yi [buraya](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)indirin)
 > - Entity Framework 6
 > - .NET 4.5
 >
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
 >
-> OData sürüm 3 için bkz: [OData v3 sürümünde varlık ilişkileri'ı destekleyen](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations).
+> OData sürüm 3 için bkz. [OData v3 'de varlık Ilişkilerini destekleme](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations).
 
-## <a name="add-a-supplier-entity"></a>Tedarikçi varlık ekleme
+## <a name="add-a-supplier-entity"></a>Tedarikçi varlığı ekleme
 
 > [!NOTE]
-> Öğretici öğreticiyi genişletip yapılar [OData v4 uç noktası kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md).
+> Öğretici, [ASP.NET Web API 2 kullanarak bir OData v4 uç noktası oluşturma](create-an-odata-v4-endpoint.md)öğreticisinde derleme oluşturur.
 
-İlk olarak, ilgili varlık gerekir. Adlı bir sınıf ekleyin `Supplier` modeller klasörü içinde.
+İlk olarak, ilgili bir varlığına ihtiyacımız var. Modeller klasörüne `Supplier` adlı bir sınıf ekleyin.
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample1.cs)]
 
-Bir gezinme özelliği için ekleme `Product` sınıfı:
+`Product` sınıfına bir gezinti özelliği ekleyin:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample2.cs?highlight=13-15)]
 
-Yeni bir **olan DB** için `ProductsContext` Entity Framework Sağlayıcısı tablo veritabanında içermesi sınıfı.
+`ProductsContext` sınıfına yeni bir **Dbset** ekleyin, böylece Entity Framework tedarikçinin tablosunu veritabanına dahil eder.
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample3.cs?highlight=10)]
 
-WebApiConfig.cs içinde ekleme bir &quot;tedarikçileri&quot; varlık kümesi için varlık veri modeli:
+WebApiConfig.cs ' de, varlık veri modeline ayarlanmış bir &quot;Suppliers&quot; varlık ekleyin:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample4.cs?highlight=6)]
 
-## <a name="add-a-suppliers-controller"></a>Üreticiler denetleyici ekleme
+## <a name="add-a-suppliers-controller"></a>Bir tedarikçiler denetleyicisi ekleme
 
-Ekleme bir `SuppliersController` denetleyicileri klasörüne sınıfı.
+Controllers klasörüne bir `SuppliersController` sınıfı ekleyin.
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample5.cs)]
 
-Ben CRUD işlemleri Bu denetleyici ekleme gösterilmez. Adımları ürünleri denetleyicisi aynıdır (bkz [bir OData v4 uç noktası oluşturma](create-an-odata-v4-endpoint.md)).
+Bu denetleyiciye CRUD işlemlerinin nasıl ekleneceğini göstermiyorum. Adımlar, ürünler denetleyicisi ile aynıdır (bkz. [OData v4 uç noktası oluşturma](create-an-odata-v4-endpoint.md)).
 
-## <a name="getting-related-entities"></a>Başlangıç ilgili varlıklar
+## <a name="getting-related-entities"></a>Ilgili varlıkları alma
 
-Sağlayıcı için bir ürün almak için istemci bir GET isteği gönderir:
+Bir ürünün tedarikçilerini almak için istemci bir GET isteği gönderir:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample6.cmd)]
 
-Bu istek desteklemek için aşağıdaki yöntemi ekleyin. `ProductsController` sınıfı:
+Bu isteği desteklemek için, `ProductsController` sınıfına aşağıdaki yöntemi ekleyin:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample7.cs)]
 
-Bu yöntem varsayılan bir adlandırma kuralını kullanır.
+Bu yöntem varsayılan adlandırma kuralını kullanır
 
-- Yöntem adı: X gezinme özelliği olduğu GetX.
-- Parametre adı: *anahtarı*
+- Yöntem adı: GetX, burada X, gezinti özelliğidir.
+- Parametre adı: *anahtar*
 
-Bu adlandırma kuralını izler, Web API denetleyicisi yöntemi HTTP isteği otomatik olarak eşler.
+Bu adlandırma kuralını izlerseniz, Web API 'SI, HTTP isteğini denetleyici yöntemiyle otomatik olarak eşler.
 
-Örnek HTTP istek:
+Örnek HTTP isteği:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample8.cmd)]
 
@@ -89,15 +89,15 @@ Bu adlandırma kuralını izler, Web API denetleyicisi yöntemi HTTP isteği oto
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample9.cmd)]
 
-### <a name="getting-a-related-collection"></a>İlgili koleksiyonu alma
+### <a name="getting-a-related-collection"></a>İlişkili bir koleksiyon alınıyor
 
-Önceki örnekte, bir ürün bir tedarikçi sahiptir. Bir gezinme özelliği, bir koleksiyon da döndürebilir. Aşağıdaki kod ürünleri için bir sağlayıcı alır:
+Önceki örnekte, bir ürünün bir tedarikçisi vardır. Bir gezinti özelliği de bir koleksiyonu döndürebilir. Aşağıdaki kod, bir tedarikçinin ürünlerini alır:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample10.cs)]
 
-Bu durumda, yöntem döndürür bir **Iqueryable** yerine bir **SingleResult&lt;T&gt;**
+Bu durumda, yöntemi **SingleResult&lt;t** yerine bir **ıqueryable** döndürür&gt;
 
-Örnek HTTP istek:
+Örnek HTTP isteği:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample11.cmd)]
 
@@ -105,44 +105,44 @@ Bu durumda, yöntem döndürür bir **Iqueryable** yerine bir **SingleResult&lt;
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample12.cmd)]
 
-## <a name="creating-a-relationship-between-entities"></a>Varlıklar arasında ilişki oluşturma
+## <a name="creating-a-relationship-between-entities"></a>Varlıklar arasında Ilişki oluşturma
 
-OData oluşturmaya veya var olan iki varlık arasında ilişkiler destekler. OData v4 terminolojisinde ilişkidir bir &quot;başvuru&quot;. (OData v3 sürümünde ilişki çağrıldı bir *bağlantı*. Protokol farklar Bu öğretici için önemli değildir.)
+OData, mevcut iki varlık arasında ilişki oluşturmayı veya kaldırmayı destekler. OData v4 terminolojisinde, ilişki&quot;bir &quot;başvurudur. (OData v3 'de ilişkiye bir *bağlantı*adı verilir. Protokol farkları Bu öğreticiye göre farklılık görmez.)
 
-Başvuru formunu kendi URI'sine sahip `/Entity/NavigationProperty/$ref`. Örneğin, bir ürün, tedarikçi arasındaki başvuru adres için URI şu şekildedir:
+Bir başvurunun, `/Entity/NavigationProperty/$ref`form ile kendi URI 'SI vardır. Örneğin, bir ürün ve tedarikçiyle ilgili başvurunun ele aldığı URI aşağıda verilmiştir:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample13.cmd)]
 
-İstemci bir ilişki eklemek için bu adrese bir POST veya PUT İsteği gönderir.
+İstemci bir ilişki eklemek için bu adrese bir POST veya PUT isteği gönderir.
 
-- Gezinti özelliği tek bir varlık gibi ise PUT `Product.Supplier`.
-- Bir koleksiyon gezinme özelliği olduğu gibi istiyorsanız `Supplier.Products`.
+- Gezinti özelliği `Product.Supplier`gibi tek bir varlık ise koyun.
+- Gezinti özelliği `Supplier.Products`gibi bir koleksiyon ise, gönder.
 
-İstek gövdesi, başka bir varlık ilişkisi URI'sini içerir. Bir örnek İstek şu şekildedir:
+İsteğin gövdesi, ilişkide diğer varlığın URI 'sini içerir. Örnek bir istek aşağıda verilmiştir:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample14.cmd)]
 
-Bu örnekte, istemci bir PUT İsteği gönderir. `/Products(6)/Supplier/$ref`, $ref URI'sini olduğu `Supplier` = 6 ürünün Kimliğine sahip. İstek başarılı olursa sunucu 204 (içerik yok) yanıt gönderir:
+Bu örnekte, istemci, KIMLIK = 6 olan ürün `Supplier` için $ref URI 'si olan `/Products(6)/Supplier/$ref`için bir PUT isteği gönderir. İstek başarılı olursa, sunucu bir 204 (Içerik yok) yanıtı gönderir:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample15.cmd)]
 
-Bir ilişki eklemek için denetleyici yöntemi İşte bir `Product`:
+`Product`bir ilişki eklemek için denetleyici yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample16.cs)]
 
-*NavigationProperty* parametre ayarlamak için hangi ilişki belirtir. (Varlık üzerinde birden fazla gezinti özelliği varsa, daha fazla ekleyebilirsiniz `case` deyimleri.)
+*NavigationProperty* parametresi ayarlanacak ilişkiyi belirtir. (Varlıkta birden fazla gezinti özelliği varsa, daha fazla `case` deyimi ekleyebilirsiniz.)
 
-*Bağlantı* parametresi tedarikçi URI'sini içerir. Web API'si, otomatik olarak bu parametre için değer almak için istek gövdesini ayrıştırır.
+*Bağlantı* parametresi, tedarikçinin URI 'sini içerir. Web API 'SI, bu parametrenin değerini almak için istek gövdesini otomatik olarak ayrıştırır.
 
-Tedarikçi bakmak için kimliği (veya anahtar) ihtiyacımız parçası olduğu *bağlantı* parametresi. Bunu yapmak için aşağıdaki yardımcı yöntemini kullanın:
+Tedarikçiyi aramak için, *bağlantı* parametresinin bir PARÇASı olan kimliğe (veya anahtara) ihtiyacımız var. Bunu yapmak için aşağıdaki yardımcı yöntemi kullanın:
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample17.cs)]
 
-Temel olarak, bu yöntem, URI yolu parçalara bölmek için anahtarı içeren kesim bulup anahtarı doğru türe dönüştürmeniz OData kitaplığı kullanır.
+Temelde, bu yöntem, URI yolunu kesimlere bölmek için OData kitaplığını kullanır, anahtarı içeren segmenti bulur ve anahtarı doğru türe dönüştürür.
 
-## <a name="deleting-a-relationship-between-entities"></a>Varlıklar arasında ilişki siliniyor
+## <a name="deleting-a-relationship-between-entities"></a>Varlıklar arasındaki Ilişkiyi silme
 
-Bir ilişkiyi silmek için istemci için $ref URI HTTP DELETE isteği gönderir:
+İstemci bir ilişkiyi silmek için $ref URI 'sine bir HTTP DELETE isteği gönderir:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample18.cmd)]
 
@@ -150,14 +150,14 @@ Bir ürün ve tedarikçi arasındaki ilişkiyi silmek için denetleyici yöntemi
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample19.cs)]
 
-Bu durumda, `Product.Supplier` olduğu &quot;1&quot; yalnızca ayarlayarak ilişki kaldırabilmeniz için 1-çok ilişkisi sonuna `Product.Supplier` için `null`.
+Bu durumda `Product.Supplier`, 1 ' den fazla ilişkinin &quot;1&quot; sonuna kadar olan, `null``Product.Supplier` ayarlayarak ilişkiyi kaldırabilirsiniz.
 
-İçinde &quot;birçok&quot; istemci bir ilişki sonu, varlık kaldırmak için ilgili belirtmeniz gerekir. Bunu yapmak için istemci isteğinin sorgu dizesinde ilgili varlığın URI'si gönderir. Örneğin, "Ürün 1" kaldırmak için "1" sağlayıcısı:
+Bir ilişkinin &quot;çok&quot; sonunda, istemci hangi ilgili varlığın kaldırılacağını belirtmelidir. Bunu yapmak için istemci, isteğin sorgu dizesinde ilgili varlığın URI 'sini gönderir. Örneğin, "Product 1" öğesini "Tedarikçi 1" öğesinden kaldırmak için:
 
 [!code-console[Main](entity-relations-in-odata-v4/samples/sample20.cmd?highlight=1)]
 
-Web API'de Bunu desteklemek için ek bir parametre içerecek şekilde ihtiyacımız `DeleteRef` yöntemi. İşte bir üründen kaldırmak için denetleyici yöntemi `Supplier.Products` ilişkisi.
+Web API 'de bunu desteklemek için `DeleteRef` metoduna fazladan bir parametre dahil etmemiz gerekir. Bir ürünü `Supplier.Products` ilişkisinden kaldırmak için denetleyici yöntemi aşağıda verilmiştir.
 
 [!code-csharp[Main](entity-relations-in-odata-v4/samples/sample21.cs)]
 
-*Anahtarı* tedarikçi, anahtarı bir parametredir ve *relatedKey* parametredir kaldırmak ürün anahtarı `Products` ilişki. Web API Sorgu dizesinden otomatik olarak anahtarı alır unutmayın.
+*Anahtar* parametresi, tedarikçinin anahtarıdır ve *relatedkey* parametresi, `Products` ilişkisinden kaldırılacak ürünün anahtarıdır. Web API 'sinin anahtarı otomatik olarak sorgu dizesinden aldığından emin olmanız gerektiğini unutmayın.

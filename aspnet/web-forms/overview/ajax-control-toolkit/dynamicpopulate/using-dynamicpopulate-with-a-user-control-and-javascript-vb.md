@@ -9,11 +9,11 @@ ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
 ms.openlocfilehash: ee5923ad6d8b101f689a0564aef8b1e0e00a7639
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74599132"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78613675"
 ---
 # <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Kullanıcı Denetimi ve JavaScript ile DynamicPopulate Kullanma (VB)
 
@@ -63,7 +63,7 @@ Son olarak, sayfasına kullanıcı denetimini ekleyin. Yalnızca `ID` özniteli�
 
 [!code-aspx[Main](using-dynamicpopulate-with-a-user-control-and-javascript-vb/samples/sample8.aspx)]
 
-İşte bu kadar! Sayfa beklendiği gibi davranır: Kullanıcı radyo düğmelerinden birine tıkladığında araç setinde denetim Web hizmetini çağırır ve geçerli tarihi istenen biçimde görüntüler.
+Hepsi bu! Sayfa beklendiği gibi davranır: Kullanıcı radyo düğmelerinden birine tıkladığında araç setinde denetim Web hizmetini çağırır ve geçerli tarihi istenen biçimde görüntüler.
 
 [radyo düğmelerinin bir kullanıcı denetiminde yer aldığı ![](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image2.png)](using-dynamicpopulate-with-a-user-control-and-javascript-vb/_static/image1.png)
 

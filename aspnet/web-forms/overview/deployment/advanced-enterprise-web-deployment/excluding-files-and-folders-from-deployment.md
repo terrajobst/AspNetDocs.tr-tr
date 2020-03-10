@@ -1,128 +1,128 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
-title: Dosya ve klasörleri dağıtımdan dışlama | Microsoft Docs
+title: Dosyaları ve klasörleri dağıtımdan dışlama | Microsoft Docs
 author: jrjlee
-description: Bu konuda, yapı ve bir web uygulaması projesi paketini nasıl, dosya ve klasörleri web dağıtım paketinden hariç tutabilirsiniz açıklanmaktadır.
+description: Bu konuda, bir Web uygulaması projesi oluşturup paketlemeyi yaptığınızda bir Web dağıtım paketinden dosya ve klasörleri nasıl dışarıda bırakabileceğinizi açıklanmaktadır.
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: f4cc2d40-6a78-429b-b06f-07d000d4caad
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: a262ce43d7199fb1015d54d0b7c213857c360946
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133890"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78544977"
 ---
 # <a name="excluding-files-and-folders-from-deployment"></a>Dosya ve Klasörleri Dağıtımdan Dışlama
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, yapı ve bir web uygulaması projesi paketini nasıl, dosya ve klasörleri web dağıtım paketinden hariç tutabilirsiniz açıklanmaktadır.
+> Bu konuda, bir Web uygulaması projesi oluşturup paketlemeyi yaptığınızda bir Web dağıtım paketinden dosya ve klasörleri nasıl dışarıda bırakabileceğinizi açıklanmaktadır.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi yapı işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;içeren bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli yönergeleri oluşturun. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticilerin temelini oluşturan dağıtım yöntemi, derleme işleminin her hedef ortam için uygulanan derleme yönergelerini içeren ve ortama özel yapı ve dağıtım ayarlarını içeren iki proje&#x2014;dosyası tarafından kontrol edilen proje [dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md)bölümünde açıklanan bölünmüş proje dosyası yaklaşımını temel alır. Derleme zamanında, ortama özgü proje dosyası, derleme yönergelerinin tam bir kümesini oluşturmak için ortam agtik proje dosyası ile birleştirilir.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel bakış
 
-Visual Studio 2010'daki bir web uygulaması projesi oluşturma sırasında Web yayımlama işlem hattı (Usewpp_copywebapplication), bu yapı işlemini derlenmiş web uygulamanıza dağıtılabilir web paketi paketleyerek genişletmenizi sağlar. Bu web paketini dağıtmak için bir uzak bir IIS web sunucusu (Web dağıtımı) Internet Information Services (IIS) Web dağıtım aracı kullanın veya el ile IIS Yöneticisi aracılığıyla web paketini içeri aktarma. Bu paketleme işlemi açıklanan [oluşturma ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md).
+Visual Studio 2010 ' de bir Web uygulaması projesi oluşturduğunuzda, Web yayımlama işlem hattı (WPP), derlenmiş Web uygulamanızı dağıtılabilir bir Web paketine paketleyerek bu yapı sürecini genişletmenizi sağlar. Daha sonra bu Web paketini uzak bir IIS Web sunucusuna dağıtmak veya Web paketini IIS Yöneticisi aracılığıyla el ile içeri aktarmak için Internet Information Services (IIS) Web Dağıtım aracı 'nı (Web Dağıtımı) kullanabilirsiniz. Bu paketleme işlemi, [Web uygulaması projelerini oluşturma ve paketleme](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md)bölümünde açıklanmaktadır.
 
-Paket nasıl web dahil kontrol edebilirim? Temel Proje dosyasının Visual Studio'da proje ayarlarıyla birçok senaryo için yeterli denetim sağlar. Ancak, bazı durumlarda belirli hedef ortamlara web paketinizi içeriğini uyarlama isteyebilirsiniz. Örneğin, uygulamanızı test ortamına dağıtın, ancak bir hazırlık veya üretim ortamına uygulamanın dağıttığınızda klasörü dışlamak günlük dosyaları için bir klasör eklemek isteyebilirsiniz. Bu konu, bunun nasıl yapılacağı gösterilmektedir.
+Peki Web paketinize nelerin dahil edildiğini nasıl denetlersiniz? Visual Studio 'daki proje ayarları temel alınan proje dosyası aracılığıyla çok sayıda senaryo için yeterli denetim sağlar. Ancak bazı durumlarda, Web paketinizin içeriğini belirli hedef ortamlara uyarlamak isteyebilirsiniz. Örneğin, uygulamanızı bir test ortamına dağıtırken ve uygulamayı bir hazırlık veya üretim ortamına dağıtırken klasörü dışladığınızda, günlük dosyaları için bir klasör dahil etmek isteyebilirsiniz. Bu konu, bunu nasıl yapılacağını gösterir.
 
-## <a name="what-gets-included-by-default"></a>Varsayılan olarak neleri?
+## <a name="what-gets-included-by-default"></a>Varsayılan olarak neler dahildir?
 
-Visual Studio'da web uygulaması proje özelliklerinizi yapılandırdığınızda **dağıtmak için öğeleri** listesini **Paketle/Yayımla Web** sayfası, web dağıtımınızdaki dahil edilmesini istediğiniz belirtmenize olanak sağlar Paket. Varsayılan olarak, bu ayar **yalnızca bu uygulamayı çalıştırmak için gereken dosyaları**.
+Web uygulaması proje özelliklerinizi Visual Studio 'da yapılandırdığınızda, dağıtım **/Web yayımlama** sayfasında **dağıtılacak öğeler** listesi, Web Dağıtım paketinize neleri eklemek istediğinizi belirtmenize olanak tanır. Bu, varsayılan olarak **yalnızca bu uygulamayı çalıştırmak için gereken dosyalara**ayarlanmıştır.
 
 ![](excluding-files-and-folders-from-deployment/_static/image1.png)
 
-Seçeneğini belirlediğinizde **yalnızca bu uygulamayı çalıştırmak için gereken dosyaları**, WPP hangi dosyaların web pakete eklenmesi gerektiğini belirlemeyi dener. Şunları içerir:
+**Yalnızca bu uygulamayı çalıştırmak için gereken dosyaları**SEÇTIĞINIZDE, WPP, Web paketine hangi dosyaların ekleneceğini belirlemek için çalışacaktır. Şunları içerir:
 
-- Proje için tüm yapı çıkarır.
-- Tüm dosyalar olarak işaretlenmiş derleme eylemini **içerik**.
+- Projenin tüm derleme çıkışları.
+- **İçerik**oluşturma eylemiyle işaretlenmiş tüm dosyalar.
 
 > [!NOTE]
-> Dahil etmek için hangi dosyaların belirleyen mantık, bu dosyada yer alır:   
-> *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets*
+> Hangi dosyaların ekleneceğini belirleyen mantık bu dosyada yer alır:   
+> *%PROGRAMFILES%\MSBuild\Microsoft\VisualStudio\v10.0\Web\ Microsoft. Web. Publishing. OnlyFilesToRunTheApp. targets*
 
-## <a name="excluding-specific-files-and-folders"></a>Belirli dosyaları ve klasörleri dışarıda
+## <a name="excluding-specific-files-and-folders"></a>Belirli dosya ve klasörleri dışlama
 
-Bazı durumlarda, dosya ve klasörler üzerinde dağıtılan daha ayrıntılı denetim istersiniz. Hangi dosyaların, öncesinde hariç tutmak istediğiniz zaman, bildiğiniz ve dışlama tüm hedef ortamlar için geçerlidir, ayarlayabilirsiniz **derleme eylemi** her dosyanın **hiçbiri**.
+Bazı durumlarda, hangi dosya ve klasörlerin dağıtıldığı üzerinde daha ayrıntılı denetim isteyeceksiniz. Hangi dosyaları zaman içinde dışarıda bırakmak istediğinizi biliyorsanız ve dışlama tüm hedef ortamlara geçerliyse, her dosyanın **derleme eylemini** **none**olarak ayarlayabilirsiniz.
 
-**Belirli dosyaları dağıtımından hariç tutmak için**
+**Belirli dosyaları dağıtımdan dışlamak için**
 
-1. İçinde **Çözüm Gezgini** penceresi, dosyaya sağ tıklayın ve ardından **özellikleri**.
-2. İçinde **özellikleri** penceresi, **derleme eylemi** satır, select **hiçbiri**.
+1. **Çözüm Gezgini** penceresinde, dosyaya sağ tıklayın ve ardından **Özellikler**' e tıklayın.
+2. **Özellikler** penceresinde, **derleme eylemi** satırında **hiçbiri**' ni seçin.
 
-Ancak, bu yaklaşım her zaman uygun değildir. Örneğin, hangi dosyaların farklılık isteyebilirsiniz ve klasörleri hedef ortamınız göre ve Visual Studio dışında dahildir. Örneğin, kişi yöneticisi örnek çözümde ContactManager.Mvc projenin içeriğini göz atın:
+Ancak, bu yaklaşım her zaman uygun değildir. Örneğin, hedef ortamınıza göre hangi dosya ve klasörlerin ekleneceğini ve Visual Studio 'Nun dışından değişiklik yapmak isteyebilirsiniz. Örneğin, Contact Manager örnek çözümünde ContactManager. Mvc projesinin içeriğine göz atın:
 
 ![](excluding-files-and-folders-from-deployment/_static/image2.png)
 
-- İç klasör oluşturma, bırakma ve geliştirme amacıyla yerel veritabanları doldurmak için geliştirici kullanan bazı SQL komut dosyalarını içerir. Bu klasörde hiçbir şey bir hazırlık veya üretim ortamı için dağıtılmalıdır.
-- Betikler klasörüne çeşitli JavaScript dosyalarını içerir. Çok sayıda bu dosya yalnızca hata ayıklama desteği ya da Visual Studio IntelliSense sağlamak için dahil edilir. Bu dosyaların bazıları için hazırlık veya üretim ortamlarında dağıtılmamalıdır. Ancak, bunları sorun giderme sürecini kolaylaştırmak için bir geliştirici test ortamına dağıtmak isteyebilirsiniz.
+- Iç klasör, geliştiricinin geliştirme amacıyla yerel veritabanlarını oluşturmak, bırakmak ve doldurmak için kullandığı bazı SQL betikleri içerir. Bu klasördeki hiçbir şey bir hazırlık veya üretim ortamına dağıtılmalıdır.
+- Betikler klasörü çeşitli JavaScript dosyaları içerir. Bu dosyaların çoğu, yalnızca hata ayıklamayı desteklemek ya da Visual Studio 'da IntelliSense sağlamak için eklenmiştir. Bu dosyalardan bazıları hazırlama veya üretim ortamlarına dağıtılmamalıdır. Ancak, sorun gidermeyi kolaylaştırmak için bunları bir geliştirici sınama ortamına dağıtmak isteyebilirsiniz.
 
-Belirli dosyaları ve klasörleri dışlamak için proje dosyalarınızı düzenlersiniz olsa da, daha kolay bir yolu yoktur. WPP adlı öğesi listeleri oluşturarak, dosya ve klasörleri dışlamak için bir mekanizma içerir **ExcludeFromPackageFolders** ve **ExcludeFromPackageFiles**. Bu listelerden kendi öğeleri ekleyerek, bu mekanizma genişletebilirsiniz. Bunu yapmak için üst düzey adımları tamamlamanız gerekir:
+Proje dosyalarınızı belirli dosya ve klasörleri dışarıda bırakacak şekilde işleyebilseniz de, daha kolay bir yol vardır. WPP, **Excludefrompackagefolders** ve **Excludefrompackagefiles**adlı öğe listeleri oluşturarak dosya ve klasörleri hariç tutmak için bir mekanizma içerir. Kendi öğelerinizi bu listelere ekleyerek bu mekanizmayı genişletebilirsiniz. Bunu yapmak için, aşağıdaki üst düzey adımları gerçekleştirmeniz gerekir:
 
-1. Adlı bir özel proje dosyası oluşturmayı *[Proje adı].wpp.targets* , proje dosyası ile aynı klasörde.
+1. Proje dosyanız ile aynı klasörde *[proje adı]. WPP. targets* adlı özel bir proje dosyası oluşturun.
 
     > [!NOTE]
-    > *. Wpp.targets* dosyasına gereken web uygulaması proje dosyanız ile aynı klasörde Git&#x2014;gibi *ContactManager.Mvc.csproj*&#x2014;yerine aynı klasöre herhangi bir özel Proje dosyaları derleme ve dağıtım işlemini denetlemek için kullanın.
-2. İçinde *. wpp.targets* ekleyin bir **ItemGroup** öğesi.
-3. İçinde **ItemGroup** öğe, Ekle **ExcludeFromPackageFolders** ve **ExcludeFromPackageFiles** belirli dosyaları ve klasörleri gerektiği gibi çıkarılacak öğeleri.
+    > *. WPP. targets* dosyasının, derleme ve dağıtım işlemini denetlemek için kullandığınız özel proje dosyalarıyla aynı klasörde değil&#x2014; *,* &#x2014;Web uygulaması proje dosyası ile aynı klasöre gitmesi gerekir.
+2. *. WPP. targets* dosyasında bir **ItemGroup** öğesi ekleyin.
+3. **ItemGroup** öğesinde, belirli dosya ve klasörleri gerektiği şekilde dışlamak Için **Excludefrompackagefolders** ve **Excludefrompackagefiles** öğelerini ekleyin.
 
-Bu temel yapısını budur *. wpp.targets* dosyası:
+Bu, bu *. WPP. targets* dosyasının temel yapısıdır:
 
 [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample1.xml)]
 
-Her öğe adlı bir öğe meta verileri öğe içerdiğini unutmayın **FromTarget**. Bu, yapı işlemi etkilemez isteğe bağlı bir değerdir; yalnızca belirli dosyaları veya klasörleri neden atlanmış belirtmek için kullanılır, birisi Derleme günlüklerini inceler.
+Her öğenin **Fromtarget**adlı bir öğe meta veri öğesi içerdiğini unutmayın. Bu, yapı işlemini etkilemeyen isteğe bağlı bir değerdir; yalnızca bir kişi, Derleme günlüklerini gözden geçirirse belirli dosya veya klasörlerin neden atlandığını belirtmek için kullanılır.
 
-## <a name="excluding-files-and-folders-from-a-web-package"></a>Bir Web paketinden dosya ve klasörleri dışarıda
+## <a name="excluding-files-and-folders-from-a-web-package"></a>Dosya ve klasörleri bir Web paketinden dışlama
 
-Sonraki yordam nasıl ekleneceğini gösterir bir *. wpp.targets* dosyasını bir web uygulaması projesi ve nasıl projenizi yapılandırdığınızda web paketinden belirli dosyaları ve klasörleri dışlamak için bu dosyayı kullanın.
+Sonraki yordamda, bir Web uygulaması projesine *. WPP. targets* dosyasını nasıl ekleyeceğiniz ve projenizi oluştururken Web paketinden belirli dosya ve klasörleri dışlamak için dosyanın nasıl kullanılacağı gösterilmektedir.
 
-**Web dağıtım paketinden dosyaları ve klasörleri dışlamak için**
+**Dosya ve klasörleri bir Web dağıtım paketinden dışlamak için**
 
-1. Visual Studio 2010'da çözümünüzü açın.
-2. İçinde **Çözüm Gezgini** penceresinde, web uygulaması proje düğümüne sağ tıklayın (örneğin, **ContactManager.Mvc**), işaret **Ekle**ve ardından**Yeni öğe**.
-3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **XML dosyası** şablonu.
-4. İçinde **adı** kutusuna *[Proje adı]* **.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
+1. Çözümünüzü Visual Studio 2010 ' de açın.
+2. **Çözüm Gezgini** penceresinde, Web uygulaması proje düğümünüz (örneğin, **ContactManager. Mvc**) sağ tıklayın, **Ekle**' nin üzerine gelin ve ardından **Yeni öğe**' ye tıklayın.
+3. **Yeni öğe Ekle** iletişim kutusunda, **XML dosya** şablonunu seçin.
+4. **Ad** kutusuna *[proje adı] * * *. WPP. targets** yazın (örneğin, **ContactManager. Mvc. WPP. targets**) ve ardından **Ekle**' ye tıklayın.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 
     > [!NOTE]
-    > Bir proje kök düğümü için yeni bir öğe eklerseniz, dosyayı proje dosyası ile aynı klasörde oluşturulur. Bu, Windows Gezgini'nde klasörü açarak doğrulayabilirsiniz.
-5. Dosyasına ekleyin bir **proje** öğesi ve bir **ItemGroup** öğesi:
+    > Projenin kök düğümüne yeni bir öğe eklerseniz, dosya proje dosyası ile aynı klasörde oluşturulur. Bunu, Windows Gezgini 'nde klasörünü açarak doğrulayabilirsiniz.
+5. Dosyasında bir **Proje** öğesi ve bir **ItemGroup** öğesi ekleyin:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
-6. Web paketinden klasörleri dışlamak istiyorsanız, ekleme bir **ExcludeFromPackageFolders** öğesine **ItemGroup** öğesi:
+6. Klasörleri Web paketinden dışlamak istiyorsanız, **ItemGroup** öğesine bir **Excludefrompackagefolders** öğesi ekleyin:
 
-   1. İçinde **INCLUDE** özniteliği, hariç tutmak istediğiniz klasörleri noktalı virgülle ayrılmış bir listesini sağlayın.
-   2. İçinde **FromTarget** meta veri öğesi neden klasörleri, adı gibi dışlanan belirtmek için anlamlı bir değer sağlayın *. wpp.targets* dosya.
+   1. **Include** özniteliğinde, dışlamak istediğiniz klasörlerin noktalı virgülle ayrılmış bir listesini sağlayın.
+   2. **Fromtarget** meta veri öğesinde, *. WPP. targets* dosyasının adı gibi klasörlerin Neden dışlandığını belirten anlamlı bir değer sağlayın.
 
       [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
-7. Web paketinden dosyaları dışlamak istiyorsanız, ekleme bir **ExcludeFromPackageFiles** öğesine **ItemGroup** öğesi:
+7. Dosyaları Web paketinden dışlamak istiyorsanız, **ItemGroup** öğesine bir **Excludefrompackagefiles** öğesi ekleyin:
 
-   1. İçinde **INCLUDE** özniteliği, hariç tutmak istediğiniz dosyaların noktalı virgülle ayrılmış bir listesini sağlayın.
-   2. İçinde **FromTarget** meta veri öğesi neden dosyaları, adı gibi dışlanan belirtmek için anlamlı bir değer sağlayın *. wpp.targets* dosya.
+   1. **Include** özniteliğinde, dışlamak istediğiniz dosyaların noktalı virgülle ayrılmış bir listesini sağlayın.
+   2. **Fromtarget** meta verileri öğesinde, dosyaların neden dışlandığını belirten, *. WPP. targets* dosyasının adı gibi anlamlı bir değer sağlayın.
 
       [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
-8. *[Proje adı].wpp.targets* dosya artık benzemelidir bu:
+8. *[Proje adı]. WPP. targets* dosyası artık şuna benzemelidir:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
-9. Kaydet ve Kapat *[Proje adı].wpp.targets* dosya.
+9. *[Proje adı]. WPP. targets* dosyasını kaydedin ve kapatın.
 
-Sonraki kez, derleme ve paketleme, web uygulaması projenizin WPP otomatik olarak algılar *. wpp.targets* dosya. Tüm dosya ve klasörler, belirttiğiniz web pakete dahil edilmez.
+Web uygulaması projenizi bir sonraki derleme ve paketleme sırasında, WPP *. WPP. targets* dosyasını otomatik olarak algılar. Belirttiğiniz tüm dosyalar ve klasörler Web paketine dahil edilmez.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda açıklanan özel bir oluşturarak bir web paketi oluşturduğunuzda, belirli dosyaları ve klasörleri dışlama *. wpp.targets* , web uygulama projesi dosyası ile aynı klasörde bir dosya.
+Bu konu, Web paketi oluştururken, Web uygulaması proje dosyanız ile aynı klasörde özel bir *. WPP. targets* dosyası oluşturarak belirli dosya ve klasörlerin nasıl hariç tutulacağı açıklanmaktadır.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Dağıtım işlemini denetlemek için özel Microsoft Build Engine (MSBuild) proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Paketleme ve dağıtım işlemi hakkında daha fazla bilgi için bkz. [oluşturma ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [Web paketi dağıtımı için yapılandırma parametreleri](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), ve [ Web paketleri dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md).
+Dağıtım işlemini denetlemek için özel Microsoft Build Engine (MSBuild) proje dosyalarını kullanma hakkında daha fazla bilgi için bkz. [Proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [derleme sürecini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Paketleme ve dağıtım işlemi hakkında daha fazla bilgi için bkz. [Web uygulaması projelerini oluşturma ve paketleme](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [Web paketi dağıtımı için parametreleri yapılandırma](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md)ve [Web paketleri dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-membership-databases-to-enterprise-environments.md)

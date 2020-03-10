@@ -2,23 +2,23 @@
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
 title: '[How Do I]: Persist the State of a User Control During a Postback | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris piksel içinde bir kullanıcı denetimi içinde bir veya daha fazla nesne durumunu sürdürülmesi gösterilmektedir. İlk olarak, bir kullanıcı denetimi abilit temsil eden oluşturuldu...
+description: Bu videoda, bir kullanıcı denetimindeki bir veya daha fazla nesnenin durumunun kalıcı hale getirilmesi gösterilmektedir. İlk olarak, şunu temsil eden bir kullanıcı denetimi oluşturulur...
 ms.author: riande
 ms.date: 04/02/2009
 ms.assetid: d1bca4c6-838c-40f7-87ec-80bb67e483e5
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
 msc.type: video
 ms.openlocfilehash: c87bd6c5c993a1bde8f8a84f6d53b431e54541d9
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59414783"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78635823"
 ---
-# <a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[Nasıl yapılır]: Geri Gönderme Sırasında Bir Kullanıcı Denetiminin Durumunu Kalıcı Hale Getirme
+# <a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[Nasıl Yapılır?]: geri gönderme sırasında Kullanıcı denetiminin durumunu kalıcı hale getirme
 
-tarafından [Chris piksel](https://twitter.com/chrispels)
+[Chris](https://twitter.com/chrispels) 'e göre
 
-Bu video Chris piksel içinde bir kullanıcı denetimi içinde bir veya daha fazla nesne durumunu sürdürülmesi gösterilmektedir. İlk olarak, bir kullanıcı denetimi için arama filtre ölçütlerini belirtmek bir kullanıcı özelliği temsil eden oluşturulur. Ayrıca, filtre bilgileri depolamak için bir yardımcı filtre sınıfı oluşturulur. Birkaç kullanıcı arabirimi öğeleri yanı sıra bazı yöntemleri ve özellikleri filtre sınıfı örneğinde geçerli filtre bilgilerini depolamak için filtre denetimi eklenir. Ardından, kullanıcı denetimi Kalıcılık RegisterRequiresControlState yöntemi ve ilişkili kaydedilemiyor/geri yöntemleri kullanılarak uygulanır. Bu yöntemler, sayfa geri gönderme sırasında filtre sınıf ve onun veri örneğini depolar. Son olarak, ayrıntılı bir denetim durumu uygulamada birden fazla nesne depolamak nasıl yoktur.
+Bu videoda, bir kullanıcı denetimindeki bir veya daha fazla nesnenin durumunun kalıcı hale getirilmesi gösterilmektedir. İlk olarak, bir kullanıcının arama için filtre ölçütü belirtme yeteneğini temsil eden bir kullanıcı denetimi oluşturulur. Ayrıca, filtre bilgilerini depolamak için bir yardımcı filtre sınıfı oluşturulur. Filtre denetimine çeşitli kullanıcı arabirimi öğeleri, filtre sınıfı örneğinde geçerli filtre bilgilerini depolamak için bazı yöntemler ve özelliklerle birlikte eklenir. Sonra, Kullanıcı denetimi kalıcılığı RegisterRequiresControlState yöntemi ve ilişkili Save/restore yöntemleri kullanılarak uygulanır. Bu yöntemler, sayfanın geri göndermeler sırasında filtre sınıfının ve verilerinin örneğini depolar. Son olarak, denetim durumu uygulamasında birden çok nesneyi depolamanın bir tartışması vardır.
 
-[&#9654;Videoyu (23 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-persist-the-state-of-a-user-control-during-a-postback)
+[&#9654;Videoyu izleyin (23 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-persist-the-state-of-a-user-control-during-a-postback)

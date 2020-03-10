@@ -1,24 +1,24 @@
 ---
 uid: web-pages/videos/introduction/use-the-layout-features-in-webmatrix
-title: Webmatrix'te düzen özelliklerini kullanma | Microsoft Docs
+title: WebMatrix 'teki düzen özelliklerini kullanma | Microsoft Docs
 author: rick-anderson
-description: 4. bölüm düzeni ve nasıl Düzen Webmatrix'te için ortak kod, sayfalar arasında kullanabileceğiniz öğretir.
+description: Bölüm 4 ' te size ve sayfalarınızda ortak kod için nasıl bir düzen kullanabileceğinizi öğretir.
 ms.author: riande
 ms.date: 04/12/2011
 ms.assetid: 37504e9f-3c62-41ac-88c3-9daf9fdd5d9a
 msc.legacyurl: /web-pages/videos/introduction/use-the-layout-features-in-webmatrix
 msc.type: video
 ms.openlocfilehash: bc4886f7b233f6d00f27265bd9f6570125d1fd86
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59378773"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78633093"
 ---
 # <a name="use-the-layout-features-in-webmatrix"></a>Webmatrix'teki Düzen Özelliklerini Kullanma
 
-tarafından [Advaiya](https://twitter.com/Advaiyasolns)
+[Advaiya](https://twitter.com/Advaiyasolns) tarafından
 
-4. bölüm düzeni ve nasıl Düzen Webmatrix'te için ortak kod, sayfalar arasında kullanabileceğiniz öğretir.
+Bölüm 4 ' te size ve sayfalarınızda ortak kod için nasıl bir düzen kullanabileceğinizi öğretir.
 
-[&#9654;(5 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-the-layout-features-in-webmatrix)
+[&#9654;Videoyu izleyin (5 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-the-layout-features-in-webmatrix)

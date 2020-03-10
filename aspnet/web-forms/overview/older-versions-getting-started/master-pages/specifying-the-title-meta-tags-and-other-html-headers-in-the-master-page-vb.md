@@ -9,11 +9,11 @@ ms.assetid: ea8196f5-039d-43ec-8447-8997ad4d3900
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 160af664cdf27f9ede1273aaf915da749a39ad48
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74637697"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78643075"
 ---
 # <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Ana Sayfada Başlık, Meta Etiketler ve Diğer HTML Üst Bilgilerini Belirtme (VB)
 
@@ -139,7 +139,7 @@ Artık `Page` sınıfı yerine özel temel sayfadan (`BasePage`) türetmek için
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample7.vb)]
 
-Kime:
+Hedef:
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample8.vb)]
 

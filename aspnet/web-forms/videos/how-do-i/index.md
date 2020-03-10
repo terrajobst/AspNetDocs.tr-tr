@@ -9,11 +9,11 @@ ms.assetid: 27591afa-3c14-47e6-8323-573f8f7aa862
 msc.legacyurl: /web-forms/videos/how-do-i
 msc.type: chapter
 ms.openlocfilehash: 12c988e64c5b724e04b6fc5f8eddc6a181764e1d
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65114918"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639988"
 ---
 # <a name="how-do-i"></a>Nasıl Yapılır
 
@@ -73,7 +73,7 @@ ms.locfileid: "65114918"
 - [ASP.NET Web Sayfalarında Tarayıcı Özelliklerini Algılama](how-do-i-detect-browser-capabilities-in-aspnet-web-pages.md)
 - [Bir ASP.NET Sunucu Denetimini, Denetimi İşlemek İçin Kullanılan Bağdaştırıcıyla Eşleştirme](how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it.md)
 - [Sorgu Dizesi Kullanarak Bir Sayfadan Diğerine Bilgi Geçirme](how-do-i-pass-information-from-one-page-to-another-using-a-query-string.md)
-- [ASP.NET kullanmak\_merge.exe birleştirme derlemelerine yardımcı programı](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
+- [Derlemeleri birleştirmek için ASPNET\_Merge. exe yardımcı programını kullanın](how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies.md)
 - [ASP.NET’te Sayfalar Arası Geri Gönderim Uygulama](how-do-i-implement-a-cross-page-postback-in-aspnet.md)
 - [Bir ASP.NET Web sayfasına Programlı Olarak Denetim Ekleme](how-do-i-add-controls-to-an-aspnet-web-page-programmatically.md)
 - [Gizli Alan Kullanarak İstemci Tarafı Bilgileri Depolama ve Düzenleme](how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information.md)

@@ -2,26 +2,26 @@
 uid: web-pages/videos/aspnet-razor-pages/adding-social-networking-to-your-website
 title: Web sitenize sosyal ağ ekleme | Microsoft Docs
 author: JoeStagner
-description: Ekleme sosyal ağ öğreticiye Web siteniz için video isteyenler
+description: Web sitenize sosyal ağ ekleme öğreticisine destekleyici video ekleyin
 ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 48df63a2-d43d-41c4-8143-9ef24ee22de9
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/adding-social-networking-to-your-website
 msc.type: video
 ms.openlocfilehash: 2b70b49e6af449222cb67e64ed9026091646e6a4
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59408881"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637279"
 ---
 # <a name="adding-social-networking-to-your-website"></a>Web Sitenize Sosyal Ağ Ekleme
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Ekleme sosyal ağ öğreticiye Web siteniz için video isteyenler
+Web sitenize sosyal ağ ekleme öğreticisine destekleyici video ekleyin
 
-[&#9654;Videoyu (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-social-networking-to-your-website)
+[&#9654;Videoyu izleyin (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/adding-social-networking-to-your-website)
 
 > [!div class="step-by-step"]
-> [Önceki](adding-search-to-your-web-site.md)
+> [Öncekini](adding-search-to-your-web-site.md)

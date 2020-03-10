@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/index
-title: Gridview'u geliştirme | Microsoft Docs
+title: GridView 'yi geliştirme | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticiler, tek bir satırı seçmek için kullanımı kolay bir yol sağlamak üzere bir GridView denetimi radyo düğmeleri içeren bir sütun eklemek nasıl gösterir.
+description: Bu öğreticiler, tek bir satır seçmek için sezgisel bir yol sağlamak üzere bir GridView denetimine radyo düğmelerinin bir sütununu nasıl ekleneceğini gösterir.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 80010898-5cb0-49ae-a678-cc2f3fe3ca6c
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview
 msc.type: chapter
 ms.openlocfilehash: d4664511d2464ed667e87bb3716aef2000def279
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65109502"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78607291"
 ---
 # <a name="enhancing-the-gridview"></a>GridView’u Geliştirme
 
-> Bu öğreticiler, tek bir satırı seçmek için kullanımı kolay bir yol sağlamak üzere bir GridView denetimi radyo düğmeleri içeren bir sütun eklemek nasıl gösterir.
+> Bu öğreticiler, tek bir satır seçmek için sezgisel bir yol sağlamak üzere bir GridView denetimine radyo düğmelerinin bir sütununu nasıl ekleneceğini gösterir.
 
 - [Radyo Düğmelerinden Oluşan GridView Sütunu Ekleme (C#)](adding-a-gridview-column-of-radio-buttons-cs.md)
 - [Onay Kutularından Oluşan GridView Sütunu Ekleme (C#)](adding-a-gridview-column-of-checkboxes-cs.md)

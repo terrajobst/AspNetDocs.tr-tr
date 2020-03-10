@@ -1,27 +1,27 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-tune-web-application-performance-with-profiling
-title: '[Bunu nasıl yaparım:] Profil oluşturma ile Web uygulamasının performansında ayar yapma? | Microsoft Docs'
+title: '[Nasıl yapılır:] Web uygulaması performansını profil oluşturma ile ayarlama | Microsoft Docs'
 author: rick-anderson
-description: 'Bu videoda, Visual Studio Team System Web uygulaması için profil oluşturma için iki yöntem sağladığını öğrenin: Örnekleme ve araçları. İzleme inje...'
+description: "Bu videoda, Visual Studio Team System 'in bir Web uygulamasının profilini oluşturmak için iki yöntem sağladığını öğreniyoruz: örnekleme ve Izleme. İzleme ınje..."
 ms.author: riande
 ms.date: 07/01/2007
 ms.assetid: ee916787-dbf2-45c5-a1e7-3b2b5862a94b
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-tune-web-application-performance-with-profiling
 msc.type: video
 ms.openlocfilehash: c6b78e6ff68509c5e16a0c7934b1332810cf58b3
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59422635"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639820"
 ---
-# <a name="how-do-i-tune-web-application-performance-with-profiling"></a>[Bunu nasıl yaparım:] Profil oluşturma ile Web uygulamasının performansında ayar yapma?
+# <a name="how-do-i-tune-web-application-performance-with-profiling"></a>[Nasıl yapılır:] Web uygulaması performansını profil oluşturma ile ayarlama
 
-tarafından [Chris Menegay](https://twitter.com/CMenegay)
+, [Chris Menegay](https://twitter.com/CMenegay)
 
-Bu videoda, Visual Studio Team System Web uygulaması için profil oluşturma için iki yöntem sağladığını öğrenin: Örnekleme ve araçları. Geliştirici uygulamanın yürütülmesi, çağrı ağaçları ve nesne ayırma, uygulama performansını ayarlamanıza yardımcı olmak için de dahil olmak üzere tam ayrıntılarını görüntüleyebilmek izleme arka plandaki kod işaretçilerini ekler.
+Bu videoda, Visual Studio Team System 'in bir Web uygulamasının profilini oluşturmak için iki yöntem sağladığını öğreniyoruz: örnekleme ve Izleme. Geliştirici, uygulamanın performansını ayarlamaya yardımcı olmak için çağrı ağaçları ve nesne ayırma dahil olmak üzere uygulamanın çalışmasının tam ayrıntılarını görüntüleyebilmesi için temel alınan koddaki işaretçileri yerleştirir.
 
-[&#9654;Videoyu (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-tune-web-application-performance-with-profiling)
+[&#9654;Videoyu izleyin (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-tune-web-application-performance-with-profiling)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-load-test-a-web-application.md)

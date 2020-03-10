@@ -9,11 +9,11 @@ ms.assetid: 5bb4587f-5bcd-44f5-b368-3c1709162b35
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
 ms.openlocfilehash: f2e2489ac8455913f55c746dbe05b9fe8272285b
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74590844"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78543017"
 ---
 # <a name="displaying-a-table-of-database-data-vb"></a>Veritabanı Verilerinin Tablosunu Görüntüleme (VB)
 
@@ -33,9 +33,9 @@ Film veritabanı tablosundan kayıt kümesini görüntüleyeceğiz. Filmler veri
 
 | **Sütun adı** | **Veri türü** | **Null değerlere izin ver** |
 | --- | --- | --- |
-| Numarasını | int | False |
+| Kimlik | int | False |
 | Başlık | Nvarchar (200) | False |
-| Ktörü | NVarchar (50) | False |
+| Direktörü | NVarchar (50) | False |
 | Davterekiralık | DateTime | False |
 
 ASP.NET MVC uygulamamızda film tablosunu göstermek için bir model sınıfı oluşturmanız gerekir. Bu öğreticide, model Sınıflarımızı oluşturmak için Microsoft Entity Framework kullanırız.

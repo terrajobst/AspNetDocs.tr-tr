@@ -1,123 +1,123 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
-title: ASP.NET Web API ile OData v4 sürümünde açık türler | Microsoft Docs
+title: ASP.NET Web API 'SI ile OData v4 'de açık türler | Microsoft Docs
 author: microsoft
-description: OData v4 sürümünde açık bir tür ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikler içeren yapılandırılmış bir türdür. Aç...
+description: OData v4 'de, açık bir tür, tür tanımında belirtilen özelliklerin yanı sıra dinamik özellikler içeren yapısal bir türdür. Aç...
 ms.author: riande
 ms.date: 09/15/2014
 ms.assetid: f25f5ac5-4800-4950-abe5-c97750a27fc6
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
 ms.openlocfilehash: 950442c071bf50d2c8c1588971f13f85c4891436
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108469"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78622180"
 ---
-# <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 sürümünde türleri açın
+# <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 'de açık türler
 
-tarafından [Microsoft](https://github.com/microsoft)
+[Microsoft](https://github.com/microsoft) tarafından
 
-> OData v4 sürümünde bir *açık tür* ek tür tanımında bildirilen herhangi bir özelliği olarak dinamik özellikler içeren yapılandırılmış bir türdür. Açık türler, veri modelleri için esneklik eklemenize olanak sağlar. Bu öğreticide, ASP.NET Web API OData açık türler kullanmayı gösterir.
+> OData v4 'de, *açık bir tür* , tür tanımında belirtilen özelliklerin yanı sıra dinamik özellikler içeren yapısal bir türdür. Açık türler, veri modellerinize esneklik eklemenizi sağlar. Bu öğreticide, ASP.NET Web API OData 'de açık türlerin nasıl kullanılacağı gösterilmektedir.
 > 
-> Bu öğreticide, ASP.NET Web API OData uç noktası oluşturma bildiğiniz varsayılır. Aksi takdirde, okuyarak başlamanız [bir OData v4 uç noktası oluşturma](create-an-odata-v4-endpoint.md) ilk.
+> Bu öğreticide, ASP.NET Web API 'sinde bir OData uç noktası oluşturmayı bildiğiniz varsayılmaktadır. Aksi takdirde, okumaya başlamak için önce [bir OData v4 uç noktası oluşturun](create-an-odata-v4-endpoint.md) .
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
 > 
 > 
-> - Web API OData 5.3
+> - Web API OData 5,3
 > - OData v4
 
-İlk olarak, bazı OData terimler:
+Birincisi, bazı OData terminolojisi:
 
-- Varlık türü: Bir anahtar ile yapılandırılmış bir tür.
-- Karmaşık tür: Bir anahtar olmadan yapılandırılmış bir tür.
-- Açık tür: Dinamik özelliklere sahip bir tür. Hem varlık türlerinde ve karmaşık türler, açık olabilir.
+- Varlık türü: anahtarı olan yapılandırılmış bir tür.
+- Karmaşık tür: anahtar içermeyen yapılandırılmış bir tür.
+- Açık tür: dinamik özelliklere sahip bir tür. Hem varlık türleri hem de karmaşık türler açık olabilir.
 
-Dinamik özelliğinin değeri, bir basit tür, karmaşık tür veya numaralandırma türü olabilir; veya bu türlerinden herhangi birinin bir koleksiyon. Açık türler hakkında daha fazla bilgi için bkz: [OData v4 belirtimi](http://www.odata.org/documentation/odata-version-4-0/).
+Dinamik bir özelliğin değeri basit bir tür, karmaşık tür veya numaralandırma türü olabilir; ya da bu türlerden birinin bir koleksiyonu. Açık türler hakkında daha fazla bilgi için bkz. [OData v4 belirtimi](http://www.odata.org/documentation/odata-version-4-0/).
 
-## <a name="install-the-web-odata-libraries"></a>Web OData kitaplıklarını yükleme
+## <a name="install-the-web-odata-libraries"></a>Web OData kitaplıklarını yükler
 
-NuGet paketi en son Web API OData kitaplıklarını yüklemek için Yöneticisi'ni kullanın. Paket Yöneticisi konsol penceresinden:
+En son Web API OData kitaplıklarını yüklemek için NuGet Paket Yöneticisi 'Ni kullanın. Paket Yöneticisi konsol penceresinde:
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample1.cmd)]
 
-## <a name="define-the-clr-types"></a>CLR türlerini tanımlayın
+## <a name="define-the-clr-types"></a>CLR türlerini tanımlama
 
-EDM modeli CLR türleri olarak tanımlayarak başlatın.
+EDM modellerini CLR türleri olarak tanımlayarak başlayın.
 
 [!code-csharp[Main](use-open-types-in-odata-v4/samples/sample2.cs)]
 
-Varlık veri modeli (EDM) oluşturulduğunda
+Varlık Veri Modeli (EDM) oluşturulduğunda,
 
 - `Category` bir sabit listesi türüdür.
-- `Address` karmaşık bir türdür. (Bir varlık türü, yani, bir anahtar yok.)
-- `Customer` bir varlık türüdür. (Bir anahtarı yok.)
-- `Press` bir açık karmaşık bir türdür.
-- `Book` bir açık varlık türüdür.
+- `Address` karmaşık bir türdür. (Bir anahtarı yoktur, bu nedenle bir varlık türü değildir.)
+- `Customer` bir varlık türüdür. (Bir anahtarı vardır.)
+- `Press` açık bir karmaşık türdür.
+- `Book` açık bir varlık türüdür.
 
-Açık bir tür oluşturmak için CLR türü türünün bir özelliği olmalıdır `IDictionary<string, object>`, dinamik özelliklerini içerir.
+Açık bir tür oluşturmak için CLR türünün, dinamik özellikleri tutan `IDictionary<string, object>`türünde bir özelliği olmalıdır.
 
-## <a name="build-the-edm-model"></a>EDM modeli oluşturun
+## <a name="build-the-edm-model"></a>EDM modelini oluşturma
 
-Kullanırsanız **ODataConventionModelBuilder** EDM oluşturmak için `Press` ve `Book` varlığını temel alarak açık türler olarak otomatik olarak eklenen bir `IDictionary<string, object>` özelliği.
+EDM 'yi oluşturmak için **ODataConventionModelBuilder** kullanıyorsanız, `Press` ve `Book`, bir `IDictionary<string, object>` özelliğinin varlığına göre otomatik olarak açık türler olarak eklenir.
 
 [!code-csharp[Main](use-open-types-in-odata-v4/samples/sample3.cs)]
 
-Ayrıca EDM açıkça kullanarak oluşturabilirsiniz **ODataModelBuilder**.
+Ayrıca, **ODataModelBuilder**kullanarak EDM 'yi açıkça de oluşturabilirsiniz.
 
 [!code-csharp[Main](use-open-types-in-odata-v4/samples/sample4.cs)]
 
-## <a name="add-an-odata-controller"></a>Bir OData denetleyicisi Ekle
+## <a name="add-an-odata-controller"></a>OData denetleyicisi ekleme
 
-Ardından, bir OData denetleyicisi ekleyin. Bu öğretici için yalnızca destekler alma POST istekleri ve varlıkları depolamak için bir bellek içi listesini kullanır, Basitleştirilmiş bir denetleyici kullanacağız.
+Ardından, bir OData denetleyicisi ekleyin. Bu öğreticide, yalnızca GET ve POST isteklerini destekleyen ve varlıkları depolamak için bellek içi bir liste kullanan Basitleştirilmiş bir denetleyici kullanacağız.
 
 [!code-csharp[Main](use-open-types-in-odata-v4/samples/sample5.cs)]
 
-Dikkat ilk `Book` örneğinin dinamik özellik vardır. İkinci `Book` örneği aşağıdaki dinamik özelliklere sahiptir:
+İlk `Book` örneğinin dinamik özellikleri olmadığına dikkat edin. İkinci `Book` örneği aşağıdaki dinamik özelliklere sahiptir:
 
-- "Yayımlanmış": temel tür
-- "Yazar": İlkel türler koleksiyonu
-- "OtherCategories": Numaralandırma türleri koleksiyonu.
+- "Yayımlandı": temel tür
+- "Yazarlar": temel türlerin koleksiyonu
+- "Diğer kategoriler": sabit listesi türleri koleksiyonu.
 
-Ayrıca, `Press` , söz konusu özellik `Book` örneği aşağıdaki dinamik özelliklere sahiptir:
+Ayrıca, bu `Book` örneğinin `Press` özelliği aşağıdaki dinamik özelliklere sahiptir:
 
 - "Blog": temel tür
-- "Address": Karmaşık tür
+- "Adres": karmaşık tür
 
-## <a name="query-the-metadata"></a>Meta verileri Sorgulama
+## <a name="query-the-metadata"></a>Meta verileri sorgulama
 
-OData meta veri belgesi almak için GET isteğini göndermek `~/$metadata`. Yanıt gövdesi, şuna benzer görünmelidir:
+OData meta veri belgesini almak için `~/$metadata`için bir GET isteği gönderin. Yanıt gövdesi şuna benzer görünmelidir:
 
 [!code-xml[Main](use-open-types-in-odata-v4/samples/sample6.xml?highlight=5,21)]
 
-Meta veri belgeden görebilirsiniz:
+Meta veri belgesinden şunları görebilirsiniz:
 
-- İçin `Book` ve `Press` türleri, değerini `OpenType` öznitelik değeri true. `Customer` Ve `Address` türleri bu özniteliği yok.
-- `Book` Varlık türünde üç bildirilmiş özellikleri: ISBN, başlık ve tuşuna basın. OData meta veri içermemesi `Book.Properties` CLR sınıftaki özellik.
-- Benzer şekilde, `Press` karmaşık tür yalnızca iki bildirilen özelliklere sahiptir: Adı ve kategori. Meta veriler içermemesi `Press.DynamicProperties` CLR sınıftaki özellik.
+- `Book` ve `Press` türleri için `OpenType` özniteliğinin değeri true 'dur. `Customer` ve `Address` türlerinde bu öznitelik yok.
+- `Book` varlık türü üç tanımlı özelliğe sahiptir: ıSBN, title ve Press. OData meta verileri CLR sınıfından `Book.Properties` özelliğini içermez.
+- Benzer şekilde, `Press` karmaşık tür yalnızca iki tane tanımlanmış özelliğe sahiptir: ad ve kategori. Meta veriler CLR sınıfından `Press.DynamicProperties` özelliğini içermez.
 
-## <a name="query-an-entity"></a>Sorgu bir varlık
+## <a name="query-an-entity"></a>Bir varlığı sorgulama
 
-ISBN defteriyle "978-0-7356-7942-9" eşit almak için GET isteğini göndermek `~/Books('978-0-7356-7942-9')`. Yanıt gövdesi, aşağıdakine benzer görünmelidir. (Daha okunabilir yapmak için girintili.)
+ISBN ile "978-0-7356-7942-9" değerine eşit olan kitabı almak için `~/Books('978-0-7356-7942-9')`için bir GET isteği gönderin. Yanıt gövdesi şuna benzer olmalıdır. (Daha okunaklı olması için girintilenir.)
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample7.cmd?highlight=8-13,15-23)]
 
-Dinamik özellikler satır içi bildirilen özelliklere sahip olduğuna dikkat edin.
+Dinamik özelliklerin, belirtilen özelliklerle birlikte satır içine dahil edildiğini unutmayın.
 
-## <a name="post-an-entity"></a>Bir varlık gönderin
+## <a name="post-an-entity"></a>Bir varlık GÖNDERIN
 
-Bir kitap varlığı eklemek için bir POST isteği gönderin `~/Books`. İstemci istek yükünde dinamik özellikleri ayarlayabilirsiniz.
+Bir kitap varlığı eklemek için `~/Books`bir POST isteği gönderin. İstemci, istek yükünde dinamik özellikleri ayarlayabilir.
 
-İşte bir örnek istek. "Price" ve "Yayımlanmış" özellikleri unutmayın.
+Örnek bir istek aşağıda verilmiştir. "Price" ve "yayınlanan" özelliklerine göz önünde edin.
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample8.cmd?highlight=10)]
 
-Denetleyici yöntemde bir kesme noktası ayarlarsanız, Web API'si için bu özellikleri eklendi görebilirsiniz `Properties` sözlüğü.
+Denetleyici yönteminde bir kesme noktası ayarlarsanız, Web API 'sinin bu özellikleri `Properties` sözlüğüne eklediğine bakabilirsiniz.
 
 ![](use-open-types-in-odata-v4/_static/image1.png)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[OData açık tür örneği](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataOpenTypeSample/ReadMe.txt)
+[OData açık türü örneği](http://aspnet.codeplex.com/sourcecontrol/latest#Samples/WebApi/OData/v4/ODataOpenTypeSample/ReadMe.txt)

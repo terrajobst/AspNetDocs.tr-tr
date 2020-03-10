@@ -2,23 +2,23 @@
 uid: web-forms/videos/building-35-applications/login-controls
 title: Oturum açma denetimleri | Microsoft Docs
 author: JoeStagner
-description: Bu video ALi bazı oturum açma denetimlerini ASP.NET'te nasıl kullanıldığını göstererek ASP.NET üyelik başlatacaktır.
+description: Bu videoda, ASP.NET ' de bazı oturum açma denetimlerinden nasıl kullanacağınızı göstererek ASP.NET üyelik bilgilerini bulabilirsiniz.
 ms.author: riande
 ms.date: 06/04/2009
 ms.assetid: 20dcff15-d8e3-4fee-942e-50fd8bc02e14
 msc.legacyurl: /web-forms/videos/building-35-applications/login-controls
 msc.type: video
 ms.openlocfilehash: 61ae8f7cbf976dde326ebd51e4f7c97f600b6afd
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59419424"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78563702"
 ---
 # <a name="login-controls"></a>Oturum Açma Denetimleri
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu video ALi bazı oturum açma denetimlerini ASP.NET'te nasıl kullanıldığını göstererek ASP.NET üyelik başlatacaktır.
+Bu videoda, ASP.NET ' de bazı oturum açma denetimlerinden nasıl kullanacağınızı göstererek ASP.NET üyelik bilgilerini bulabilirsiniz.
 
-[&#9654;(10 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/login-controls)
+[&#9654;Videoyu izleyin (10 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/login-controls)

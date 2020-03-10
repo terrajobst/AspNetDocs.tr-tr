@@ -9,11 +9,11 @@ ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: d8af9c8e7ee1316a5eac90c5959d07c628154e09
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600447"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78557934"
 ---
 # <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>Visual Studio 2013 için ASP.NET and Web Tools Sürüm Notları
 
@@ -82,12 +82,12 @@ Visual Studio 2013 yeni Web projeleri oluşturma deneyimini geliştirdik. **Yeni
 
 Yeni iletişim kutusu, şablonların birçoğu için varsayılan kimlik doğrulama seçeneklerini değiştirmenize olanak sağlar. Örneğin, bir ASP.NET Web Forms projesi oluşturduğunuzda, aşağıdaki seçeneklerden herhangi birini seçebilirsiniz:
 
-- Kimlik doğrulaması yok
+- Kimlik Doğrulaması Yok
 - Bireysel kullanıcı hesapları (ASP.NET üyeliği veya sosyal sağlayıcı oturum açma)
 - Kuruluş hesapları (bir Internet uygulamasındaki Active Directory)
 - Windows kimlik doğrulaması (bir intranet uygulamasında Active Directory)
 
-![Kimlik doğrulama seçenekleri](release-notes/_static/image2.png)
+![Kimlik doğrulaması seçenekleri](release-notes/_static/image2.png)
 
 Web projeleri oluşturmaya yönelik yeni süreç hakkında daha fazla bilgi için, bkz. [Visual Studio 2013 ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md). Yeni kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bu belgede daha sonra [ASP.NET Identity](#TOC8) bölümüne bakın.
 
@@ -218,7 +218,7 @@ ASP.NET Web API 'SI artık, [http://attributerouting.net](http://attributeroutin
 
 Öznitelik yönlendirme hakkında daha fazla bilgi için bkz. [Web API 2 ' de öznitelik yönlendirme](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md).
 
-### <a name="oauth-20"></a>OAuth 2,0
+### <a name="oauth-20"></a>OAuth 2.0
 
 Web API 'SI ve tek sayfalı uygulama proje şablonları artık OAuth 2,0 kullanarak yetkilendirmeyi destekliyor. OAuth 2,0, korumalı kaynaklara istemci erişimini yetkilendirmek için bir çerçevedir. Tarayıcılar ve mobil cihazlar dahil olmak üzere çeşitli istemciler için geçerlidir.
 
@@ -266,7 +266,7 @@ Artık ASP.NET Web API Istemcisini kullanarak Windows Mağazası 'nda çalışan
 
 Web API 2, API denetleyicilerinizi birim testi yapmayı çok daha kolay hale getirir. API denetleyicinizi istek iletinizi ve yapılandırmanızla birlikte oluşturmanız ve ardından test etmek istediğiniz eylem yöntemini çağırmanız yeterlidir. Ayrıca, bağlantı oluşturma işlemini gerçekleştiren eylem yöntemleri için **UrlHelper** sınıfını da kolayca yapılandırabilirsiniz.
 
-### <a name="ihttpactionresult"></a>Ihttpactionresult
+### <a name="ihttpactionresult"></a>IHttpActionResult
 
 Artık, Web API 'SI eylem yöntemlerinizin sonucunu kapsüllemek için ıhttpactionresult öğesini uygulayabilirsiniz. Bir Web API 'SI eylem yönteminden döndürülen bir ıhttpactionresult, sonuç yanıt iletisini oluşturmak için ASP.NET Web API çalışma zamanı tarafından yürütülür. Web API uygulamanızın birim testlerini basitleştirmek için herhangi bir Web API eyleminden bir ıhttpactionresult döndürülür. Kolaylık olması için, belirli durum kodlarının, biçimlendirilen içeriğin veya içeriğe dayalı yanıtların döndürülmesinin sonuçları dahil olmak üzere çok sayıda ıhttpactionresult uygulaması sunulmaktadır.
 
@@ -280,7 +280,7 @@ Yeni **Httprequestcontext** , isteğe bağlı olan ancak istekten hemen kullanı
 
 Brock Allen 'dan başka harika bir katkı sayesinde, ASP.NET artık çapraz kaynak Istek paylaşımını (CORS) tam olarak desteklemektedir.
 
-Tarayıcı güvenliği, bir Web sayfasının başka bir etki alanına AJAX istekleri yapmasını engeller. [CORS](http://www.w3.org/TR/cors/) , bir sunucunun aynı kaynaklı ilkeyi rahat bir şekilde sağlamasına izin veren bir W3C standardıdır. CORS kullanarak, bir sunucu bazı çapraz kaynak isteklerine, diğerlerini reddetirken açık bir şekilde izin verebilir.
+Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. [CORS](http://www.w3.org/TR/cors/) , bir sunucunun aynı kaynaklı ilkeyi rahat bir şekilde sağlamasına izin veren bir W3C standardıdır. CORS kullanarak, bir sunucu bazı çapraz kaynak isteklerine, diğerlerini reddetirken açık bir şekilde izin verebilir.
 
 Web API 2 artık, ön kontrol isteklerini otomatik olarak işleme dahil olmak üzere CORS 'yi desteklemektedir. Daha fazla bilgi için bkz. [ASP.NET Web API 'Sinde çapraz kaynak Isteklerini etkinleştirme](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md).
 
@@ -659,7 +659,7 @@ Bu bölümde, Visual Studio 2013 için ASP.NET and Web Tools bilinen sorunlar ve
 
     `@Html.EditorFor(person => person.Age)`
 
-    Kime:
+    Hedef:
 
     `@Html.TextBoxFor(person => person.Age)`
 4. ASP.NET MVC 5 artık kısmi güveni desteklemiyor. MVC veya WebAPI ikililerini bağlayan projeler [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) özniteliğini ve [Allowpartiallytrustedçağıranlar](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) özniteliğini kaldırmalıdır. Bu özniteliklerin kaldırılması, aşağıdaki gibi derleyici hatalarını ortadan kaldıracak.

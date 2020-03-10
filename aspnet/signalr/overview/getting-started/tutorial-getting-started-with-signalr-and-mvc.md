@@ -10,28 +10,28 @@ msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-s
 msc.type: authoredcontent
 ms.topic: tutorial
 ms.openlocfilehash: 5671e4f0123ca2b0cb5314336cf4411467feac70
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74600481"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78537046"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>Öğretici: SignalR 2 ve MVC 5 ile gerçek zamanlı sohbet
 
 Bu öğreticide, gerçek zamanlı bir sohbet uygulaması oluşturmak için ASP.NET SignalR 2 ' nin nasıl kullanılacağı gösterilmektedir. Bir MVC 5 uygulamasına SignalR ekleyin ve ileti göndermek ve görüntülemek için bir sohbet görünümü oluşturun.
 
-Bu öğreticide şunları yapabilirsiniz:
+Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * Projeyi ayarlama
-> * Örneği çalıştırın
-> * Kodu inceleyin
+> * Örneği çalıştırma
+> * Kodu inceleme
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Önkoşullar
 
-* **ASP.net ve Web geliştirme** iş yüküyle [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) .
+* [ASP.NET ve web geliştirme](https://visualstudio.microsoft.com/downloads/) iş yüküyle **Visual Studio 2017**.
 
 ## <a name="set-up-the-project"></a>Projeyi ayarlama
 
@@ -176,7 +176,7 @@ Bu kod, hub ile bir bağlantı açar.
 
 Kod bağlantıyı başlatır ve ardından sohbet sayfasındaki **Gönder** düğmesine tıklama olayını işlemek için bir işlev geçirir.
 
-## <a name="get-the-code"></a>Kodu alın
+## <a name="get-the-code"></a>Kodu alma
 
 [Tamamlanmış projeyi indir](https://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
@@ -192,7 +192,7 @@ SignalR hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları yapabilirsiniz:
+Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
 > * Projeyi ayarlama

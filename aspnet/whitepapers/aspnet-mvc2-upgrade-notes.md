@@ -1,50 +1,50 @@
 ---
 uid: whitepapers/aspnet-mvc2-upgrade-notes
-title: Bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme | Microsoft Docs
+title: ASP.NET MVC 1,0 uygulamasını ASP.NET MVC 2 ' ye yükseltme | Microsoft Docs
 author: rick-anderson
-description: Bu belge hem açıklar el ile ve bir Sihirbazı ile bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 sürümüne yükseltme yapmayı. Bu belge, d için de kullanılabilir...
+description: Bu belgede hem el ile yükseltme hem de bir sihirbaz ile ASP.NET MVC 1,0 uygulaması ile ASP.NET MVC 2 açıklanır. Bu belge d... için de kullanılabilir.
 ms.author: riande
 ms.date: 04/08/2010
 ms.assetid: f1a01759-d251-4b09-8835-e112e336c6dd
 msc.legacyurl: /whitepapers/aspnet-mvc2-upgrade-notes
 msc.type: content
 ms.openlocfilehash: 27589f1b1c9d5038118e5ff0cc2e7cecae17d5ed
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65125690"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637020"
 ---
 # <a name="upgrading-an-aspnet-mvc-10-application-to-aspnet-mvc-2"></a>Bir ASP.NET MVC 1.0 Uygulamasını ASP.NET MVC 2 Sürümüne Yükseltme
 
-> Bu belge hem açıklar el ile ve bir Sihirbazı ile bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 sürümüne yükseltme yapmayı. Bu belge için de kullanılabilir olan [indirin](https://download.microsoft.com/download/F/1/6/F16F9AF9-8EF4-4845-BC97-639791D5699C/MVC2-Upgrade-Notes.pdf)
+> Bu belgede hem el ile yükseltme hem de bir sihirbaz ile ASP.NET MVC 1,0 uygulaması ile ASP.NET MVC 2 açıklanır. Bu belge [Indirileceği](https://download.microsoft.com/download/F/1/6/F16F9AF9-8EF4-4845-BC97-639791D5699C/MVC2-Upgrade-Notes.pdf) için de kullanılabilir
 
 ## <a name="introduction"></a>Giriş
 
-ASP.NET MVC 2 aynı sunucuda ASP.NET MVC 1.0 ile yan yana yüklenebilir. Bu ne zaman bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme seçme içinde uygulama geliştiricilerin esnekliği sağlar.
+ASP.NET MVC 2 aynı sunucuda ASP.NET MVC 1,0 ile yan yana yüklenebilir. Bu, ASP.NET MVC 1,0 uygulamasının ASP.NET MVC 2 ' ye ne zaman yükseltileceğini seçerken uygulama geliştiricileri esnekliği sağlar.
 
-Visual Studio 2010, Visual Studio 2008 ASP.NET MVC 2 ile oluşturulan mevcut bir ASP.NET MVC 1.0 projeleri, bu yükseltme bir sihirbaz içerir. Visual Studio 2010'da bir ASP.NET MVC 1.0 projesi açarak Yükseltme Sihirbazı başlatılır.
+Visual Studio 2010, Visual Studio 2008 ile oluşturulan mevcut ASP.NET MVC 1,0 projelerini ASP.NET MVC 2 ' ye yükselten bir sihirbaz içerir. Yükseltme Sihirbazı, Visual Studio 2010 ' de bir ASP.NET MVC 1,0 projesi açılarak başlatılır.
 
-## <a name="upgrade-wizard-for-aspnet-mvc-10-on-visual-studio-2008-sp1"></a>ASP.NET MVC 1.0 Visual Studio 2008 SP1 için Sihirbazı'nı yükseltme
+## <a name="upgrade-wizard-for-aspnet-mvc-10-on-visual-studio-2008-sp1"></a>Visual Studio 2008 SP1 üzerinde ASP.NET MVC 1,0 için Yükseltme Sihirbazı
 
-Bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2'de Visual Studio 2008 SP1 için yükseltme için (desteklenmeyen) MvcAppConverter uygulamasını kullanın. Bu uygulama aşağıdaki URL'den indirebilirsiniz:
+ASP.NET MVC 1,0 uygulamasını Visual Studio 2008 SP1 'de ASP.NET MVC 2 ' ye yükseltmek için (desteklenmeyen) MvcAppConverter uygulamasını kullanın. Bu uygulamayı Şu URL 'den indirebilirsiniz:
 
 [https://go.microsoft.com/fwlink/?LinkID=185351](https://go.microsoft.com/fwlink/?LinkID=185351)
 
-## <a name="manually-upgrading-an-aspnet-mvc-10-project"></a>Bir ASP.NET MVC 1.0 projesini el ile yükseltme
+## <a name="manually-upgrading-an-aspnet-mvc-10-project"></a>ASP.NET MVC 1,0 projesini el ile yükseltme
 
-Sürüm 2 mevcut bir ASP.NET MVC 1.0 uygulamasına el ile yükseltmek için aşağıdaki adımları izleyin:
+Mevcut bir ASP.NET MVC 1,0 uygulamasını sürüm 2 ' ye el ile yükseltmek için aşağıdaki adımları izleyin:
 
-1. Varolan projeyi bir yedeğini alın.
-2. Bir metin düzenleyicisinde proje dosyasını (.csproj veya .vbproj dosyası uzantılı dosya) açın ve ProjectTypeGuid öğesini bulun. Bu öğenin değeri ' % s'GUID {603c0e0b-db56-11dc-be95-000d561079b0} {F85E285D-A4E0-4152-9332-AB1D724D3325} ile değiştirin. İşiniz bittiğinde bu öğenin değeri şu şekilde olmalıdır: 
+1. Mevcut projenin yedeğini alın.
+2. Bir metin düzenleyicisinde, proje dosyasını (. csproj veya. vbproj dosyası uzantılı dosya) açın ve ProjectTypeGuid öğesini bulun. Bu öğenin değeri olarak, {603c0e0b-db56-11dc-be95-000d561079b0} DEĞERINI {F85E285D-A4E0-4152-9332-AB1D724D3325} ile değiştirin. İşiniz bittiğinde, bu öğenin değeri şu şekilde olmalıdır: 
 
     `{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}`
-3. Web uygulaması kök klasöründe, Web.config dosyasını düzenleyin. Arama System.Web.Mvc, sürüm 1.0.0.0 = ve System.Web.Mvc, sürüm tüm örneklerinin yerine 2.0.0.0 =.
-4. Görünümleri klasöründe yer alan Web.config dosyası için önceki adımı yineleyin.
-5. Visual Studio kullanarak projeyi açın ve **Çözüm Gezgini**, genişletme **başvuruları** düğümü. (Sürüm 1.0 derlemeye işaret eden) System.Web.Mvc başvuruyu silin. System.Web.Mvc (v2.0.0.0) bir başvuru ekleyin.
-6. BindingRedirect öğesi configuraton bölümünde uygulama kök Web.config dosyasına ekleyin:   
+3. Web uygulaması kök klasöründe, Web. config dosyasını düzenleyin. System. Web. Mvc, Version = 1.0.0.0 araması yapın ve tüm örnekleri System. Web. Mvc, Version = 2.0.0.0 ile değiştirin.
+4. Görünümler klasöründe bulunan Web. config dosyası için önceki adımı yineleyin.
+5. Visual Studio 'Yu kullanarak projeyi açın ve **Çözüm Gezgini**' de **Başvurular** düğümünü genişletin. System. Web. Mvc başvurusunu silin (sürüm 1,0 derlemesini işaret eder). System. Web. Mvc (v 2.0.0.0) öğesine bir başvuru ekleyin.
+6. Aşağıdaki bindingRedirect öğesini yapılandırma bölümünün altındaki uygulama kökündeki Web. config dosyasına ekleyin:   
 
     [!code-xml[Main](aspnet-mvc2-upgrade-notes/samples/sample1.xml)]
-7. Yeni ve boş bir ASP.NET MVC 2 uygulaması oluşturun. Dosyaları, betikler klasörüne yeni uygulamaya mevcut uygulamanın betikleri klasörden kopyalayın.
-8. Güncelleştirme mevcut applicationâ€™ s CSS dosyası Site.css dosyasında CSS stil tanımları ile.
-9. Uygulamayı derleyin ve çalıştırın. Herhangi bir hata oluşursa, bozucu değişiklikleri bölümüne bakın. [ASP.NET MVC 2'deki yenilikler](https://go.microsoft.com/fwlink/?LinkID=185038) sayfası.
+7. Yeni boş bir ASP.NET MVC 2 uygulaması oluşturun. Dosyaları yeni uygulamanın betikler klasöründen mevcut uygulamanın betikler klasörüne kopyalayın.
+8. Mevcut applicationâ €™ s CSS dosyasını, site. CSS dosyasındaki CSS stili tanımlarıyla güncelleştirin.
+9. Uygulamayı derleyin ve çalıştırın. Herhangi bir hata oluşursa, [ASP.NET MVC 2 ' deki](https://go.microsoft.com/fwlink/?LinkID=185038) yenilikler sayfasındaki son değişiklikler bölümüne bakın.

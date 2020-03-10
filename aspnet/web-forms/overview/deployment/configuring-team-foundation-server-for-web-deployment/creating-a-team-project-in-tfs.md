@@ -1,201 +1,201 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
-title: TFS'de bir takım projesi oluşturma | Microsoft Docs
+title: TFS 'de bir takım projesi oluşturma | Microsoft Docs
 author: jrjlee
-description: Bu konu, Team Foundation Server (TFS) 2010 yeni bir takım projesi oluşturmayı açıklar.
+description: Bu konu, Team Foundation Server (TFS) 2010 ' de yeni bir takım projesi oluşturmayı açıklar.
 ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: b28d3e2d-0bb4-4e29-a780-af810b964722
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
 ms.openlocfilehash: d12e0636ce3b6239d125305db4354278f9f24960
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65108768"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78639659"
 ---
 # <a name="creating-a-team-project-in-tfs"></a>TFS’de Takım Projesi Oluşturma
 
-tarafından [Jason Lee](https://github.com/jrjlee)
+[Jason Lee](https://github.com/jrjlee) tarafından
 
-[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF 'YI indir](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konu, Team Foundation Server (TFS) 2010 yeni bir takım projesi oluşturmayı açıklar.
+> Bu konu, Team Foundation Server (TFS) 2010 ' de yeni bir takım projesi oluşturmayı açıklar.
 
-Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
+Bu konu, Fabrikam, Inc adlı kurgusal bir şirketin Kurumsal Dağıtım gereksinimlerini temel alarak bir öğretici serisinin bir parçasını oluşturur. Bu öğretici serisi, bir ASP.NET MVC&#x2014;3 uygulaması, Windows Communication Foundation (WCF) hizmeti ve bir veritabanı projesi dahil, gerçekçi bir karmaşıklık düzeyine sahip bir Web uygulamasını temsil etmek üzere bir örnek çözüm olan [Contact Manager çözümünü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;kullanır.
 
-## <a name="task-overview"></a>Görev genel bakış
+## <a name="task-overview"></a>Göreve genel bakış
 
-Sağlama ve TFS'de yeni bir takım projesi kullanmak için üst düzey adımları tamamlamanız gerekir:
+TFS 'de yeni bir takım projesi sağlamak ve kullanmak için, bu üst düzey adımları gerçekleştirmeniz gerekir:
 
-- Yeni takım projesi oluşturacak kullanıcıya izinleri verin.
+- Yeni takım projesini oluşturacak kullanıcıya izin verin.
 - Takım projesi oluşturun.
-- Proje üzerinde çalışan takım üyelerine izinler verir.
-- Bazı içeriği teslim edin.
+- Proje üzerinde çalışacak takım üyelerine izin verin.
+- Bazı içerikleri iade edin.
 
-Kullanıcılar ve büyük olasılıkla her yordam için sorumlu olan iş roller tanımlayacak ve bu konuda bu yordamları gerçekleştirmek nasıl gösterilir. Kuruluşunuzun yapısına bağlı olarak, bu görevlerin her biri farklı bir kişiyle sorumluluğu olabileceğini unutmayın.
+Bu konu, bu yordamların nasıl gerçekleştirileceğini gösterir ve her yordamdan sorumlu olabilecek Kullanıcı ve iş rollerini belirler. Kuruluşunuzun yapısına bağlı olarak, bu görevlerin her biri farklı bir kişinin sorumluluğunda olabileceğini unutmayın.
 
-Görevler ve bu konudaki yönergeler yüklemiş ve TFS yapılandırılmış olduğunu ve bir takım projesi koleksiyonu yapılandırma işleminin bir parçası olarak oluşturduğunuz varsayılır. Bu varsayımları hakkında daha fazla bilgi ve senaryo daha genel bilgiler için bkz: [bir TFS derleme sunucusunu Web dağıtımı için yapılandırma](configuring-a-tfs-build-server-for-web-deployment.md).
+Bu konudaki görevler ve izlenecek yollar, TFS 'yi yüklediğinizi ve yapılandırdığınızı ve yapılandırma sürecinin bir parçası olarak bir takım projesi koleksiyonu oluşturduğunuzu varsayar. Bu varsayımlar hakkında daha fazla bilgi edinmek ve senaryo hakkında daha genel arka plan bilgileri için bkz. [Web dağıtımı IÇIN TFS Build Server yapılandırma](configuring-a-tfs-build-server-for-web-deployment.md).
 
-## <a name="grant-permissions-to-the-team-project-creator"></a>Takım projesi oluşturucusu için izinler
+## <a name="grant-permissions-to-the-team-project-creator"></a>Takım projesi oluşturucusuna Izin verme
 
-Yeni takım projesi oluşturmak için bu izinlere ihtiyacınız vardır:
+Yeni bir takım projesi oluşturmak için bu izinlere ihtiyacınız vardır:
 
-- Olmalıdır **yeni projeler oluştur** TFS uygulama katmanı izni. Genellikle kullanıcılar ekleyerek bu izni verirsiniz **proje koleksiyonu yöneticileri** TFS grubu. **Team Foundation Yöneticileri** genel grubu, bu izni de içerir.
-- TFS takım projesi koleksiyonuna karşılık gelen SharePoint site koleksiyonu içindeki yeni ekip siteleri oluşturmak için izniniz olmalıdır. Genellikle kullanıcı bir SharePoint grubuna ekleyerek bu izni verirsiniz **tam denetim** haklarını SharePoint site koleksiyonu.
-- SQL Server Reporting Services özelliklerini kullanıyorsanız, bir üyesi olmanız gerekir **Team Foundation İçerik Yöneticisi** Raporlama Hizmetleri'ndeki rol.
+- TFS uygulama katmanında **Yeni proje oluştur** izninizin olması gerekir. Bu izni genellikle **proje koleksiyonu yöneticileri** TFS grubuna kullanıcı ekleyerek verirsiniz. **Team Foundation yöneticileri** genel grubu da bu izni içerir.
+- TFS takım projesi koleksiyonuna karşılık gelen SharePoint site koleksiyonu içinde yeni ekip siteleri oluşturmak için izninizin olması gerekir. Bu izni genellikle, kullanıcıyı SharePoint site koleksiyonunda **tam denetim** haklarına sahip bir SharePoint grubuna ekleyerek verirsiniz.
+- SQL Server Reporting Services özellikler kullanıyorsanız, Raporlama Hizmetleri 'nde **Team Foundation Içerik Yöneticisi** rolünün bir üyesi olmanız gerekir.
 
-### <a name="who-performs-these-procedures"></a>Kimler bu yordamları gerçekleştirir?
+### <a name="who-performs-these-procedures"></a>Bu yordamları kim gerçekleştiriyor?
 
-Genellikle, kişi veya grup TFS dağıtımını yöneten de bu yordamları gerçekleştirir.
+Genellikle, TFS dağıtımını yöneten kişi veya grup bu yordamları da gerçekleştirir.
 
-Bu üst düzeyde ayrıcalıklı bir izin kümesi olduğundan, yeni takım projeleri ile TFS dağıtımını yönetme sorumluluğunu kullanıcıların küçük bir kısmı genellikle oluşturulur. Geliştiriciler genellikle yeni takım projeleri oluşturmak için gereken izinleri verilmez.
+Bu, yüksek ayrıcalıklı bir izin kümesi olduğundan, yeni takım projeleri genellikle bir TFS dağıtımını yönetme sorumluluğunu içeren küçük bir kullanıcı alt kümesi tarafından oluşturulur. Geliştiricilere, genellikle yeni takım projeleri oluşturmak için gereken izinler verilmez.
 
-### <a name="grant-permissions-in-tfs"></a>Tfs'deki izinler
+### <a name="grant-permissions-in-tfs"></a>TFS 'de Izin verme
 
-Yeni takım projeleri oluşturmak bir kullanıcı etkinleştirmek istiyorsanız, ilk üst düzey görev kullanıcıya eklemektir **proje koleksiyonu yöneticileri** takım projesi koleksiyonu için Grup.
+Bir kullanıcının yeni takım projeleri oluşturmasını etkinleştirmek istiyorsanız, ilk üst düzey görev, kullanıcıyı takım projesi koleksiyonu için **proje koleksiyonu yöneticileri** grubuna eklemektir.
 
-**Proje Koleksiyonu Yöneticileri grubuna bir kullanıcı eklemek için**
+**Proje koleksiyonu yöneticileri grubuna bir kullanıcı eklemek için**
 
-1. TFS sunucusu üzerinde üzerinde **Başlat** menüsünde **tüm programlar**, tıklayın **Microsoft Team Foundation Server 2010**ve ardından **Team Foundation Yönetim Konsolu**.
-2. Gezinti ağaç görünümü'nde genişletin **uygulama katmanı**ve ardından **takım projesi koleksiyonları**.
+1. TFS sunucusunda, **Başlat** menüsünde **tüm programlar**' ın üzerine gelin, **Microsoft Team Foundation Server 2010**' a ve ardından **Team Foundation Yönetim Konsolu**' e tıklayın.
+2. Gezinti ağacı görünümünde, **uygulama katmanı**' nı genişletin ve ardından **Takım projesi koleksiyonları**' na tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image1.png)
-3. İçinde **takım projesi koleksiyonları** takım projesi koleksiyonunu yönetmek istediğiniz bölmesinde seçin.
+3. **Takım projesi koleksiyonları** bölmesinde, yönetmek istediğiniz takım projesi koleksiyonunu seçin.
 
     ![](creating-a-team-project-in-tfs/_static/image2.png)
-4. Üzerinde **genel** sekmesinde **grup üyeliği**.
+4. **Genel** sekmesinde **Grup üyeliği**' ne tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image3.png)
-5. İçinde **genel grup** iletişim kutusunda **proje koleksiyonu yöneticileri** grup ve ardından **özellikleri**.
-6. İçinde **Team Foundation Server Grup Özellikleri** iletişim kutusunda **Windows kullanıcı veya grup**ve ardından **Ekle**.
+5. **Genel gruplar** iletişim kutusunda, **proje koleksiyonu yöneticileri** grubunu seçin ve ardından **Özellikler**' e tıklayın.
+6. **Team Foundation Server grubu özellikleri** Iletişim kutusunda **Windows kullanıcısı veya grubu**' nu seçin ve ardından **Ekle**' ye tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image4.png)
-7. İçinde **kullanıcıları, bilgisayarları veya grupları** iletişim kutusuna yeni takım projeleri, mümkün olmasını istediğiniz kullanıcının kullanıcı adına tıklayın **Adları Denetle**ve ardından **Tamam** .
+7. **Kullanıcıları, bilgisayarları veya grupları seç** iletişim kutusunda, yeni takım projeleri oluşturmak istediğiniz kullanıcının Kullanıcı adını yazın, **adları denetle**' ye tıklayın ve ardından **Tamam**' a tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image5.png)
-8. İçinde **Team Foundation Server Grup Özellikleri** iletişim kutusu, tıklayın **Tamam**.
-9. İçinde **genel grup** iletişim kutusu, tıklayın **Kapat**.
+8. **Team Foundation Server grubu özellikleri** Iletişim kutusunda **Tamam**' a tıklayın.
+9. **Genel gruplar** Iletişim kutusunda **Kapat**' a tıklayın.
 
-### <a name="grant-permissions-in-sharepoint-services"></a>SharePoint Services izin ver
+### <a name="grant-permissions-in-sharepoint-services"></a>SharePoint hizmetlerinde Izin verme
 
-Ardından, yeni ekip siteleri TFS takım projesi koleksiyonuna karşılık gelen SharePoint site koleksiyonu oluşturma izni vermeniz gerekir.
+Daha sonra, TFS takım projesi koleksiyonunuza karşılık gelen SharePoint site koleksiyonunda yeni ekip siteleri oluşturmak için kullanıcıya izin vermeniz gerekir.
 
-**SharePoint site koleksiyonu üzerinde tam denetim izinleri vermek için**
+**SharePoint site koleksiyonunda tam denetim izinleri vermek için**
 
-1. Team Foundation Server Yönetim Konsolu içinde üzerinde **takım projesi koleksiyonları** sayfasında, yönetmek istediğiniz takım projesi koleksiyonu seçin.
-2. Üzerinde **SharePoint sitesi** sekmesinde, bu değeri Not **varsayılan güncel Site konumu** URL'si.
+1. Team Foundation Server Yönetim Konsolu, **Takım projesi koleksiyonları** sayfasında, yönetmek istediğiniz takım projesi koleksiyonunu seçin.
+2. **SharePoint sitesi** sekmesinde, **geçerli varsayılan site konumu** URL 'sinin değerini aklınızda edin.
 
     ![](creating-a-team-project-in-tfs/_static/image6.png)
-3. Internet Explorer'ı açın ve ardından 2. adımda not ettiğiniz URL'sine gidin.
+3. Internet Explorer 'ı açın ve ardından 2. adımda not ettiğiniz URL 'ye gidin.
 
     > [!NOTE]
-    > Windows için takım projesi koleksiyonu oluşturan bir kullanıcı oturum değil, SharePoint ile devam etmek için bu kullanıcı olarak oturum açmanız gerekir.
-4. Üzerinde **Site eylemleri** menüsünü tıklatın **Site Ayarları**.
+    > Takım projesi koleksiyonunu oluşturan kullanıcı olarak Windows 'da oturum açmadıysanız, devam edebilmek için bu kullanıcı olarak SharePoint 'te oturum açmanız gerekir.
+4. **Site eylemleri** menüsünde, **site ayarları**' na tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image7.png)
-5. Üzerinde **Site Ayarları** sayfasındaki **kullanıcıları ve izinleri**, tıklayın **kişiler ve gruplar**.
-6. Sol gezinti panelinde **grupları**.
+5. **Site ayarları** sayfasında, **Kullanıcılar ve Izinler**altında, **kişiler ve gruplar**' a tıklayın.
+6. Sol gezinti panelinde, **gruplar**' a tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image8.png)
-7. Üzerinde **kişiler ve gruplar: Tüm grupları** sayfasında **grupları bu Site için ayarlanmış yukarı**.
+7. **Kişiler ve gruplar: tüm gruplar** sayfasında, **Bu site için grupları ayarla**' ya tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image9.png)
 
    > [!NOTE]
-   > Alabileceğiniz bir <strong>HTTP 404 Bulunamadı</strong> çift bir HTTP kodlama hatası nedeniyle hata oluştu. Bu meydana gelirse, URL ile değiştirin:   
-   > `[site_collection_URL]/_layouts/permsetup.aspx` Örneğin:  
+   > Çift HTTP kodlama hatası nedeniyle bir <strong>http 404 bulunamadı</strong> hatası alabilirsiniz. Bu gerçekleşirse URL 'YI şu şekilde değiştirin:   
+   > `[site_collection_URL]/_layouts/permsetup.aspx` örneğin:  
    > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
-8. Üzerinde **grupları bu Site için ayarlanmış yukarı** sayfasında, takım projelerine oluşturacak kullanıcıyı eklemek **sahipleri** grup ve ardından **Tamam**.
+8. **Bu sitenin gruplarını ayarla** sayfasında, takım projelerini oluşturacak kullanıcıyı **sahipler** grubuna ekleyin ve ardından **Tamam**' a tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
 
-Bir takım projesi koleksiyonu içindeki yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonları için Set Administrator Permissions](https://msdn.microsoft.com/library/dd547204.aspx).
+Kullanıcıların bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmalarına olanak sağlama hakkında daha fazla bilgi için bkz. [Takım projesi koleksiyonları Için yönetici Izinlerini ayarlama](https://msdn.microsoft.com/library/dd547204.aspx).
 
-## <a name="create-a-new-team-project-and-add-users"></a>Yeni bir takım projesi oluşturabilir ve kullanıcı ekleme
+## <a name="create-a-new-team-project-and-add-users"></a>Yeni bir takım projesi oluşturun ve kullanıcı ekleyin
 
-Gerekli izinleri aldıktan sonra kullanabileceğiniz **Takım Gezgini** yeni takım projesi oluşturmak için Visual Studio 2010 penceresi. Bu yaklaşım, gerekli tüm bilgileri toplar ve TFS, SharePoint ve SQL Server Reporting Services gerekli görevleri gerçekleştiren bir sihirbaz sağlar. Yeni takım projesi ekleyin ve içeriğini değiştirmek bunları etkinleştirmek için geliştirici takım üyeleri, için izinlerini gerekecektir.
+Gerekli izinlere sahip olduktan sonra, yeni bir takım projesi oluşturmak için Visual Studio 2010 ' de **Takım Gezgini** penceresini kullanabilirsiniz. Bu yaklaşım, gerekli tüm bilgileri toplayan ve TFS, SharePoint ve SQL Server Reporting Services gerekli görevleri gerçekleştiren bir sihirbaz sağlar. Ayrıca, kullanıcıların içerik eklemesini ve değiştirmesini sağlamak için, geliştirici ekibinin üyelerine yeni takım projesi için izinler vermeniz gerekir.
 
-### <a name="who-performs-these-procedures"></a>Kimler bu yordamları gerçekleştirir?
+### <a name="who-performs-these-procedures"></a>Bu yordamları kim gerçekleştiriyor?
 
-Genellikle bir TFS Yöneticisi veya bir geliştirici Ekip Lideri, bu yordamları gerçekleştirir.
+Genellikle bir TFS Yöneticisi veya bir geliştirici ekibi lideri bu yordamları gerçekleştirir.
 
-### <a name="create-a-new-team-project"></a>Yeni takım projesi oluşturma
+### <a name="create-a-new-team-project"></a>Yeni takım projesi oluştur
 
-Sonraki yordamda, TFS 2010'da yeni bir takım projesi oluşturma işlemini açıklar.
+Sonraki yordamda TFS 2010 ' de yeni bir takım projesi oluşturma işlemi açıklanmaktadır.
 
-**Yeni takım projesi oluşturmak için**
+**Yeni bir takım projesi oluşturmak için**
 
-1. Üzerinde **Başlat** menüsünde **tüm programlar**, tıklayın **Microsoft Visual Studio 2010**, sağ **Microsoft Visual Studio 2010**, ve ardından **yönetici olarak çalıştır**.
-
-    > [!NOTE]
-    > Yeni Takım Projesi Sihirbazı, Visual Studio 2010'ı yönetici olarak çalıştırmazsanız, son adımda başarısız olur.
-2. Varsa **kullanıcı hesabı denetimi** iletişim kutusu görüntülendikten sonra **Evet**.
-3. Visual Studio'da üzerinde **takım** menüsünde tıklatın **Team Foundation Server'a Bağlan**.
+1. **Başlat** menüsünde **tüm programlar**' ın üzerine gelin, **Microsoft Visual Studio 2010**' ye tıklayın, **Microsoft Visual Studio 2010**' e sağ tıklayın ve ardından **yönetici olarak çalıştır**' a tıklayın.
 
     > [!NOTE]
-    > TFS sunucusuna bir bağlantı yapılandırdıysanız, 4. ve 7. adımları atlayabilirsiniz.
-4. İçinde **bağlantı takım projesine** iletişim kutusu, tıklayın **sunucuları**.
-5. İçinde **Team Foundation Server Ekle/Kaldır** iletişim kutusu, tıklayın **Ekle**.
-6. İçinde **Team Foundation Server Ekle** iletişim kutusunda, TFS örneğiniz ayrıntılarını sağlayın ve ardından **Tamam**.
+    > Visual Studio 2010 ' ı yönetici olarak çalıştırmazsanız, son adımda yeni takım projesi Sihirbazı başarısız olur.
+2. **Kullanıcı hesabı denetimi** iletişim kutusu görüntülenirse, **Evet**' e tıklayın.
+3. Visual Studio 'da, **Takım** menüsünde **Team Foundation Server Bağlan**' a tıklayın.
+
+    > [!NOTE]
+    > TFS sunucusuna zaten bir bağlantı yapılandırdıysanız 4-7 arasındaki adımları atlayabilirsiniz.
+4. **Takım projesi bağlantısı** Iletişim kutusunda **sunucular**' a tıklayın.
+5. **Team Foundation Server Ekle/Kaldır** Iletişim kutusunda **Ekle**' ye tıklayın.
+6. **Team Foundation Server Ekle** ILETIŞIM kutusunda TFS örneğinizin ayrıntılarını belirtin ve ardından **Tamam**' a tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image11.png)
-7. İçinde **Team Foundation Server Ekle/Kaldır** iletişim kutusu, tıklayın **Kapat**.
-8. İçinde **takım projesine Bağlan** takım seçmek için bağlanmak istediğiniz TFS örneği proje koleksiyonunu ekleyin ve ardından istediğiniz iletişim kutusunda **Connect**.
+7. **Team Foundation Server Ekle/Kaldır** Iletişim kutusunda **Kapat**' a tıklayın.
+8. **Takım Projesine Bağlan** iletişim kutusunda, bağlanmak istediğiniz TFS örneğini seçin, eklemek istediğiniz takım projesi koleksiyonunu seçin ve ardından **Bağlan**' a tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image12.png)
-9. İçinde **Takım Gezgini** penceresinde, takım projesi koleksiyonu ve ardından sağ tıklama **yeni takım projesi**.
+9. **Takım Gezgini** penceresinde, takım projesi koleksiyonuna sağ tıklayın ve sonra **Yeni takım projesi**' ne tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image13.png)
-10. İçinde **yeni takım projesi** iletişim kutusu, bir ad ve takım projesi için bir açıklama girin ve ardından **sonraki**.
+10. **Yeni takım projesi** iletişim kutusunda, takım projesi için bir ad ve açıklama girin ve ardından **İleri**' ye tıklayın.
 
     > [!NOTE]
-    > Takım projeniz boşluk içeriyorsa, çıkış yolunu paketleri dağıtmak için Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) kullanmak için gelen bazı sorunlar karşılaşacağınız. Alanları yolunda, Web dağıtımı komutlarını çalıştırmak çok daha zor zorlaştırabilir.
+    > Takım projeniz boşluk içeriyorsa, çıkış yolundan paketleri dağıtmak için Internet Information Services (IIS) Web Dağıtım aracı 'nı (Web Dağıtımı) kullandığınızda bazı sorunlar yaşayabilirsiniz. Yoldaki boşluklar, Web Dağıtımı komutlarının çalıştırılması çok daha zor hale gelir.
 
     ![](creating-a-team-project-in-tfs/_static/image14.png)
-11. Üzerinde **işlem şablonu seçme** sayfasında, geliştirme sürecini yönetir ve ardından kullanmak istediğiniz işlem şablonunu seçin **sonraki**.
+11. **Işlem şablonu seçin** sayfasında, geliştirme sürecini yönetmek için kullanmak istediğiniz işlem şablonunu seçin ve ardından **İleri**' ye tıklayın.
 
     > [!NOTE]
-    > TFS işlem şablonları hakkında daha fazla bilgi için bkz. [işlem şablonları ve araçları](https://msdn.microsoft.com/vstudio/aa718795).
-12. Üzerinde **takım sitesi ayarları** sayfasında varsayılan ayarları değiştirmeden bırakın ve ardından **sonraki**.
-13. Bu ayarı oluşturur veya TFS takım projesiyle ilişkilendirilmiş bir SharePoint ekip sitesi tanımlar. Geliştirme ekibiniz, bu site, belgeleri yönetmek, içinde tartışma zincirlerini katılmasına, wiki sayfaları oluşturun ve kodla ilişkili olmayan çeşitli görevleri gerçekleştirmek için kullanabilirsiniz. Daha fazla bilgi için [SharePoint ürünleri arasındaki etkileşimler ve Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx).
-14. Üzerinde **kaynak denetim ayarları belirtmek** sayfasında varsayılan ayarları değiştirmeden bırakın ve ardından **sonraki**.
-15. Bu ayar tanımlayan veya içeriğiniz için kök klasör olarak davranacak TFS klasör hiyerarşisindeki konumu oluşturur.
-16. Üzerinde **takım projesi ayarlarını onaylayın** sayfasında **son**.
-17. Yeni takım projesi başarıyla oluşturulduğunda, üzerinde **takım projesi oluştururken** sayfasında **Kapat**.
+    > TFS için işlem şablonları hakkında daha fazla bilgi için bkz. [Işlem şablonları ve araçları](https://msdn.microsoft.com/vstudio/aa718795).
+12. **Takım sitesi ayarları** sayfasında, varsayılan ayarları değiştirmeden bırakın ve **İleri**' ye tıklayın.
+13. Bu ayar, TFS takım projesiyle ilişkili bir SharePoint ekip sitesi oluşturur veya tanımlar. Geliştirme ekibiniz bu siteyi belgeleri yönetmek, tartışma zincirlerine katılmak, wiki sayfaları oluşturmak ve kodla ilgili olmayan çeşitli diğer görevleri gerçekleştirmek için kullanabilir. Daha fazla bilgi için bkz. [SharePoint ürünleri ve Team Foundation Server arasındaki etkileşimler](https://msdn.microsoft.com/library/ms253177.aspx).
+14. **Kaynak denetimi ayarlarını belirtin** sayfasında, varsayılan ayarları değiştirmeden bırakın ve **İleri**' ye tıklayın.
+15. Bu ayar, TFS klasör hiyerarşisinde, içeriğiniz için bir kök klasör olarak görev yapacak konumu tanımlar veya oluşturur.
+16. **Takım projesi ayarlarını Onayla** sayfasında, **son**' a tıklayın.
+17. Yeni takım projesi başarıyla oluşturulduğunda, **Takım projesi oluşturulan** sayfasında **Kapat**' a tıklayın.
 
-### <a name="add-users-to-a-team-project"></a>Bir takım projesine kullanıcı ekleme
+### <a name="add-users-to-a-team-project"></a>Takım projesine Kullanıcı ekleme
 
-Yeni takım projesi oluşturduğunuza göre bunları ekleme ve içerik üzerinde işbirliğine başlamak etkinleştirmek için kullanıcılara izinler verebilirsiniz.
+Yeni takım projesini oluşturduğunuza göre, kullanıcılara içeriğe ekleme ve işbirliği yapmaya başlamasını sağlamak için izinler verebilirsiniz.
 
-**Kullanıcılar bir takım projesine eklemek için**
+**Bir takım projesine Kullanıcı eklemek için**
 
-1. Visual Studio 2010 içinde **Takım Gezgini** penceresinde takım projesine sağ tıklayın, fareyle **takım projesi ayarları**ve ardından **grup üyeliği**.
+1. Visual Studio 2010 ' de, **Takım Gezgini** penceresinde, takım projesine sağ tıklayın, **Takım Projesi Ayarları**' nın üzerine gelin ve ardından **Grup üyeliği**' ne tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image15.png)
-2. Bir kullanıcı eklemek, değiştirmek ve kaynak denetimi altında kod kaldırmak için ondan için eklemeniz gerekir **katkıda bulunanlar** grubu.
-3. İçinde **proje gruplarını** iletişim kutusunda **katkıda bulunanlar** grup ve ardından **özellikleri**.
+2. Bir kullanıcının kaynak denetimi altında kod eklemesini, değiştirmesini ve kaldırmasını sağlamak için, bunu **katkıda bulunanlar** grubuna eklemeniz gerekir.
+3. **Proje grupları** iletişim kutusunda, **katkıda bulunanlar** grubunu seçin ve ardından **Özellikler**' e tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image16.png)
-4. İçinde **Team Foundation Server Grup Özellikleri** iletişim kutusunda **Windows kullanıcı veya grup**ve ardından **Ekle**.
+4. **Team Foundation Server grubu özellikleri** Iletişim kutusunda **Windows kullanıcısı veya grubu**' nu seçin ve ardından **Ekle**' ye tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image17.png)
-5. İçinde **kullanıcıları, bilgisayarları veya grupları** iletişim kutusuna kullanıcı takım projesine eklemek istediğiniz kullanıcı adına **Adları Denetle**ve ardından **Tamam**.
+5. **Kullanıcıları, bilgisayarları veya grupları seç** iletişim kutusunda, takım projesine eklemek istediğiniz kullanıcının Kullanıcı adını yazın, **adları denetle**' ye tıklayın ve ardından **Tamam**' a tıklayın.
 
     ![](creating-a-team-project-in-tfs/_static/image18.png)
-6. İçinde **Team Foundation Server Grup Özellikleri** iletişim kutusu, tıklayın **Tamam**.
-7. İçinde **proje gruplarını** iletişim kutusu, tıklayın **Kapat**.
+6. **Team Foundation Server grubu özellikleri** Iletişim kutusunda **Tamam**' a tıklayın.
+7. **Proje grupları** Iletişim kutusunda **Kapat**' a tıklayın.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu noktada, yeni takım proje'niz kullanılmaya hazırdır ve geliştirme takımınıza içerik ekleme ve geliştirme süreci üzerinde işbirliği yapmaya başlayabilirsiniz.
+Bu noktada, yeni takım projeniz kullanıma uygun hale gelmiştir ve geliştirici ekibiniz geliştirme sürecinde içerik eklemeye ve işbirliği yapmaya başlayabilir.
 
-Bir sonraki konu [kaynak denetimine içerik ekleme](adding-content-to-source-control.md), kaynak denetimine içerik ekleme işlemi açıklanmaktadır.
+Sonraki konu, [kaynak denetimine Içerik ekleme](adding-content-to-source-control.md), kaynak denetimine içerik eklemeyi açıklar.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-TFS'de takım projeleri oluşturmak daha geniş yönergeler için bkz [bir takım projesi oluşturma](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Bir takım projesi koleksiyonu içindeki yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonları için Set Administrator Permissions](https://msdn.microsoft.com/library/dd547204.aspx). Takım projelerine kullanıcılar ekleme hakkında daha fazla bilgi için bkz. [takım projelerine kullanıcılar ekleme](https://msdn.microsoft.com/library/bb558971.aspx).
+TFS 'de takım projeleri oluşturmaya yönelik daha geniş yönergeler için bkz. [Takım projesi oluşturma](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Kullanıcıların bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmalarına olanak sağlama hakkında daha fazla bilgi için bkz. [Takım projesi koleksiyonları Için yönetici Izinlerini ayarlama](https://msdn.microsoft.com/library/dd547204.aspx). Takım projelerine Kullanıcı ekleme hakkında daha fazla bilgi için bkz. [Takım projelerine Kullanıcı ekleme](https://msdn.microsoft.com/library/bb558971.aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](configuring-team-foundation-server-for-web-deployment.md)

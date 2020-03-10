@@ -9,11 +9,11 @@ ms.assetid: 86a80b35-88bd-4b7c-bd58-f6e7997197d4
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3
 msc.type: authoredcontent
 ms.openlocfilehash: e71275c93558c0b6ca087a145786e8c846b69721
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457550"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78540672"
 ---
 # <a name="intro-to-aspnet-mvc-3-c"></a>ASP.NET MVC 3 Sürümüne Giriş (C#)
 
@@ -71,7 +71,7 @@ Programlama dili olarak Visual Basic veya görseli C# kullanarak uygulamalar olu
 
 ![](intro-to-aspnet-mvc-3/_static/image6.png)
 
-**Tamam**'a tıklayın. Visual Web Developer, az önce oluşturduğunuz ASP.NET MVC projesi için varsayılan bir şablon kullandı, bu nedenle artık herhangi bir şey yapmadan çalışan bir uygulamanız var! Bu basit bir "Merhaba Dünya!" Project ve uygulamanızı başlatmak için iyi bir yerdir.
+**Tamam**’a tıklayın. Visual Web Developer, az önce oluşturduğunuz ASP.NET MVC projesi için varsayılan bir şablon kullandı, bu nedenle artık herhangi bir şey yapmadan çalışan bir uygulamanız var! Bu basit bir "Merhaba Dünya!" Project ve uygulamanızı başlatmak için iyi bir yerdir.
 
 [![](intro-to-aspnet-mvc-3/_static/image8.png)](intro-to-aspnet-mvc-3/_static/image7.png)
 

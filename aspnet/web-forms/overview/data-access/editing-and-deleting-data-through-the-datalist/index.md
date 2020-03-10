@@ -1,23 +1,23 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/index
-title: DataList aracılığıyla verileri düzenleme ve silmeye | Microsoft Docs
+title: DataList aracılığıyla verileri düzenleyip silme | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticiler kullandığı verilerde değişiklik sağlar, böylece DataList denetimi ince ayarlamalar yapmak nasıl gösterir.
+description: Bu öğreticiler, verileri Değiştir 'in kullanımını sağlamak için DataList denetimini nasıl ince ayar gösterir.
 ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: a6f02826-428a-49b1-ab2c-8e080b72f51e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist
 msc.type: chapter
 ms.openlocfilehash: b19b983272988cc6802e56541a8dfed052eead04
-ms.sourcegitcommit: 51b01b6ff8edde57d8243e4da28c9f1e7f1962b2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65133510"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78610917"
 ---
 # <a name="editing-and-deleting-data-through-the-datalist"></a>DataList Aracılığıyla Verileri Düzenleme ve Silme
 
-> Bu öğreticiler kullandığı verilerde değişiklik sağlar, böylece DataList denetimi ince ayarlamalar yapmak nasıl gösterir.
+> Bu öğreticiler, verileri Değiştir 'in kullanımını sağlamak için DataList denetimini nasıl ince ayar gösterir.
 
 - [DataList’te Verileri Düzenleme ve Silmeye Genel Bakış (C#)](an-overview-of-editing-and-deleting-data-in-the-datalist-cs.md)
 - [Toplu Güncelleştirmeler Gerçekleştirme (C#)](performing-batch-updates-cs.md)

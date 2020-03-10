@@ -9,11 +9,11 @@ ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
 ms.openlocfilehash: c14149d802bfc0a227a839a2981dc3e8a3849c25
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457602"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78538446"
 ---
 # <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS ve e-posta iki öğeli kimlik doğrulaması özellikli ASP.NET MVC 5 uygulaması
 
@@ -63,7 +63,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
    Adrestir  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
-   {1&gt;Ad Alanı:&lt;1}  
+   Ad alanı:  
     `ASPSMSX2`
 3. **SMS sağlayıcısı Kullanıcı kimlik bilgileri alınıyor**  
   
@@ -107,7 +107,7 @@ Bu öğreticide, Twilio veya ASPSMS 'nin kullanılmasıyla ilgili yönergeler sa
 9. Uygulamayı çalıştırın ve önceden kaydolduğunuz hesapla oturum açın.
 10. `Manage` denetleyicisindeki `Index` Action metodunu etkinleştiren Kullanıcı KIMLIĞINIZ ' ne tıklayın.  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image3.png)
-11. Ekle'yi tıklatın.  
+11. Ekle’ye tıklayın.  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image4.png)
 12. `AddPhoneNumber` Action yöntemi, SMS iletilerini alabilen bir telefon numarası girmek için bir iletişim kutusu görüntüler.
 

@@ -9,11 +9,11 @@ ms.assetid: 9ef2c4f1-a305-4e0a-9fb8-bfbd9ef331d9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
 ms.openlocfilehash: d966b95163f64b20a17d2327a12c5d6c44a4a66b
-ms.sourcegitcommit: 7709c0a091b8d55b7b33bad8849f7b66b23c3d72
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77457706"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78615089"
 ---
 # <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Film Modeli ve Tablosuna Yeni Alan Ekleme
 
@@ -156,7 +156,7 @@ Yeni bir film eklemek için **Yeni oluştur** bağlantısına tıklayın. Bir de
 
 ![7_CreateRioII](adding-a-new-field-to-the-movie-model-and-table/_static/image14.png)
 
-**Oluştur**'a tıklayın. Yeni film, derecelendirme de dahil, artık filmler listesinde görüntülenir:
+**Oluştur**'u tıklatın. Yeni film, derecelendirme de dahil, artık filmler listesinde görüntülenir:
 
 ![7_ourNewMovie_SM](adding-a-new-field-to-the-movie-model-and-table/_static/image15.png)
 

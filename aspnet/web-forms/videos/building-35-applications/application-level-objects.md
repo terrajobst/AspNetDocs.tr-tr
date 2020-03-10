@@ -1,24 +1,24 @@
 ---
 uid: web-forms/videos/building-35-applications/application-level-objects
-title: Uygulama düzeyi nesneler | Microsoft Docs
+title: Uygulama düzeyi nesneleri | Microsoft Docs
 author: JoeStagner
-description: Bu videoda uygulama düzeyi olaylar ve nesneleri dağıtır ve kavramını açıklar &quot;kapsam&quot; olarak kişilere aittir.
+description: Bu videoda, uygulama düzeyindeki olaylar ve nesneler tanıtılmaktadır ve &quot;kapsam&quot; kavramıyla ilgili olarak açıklanmaktadır.
 ms.author: riande
 ms.date: 04/20/2009
 ms.assetid: 921f8078-dcce-42ba-a79a-d3e0b0922161
 msc.legacyurl: /web-forms/videos/building-35-applications/application-level-objects
 msc.type: video
 ms.openlocfilehash: 2eee7f07e205a468516fe828a66bb57b44f9c57a
-ms.sourcegitcommit: 0f1119340e4464720cfd16d0ff15764746ea1fea
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59407815"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78636789"
 ---
 # <a name="application-level-objects"></a>Uygulama Düzeyi Nesneler
 
-tarafından [ALi Stagner](https://github.com/JoeStagner)
+[ali Stagner](https://github.com/JoeStagner)
 
-Bu videoda uygulama düzeyi olaylar ve nesneleri dağıtır ve kavramını açıklar &quot;kapsam&quot; olarak kişilere aittir.
+Bu videoda, uygulama düzeyindeki olaylar ve nesneler tanıtılmaktadır ve &quot;kapsam&quot; kavramıyla ilgili olarak açıklanmaktadır.
 
-[&#9654;Videoyu (13 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/application-level-objects)
+[&#9654;Videoyu izleyin (13 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/application-level-objects)
