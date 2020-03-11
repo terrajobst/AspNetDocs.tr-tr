@@ -9,11 +9,11 @@ ms.assetid: 112a674d-716f-41a6-99b8-4074d65a54c0
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 96fd72d1f368b1f7947ef0a2293161d97aaf7065
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74581008"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78632057"
 ---
 # <a name="creating-the-membership-schema-in-sql-server-vb"></a>SQL Server’da Üyelik Şeması Oluşturma (VB)
 
@@ -137,7 +137,7 @@ Sihirbazdaki ikinci adım, uygulama hizmetlerini eklemek mi yoksa kaldırmak mı
 Üçüncü adım veritabanı bilgilerini ister: sunucu adı, kimlik doğrulama bilgileri ve veritabanı adı. Bu öğreticiyle birlikte takip ediyorsanız ve `SecurityTutorials.mdf` veritabanını `App_Data`eklediyseniz `localhost\InstanceName`iliştirdiniz ve `SecurityTutorialsDatabase`olarak yeniden adlandırdıysanız, ardından aşağıdaki değerleri kullanın:
 
 - Sunucu: `localhost\InstanceName`
-- Windows kimlik doğrulama
+- Windows kimlik doğrulaması
 - Veritabanı: `SecurityTutorialsDatabase`
 
 [![veritabanı bilgilerini girin](creating-the-membership-schema-in-sql-server-vb/_static/image26.png)](creating-the-membership-schema-in-sql-server-vb/_static/image25.png)
@@ -202,13 +202,13 @@ Kullanılan parola depolama tekniği, `Web.config`belirtilen `SqlMembershipProvi
 
 Parolanın depolanmasından sorumlu sütunlar `Password`, `PasswordFormat`ve `PasswordSalt`. `PasswordFormat`, değeri, parolayı depolamak için kullanılan tekniği belirten `int` türünde bir alandır: Clear için 0; Karma için 1; 2 şifreli. `PasswordSalt`, kullanılan parola depolama tekniğinden bağımsız olarak rastgele oluşturulmuş bir dizeye atanır; `PasswordSalt` değeri yalnızca parolanın karması hesaplanırken kullanılır. Son olarak, `Password` sütunu gerçek parola verilerini içerir, düz metin parolası, Parola karması veya şifrelenmiş parola olur.
 
-Tablo 1, parolayı saklarken çeşitli depolama teknikleri için bu üç sütunun nasıl görünebileceğini gösterir! .
+Tablo 1, parolayı saklarken çeşitli depolama teknikleri için bu üç sütunun nasıl görünebileceğini gösterir! arasında yetersiz alanla karşılaştı.
 
 | **Depolama tekniği&lt;\_o3a\_p/&gt;** | **Parola&lt;\_o3a\_p/&gt;** | **PasswordFormat&lt;\_o3a\_p/&gt;** | **Passwordanahtar&lt;\_o3a\_p/&gt;** |
 | --- | --- | --- | --- |
-| Lediğiniz | MySecret! | 0 | tTnkPlesqissc2y2SMEygA = = |
-| Haline | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM = | 1\. | wFgjUfhdUFOCKQiI61vtiQ = = |
-| Şifreli | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/AA/oqAXGLHJNBw = = |
+| Temizle | MySecret! | 0 | tTnkPlesqissc2y2SMEygA== |
+| Haline | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1\. | wFgjUfhdUFOCKQiI61vtiQ== |
+| Şifreli | 62RZgDvhxykkqsMchZ0Yly7HS6onhpaoCYaRxV8g0F4CW56OXUU3e7Inza9j9BKp | 2 | LSRzhGS/aa/oqAXGLHJNBw== |
 
 **Tablo 1**: parolayı saklarken parola Ile ilgili alanlar Için örnek değerler MySecret!
 

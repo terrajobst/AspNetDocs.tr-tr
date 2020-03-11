@@ -9,11 +9,11 @@ ms.assetid: da53380c-a16b-41c7-a20d-24343c735c52
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 6c711cdaab113d589d9c2535cb1b422de3f38103
-ms.sourcegitcommit: 22fbd8863672c4ad6693b8388ad5c8e753fb41a2
+ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74614911"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78637545"
 ---
 # <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Çok Sayıda Kullanıcı Hesabından Birinin Seçilmesi için Bir Arabirim Oluşturma (VB)
 
@@ -131,7 +131,7 @@ Sonra, `BindUserAccounts` yöntemini `Membership.GetAllUsers`çağırmak yerine,
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample9.vb)]
 
-Yalnızca Kullanıcı adı A harfiyle başlayan kullanıcıları görüntülemek için, `UsernameToMatch` özelliğini bir olarak ayarlayın ve `BindUserAccounts` sonra, Kullanıcı adı ile başlayan tüm kullanıcıları döndüren `Membership.FindUsersByName("A%")`çağrısı sonuçlanır. benzer şekilde, *Tüm* kullanıcıları döndürmek için `UsernameToMatch` `BindUserAccounts` özelliğine boş bir dize atayın ve böylece tüm Kullanıcı hesaplarını döndürür.
+Yalnızca Kullanıcı adı A harfiyle başlayan kullanıcıları görüntülemek için, `UsernameToMatch` özelliğini bir olarak ayarlayın ve `BindUserAccounts` sonra, Kullanıcı adı ile başlayan tüm kullanıcıları döndüren `Membership.FindUsersByName("A%")`çağrısı sonuçlanır. benzer şekilde, *Tüm* kullanıcıları döndürmek için `UsernameToMatch` `BindUserAccounts` özelliğine boş bir dize atayın ve böylece tüm Kullanıcı hesaplarını döndürür.`Membership.FindUsersByName("%")`
 
 Yineleyicinin `ItemCommand` olayı için bir olay işleyicisi oluşturun. Bu olay, filtre bağlantı düğmelerinden birine tıklandığında tetiklenir; tıklanan LinkButton 'ın `CommandName` değeri `RepeaterCommandEventArgs` nesnesi aracılığıyla geçirilir. `UsernameToMatch` özelliğine uygun değeri atamız ve sonra `BindUserAccounts` metodunu çağırmanız gerekiyor. `CommandName` tümü ise, tüm Kullanıcı hesaplarının görüntülenebilmesi için `UsernameToMatch` boş bir dize atayın. Aksi takdirde, `CommandName` değerini `UsernameToMatch` atayın
 
