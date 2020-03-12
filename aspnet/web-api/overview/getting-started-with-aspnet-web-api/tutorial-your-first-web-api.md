@@ -8,12 +8,12 @@ ms.date: 11/28/2017
 ms.custom: seoapril2019
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 3e35c2bc0e46dfdb4544b772775eddd533f27be3
-ms.sourcegitcommit: e7e91932a6e91a63e2e46417626f39d6b244a3ab
+ms.openlocfilehash: 2717d93f47be9d4a6548731d8deeca312b25f39f
+ms.sourcegitcommit: 9e3ca74997a67c18589729d4b7303799905473eb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78556800"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79084047"
 ---
 # <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) Ile çalışmaya başlama
 
@@ -46,7 +46,7 @@ Visual Studio 'Yu başlatın ve **Başlangıç** sayfasından **Yeni proje** ' y
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
-**Yeni ASP.NET projesi** Iletişim kutusunda **boş** şablonu seçin. &quot;için klasör ve temel başvurular eklemek &quot;altında, **Web API 'sini**kontrol edin. **Tamam**’a tıklayın.
+**Yeni ASP.NET projesi** Iletişim kutusunda **boş** şablonu seçin. &quot;için klasör ve temel başvurular eklemek &quot;altında, **Web API 'sini**kontrol edin. **Tamam** düğmesine tıklayın.
 
 ![](tutorial-your-first-web-api/_static/image3.png)
 
@@ -78,11 +78,11 @@ Web API 'sinde, *DENETLEYICI* http isteklerini işleyen bir nesnedir. Ürünleri
 
 ![](tutorial-your-first-web-api/_static/image5.png)
 
-**Yapı Iskelesi Ekle** Iletişim kutusunda **Web API denetleyicisi-boş**seçeneğini belirleyin. **Ekle**'yi tıklatın.
+**Yapı Iskelesi Ekle** Iletişim kutusunda **Web API denetleyicisi-boş**seçeneğini belirleyin. **Ekle**'ye tıklayın.
 
 ![](tutorial-your-first-web-api/_static/image6.png)
 
-**Denetleyici Ekle** iletişim kutusunda, denetleyiciyi &quot;productscontroller&quot;olarak adlandırın. **Ekle**'yi tıklatın.
+**Denetleyici Ekle** iletişim kutusunda, denetleyiciyi &quot;productscontroller&quot;olarak adlandırın. **Ekle**'ye tıklayın.
 
 ![](tutorial-your-first-web-api/_static/image7.png)
 
@@ -137,7 +137,7 @@ JQuery almak için birkaç yolu vardır. Bu örnekte, [Microsoft Ajax CDN](../..
 
 Ürünlerin bir listesini almak için &quot;/api/Products&quot;bir HTTP GET isteği gönderin.
 
-JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) IşLEVI bir AJAX isteği gönderir. Yanıt için JSON nesneleri dizisi içerir. `done` işlevi, istek başarılı olursa çağrılan bir geri çağırma işlemini belirtir. Geri aramada, DOM 'ı ürün bilgileriyle güncelleştiririz.
+JQuery [getJSON](http://api.jquery.com/jQuery.getJSON/) IşLEVI bir AJAX isteği gönderir. Yanıt, JSON nesnelerinin dizisini içerir. `done` işlevi, istek başarılı olursa çağrılan bir geri çağırma işlemini belirtir. Geri aramada, DOM 'ı ürün bilgileriyle güncelleştiririz.
 
 [!code-html[Main](tutorial-your-first-web-api/samples/sample4.html)]
 
@@ -165,7 +165,7 @@ Geçersiz bir KIMLIK girerseniz, sunucu bir HTTP hatası döndürür:
 
 ## <a name="using-f12-to-view-the-http-request-and-response"></a>HTTP Isteğini ve yanıtını görüntülemek için F12 kullanma
 
-Bir HTTP hizmetiyle çalışırken, HTTP isteği ve istek iletilerini görmek çok faydalı olabilir. Bunu, Internet Explorer 9 ' da F12 geliştirici araçlarını kullanarak yapabilirsiniz. Internet Explorer 9 ' da, araçları açmak için **F12** tuşuna basın. Ağ sekmesine tıklayın ve **Yakalamayı Başlat**' **a** basın. Şimdi Web sayfasına geri dönün ve **F5** 'e basarak Web sayfasını yeniden yükleyin. Internet Explorer, tarayıcı ile Web sunucusu arasındaki HTTP trafiğini yakalar. Özet görünümü bir sayfanın tüm ağ trafiğini gösterir:
+Bir HTTP hizmetiyle çalışırken, HTTP isteği ve yanıt iletilerini görmek çok faydalı olabilir. Bunu, Internet Explorer 9 ' da F12 geliştirici araçlarını kullanarak yapabilirsiniz. Internet Explorer 9 ' da, araçları açmak için **F12** tuşuna basın. Ağ sekmesine tıklayın ve **Yakalamayı Başlat**' **a** basın. Şimdi Web sayfasına geri dönün ve **F5** 'e basarak Web sayfasını yeniden yükleyin. Internet Explorer, tarayıcı ile Web sunucusu arasındaki HTTP trafiğini yakalar. Özet görünümü bir sayfanın tüm ağ trafiğini gösterir:
 
 ![](tutorial-your-first-web-api/_static/image14.png)
 
